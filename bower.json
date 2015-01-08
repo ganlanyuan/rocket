@@ -1,7 +1,12 @@
 {
   "name": "rocket",
   "version": "0.0.0",
-  "main": "./src/",
+  "main": [
+    "./src/scss/rocket.scss",
+    "./src/js/kit.js",
+    "./src/icon-font/",
+    "./dist/kit.min.js"
+  ],
   "keywords": [
     "css",
     "mixins",
@@ -26,10 +31,10 @@
     "test",
     "tests"
   ],
-  "homepage": "",
+  "homepage": "http://designdev.christianpost.com/develop/docs/",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ganlanyuan/rocket.git"
   },
   "dependencies": {
     "bourbon": "~4.1.0"
