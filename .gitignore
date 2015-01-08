@@ -7,8 +7,6 @@ install_manifest.txt
 /.codekit-cache/
 /design/
 /rocket/
-README.md
-LICENSE
 *.codekit
 *.sublime-project
 *.sublime-workspace
