@@ -1,0 +1,51 @@
+// *** justify *** //
+
+// for morden browsers
+%justify-flex {
+  @include display(flex);
+  @include justify-content(space-between);
+  @include align-items(center);
+}
+@mixin justify-flex(){
+  @include display(flex);
+  @include justify-content(space-between);
+  @include align-items(center);
+}
+
+// for old browsers
+%justify {
+  text-align: justify;
+  line-height: 0;
+  margin-bottom: -5px;
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+  > li, > div, > span, > a {
+    line-height: 1;
+    display: inline-block;
+  }
+}
+@mixin justify($child:false){
+  text-align: justify;
+  line-height: 0;
+  margin-bottom: -5px;
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+  @if $child {
+    > #{$child} {
+      line-height: 1;
+      display: inline-block;
+    }
+  }
+  @else {
+    > li, > div, > span, > a {
+      line-height: 1;
+      display: inline-block;
+    }
+  }
+}

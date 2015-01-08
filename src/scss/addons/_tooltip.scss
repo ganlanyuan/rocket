@@ -1,0 +1,91 @@
+// ======= tooltip ======= //
+%tooltip-common {
+  position: absolute;
+  z-index: 9999;
+  opacity: 0;
+  @extend %global-transition;
+  .no-opacity & { display: none; } 
+  &:hover {
+    & {opacity: 1;
+      .no-opacity & { display: block; }
+    }
+  }
+}
+%tooltip-content {
+  display: block;
+  padding: 0.67em;
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: normal;
+  color: #fff;
+  // white-space: nowrap;
+  // box-sizing: border-box;
+}
+
+@mixin tooltip(
+  $direction: top,
+  $color: #222,
+  $radius: null,
+  $width: 230px,
+  $height: 3.94em,
+  $content: attr(data-tooltip)
+) {
+  position: relative;
+  cursor: pointer;
+  &:before, 
+  &:after {
+    @extend %tooltip-common;
+    #{$direction}: -8px;
+  }
+  &:before { content: ''; }
+  &:after {
+    @extend %tooltip-content;
+    content: $content;
+    background-color: $color;
+    max-width: $width;
+    @if $radius != null { border-radius: $radius; }
+  }
+  .no-csstransforms &:after { width: $width; }
+  @if $direction == top or $direction == bottom {
+    &:before,
+    &:after { left: 50%; }
+    &:before { margin-left: -6px; }
+    .no-csstransforms &:before,
+    .no-csstransforms &:after { #{opposite($direction)}: 100%; }
+    .no-csstransforms &:after { 
+      margin-left: - ($width / 2); 
+      height: $height;
+    }
+  }
+  @else if $direction == left or $direction == right {
+    &:before,
+    &:after { top: 50%; }
+    &:before { margin-top: -6px; }
+    .no-csstransforms &:before,
+    .no-csstransforms &:after { top: 0; }
+    .no-csstransforms &:before { margin-top: 4px; }
+  }
+  @if $direction == top {
+    &:before { @include triangle(12px, $color, down); }
+    &:after { @include transform(translate(-50%, -100%)); }
+    .no-csstransforms &:after { margin-top: - $height; }
+  }
+  @else if $direction == bottom {
+    &:before { @include triangle(12px, $color, up); }
+    &:after { @include transform(translate(-50%, 100%)); }
+    .no-csstransforms &:after { margin-top: 6px; }
+  }
+  @else if $direction == left {
+    &:before { @include triangle(12px, $color, right); }
+    &:after { @include transform(translate(-100%, -50%)); }
+    .no-csstransforms &:after { left: (- $width - 8px); }
+  }
+  @else if $direction == right {
+    &:before { @include triangle(12px, $color, left); }
+    &:after { @include transform(translate(100%, -50%)); }
+    .no-csstransforms &:after {
+      left: 100%;
+      margin-left: 8px;
+    }
+  }
+}

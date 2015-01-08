@@ -1,0 +1,23 @@
+// *** flex video *** //
+
+%flex-video-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: em(30);
+}
+%flex-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin flex-video(
+  $child: 'iframe',
+  $ratio: 9/16
+){
+  @extend %flex-video-container;
+  @if unitless($ratio) { $ratio: percentage($ratio); }
+  padding-bottom: $ratio;
+  > #{$child} { @extend %flex-video; }
+}

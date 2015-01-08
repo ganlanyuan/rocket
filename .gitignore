@@ -1,0 +1,16 @@
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+*.DS_Store
+/.codekit-cache/
+/design/
+/rocket/
+README.md
+LICENSE
+*.codekit
+*.sublime-project
+*.sublime-workspace
+*.scssc
+sftp-config.json

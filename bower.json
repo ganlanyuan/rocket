@@ -1,0 +1,37 @@
+{
+  "name": "rocket",
+  "version": "0.0.0",
+  "main": "./src/",
+  "keywords": [
+    "css",
+    "mixins",
+    "scss",
+    "sass",
+    "grid"
+  ],
+  "authors": [
+    "William Lin (ganlanyuan@gmail.com)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    ".gitignore",
+    ".sublime-project",
+    ".codekit",
+    "sftp-config.json",
+    "bower.json",
+    "README.md",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "bourbon": "~4.1.0"
+  }
+}

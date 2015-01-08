@@ -1,0 +1,60 @@
+// *** span *** //
+
+// column-width-percentage (for span)
+@function column-width-percentage (
+  $columns,
+  $gutter
+){
+  @if get-unit($gutter) == '0' { @return percentage(1 / $columns); }
+  @else if get-unit($gutter) == 'percentage' {
+		@return percentage(100% / (percentage($columns) + ($columns - 1) * $gutter));
+  }
+}
+
+// gutter-width-percentage (for span)
+@function gutter-width-percentage (
+	$columns,
+	$gutter
+){ 
+  @return column-width-percentage($columns, $gutter) * strip-units($gutter) / 100; 
+}
+
+@mixin span(
+	$column,
+	$columns: map-get($layout, columns),
+	$gutter: map-get($layout, gutter),
+	$float: map-get($layout, float),
+	$pull: false,
+	$push: false,
+	$last: false
+){
+	float: $float;
+	@if $push or $pull { @extend %layout-relative; }
+
+	@if $gutter { $gutter: add-unit($gutter); }
+	@if get-unit($gutter) == '0' {
+	  width: column-width-percentage($columns, $gutter) * $column;
+	  @if $push and $push != 0 { left: percentage($push / $columns); }
+	  @if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
+	}
+	@else if get-unit($gutter) == 'percentage' {
+		$cw: column-width-percentage($columns, $gutter);
+		$gw: gutter-width-percentage($columns, $gutter);
+
+		width: $cw * $column + $gw * ($column - 1);
+		@if not $last { margin-#{opposite($float)}: $cw * strip-units($gutter) / 100; }
+
+		@if $push and $push != 0 { left: ($cw + $gw) * $push; }
+		@if $pull and $pull != 0 { left: -($cw + $gw) * $pull; }
+	}
+	@else {
+		@at-root (without: media) { @extend %layout-span; }
+
+		width: percentage($column / $columns);
+		padding: 0 ($gutter / 2);
+
+		@if $push and $push != 0 { left: percentage($push / $columns); }
+		@if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
+	}
+}
+

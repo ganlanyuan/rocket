@@ -1,0 +1,23 @@
+// *** span-isolate *** //
+
+@mixin span-isolate (
+  $float: null,
+  $width: null,
+  $margin: null,
+  $last: false
+){
+  $width: add-unit($width);
+
+  @if $float != null { float: $float; }
+  @if $width != null and $width != 0 { width: $width; }
+  @if $margin != null {
+    @if length($margin) >= 2 {
+      margin-#{nth($margin, 1)}: nth($margin, 2);
+    }
+    @else if length($margin) == 4 {
+      margin-#{nth($margin, 3)}: nth($margin, 4);
+    }
+  }
+  @if $last { margin-#{opposite($float)}: -100%; }
+}
+

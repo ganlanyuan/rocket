@@ -1,0 +1,210 @@
+$font-path:"../fonts/icon-font" !default;
+@font-face {
+  font-family: "icon-font";
+  src:url("#{$font-path}/icon-font.eot");
+  src:url("#{$font-path}/icon-font.eot?#iefix") format("embedded-opentype"),
+    url("#{$font-path}/icon-font.woff") format("woff"),
+    url("#{$font-path}/icon-font.ttf") format("truetype"),
+    url("#{$font-path}/icon-font.svg#icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+%icon-font {
+  display: inline-block;
+  font-family: "icon-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  speak: none;
+  // line-height: 1;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-icon]:before {content: attr(data-icon); }
+[data-icon]:before,
+[class^="ic-"]:before,
+[class*=" ic-"]:before {
+  @extend %icon-font;
+}
+
+.ic-comment:before {
+  content: "a";
+}
+.ic-comments:before {
+  content: "b";
+}
+.ic-three-bars:before {
+  content: "c";
+}
+.ic-chat-empty:before {
+  content: "j";
+}
+.ic-chat-two:before {
+  content: "k";
+}
+.ic-email:before {
+  content: "t";
+}
+.ic-facebook:before {
+  content: "u";
+}
+.ic-facebook-square:before {
+  content: "v";
+}
+.ic-heart:before {
+  content: "w";
+}
+.ic-email-empty:before {
+  content: "x";
+}
+.ic-star:before {
+  content: "z";
+}
+.ic-star-empty:before {
+  content: "C";
+}
+.ic-share-square:before {
+  content: "D";
+}
+.ic-share-empty:before {
+  content: "E";
+}
+.ic-tumblr:before {
+  content: "F";
+}
+.ic-tumblr-square:before {
+  content: "G";
+}
+.ic-twitter:before {
+  content: "H";
+}
+.ic-twitter-square:before {
+  content: "I";
+}
+.ic-talk-chat-2:before {
+  content: "M";
+}
+.ic-chat:before {
+  content: "N";
+}
+.ic-rss:before {
+  content: "P";
+}
+.ic-rss-square:before {
+  content: "Q";
+}
+.ic-play:before {
+  content: "U";
+}
+.ic-linkedin-square:before {
+  content: "W";
+}
+.ic-linkedin:before {
+  content: "X";
+}
+.ic-google-plus-square:before {
+  content: "Z";
+}
+.ic-google-plus:before {
+  content: "0";
+}
+.ic-call-square:before {
+  content: "2";
+}
+.ic-call:before {
+  content: "3";
+}
+.ic-search:before {
+  content: "9";
+}
+.ic-down-open:before {
+  content: "#";
+}
+.ic-left-open:before {
+  content: "$";
+}
+.ic-right-open:before {
+  content: "%";
+}
+.ic-up-open:before {
+  content: "&";
+}
+.ic-heart-empty:before {
+  content: "e";
+}
+.ic-camera:before {
+  content: "f";
+}
+.ic-youtube-square:before {
+  content: "g";
+}
+.ic-youtube:before {
+  content: "h";
+}
+.ic-instagram:before {
+  content: "p";
+}
+.ic-left-quote:before {
+  content: "s";
+}
+.ic-right-quote:before {
+  content: "y";
+}
+.ic-close:before {
+  content: "r";
+}
+.ic-nav:before {
+  content: "J";
+}
+.ic-search-android:before {
+  content: "K";
+}
+.ic-video-play:before {
+  content: "L";
+}
+.ic-triangle-down:before {
+  content: "d";
+}
+.ic-triangle-left:before {
+  content: "A";
+}
+.ic-triangle-right:before {
+  content: "B";
+}
+.ic-triangle-up:before {
+  content: "O";
+}
+.ic-forward:before {
+  content: "l";
+}
+.ic-angle-right:before {
+  content: "m";
+}
+.ic-angle-left:before {
+  content: "n";
+}
+.ic-angle-down:before {
+  content: "o";
+}
+.ic-ptint:before {
+  content: "q";
+}
+.ic-angle-up:before {
+  content: "i";
+}
+.ic-pinterest:before {
+  content: "R";
+}
+.ic-pinterest-circle:before {
+  content: "S";
+}
+.ic-pinterest-square:before {
+  content: "T";
+}
+.ic-github:before {
+  content: "V";
+}
+.ic-github-cricle:before {
+  content: "Y";
+}

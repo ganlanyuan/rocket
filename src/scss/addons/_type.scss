@@ -1,0 +1,25 @@
+// *** type *** //
+
+// font-size
+// font-weight
+// line-height
+// margin
+// padding
+
+@mixin type($type...){
+  @if length($type) >= 1 and nth($type, 1) != null {
+    font-size: rem(nth($type, 1));
+  }
+  @if length($type) >= 2 and nth($type, 2) != null {
+    font-weight: nth($type, 2);
+  }
+  @if length($type) >= 3 and nth($type, 3) != null {
+    line-height: nth($type, 3);
+  }
+  @if length($type) >= 4 and nth($type, 4) != null {
+    margin: nth($type, 4);
+  }
+  @if length($type) >= 5 and nth($type, 5) != null {
+    padding: nth($type, 5);
+  }
+}

@@ -1,0 +1,26 @@
+@mixin center(
+	$child: '*',
+	$align: left
+){
+	@include display(flex);
+	@include justify-content(center);
+	@include align-items(center);
+	.no-flexbox & { 
+		text-align: center; 
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			margin-right: -.25em; // adjusts for spacing
+		}
+	}
+	> #{$child} {
+		.no-flexbox & {
+			display: inline-block;
+			vertical-align: middle;
+			@if $align != center { text-align: $align; }
+		}
+	}
+}
+

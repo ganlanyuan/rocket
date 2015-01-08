@@ -1,0 +1,62 @@
+// *** dropdown *** //
+%dropdown {
+  position: relative; 
+  cursor: pointer;
+}
+%dropdown-menu {
+  position: absolute;
+  z-index: nth($z-index, 4);
+  -ms-transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -ms-transform-origin: top;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  @extend %global-transition;
+  .no-csstransforms & { display: none; }
+  li { @extend %global-transition; }
+  a { 
+    display: block;
+    @extend %hover-tdn;
+  }
+}
+%dropdown-menu-open {
+  -ms-transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+  .no-csstransforms & { display: block; }
+}
+
+@mixin dropdown(
+  $bgc: #fff,
+  $padding: 0.31em 1.25em,
+  $border: 1px solid #dbdbdb,
+  $border-radius: 0.19em,
+  $shadow: rgba(0,0,0,0.15) 0px 6px 12px,
+  $open: hover
+){
+  @extend %dropdown;
+  [data-dropdown-menu] {
+    @extend %dropdown-menu;
+    padding: nth($padding, 1) 0;
+    background-color: $bgc;
+    @if $border != null { border: $border; }
+    @if $border-radius != null { border-radius: $border-radius; }
+    @if $shadow != null { box-shadow: $shadow; }
+    .current a,li:hover a { background-color: analogous($bgc, 15%);}
+    a { 
+      padding: $padding;
+      color: contrast($bgc);
+    }
+  }
+  @if $open == hover {
+    &:hover [data-dropdown-menu] {
+      @extend %dropdown-menu-open;
+    }
+  }
+  @else if $open == click {
+    &.dropdown-open [data-dropdown-menu] {
+      @extend %dropdown-menu-open;
+    }
+  }
+}

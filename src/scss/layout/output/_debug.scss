@@ -1,0 +1,37 @@
+@mixin debug(
+  $columns: map-get($layout, $columns),
+  $gutter: map-get($layout, $gutter),
+  $color:rgba(41, 181, 255, .15)
+){
+  $size:null;
+  $ratio:null;
+  $gutter: add-unit($gutter);
+
+  @if get-unit($gutter) == '0' {
+    $size: percentage(1 / $columns);
+
+    @include background-image(linear-gradient(to right, $color, $color));
+    background-size: $size auto;
+  }
+  @else if get-unit($gutter) == 'percentage' {
+    $cw: column-width-percentage($columns, $gutter);
+    $gw: gutter-width-percentage($columns, $gutter);
+    $size: (100% + $gw) / $columns;
+    $ratio: percentage($cw / ($cw + $gw));
+
+    @include background-image(linear-gradient(to right, $color $ratio, transparent $ratio));
+    background-size: $size auto;
+  }
+  @else {
+    $percentage: percentage(1 / $columns);
+    $per-gutter: $gutter / $columns;
+    $size: #{$percentage} + #{$per-gutter};
+    $ratio: $gutter;
+
+    @include background-image(linear-gradient(to right, transparent $ratio, $color $ratio));
+    background-size: calc(#{$size}) auto;
+    background-position: -$gutter top;
+  }
+  
+  background-repeat: repeat;
+}

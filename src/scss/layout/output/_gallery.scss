@@ -1,0 +1,27 @@
+@mixin gallery(
+  $per-row,
+  $columns: map-get($layout, columns),
+  $gutter: false,
+  $child: false,
+  $position: center
+){
+  $selector: null;
+  @if not $child { $selector: '*'; }
+  @else { $selector: $child; }
+
+  @include wrap($columns,$gutter);
+  > #{$selector} {
+    @at-root (without: media) { @extend %layout-span; }
+    width: percentage(1 / $per-row);
+
+    $gutter: add-unit($gutter);
+    @if get-unit($gutter) == 'percentage' {
+      $gutter: gutter-width-percentage($per-row, $gutter);
+    }
+
+    @if get-unit($gutter) != '0' {
+      @if $position == bottom { padding: 0 ($gutter / 2) $gutter; }
+      @else { padding: ($gutter / 2); }
+    }
+  }
+}
