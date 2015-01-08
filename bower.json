@@ -15,8 +15,9 @@
     "grid"
   ],
   "authors": [
-    "William Lin (ganlanyuan@gmail.com)"
+    "William Lin <ganlanyuan@gmail.com>"
   ],
+  "description": "Rocket is a powerful tool to help web developer handle layout and other components easily.",
   "license": "MIT",
   "ignore": [
     "**/.*",
