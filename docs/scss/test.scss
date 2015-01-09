@@ -113,6 +113,7 @@ p {
         @include transform(skewX(30deg));
         @include button(14px, em(16,14) em(13,14));
         line-height: 21px;
+        height: 53px;
         color: #fff;
         vertical-align: top;
       }

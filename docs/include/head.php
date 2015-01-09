@@ -27,10 +27,11 @@
 	<link href="http://fonts.googleapis.com" rel="dns-prefetch">
 	
 	<!-- css -->
-	<link rel="stylesheet" href="prism/prism.css">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/test.css">
-
+	<link href="https://fontastic.s3.amazonaws.com/MSJHPuJFXkve8cKEDAVMKT/icons.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:700,500' rel='stylesheet' type='text/css'>
+	<link href="prism/prism.css" rel="stylesheet">
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/test.css" rel="stylesheet">
 
 	<!-- javascript -->
 	<!--[if (lt IE 9)]>
@@ -48,7 +49,6 @@
 			echo '';
 		}
 	?>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="prism/prism.js"></script>
 	<script src="js/index.min.js"></script>
 </head>

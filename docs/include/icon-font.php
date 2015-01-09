@@ -1,5 +1,5 @@
 <div>
-  <!-- <p class="small">This font was created with<a href="http://fontastic.me/">Fontastic</a></p> -->
+  <p class="small">This font was created with<a href="http://fontastic.me/">Fontastic</a>.</p>
   <h5>CSS mapping</h5>
   <ul class="glyphs css-mapping">
     <li>
@@ -244,6 +244,9 @@
     </li>
   </ul>
   <pre><code class="language-markup">
+&lt;!-- include this in your &lt;head&gt; --&gt;
+&lt;link href="https://fontastic.s3.amazonaws.com/MSJHPuJFXkve8cKEDAVMKT/icons.css" rel="stylesheet"&gt;
+
 &lt;div class="ic-triangle-down"&gt;&lt;/div&gt;
   </code></pre>
   <h5>Character mapping</h5>
@@ -490,6 +493,9 @@
     </li>
   </ul>
   <pre><code class="language-markup">
+&lt;!-- include this in your &lt;head&gt; --&gt;
+&lt;link href="https://fontastic.s3.amazonaws.com/MSJHPuJFXkve8cKEDAVMKT/icons.css" rel="stylesheet"&gt;
+
 &lt;div data-icon="O"&gt;&lt;/div&gt;
   </code></pre>
 </div>
