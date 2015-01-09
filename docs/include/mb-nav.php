@@ -28,7 +28,7 @@
       </ul>
     </li>
     <li class="mb-nav__level1"><a href="#kit">Kit.js</a></li>
-    <li class="mb-nav__level1"><a href="https://github.com/ganlanyuan/coding.git" target="_blank"><span class="ic-github"></span> View on github</a></li>
+    <li class="mb-nav__level1"><a href="https://github.com/ganlanyuan/rocket" target="_blank"><span class="ic-github"></span> View on github</a></li>
     <li class="mb-nav__level1"><a href="mailto:ganlanyuan@gmail.com"><span class="ic-email"></span> Email me</a></li>
   </ul>
 </nav>

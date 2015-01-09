@@ -25,7 +25,7 @@
       </ul>
     </li>
     <li><a href="#kit">Kit.js</a></li>
-    <li><a href="https://github.com/ganlanyuan/coding.git" target="_blank"><span class="ic-github"></span></a></li>
+    <li><a href="https://github.com/ganlanyuan/rocket" target="_blank"><span class="ic-github"></span></a></li>
     <li><a href="mailto:ganlanyuan@gmail.com"><span class="ic-email"></span></a></li>
   </ul>
 </nav>
