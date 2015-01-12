@@ -4,6 +4,7 @@
     <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#layout">Layout</a>
       <ul data-nav-subnav>
         <li data-nav-back><span class="ic-angle-left"></span></li>
+        <li><a href="#layout-mixin">layout</a></li>
         <li><a href="#container">container</a></li>
         <li><a href="#wrap">wrap</a></li>
         <li><a href="#span">span</a></li>

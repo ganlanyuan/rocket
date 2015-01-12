@@ -31,7 +31,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:700,500' rel='stylesheet' type='text/css'>
 	<link href="prism/prism.css" rel="stylesheet">
 	<link href="css/normalize.css" rel="stylesheet">
-	<link href="css/test.css" rel="stylesheet">
+	<link href="
+		<?php if ($pagename == 'index') {
+			echo 'css/test.css';
+		} else {
+			echo 'css/test2.css';
+		}
+		 ?>
+	" rel="stylesheet">
 
 	<!-- javascript -->
 	<!--[if (lt IE 9)]>

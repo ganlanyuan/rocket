@@ -1,5 +1,5 @@
 <div>
-  <p class="small">This font was created with<a href="http://fontastic.me/">Fontastic</a>.</p>
+  <p class="small">This font was created with <a href="http://fontastic.me/">Fontastic</a>.</p>
   <h5>CSS mapping</h5>
   <ul class="glyphs css-mapping">
     <li>

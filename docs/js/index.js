@@ -5,7 +5,7 @@ ready(function () {
   k('.site-nav a, .mb-nav a').forEach(function (el) {
     el.onclick = function () {
       var targetId = k(this).attr('href');
-          targetPosition = k(targetId).getTop();
+          targetPosition = k(targetId).getTop() - 53 - 20;
       scrollTo(targetPosition, 400);
       return false;
     }

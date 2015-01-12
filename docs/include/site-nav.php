@@ -2,6 +2,7 @@
   <ul class="site-nav__level1">
     <li class="site-nav--haschild"><a href="#layout">Layout<span class="ic-triangle-down"></span></a>
       <ul data-dropdown-menu>
+        <li><a href="#layout-mixin">layout</a></li>
         <li><a href="#container">container</a></li>
         <li><a href="#wrap">wrap</a></li>
         <li><a href="#span">span</a></li>

@@ -1,11 +1,7 @@
 // *** span-calc *** // 
 
 // columns-width-with-gutter 
-@function columns-width-with-gutter (
-  $column,
-  $columns,
-  $gutter
-){
+@function columns-width-with-gutter ( $column, $columns, $gutter ){
   $column-percentage: percentage($column / $columns);
   $column-gutter: ($gutter * $column / $columns);
   @return #{$column-percentage} + #{$column-gutter};
@@ -15,25 +11,42 @@
   $column,
   $columns: map-get($layout, columns),
   $gutter: map-get($layout, gutter),
-  $float: map-get($layout, float),
   $pull: false,
   $push: false,
+  $float: false,
   $last: false
 ){
-  float: $float;
+  // direction
+  @if $float == left or $float == right { float: $float; }
+  @else { float: left; }
+
+  // change order
   @if $push or $pull { @extend %layout-relative; }
 
+  // set default
+  @if $columns == default { $columns: map-get($layout, columns); }
+  @if $gutter == default { $gutter: map-get($layout, gutter); }
+
+  // add unit to gutter
   @if $gutter { $gutter: add-unit($gutter); }
+
+  // no gutter
   @if get-unit($gutter) == '0' {
-    width: column-width-percentage($columns, $gutter) * $column;
+    width: column-width-percentage($columns, 0) * $column;
     @if $push and $push != 0 { left: percentage($push / $columns); }
     @if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
   }
+  // fixed gutter
   @else if get-unit($gutter) == 'others' {
     $columns-width-with-gutter: columns-width-with-gutter($column, $columns, $gutter);
     width: calc( #{$columns-width-with-gutter} - #{$gutter} );
-    @if not $last { margin-#{opposite($float)}: $gutter; }
-    
+    @if not $last { 
+      @if $float == left or $float == right {
+        margin-#{opposite($float)}: $gutter; 
+      }
+      @else { margin-right: $gutter; }
+    }
+    // change order
     @if $push and $push != 0 { 
       $columns-width-with-gutter: columns-width-with-gutter($push, $columns, $gutter);
       left: calc( #{$columns-width-with-gutter} ); 
@@ -44,7 +57,7 @@
     }
   }
   @else {
-    $warn: "$gutter can't be a percentage number.";
+    $warn: "$gutter can't be a percentage, use a fixed $gutter instead.";
     @warn $warn + ' Current value: #{$gutter}';
   }
 }

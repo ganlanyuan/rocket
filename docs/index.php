@@ -25,7 +25,7 @@
         <p>By using the powerfull tools of Rocket, you can develop your website easier and faster.</p>
         <p>Rocket is not a framework. It doesn’t generate any code unless you need it to. Use you own class to build your own framework.</p>
         <div>
-          <a href="https://github.com/ganlanyuan/rocket/archive/v0.0.2.zip" target="_blank" class="button active">Download (0.0.2)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
+          <a href="https://github.com/ganlanyuan/rocket/archive/v0.0.3.zip" target="_blank" class="button active">Download (0.0.3)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
         </div>
       </div>
     </div>
@@ -33,6 +33,21 @@
   <div class="container">
     <div class="topic">
       <h2 id="layout">layout</h2>
+      <section>
+        <h3 id="layout-mixin">layout</h3>
+        <p>$layout is the default setting for your grid system.</p>
+        <div class="content">
+          <div class="">
+            <pre><code class="language-scss">
+$layout: (
+  container: num | px | em | rem | % 
+  columns: num
+  gutter: num | px | em | rem | 1/20 | % | 0.1
+);
+            </code></pre>
+          </div>
+        </div>
+      </section>
       <section>
         <h3 id="container">container</h3>
         <p>The container of the content. It usually has a max-width. When screen size is smaller than the max-width, it will has a left and right margin. Container can be set align center, left or right.</p>
@@ -82,7 +97,7 @@
       </section>
       <section>
         <h3 id="span">span</h3>
-        <p><code>Span</code> is used to create columns. Both fixed gutter (px, em, rem) and flexible gutter (%) are acceptable. If you use fixed gutter, you need set the parent element as a <code>wrap</code>. Another option is using <code>span-calc</code>.</p>
+        <p><code>Span</code> is used to create columns. Both fixed gutter (px, em, rem) and flexible gutter (%) are acceptable. If you use fixed gutter, you need set the parent element as a <code>wrap</code>, or using <code>span-calc</code>.</p>
         <div class="content">
           <div class="content-main">
             <div class="example example-span" data-margin>
@@ -103,14 +118,19 @@
           </div>
           <div class="content-aside">
             <pre><code class="language-scss">
-@include span($column, $columns, $gutter, $float, $pull, $push, $last)
+@include span($column, $columns, $gutter, $pull, $push, $float, $last)
 // $column: num
-// $columns: num
-// $gutter: num | px | em | rem | 1/20 | 5% | 0.1
-// $float: left | right
-// $pull: num
-// $push: num
-// $last: false | true
+// $columns: default | null | num
+// $gutter: default | null | num | px | em | rem | 1/2 | 5% | 0.1
+// $pull(optional): num
+// $push(optional): num
+// $float(optional): left | right
+// $last(optional): false | true
+
+// note: 
+// if you set $gutter as fraction, percentage or decimal,
+// it's related to column-width, not container-width
+// e.g. $gutter: 1/2 means $gutter = 1/2 * $column-width
             </code></pre>
           </div>
         </div>
@@ -138,14 +158,17 @@
           </div>
           <div class="content-aside">
             <pre><code class="language-scss">
-@include span-calc($column, $columns, $gutter, $float, $pull, $push, $last)
+@include span-calc($column, $columns, $gutter, $pull, $push, $float, $last)
 // $column: num
-// $columns: num
-// $gutter: num | px | em | rem | 1/20 | 5% | 0.1
-// $float: left | right
-// $pull: num
-// $push: num
-// $last: false | true
+// $columns: default | null | num
+// $gutter: default | null | num | px | em | rem
+// $pull(optional): num
+// $push(optional): num
+// $float(optional): left | right
+// $last(optional): false | true
+
+// Note: if you want use a fixible $gutter (e.g. 30%), 
+// use span mixin instead.
             </code></pre>
           </div>
         </div>
