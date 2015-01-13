@@ -38,7 +38,6 @@
   @extend %dropdown;
   [data-dropdown-menu] {
     @extend %dropdown-menu;
-    padding: nth($padding, 1) 0;
     background-color: $bgc;
     @if $border != null { border: $border; }
     @if $border-radius != null { border-radius: $border-radius; }
@@ -48,6 +47,8 @@
       padding: $padding;
       color: contrast($bgc);
     }
+    li:first-child > a { padding-top: nth($padding, 1) * 2;}
+    li:last-child > a { padding-bottom: nth($padding, 1) * 2;}
   }
   @if $open == hover {
     &:hover [data-dropdown-menu] {

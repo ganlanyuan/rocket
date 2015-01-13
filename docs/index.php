@@ -25,7 +25,7 @@
         <p>By using the powerfull tools of Rocket, you can develop your website easier and faster.</p>
         <p>Rocket is not a framework. It doesn’t generate any code unless you need it to. Use you own class to build your own framework.</p>
         <div>
-          <a href="https://github.com/ganlanyuan/rocket/archive/v0.0.3.zip" target="_blank" class="button active">Download (0.0.3)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
+          <a href="https://github.com/ganlanyuan/rocket/archive/v0.1.0.zip" target="_blank" class="button active">Download (0.1.0)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@ $layout: (
       </section>
       <section>
         <h3 id="wrap">wrap</h3>
-        <p><code>Wrap</code> is usually used with <code>span</code> when creating columns with fixed width gutters.</p>
+        <p><code>wrap</code> is usually used with <code>span</code> when creating columns with fixed width gutters.</p>
         <div class="content">
           <div class="content-main">
             <div class="example">
@@ -97,7 +97,7 @@ $layout: (
       </section>
       <section>
         <h3 id="span">span</h3>
-        <p><code>Span</code> is used to create columns. Both fixed gutter (px, em, rem) and flexible gutter (%) are acceptable. If you use fixed gutter, you need set the parent element as a <code>wrap</code>, or using <code>span-calc</code>.</p>
+        <p><code>span</code> is used to create columns. Both fixed gutter (px, em, rem) and flexible gutter (%) are acceptable. If you use fixed gutter, you need set the parent element as a <code>wrap</code>, or using <code>span-calc</code>.</p>
         <div class="content">
           <div class="content-main">
             <div class="example example-span" data-margin>
@@ -137,7 +137,7 @@ $layout: (
       </section>
       <section>
         <h3 id="span-calc">span-calc</h3>
-        <p><code>Span-calc</code> is using css-calc to create columns, old browser (e.g. IE8) will not supported.</p>
+        <p><code>span-calc</code> is using css-calc to create columns, old browser (e.g. IE8) will not supported.</p>
         <div class="content">
           <div class="content-main">
             <div class="example" data-margin>
@@ -175,7 +175,7 @@ $layout: (
       </section>
       <section>
         <h3 id="gallery">gallery</h3>
-        <p><code>Gallery</code> is for creating picture galleries.</p>
+        <p><code>gallery</code> is for creating picture galleries.</p>
         <div class="content">
           <div class="content-main">
             <div class="example">
@@ -209,7 +209,7 @@ $layout: (
       </section>
       <section>
         <h3 id="justify">justify</h3>
-        <p><code>Justify</code> is for creating <code>text-align: justify;</code> list.</p>
+        <p><code>justify</code> is for creating <code>text-align: justify;</code> list.</p>
         <div class="content">
           <div class="content-main">
             <div class="example">
@@ -232,7 +232,7 @@ $layout: (
       </section>
       <section>
         <h3 id="center">center</h3>
-        <p><code>Center</code> is for creating both horizontal and vertical center aligned layout.</p>
+        <p><code>center</code> is for creating both horizontal and vertical center aligned layout.</p>
         <div class="content">
           <div class="content-main">
             <div class="example example-center cell" data-margin>
@@ -249,6 +249,40 @@ $layout: (
 @include center($child, $align)
 // $child: div | li | span | ...
 // $align: left | center
+            </code></pre>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3 id="two-columns">two-columns</h3>
+        <p><code>two-columns</code> is for creating a two columns layout. One of the two columns has a fixed width.</p>
+        <div class="content">
+          <div class="content-main">
+            <div class="example example-two-columns" data-margin>
+              <div data-col-main data-content>
+                <div class="example-content">
+                  main
+                </div>
+              </div>
+              <div data-col-aside data-content>
+                <div class="example-content">
+                  aside: 200px
+                </div>
+              </div>
+            </div>
+            <pre><code class="language-markup">
+&lt;div class="your-two-columns"&gt;
+  &lt;div data-col-main&gt;&lt;/div&gt;
+  &lt;div data-col-aside&gt;&lt;/div&gt;
+&lt;/div&gt;
+            </code></pre>
+          </div>
+          <div class="content-aside">
+            <pre><code class="language-scss">
+@include two-columns($direction, $aside, $gutter);
+// $direction (fixed columns direction): left | right
+// $aside (fixed columns width): px | em | rem
+// $gutter: px | em | rem
             </code></pre>
           </div>
         </div>
@@ -280,7 +314,7 @@ $layout: (
       <h2 id="addons">addons</h2>
       <section>
         <h3 id="type">type</h3>
-        <p><code>Type</code> is a shorthand setting for type.</p>
+        <p><code>type</code> is a shorthand mixin for type.</p>
         <div class="content">
           <div class="content-main-short">
             <div class="example">
@@ -293,7 +327,8 @@ $layout: (
           </div>
           <div class="content-aside-long">
             <pre><code class="language-scss">
-@include type($font-size, $font-weight, $line-height, $margin, $padding);
+@include type($type...);
+$type: ($font-size, $font-weight, $line-height, $margin, $padding);
 // font-size: num | px | em | rem | null
 // font-weight: normal | bold | num | null
 // line-height: num | 18/14 | null
@@ -311,7 +346,7 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
       </section>
       <section>
         <h3 id="button">button</h3>
-        <p><code>Button</code> is not just for "button". Everything which is an inline-block box can be considered as a button.</p>
+        <p><code>button</code> is not just for "button". Everything which is an inline-block box can be considered as a button.</p>
         <div class="content">
           <div class="content-main-short">
             <div class="example">
@@ -347,8 +382,131 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
         </div>
       </section>
       <section>
+        <h3 id="color-functions">color-functions</h3>
+        <p>Please refer to <a href="https://color.adobe.com/create/color-wheel/" target="_blank">Adobe Kuler</a> and <a href="http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF" target="_blank">paletton</a></p>
+        <p><code>contrast</code> is for getting a contrast font-color based on the background-color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-contrast">
+                <div class="color-box color-box-contrast">contrast</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+contrast( $color, $light: #fff, $dark: #000 );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $light (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $dark (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
+
+// If lightness < 65%, return $light, otherwise return $dark
+// .youclass { color: contrast(#a6e36e, $light:#dbdbdb, $dark: #212121); }
+            </code></pre>
+          </div>
+        </div>
+        <p><code>complementary</code> is for getting a complementary color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-complementary">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-complementary">complementary</div>
+                <div class="color-pattern"><img src="images/complementary.png" alt="adjacent-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+complementary( $color, $saturation, $lightness );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+
+// .youclass { color: complementary(#a6e36e, null, 20%); }
+            </code></pre>
+          </div>
+        </div>
+        <p><code>adjacent</code> is for creating adjacent colors.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-adjacent">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-adjacent-1">adjacent 1</div>
+                <div class="color-box color-box-adjacent-2">adjacent 2</div>
+                <div class="color-pattern"><img src="images/adjacent.png" alt="adjacent-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+adjacent( $color, $order, $saturation, $lightness, $base );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $base (optianal): 30 | num
+
+// .youclass { color: adjacent(#a6e36e, 1, $base: 20); }
+            </code></pre>
+          </div>
+        </div>
+        <p><code>triad</code> is for getting triad colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-triad">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-triad-1">triad 1</div>
+                <div class="color-box color-box-triad-2">triad 2</div>
+                <div class="color-pattern"><img src="images/triad.png" alt="adjacent-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+triad( $color, $order, $saturation, $lightness, $base );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $base (optianal): 30 | num
+
+// .youclass { color: triad(#a6e36e, 1); }
+            </code></pre>
+          </div>
+        </div>
+        <p><code>tetrad</code> is for getting tetrad colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-tetrad">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-tetrad-1">tetrad 1</div>
+                <div class="color-box color-box-tetrad-2">tetrad 2</div>
+                <div class="color-box color-box-tetrad-3">tetrad 3</div>
+                <div class="color-pattern"><img src="images/tetrad.png" alt="adjacent-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+tetrad( $color, $order, $saturation, $lightness, $base );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $base (optianal): 30 | num
+
+// .youclass { color: tetrad(#a6e36e, -3); }
+            </code></pre>
+          </div>
+        </div>
+      </section>
+      <section>
         <h3 id="mb-nav">mb-nav</h3>
-        <p><code>Mb-nav</code> is for the navigation on mobile.</p>
+        <p><code>mb-nav</code> is for the navigation on mobile.</p>
         <div class="content">
           <div class="content-main">
             <pre><code class="language-markup">
@@ -454,6 +612,35 @@ nav { @include mb-nav ($style, $direction, $font-size, $padding, $bg); }
 // or give it a width;
             </code></pre>
           </div>
+        </div>
+      </section>
+      <section>
+        <h3 id="break-point">break point</h3>
+        <p>A shorthand @mixin for break point.</p>
+        <div class="content">
+          <pre><code class="language-scss">
+@include bp-mi(
+  $min: num | px | em | rem, 
+  $media: false | screen | print | ...
+);
+// @include bp-mi(640) { ... };
+// output: @media (min-width: 40em) { ... };
+
+@include bp-ma(
+  $max: num | px | em | rem, 
+  $media: false | screen | print | ...
+);
+// @include bp-ma(640, screen) { ... };
+// output: @media screen and (max-width: 40em) { ... };
+
+@include bp-mm(
+  $min: num | px | em | rem, 
+  $max: num | px | em | rem, 
+  $media: false | screen | print | ...
+);
+// @include bp-mi(640, 767) { ... };
+// output: @media (min-width: 40em) and (max-width: 47.94em) { ... };
+          </code></pre>
         </div>
       </section>
       <section>
@@ -564,7 +751,7 @@ k('.site-nav a').forEach(function (el) {
       </section>
       <section>
         <h3>Reach</h3>
-        <p><code>Reach</code> is a function to check if target element reach the edge of browser.</p>
+        <p><code>reach</code> is a function to check if target element reach the edge of browser.</p>
         <div class="content">
           <pre><code class="language-javascript">
 if (k(el).reach('middle',0)) {

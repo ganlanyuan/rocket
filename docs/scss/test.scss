@@ -3,7 +3,7 @@
 $cover-bg: rgba(48, 68, 117, .77);
 @import "../../src/scss/rocket"; 
 
-$yellow: #F5A623;
+$active: #febf1a;
 $blue: #4A90E2;
 
 // common
@@ -58,10 +58,12 @@ p {
 .container {@include container(1600,30); }
 .button {
   @include button(15px,12px 20px, 0 10px 10px 0,$blue,null,3px);
-  &.active { @include button(null,null, null,$yellow); }
+  &.active { @include button(null,null, null,$active); }
 }
 
 // site-header
+.mb-nav a,
+.site-nav a { white-space: nowrap; }
 .mb-nav {
   @include mb-nav(translate,left,14px,.9em 1.6em, #102244);
   li { clear: both; }
@@ -102,13 +104,11 @@ p {
   @include visible(null, 640);
   &__level1 {
     text-align: right;
-    .active { background-color: #4A90E2; }
     > li { 
       text-align: left;
       display: inline-block; 
       vertical-align: top;
       @include transform(skewX(-30deg));
-      &:hover { background-color: #4A90E2; }
       > a {
         @include transform(skewX(30deg));
         @include button(14px, em(16,14) em(13,14));
@@ -120,10 +120,15 @@ p {
       @at-root .site-nav--haschild [data-dropdown-menu] { @include transform(skewX(30deg) scaleY(0)); }
       @at-root .site-nav--haschild:hover [data-dropdown-menu] { @include transform(skewX(30deg) scaleY(1)); }
     }
+    > li:hover,
+    .active { 
+      background-color: $active; 
+      > a { color: #000; }
+    }
     .ic-github { font-size: 20px; }
     .ic-email { font-size: 18px; }
   }
-  &--haschild { @include dropdown(#4A90E2,0.7em 1.25em,null,null,rgba(0,0,0,0.25) 0px 6px 12px); font-size: rem(14); }
+  &--haschild { @include dropdown($active,0.7em 1.25em,null,null,rgba(0,0,0,0.25) 0px 6px 12px); font-size: rem(14); }
   .ic-triangle-down { font-size: 12px; margin-left: 3px;}
 }
 
@@ -134,7 +139,7 @@ p {
   p {
     @include type(16px, null, 1.4, em(20,16) 0);
     color: #6191B3;
-    .active { color: $yellow; }
+    .active { color: $active; }
   }
   &-content {
     max-width: em(620);
@@ -204,8 +209,6 @@ p {
     width: 200px;
     float: right;
   }
-  // &-span-isolate-1 { @include span-isolate(left,200px,null); }
-  // &-span-isolate-2 { @include span-isolate(null,null,left 220px,true); }
   &-gallery { @include gallery(4,12,20,li); 
     span {
       display: block;
@@ -232,6 +235,7 @@ p {
   &-center { @include center(div,left);
     > div { width: 150px; padding: 10px; }
   }
+  &-two-columns { @include two-columns(right, 200, 20); }
   &-debug { @include debug(12, 20);}
   &-button {
     margin-top: 20px;
@@ -244,6 +248,83 @@ p {
       span { font-size: 13px; vertical-align: middle; }
     }
   }
+  @at-root {
+    .color-box {
+      float: left;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 13px;
+      border-radius: .3em;
+      color: #fff;
+      $original: #d9000d;
+      $contrast: #5173a3;
+      .example-complementary &
+       {
+        width: 47%;
+        margin-right: 3%;
+      }
+      .example-adjacent &,
+      .example-triad &
+       {
+        width: 30%;
+        margin-right: 3%;
+      }
+      .example-tetrad & {
+        width: 22%;
+        margin-right: 3%;
+      }
+      &-original { 
+        background-color: $original; 
+        color: contrast($original);
+      }
+      &-contrast { 
+        background-color: $contrast; 
+        color: contrast($contrast);
+        width: 30%;
+      }
+      &-complementary { 
+        background-color: complementary($original); 
+        color: contrast(complementary($original));
+      }
+      &-adjacent-1 { 
+        background-color: adjacent($original, 1); 
+        color: contrast(adjacent($original, 1));
+      }
+      &-adjacent-2 { 
+        background-color: adjacent($original, 2);
+        color: contrast(adjacent($original, 2));
+      }
+      &-triad-1 { 
+        background-color: triad($original, 1); 
+        color: contrast(triad($original, 1));
+      }
+      &-triad-2 { 
+        background-color: triad($original, 2);
+        color: contrast(triad($original, 2));
+      }
+      &-tetrad-1 { 
+        background-color: tetrad($original, 1); 
+        color: contrast(tetrad($original, 1));
+      }
+      &-tetrad-2 { 
+        background-color: tetrad($original, 2);
+        color: contrast(tetrad($original, 2));
+      }
+      &-tetrad-3 { 
+        background-color: tetrad($original, 3);
+        color: contrast(tetrad($original, 3));
+      }
+    }
+    .color-pattern {
+      clear: both;
+      max-width: 300px;
+      padding: 10px 0px;
+      border-right: .33em;
+      overflow: hidden;
+      img { max-width: 100%; }
+    }
+  }
+  &-adjacent { @extend %clearfix; }
   &-dropdown-1,
   &-dropdown-2 { padding: 10px 0; margin-right: 30px; display: inline-block; 
     > ul { margin-top: 10px; }
@@ -281,8 +362,7 @@ h5.example-type { @include type(16px,null,1.5, 0 0 10px 0);}
 [data-padding] { background-color: #C2EBBA; }
 [data-content] { background-color: #CDEEFF; }
 .cell { min-height: 200px; }
-
-pre[class*="language-"] > code[data-language] { overflow: auto;}
+pre[class*="language-"] > code[data-language] { overflow: auto; max-height: none;}
 pre[class*="language-"] { padding: 0 1em; }
 // icon-font
 .glyphs.character-mapping{padding:20px 0 20px 30px;color:rgba(0,0,0,0.5);border:1px solid #d8e0e5;-webkit-border-radius:3px;border-radius:3px; background-color: #fff;}

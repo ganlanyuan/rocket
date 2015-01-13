@@ -1,0 +1,20 @@
+// *** triad *** //
+
+@function triad(
+  $color,
+  $order,
+  $saturation: null,
+  $lightness: null,
+  $base: 30
+){
+  @if not $saturation or $saturation == null { $saturation: 0; }
+  @if not $lightness or $lightness == null { $lightness: 0; }
+
+  @if $order == 1 or $order == -2 {
+    @return adjust-color($color, $hue: (180 - $base), $saturation: $saturation, $lightness: $lightness);
+  }
+  @else if $order == 2 or $order == -1 {
+    @return adjust-color($color, $hue: (180 + $base), $saturation: $saturation, $lightness: $lightness);
+  }
+}
+

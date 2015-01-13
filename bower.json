@@ -38,6 +38,6 @@
     "url": "https://github.com/ganlanyuan/rocket.git"
   },
   "dependencies": {
-    "bourbon": "~4.1.0"
+    "bourbon": "~4.1.1"
   }
 }

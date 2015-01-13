@@ -1,0 +1,36 @@
+// fixed columns
+@mixin two-columns($direction, $aside, $gutter) {
+  // add units
+  @if $aside { $aside: add-unit($aside); }
+  @if $gutter { $gutter: add-unit($gutter); }
+
+  $total: ($aside + $gutter);
+  @at-root (without: media) { @extend %clearfix; }
+  
+  // aside is on the right
+  @if $direction == right {
+  padding-right: $total;
+    > [data-col-main] {
+      float: left;
+      width: 100%;
+    }
+    > [data-col-aside] {
+      float: right;
+      width: $aside;
+      margin-right: - $total;
+    }
+  }
+  // aside is on the left
+  @else {
+    padding-left: $total;
+    > [data-col-main] {
+      float: right;
+      width: 100%;
+    }
+    > [data-col-aside] {
+      float: left;
+      width: $aside;
+      margin-left: - $total;
+    }
+  }
+}

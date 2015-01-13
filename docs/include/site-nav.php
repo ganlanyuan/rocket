@@ -10,6 +10,7 @@
         <li><a href="#gallery">gallery</a></li>
         <li><a href="#justify">justify</a></li>
         <li><a href="#center">center</a></li>
+        <li><a href="#two-columns">two-columns</a></li>
         <li><a href="#debug">debug</a></li>
       </ul>
     </li>
@@ -17,9 +18,11 @@
       <ul data-dropdown-menu>
         <li><a href="#type">type</a></li>
         <li><a href="#button">button</a></li>
+        <li><a href="#color-functions">color-functions</a></li>
         <li><a href="#mb-nav">mb-nav</a></li>
         <li><a href="#dropdown">dropdown</a></li>
         <li><a href="#tooltip">tooltip</a></li>
+        <li><a href="#break-point">break point</a></li>
         <li><a href="#visibility">visibility</a></li>
         <li><a href="#flex-video">flex-video</a></li>
         <li><a href="#icon-font">icon-font</a></li>
