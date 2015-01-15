@@ -6,6 +6,16 @@ $cover-bg: rgba(48, 68, 117, .77);
 $active: #febf1a;
 $blue: #4A90E2;
 
+.test-box {
+  $test-o: hsl(180, 70%, 50%);
+  span {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+  }
+  .one { background-color: $test-o; }
+  .two { background-color: color(complementary, $test-o); }
+}
 // common
 dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p { margin: 0; }
 dl,ul,ol { padding: 0; }

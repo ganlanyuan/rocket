@@ -1,8 +1,11 @@
 @import "variables"; // variables
 @import "placeholders"; // placeholders
-@import "function"; // functions
+@import "replace"; // placeholders
+// color functions
+@import "analogous"; 
 @import "contrast";  
 @import "complementary";  
 @import "adjacent";  
 @import "triad"; 
 @import "tetrad"; 
+@import "color"; 

@@ -1,0 +1,8 @@
+// replace
+@mixin replace($old-context, $contexts...) {
+  @each $context in $contexts {
+    @at-root #{selector-replace(&, $old-context, $context)} {
+      @content;  
+    }
+  }  
+}

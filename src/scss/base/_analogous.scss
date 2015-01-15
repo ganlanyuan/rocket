@@ -1,0 +1,5 @@
+// analogous
+@function analogous($color, $degree) {
+  @if lightness($color) >= 50% { @return darken($color, $degree); }
+  @else { @return lighten($color, $degree); }
+}

@@ -25,7 +25,7 @@
         <p>By using the powerfull tools of Rocket, you can develop your website easier and faster.</p>
         <p>Rocket is not a framework. It doesn’t generate any code unless you need it to. Use you own class to build your own framework.</p>
         <div>
-          <a href="https://github.com/ganlanyuan/rocket/archive/v0.1.0.zip" target="_blank" class="button active">Download (0.1.0)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
+          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (0.1.0)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
         </div>
       </div>
     </div>
@@ -35,6 +35,7 @@
       <h2 id="layout">layout</h2>
       <section>
         <h3 id="layout-mixin">layout</h3>
+        <!-- <div class="test-box"><span class="one">original</span><span class="two">test</span></div> -->
         <p>$layout is the default setting for your grid system.</p>
         <div class="content">
           <div class="">

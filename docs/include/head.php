@@ -31,14 +31,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:700,500' rel='stylesheet' type='text/css'>
 	<link href="prism/prism.css" rel="stylesheet">
 	<link href="css/normalize.css" rel="stylesheet">
-	<link href="
-		<?php if ($pagename == 'index') {
-			echo 'css/test.css';
-		} else {
-			echo 'css/test2.css';
-		}
-		 ?>
-	" rel="stylesheet">
+	<link href="css/test.css" rel="stylesheet">
 
 	<!-- javascript -->
 	<!--[if (lt IE 9)]>
@@ -49,13 +42,7 @@
 		<link href="../assets/js/lib/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
 		<script src="../assets/js/lib/cross-domain/respond.proxy.js"></script>	
 	<![endif]-->
-	<?php 
-		if ($pagename == 'index') {
-			echo '';
-		} else {
-			echo '';
-		}
-	?>
+
 	<script src="prism/prism.js"></script>
 	<script src="js/index.min.js"></script>
 </head>

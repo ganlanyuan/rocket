@@ -1,0 +1,87 @@
+// *** triad *** //
+
+@function color(
+  $method,
+  $color,
+  $order: null,
+  $saturation: null,
+  $lightness: null,
+  $base: 30
+){
+  @if $saturation == null { $saturation: 0; }
+  @if $lightness == null { $lightness: 0; }
+
+  $wheel: 360; 
+  $red-start: 330; 
+  $orange-start: 19.41;
+  $yellow-start: 49.41;
+  $green-start: 90;
+  $blue-start: 180;
+  $purple-start: 270;
+
+  $color-starts: (
+    red: $red-start,
+    orange: $orange-start,
+    yellow: $yellow-start,
+    green: $green-start,
+    blue: $blue-start,
+    purple: $purple-start
+  );
+  $target-hue: 0;
+
+  $hue: hue($color);
+  $this-name: null;
+  $this-range: 0;
+  $complement-hue: 0;
+  $complement-range: 0;
+  // get this-name and this-range
+  @if $hue < $orange-start or $hue >= $red-start {
+    $this-name: red;
+    $this-range: ($wheel - $red-start + $orange-start);
+    $complement-hue: map-get($color-starts, green);
+    $complement-range: ($blue-start - $green-start);
+  }
+  @else if $hue < $yellow-start {
+    $this-name: orange;
+    $this-range: ($yellow-start - $orange-start);
+    $complement-hue: map-get($color-starts, blue);
+    $complement-range: ($purple-start - $blue-start);
+  }
+  @else if $hue < $green-start {
+    $this-name: yellow;
+    $this-range: ($green-start - $yellow-start);
+    $complement-hue: map-get($color-starts, purple);
+    $complement-range: ($red-start - $purple-start);
+  }
+  @else if $hue < $blue-start {
+    $this-name: green;
+    $this-range: ($blue-start - $green-start);
+    $complement-hue: map-get($color-starts, red);
+    $complement-range: ($wheel - $red-start + $orange-start);
+  }
+  @else if $hue < $purple-start {
+    $this-name: blue;
+    $this-range: ($purple-start - $blue-start);
+    $complement-hue: map-get($color-starts, orange);
+    $complement-range: ($yellow-start - $orange-start);
+  }
+  @else if $hue < $red-start {
+    $this-name: purple;
+    $this-range: ($red-start - $purple-start);
+    $complement-hue: map-get($color-starts, yellow);
+    $complement-range: ($green-start - $yellow-start);
+  }
+
+  // get this-difference
+  $this-difference: 0;
+  @if $hue < $orange-start { $this-difference: ($wheel - $red-start + $hue); }
+  @else { $this-difference: ($hue - map-get($color-starts, $this-name)); }
+
+  // complementary
+  @if $method == complementary {
+    $target-hue: $complement-hue + ($this-difference / $this-range * $complement-range) - $hue;
+  }
+
+
+  @return adjust-color($color, $hue: $target-hue, $saturation: $saturation, $lightness: $lightness);
+}
