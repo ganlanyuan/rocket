@@ -12,7 +12,10 @@
     "mixins",
     "scss",
     "sass",
-    "grid"
+    "grid",
+    "color",
+    "type",
+    "breakpoint"
   ],
   "authors": [
     "William Lin <ganlanyuan@gmail.com>"

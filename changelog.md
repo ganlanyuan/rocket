@@ -1,5 +1,15 @@
 <h1>Changlog</h1>
 
+<h3>v0.1.2</h3>
+<ol>
+  <li>Upgrade color functions. <code>square</code> still need to be fixed.</li>
+</ol>
+
+<h3>v0.1.1</h3>
+<ol>
+  <li>Add color mixin. Ready to update color functions.</li>
+</ol>
+
 <h3>v0.1.0</h3>
 <ol>
   <li>Add @mixin two-columns.</li>

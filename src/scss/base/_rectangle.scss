@@ -1,0 +1,12 @@
+// *** rectangle *** //
+
+@function rectangle(
+  $color,
+  $order,
+  $saturation: null,
+  $lightness: null,
+  $base: 30
+){
+  @return color(rectangle, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $base: $base);
+}
+

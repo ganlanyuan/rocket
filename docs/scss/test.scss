@@ -6,16 +6,6 @@ $cover-bg: rgba(48, 68, 117, .77);
 $active: #febf1a;
 $blue: #4A90E2;
 
-.test-box {
-  $test-o: hsl(180, 70%, 50%);
-  span {
-    display: inline-block;
-    padding: 10px;
-    color: #fff;
-  }
-  .one { background-color: $test-o; }
-  .two { background-color: color(complementary, $test-o); }
-}
 // common
 dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p { margin: 0; }
 dl,ul,ol { padding: 0; }
@@ -279,7 +269,8 @@ p {
         width: 30%;
         margin-right: 3%;
       }
-      .example-tetrad & {
+      .example-rectangle &,
+      .example-square & {
         width: 22%;
         margin-right: 3%;
       }
@@ -297,12 +288,12 @@ p {
         color: contrast(complementary($original));
       }
       &-adjacent-1 { 
-        background-color: adjacent($original, 1); 
-        color: contrast(adjacent($original, 1));
+        background-color: adjacent($original, -1); 
+        color: contrast(adjacent($original, -1));
       }
       &-adjacent-2 { 
-        background-color: adjacent($original, 2);
-        color: contrast(adjacent($original, 2));
+        background-color: adjacent($original, 1);
+        color: contrast(adjacent($original, 1));
       }
       &-triad-1 { 
         background-color: triad($original, 1); 
@@ -312,17 +303,29 @@ p {
         background-color: triad($original, 2);
         color: contrast(triad($original, 2));
       }
-      &-tetrad-1 { 
-        background-color: tetrad($original, 1); 
-        color: contrast(tetrad($original, 1));
+      &-rectangle-1 { 
+        background-color: rectangle($original, 1); 
+        color: contrast(rectangle($original, 1));
       }
-      &-tetrad-2 { 
-        background-color: tetrad($original, 2);
-        color: contrast(tetrad($original, 2));
+      &-rectangle-2 { 
+        background-color: rectangle($original, 2);
+        color: contrast(rectangle($original, 2));
       }
-      &-tetrad-3 { 
-        background-color: tetrad($original, 3);
-        color: contrast(tetrad($original, 3));
+      &-rectangle-3 { 
+        background-color: rectangle($original, 3);
+        color: contrast(rectangle($original, 3));
+      }
+      &-square-1 { 
+        background-color: square($original, 1); 
+        color: contrast(square($original, 1));
+      }
+      &-square-2 { 
+        background-color: square($original, 2);
+        color: contrast(square($original, 2));
+      }
+      &-square-3 { 
+        background-color: square($original, 3);
+        color: contrast(square($original, 3));
       }
     }
     .color-pattern {

@@ -2,10 +2,11 @@
 @import "placeholders"; // placeholders
 @import "replace"; // placeholders
 // color functions
+@import "color"; 
 @import "analogous"; 
 @import "contrast";  
 @import "complementary";  
 @import "adjacent";  
 @import "triad"; 
-@import "tetrad"; 
-@import "color"; 
+@import "rectangle"; 
+@import "square"; 

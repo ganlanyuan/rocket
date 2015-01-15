@@ -5,9 +5,6 @@
   $saturation: null,
   $lightness: null
 ){
-  @if not $saturation or $saturation == null { $saturation: 0; }
-  @if not $lightness or $lightness == null { $lightness: 0; }
-  
-  @return adjust-color($color, $hue: 180, $saturation: $saturation, $lightness: $lightness);
+  @return color(complementary, $color, $order: null, $saturation: $saturation, $lightness: $lightness);
 }
 

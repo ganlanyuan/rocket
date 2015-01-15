@@ -7,9 +7,6 @@
   $lightness: null,
   $base: 30
 ){
-  @if not $saturation or $saturation == null { $saturation: 0; }
-  @if not $lightness or $lightness == null { $lightness: 0; }
-  
-  @return adjust-color($color, $hue: ($base * round(strip-units($order))), $saturation: $saturation, $lightness: $lightness);
+  @return color(adjacent, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $base: $base);
 }
 

@@ -6,7 +6,7 @@
   <header class="site-header">
     <div class="container">
       <div data-icon-nav class="icon-nav"><span></span></div>
-      <h1 class="branding"><a href="">
+      <h1 class="branding"><a href="/">
         <svg width="169px" height="31px" viewBox="0 0 169 31">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
             <g sketch:type="MSArtboardGroup" transform="translate(-39.000000, -12.000000)" fill="#FFFFFF">
@@ -25,7 +25,7 @@
         <p>By using the powerfull tools of Rocket, you can develop your website easier and faster.</p>
         <p>Rocket is not a framework. It doesn’t generate any code unless you need it to. Use you own class to build your own framework.</p>
         <div>
-          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (0.1.0)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
+          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (0.1.2)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,6 @@
       <h2 id="layout">layout</h2>
       <section>
         <h3 id="layout-mixin">layout</h3>
-        <!-- <div class="test-box"><span class="one">original</span><span class="two">test</span></div> -->
         <p>$layout is the default setting for your grid system.</p>
         <div class="content">
           <div class="">
@@ -413,7 +412,7 @@ contrast( $color, $light: #fff, $dark: #000 );
               <div class="example-complementary">
                 <div class="color-box color-box-original">original</div>
                 <div class="color-box color-box-complementary">complementary</div>
-                <div class="color-pattern"><img src="images/complementary.png" alt="adjacent-colors"></div>
+                <div class="color-pattern"><img src="images/complementary.png" alt="complementary-colors"></div>
               </div>
             </div>
           </div>
@@ -433,8 +432,8 @@ complementary( $color, $saturation, $lightness );
           <div class="content-main-short">
             <div class="example">
               <div class="example-adjacent">
-                <div class="color-box color-box-original">original</div>
                 <div class="color-box color-box-adjacent-1">adjacent 1</div>
+                <div class="color-box color-box-original">original</div>
                 <div class="color-box color-box-adjacent-2">adjacent 2</div>
                 <div class="color-pattern"><img src="images/adjacent.png" alt="adjacent-colors"></div>
               </div>
@@ -461,7 +460,7 @@ adjacent( $color, $order, $saturation, $lightness, $base );
                 <div class="color-box color-box-original">original</div>
                 <div class="color-box color-box-triad-1">triad 1</div>
                 <div class="color-box color-box-triad-2">triad 2</div>
-                <div class="color-pattern"><img src="images/triad.png" alt="adjacent-colors"></div>
+                <div class="color-pattern"><img src="images/triad.png" alt="triad-colors"></div>
               </div>
             </div>
           </div>
@@ -478,29 +477,55 @@ triad( $color, $order, $saturation, $lightness, $base );
             </code></pre>
           </div>
         </div>
-        <p><code>tetrad</code> is for getting tetrad colors based on a given color.</p>
+        <p><code>rectangle</code> is for getting rectangle colors based on a given color.</p>
         <div class="content">
           <div class="content-main-short">
             <div class="example">
-              <div class="example-tetrad">
+              <div class="example-rectangle">
                 <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-tetrad-1">tetrad 1</div>
-                <div class="color-box color-box-tetrad-2">tetrad 2</div>
-                <div class="color-box color-box-tetrad-3">tetrad 3</div>
-                <div class="color-pattern"><img src="images/tetrad.png" alt="adjacent-colors"></div>
+                <div class="color-box color-box-rectangle-1">rectangle 1</div>
+                <div class="color-box color-box-rectangle-2">rectangle 2</div>
+                <div class="color-box color-box-rectangle-3">rectangle 3</div>
+                <div class="color-pattern"><img src="images/rectangle.png" alt="rectangle-colors"></div>
               </div>
             </div>
           </div>
           <div class="content-aside-long">
             <pre><code class="language-scss">
-tetrad( $color, $order, $saturation, $lightness, $base );
+rectangle( $color, $order, $saturation, $lightness, $base );
 // $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
 // $order: num,
 // $saturation (optional): false | null | %,
 // $lightness (optional): false | null | %
 // $base (optianal): 30 | num
 
-// .youclass { color: tetrad(#a6e36e, -3); }
+// .youclass { color: rectangle(#a6e36e, -3); }
+            </code></pre>
+          </div>
+        </div>
+        <p><code>square</code> is for getting square colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-square">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-square-1">square 1</div>
+                <div class="color-box color-box-square-2">square 2</div>
+                <div class="color-box color-box-square-3">square 3</div>
+                <div class="color-pattern"><img src="images/square.png" alt="square-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+square( $color, $order, $saturation, $lightness, $base );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $base (optianal): 30 | num
+
+// .youclass { color: square(#a6e36e, -3); }
             </code></pre>
           </div>
         </div>
@@ -563,7 +588,7 @@ nav { @include mb-nav ($style, $direction, $font-size, $padding, $bg); }
                 </ul>
               </div>              
               <div class="example-dropdown-2">
-                <span>dropdown: click</span>
+                <span>dropdown: </span>
                 <span class="ic-angle-down" data-dropdown-toggle></span>
                 <ul data-dropdown-menu>
                   <li><a href="">item01</a></li>
@@ -697,7 +722,7 @@ nav { @include mb-nav ($style, $direction, $font-size, $padding, $bg); }
     </div>
     <div class="topic">
       <h2 id="kit">kit.js</h2>
-      <p>Kit.js is small Javascript library similar with jQuery. Kit.js works fine on IE8 and up, and on other morden browsers.</p>
+      <p>Kit.js is small Javascript library similar with jQuery. Kit.js works well on IE8 and up, and on other morden browsers.</p>
       <p>The follow metheds are available: <br><code>on</code>, <code>off</code>, <code>click</code>, <code>mouseover</code>, <code>mouseout</code>, <code>focus</code>, <code>blur</code>, <code>submit</code>, <code>keydown</code>, <code>keyup</code>, <br> <code>find</code>, <code>eq</code>, <code>filter</code>, <code>first</code>, <code>last</code>, <code>parent</code>, <code>parents</code>, <code>children</code>, <code>firstChild</code>, <code>lastChild</code>, <code>siblings</code>, <code>prev</code>, <code>prevAll</code>, <code>next</code>, <code>nextAll</code>, <br> <code>hide</code>, <code>show</code>, <code>fadeIn</code>, <code>remove</code>, <br> <code>text</code>, <code>html</code>, <code>attr</code>, <code>css</code>, <code>addClass</code>, <code>removeClass</code>, <code>toggleClass</code>, <code>hasClass</code>, <br> <code>outerWidth</code>, <code>outerHeight</code>, <code>getTop</code>, <code>getLeft</code>, <code>offset(left top)</code>, <br> <code>before</code>, <code>after</code>, <code>append</code>, <code>prepend</code></p>
       <section>
         <h3>Ready</h3>
