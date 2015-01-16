@@ -1,5 +1,11 @@
 <h1>Changlog</h1>
 
+<h3>v0.1.3</h3>
+<ol>
+  <li>Rewrite color core function, and fix everything.</li>
+  <li>Update <a href="http://designdev.christianpost.com/develop/docs/" target="_blank">demo page</a>.</li>
+</ol>
+
 <h3>v0.1.2</h3>
 <ol>
   <li>Upgrade color functions. <code>square</code> still need to be fixed.</li>

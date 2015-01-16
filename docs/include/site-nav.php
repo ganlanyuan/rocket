@@ -14,6 +14,17 @@
         <li><a href="#debug">debug</a></li>
       </ul>
     </li>
+    <li class="site-nav--haschild"><a href="#color">color<span class="ic-triangle-down"></span></a>
+      <ul data-dropdown-menu>
+        <li><a href="#contrast">contrast</a></li>
+        <li><a href="#adjacent">adjacent</a></li>
+        <li><a href="#complementary">complementary</a></li>
+        <li><a href="#split-complementary">split-complementary</a></li>
+        <li><a href="#triad">triad</a></li>
+        <li><a href="#rectangle">rectangle</a></li>
+        <li><a href="#square">square</a></li>
+      </ul>
+    </li>
     <li class="site-nav--haschild"><a href="#addons">Addons<span class="ic-triangle-down"></span></a>
       <ul data-dropdown-menu>
         <li><a href="#type">type</a></li>

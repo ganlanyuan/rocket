@@ -25,7 +25,7 @@
         <p>By using the powerfull tools of Rocket, you can develop your website easier and faster.</p>
         <p>Rocket is not a framework. It doesn’t generate any code unless you need it to. Use you own class to build your own framework.</p>
         <div>
-          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (0.1.2)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
+          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (0.1.3)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
         </div>
       </div>
     </div>
@@ -311,6 +311,189 @@ $layout: (
       </section>
     </div>
     <div class="topic">
+      <h2 id="color">color-functions</h2>
+      <p>Please refer to <a href="https://color.adobe.com/create/color-wheel/" target="_blank">Adobe Kuler</a> and <a href="http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF" target="_blank">paletton</a></p>
+      <section>
+        <h3 id="contrast">contrast</h3>
+        <p><code>contrast</code> is for getting a contrast font-color based on the background-color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-contrast">
+                <div class="color-box color-box-contrast">contrast</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+contrast( $color, $light: #fff, $dark: #000 );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $light (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $dark (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
+
+// If lightness < 65%, return $light, otherwise return $dark
+// .youclass { color: contrast(#a6e36e, $light:#dbdbdb, $dark: #212121); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="adjacent">adjacent</h3>
+        <p><code>adjacent</code> is for creating adjacent colors.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-adjacent">
+                <div class="color-box color-box-adjacent-1">adjacent 1</div>
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-adjacent-2">adjacent 2</div>
+                <div class="color-pattern"><img src="images/adjacent.png" alt="adjacent-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+adjacent( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: adjacent(#a6e36e, 1, $dist: 20); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="complementary">complementary</h3>
+        <p><code>complementary</code> is for getting a complementary color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-complementary">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-complementary">complementary</div>
+                <div class="color-pattern"><img src="images/complementary.png" alt="complementary-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+complementary( $color, $saturation, $lightness );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+
+// .youclass { color: complementary(#a6e36e, null, 20%); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="split-complementary">split-complementary</h3>
+        <p><code>split-complementary</code> is for getting split-complementary colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-split-complementary">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-split-complementary-1">split-complementary 1</div>
+                <div class="color-box color-box-split-complementary-2">split-complementary 2</div>
+                <div class="color-pattern"><img src="images/split-complementary.png" alt="split-complementary-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+split-complementary( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: split-complementary(#a6e36e, 1); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="triad">triad</h3>
+        <p><code>triad</code> is for getting triad colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-triad">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-triad-1">triad 1</div>
+                <div class="color-box color-box-triad-2">triad 2</div>
+                <div class="color-pattern"><img src="images/triad.png" alt="triad-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+triad( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: triad(#a6e36e, 1); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="rectangle">rectangle</h3>
+        <p><code>rectangle</code> is for getting rectangle colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-rectangle">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-rectangle-1">rectangle 1</div>
+                <div class="color-box color-box-rectangle-2">rectangle 2</div>
+                <div class="color-box color-box-rectangle-3">rectangle 3</div>
+                <div class="color-pattern"><img src="images/rectangle.png" alt="rectangle-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+rectangle( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: rectangle(#a6e36e, -3); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="square">square</h3>
+        <p><code>square</code> is for getting square colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-square">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-square-1">square 1</div>
+                <div class="color-box color-box-square-2">square 2</div>
+                <div class="color-box color-box-square-3">square 3</div>
+                <div class="color-pattern"><img src="images/square.png" alt="square-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+square( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: square(#a6e36e, -3); }
+            </code></pre>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="topic">
       <h2 id="addons">addons</h2>
       <section>
         <h3 id="type">type</h3>
@@ -377,155 +560,6 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
 // background-color: value | null
 // border: value | null
 // border-radius: value | null
-            </code></pre>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h3 id="color-functions">color-functions</h3>
-        <p>Please refer to <a href="https://color.adobe.com/create/color-wheel/" target="_blank">Adobe Kuler</a> and <a href="http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF" target="_blank">paletton</a></p>
-        <p><code>contrast</code> is for getting a contrast font-color based on the background-color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-contrast">
-                <div class="color-box color-box-contrast">contrast</div>
-              </div>
-            </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-contrast( $color, $light: #fff, $dark: #000 );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $light (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $dark (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
-
-// If lightness < 65%, return $light, otherwise return $dark
-// .youclass { color: contrast(#a6e36e, $light:#dbdbdb, $dark: #212121); }
-            </code></pre>
-          </div>
-        </div>
-        <p><code>complementary</code> is for getting a complementary color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-complementary">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-complementary">complementary</div>
-                <div class="color-pattern"><img src="images/complementary.png" alt="complementary-colors"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-complementary( $color, $saturation, $lightness );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-
-// .youclass { color: complementary(#a6e36e, null, 20%); }
-            </code></pre>
-          </div>
-        </div>
-        <p><code>adjacent</code> is for creating adjacent colors.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-adjacent">
-                <div class="color-box color-box-adjacent-1">adjacent 1</div>
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-adjacent-2">adjacent 2</div>
-                <div class="color-pattern"><img src="images/adjacent.png" alt="adjacent-colors"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-adjacent( $color, $order, $saturation, $lightness, $base );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $base (optianal): 30 | num
-
-// .youclass { color: adjacent(#a6e36e, 1, $base: 20); }
-            </code></pre>
-          </div>
-        </div>
-        <p><code>triad</code> is for getting triad colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-triad">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-triad-1">triad 1</div>
-                <div class="color-box color-box-triad-2">triad 2</div>
-                <div class="color-pattern"><img src="images/triad.png" alt="triad-colors"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-triad( $color, $order, $saturation, $lightness, $base );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $base (optianal): 30 | num
-
-// .youclass { color: triad(#a6e36e, 1); }
-            </code></pre>
-          </div>
-        </div>
-        <p><code>rectangle</code> is for getting rectangle colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-rectangle">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-rectangle-1">rectangle 1</div>
-                <div class="color-box color-box-rectangle-2">rectangle 2</div>
-                <div class="color-box color-box-rectangle-3">rectangle 3</div>
-                <div class="color-pattern"><img src="images/rectangle.png" alt="rectangle-colors"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-rectangle( $color, $order, $saturation, $lightness, $base );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $base (optianal): 30 | num
-
-// .youclass { color: rectangle(#a6e36e, -3); }
-            </code></pre>
-          </div>
-        </div>
-        <p><code>square</code> is for getting square colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-square">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-square-1">square 1</div>
-                <div class="color-box color-box-square-2">square 2</div>
-                <div class="color-box color-box-square-3">square 3</div>
-                <div class="color-pattern"><img src="images/square.png" alt="square-colors"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-square( $color, $order, $saturation, $lightness, $base );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $base (optianal): 30 | num
-
-// .youclass { color: square(#a6e36e, -3); }
             </code></pre>
           </div>
         </div>

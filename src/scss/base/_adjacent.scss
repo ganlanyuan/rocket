@@ -5,8 +5,8 @@
   $order,
   $saturation: null,
   $lightness: null,
-  $base: 30
+  $dist: 30
 ){
-  @return color(adjacent, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $base: $base);
+  @return color(adjacent, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $dist: $dist);
 }
 

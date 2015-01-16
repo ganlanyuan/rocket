@@ -1,0 +1,12 @@
+// *** split-complementary *** //
+
+@function split-complementary(
+  $color,
+  $order,
+  $saturation: null,
+  $lightness: null,
+  $dist: 30
+){
+  @return color(split-complementary, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $dist: $dist);
+}
+

@@ -4,9 +4,8 @@
   $color,
   $order,
   $saturation: null,
-  $lightness: null,
-  $base: 30
+  $lightness: null
 ){
-  @return color(triad, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $base: $base);
+  @return color(triad, $color, $order: $order, $saturation: $saturation, $lightness: $lightness);
 }
 

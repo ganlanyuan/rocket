@@ -264,6 +264,7 @@ p {
         margin-right: 3%;
       }
       .example-adjacent &,
+      .example-split-complementary &,
       .example-triad &
        {
         width: 30%;
@@ -283,10 +284,6 @@ p {
         color: contrast($contrast);
         width: 30%;
       }
-      &-complementary { 
-        background-color: complementary($original); 
-        color: contrast(complementary($original));
-      }
       &-adjacent-1 { 
         background-color: adjacent($original, -1); 
         color: contrast(adjacent($original, -1));
@@ -294,6 +291,18 @@ p {
       &-adjacent-2 { 
         background-color: adjacent($original, 1);
         color: contrast(adjacent($original, 1));
+      }
+      &-complementary { 
+        background-color: complementary($original); 
+        color: contrast(complementary($original));
+      }
+      &-split-complementary-1 { 
+        background-color: split-complementary($original, 1); 
+        color: contrast(split-complementary($original, 1));
+      }
+      &-split-complementary-2 { 
+        background-color: split-complementary($original, 2);
+        color: contrast(split-complementary($original, 2));
       }
       &-triad-1 { 
         background-color: triad($original, 1); 

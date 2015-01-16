@@ -1,266 +1,128 @@
 // *** color *** //
-@function nextKey ($map, $key, $base: 1){
-  $list: map-keys($map);
-  $index: index($list, $key);
-  @if $index >= (length($list) + 1 - $base) { @return nth($list, ($index + $base - length($list))); }
-  @else { @return nth($list, ($index + $base)); }
+
+// defined model
+$normal-model:
+0,
+19.41,
+38.82,
+49.41,
+60,
+90,
+120,
+180,
+240,
+270,
+300,
+330,
+360;
+
+$ideal-model:
+0,
+30,
+60,
+90,
+120,
+150,
+180,
+210,
+240,
+270,
+300,
+330,
+360;
+
+// to-ideal-hue
+@function to-ideal-hue($hue){
+  $ideal-hue: null;
+  $gap: null;
+  @while $hue >= 360 { $hue: $hue - 360; }
+
+  @for $i from 1 through length($normal-model) {
+    @if $hue >= nth($normal-model, $i) and
+      $hue < nth($normal-model, $i + 1) {
+      $gap: (nth($ideal-model, $i + 1) - nth($ideal-model, $i)) * ($hue - nth($normal-model, $i)) / (nth($normal-model, $i + 1) - nth($normal-model, $i));
+      $ideal-hue: nth($ideal-model, $i) + $gap;
+    }
+  }
+  @return $ideal-hue;
 }
-@function prevKey ($map, $key, $base: 1){
-  $list: map-keys($map);
-  $index: index($list, $key);
-  @if $index <= $base { @return nth($list ,($index - $base + length($list))); }
-  @else { @return nth($list, ($index - $base)); }
+// to-normal-hue
+@function to-normal-hue($hue){
+  $normal-hue: null;
+  $gap: null;
+  @while $hue >= 360 { $hue: $hue - 360; }
+
+  @for $i from 1 through length($ideal-model) {
+    @if $hue >= nth($ideal-model, $i) and
+      $hue < nth($ideal-model, $i + 1) {
+      $gap: (nth($normal-model, $i + 1) - nth($normal-model, $i)) * ($hue - nth($ideal-model, $i)) / (nth($ideal-model, $i + 1) - nth($ideal-model, $i));
+      $normal-hue: nth($normal-model, $i) + $gap;
+    }
+  }
+  @return $normal-hue;
 }
 
+// color
 @function color(
   $method,
   $color,
   $order: null,
   $saturation: null,
   $lightness: null,
-  $base: 30
+  $dist: 30
 ){
   @if $order == null { $order: 0; }
   @if $saturation == null { $saturation: 0; }
   @if $lightness == null { $lightness: 0; }
-
-  $wheel: 360; 
-  $start: (
-    red: 330,
-    orange: 19.41,
-    yellow: 49.41,
-    green: 90,
-    blue: 180,
-    purple: 270
-  );
-  $center: (
-    red: 0,
-    orange: 38.82,
-    yellow: 60,
-    green: 120,
-    blue: 240,
-    purple: 300
-  );
-  $range: (
-    red: (map-get($start, orange) + $wheel - map-get($start, red)),
-    orange: (map-get($start, yellow) - map-get($start, orange)),
-    yellow: (map-get($start, green) - map-get($start, yellow)),
-    green: (map-get($start, blue) - map-get($start, green)),
-    blue: (map-get($start, purple) - map-get($start, blue)),
-    purple: (map-get($start, red) - map-get($start, purple))
-  );
-  $target-hue: 0;
-
   $hue: hue($color);
-  $this: null;
-  $this-range: 0;
-  $this-difference: 0;
-  $complementary-base: 0;
-  $complementary-range: 0;
-  // get this-name and this-range
-  @if $hue < map-get($start, orange) or $hue >= map-get($start, red) {
-    $this: red;
-    @if $hue < map-get($start, orange) {
-      $this-difference: $hue;
-      $this-range: map-get($start, orange);
-      $complementary-base: map-get($center, green);
-      $complementary-range: (map-get($start, blue) - map-get($center, green));
-    }
-    @else if $hue >= map-get($start, red) {
-      $this-difference: ($hue - map-get($start, red));
-      $this-range: ($wheel - map-get($start, red));
-      $complementary-base: map-get($start, green);
-      $complementary-range: (map-get($center, green) - map-get($start, green));
-    }
-  }
-  @else if $hue < map-get($start, yellow) {
-    $this: orange;
-    @if $hue < map-get($center, orange) {
-      $this-difference: ($hue - map-get($start, orange));
-      $this-range: (map-get($center, orange) - map-get($start, orange));
-      $complementary-base: map-get($start, blue);
-      $complementary-range: (map-get($center, blue) - map-get($start, blue));
-    }
-    @else if $hue < map-get($start, yellow) {
-      $this-difference: ($hue - map-get($center, orange));
-      $this-range: (map-get($start, yellow) - map-get($center, orange));
-      $complementary-base: map-get($center, blue);
-      $complementary-range: (map-get($start, purple) - map-get($center, blue));
-    }
-  }
-  @else if $hue < map-get($start, green) {
-    $this: yellow;
-    @if $hue < map-get($center, yellow) {
-      $this-difference: ($hue - map-get($start, yellow));
-      $this-range: (map-get($center, yellow) - map-get($start, yellow));
-      $complementary-base: map-get($start, purple);
-      $complementary-range: (map-get($center, purple) - map-get($start, purple));
-    }
-    @else if $hue < map-get($start, green) {
-      $this-difference: ($hue - map-get($center, yellow));
-      $this-range: (map-get($start, green) - map-get($center, yellow));
-      $complementary-base: map-get($center, purple);
-      $complementary-range: (map-get($start, red) - map-get($center, purple));
-    }
-  }
-  @else if $hue < map-get($start, blue) {
-    $this: green;
-    @if $hue < map-get($center, green) {
-      $this-difference: ($hue - map-get($start, green));
-      $this-range: (map-get($center, green) - map-get($start, green));
-      $complementary-base: map-get($start, red);
-      $complementary-range: ($wheel - map-get($start, red));
-    }
-    @else if $hue < map-get($start, blue) {
-      $this-difference: ($hue - map-get($center, green));
-      $this-range: (map-get($start, blue) - map-get($center, green));
-      $complementary-base: map-get($center, red);
-      $complementary-range: (map-get($start, orange) - map-get($center, red));
-    }
-  }
-  @else if $hue < map-get($start, purple) {
-    $this: blue;
-    @if $hue < map-get($center, blue) {
-      $this-difference: ($hue - map-get($start, blue));
-      $this-range: (map-get($center, blue) - map-get($start, blue));
-      $complementary-base: map-get($start, orange);
-      $complementary-range: (map-get($center, orange) - map-get($start, orange));
-    }
-    @else if $hue < map-get($start, purple) {
-      $this-difference: ($hue - map-get($center, blue));
-      $this-range: (map-get($start, purple) - map-get($center, blue));
-      $complementary-base: map-get($center, orange);
-      $complementary-range: (map-get($start, yellow) - map-get($center, orange));
-    }
-  }
-  @else if $hue < map-get($start, red) {
-    $this: purple;
-    @if $hue < map-get($center, purple) {
-      $this-difference: ($hue - map-get($start, purple));
-      $this-range: (map-get($center, purple) - map-get($start, purple));
-      $complementary-base: map-get($start, yellow);
-      $complementary-range: (map-get($center, yellow) - map-get($start, yellow));
-    }
-    @else if $hue < map-get($start, red) {
-      $this-difference: ($hue - map-get($center, purple));
-      $this-range: (map-get($start, red) - map-get($center, purple));
-      $complementary-base: map-get($center, yellow);
-      $complementary-range: (map-get($start, green) - map-get($center, yellow));
-    }
-  }
-
-  $this-end: 0;
-  $this-more: 0;
-  $this-less: 0;
-  // complementary, rectangle, square
-  @if $method == complementary or 
-      $method == square and $order == 2 or
-      $method == rectangle and $order == 2 {
-    $target-hue: $complementary-base + ($this-difference / $this-range * $complementary-range);
-  }
-
-  // adjacent
-  @if $method == adjacent {
-    $pre-target-hue: $hue + ($order * map-get($range, $this) * $base / 60);
-    $this-end: map-get($start, nextKey($start, $this));
-    @if $this == red {
-      @if $hue < map-get($start, orange) {
-        @if $order > 0 and $pre-target-hue > $this-end {
-          $this-more: ($pre-target-hue - $this-end) * map-get($range, nextKey($start, $this)) / map-get($range, $this);
-          $target-hue: $this-end + $this-more;
-        }
-        @else if $order < 0 and $pre-target-hue < map-get($start, $this) and $pre-target-hue > $this-end {
-          $this-less: (map-get($start, $this) - $pre-target-hue) * map-get($range, prevKey($range, $this)) / map-get($range, $this);
-          $target-hue: map-get($start, $this) - $this-less;
-        }
-        @else { $target-hue: $pre-target-hue; }
-      }
-      @else {
-        @if $order > 0 and $pre-target-hue < map-get($start, $this) and $pre-target-hue > $this-end {
-          $this-more: ($pre-target-hue - $this-end) * map-get($range, nextKey($start, $this)) / map-get($range, $this);
-          $target-hue: $this-end + $this-more;
-        }
-        @else if $order < 0 and $pre-target-hue < map-get($start, $this) {
-          $this-less: (map-get($start, $this) - $pre-target-hue) * map-get($range, prevKey($range, $this)) / map-get($range, $this);
-          $target-hue: map-get($start, $this) - $this-less;
-        }
-        @else { $target-hue: $pre-target-hue; }
-      }
-    }
-    @else if $pre-target-hue > $this-end {
-      $this-more: ($pre-target-hue - $this-end) * map-get($range, nextKey($start, $this)) / map-get($range, $this);
-      $target-hue: $this-end + $this-more;
-    }
-    @else if $pre-target-hue < map-get($start, $this) {
-      $this-less: (map-get($start, $this) - $pre-target-hue) * map-get($range, prevKey($range, $this)) / map-get($range, $this);
-      $target-hue: map-get($start, $this) - $this-less;
-    }
-    @else { $target-hue: $pre-target-hue; }
-  }
-
-  // split-complementary
-  @if $method == split-complementary or 
-      $method == split {
-    @if $order == 1 {
-      $target-hue: $complementary-base + ($complementary-range * $base / 30);
-    }
-    @else if $order == 2 or $order == -1 {
-      $target-hue: $complementary-base - ($complementary-range * $base / 30);
-    }
-  }
+  $target-hue: null;
   
-  // triad, rectangle, square 
-  @if $method == triad or 
-      $method == rectangle and abs($order) == 1 or
-      $method == rectangle and abs($order) == 3 or
-      $method == square and abs($order) == 1 or
-      $method == square and abs($order) == 3 {
-    $target: null;
-    $this-difference: $hue - map-get($start, $this);
-    @if $this-difference < 0 { $this-difference: 360 + $this-difference; }
-
-    @if $method == triad {
-      @if $order == 1 {
-        $target: nextKey($start, $this, 2);
-      }
-      @else if $order == 2 or $order == -1 {
-        $target: nextKey($start, $this, 4);
-      }
+  @if $method == adjacent {
+    $target-hue: to-normal-hue(to-ideal-hue($hue) + $dist * $order);
+  }
+  @if $method == complementary {
+    $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
+  }
+  @if $method == split-complementary {
+    @if $order == 1 or $order == -2 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $dist);
     }
-    @if $method == rectangle {
-      @if $order == 1 {
-        $target: nextKey($start, $this, 1);
-      }
-      @if $order == 3 {
-        $target: prevKey($start, $this, 2);
-      }
-      @if $order == -1 {
-        $target: prevKey($start, $this, 1);
-      }
-      @if $order == -3 {
-        $target: nextKey($start, $this, 2);
-      }
+    @if $order == 2 or $order == -1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $dist);
     }
-    @if $method == square {
-      @if $order == 1 or
-          $order == -3 {
-        $target: nextKey($start, $this, 2);
-      }
-      @if $order == 3 or
-          $order == -1 {
-        $target: prevKey($start, $this, 2);
-      }
+  }
+  @if $method == triad {
+    @if $order == 1 or $order == -2 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 120);
     }
-
-    $target-difference: map-get($range, $target) * $this-difference / map-get($range, $this);
-    @if $method == square {
-      $target-hue: map-get($center, $target) + $target-difference;
+    @if $order == 2 or $order == -1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 240);
     }
-    @else {
-      $target-hue: map-get($start, $target) + $target-difference;
+  }
+  @if $method == rectangle {
+    @if abs($order) == 1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + $dist * $order);
+    }
+    @if $order == 2 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
+    }
+    @if abs($order) == 3 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $dist * $order / 3);
+    }
+  }
+  @if $method == square {
+    @if $order == 1 or $order == -3 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 90);
+    }
+    @if $order == 2 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
+    }
+    @if $order == 3 or $order == -1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 270);
     }
   }
 
   // return value
   @return adjust-color($color, $hue: ( $target-hue - $hue ), $saturation: $saturation, $lightness: $lightness);
 }
+

@@ -16,6 +16,18 @@
         <li><a href="#debug">debug</a></li>
       </ul>
     </li>
+    <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#color">color</a>
+      <ul data-nav-subnav>
+        <li data-nav-back><span class="ic-angle-left"></span></li>
+        <li><a href="#contrast">contrast</a></li>
+        <li><a href="#adjacent">adjacent</a></li>
+        <li><a href="#complementary">complementary</a></li>
+        <li><a href="#split-complementary">split-complementary</a></li>
+        <li><a href="#triad">triad</a></li>
+        <li><a href="#rectangle">rectangle</a></li>
+        <li><a href="#square">square</a></li>
+      </ul>
+    </li>
     <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#addons">Addons</a>
       <ul data-nav-subnav>
         <li data-nav-back><span class="ic-angle-left"></span></li>
