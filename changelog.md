@@ -1,5 +1,11 @@
 <h1>Changlog</h1>
 
+<h3>v0.1.4</h3>
+<ol>
+  <li>Add more data to color model based on <a href="http://paletton.com/" target="_blank">http://paletton.com/</a>.</li>
+  <li>Fix an issue: when $hue == 0, color function can't compile.</li>
+</ol>
+
 <h3>v0.1.3</h3>
 <ol>
   <li>Rewrite color core function, and fix everything.</li>
