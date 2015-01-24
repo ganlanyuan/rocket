@@ -8,6 +8,10 @@ Download <a href="https://github.com/ganlanyuan/rocket.git" target="_blank">rock
 ```` bash
 $ bower install rocket
 ````
+Or install with <a href="http://www.git-scm.com/" target="_blank">git</a>:
+```` bash
+$ git clone https://github.com/ganlanyuan/rocket.git
+````
 
 ## Features:
 
