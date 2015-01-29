@@ -6,5 +6,5 @@
 // @codekit-prepend "kit/animate.js"
 
 // *** components ***
-// @codekit-prepend "components/nav.js"
+// @codekit-prepend "components/off-canvas.js"
 // @codekit-prepend "components/dropdown.js"

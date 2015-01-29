@@ -1,6 +1,6 @@
-// ======= mb-nav ======= //
+// ======= off-canvas ======= //
 
-@mixin mb-nav (
+@mixin off-canvas (
   $style: move,
   $direction: left,
   $font-size: 14,
@@ -26,10 +26,10 @@
   .active > a,
   .current > a { background-color: analogous($bgc, 23%); }
   @if $style == move {
-    .mb-nav-show & { margin-#{$direction}: 0; }
+    .off-canvas-show & { margin-#{$direction}: 0; }
   }
   @if $style == translate {
-    .mb-nav-show & { #{$direction}: $nav-width; }
+    .off-canvas-show & { #{$direction}: $nav-width; }
   }
   @if $style == reveal { z-index: 100; }
   @if $direction == left or 
@@ -41,8 +41,8 @@
     @if $style == move or 
         $style == translate { margin-#{$direction}: -$nav-width; }
   }
-  [data-nav-close] { cursor: pointer; }
-  [data-nav-subnav] {
+  [data-offcanvas-close] { cursor: pointer; }
+  [data-offcanvas-subnav] {
     width: 100%;
     @include position(absolute, 0px null 0px 100%);
     background-color: $bgc;
@@ -50,7 +50,7 @@
     transition: left .3s $global-bezier 0s;
   }
   .mb-subnav-show { left: 0; }
-  [data-nav-back]{ 
+  [data-offcanvas-back]{ 
     padding: $padding;
     cursor: pointer;
     background-color: analogous($bgc, 15%);
@@ -66,7 +66,7 @@
   }
 }
 
-@mixin mb-container(
+@mixin page-container(
   $style: move,
   $direction: left
 ){
@@ -79,7 +79,7 @@
     @include size(100%);
     z-index: -1;
     @extend %global-transition;
-    .mb-nav-show & {
+    .off-canvas-show & {
       background-color: $cover-bg;
       z-index: 200;
       cursor: pointer;
@@ -89,7 +89,7 @@
       $direction == right { #{$direction}: 0; }
   @if $style == translate or 
       $style == reveal {
-    .mb-nav-show & { #{$direction}: $nav-width; }
+    .off-canvas-show & { #{$direction}: $nav-width; }
   }
   @if $style == reveal {
     min-width: 320px;

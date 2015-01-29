@@ -30,7 +30,7 @@
         <li><a href="#type">type</a></li>
         <li><a href="#button">button</a></li>
         <li><a href="#color-functions">color-functions</a></li>
-        <li><a href="#mb-nav">mb-nav</a></li>
+        <li><a href="#off-canvas">off-canvas</a></li>
         <li><a href="#dropdown">dropdown</a></li>
         <li><a href="#tooltip">tooltip</a></li>
         <li><a href="#break-point">break point</a></li>

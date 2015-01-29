@@ -565,19 +565,19 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
         </div>
       </section>
       <section>
-        <h3 id="mb-nav">mb-nav</h3>
-        <p><code>mb-nav</code> is for the navigation on mobile.</p>
+        <h3 id="off-canvas">off-canvas</h3>
+        <p><code>off-canvas</code> is for the navigation on mobile.</p>
         <div class="content">
           <div class="content-main">
             <pre><code class="language-markup">
 &lt;nav&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;span data-nav-close&gt;close&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span data-offcanvas-close&gt;close&lt;/span&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=""&gt;item01&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=""&gt;item02&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;span data-icon-haschild&gt;&lt;span class="ic-angle-right"&gt;&lt;/span&gt;&lt;/span&gt;&lt;a href=""&gt;item03&lt;/a&gt;
-      &lt;ul data-nav-subnav&gt;
-        &lt;li data-nav-back&gt;back&lt;/li&gt;
+      &lt;ul data-offcanvas-subnav&gt;
+        &lt;li data-offcanvas-back&gt;back&lt;/li&gt;
         &lt;li&gt;&lt;a href=""&gt;sub item02&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=""&gt;sub item03&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=""&gt;sub item04&lt;/a&gt;&lt;/li&gt;
@@ -594,13 +594,13 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
           </div>
           <div class="content-aside">
             <pre><code class="language-scss">
-nav { @include mb-nav ($style, $direction, $font-size, $padding, $bg); }
+nav { @include off-canvas($style, $direction, $font-size, $padding, $bg); }
 // $style: move | translate | reveal
 // $direction: left | right
 // $font-size: font-size (nav-item)
 // $padding: padding (nav-item)
 // $bgc: background-color (nav-item)
-.page { @include mb-container($style, $direction); }
+.page { @include page-container($style, $direction); }
 // $style: move | translate | reveal
 // $direction: left | right
             </code></pre>

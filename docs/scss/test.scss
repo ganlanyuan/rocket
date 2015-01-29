@@ -1,9 +1,9 @@
 @charset "UTF-8";
 // $font-path:"../../src/icon-font";
-$cover-bg: rgba(48, 68, 117, .77);
+$cover-bg: rgba(48, 68, 117, .57);
 @import "../../src/scss/rocket"; 
 
-$active: #febf1a;
+$active: complementary(rgb(64, 0, 255));
 $blue: #4A90E2;
 
 // common
@@ -52,7 +52,7 @@ p {
   .topic:nth-child(-n+2) & { text-align: center; }
 }
 .page {
-  @include mb-container(translate,left);
+  @include page-container(translate,left);
   padding-top: 54px;
 }
 .container {@include container(1600,30); }
@@ -65,10 +65,10 @@ p {
 .mb-nav a,
 .site-nav a { white-space: nowrap; }
 .mb-nav {
-  @include mb-nav(translate,left,14px,.9em 1.6em, #102244);
+  @include off-canvas(translate,left,14px,.9em 1.6em, #102244);
   li { clear: both; }
 }
-[data-nav-close] { 
+[data-offcanvas-close] { 
   @include icon-close(#fff, #74baff, 18px 2px 3px, 10px, true); 
   margin: 10px 0 0 12px;
 }
@@ -84,15 +84,14 @@ p {
   @include icon-nav(#fff);
   float: left;
   margin: 10px 5px 0 -10px;
-  @include hidden(null,640);
+  @include hidden(null,700);
 }
 .branding { 
   width: 185.35px;
   height: 36px;
   margin: 9px 0;
-  display: inline-block;
+  float: left;
   a { display: block; height: 100%;}
-  @include bp-mi(640) { float: left; }
   svg { 
     @include size(185.35px 34px); 
     float: left;
@@ -101,7 +100,7 @@ p {
 }
 .site-nav {
   margin-right: -10px;
-  @include visible(null, 640);
+  @include visible(null, 700);
   &__level1 {
     text-align: right;
     > li { 
@@ -162,15 +161,17 @@ p {
     margin: 2em 0;
     @include bp-mi(1024){ margin: 0 0 5em; }
   }
-  > h2 {
-    &:before,
-    &:after {
-      display: inline-block;
-      vertical-align: 7px;
-      margin: 0 15px;
+  @include bp-mi(768) {
+    > h2 {
+      &:before,
+      &:after {
+        display: inline-block;
+        vertical-align: 7px;
+        margin: 0 15px;
+      }
+      &:before { content: url('../images/title-prev.png'); }
+      &:after { content: url('../images/title-next.png'); }
     }
-    &:before { content: url('../images/title-prev.png'); }
-    &:after { content: url('../images/title-next.png'); }
   }
 }
 .content {
