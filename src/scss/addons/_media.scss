@@ -1,0 +1,35 @@
+// *** media *** //
+
+%media-style {
+	display: table-cell;
+	vertical-align: top;
+}
+
+@mixin media(
+	$gutter: 10px,
+	$media: null,
+	$media-body: null,
+	$direction: left
+){
+	// media
+	@if $media and $media != null {
+		> #{$media} { 
+			@extend %media-style; 
+			padding-#{opposite($direction)}: $gutter;
+		}
+	}
+	@else {
+		> [data-media-left],
+		> [data-media-right] { @extend %media-style; }
+		> [data-media-left] { padding-right: $gutter; }
+		> [data-media-right] { padding-left: $gutter; }
+	}
+
+	// media body
+	@if $media-body and $media-body != null {
+		> #{$media-body} { @extend %media-style; }
+	}
+	@else {
+		> [data-media-body] { @extend %media-style; }
+	}
+}

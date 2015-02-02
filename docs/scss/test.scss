@@ -3,7 +3,7 @@
 $cover-bg: rgba(48, 68, 117, .57);
 @import "../../src/scss/rocket"; 
 
-$active: complementary(rgb(64, 0, 255));
+$active: split-complementary(rgb(64, 0, 255), 1);
 $blue: #4A90E2;
 
 // common
@@ -122,7 +122,7 @@ p {
     > li:hover,
     .active { 
       background-color: $active; 
-      > a { color: #000; }
+      > a { color: contrast($active); }
     }
     .ic-github { font-size: 20px; }
     .ic-email { font-size: 18px; }
@@ -219,7 +219,7 @@ p {
   }
   &-justify {
     @include justify-flex();
-    .no-flexbox { @inclue justify(li); }
+    .no-flexbox & { @include justify(li); }
     a {
       display: block;
       @extend %hover-tdn;
@@ -238,17 +238,6 @@ p {
   }
   &-two-columns { @include two-columns(right, 200, 20); }
   &-debug { @include debug(12, 20);}
-  &-button {
-    margin-top: 20px;
-    button { @include button(14px, .5em .8em, 0 0 4px 0,#3255ff, null, 3px ); }
-    input {display: block; @include button(16px, .5em 1em, 0 0 10px 0, null, 1px solid #ccc, 3px);}
-    .pagination a { display: inline-block; @include button(13px, em(5) em(8), 0 3px 3px 0, #dbdbdb, null, 3px);}
-    .breadcrumb {
-      li { display: inline-block; }
-      a { display: inline-block; @include button(14px, 5px); vertical-align: middle; }
-      span { font-size: 13px; vertical-align: middle; }
-    }
-  }
   @at-root {
     .color-box {
       float: left;
@@ -348,6 +337,33 @@ p {
     }
   }
   &-adjacent { @extend %clearfix; }
+  &-button {
+    margin-top: 20px;
+    button { @include button(14px, .5em .8em, 0 0 4px 0,#3255ff, null, 3px ); }
+    input {display: block; @include button(16px, .5em 1em, 0 0 10px 0, null, 1px solid #ccc, 3px);}
+    .pagination a { display: inline-block; @include button(13px, em(5) em(8), 0 3px 3px 0, #dbdbdb, null, 3px);}
+    .breadcrumb {
+      li { display: inline-block; }
+      a { display: inline-block; @include button(14px, 5px); vertical-align: middle; }
+      span { font-size: 13px; vertical-align: middle; }
+    }
+  }
+  @at-root {
+    .news-left > li { 
+      @include media(15px, 'figure', 'div', left); 
+      p { 
+        margin-top: 0; 
+        max-width: none;
+      }
+    }
+    .news-right > li { 
+      @include media(15px, 'figure', 'div', right); 
+      p { 
+        margin-top: 0; 
+        max-width: none;
+      }
+    }
+  }
   &-dropdown-1,
   &-dropdown-2 { padding: 10px 0; margin-right: 30px; display: inline-block; 
     > ul { margin-top: 10px; }

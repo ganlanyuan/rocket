@@ -565,6 +565,65 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
         </div>
       </section>
       <section>
+        <h3 id="media">Media list</h3>
+        <p><code>media</code> displays a media object (images, video, audio) to the left or right of a block.</p>
+        <div class="content">
+          <div class="content-main">
+            <div class="example">
+              <div class="example-media">
+                <ul class="news-left">
+                  <li>
+                    <figure class="media"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
+                    <div class="media-body">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <figure class="media"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
+                    <div class="media-body">
+                      <p>Quibusdam ea voluptate, inventore illum impedit odio quia. Ducimus iusto mollitia deleniti sequi ea perferendis, tempore enim quisquam optio laboriosam modi hic magni nobis consequuntur minus dolorum quibusdam, excepturi. Sed.</p>
+                      <ul class="news-left">
+                        <li>
+                          <figure class="media"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
+                          <div class="media-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis soluta distinctio commodi fugiat beatae, quibusdam. Deserunt officia eius, eos velit aspernatur ea molestiae quisquam quo, iusto animi vitae enim voluptate.</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="news-right">
+                  <li>
+                    <div class="media-body">
+                      <p>Magnam, modi. Saepe quaerat, nihil debitis. Quae vel delectus, nulla quaerat porro, aperiam ipsam dicta earum beatae hic nobis ex reiciendis provident, quo sit! Dolore impedit non optio numquam veniam.</p>
+                    </div>
+                    <figure class="media"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside">
+            <pre><code class="language-scss">
+.news { @include media($gutter, $media, $media-body, $direction); }
+// $gutter(optional): px | em | rem
+// $media(optional): null | '.class' | '#id' | 'tag'
+// $media-body(optional): null | '.class' | '#id' | 'tag'
+// $direction(optional): left | right
+.news { @include media(); } 
+// $gutter: 10px
+// $media: [data-media-left] and [data-media-right]
+// $media-body: [data-media-body]
+// $direction: left
+.news { @include media(1em, '.media', '.media-body', right); } 
+.news { @include media(15px, 'figure', 'div'); } 
+
+            </code></pre>
+          </div>
+        </div>
+      </section>
+      <section>
         <h3 id="off-canvas">off-canvas</h3>
         <p><code>off-canvas</code> is for the navigation on mobile.</p>
         <div class="content">

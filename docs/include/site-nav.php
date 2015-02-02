@@ -29,7 +29,7 @@
       <ul data-dropdown-menu>
         <li><a href="#type">type</a></li>
         <li><a href="#button">button</a></li>
-        <li><a href="#color-functions">color-functions</a></li>
+        <li><a href="#media">media</a></li>
         <li><a href="#off-canvas">off-canvas</a></li>
         <li><a href="#dropdown">dropdown</a></li>
         <li><a href="#tooltip">tooltip</a></li>
