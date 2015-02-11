@@ -24,8 +24,8 @@
   @if $push or $pull { @extend %layout-relative; }
 
   // set default
-  @if $columns == default { $columns: map-get($layout, columns); }
-  @if $gutter == default { $gutter: map-get($layout, gutter); }
+  @if $columns == default or $columns == null { $columns: map-get($layout, columns); }
+  @if $gutter == default or $gutter == null { $gutter: map-get($layout, gutter); }
 
   // add unit to gutter
   @if $gutter { $gutter: add-unit($gutter); }
