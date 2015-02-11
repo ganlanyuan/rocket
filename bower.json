@@ -35,7 +35,7 @@
     "test",
     "tests"
   ],
-  "homepage": "http://designdev.christianpost.com/develop/docs/",
+  "homepage": "http://designdev.christianpost.com/develop/rocket/docs/",
   "repository": {
     "type": "git",
     "url": "https://github.com/ganlanyuan/rocket.git"
