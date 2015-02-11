@@ -4,11 +4,11 @@ Rocket is a powerful SASS library to help web developer handle layout, color and
 
 # Install
 
-Download <a href="https://github.com/ganlanyuan/rocket.git" target="_blank">rocket</a> or install with <a href="http://bower.io/" target="_blank">Bower</a>: 
+Download [rocket](https://github.com/ganlanyuan/rocket.git) or install with [Bower](http://bower.io/): 
 ```` bash
 $ bower install rocket
 ````
-Or install with <a href="http://www.git-scm.com/" target="_blank">git</a>:
+Or install with [git](http://www.git-scm.com/):
 ```` bash
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
@@ -46,9 +46,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 #### kit.js
 
 # Document
-
-<a href="http://designdev.christianpost.com/develop/docs/" target="_blank">Document and demo</a>
+[Document and demo](http://designdev.christianpost.com/develop/rocket/docs/)
 
 # Changelog
-
-<a href="https://github.com/ganlanyuan/rocket/blob/master/changelog.md" target="_blank">Changelog</a>
+[Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)
