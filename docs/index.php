@@ -25,7 +25,7 @@
         <p>By using the powerfull tools of Rocket, you can develop your website easier and faster.</p>
         <p>Rocket is not a framework. It doesn’t generate any code unless you need it to. Use you own class to build your own framework.</p>
         <div>
-          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (0.1.4)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
+          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" target="_blank" class="button active">Download (1.0.0)</a><a href="https://github.com/ganlanyuan/rocket" target="_blank" class="button">View on Github</a>
         </div>
       </div>
     </div>
