@@ -1,3 +1,4 @@
+// *** function *** //
 @function opposite($direction){
   @if $direction == left { @return right; }
   @else if $direction == right { @return left; }
@@ -10,27 +11,31 @@
   @return ($val / ($val * 0 + 1));
 }
 
+// em
+@function em($pxval, $base: $em-base) {
+  @if unit($pxval) == 'px' { $pxval: strip-units($pxval); }
+  @if unit($base) == 'px' { $base: strip-units($base); }
+  @return ($pxval / $base) * 1em;
+}
+
 // toem
 $em-base: 16px !default;
 @function toem($pxval, $base: $em-base) {
-  @if not unitless($pxval) {
-    @return $pxval;
-  }
+  @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
   @else {
-    @if not unitless($base) {
-      $base: strip-units($base);
-    }
+    @if unit($pxval) == 'px' { $pxval: strip-units($pxval); }
+    @if unit($base) == 'px' { $base: strip-units($base); }
     @return ($pxval / $base) * 1em;
-  }
+  } 
 }
 
 // torem
 $rem-base: 16px !default;
 @function torem($pxval, $base: $rem-base) {
-  @if not unitless($pxval) { @return $pxval; }
-  @else if $pxval < 1 { @return percentage($pxval); }
+  @if unit($pxval) == 'rem' { @return $pxval; }
   @else {
-    @if not unitless($base) { $base: strip-units($base); }
+    @if unit($pxval) == 'px' { $pxval: strip-units($pxval); }
+    @if unit($base) == 'px' { $base: strip-units($base); }
     @return ($pxval / $base) * 1rem;
-  }
+  } 
 }
