@@ -1,0 +1,109 @@
+// *** slider-gallery *** //
+$time: 3s;
+@import 'base';
+
+@mixin slider-gallery(
+  $items: 5,
+  $ratio: 400/942, 
+  $hide: none, // none | controls | dots
+  $default: true
+){
+  $id: "#" + get-slider-selector(&);
+  @at-root (without: media) { @extend %slide-base; }
+
+  @extend %slide-fade-base;
+  .slide-container { padding-bottom: percentage($ratio); }
+
+  // setting items
+  @for $i from 1 through $items {
+    @at-root #{$id}-#{$i}:checked ~ {
+      .slide-container li:nth-child(#{$i}) .item { 
+        @extend %item-active;
+      }
+    }
+  }
+
+  // setting controls
+  @if $hide != controls {
+    @for $i from 1 through $items {
+      @at-root #{$id}-#{$i}:checked ~ {
+        @if $i == 1 {
+          .controls label:nth-child(#{$items}) .prev { @extend %show; }
+          .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
+        }
+        @else if $i == $items {
+          .controls label:nth-child(#{$i - 1}) .prev { @extend %show; }
+          .controls label:nth-child(1) .next { @extend %show; }
+        }
+        @else {
+          .controls label:nth-child(#{$i - 1}) .prev { @extend %show; }
+          .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
+        }
+      }
+    }
+  }
+
+  // animation
+
+  // common **********************************************
+  // hide controls or dots
+  @if $hide != 'none' {
+    @at-root (without: media) {
+      & .#{$hide} { display: none !important; }
+    }
+  }
+
+  // show controls
+  @if $hide != controls {
+    @if $default == true { @at-root (without: media) { @extend %default-controls; } }
+  }
+
+  // setting and show dots
+  @if $hide != dots {
+    @if $default == true { @at-root (without: media) { @extend %default-dots; } }
+    @for $i from 1 through $items {
+      @at-root (without: media) { 
+        #{$id}-#{$i}:checked ~ {
+          .dots label:nth-child(#{$i}) .active { @extend %show; }
+          .dots label:nth-child(#{$i}) .normal { @extend %hide; }
+        }
+      }
+    }
+  }
+
+  // show autoplay
+  @if $default {
+    @at-root (without: media) { 
+      @extend %default-autoplay;
+      #{$id}-autoplay:checked ~ .autoplay { label:before { content: '1'; } }
+    }
+  }
+}
+
+
+// ul { margin: 0; padding: 0; }
+// .container { max-width: 1024px; margin: 20px auto; }
+// .slide { @include slider-gallery(); margin-bottom: 40px; }
+
+// // setting item
+// .slide .item { @include transform(scale(0.7) rotate(-10deg)); }
+// @for $i from 1 through 5 {
+//   #slide-#{$i}:checked ~ .slide-container li:nth-child(#{$i}) .item { @include transform(scale(1) rotate(0deg)); }
+// }
+
+// // setting .info
+// .slide .info { opacity: 0; margin-left: 0;
+//   -webkit-transition: all 1s $global-bezier 0.5s;
+//   transition: all 1s $global-bezier 0.5s;
+//  }
+// @for $i from 1 through 5 {
+//   #slide-#{$i}:checked ~ .slide-container li:nth-child(#{$i}) .info {
+//     opacity: 1;
+//     margin-left: 40px;
+//   }
+// }
+
+// // move controls inside 
+// @include bp-ma(1178){
+//   .controls { padding-left: 15%; padding-right: 15%; }
+// }

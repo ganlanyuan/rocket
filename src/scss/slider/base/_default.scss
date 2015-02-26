@@ -1,0 +1,64 @@
+// *** slide default *** //
+
+// dots and controls
+%default-dots {
+  .dots {
+    label, span {
+      display: inline-block;
+      vertical-align: top;
+    }
+    label {
+      padding: 12px 3px 0px;
+    }
+    span {
+      min-width: 9px;
+      min-height: 9px;
+      background-color: #d3d3d3;
+      border-radius: 50%;
+    }
+    .active { background-color: #5a5a5a; display: none; }
+  }
+}
+%default-controls {
+  .controls {
+    margin-top: -15px;
+    span {
+      width: 24px;
+      height: 30px;
+      &:before {
+        font-family: 'icon-font';
+        font-size: 24px;
+      }
+    }
+    .prev {
+      float: left;
+      margin-left: -50px;
+      &:before { content: 'n'; }
+    }
+    .next {
+      float: right;
+      margin-right: -50px;
+      &:before { content: 'm'; }
+    }
+  }
+}
+%default-autoplay {
+  .autoplay {
+    opacity: 0;
+    @extend %slide-transition;
+    label:before {
+      display: inline-block;
+      font-family: 'icon-font';
+      content: 'U';
+      font-size: 24px;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+  }
+  &:hover .autoplay { opacity: 0.8; }
+}

@@ -1,0 +1,24 @@
+// gallery base
+%item-normal { 
+  opacity: 0; 
+  z-index: 1; 
+  .no-opacity & { display: none; } 
+}
+%item-active { 
+  opacity: 1; 
+  z-index: 10; 
+  .no-opacity & { display: block; } 
+}
+
+%slide-fade-base {
+  @at-root (without: media) {
+    .slide-container {
+      position: relative;
+      li { position: absolute; }
+      .item {
+        @extend %item-normal;
+        @extend %slide-transition;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// get-slider-selector
+@function get-slider-selector($selector){
+  $str-selector: #{$selector};
+  $adjustment: 0;
+  $start-class: 0;
+  $start-id: 0;
+
+  // class
+  @if str-index($str-selector, ' .') { 
+    $start-class: str-index($str-selector, ' .'); 
+    $adjustment: 2;
+  }
+  @else if str-index($str-selector, '.') { 
+    $start-class: str-index($str-selector, '.');
+    $adjustment: 1; 
+  }
+  @else { $start-class: 0; }
+
+  // id
+  @if str-index($str-selector, ' #') { 
+    $start-id: str-index($str-selector, ' #');
+    $adjustment: 2; 
+  }
+  @else if str-index($str-selector, '#') { 
+    $start-id: str-index($str-selector, '#'); 
+    $adjustment: 1;
+  }
+  @else { $start-id: 0; }
+
+  $start: (max($start-class, $start-id) + $adjustment);
+  @return str-slice($str-selector, $start, str-length($str-selector));
+}
