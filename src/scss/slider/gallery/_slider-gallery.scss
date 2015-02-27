@@ -3,8 +3,8 @@
 
 @mixin slider-gallery(
   $items: 5,
-  $ratio: 400/942, 
-  $hide: 'autoplay', // none | controls | dots | autoplay
+  $ratio: 619/1100, 
+  $hide: 'none', // none | controls | dots | autoplay
   $default: true
 ){
   $prefix: get-slider-selector(&);
@@ -18,9 +18,11 @@
 
     // setting items
     @for $i from 1 through $items {
-      #{$id}-#{$i}:checked ~ {
-        .slider-container li:nth-child(#{$i}) .item { 
-          @extend %item-active;
+      @at-root { 
+        #{$id}-#{$i}:checked ~ {
+          .slider-container li:nth-child(#{$i}) { 
+            @extend %item-active;
+          }
         }
       }
     }
@@ -31,18 +33,20 @@
       @if $default == true { @extend %default-controls; }
       // show and hide
       @for $i from 1 through $items {
-        #{$id}-#{$i}:checked ~ {
-          @if $i == 1 {
-            .controls label:nth-child(#{$items}) .prev { @extend %show; }
-            .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
-          }
-          @else if $i == $items {
-            .controls label:nth-child(#{$i - 1}) .prev { @extend %show; }
-            .controls label:nth-child(1) .next { @extend %show; }
-          }
-          @else {
-            .controls label:nth-child(#{$i - 1}) .prev { @extend %show; }
-            .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
+        @at-root { 
+          #{$id}-#{$i}:checked ~ {
+            @if $i == 1 {
+              .controls label:nth-child(#{$items}) .prev, 
+              .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
+            }
+            @else if $i == $items {
+              .controls label:nth-child(#{$i - 1}) .prev, 
+              .controls label:nth-child(1) .next { @extend %show; }
+            }
+            @else {
+              .controls label:nth-child(#{$i - 1}) .prev, 
+              .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
+            }
           }
         }
       }
@@ -52,10 +56,12 @@
     @if str-index($hide, 'dots') == null {
       @if $default == true { @extend %default-dots; }
       @for $i from 1 through $items {
+        @at-root { 
           #{$id}-#{$i}:checked ~ {
-            .dots label:nth-child(#{$i}) .active { @extend %show; }
-            .dots label:nth-child(#{$i}) .normal { @extend %hide; }
+          .dots label:nth-child(#{$i}) .active { @extend %show; }
+          .dots label:nth-child(#{$i}) .normal { @extend %hide; }
           }
+        }
       }
     }
 
@@ -63,28 +69,49 @@
     @if str-index($hide, 'autoplay') == null {
       @if $default {
         @extend %default-autoplay;
-        #{$id}-autoplay:checked ~ .autoplay { label:before { content: '1'; } }
+        @at-root { 
+          #{$id}-autoplay:checked ~ .autoplay { 
+            label:before { content: '1'; } 
+          }
+          // #{$id}-autoplay:checked ~ {
+          //   .dots, .controls { 
+          //     opacity: 0; 
+          //     @at-root {
+          //       #{selector-nest(#{'.' + $prefix + ':hover '}, &)} { opacity: 1; }
+          //     }
+          //   }
+          // } 
+        }
       }
       // animation
       $unit: (100/($peritem * $items));
       @for $i from 1 through $items {
         @include keyframes(#{$prefix}-#{$i}) {
           @if $i == 1 {
-            #{percentage(($peritem * $items - 1)*$unit/100)} { @include item-normal; }
+            #{percentage(($peritem * $items - $pause)*$unit/100)} { @include item-normal; }
             #{percentage(($peritem * $items)*$unit/100)} { @include item-active; }
           }
           @else {
-            #{percentage(($peritem * ($i - 1) - 1)*$unit/100)} { @include item-normal; }
+            #{percentage(($peritem * ($i - 1) - $pause)*$unit/100)} { @include item-normal; }
             #{percentage(($peritem * ($i - 1))*$unit/100)} { @include item-active; }
           }
-          #{percentage(($peritem * $i - 1)*$unit/100)} { @include item-active; }
+          #{percentage(($peritem * $i - $pause)*$unit/100)} { @include item-active; }
           #{percentage(($peritem * $i)*$unit/100)} { @include item-normal; }
         }
-        #{$id}-autoplay:checked ~ .slider-container li:nth-child(#{$i}) .item {
-          @include animation( #{$prefix}-#{$i} $peritem * $items ease infinite);
+        @at-root { 
+          #{$id}-autoplay:checked ~ {
+            .slider-container li:nth-child(#{$i}) {
+              @include animation( #{$prefix}-#{$i} $peritem * $items ease infinite);
+            }
+          }
         }
-        &:hover #{$id}-autoplay:checked ~ .slider-container li:nth-child(#{$i}) .item { @include animation-play-state(paused); }
       }
+      // pause on hover
+      // &:hover {
+      //   #{$id}-autoplay ~ .slider-container li { 
+      //     @include animation-play-state(paused); 
+      //   }
+      // }
     }
 
     // hide controls, dots or autoplay

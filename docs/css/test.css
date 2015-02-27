@@ -8,11 +8,11 @@ label {
   cursor: pointer;
 }
 
-.slide #slide-1:checked ~ .dots label:nth-child(1) .normal, .slide #slide-2:checked ~ .dots label:nth-child(2) .normal, .slide #slide-3:checked ~ .dots label:nth-child(3) .normal, .slide #slide-4:checked ~ .dots label:nth-child(4) .normal, .slide #slide-5:checked ~ .dots label:nth-child(5) .normal {
+#slide-1:checked ~ .dots label:nth-child(1) .normal, #slide-2:checked ~ .dots label:nth-child(2) .normal, #slide-3:checked ~ .dots label:nth-child(3) .normal, #slide-4:checked ~ .dots label:nth-child(4) .normal, #slide-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-.slide #slide-1:checked ~ .controls label:nth-child(5) .prev, .slide #slide-1:checked ~ .controls label:nth-child(2) .next, .slide #slide-1:checked ~ .controls label:nth-child(0) .prev, .slide #slide-2:checked ~ .controls label:nth-child(1) .prev, .slide #slide-2:checked ~ .controls label:nth-child(3) .next, .slide #slide-3:checked ~ .controls label:nth-child(2) .prev, .slide #slide-3:checked ~ .controls label:nth-child(4) .next, .slide #slide-4:checked ~ .controls label:nth-child(3) .prev, .slide #slide-4:checked ~ .controls label:nth-child(5) .next, .slide #slide-5:checked ~ .controls label:nth-child(4) .prev, .slide #slide-5:checked ~ .controls label:nth-child(1) .next, .slide #slide-1:checked ~ .dots label:nth-child(1) .active, .slide #slide-2:checked ~ .dots label:nth-child(2) .active, .slide #slide-3:checked ~ .dots label:nth-child(3) .active, .slide #slide-4:checked ~ .dots label:nth-child(4) .active, .slide #slide-5:checked ~ .dots label:nth-child(5) .active {
+#slide-1:checked ~ .dots label:nth-child(1) .active, #slide-2:checked ~ .dots label:nth-child(2) .active, #slide-3:checked ~ .dots label:nth-child(3) .active, #slide-4:checked ~ .dots label:nth-child(4) .active, #slide-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
@@ -49,9 +49,6 @@ label {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
-}
-.slide .item {
-  position: relative;
 }
 .slide .info, .slide .controls, .slide .dots, .slide .autoplay {
   position: absolute;
@@ -166,95 +163,162 @@ ul {
   margin-bottom: 40px;
 }
 
-@media (min-width: 50em) {
-  .slide .slider-container {
-    margin: 0 -10px;
-  }
-  .slide .slider-container .item {
-    margin: 0 10px;
-  }
-  .slide #slide-1:checked ~ .slider-container .inner {
+.slide .slider-container {
+  margin: 0 -10px;
+}
+.slide .slider-container .item {
+  margin: 0 10px;
+}
+#slide-1:checked ~ .slider-container .inner {
+  left: 0%;
+}
+#slide-2:checked ~ .slider-container .inner {
+  left: -100%;
+}
+#slide-3:checked ~ .slider-container .inner {
+  left: -200%;
+}
+#slide-4:checked ~ .slider-container .inner {
+  left: -300%;
+}
+#slide-5:checked ~ .slider-container .inner {
+  left: -400%;
+}
+@-webkit-keyframes slide-inner {
+  0% {
     left: 0%;
   }
-  .slide #slide-2:checked ~ .slider-container .inner {
+  16% {
+    left: 0%;
+  }
+  20% {
     left: -100%;
   }
-  .slide #slide-3:checked ~ .slider-container .inner {
+  36% {
+    left: -100%;
+  }
+  40% {
     left: -200%;
   }
-  .slide #slide-4:checked ~ .slider-container .inner {
+  56.0% {
+    left: -200%;
+  }
+  60% {
     left: -300%;
   }
-  .slide #slide-5:checked ~ .slider-container .inner {
+  76% {
+    left: -300%;
+  }
+  80% {
     left: -400%;
   }
-  @-webkit-keyframes slide-inner {
-    0% {
-      left: 0;
-    }
-    20% {
-      left: -100%;
-    }
-    40% {
-      left: -200%;
-    }
-    60% {
-      left: -300%;
-    }
-    80% {
-      left: -400%;
-    }
-    100% {
-      left: 0;
-    }
+  96% {
+    left: -400%;
   }
-  @-moz-keyframes slide-inner {
-    0% {
-      left: 0;
-    }
-    20% {
-      left: -100%;
-    }
-    40% {
-      left: -200%;
-    }
-    60% {
-      left: -300%;
-    }
-    80% {
-      left: -400%;
-    }
-    100% {
-      left: 0;
-    }
-  }
-  @keyframes slide-inner {
-    0% {
-      left: 0;
-    }
-    20% {
-      left: -100%;
-    }
-    40% {
-      left: -200%;
-    }
-    60% {
-      left: -300%;
-    }
-    80% {
-      left: -400%;
-    }
-    100% {
-      left: 0;
-    }
-  }
-  .slide #slide-autoplay:checked ~ .slider-container .inner {
-    -webkit-animation: slide-inner 15s ease infinite;
-    -moz-animation: slide-inner 15s ease infinite;
-    animation: slide-inner 15s ease infinite;
+  100% {
+    left: 0;
   }
 }
-.slide #slide-autoplay:checked ~ .autoplay label:before {
+@-moz-keyframes slide-inner {
+  0% {
+    left: 0%;
+  }
+  16% {
+    left: 0%;
+  }
+  20% {
+    left: -100%;
+  }
+  36% {
+    left: -100%;
+  }
+  40% {
+    left: -200%;
+  }
+  56.0% {
+    left: -200%;
+  }
+  60% {
+    left: -300%;
+  }
+  76% {
+    left: -300%;
+  }
+  80% {
+    left: -400%;
+  }
+  96% {
+    left: -400%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes slide-inner {
+  0% {
+    left: 0%;
+  }
+  16% {
+    left: 0%;
+  }
+  20% {
+    left: -100%;
+  }
+  36% {
+    left: -100%;
+  }
+  40% {
+    left: -200%;
+  }
+  56.0% {
+    left: -200%;
+  }
+  60% {
+    left: -300%;
+  }
+  76% {
+    left: -300%;
+  }
+  80% {
+    left: -400%;
+  }
+  96% {
+    left: -400%;
+  }
+  100% {
+    left: 0;
+  }
+}
+#slide-autoplay:checked ~ .slider-container .inner {
+  -webkit-animation: slide-inner 25s ease infinite;
+  -moz-animation: slide-inner 25s ease infinite;
+  animation: slide-inner 25s ease infinite;
+}
+#slide-1:checked ~ .controls label:nth-child(5) .prev,
+#slide-1:checked ~ .controls label:nth-child(2) .next {
+  display: block;
+}
+
+#slide-2:checked ~ .controls label:nth-child(1) .prev,
+#slide-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+#slide-3:checked ~ .controls label:nth-child(2) .prev,
+#slide-3:checked ~ .controls label:nth-child(4) .next {
+  display: block;
+}
+
+#slide-4:checked ~ .controls label:nth-child(3) .prev,
+#slide-4:checked ~ .controls label:nth-child(5) .next {
+  display: block;
+}
+
+#slide-5:checked ~ .controls label:nth-child(4) .prev,
+#slide-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+#slide-autoplay:checked ~ .autoplay label:before {
   content: '1';
 }
 

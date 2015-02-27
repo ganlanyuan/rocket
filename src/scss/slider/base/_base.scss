@@ -33,7 +33,7 @@ label { cursor: pointer; }
         box-sizing: border-box;
       }
     }
-    .item { position: relative; }
+    // .item { position: relative; }
     .info, .controls, .dots, .autoplay { 
       position: absolute; 
       z-index: nth($slider-zindex, 1);

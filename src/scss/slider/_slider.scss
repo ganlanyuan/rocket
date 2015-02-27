@@ -5,10 +5,13 @@
 ul { margin: 0; padding: 0; }
 .container { max-width: 1024px; margin: 20px auto; }
 .slide { margin-bottom: 40px; }
-
-@include bp-mi(800) {
-  .slide { @include slider-carousel(); }
-}
+.slide { @include slider-carousel(); }
+// @include bp-mi(800) {
+//   .slide { @include slider-carousel($perpage: 2); }
+// }
+// @include bp-mi(1100) {
+//   .slide { @include slider-carousel($perpage: 3); }
+// }
 
 // // setting item
 // .slide .item { @include transform(scale(0.7) rotate(-10deg)); }

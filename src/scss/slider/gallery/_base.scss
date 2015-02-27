@@ -21,8 +21,7 @@
   @at-root (without: media) {
     .slider-container {
       position: relative;
-      li { position: absolute; }
-      .item {
+      li { position: absolute; 
         @extend %item-normal;
         @extend %slider-transition;
       }
