@@ -1,7 +1,5 @@
-// *** slide-carousel *** //
-$time: 3s;
-
-@mixin slide-carousel(
+// *** slider-carousel *** //
+@mixin slider-carousel(
   $items: 5,
   $perpage: 1,
   $gutter: 10px,
@@ -10,18 +8,17 @@ $time: 3s;
   $hide: none, // none | controls | dots
   $default: true
 ){
-  $id: "#" + get-slider-selector(&);
+  $prefix: get-slider-selector(&);
+  $id: "#" + $prefix;
   $adjustment: 0;
   @if $cut == true { $adjustment: (1 / ($perpage * 2)); }
   @at-root (without: media) { @extend %slide-base; }
 
   // basic
-  .slide-container {
+  .slider-container {
 
     // setting item width
-    @if $perpage != 1 {
-      li { width: percentage(1/$perpage); }
-    }
+    @if $perpage != 1 { li { width: percentage(1/$perpage) } }
 
     // setting gutter
     @if $gutter != 0 and $gutter != 0px and $gutter != null and $gutter != false {
@@ -32,8 +29,8 @@ $time: 3s;
 
   // setting inner
   @for $i from 1 through $items {
-    @at-root #{$id}-#{$i}:checked ~ {
-      .slide-container .inner { 
+    #{$id}-#{$i}:checked ~ {
+      .slider-container .inner { 
         @if ($i / $perpage) >= floor($items / $perpage) and 
             ($i / $perpage) < ceil($items / $perpage) {
           left: - percentage(($items / $perpage) - 1 - $adjustment);
@@ -88,7 +85,7 @@ $time: 3s;
     100% { left: 0; }
   }
   #slide-autoplay:checked ~ {
-    .slide-container .inner { @include animation(slide-inner #{$items / $perpage * $time} ease infinite); }
+    .slider-container .inner { @include animation(slide-inner #{$items / $perpage * $time} ease infinite); }
   }
 
   // hide controls or dots
@@ -123,14 +120,4 @@ $time: 3s;
       #{$id}-autoplay:checked ~ .autoplay { label:before { content: '1'; } }
     }
   }
-}
-
-
-ul { margin: 0; padding: 0; }
-.container { max-width: 1024px; margin: 20px auto; }
-.slide { @include slide-carousel(); margin-bottom: 40px; }
-
-// move controls inside 
-@include bp-ma(1178){
-  .controls { padding-left: 15%; padding-right: 15%; }
 }

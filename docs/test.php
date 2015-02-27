@@ -9,35 +9,35 @@
       <input type="radio" name="slide" id="slide-4">
       <input type="radio" name="slide" id="slide-5">
       <input type="checkbox" name="slide-autoplay" id="slide-autoplay">
-      <div class="slide-container">
+      <div class="slider-container">
         <ul class="inner">
           <li>
             <div class="item">
-              <img src="http://csscience.com/responsiveslidercss3/CouldDragonByBjzaba.png">
+              <a href=""><img src="http://csscience.com/responsiveslidercss3/CouldDragonByBjzaba.png"></a>
               <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
             </div>
           </li>
           <li>
             <div class="item">
-              <img src="http://csscience.com/responsiveslidercss3/MountainFortByBjzaba.png">
+              <a href=""><img src="http://csscience.com/responsiveslidercss3/MountainFortByBjzaba.png"></a>
               <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
             </div>
           </li>
           <li>
             <div class="item">
-              <img src="http://csscience.com/responsiveslidercss3/MountainOutpostByBjzaba.png">
+              <a href=""><img src="http://csscience.com/responsiveslidercss3/MountainOutpostByBjzaba.png"></a>
               <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
             </div>
           </li>
           <li>
             <div class="item">
-              <img src="http://csscience.com/responsiveslidercss3/CliffsByBjzaba.png">
+              <a href=""><img src="http://csscience.com/responsiveslidercss3/CliffsByBjzaba.png"></a>
               <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
             </div>
           </li>
           <li>
             <div class="item">
-              <img src="http://csscience.com/responsiveslidercss3/HillFortByBjzaba.png">
+              <a href=""><img src="http://csscience.com/responsiveslidercss3/HillFortByBjzaba.png"></a>
               <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
             </div>
           </li>
@@ -57,7 +57,7 @@
         <label for="slide-4"><span class="normal"></span><span class="active"></span></label>
         <label for="slide-5"><span class="normal"></span><span class="active"></span></label>
       </div>
-      <div class="autoplay" style="margin-top: 20px;"><label for="slide-autoplay"><span></span></label></div>
+      <div class="autoplay"><label for="slide-autoplay"><span></span></label></div>
     </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ad, molestias accusantium enim alias ducimus. Nihil id possimus quas! Molestiae veniam ea, incidunt molestias a eligendi necessitatibus consectetur voluptatum recusandae.</p>
   </div>

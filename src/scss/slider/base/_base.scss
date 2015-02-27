@@ -7,7 +7,7 @@ label { cursor: pointer; }
 %show { display: block; }
 
 // transition
-%slide-transition { transition: all 1s ease 0s; }
+%slider-transition { transition: all 1s ease 0s; }
 
 // slide-base
 %slide-base {
@@ -16,7 +16,7 @@ label { cursor: pointer; }
     img { width: 100%; }
     > input { display: none; }
     .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
-    .slide-container {
+    .slider-container {
       overflow: hidden;
       .inner {
         position: relative;
@@ -24,7 +24,7 @@ label { cursor: pointer; }
         @extend %clearfix;
         letter-spacing: -0.34em;
         white-space: nowrap;
-        @extend %slide-transition;
+        @extend %slider-transition;
       }
       li {
         display: inline-block;
@@ -34,9 +34,13 @@ label { cursor: pointer; }
       }
     }
     .item { position: relative; }
-    .info, .controls, .dots, .autoplay { position: absolute; }
+    .info, .controls, .dots, .autoplay { 
+      position: absolute; 
+      z-index: nth($slider-zindex, 1);
+    }
     .info { 
       bottom: 20px;
+      z-index: nth($slider-zindex, 2);
     }
     .controls {
       top: 50%;

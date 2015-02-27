@@ -1,79 +1,268 @@
-.slide .slide-container .inner:after { clear: both; content: ""; display: table; }
+.slide .slider-container .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
 
-label { cursor: pointer; }
+label {
+  cursor: pointer;
+}
 
-.slide #slide-1:checked ~ .dots label:nth-child(1) .normal, .slide #slide-2:checked ~ .dots label:nth-child(2) .normal, .slide #slide-3:checked ~ .dots label:nth-child(3) .normal, .slide #slide-4:checked ~ .dots label:nth-child(4) .normal, .slide #slide-5:checked ~ .dots label:nth-child(5) .normal { display: none; }
+.slide #slide-1:checked ~ .dots label:nth-child(1) .normal, .slide #slide-2:checked ~ .dots label:nth-child(2) .normal, .slide #slide-3:checked ~ .dots label:nth-child(3) .normal, .slide #slide-4:checked ~ .dots label:nth-child(4) .normal, .slide #slide-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
 
-.slide #slide-1:checked ~ .controls label:nth-child(5) .prev, .slide #slide-1:checked ~ .controls label:nth-child(2) .next, .slide #slide-1:checked ~ .controls label:nth-child(0) .prev, .slide #slide-2:checked ~ .controls label:nth-child(1) .prev, .slide #slide-2:checked ~ .controls label:nth-child(3) .next, .slide #slide-3:checked ~ .controls label:nth-child(2) .prev, .slide #slide-3:checked ~ .controls label:nth-child(4) .next, .slide #slide-4:checked ~ .controls label:nth-child(3) .prev, .slide #slide-4:checked ~ .controls label:nth-child(5) .next, .slide #slide-5:checked ~ .controls label:nth-child(4) .prev, .slide #slide-5:checked ~ .controls label:nth-child(1) .next, .slide #slide-1:checked ~ .dots label:nth-child(1) .active, .slide #slide-2:checked ~ .dots label:nth-child(2) .active, .slide #slide-3:checked ~ .dots label:nth-child(3) .active, .slide #slide-4:checked ~ .dots label:nth-child(4) .active, .slide #slide-5:checked ~ .dots label:nth-child(5) .active { display: block; }
+.slide #slide-1:checked ~ .controls label:nth-child(5) .prev, .slide #slide-1:checked ~ .controls label:nth-child(2) .next, .slide #slide-1:checked ~ .controls label:nth-child(0) .prev, .slide #slide-2:checked ~ .controls label:nth-child(1) .prev, .slide #slide-2:checked ~ .controls label:nth-child(3) .next, .slide #slide-3:checked ~ .controls label:nth-child(2) .prev, .slide #slide-3:checked ~ .controls label:nth-child(4) .next, .slide #slide-4:checked ~ .controls label:nth-child(3) .prev, .slide #slide-4:checked ~ .controls label:nth-child(5) .next, .slide #slide-5:checked ~ .controls label:nth-child(4) .prev, .slide #slide-5:checked ~ .controls label:nth-child(1) .next, .slide #slide-1:checked ~ .dots label:nth-child(1) .active, .slide #slide-2:checked ~ .dots label:nth-child(2) .active, .slide #slide-3:checked ~ .dots label:nth-child(3) .active, .slide #slide-4:checked ~ .dots label:nth-child(4) .active, .slide #slide-5:checked ~ .dots label:nth-child(5) .active {
+  display: block;
+}
 
-.slide .slide-container .inner, .slide .autoplay { transition: all 1s ease 0s; }
+.slide .slider-container .inner, .slide .dots span, .slide .controls span, .slide .autoplay {
+  transition: all 1s ease 0s;
+}
 
-.slide { position: relative; }
-.slide img { width: 100%; }
-.slide > input { display: none; }
-.lt-ie9 .slide > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
-.slide .slide-container { overflow: hidden; }
-.slide .slide-container .inner { position: relative; left: 0; letter-spacing: -0.34em; white-space: nowrap; }
-.slide .slide-container li { display: inline-block; width: 100%; letter-spacing: 0; box-sizing: border-box; }
-.slide .item { position: relative; }
-.slide .info, .slide .controls, .slide .dots, .slide .autoplay { position: absolute; }
-.slide .info { bottom: 20px; }
-.slide .controls { top: 50%; width: 100%; box-sizing: border-box; }
-.slide .controls span { display: none; }
-.slide .dots { width: 100%; text-align: center; }
-.slide .dots label { display: inline-block; }
-.slide .autoplay { left: 50%; top: 50%; }
+.slide {
+  position: relative;
+}
+.slide img {
+  width: 100%;
+}
+.slide > input {
+  display: none;
+}
+.lt-ie9 .slide > input {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.slide .slider-container {
+  overflow: hidden;
+}
+.slide .slider-container .inner {
+  position: relative;
+  left: 0;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+.slide .slider-container li {
+  display: inline-block;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+.slide .item {
+  position: relative;
+}
+.slide .info, .slide .controls, .slide .dots, .slide .autoplay {
+  position: absolute;
+  z-index: 10;
+}
+.slide .info {
+  bottom: 20px;
+  z-index: 9;
+}
+.slide .controls {
+  top: 50%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.slide .controls span {
+  display: none;
+}
+.slide .dots {
+  width: 100%;
+  text-align: center;
+}
+.slide .dots label {
+  display: inline-block;
+}
+.slide .autoplay {
+  left: 50%;
+  top: 50%;
+}
 
-.slide .dots label, .slide .dots span { display: inline-block; vertical-align: top; }
-.slide .dots label { padding: 12px 3px 0px; }
-.slide .dots span { min-width: 9px; min-height: 9px; background-color: #d3d3d3; border-radius: 50%; }
-.slide .dots .active { background-color: #5a5a5a; display: none; }
+.slide .dots label, .slide .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+.slide .dots label {
+  padding: 12px 3px 0px;
+}
+.slide .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+.slide .dots span {
+  min-width: 9px;
+  min-height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+}
+.slide .dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
 
-.slide .controls { margin-top: -15px; }
-.slide .controls span { width: 24px; height: 30px; }
-.slide .controls span:before { font-family: 'icon-font'; font-size: 24px; }
-.slide .controls .prev { float: left; margin-left: -50px; }
-.slide .controls .prev:before { content: 'n'; }
-.slide .controls .next { float: right; margin-right: -50px; }
-.slide .controls .next:before { content: 'm'; }
+.slide .controls {
+  margin-top: -23px;
+}
+.slide .controls span {
+  width: 40px;
+  height: 46px;
+  opacity: 0.4;
+}
+.slide .controls span:before {
+  font-family: 'icon-font';
+  font-size: 40px;
+}
+.slide .controls span:hover {
+  opacity: 0.8;
+}
+.slide .controls .prev {
+  float: left;
+  margin-left: -60px;
+}
+.slide .controls .prev:before {
+  content: 'n';
+}
+.slide .controls .next {
+  float: right;
+  margin-right: -60px;
+}
+.slide .controls .next:before {
+  content: 'm';
+}
 
-.slide .autoplay { opacity: 0; }
-.slide .autoplay label:before { display: inline-block; font-family: 'icon-font'; content: 'U'; font-size: 24px; color: #fff; width: 30px; height: 30px; line-height: 30px; text-align: center; border: 2px solid #fff; border-radius: 50%; }
-.slide:hover .autoplay { opacity: 0.8; }
+.slide .autoplay {
+  opacity: 0;
+  margin-top: -25px;
+}
+.slide .autoplay label:before {
+  display: inline-block;
+  font-family: 'icon-font';
+  content: 'U';
+  font-size: 45px;
+  color: #fff;
+  width: 45px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+}
+.slide:hover .autoplay {
+  opacity: 0.8;
+}
 
-ul { margin: 0; padding: 0; }
+ul {
+  margin: 0;
+  padding: 0;
+}
 
-.container { max-width: 1024px; margin: 20px auto; }
+.container {
+  max-width: 1024px;
+  margin: 20px auto;
+}
 
-.slide { margin-bottom: 40px; }
-.slide .slide-container { margin: 0 -10px; }
-.slide .slide-container .item { margin: 0 10px; }
-#slide-1:checked ~ .slide-container .inner { left: 0%; }
-#slide-2:checked ~ .slide-container .inner { left: -100%; }
-#slide-3:checked ~ .slide-container .inner { left: -200%; }
-#slide-4:checked ~ .slide-container .inner { left: -300%; }
-#slide-5:checked ~ .slide-container .inner { left: -400%; }
-@-webkit-keyframes slide-inner { 0% { left: 0; }
-  20% { left: -100%; }
-  40% { left: -200%; }
-  60% { left: -300%; }
-  80% { left: -400%; }
-  100% { left: 0; } }
-@-moz-keyframes slide-inner { 0% { left: 0; }
-  20% { left: -100%; }
-  40% { left: -200%; }
-  60% { left: -300%; }
-  80% { left: -400%; }
-  100% { left: 0; } }
-@keyframes slide-inner { 0% { left: 0; }
-  20% { left: -100%; }
-  40% { left: -200%; }
-  60% { left: -300%; }
-  80% { left: -400%; }
-  100% { left: 0; } }
-.slide #slide-autoplay:checked ~ .slide-container .inner { -webkit-animation: slide-inner 15s ease infinite; -moz-animation: slide-inner 15s ease infinite; animation: slide-inner 15s ease infinite; }
-.slide #slide-autoplay:checked ~ .autoplay label:before { content: '1'; }
+.slide {
+  margin-bottom: 40px;
+}
 
-@media (max-width: 73.625em) { .controls { padding-left: 15%; padding-right: 15%; } }
+@media (min-width: 50em) {
+  .slide .slider-container {
+    margin: 0 -10px;
+  }
+  .slide .slider-container .item {
+    margin: 0 10px;
+  }
+  .slide #slide-1:checked ~ .slider-container .inner {
+    left: 0%;
+  }
+  .slide #slide-2:checked ~ .slider-container .inner {
+    left: -100%;
+  }
+  .slide #slide-3:checked ~ .slider-container .inner {
+    left: -200%;
+  }
+  .slide #slide-4:checked ~ .slider-container .inner {
+    left: -300%;
+  }
+  .slide #slide-5:checked ~ .slider-container .inner {
+    left: -400%;
+  }
+  @-webkit-keyframes slide-inner {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: -100%;
+    }
+    40% {
+      left: -200%;
+    }
+    60% {
+      left: -300%;
+    }
+    80% {
+      left: -400%;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @-moz-keyframes slide-inner {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: -100%;
+    }
+    40% {
+      left: -200%;
+    }
+    60% {
+      left: -300%;
+    }
+    80% {
+      left: -400%;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes slide-inner {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: -100%;
+    }
+    40% {
+      left: -200%;
+    }
+    60% {
+      left: -300%;
+    }
+    80% {
+      left: -400%;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  .slide #slide-autoplay:checked ~ .slider-container .inner {
+    -webkit-animation: slide-inner 15s ease infinite;
+    -moz-animation: slide-inner 15s ease infinite;
+    animation: slide-inner 15s ease infinite;
+  }
+}
+.slide #slide-autoplay:checked ~ .autoplay label:before {
+  content: '1';
+}
+
+@media (max-width: 73.625em) {
+  .controls {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
 
 /*# sourceMappingURL=test.css.map */

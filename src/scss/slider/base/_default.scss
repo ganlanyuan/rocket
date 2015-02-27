@@ -1,6 +1,6 @@
 // *** slide default *** //
 
-// dots and controls
+// dots
 %default-dots {
   .dots {
     label, span {
@@ -9,54 +9,63 @@
     }
     label {
       padding: 12px 3px 0px;
+      &:hover .normal { background-color: #5a5a5a; }
     }
     span {
       min-width: 9px;
       min-height: 9px;
       background-color: #d3d3d3;
       border-radius: 50%;
+      @extend %slider-transition;
     }
     .active { background-color: #5a5a5a; display: none; }
   }
 }
+
+// controls
 %default-controls {
   .controls {
-    margin-top: -15px;
+    margin-top: -23px;
     span {
-      width: 24px;
-      height: 30px;
+      width: 40px;
+      height: 46px;
+      opacity: 0.4;
+      @extend %slider-transition;
       &:before {
         font-family: 'icon-font';
-        font-size: 24px;
+        font-size: 40px;
       }
+      &:hover { opacity: 0.8; }
     }
     .prev {
       float: left;
-      margin-left: -50px;
+      margin-left: -60px;
       &:before { content: 'n'; }
     }
     .next {
       float: right;
-      margin-right: -50px;
+      margin-right: -60px;
       &:before { content: 'm'; }
     }
   }
 }
+
+// autoplay
 %default-autoplay {
   .autoplay {
     opacity: 0;
-    @extend %slide-transition;
+    margin-top: -25px;
+    @extend %slider-transition;
     label:before {
       display: inline-block;
       font-family: 'icon-font';
       content: 'U';
-      font-size: 24px;
+      font-size: 45px;
       color: #fff;
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
+      width: 45px;
+      height: 50px;
+      line-height: 50px;
       text-align: center;
-      border: 2px solid #fff;
       border-radius: 50%;
     }
   }

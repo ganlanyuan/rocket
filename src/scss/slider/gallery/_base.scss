@@ -1,23 +1,30 @@
 // gallery base
-%item-normal { 
+@mixin item-normal {
+  z-index: nth($slider-zindex, 4); 
   opacity: 0; 
-  z-index: 1; 
+}
+@mixin item-active {
+  z-index: nth($slider-zindex, 3); 
+  opacity: 1; 
+}
+%item-normal { 
+  @include item-normal; 
+  width: 100%;
   .no-opacity & { display: none; } 
 }
 %item-active { 
-  opacity: 1; 
-  z-index: 10; 
+  @include item-active; 
   .no-opacity & { display: block; } 
 }
 
 %slide-fade-base {
   @at-root (without: media) {
-    .slide-container {
+    .slider-container {
       position: relative;
       li { position: absolute; }
       .item {
         @extend %item-normal;
-        @extend %slide-transition;
+        @extend %slider-transition;
       }
     }
   }
