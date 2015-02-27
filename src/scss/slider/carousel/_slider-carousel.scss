@@ -5,7 +5,7 @@
   $gutter: 10px,
   $slide-by-page: false,
   $hide-half: false,
-  $hide: 'none', // none | controls | dots | autoplay
+  $hide: 'autoplay', // none | controls | dots | autoplay
   $default: true
 ){
   $half: 0;
@@ -141,6 +141,10 @@
             .dots label:nth-child(#{$i}) .normal { @extend %hide; }
           }
         }
+      }
+      // redefine dots on autoplay
+      @at-root {
+        #{$id}-autoplay:checked ~ .dots { display: none; }
       }
     }
 

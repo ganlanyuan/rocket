@@ -1,16 +1,16 @@
 // *** slider-gallery *** //
-@import 'base';
+@import 'slider-gallery-base';
 
 @mixin slider-gallery(
   $items: 5,
   $ratio: 619/1100, 
-  $hide: 'none', // none | controls | dots | autoplay
+  $hide: 'autoplay', // none | controls | dots | autoplay
   $default: true
 ){
   $prefix: get-slider-selector(&);
   $id: "#" + $prefix;
-  @at-root (without: media) { // @at-root start
 
+  @at-root (without: media) { // @at-root (without: media) start
     // base
     @extend %slide-base; 
     @extend %slide-fade-base;
@@ -73,14 +73,6 @@
           #{$id}-autoplay:checked ~ .autoplay { 
             label:before { content: '1'; } 
           }
-          // #{$id}-autoplay:checked ~ {
-          //   .dots, .controls { 
-          //     opacity: 0; 
-          //     @at-root {
-          //       #{selector-nest(#{'.' + $prefix + ':hover '}, &)} { opacity: 1; }
-          //     }
-          //   }
-          // } 
         }
       }
       // animation
@@ -103,6 +95,7 @@
             .slider-container li:nth-child(#{$i}) {
               @include animation( #{$prefix}-#{$i} $peritem * $items ease infinite);
             }
+            .dots { display: none; }
           }
         }
       }
@@ -117,9 +110,9 @@
     // hide controls, dots or autoplay
     @each $item in controls, dots, autoplay {
       @if str-index($hide, $item) != null {
-        & .#{$item} { display: none !important; }
+        .#{$item} { display: none !important; }
       }
     }
 
-  } // @at-root end
+  } // @at-root (without: media) end
 }

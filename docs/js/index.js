@@ -29,3 +29,9 @@ window.onscroll = function () {
     }
   })
 };
+
+ready(function () {
+  k('.slider-labels label').click(function() {
+    k(this).toggleClass('selected').siblings('label').removeClass('selected');
+  });
+})

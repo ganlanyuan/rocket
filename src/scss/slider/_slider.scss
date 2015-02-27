@@ -1,37 +1,3 @@
 @import "base/slider-base";
 @import "gallery/slider-gallery";
 @import "carousel/slider-carousel";
-
-ul { margin: 0; padding: 0; }
-.container { max-width: 1024px; margin: 20px auto; }
-.slide { margin-bottom: 40px; }
-.slide { @include slider-carousel(); }
-// @include bp-mi(800) {
-//   .slide { @include slider-carousel($perpage: 2); }
-// }
-// @include bp-mi(1100) {
-//   .slide { @include slider-carousel($perpage: 3); }
-// }
-
-// // setting item
-// .slide .item { @include transform(scale(0.7) rotate(-10deg)); }
-// @for $i from 1 through 5 {
-//   #slide-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .item { @include transform(scale(1) rotate(0deg)); }
-// }
-
-// // setting .info
-// .slide .info { opacity: 0; margin-left: 0;
-//   -webkit-transition: all 1s $global-bezier 0.5s;
-//   transition: all 1s $global-bezier 0.5s;
-//  }
-// @for $i from 1 through 5 {
-//   #slide-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .info {
-//     opacity: 1;
-//     margin-left: 40px;
-//   }
-// }
-
-// move controls inside 
-@include bp-ma(1178){
-  .controls { padding-left: 70px; padding-right: 70px; }
-}
