@@ -1,32 +1,40 @@
 // get-slider-selector
 @function get-slider-selector($selector){
   $str-selector: #{$selector};
-  $adjustment: 0;
+  $adjustment-class: 0;
+  $adjustment-id: 0;
+  $start: 0;
   $start-class: 0;
   $start-id: 0;
 
   // class
   @if str-index($str-selector, ' .') { 
     $start-class: str-index($str-selector, ' .'); 
-    $adjustment: 2;
+    $adjustment-class: 2;
   }
   @else if str-index($str-selector, '.') { 
     $start-class: str-index($str-selector, '.');
-    $adjustment: 1; 
+    $adjustment-class: 1; 
   }
   @else { $start-class: 0; }
 
   // id
   @if str-index($str-selector, ' #') { 
     $start-id: str-index($str-selector, ' #');
-    $adjustment: 2; 
+    $adjustment-id: 2; 
   }
   @else if str-index($str-selector, '#') { 
     $start-id: str-index($str-selector, '#'); 
-    $adjustment: 1;
+    $adjustment-id: 1;
   }
   @else { $start-id: 0; }
 
-  $start: (max($start-class, $start-id) + $adjustment);
+  @if $start-class > $start-id {
+    $start: ($start-class + $adjustment-class);
+  }
+  @else {
+    $start: ($start-id + $adjustment-id);
+  }
+
   @return str-slice($str-selector, $start, str-length($str-selector));
 }

@@ -5,37 +5,6 @@ $cover-bg: rgba(48, 68, 117, .57);
 
 $active: split-complementary(rgb(64, 0, 255), 1);
 $blue: #4A90E2;
-ul { margin: 0; padding: 0; }
-.container { max-width: 1024px; margin: 20px auto; }
-.pure { margin-bottom: 40px; }
-.pure { @include slider-gallery(); }
-@include bp-mi(800) {
-  .pure { @include slider-gallery(); }
-}
-
-// setting item
-// .slide .slider-container { overflow: visible; }
-// .slide li { @include transform(scale(1.2) translate(-100px,100px)); }
-// @for $i from 1 through 5 {
-//   #slide-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1) translate(0,0)); }
-// }
-
-// setting .info
-// .slide .info { opacity: 0; margin-left: 0;
-//   -webkit-transition: all 1s $global-bezier 0.5s;
-//   transition: all 1s $global-bezier 0.5s;
-//  }
-// @for $i from 1 through 5 {
-//   #slide-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .info {
-//     opacity: 1;
-//     margin-left: 40px;
-//   }
-// }
-
-// move controls inside 
-@include bp-ma(1178){
-  .controls { padding-left: 70px; padding-right: 70px; }
-}
 
 // common
 dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p { margin: 0; }
@@ -278,7 +247,51 @@ p {
       .title { @include type(14px, bold, 1.3, 0 0 .3em); }
       label { 
         @include button(13px, 12px 22px, 0 10px 10px 0, #d2d2d2, null, 3px); 
-        &:hover, &.selected { background-color: #ace2ff;}
+        &:hover { background-color: $active;}
+      }
+    }
+    .info { 
+      padding: 10px; 
+      h3 { margin-bottom: 0; }
+    }
+    @at-root {
+      @each $item in gallery-lg, gallery-md, gallery-sm, auto-play, gallery-customise, carousel-lg, carousel-md, carousel-sm, slide-by-page, hide-half, carousel-auto-play {
+        [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { background-color: $active; }
+      }
+      .gallery, .carousel { 
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 1000px; 
+        margin-bottom: 40px; 
+        @extend %global-transition; 
+        [id*="-md"]:checked ~ & { max-width: 700px; }
+        [id*="-sm"]:checked ~ & { max-width: 400px; }
+      }
+      @include bp-ma(1178){
+        .controls { padding-left: 70px; padding-right: 70px; }
+      }
+      [id="gallery-customise"]:checked ~ .gallery {
+        @include slider-gallery();
+        // setting item
+        .slider-container { overflow: visible; }
+        li { @include transform(scale(1.1)); }
+        @for $i from 1 through 5 {
+          #gallery-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
+        }
+        // setting .info
+        .info { opacity: 0; margin-left: 0;
+          -webkit-transition: all 1s $global-bezier 0.5s;
+          transition: all 1s $global-bezier 0.5s;
+         }
+        @for $i from 1 through 5 {
+          #gallery-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .info {
+            opacity: 1;
+            margin-left: 40px;
+          }
+        }
+      }
+      [id="carousel-lg"]:checked ~ .carousel {
+        @include slider-carousel($perpage: 3);
       }
     }
   }

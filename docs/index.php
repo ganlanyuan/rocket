@@ -306,39 +306,32 @@ $layout: (
       <h2 id="slider">Pure css slideshow</h2>
       <p></p>
       <div class="example-slider">
-        <input type="radio" name="type" id="gallery">
-        <input type="radio" name="type" id="carousel">
-        <input type="radio" name="options" id="lg">
-        <input type="radio" name="options" id="md">
-        <input type="radio" name="options" id="sm">
-        <input type="radio" name="options" id="slide-by-page">
-        <input type="radio" name="options" id="hide-half">
-        <input type="radio" name="options" id="auto-play">
-        <input type="radio" name="options" id="customise">
+        <input type="radio" name="option-gallery" id="gallery-lg">
+        <input type="radio" name="option-gallery" id="gallery-md">
+        <input type="radio" name="option-gallery" id="gallery-sm">
+        <input type="radio" name="option-gallery" id="gallery-auto-play">
+        <input type="radio" name="option-gallery" id="gallery-customise" checked="">
         <div class="slider-labels">
           <div>
             <div class="title">Type: </div>
-            <label for="gallery">gallery</label>
-            <label for="carousel">carousel</label>
+            <label for="">gallery</label>
           </div>
           <div>
             <div class="title">Options: </div>
-            <label for="lg">lg</label>
-            <label for="md">md</label>
-            <label for="sm">sm</label>
-            <label for="slide-by-page">slide-by-page</label>
-            <label for="hide-half">hide-half</label>
-            <label for="auto-play">auto-play</label>
-            <label for="customise">customise</label>
+            <label for="gallery-lg">lg</label>
+            <label for="gallery-md">md</label>
+            <label for="gallery-sm">sm</label>
+            <label for="gallery-auto-play">auto-play</label>
+            <label for="gallery-customise">customise</label>
           </div>
         </div>
-        <div class="pure">
-          <input type="radio" name="pure" id="pure-1" checked="">
-          <input type="radio" name="pure" id="pure-2">
-          <input type="radio" name="pure" id="pure-3">
-          <input type="radio" name="pure" id="pure-4">
-          <input type="radio" name="pure" id="pure-5">
-          <input type="checkbox" name="pure-autoplay" id="pure-autoplay" checked="">
+        <div class="gallery">
+          <input type="radio" name="gallery" id="gallery-1" checked="">
+          <input type="radio" name="gallery" id="gallery-2">
+          <input type="radio" name="gallery" id="gallery-3">
+          <input type="radio" name="gallery" id="gallery-4">
+          <input type="radio" name="gallery" id="gallery-5">
+          <input type="checkbox" name="gallery-autoplay" id="gallery-autoplay" checked="">
           <div class="slider-container">
             <ul class="inner">
               <li>
@@ -369,20 +362,93 @@ $layout: (
             </ul>
           </div>
           <div class="controls">
-            <label for="pure-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="pure-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="pure-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="pure-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="pure-5"><span class="prev"></span><span class="next"></span></label>
+            <label for="gallery-1"><span class="prev"></span><span class="next"></span></label>
+            <label for="gallery-2"><span class="prev"></span><span class="next"></span></label>
+            <label for="gallery-3"><span class="prev"></span><span class="next"></span></label>
+            <label for="gallery-4"><span class="prev"></span><span class="next"></span></label>
+            <label for="gallery-5"><span class="prev"></span><span class="next"></span></label>
           </div>
           <div class="dots">
-            <label for="pure-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="pure-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="pure-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="pure-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="pure-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="gallery-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="gallery-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="gallery-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="gallery-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="gallery-5"><span class="normal"></span><span class="active"></span></label>
           </div>
-          <div class="autoplay"><label for="pure-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="gallery-autoplay"><span></span></label></div>
+        </div>
+        <input type="radio" name="option-carousel" id="carousel-lg" checked="">
+        <input type="radio" name="option-carousel" id="carousel-md">
+        <input type="radio" name="option-carousel" id="carousel-sm">
+        <input type="radio" name="option-carousel" id="slide-by-page">
+        <input type="radio" name="option-carousel" id="hide-half">
+        <input type="radio" name="option-carousel" id="carousel-auto-play">
+        <div class="slider-labels">
+          <div>
+            <div class="title">Type: </div>
+            <label for="">carousel</label>
+          </div>
+          <div>
+            <div class="title">Options: </div>
+            <label for="carousel-lg">lg</label>
+            <label for="carousel-md">md</label>
+            <label for="carousel-sm">sm</label>
+            <label for="slide-by-page">slide-by-page</label>
+            <label for="hide-half">hide-half</label>
+            <label for="carousel-auto-play">auto-play</label>
+          </div>
+        </div>
+        <div class="carousel">
+          <input type="radio" name="carousel" id="carousel-1" checked="">
+          <input type="radio" name="carousel" id="carousel-2">
+          <input type="radio" name="carousel" id="carousel-3">
+          <input type="radio" name="carousel" id="carousel-4">
+          <input type="radio" name="carousel" id="carousel-5">
+          <input type="checkbox" name="carousel-autoplay" id="carousel-autoplay">
+          <div class="slider-container">
+            <ul class="inner">
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="controls">
+            <label for="carousel-1"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-2"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-3"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-4"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-5"><span class="prev"></span><span class="next"></span></label>
+          </div>
+          <div class="dots">
+            <label for="carousel-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="autoplay"><label for="carousel-autoplay"><span></span></label></div>
         </div>
       </div>
     </div>
