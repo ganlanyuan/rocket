@@ -4,7 +4,8 @@
 @mixin slider-gallery(
   $items: 5,
   $ratio: 619/1100, 
-  $hide: 'autoplay', // none | controls | dots | autoplay
+  $autoplay: false,
+  $hide: 'none', // none | controls | dots | autoplay
   $default: true
 ){
   $prefix: get-slider-selector(&);
@@ -66,7 +67,7 @@
     }
 
     // setting autoplay
-    @if str-index($hide, 'autoplay') == null {
+    @if str-index($hide, 'autoplay') == null and $autoplay == true {
       @if $default {
         @extend %default-autoplay;
         @at-root { 

@@ -14,15 +14,10 @@
         <li><a href="#debug">debug</a></li>
       </ul>
     </li>
-    <li class="site-nav--haschild"><a href="#color">color<span class="ic-triangle-down"></span></a>
+    <li class="site-nav--haschild"><a href="#slider">slider<span class="ic-triangle-down"></span></a>
       <ul data-dropdown-menu>
-        <li><a href="#contrast">contrast</a></li>
-        <li><a href="#adjacent">adjacent</a></li>
-        <li><a href="#complementary">complementary</a></li>
-        <li><a href="#split-complementary">split-complementary</a></li>
-        <li><a href="#triad">triad</a></li>
-        <li><a href="#rectangle">rectangle</a></li>
-        <li><a href="#square">square</a></li>
+        <li><a href="#slider-gallery-topic">slider-gallery</a></li>
+        <li><a href="#slider-carousel-topic">slider-carousel</a></li>
       </ul>
     </li>
     <li class="site-nav--haschild"><a href="#addons">Addons<span class="ic-triangle-down"></span></a>
@@ -37,6 +32,17 @@
         <li><a href="#visibility">visibility</a></li>
         <li><a href="#flex-video">flex-video</a></li>
         <li><a href="#icon-font">icon-font</a></li>
+      </ul>
+    </li>
+    <li class="site-nav--haschild"><a href="#color">color<span class="ic-triangle-down"></span></a>
+      <ul data-dropdown-menu>
+        <li><a href="#contrast">contrast</a></li>
+        <li><a href="#adjacent">adjacent</a></li>
+        <li><a href="#complementary">complementary</a></li>
+        <li><a href="#split-complementary">split-complementary</a></li>
+        <li><a href="#triad">triad</a></li>
+        <li><a href="#rectangle">rectangle</a></li>
+        <li><a href="#square">square</a></li>
       </ul>
     </li>
     <li><a href="#kit">Kit.js</a></li>

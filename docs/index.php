@@ -303,337 +303,577 @@ $layout: (
       </section>
     </div>
     <div class="topic">
-      <h2 id="slider">Pure css slideshow</h2>
+      <h2 id="slider">Pure CSS slideshow</h2>
+      <p>A 100% pure CSS responsive slider with <code>previous/next buttons</code>, <code>nav dots</code>, <code>autoplay</code> and more. It works well on modern browsers and IE8+, but it doesn't support <code>loop</code>, <code>autoheight</code> and <code>lazyload</code> for now.</p>
+      <div class="content">
+        <div class="content-main">
+            <pre><code class="language-markup">
+&lt;div class="banner"&gt;
+  &lt;input type="radio" name="banner" id="banner-1" checked=""&gt;
+  &lt;input type="radio" name="banner" id="banner-2"&gt;
+  &lt;input type="radio" name="banner" id="banner-3"&gt;
+  &lt;input type="radio" name="banner" id="banner-4"&gt;
+  &lt;input type="radio" name="banner" id="banner-5"&gt;
+  &lt;input type="checkbox" name="banner-autoplay" id="banner-autoplay" checked=""&gt;
+  &lt;div class="slider-container"&gt;
+    &lt;ul class="inner"&gt;
+      &lt;li&gt; slider01 &lt;/li&gt;
+      &lt;li&gt; slider02 &lt;/li&gt;
+      &lt;li&gt; slider03 &lt;/li&gt;
+      &lt;li&gt; slider04 &lt;/li&gt;
+      &lt;li&gt; slider05 &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="controls"&gt;
+    &lt;label for="banner-1"&gt;&lt;span class="prev"&gt;&lt;/span&gt;&lt;span class="next"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-2"&gt;&lt;span class="prev"&gt;&lt;/span&gt;&lt;span class="next"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-3"&gt;&lt;span class="prev"&gt;&lt;/span&gt;&lt;span class="next"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-4"&gt;&lt;span class="prev"&gt;&lt;/span&gt;&lt;span class="next"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-5"&gt;&lt;span class="prev"&gt;&lt;/span&gt;&lt;span class="next"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="dots"&gt;
+    &lt;label for="banner-1"&gt;&lt;span class="normal"&gt;&lt;/span&gt;&lt;span class="active"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-2"&gt;&lt;span class="normal"&gt;&lt;/span&gt;&lt;span class="active"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-3"&gt;&lt;span class="normal"&gt;&lt;/span&gt;&lt;span class="active"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-4"&gt;&lt;span class="normal"&gt;&lt;/span&gt;&lt;span class="active"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label for="banner-5"&gt;&lt;span class="normal"&gt;&lt;/span&gt;&lt;span class="active"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="autoplay"&gt;&lt;label for="banner-autoplay"&gt;&lt;span&gt;&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;
+&lt;/div&gt;
+            </code></pre>
+          </div>
+          <div class="content-aside">
+            <p style="text-align: left;">
+            <strong>// Basic markup</strong> <br>
+            The box on the left is an example of markup. <br>
+            First, set a <code>specific class</code> (or ID) for each slider. <br>
+            Then, use this class (or id) to set up the radio names and IDs as well as labels. <br>
+            In the example shows on the left, I used <code>banner</code> as my specific class.
+            </p>
+          </div>
+      </div>
+      <h3 id="slider-gallery-topic">slider-gallery</h3>
       <p></p>
-      <div class="example-slider">
-        <input type="radio" name="option-gallery" id="gallery-lg">
-        <input type="radio" name="option-gallery" id="gallery-md">
-        <input type="radio" name="option-gallery" id="gallery-sm">
-        <input type="radio" name="option-gallery" id="gallery-auto-play">
-        <input type="radio" name="option-gallery" id="gallery-customise" checked="">
-        <div class="slider-labels">
-          <div>
-            <div class="title">Type: </div>
-            <label for="">gallery</label>
-          </div>
-          <div>
-            <div class="title">Options: </div>
-            <label for="gallery-lg">lg</label>
-            <label for="gallery-md">md</label>
-            <label for="gallery-sm">sm</label>
-            <label for="gallery-auto-play">auto-play</label>
-            <label for="gallery-customise">customise</label>
+      <div class="content">
+        <div class="content-main">
+          <div class="example-slider">
+            <input type="radio" name="slider-gallery" id="slider-gallery" checked="">
+            <input type="radio" name="option-gallery" id="gallery-lg">
+            <input type="radio" name="option-gallery" id="gallery-md">
+            <input type="radio" name="option-gallery" id="gallery-sm">
+            <input type="radio" name="option-gallery" id="gallery-auto-play">
+            <input type="radio" name="option-gallery" id="gallery-customise" checked="">
+            <div class="slider-labels">
+              <div>
+                <div class="title">Type: </div>
+                <label for="slider-gallery">gallery</label>
+              </div>
+              <div>
+                <div class="title">Options: </div>
+                <label for="gallery-auto-play">auto-play</label>
+                <label for="gallery-customise">customise</label>
+              </div>
+            </div>
+            <div class="gallery-a">
+              <input type="radio" name="gallery-a" id="gallery-a-1" checked="">
+              <input type="radio" name="gallery-a" id="gallery-a-2">
+              <input type="radio" name="gallery-a" id="gallery-a-3">
+              <input type="radio" name="gallery-a" id="gallery-a-4">
+              <input type="radio" name="gallery-a" id="gallery-a-5">
+              <input type="checkbox" name="gallery-a-autoplay" id="gallery-a-autoplay" checked="">
+              <div class="slider-container">
+                <ul class="inner">
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                      <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                      <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                      <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                      <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                      <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="controls">
+                <label for="gallery-a-1"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-a-2"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-a-3"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-a-4"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-a-5"><span class="prev"></span><span class="next"></span></label>
+              </div>
+              <div class="dots">
+                <label for="gallery-a-1"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-a-2"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-a-3"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-a-4"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-a-5"><span class="normal"></span><span class="active"></span></label>
+              </div>
+              <div class="autoplay"><label for="gallery-a-autoplay"><span></span></label></div>
+            </div>
+            <div class="gallery-b">
+              <input type="radio" name="gallery-b" id="gallery-b-1" checked="">
+              <input type="radio" name="gallery-b" id="gallery-b-2">
+              <input type="radio" name="gallery-b" id="gallery-b-3">
+              <input type="radio" name="gallery-b" id="gallery-b-4">
+              <input type="radio" name="gallery-b" id="gallery-b-5">
+              <input type="checkbox" name="gallery-b-autoplay" id="gallery-b-autoplay" checked="">
+              <div class="slider-container">
+                <ul class="inner">
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                      <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                      <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                      <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                      <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                      <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="controls">
+                <label for="gallery-b-1"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-b-2"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-b-3"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-b-4"><span class="prev"></span><span class="next"></span></label>
+                <label for="gallery-b-5"><span class="prev"></span><span class="next"></span></label>
+              </div>
+              <div class="dots">
+                <label for="gallery-b-1"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-b-2"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-b-3"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-b-4"><span class="normal"></span><span class="active"></span></label>
+                <label for="gallery-b-5"><span class="normal"></span><span class="active"></span></label>
+              </div>
+              <div class="autoplay"><label for="gallery-b-autoplay"><span></span></label>
+            </div>
+            </div>
           </div>
         </div>
-        <div class="gallery">
-          <input type="radio" name="gallery" id="gallery-1" checked="">
-          <input type="radio" name="gallery" id="gallery-2">
-          <input type="radio" name="gallery" id="gallery-3">
-          <input type="radio" name="gallery" id="gallery-4">
-          <input type="radio" name="gallery" id="gallery-5">
-          <input type="checkbox" name="gallery-autoplay" id="gallery-autoplay" checked="">
-          <div class="slider-container">
-            <ul class="inner">
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="controls">
-            <label for="gallery-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="gallery-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="gallery-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="gallery-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="gallery-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
-          <div class="dots">
-            <label for="gallery-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="gallery-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="gallery-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="gallery-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="gallery-5"><span class="normal"></span><span class="active"></span></label>
-          </div>
-          <div class="autoplay"><label for="gallery-autoplay"><span></span></label></div>
-        </div>
-        <input type="radio" name="option-carousel" id="carousel-lg" checked="">
-        <input type="radio" name="option-carousel" id="carousel-md">
-        <input type="radio" name="option-carousel" id="carousel-sm">
-        <input type="radio" name="option-carousel" id="slide-by-page">
-        <input type="radio" name="option-carousel" id="hide-half">
-        <input type="radio" name="option-carousel" id="carousel-auto-play">
-        <div class="slider-labels">
-          <div>
-            <div class="title">Type: </div>
-            <label for="">carousel</label>
-          </div>
-          <div>
-            <div class="title">Options: </div>
-            <label for="carousel-lg">lg</label>
-            <label for="carousel-md">md</label>
-            <label for="carousel-sm">sm</label>
-            <label for="slide-by-page">slide-by-page</label>
-            <label for="hide-half">hide-half</label>
-            <label for="carousel-auto-play">auto-play</label>
-          </div>
-        </div>
-        <div class="carousel">
-          <input type="radio" name="carousel" id="carousel-1" checked="">
-          <input type="radio" name="carousel" id="carousel-2">
-          <input type="radio" name="carousel" id="carousel-3">
-          <input type="radio" name="carousel" id="carousel-4">
-          <input type="radio" name="carousel" id="carousel-5">
-          <input type="checkbox" name="carousel-autoplay" id="carousel-autoplay">
-          <div class="slider-container">
-            <ul class="inner">
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="controls">
-            <label for="carousel-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
-          <div class="dots">
-            <label for="carousel-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-5"><span class="normal"></span><span class="active"></span></label>
-          </div>
-          <div class="autoplay"><label for="carousel-autoplay"><span></span></label></div>
+        <div class="content-aside">
+          <pre class="language-scss"><code>
+// basic
+@include slider-gallery($items, $ratio, $autoplay, $hide, $default);
+// $items: num
+// $ratio: height/width 
+// $autoplay: false | true
+// $hide: none | controls | dots | autoplay
+// $default: true | false
+.yourSlider { @include slider-gallery(10, 9/16, false, 'autoplay dots', false); }
+
+// autoplay
+.autoplay { @include slider-gallery($autoplay: true); }
+
+// customise dots and controls
+.yourSlider .dots .normal { ... }
+.yourSlider .dots .active { ... }
+.yourSlider .controls .prev { ... }
+.yourSlider .controls .next { ... }
+
+// customise items
+.yourSlider {
+  .slider-container { overflow: visible; }
+  li { @include transform(scale(1.1)); }
+  @for $i from 1 through 5 {
+    #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
+  }
+}
+          </code></pre>
         </div>
       </div>
-    </div>
-    <div class="topic">
-      <h2 id="color">color-functions</h2>
-      <p>Please refer to <a href="https://color.adobe.com/create/color-wheel/" target="_blank">Adobe Kuler</a> and <a href="http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF" target="_blank">paletton</a></p>
-      <section>
-        <h3 id="contrast">contrast</h3>
-        <p><code>contrast</code> is for getting a contrast font-color based on the background-color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-contrast">
-                <div class="color-box color-box-contrast">contrast</div>
-              </div>
+      <h3 id="slider-carousel-topic">slider-carousel</h3>
+      <p></p>
+      <div class="content">
+        <div class="example-slider">
+          <input type="radio" name="slider-carousel" id="slider-carousel" checked="">
+          <input type="radio" name="option-carousel" id="carousel-lg" checked="">
+          <input type="radio" name="option-carousel" id="carousel-md">
+          <input type="radio" name="option-carousel" id="carousel-sm">
+          <input type="radio" name="option-carousel" id="slide-by-page">
+          <input type="radio" name="option-carousel" id="slider-center">
+          <input type="radio" name="option-carousel" id="carousel-auto-play" checked="">
+          <div class="slider-labels">
+            <div>
+              <div class="title">Type: </div>
+              <label for="slider-carousel">carousel</label>
+            </div>
+            <div>
+              <div class="title">Options: </div>
+              <label for="carousel-lg">lg</label>
+              <label for="carousel-md">md</label>
+              <label for="carousel-sm">sm</label>
+              <label for="slide-by-page">slide-by-page</label>
+              <label for="slider-center">center</label>
+              <label for="carousel-auto-play">auto-play</label>
             </div>
           </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-contrast( $color, $light: #fff, $dark: #000 );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $light (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $dark (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
-
-// If lightness < 65%, return $light, otherwise return $dark
-// .youclass { color: contrast(#a6e36e, $light:#dbdbdb, $dark: #212121); }
-            </code></pre>
-          </div>
-        </div>
-        <h3 id="adjacent">adjacent</h3>
-        <p><code>adjacent</code> is for creating adjacent colors.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-adjacent">
-                <div class="color-box color-box-adjacent-1">adjacent 1</div>
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-adjacent-2">adjacent 2</div>
-                <div class="color-pattern"><img src="images/adjacent.png" alt="adjacent-colors"></div>
-              </div>
+          <div class="carousel-a">
+            <input type="radio" name="carousel-a" id="carousel-a-1" checked="">
+            <input type="radio" name="carousel-a" id="carousel-a-2">
+            <input type="radio" name="carousel-a" id="carousel-a-3">
+            <input type="radio" name="carousel-a" id="carousel-a-4">
+            <input type="radio" name="carousel-a" id="carousel-a-5">
+            <input type="checkbox" name="carousel-a-autoplay" id="carousel-a-autoplay">
+            <div class="slider-container">
+              <ul class="inner">
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                    <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                    <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                    <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-adjacent( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: adjacent(#a6e36e, 1, $dist: 20); }
-            </code></pre>
-          </div>
-        </div>
-        <h3 id="complementary">complementary</h3>
-        <p><code>complementary</code> is for getting a complementary color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-complementary">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-complementary">complementary</div>
-                <div class="color-pattern"><img src="images/complementary.png" alt="complementary-colors"></div>
-              </div>
+            <div class="controls">
+              <label for="carousel-a-1"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-a-2"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-a-3"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-a-4"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-a-5"><span class="prev"></span><span class="next"></span></label>
             </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-complementary( $color, $saturation, $lightness );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-
-// .youclass { color: complementary(#a6e36e, null, 20%); }
-            </code></pre>
-          </div>
-        </div>
-        <h3 id="split-complementary">split-complementary</h3>
-        <p><code>split-complementary</code> is for getting split-complementary colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-split-complementary">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-split-complementary-1">split-complementary 1</div>
-                <div class="color-box color-box-split-complementary-2">split-complementary 2</div>
-                <div class="color-pattern"><img src="images/split-complementary.png" alt="split-complementary-colors"></div>
-              </div>
+            <div class="dots">
+              <label for="carousel-a-1"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-a-2"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-a-3"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-a-4"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-a-5"><span class="normal"></span><span class="active"></span></label>
             </div>
+            <div class="autoplay"><label for="carousel-a-autoplay"><span></span></label></div>
           </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-split-complementary( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: split-complementary(#a6e36e, 1); }
-            </code></pre>
-          </div>
-        </div>
-        <h3 id="triad">triad</h3>
-        <p><code>triad</code> is for getting triad colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-triad">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-triad-1">triad 1</div>
-                <div class="color-box color-box-triad-2">triad 2</div>
-                <div class="color-pattern"><img src="images/triad.png" alt="triad-colors"></div>
-              </div>
+          <div class="carousel-b">
+            <input type="radio" name="carousel-b" id="carousel-b-1" checked="">
+            <input type="radio" name="carousel-b" id="carousel-b-2">
+            <input type="radio" name="carousel-b" id="carousel-b-3">
+            <input type="radio" name="carousel-b" id="carousel-b-4">
+            <input type="radio" name="carousel-b" id="carousel-b-5">
+            <input type="checkbox" name="carousel-b-autoplay" id="carousel-b-autoplay">
+            <div class="slider-container">
+              <ul class="inner">
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                    <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                    <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                    <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-triad( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: triad(#a6e36e, 1); }
-            </code></pre>
-          </div>
-        </div>
-        <h3 id="rectangle">rectangle</h3>
-        <p><code>rectangle</code> is for getting rectangle colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-rectangle">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-rectangle-1">rectangle 1</div>
-                <div class="color-box color-box-rectangle-2">rectangle 2</div>
-                <div class="color-box color-box-rectangle-3">rectangle 3</div>
-                <div class="color-pattern"><img src="images/rectangle.png" alt="rectangle-colors"></div>
-              </div>
+            <div class="controls">
+              <label for="carousel-b-1"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-b-2"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-b-3"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-b-4"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-b-5"><span class="prev"></span><span class="next"></span></label>
             </div>
-          </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-rectangle( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: rectangle(#a6e36e, -3); }
-            </code></pre>
-          </div>
-        </div>
-        <h3 id="square">square</h3>
-        <p><code>square</code> is for getting square colors based on a given color.</p>
-        <div class="content">
-          <div class="content-main-short">
-            <div class="example">
-              <div class="example-square">
-                <div class="color-box color-box-original">original</div>
-                <div class="color-box color-box-square-1">square 1</div>
-                <div class="color-box color-box-square-2">square 2</div>
-                <div class="color-box color-box-square-3">square 3</div>
-                <div class="color-pattern"><img src="images/square.png" alt="square-colors"></div>
-              </div>
+            <div class="dots">
+              <label for="carousel-b-1"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-b-2"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-b-3"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-b-4"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-b-5"><span class="normal"></span><span class="active"></span></label>
             </div>
+            <div class="autoplay"><label for="carousel-b-autoplay"><span></span></label></div>
           </div>
-          <div class="content-aside-long">
-            <pre><code class="language-scss">
-square( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: square(#a6e36e, -3); }
-            </code></pre>
+          <div class="carousel-c">
+            <input type="radio" name="carousel-c" id="carousel-c-1" checked="">
+            <input type="radio" name="carousel-c" id="carousel-c-2">
+            <input type="radio" name="carousel-c" id="carousel-c-3">
+            <input type="radio" name="carousel-c" id="carousel-c-4">
+            <input type="radio" name="carousel-c" id="carousel-c-5">
+            <input type="checkbox" name="carousel-c-autoplay" id="carousel-c-autoplay">
+            <div class="slider-container">
+              <ul class="inner">
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                    <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                    <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                    <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="controls">
+              <label for="carousel-c-1"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-c-2"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-c-3"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-c-4"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-c-5"><span class="prev"></span><span class="next"></span></label>
+            </div>
+            <div class="dots">
+              <label for="carousel-c-1"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-c-2"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-c-3"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-c-4"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-c-5"><span class="normal"></span><span class="active"></span></label>
+            </div>
+            <div class="autoplay"><label for="carousel-c-autoplay"><span></span></label></div>
+          </div>
+          <div class="carousel-d">
+            <input type="radio" name="carousel-d" id="carousel-d-1" checked="">
+            <input type="radio" name="carousel-d" id="carousel-d-2">
+            <input type="radio" name="carousel-d" id="carousel-d-3">
+            <input type="radio" name="carousel-d" id="carousel-d-4">
+            <input type="radio" name="carousel-d" id="carousel-d-5">
+            <input type="checkbox" name="carousel-d-autoplay" id="carousel-d-autoplay">
+            <div class="slider-container">
+              <ul class="inner">
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                    <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                    <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                    <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="controls">
+              <label for="carousel-d-1"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-d-2"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-d-3"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-d-4"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-d-5"><span class="prev"></span><span class="next"></span></label>
+            </div>
+            <div class="dots">
+              <label for="carousel-d-1"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-d-2"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-d-3"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-d-4"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-d-5"><span class="normal"></span><span class="active"></span></label>
+            </div>
+            <div class="autoplay"><label for="carousel-d-autoplay"><span></span></label></div>
+          </div>
+          <div class="carousel-e">
+            <input type="radio" name="carousel-e" id="carousel-e-1" checked="">
+            <input type="radio" name="carousel-e" id="carousel-e-2">
+            <input type="radio" name="carousel-e" id="carousel-e-3">
+            <input type="radio" name="carousel-e" id="carousel-e-4">
+            <input type="radio" name="carousel-e" id="carousel-e-5">
+            <input type="checkbox" name="carousel-e-autoplay" id="carousel-e-autoplay">
+            <div class="slider-container">
+              <ul class="inner">
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                    <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                    <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                    <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="controls">
+              <label for="carousel-e-1"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-e-2"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-e-3"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-e-4"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-e-5"><span class="prev"></span><span class="next"></span></label>
+            </div>
+            <div class="dots">
+              <label for="carousel-e-1"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-e-2"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-e-3"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-e-4"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-e-5"><span class="normal"></span><span class="active"></span></label>
+            </div>
+            <div class="autoplay"><label for="carousel-e-autoplay"><span></span></label></div>
+          </div>
+          <div class="carousel-f">
+            <input type="radio" name="carousel-f" id="carousel-f-1" checked="">
+            <input type="radio" name="carousel-f" id="carousel-f-2">
+            <input type="radio" name="carousel-f" id="carousel-f-3">
+            <input type="radio" name="carousel-f" id="carousel-f-4">
+            <input type="radio" name="carousel-f" id="carousel-f-5">
+            <input type="checkbox" name="carousel-f-autoplay" id="carousel-f-autoplay" checked="">
+            <div class="slider-container">
+              <ul class="inner">
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
+                    <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                    <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
+                    <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                    <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="controls">
+              <label for="carousel-f-1"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-f-2"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-f-3"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-f-4"><span class="prev"></span><span class="next"></span></label>
+              <label for="carousel-f-5"><span class="prev"></span><span class="next"></span></label>
+            </div>
+            <div class="dots">
+              <label for="carousel-f-1"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-f-2"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-f-3"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-f-4"><span class="normal"></span><span class="active"></span></label>
+              <label for="carousel-f-5"><span class="normal"></span><span class="active"></span></label>
+            </div>
+            <div class="autoplay"><label for="carousel-f-autoplay"><span></span></label></div>
           </div>
         </div>
-      </section>
+        <div class="">
+          <pre class="language-scss"><code>
+// basic
+@include slider-carousel($items, $perpage, $gutter, $slide-by-page, $center, $autoplay, $hide, $default);
+// $items: num
+// $perpage: num
+// $gutter: px | em | rem
+// $slide-by-page: false | true
+// $center: false | true
+// $autoplay: false | true
+// $hide: none | autoplay | dots | controls
+// $default: true | false
+
+.yourSlider { @include slider-carousel(8, 1, 0px, true, false, false, none, true); }
+@media screen and (min-width: 48em) {
+  .yourSlider { @include slider-carousel($perpage: 2); }
+}
+@media screen and (min-width: 64em) {
+  .yourSlider { @include slider-carousel($perpage: 3); }
+}
+          </code></pre>
+        </div>
+      </div>
     </div>
     <div class="topic">
       <h2 id="addons">addons</h2>
@@ -953,6 +1193,189 @@ nav { @include off-canvas($style, $direction, $font-size, $padding, $bg); }
       <section>
         <h3 id="icon-font">icon-font</h3>
         <?php include 'include/icon-font.php'; ?>
+      </section>
+    </div>
+    <div class="topic">
+      <h2 id="color">color-functions</h2>
+      <p>Please refer to <a href="https://color.adobe.com/create/color-wheel/" target="_blank">Adobe Kuler</a> and <a href="http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF" target="_blank">paletton</a></p>
+      <section>
+        <h3 id="contrast">contrast</h3>
+        <p><code>contrast</code> is for getting a contrast font-color based on the background-color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-contrast">
+                <div class="color-box color-box-contrast">contrast</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+contrast( $color, $light: #fff, $dark: #000 );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $light (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $dark (optional): #dbdbdb | rgb | rgba | hsl | hsla | ...
+
+// If lightness < 65%, return $light, otherwise return $dark
+// .youclass { color: contrast(#a6e36e, $light:#dbdbdb, $dark: #212121); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="adjacent">adjacent</h3>
+        <p><code>adjacent</code> is for creating adjacent colors.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-adjacent">
+                <div class="color-box color-box-adjacent-1">adjacent 1</div>
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-adjacent-2">adjacent 2</div>
+                <div class="color-pattern"><img src="images/adjacent.png" alt="adjacent-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+adjacent( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: adjacent(#a6e36e, 1, $dist: 20); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="complementary">complementary</h3>
+        <p><code>complementary</code> is for getting a complementary color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-complementary">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-complementary">complementary</div>
+                <div class="color-pattern"><img src="images/complementary.png" alt="complementary-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+complementary( $color, $saturation, $lightness );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+
+// .youclass { color: complementary(#a6e36e, null, 20%); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="split-complementary">split-complementary</h3>
+        <p><code>split-complementary</code> is for getting split-complementary colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-split-complementary">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-split-complementary-1">split-complementary 1</div>
+                <div class="color-box color-box-split-complementary-2">split-complementary 2</div>
+                <div class="color-pattern"><img src="images/split-complementary.png" alt="split-complementary-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+split-complementary( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: split-complementary(#a6e36e, 1); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="triad">triad</h3>
+        <p><code>triad</code> is for getting triad colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-triad">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-triad-1">triad 1</div>
+                <div class="color-box color-box-triad-2">triad 2</div>
+                <div class="color-pattern"><img src="images/triad.png" alt="triad-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+triad( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: triad(#a6e36e, 1); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="rectangle">rectangle</h3>
+        <p><code>rectangle</code> is for getting rectangle colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-rectangle">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-rectangle-1">rectangle 1</div>
+                <div class="color-box color-box-rectangle-2">rectangle 2</div>
+                <div class="color-box color-box-rectangle-3">rectangle 3</div>
+                <div class="color-pattern"><img src="images/rectangle.png" alt="rectangle-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+rectangle( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: rectangle(#a6e36e, -3); }
+            </code></pre>
+          </div>
+        </div>
+        <h3 id="square">square</h3>
+        <p><code>square</code> is for getting square colors based on a given color.</p>
+        <div class="content">
+          <div class="content-main-short">
+            <div class="example">
+              <div class="example-square">
+                <div class="color-box color-box-original">original</div>
+                <div class="color-box color-box-square-1">square 1</div>
+                <div class="color-box color-box-square-2">square 2</div>
+                <div class="color-box color-box-square-3">square 3</div>
+                <div class="color-pattern"><img src="images/square.png" alt="square-colors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-aside-long">
+            <pre><code class="language-scss">
+square( $color, $order, $saturation, $lightness, $dist );
+// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
+// $order: num,
+// $saturation (optional): false | null | %,
+// $lightness (optional): false | null | %
+// $dist (optianal): 30 | num
+
+// .youclass { color: square(#a6e36e, -3); }
+            </code></pre>
+          </div>
+        </div>
       </section>
     </div>
     <div class="topic">

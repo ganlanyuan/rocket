@@ -4,14 +4,15 @@
   $perpage: 1,
   $gutter: 10px,
   $slide-by-page: false,
-  $hide-half: false,
-  $hide: 'autoplay', // none | controls | dots | autoplay
+  $center: false,
+  $autoplay: false,
+  $hide: 'none', // none | controls | dots | autoplay
   $default: true
 ){
   $half: 0;
   $prefix: get-slider-selector(&);
   $id: "#" + $prefix;
-  @if $hide-half == true and $perpage > 1 { 
+  @if $center == true and $perpage > 1 { 
     $half: (1 / ($perpage * 2)); 
   }
   @at-root (without: media) { 
@@ -22,7 +23,7 @@
   .slider-container {
     @if $perpage != 1 { li { width: percentage(1/$perpage) } }
     @if $gutter != 0 and $gutter != 0px and $gutter != null and $gutter != false {
-      @if $hide-half == false { margin: 0 (- $gutter); }
+      @if $center == false { margin: 0 (- $gutter); }
       .item { margin: 0 $gutter; }
     }
   }
@@ -45,7 +46,12 @@
   }
 
   // animation
-  @if str-index($hide, 'autoplay') == null {
+  @if str-index($hide, 'autoplay') == null and $autoplay == true {
+    @if $default {
+      @extend %default-autoplay;
+      #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; }
+    }
+
     $left-val: 0;
     $frames: 1;
     @if $slide-by-page == true { $frames: ceil($items/$perpage); }
@@ -145,16 +151,6 @@
       // redefine dots on autoplay
       @at-root {
         #{$id}-autoplay:checked ~ .dots { display: none; }
-      }
-    }
-
-    // setting autoplay
-    @if str-index($hide, 'autoplay') == null {
-      @if $default {
-        @extend %default-autoplay;
-        @at-root {
-          #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; }
-        }
       }
     }
 
