@@ -17,20 +17,15 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 
 #### Grid System
 
-+ grid
-+ gallery
-+ justify
-+ center
-+ debug
++ [grid](http://designdev.christianpost.com/develop/rocket/docs/#span)
++ [gallery](http://designdev.christianpost.com/develop/rocket/docs/#gallery)
++ [justify](http://designdev.christianpost.com/develop/rocket/docs/#justify)
++ [center](http://designdev.christianpost.com/develop/rocket/docs/#center)
++ [debug](http://designdev.christianpost.com/develop/rocket/docs/#debug)
 
-#### Color Functions
-
-+ adjacent
-+ complementary
-+ split-complementary
-+ triad
-+ rectangle
-+ square
+#### Pure CSS slideshow
++ [slider-gallery](http://designdev.christianpost.com/develop/rocket/docs/#slider-gallery)
++ [slider-carousel](http://designdev.christianpost.com/develop/rocket/docs/#slider-carousel)
 
 #### Addons
 
@@ -42,6 +37,15 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 + breakpoint
 + visibility
 + flex video
+
+#### Color Functions
+
++ adjacent
++ complementary
++ split-complementary
++ triad
++ rectangle
++ square
 
 #### kit.js
 
