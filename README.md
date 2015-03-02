@@ -24,8 +24,8 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 + [debug](http://designdev.christianpost.com/develop/rocket/docs/#debug)
 
 #### Pure CSS slideshow
-+ [slider-gallery](http://designdev.christianpost.com/develop/rocket/docs/#slider-gallery)
-+ [slider-carousel](http://designdev.christianpost.com/develop/rocket/docs/#slider-carousel)
++ [slider-gallery](http://designdev.christianpost.com/develop/rocket/docs/#slider-gallery-topic)
++ [slider-carousel](http://designdev.christianpost.com/develop/rocket/docs/#slider-carousel-topic)
 
 #### Addons
 
