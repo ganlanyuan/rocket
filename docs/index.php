@@ -6,7 +6,7 @@
   <header class="site-header">
     <div class="container">
       <div data-icon-nav class="icon-nav"><span></span></div>
-      <h1 class="branding"><a href="/"><?php include 'svgs/min/rocket.svg'; ?></a></h1>
+      <h1 class="branding"><a href="http://designdev.christianpost.com/develop/rocket/docs/"><?php include 'svgs/min/rocket.svg'; ?></a></h1>
       <?php include 'include/site-nav.php'; ?>
     </div>
   </header>
