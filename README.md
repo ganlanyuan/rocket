@@ -29,23 +29,23 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 
 #### Addons
 
-+ type
-+ button
-+ mobile-nav
-+ dropdown
-+ tooltip
-+ breakpoint
-+ visibility
-+ flex video
++ [type](http://designdev.christianpost.com/develop/rocket/docs/#type)
++ [button](http://designdev.christianpost.com/develop/rocket/docs/#button)
++ [off-canvas](http://designdev.christianpost.com/develop/rocket/docs/#off-canvas)
++ [dropdown](http://designdev.christianpost.com/develop/rocket/docs/#dropdown)
++ [tooltip](http://designdev.christianpost.com/develop/rocket/docs/#tooltip)
++ [breakpoint](http://designdev.christianpost.com/develop/rocket/docs/#breakpoint)
++ [visibility](http://designdev.christianpost.com/develop/rocket/docs/#visibility)
++ [flex video](http://designdev.christianpost.com/develop/rocket/docs/#flex video)
 
 #### Color Functions
 
-+ adjacent
-+ complementary
-+ split-complementary
-+ triad
-+ rectangle
-+ square
++ [adjacent](http://designdev.christianpost.com/develop/rocket/docs/#adjacent)
++ [complementary](http://designdev.christianpost.com/develop/rocket/docs/#complementary)
++ [split-complementary](http://designdev.christianpost.com/develop/rocket/docs/#split-complementary)
++ [triad](http://designdev.christianpost.com/develop/rocket/docs/#triad)
++ [rectangle](http://designdev.christianpost.com/develop/rocket/docs/#rectangle)
++ [square](http://designdev.christianpost.com/develop/rocket/docs/#square)
 
 #### kit.js
 
