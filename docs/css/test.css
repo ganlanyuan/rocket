@@ -854,7 +854,7 @@ p code:hover {
   float: right;
 }
 .example-gallery {
-  margin: 0 -6;
+  margin: 0 -10px;
 }
 .example-gallery > li {
   width: 25%;

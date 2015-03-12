@@ -1,5 +1,8 @@
 # Changlog
 
+### v1.1.3
++ Fix a arg issue on `gallery`.
+
 ### v1.1.2
 + Fix a issue on `contianer`.
 + Simplify `slider-gallery`, `container`, `wrap` and `breakpoint`.

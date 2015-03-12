@@ -210,7 +210,7 @@ p {
     width: 200px;
     float: right;
   }
-  &-gallery { @include gallery(4,12,20,li); 
+  &-gallery { @include gallery(4,20px,'li',12); 
     span {
       display: block;
       min-height: 120px;

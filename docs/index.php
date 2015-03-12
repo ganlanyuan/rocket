@@ -82,7 +82,9 @@ $layout: (
             <pre><code class="language-scss">
 @include wrap($columns, $gutter);
 // $gutter: px | em | rem | %
-// $columns (optional: only needed when using gutter as percentage): num
+// $columns (optional): num
+//
+// $columns is only needed when using gutter as percentage
             </code></pre>
           </div>
         </div>
@@ -191,10 +193,12 @@ $layout: (
             <pre><code class="language-scss">
 @include gallery($per-row, $columns, $gutter, $child, $position);
 // $per-row: num
-// $columns: num
 // $gutter: num | px | em | rem | 1/20 | 5% | 0.1
 // $child: div | span | ...
-// $position: center | bottom
+// $columns (optional): num
+// $position (optional): middle | bottom
+//
+// $columns is only needed when using gutter as percentage
             </code></pre>
           </div>
         </div>
