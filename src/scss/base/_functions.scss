@@ -1,4 +1,5 @@
 // *** function *** //
+
 @function opposite($direction){
   @if $direction == left { @return right; }
   @else if $direction == right { @return left; }
@@ -13,14 +14,6 @@
 
 // em
 @function em($pxval, $base: $em-base) {
-  @if unit($pxval) == 'px' { $pxval: strip-units($pxval); }
-  @if unit($base) == 'px' { $base: strip-units($base); }
-  @return ($pxval / $base) * 1em;
-}
-
-// toem
-$em-base: 16px !default;
-@function toem($pxval, $base: $em-base) {
   @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' { $pxval: strip-units($pxval); }
@@ -29,9 +22,8 @@ $em-base: 16px !default;
   } 
 }
 
-// torem
-$rem-base: 16px !default;
-@function torem($pxval, $base: $rem-base) {
+// rem
+@function rem($pxval, $base: $rem-base) {
   @if unit($pxval) == 'rem' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' { $pxval: strip-units($pxval); }

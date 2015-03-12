@@ -6,8 +6,8 @@
   @if $val and $val != 0 {
     @if unitless($val) or unit($val) == px {
       @if $val < 1 { @return percentage($val);}
-      @else if $unit == rem { @return torem($val);}
-      @else { @return toem($val);}
+      @else if $unit == rem { @return rem($val);}
+      @else { @return em($val);}
     }
     @else { @return $val; }
   }

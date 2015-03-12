@@ -1,3 +1,13 @@
+// *** mixins *** //
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
 // replace
 @mixin replace($old-context, $contexts...) {
   @each $context in $contexts {

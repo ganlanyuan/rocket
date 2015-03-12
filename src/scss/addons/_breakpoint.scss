@@ -3,12 +3,12 @@
 // min-width
 @mixin bp-mi($min, $media: false){
   @if $media {
-    @media #{$media} and (min-width: toem($min)) {
+    @media #{$media} and (min-width: $min) {
       @content;
     }
   }
   @else {
-    @media (min-width: toem($min)) {
+    @media (min-width: $min) {
       @content;
     }
   }
@@ -17,12 +17,12 @@
 //  max-width
 @mixin bp-ma($max, $media: false){
   @if $media {
-    @media #{$media} and (max-width: toem($max)) {
+    @media #{$media} and (max-width: $max) {
       @content;
     }
   }
   @else {
-    @media (max-width: toem($max)) {
+    @media (max-width: $max) {
       @content;
     }
   }
@@ -31,12 +31,12 @@
 // min-width & max-width
 @mixin bp-mm($min, $max, $media: false){
   @if $media {
-    @media #{$media} and (min-width: toem($min)) and (max-width: toem($max)) {
+    @media #{$media} and (min-width: $min) and (max-width: $max) {
       @content;
     }
   }
   @else {
-    @media (min-width: toem($min)) and (max-width: toem($max)) {
+    @media (min-width: $min) and (max-width: $max) {
       @content;
     }
   }

@@ -27,6 +27,7 @@
   .controls {
     margin-top: -23px;
     span {
+      position: absolute;
       width: 40px;
       height: 46px;
       opacity: 0.4;
@@ -38,12 +39,12 @@
       &:hover { opacity: 0.8; }
     }
     .prev {
-      float: left;
+      left: 0;
       margin-left: -60px;
       &:before { content: 'n'; }
     }
     .next {
-      float: right;
+      right: 0;
       margin-right: -60px;
       &:before { content: 'm'; }
     }

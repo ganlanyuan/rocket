@@ -1,11 +1,17 @@
 # Changlog
 
+### v1.1.1
++ Fix `off-canvas` cover height issue when the content is not enough to fill the window.
++ Fix `css-slider` controls shade the content.
++ Update `flex-video`.
++ Rename functions `toem`, `torem` to `em`,`rem`. 
+
 ### v1.1.0
-+ Add `Pure CSS sliders`: [slider-gallery](designdev.christianpost.com/develop/rocket/docs/#slider-gallery-topic) and [slider-carousel](designdev.christianpost.com/develop/rocket/docs/#slider-carousel-topic)
++ Add `Pure CSS sliders`: [slider-gallery](designdev.christianpost.com/develop/rocket/docs/#slider-gallery-topic) and [slider-carousel](designdev.christianpost.com/develop/rocket/docs/#slider-carousel-topic).
 
 ### v1.0.0
-+ Rename `mobile-nav` to `off-canvas`
-+ Update `em`, `toem` and `torem`
++ Rename `mobile-nav` to `off-canvas`.
++ Update `em`, `toem` and `torem`.
 
 ### v0.1.4
 + Add more data to color model based on [http://paletton.com/](http://paletton.com/).

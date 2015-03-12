@@ -2,32 +2,28 @@
 
 @mixin container(
   $container,
-  $gutter: false,
+  $gutter: 0,
   $align: center
 ){
-  $container: add-unit($container, em);
-  $gutter: add-unit($gutter, em);
-
   max-width: $container;
 
-  @if unit($container) == '%' { margin: 0 auto; }
-  @else {
+  @if not $gutter or $gutter == 0 { margin: 0 auto; }
+  @else if unit($container) != '%' and unit($gutter) == '%' {
     margin: 0 $gutter;
-    @if unit($gutter) == '%' {
-      @if $align == center {
-        @include bp-mi($container + em(40)) { margin: 0 auto; }
-      }
-      @else { 
-        @include bp-mi($container + em(40)) { margin-#{opposite($align)}: auto; }
-      }
+    @if $align == center {
+      @include bp-mi($container) { margin: 0 auto; }
     }
-    @else {
-      @if $align == center {
-        @include bp-mi(($container + ($gutter * 2))) { margin: 0 auto; }
-      }
-      @else { 
-        @include bp-mi(($container + ($gutter * 2))) { margin-#{opposite($align)}: auto; }
-      }
+    @else { 
+      @include bp-mi($container) { margin-#{opposite($align)}: auto; }
+    }
+  }
+  @else if unit($container) != '%'{
+    margin: 0 $gutter;
+    @if $align == center {
+      @include bp-mi(($container + ($gutter * 2))) { margin: 0 auto; }
+    }
+    @else { 
+      @include bp-mi(($container + ($gutter * 2))) { margin-#{opposite($align)}: auto; }
     }
   }
 }

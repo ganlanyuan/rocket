@@ -42,29 +42,29 @@ $layout: (
       </section>
       <section>
         <h3 id="container">container</h3>
-        <p>The container of the content. It usually has a max-width. When screen size is smaller than the max-width, it will has a left and right margin. Container can be set align center, left or right.</p>
+        <p>The container of the content with a <code>max-width</code>. It will has a left and right margin on a smaller screen size than the <code>max-width</code>. It can be set align center, left or right.</p>
         <div class="content">
           <div class="content-main">
             <div class="example" data-margin>
-              <div class="example-container cell example-content" data-content>
-                <strong>I'm a container.</strong><br>
-                max-width: 90%;
-              </div>
+              <div class="example-container" data-content>
+                <div class="cell example-content">
+                    <strong>I'm a container.</strong><br>max-width: 500px;</div>
+                </div>
             </div>
           </div>
           <div class="content-aside">
             <pre><code class="language-scss">
 @include container {$container, $gutter, $align}
-// $container: num | px | em | rem | 3/4 | 90%
-// $gutter: num | px | em | rem | 1/20 | 5% | 0.1
-// $align: center | left | right
+// $container: px | em | rem
+// $gutter (optional): px | em | rem | %
+// $align (optional): center | left | right
             </code></pre>
           </div>
         </div>
       </section>
       <section>
         <h3 id="wrap">wrap</h3>
-        <p><code>wrap</code> is usually used with <code>span</code> when creating columns with fixed width gutters.</p>
+        <p><code>wrap</code> is usually used with <code>span</code>.</p>
         <div class="content">
           <div class="content-main">
             <div class="example">
@@ -81,8 +81,8 @@ $layout: (
           <div class="content-aside">
             <pre><code class="language-scss">
 @include wrap($columns, $gutter);
-// $container: num | px | em | rem | 3/4 | 90%
-// $gutter: num | px | em | rem | 1/20 | 5% | 0.1
+// $gutter: px | em | rem | %
+// $columns (optional: only needed when using gutter as percentage): num
             </code></pre>
           </div>
         </div>
@@ -1183,9 +1183,11 @@ nav { @include off-canvas($style, $direction, $font-size, $padding, $bg); }
           </div>
           <div class="content-aside">
             <pre><code class="language-scss">
-@include flex-video($child, $ratio);
-// $child: iframe | video | ...
+@include flex-video($ratio);
 // $ratio: 9/16 | ...
+// $child (optional): false | 'div' | ...
+
+.flex-video { @include flex-video(3/4); }
             </code></pre>
           </div>
         </div>

@@ -1,15 +1,14 @@
 @mixin wrap(
-  $columns: map-get($layout, columns),
-  $gutter: false
+  $gutter: map-get($layout, gutter),
+  $columns: map-get($layout, columns)
 ){
   @at-root (without: media) { @extend %layout-wrap; }
   
-  $gutter: add-unit($gutter);
-  @if get-unit($gutter) == 'percentage' {
+  @if unit($gutter) == '%' {
     $gw: gutter-width-percentage($columns, $gutter);
     margin: 0 (-$gw / 2);
   }
-  @else if get-unit($gutter) == 'others' {
+  @else {
     margin: 0 (-$gutter / 2);
   }
 }

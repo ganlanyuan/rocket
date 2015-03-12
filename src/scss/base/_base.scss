@@ -1,4 +1,4 @@
+@import "variables";
 @import "functions";
-@import "variables"; // variables
-@import "placeholders"; // placeholders
-@import "replace";
+@import "mixins";
+@import "placeholders";

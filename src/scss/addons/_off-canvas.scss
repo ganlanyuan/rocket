@@ -4,7 +4,7 @@
   $style: move,
   $direction: left,
   $font-size: 14,
-  $padding: .9em 1.6em,
+  $padding: em(16, 14) em(16, 14),
   $bgc: #000
 ){
   position: fixed;
@@ -14,7 +14,12 @@
   z-index: 300;
   box-sizing: border-box;
   @extend %global-transition;
-  li { font-size: rem($font-size); }
+  li { 
+    font-size: rem($font-size); 
+    line-height: 1;
+    white-space: nowrap;
+    @extend %clearfix;
+  }
   a { 
     display: block;
     padding: $padding;
@@ -58,8 +63,6 @@
   [data-icon-haschild] { 
     display: inline-block;
     padding: $padding;
-    padding-left: 1em;
-    padding-right: 1em;
     float: right;
     cursor: pointer;
    &:hover { background-color: analogous($bgc, 15%); } 
@@ -74,7 +77,7 @@
   @extend %global-transition;
   > [data-page-cover] {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     @include size(100%);
     z-index: -1;

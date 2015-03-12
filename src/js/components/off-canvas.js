@@ -14,10 +14,18 @@ ready(function () {
   k('[data-icon-haschild]').click(function() {
     k(this).siblings('[data-offcanvas-subnav]').addClass('mb-subnav-show');
   });
+
   // nav-back
   k('[data-offcanvas-back]').click(function() {
     k(this).parent().removeClass('mb-subnav-show');
   });
+
+  // set cover height
+  function coverHeight() {
+    var winH = k.win.H();
+    k('[data-page-cover]').css('min-height', winH + 'px');
+  }
+  coverHeight();
 
   // on-resize
   window.onresize = function () {
@@ -25,6 +33,9 @@ ready(function () {
     if (winW > 1023) {
       k('body').removeClass('off-canvas-show');
     }
+    
+    // set cover height
+    coverHeight();
   };
 
 });

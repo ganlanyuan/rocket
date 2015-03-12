@@ -56,7 +56,7 @@ p {
   @include page-container(translate,left);
   padding-top: 54px;
 }
-.container {@include container(1600,30); }
+.container {@include container(em(1600),em(30)); }
 .button {
   @include button(15px,12px 20px, 0 10px 10px 0,$blue,null,3px);
   &.active { @include button(null,null, null,$active); }
@@ -66,8 +66,7 @@ p {
 .mb-nav a,
 .site-nav a { white-space: nowrap; }
 .mb-nav {
-  @include off-canvas(translate,left,14px,.9em 1.6em, #102244);
-  li { clear: both; }
+  @include off-canvas(translate,left,14px,16px,#102244);
 }
 [data-offcanvas-close] { 
   @include icon-close(#fff, #74baff, 18px 2px 3px, 10px, true); 
@@ -135,7 +134,7 @@ p {
 // intro
 .intro {
   background: #0E1721 url('../images/graphic.png') center 20px no-repeat;
-  @include bp-mi(1024) { background-image: none; }
+  @include bp-mi(em(1024)) { background-image: none; }
   p {
     @include type(16px, null, 1.4, em(20,16) 0);
     color: #6191B3;
@@ -146,7 +145,7 @@ p {
     padding: em(328) 0 em(20);
     margin: 0 auto;
     text-align: center;
-    @include bp-mi(1024){
+    @include bp-mi(em(1024)){
       padding: em(90) 0 em(90) em(540);
       text-align: left;
       background: url('../images/graphic.png') left em(63) no-repeat;
@@ -160,9 +159,9 @@ p {
   margin: 4em 0;
   > section {
     margin: 2em 0;
-    @include bp-mi(1024){ margin: 0 0 5em; }
+    @include bp-mi(em(1024)){ margin: 0 0 5em; }
   }
-  @include bp-mi(768) {
+  @include bp-mi(em(768)) {
     > h2 {
       &:before,
       &:after {
@@ -179,22 +178,22 @@ p {
   @extend %clearfix;
   pre[class*="language-"] { margin-top: 0; }
   &-main { 
-    @include bp-mi(900){ @include span(10,16,1/2); }
+    @include bp-mi(em(900)){ @include span(10,16,1/2); }
   }
   &-aside {
-    @include bp-mi(900){ @include span(6,16,1/2,$last:true); }
+    @include bp-mi(em(900)){ @include span(6,16,1/2,$last:true); }
   }
   &-main-short { 
-    @include bp-mi(900){ @include span(6,16,1/2); }
+    @include bp-mi(em(900)){ @include span(6,16,1/2); }
   }
   &-aside-long {
-    @include bp-mi(900){ @include span(10,16,1/2,$last:true); }
+    @include bp-mi(em(900)){ @include span(10,16,1/2,$last:true); }
   }
 }
 .example {
   @extend %clearfix;
-  &-container { @include container(80%, 20); }
-  &-wrap { @include wrap(12,30); 
+  &-container { width: 90%; @include container(500px, 20px); }
+  &-wrap { @include wrap(30px); 
     .cell { margin: 0 15px;}
   }
   &-span-1 { @include span(7,11,1/2); }
@@ -253,8 +252,8 @@ p {
     }
     .info { 
       padding: 10px; 
+      @include visible(null, 800px);
       h3 { margin-bottom: 0; }
-      @include visible(800);
     }
     %label-active {background-color: $active;}
     @at-root {
@@ -272,7 +271,10 @@ p {
         [id*="-sm"]:checked ~ & { max-width: 400px; }
       }
       @include bp-ma(1178){
-        .controls { padding-left: 70px; padding-right: 70px; }
+        .controls {
+          .prev { margin-left: 10px !important; }
+          .next { margin-right: 10px !important; }
+        }
       }
       [id="gallery-md"]:checked ~ .gallery .controls, 
       [id="gallery-sm"]:checked ~ .gallery .controls, 
@@ -314,11 +316,11 @@ p {
       .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
       .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
       .carousel-f { @include slider-carousel($perpage: 3, $autoplay: true); }
-      @include bp-mi(700) {
+      @include bp-mi(em(700)) {
         .carousel-a { @include slider-carousel($perpage: 2); }
         .carousel-b { @include slider-carousel($perpage: 2); }
       }
-      @include bp-mi(1000) {
+      @include bp-mi(em(1000)) {
         .carousel-a { @include slider-carousel($perpage: 3); }
       }
       [id="carousel-lg"]:checked ~ .carousel-a, 
@@ -462,7 +464,7 @@ p {
   &-dropdown-1 { @include dropdown(); }
   &-dropdown-2 { @include dropdown(#fff, em(8) em(12), 1px solid #f3ecec, 3px, null, click); }
   &-tooltip { display: inline-block; @include tooltip(right, #b02df3, 3px, 300px); }
-  &-flex-video { @include flex-video(iframe, 315/560); }
+  &-flex-video { @include flex-video(315/560); }
   &-visible-1,
   &-visible-2,
   &-visible-3,
