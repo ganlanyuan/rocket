@@ -1,5 +1,9 @@
 # Changlog
 
+### v1.1.2
++ Fix a issue on `contianer`.
++ Simplify `slider-gallery`, `container`, `wrap` and `breakpoint`.
+
 ### v1.1.1
 + Fix `off-canvas` cover height issue when the content is not enough to fill the window.
 + Fix `css-slider` controls shade the content.
