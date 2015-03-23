@@ -1,25 +1,25 @@
 // *** type *** //
 
-// font-size
-// font-weight
-// line-height
-// margin
-// padding
-
-@mixin type($type...){
-  @if length($type) >= 1 and nth($type, 1) != null {
-    font-size: rem(nth($type, 1));
+@mixin type(
+  $font-size: null,
+  $font-weight: null,
+  $font-style: null,
+  $line-height: null,
+  $font-family: null
+){
+  @if $font-size != null {
+    font-size: rem($font-size);
   }
-  @if length($type) >= 2 and nth($type, 2) != null {
-    font-weight: nth($type, 2);
+  @if $font-weight != null {
+    font-weight: $font-weight;
   }
-  @if length($type) >= 3 and nth($type, 3) != null {
-    line-height: nth($type, 3);
+  @if $font-style != null {
+    font-style: $font-style;
   }
-  @if length($type) >= 4 and nth($type, 4) != null {
-    margin: nth($type, 4);
+  @if $line-height != null {
+    line-height: $line-height;
   }
-  @if length($type) >= 5 and nth($type, 5) != null {
-    padding: nth($type, 5);
+  @if $font-family != null {
+    font-family: $font-family;
   }
 }

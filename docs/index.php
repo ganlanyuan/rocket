@@ -897,18 +897,14 @@ $layout: (
           <div class="content-aside-long">
             <pre><code class="language-scss">
 @include type($type...);
-$type: ($font-size, $font-weight, $line-height, $margin, $padding);
-// font-size: num | px | em | rem | null
-// font-weight: normal | bold | num | null
-// line-height: num | 18/14 | null
-// margin: px | em | null
-// padding: px | em | null
+$type: ($font-size, $font-weight, $font-style, $line-height, $font-family);
+// font-size: null | num | px | em | rem
+// font-weight: null | normal | bold | num | ...
+// font-style: null | normal | italic | ...
+// line-height: null | num | %
+// font-family: null | ...
 
-h1 { @include type(32px,700,1.1, 0 0 10px 0); }
-h2 { @include type(28px); }
-h3 { @include type(24px,null,1.3); }
-h4 { @include type(20px,normal,1.4, 10px); }
-h5 { @include type(16px,null,1.5, 0.5em, 1em); }
+h1 { @include type(32px,700,null,1.1); }
             </code></pre>
           </div>
         </div>
@@ -994,16 +990,18 @@ h5 { @include type(16px,null,1.5, 0.5em, 1em); }
             <pre><code class="language-scss">
 .news { @include media($gutter, $media, $media-body, $direction); }
 // $gutter(optional): px | em | rem
-// $media(optional): null | '.class' | '#id' | 'tag'
-// $media-body(optional): null | '.class' | '#id' | 'tag'
+// $media(optional): null | . | # | tag
+// $media-body(optional): null | . | # | tag
 // $direction(optional): left | right
+
 .news { @include media(); } 
 // $gutter: 10px
-// $media: [data-media-left] and [data-media-right]
+// $media: [data-media-left] or [data-media-right]
 // $media-body: [data-media-body]
 // $direction: left
-.news { @include media(1em, '.media', '.media-body', right); } 
-.news { @include media(15px, 'figure', 'div'); } 
+
+.news-right { @include media(1em, '.media', '.media-body', right); } 
+.news-left { @include media(15px, 'figure', 'div'); } 
 
             </code></pre>
           </div>

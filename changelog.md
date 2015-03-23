@@ -1,5 +1,8 @@
 # Changlog
 
+### v1.1.4
++ Simplify `type` and `button` mixins.
+
 ### v1.1.3
 + Fix a arg issue on `gallery`.
 

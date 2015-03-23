@@ -1,40 +1,37 @@
 // *** buttons *** //
 
-// font-size
-// padding
-// margin
-// background-color
-// border
-// border-radius
 
 %button-style {
 	display: inline-block;
 	// line-height: normal !important;
-	// cursor: pointer;
+	cursor: pointer;
 	box-sizing: border-box;
 	@extend %hover-tdn;
 	@extend %global-transition;
 }
-@mixin button ($button...){
+@mixin button (
+  $font-size: null,
+  $padding: null,
+  $background-color: null, 
+  $border: null, 
+  $border-radius: null
+){
 	@extend %button-style;
-	@if length($button) >= 1 and nth($button, 1) != null {
-		font-size: rem(nth($button, 1));
+	@if $font-size != null {
+		font-size: rem($font-size);
 	}
-	@if length($button) >= 2 and nth($button, 2) != null {
-		padding: nth($button, 2);
+	@if $padding != null {
+		padding: $padding;
 	}
-	@if length($button) >= 3 and nth($button, 3) != null {
-		margin: nth($button, 3);
+	@if $background-color != null {
+		background-color: $background-color;
+		color: contrast($background-color);
+		&:hover { background-color: analogous($background-color, 10%); }
 	}
-	@if length($button) >= 4 and nth($button, 4) != null {
-		background-color: nth($button, 4);
-		color: contrast(nth($button, 4));
-		&:hover { background-color: analogous(nth($button, 4), 10%); }
+	@if $border != null {
+		border: $border;
 	}
-	@if length($button) >= 5 and nth($button, 5) != null {
-		border: nth($button, 5);
-	}
-	@if length($button) >= 6 and nth($button, 6) != null {
-		border-radius: nth($button, 6);
+	@if $border-radius != null {
+		border-radius: $border-radius;
 	}
 }
