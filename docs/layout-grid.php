@@ -8,13 +8,13 @@
       <div class="example example-span" data-margin>
         <div class="example-span-1 cell" data-content>
           <div class="example-content">
-            width: 62.5%; <br>
+            7 columns / 11 columns<br>
             $gutter: 3.125%; 
           </div>
         </div>
         <div class="example-span-2 cell" data-content>
           <div class="example-content">
-            width: 34.375%;
+            4 columns / 11 columns
           </div>
         </div>
       </div>
