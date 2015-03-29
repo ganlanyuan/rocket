@@ -1,0 +1,9 @@
+@import 'demo-base';
+
+// *** color: complementary *** //
+
+.color-box-complementary { 
+  background-color: complementary($original); 
+  color: contrast(complementary($original));
+}
+

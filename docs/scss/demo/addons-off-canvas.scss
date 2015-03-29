@@ -1,0 +1,21 @@
+@import 'demo-base';
+
+// *** addons: off canvans *** //
+
+.mb-nav a,
+.site-nav a { white-space: nowrap; }
+.mb-nav {
+  @include off-canvas(translate,left,14px,16px,#102244);
+}
+[data-offcanvas-close] { 
+  @include icon-close(#fff, #74baff, 18px 2px 3px, 10px, true); 
+  margin: 10px 0 0 12px;
+}
+.icon-nav {
+  @include icon-nav(#333);
+}
+.page {
+  @include page-container(translate,left);
+  padding-top: 1px;
+}
+

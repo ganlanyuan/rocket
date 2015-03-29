@@ -1,0 +1,74 @@
+@import 'demo-base';
+
+// *** slider: carousel *** //
+
+.slider {
+  // common
+  > input { display: none; }
+  .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
+  .slider-labels {
+    margin-bottom: 20px;
+    text-align: center;
+    .title { @include type(14px, bold, null, 1.3); margin: 0 0 .3em; }
+    label { 
+      @include button(13px, 12px 22px, #d2d2d2, null, 3px); 
+      margin: 0 10px 10px 0;
+      &:hover { background-color: $active;}
+    }
+  }
+  .info { 
+    padding: 10px; 
+    @include visible(null, 800px);
+    h3 { margin-bottom: 0; }
+  }
+  %label-active {background-color: $active;}
+  @at-root {
+    @each $item in slider-gallery, gallery-lg, gallery-md, gallery-sm, gallery-auto-play, gallery-customise, slider-carousel, carousel-lg, carousel-md, carousel-sm, slide-by-page, slider-center, carousel-auto-play {
+      [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
+    }
+    [class^="gallery-"], [class^="carousel-"] { 
+      margin-left: auto; 
+      margin-right: auto; 
+      width: 80%;
+      max-width: 1000px; 
+      margin-bottom: 40px; 
+      @extend %global-transition; 
+      [id*="-md"]:checked ~ & { max-width: 700px; }
+      [id*="-sm"]:checked ~ & { max-width: 400px; }
+    }
+    @include bp-ma(1178){
+      .controls {
+        .prev { margin-left: 10px !important; }
+        .next { margin-right: 10px !important; }
+      }
+    }
+
+    // carousel
+    .carousel-a, 
+    .carousel-b, 
+    .carousel-c, 
+    .carousel-d, 
+    .carousel-e, 
+    .carousel-f { display: none; }
+    .carousel-a { @include slider-carousel(); }
+    .carousel-b { @include slider-carousel(); }
+    .carousel-c { @include slider-carousel(); }
+    .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
+    .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
+    .carousel-f { @include slider-carousel($perpage: 3, $autoplay: true); }
+    @include bp-mi(em(700)) {
+      .carousel-a { @include slider-carousel($perpage: 2); }
+      .carousel-b { @include slider-carousel($perpage: 2); }
+    }
+    @include bp-mi(em(1000)) {
+      .carousel-a { @include slider-carousel($perpage: 3); }
+    }
+    [id="carousel-lg"]:checked ~ .carousel-a, 
+    [id="carousel-md"]:checked ~ .carousel-b, 
+    [id="carousel-sm"]:checked ~ .carousel-c, 
+    [id="slide-by-page"]:checked ~ .carousel-d,
+    [id="slider-center"]:checked ~ .carousel-e,
+    [id="carousel-auto-play"]:checked ~ .carousel-f { display: block; }
+  }
+}
+

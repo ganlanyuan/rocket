@@ -1,0 +1,5 @@
+@import 'demo-base';
+
+// *** addons: tooltip *** //
+
+.tooltip { display: inline-block; @include tooltip(right, #b02df3, 3px, 300px); }

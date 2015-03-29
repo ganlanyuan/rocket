@@ -1,0 +1,14 @@
+@import 'demo-base';
+
+// *** addons: dropdown *** //
+
+.dropdown-1,
+.dropdown-2 { 
+  padding: 10px 0; 
+  margin-right: 30px; 
+  display: inline-block; 
+  > ul { margin-top: 10px; }
+} 
+.dropdown-1 { @include dropdown(); }
+.dropdown-2 { @include dropdown(#fff, em(8) em(12), 1px solid #f3ecec, 3px, null, click); }
+

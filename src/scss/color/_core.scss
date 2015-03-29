@@ -10,7 +10,8 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
 @function to-ideal-hue($hue){
   $ideal-hue: 0;
   $gap: 0;
-  @while $hue >= 360 { $hue: $hue - 360; }
+  @while $hue >= 360 { $hue: ($hue - 360); }
+  @while $hue < 0 { $hue: ($hue + 360); }
   
   @if $hue == 0deg {
     $ideal-hue: 0;
@@ -31,6 +32,7 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
   $normal-hue: 0;
   $gap: 0;
   @while $hue >= 360 { $hue: $hue - 360; }
+  @while $hue < 0 { $hue: ($hue + 360); }
 
   @if $hue == 0deg {
     $ideal-hue: 0;

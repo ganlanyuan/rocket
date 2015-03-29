@@ -1,0 +1,17 @@
+@import 'demo-base';
+
+// *** addons: visibility *** //
+
+.visible-1,
+.visible-2,
+.visible-3,
+.hidden-1,
+.hidden-2,
+.hidden-3 { margin: 1em 0; font-size: 14px;}
+.visible-1 { @include visible(null, 900);}
+.visible-2 { @include visible(null, 900, 1000);}
+.visible-3 { @include visible(null, 700, 900, 1200);}
+.hidden-1 { @include hidden(null, 900);}
+.hidden-2 { @include hidden(null, 900, 1000);}
+.hidden-3 { @include hidden(null, 700, 900, 1200);}
+

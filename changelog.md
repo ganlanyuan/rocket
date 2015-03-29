@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.1.4
++ Fix a issue on `color` mixin.
+
 ### v1.1.3
 + Fix a arg issue on `gallery`.
 + Simplify `type` and `button` mixins.

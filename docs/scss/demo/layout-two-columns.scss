@@ -1,0 +1,6 @@
+@import 'demo-base';
+
+// *** layout: two-columns *** //
+
+.example-two-columns { @include two-columns(right, 200, 20); }
+

@@ -1,0 +1,6 @@
+@import 'demo-base';
+
+// *** addons: flex video *** //
+
+.flex-video-wrap { max-width: 800px; margin: 0 auto;}
+.flex-video { @include flex-video(315/560); }

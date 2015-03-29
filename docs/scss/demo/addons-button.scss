@@ -1,0 +1,21 @@
+@import 'demo-base';
+
+// *** addons: button *** //
+
+.example-button {
+  margin-top: 20px;
+  > * { margin-bottom: 20px; }
+  button { @include button(14px, .5em .8em,#3255ff, null, 3px ); }
+  input {display: block; @include button(16px, .5em 1em, null, 1px solid #ccc, 3px); }
+  .pagination a { 
+    display: inline-block; 
+    @include button(13px, em(5) em(8), #dbdbdb, null, 3px);
+    margin: 0 3px 3px 0;
+  }
+  .breadcrumb {
+    li { display: inline-block; }
+    a { display: inline-block; @include button(14px, 5px); vertical-align: middle; }
+    span { font-size: 13px; vertical-align: middle; }
+  }
+}
+

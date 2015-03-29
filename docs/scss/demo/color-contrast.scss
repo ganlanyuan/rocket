@@ -1,0 +1,10 @@
+@import 'demo-base';
+
+// *** color: contrast *** //
+
+.color-box-contrast { 
+  background-color: $contrast; 
+  color: contrast($contrast);
+  width: 30%;
+}
+

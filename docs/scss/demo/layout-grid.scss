@@ -1,0 +1,8 @@
+@import 'demo-base';
+
+// *** layout: grid *** //
+
+.example-span-1 { @include span(7,11,1/2); }
+.example-span-2 { @include span(4,11,1/2,$last:true); }
+.example-span-calc-1 { @include span-calc(8,11,20); }
+.example-span-calc-2 { @include span-calc(3,11,20,$last:true); }
