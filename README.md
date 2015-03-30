@@ -97,7 +97,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 ```` scss
 @include justify-flex();
 .no-flexbox {
-  @inclue justify($child); // for old browsers
+  @include justify($child); // for old browsers
 }
 ````
 [demo](http://designdev.christianpost.com/develop/rocket/docs/#justify)
