@@ -13,7 +13,7 @@ Or install with [git](http://www.git-scm.com/):
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
 
-## Features:
+# Usage
 
 #### Grid System
 ##### layout setting #####
