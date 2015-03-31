@@ -90,7 +90,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 //
 // $columns is only needed when using gutter as percentage
 ````
-[gallery](http://designdev.cmcigroup.com/develop/rocket/docs/#gallery)
+[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-gallery.php)
 
 ##### justify #####
 `justify` is for creating `justify` list.
