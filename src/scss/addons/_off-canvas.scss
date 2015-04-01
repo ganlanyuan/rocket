@@ -1,4 +1,6 @@
 // ======= off-canvas ======= //
+@import '../color/contrast';
+@import '../color/analogous';
 
 @mixin off-canvas (
   $style: move,

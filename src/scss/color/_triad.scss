@@ -6,6 +6,6 @@
   $saturation: null,
   $lightness: null
 ){
-  @return color(triad, $color, $order: $order, $saturation: $saturation, $lightness: $lightness);
+  @return color(triad, $color, $order, $saturation, $lightness);
 }
 

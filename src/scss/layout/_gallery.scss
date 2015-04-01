@@ -1,3 +1,5 @@
+@import 'wrap';
+
 @mixin gallery(
   $per-row,
   $gutter: false,

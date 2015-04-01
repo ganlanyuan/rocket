@@ -1,10 +1,15 @@
 @import 'demo-base';
+@import "../../../src/scss/color/contrast";
 
 // *** color: contrast *** //
 
-.color-box-contrast { 
-  background-color: $contrast; 
-  color: contrast($contrast);
-  width: 30%;
+$contrast: #5173a3, #bbf8e6, #cb7d26;
+@for $i from 1 through 3 {
+  .color-box-contrast-#{$i} { 
+    background-color: nth($contrast, $i); 
+    color: contrast(nth($contrast, $i));
+    width: 30%;
+  }
 }
 
+.color-box { margin: 0 20px 20px 0; }

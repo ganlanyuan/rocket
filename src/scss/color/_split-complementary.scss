@@ -7,6 +7,6 @@
   $lightness: null,
   $dist: 30
 ){
-  @return color(split-complementary, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $dist: $dist);
+  @return color(split-complementary, $color, $order, $saturation, $lightness, $dist);
 }
 

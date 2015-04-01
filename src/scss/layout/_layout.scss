@@ -1,12 +1,11 @@
-@import "math/setting";
-@import "math/span";
+@import "base/base";
 
-@import "output/container";
-@import "output/wrap";
-@import "output/span";
-@import "output/span-calc";
-@import "output/two-columns";
-@import "output/gallery";
-@import "output/justify";
-@import "output/center";
-@import "output/debug";
+@import "container";
+@import "wrap";
+@import "span";
+@import "span-calc";
+@import "two-columns";
+@import "gallery";
+@import "justify";
+@import "center";
+@import "debug";

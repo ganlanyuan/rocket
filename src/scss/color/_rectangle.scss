@@ -7,6 +7,6 @@
   $lightness: null,
   $dist: 30
 ){
-  @return color(rectangle, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $dist: $dist);
+  @return color(rectangle, $color, $order, $saturation, $lightness, $dist);
 }
 

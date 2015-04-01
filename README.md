@@ -26,7 +26,7 @@ $layout: (
 ````
 
 ##### container #####
-The container of the content with a `max-width`. It will has a left and right margin on a smaller screen size than the `max-width`. It can be set align center, left or right.
+The container of the main content. It can be center, left or right aligned.
 ```` scss
 @include container {$container, $gutter, $align}
 // $container: px | em | rem
@@ -35,6 +35,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 ````
 
 ##### wrap #####
+Grid wrap, works with `span`.
 ```` scss
 @include wrap($columns, $gutter);
 // $gutter: px | em | rem | %
@@ -44,7 +45,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 ````
 
 ##### span #####
-`span` is used to create columns. Both fixed gutter (px, em, rem) and flexible gutter (%) are acceptable. If you use fixed gutter, you need set the parent element as a `wrap`, or using `span-calc`.
+`span` is used to create columns. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
 ```` scss
 @include span($column, $columns, $gutter, $pull, $push, $float, $last)
 // $column: num
@@ -62,7 +63,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 ````
 
 ##### span-calc #####
-`span-calc` is using css-calc to create columns, old browser (e.g. IE8) will not supported.
+`span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
 @include span-calc($column, $columns, $gutter, $pull, $push, $float, $last)
 // $column: num
@@ -112,7 +113,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-center.php)
 
 ##### two-columns #####
-`two-columns` is for creating a two columns layout. One of the two columns has a fixed width.
+`two-columns` is for creating a two columns layout. One of them has a fixed width.
 ```` scss
 @include two-columns($direction, $aside, $gutter);
 // $direction (fixed columns direction): left | right
@@ -122,7 +123,7 @@ The container of the content with a `max-width`. It will has a left and right ma
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-two-columns.php)
 
 ##### debug #####
-Use a `debug` to check if your content is well aligned.
+Use `debug` to show your grid.
 ```` scss
 @include debug($columns, $gutter, $color)
 // $columns: num
@@ -245,10 +246,9 @@ h1 { @include type(32px,700,null,1.1); }
 ##### button #####
 `button` is not just for "button". Everything which is an inline-block box can be considered as a button.
 ```` scss
-@include button(font-size, padding, margin, background-color, border, border-radius);
+@include button(font-size, padding, background-color, border, border-radius);
 // font-size: value | null
 // padding: value | null
-// margin: value | null
 // background-color: value | null
 // border: value | null
 // border-radius: value | null
@@ -276,7 +276,7 @@ h1 { @include type(32px,700,null,1.1); }
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-media-list.php)
 
 ##### off-canvas #####
-`off-canvas` is for the navigation on mobile.
+`off-canvas` is for creating the navigation of mobile site.
 ```` html
 <nav>
   <ul>
@@ -397,7 +397,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-flex-video.php)
 
 #### Color Functions
-Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF)   
+Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
 
 ##### adjacent #####
 `adjacent` is for creating adjacent colors.
