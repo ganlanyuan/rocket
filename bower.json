@@ -1,6 +1,6 @@
 {
   "name": "rocket",
-  "version": "0.0.0",
+  "version": "1.1.4",
   "main": [
     "./src/scss/rocket.scss",
     "./src/js/kit.js",
@@ -41,6 +41,6 @@
     "url": "https://github.com/ganlanyuan/rocket.git"
   },
   "dependencies": {
-    "bourbon": "~4.1.1"
+    "bourbon": "4.2.2"
   }
 }
