@@ -15,8 +15,8 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 
 # Usage
 
-#### Grid System
-##### layout setting #####
+#### 【 Grid System 】
+##### layout setting
 ```` scss
 $layout: (
   container: num | px | em | rem | % 
@@ -25,7 +25,7 @@ $layout: (
 );
 ````
 
-##### container #####
+##### container
 The container of the main content. It can be center, left or right aligned.
 ```` scss
 @include container {$container, $gutter, $align}
@@ -34,7 +34,7 @@ The container of the main content. It can be center, left or right aligned.
 // $align (optional): center | left | right
 ````
 
-##### wrap #####
+##### wrap
 Grid wrap, works with `span`.
 ```` scss
 @include wrap($columns, $gutter);
@@ -44,7 +44,7 @@ Grid wrap, works with `span`.
 // $columns is only needed when using gutter as percentage
 ````
 
-##### span #####
+##### span
 `span` is used to create columns. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
 ```` scss
 @include span($column, $columns, $gutter, $pull, $push, $float, $last)
@@ -62,7 +62,7 @@ Grid wrap, works with `span`.
 // e.g. $gutter: 1/2 means $gutter = 1/2 * $column-width
 ````
 
-##### span-calc #####
+##### span-calc
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
 @include span-calc($column, $columns, $gutter, $pull, $push, $float, $last)
@@ -79,7 +79,7 @@ Grid wrap, works with `span`.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-grid.php)
 
-##### gallery #####
+##### gallery
 `gallery` is for creating picture galleries.
 ```` scss
 @include gallery($per-row, $gutter, $child, $columns, $position);
@@ -93,7 +93,7 @@ Grid wrap, works with `span`.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-gallery.php)
 
-##### justify #####
+##### justify
 `justify` is for creating `justify` list.
 ```` scss
 @include justify-flex();
@@ -103,7 +103,7 @@ Grid wrap, works with `span`.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-justify.php)
 
-##### center #####
+##### center
 `center` is for creating both horizontal and vertical center aligned layout.
 ```` scss
 @include center($child, $align)
@@ -112,7 +112,7 @@ Grid wrap, works with `span`.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-center.php)
 
-##### two-columns #####
+##### two-columns
 `two-columns` is for creating a two columns layout. One of them has a fixed width.
 ```` scss
 @include two-columns($direction, $aside, $gutter);
@@ -122,7 +122,7 @@ Grid wrap, works with `span`.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-two-columns.php)
 
-##### debug #####
+##### debug
 Use `debug` to show your grid.
 ```` scss
 @include debug($columns, $gutter, $color)
@@ -132,10 +132,10 @@ Use `debug` to show your grid.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-debug.php)
 
-#### Pure CSS slideshow
+#### 【 Pure CSS slideshow 】
 A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay` and more. It works well on modern browsers and IE8+, but it doesn't support `loop`, `autoheight` and `lazyload` for now.
 
-##### markup #####
+##### markup
 First, set a specific class (or ID) for each slider.   
 Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 In the example shows on the left, I used banner as my specific class.    
@@ -173,7 +173,7 @@ In the example shows on the left, I used banner as my specific class.
   <div class="autoplay"><label for="banner-autoplay"><span></span></label></div>
 </div>
 ````
-##### slider-gallery #####
+##### slider-gallery
 ```` scss
 // basic
 @include slider-gallery($items, $ratio, $autoplay, $hide, $default);
@@ -204,7 +204,7 @@ In the example shows on the left, I used banner as my specific class.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/slider-gallery.php)
 
-##### slider-carousel #####
+##### slider-carousel
 ```` scss
 // basic
 @include slider-carousel($items, $perpage, $gutter, $slide-by-page, $center, $autoplay, $hide, $default);
@@ -227,8 +227,8 @@ In the example shows on the left, I used banner as my specific class.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/slider-carousel.php)
 
-#### Addons
-##### type #####
+#### 【 Addons 】
+##### type
 `type` is a shorthand mixin for type.
 ```` scss
 @include type($type...);
@@ -243,7 +243,7 @@ h1 { @include type(32px,700,null,1.1); }
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-type.php)
 
-##### button #####
+##### button
 `button` is not just for "button". Everything which is an inline-block box can be considered as a button.
 ```` scss
 @include button(font-size, padding, background-color, border, border-radius);
@@ -255,7 +255,7 @@ h1 { @include type(32px,700,null,1.1); }
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-button.php)
 
-##### Media list #####
+##### Media list
 `media` displays a media object (images, video, audio) to the left or right of a block.
 ```` scss
 .news { @include media($gutter, $media, $media-body, $direction); }
@@ -275,7 +275,7 @@ h1 { @include type(32px,700,null,1.1); }
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-media-list.php)
 
-##### off-canvas #####
+##### off-canvas
 `off-canvas` is for creating the navigation of mobile site.
 ```` html
 <nav>
@@ -312,7 +312,7 @@ nav { @include off-canvas($style, $direction, $font-size, $padding, $bg); }
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-off-canvas.php)
 
-##### dropdown #####
+##### dropdown
 There are two ways to show a dropdown menu. If you set as `click`, you need add an `<span data-dropdown-toggle></span>` beside your dropdown menu.
 ```` scss
 @include dropdown($bgc, $padding, $border, $border-radius, $shadow, $open);
@@ -328,7 +328,7 @@ There are two ways to show a dropdown menu. If you set as `click`, you need add 
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-dropdown.php)
 
-##### tooltip #####
+##### tooltip
 This is a pure css tooltip.
 ```` scss
 @include tooltip($direction, $color, $radius, $width, $height, $content);
@@ -345,7 +345,7 @@ This is a pure css tooltip.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-tooltip.php)
 
-##### breakpoint #####
+##### breakpoint
 A shorthand @mixin for break point.
 ```` scss
 @include bp-mi(
@@ -371,7 +371,7 @@ A shorthand @mixin for break point.
 // output: @media (min-width: 40em) and (max-width: 47.94em) { ... };
 ````
 
-##### visibility #####
+##### visibility
 A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
 @include visible($media, $bp...);
@@ -386,7 +386,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-visibility.php)
 
-##### flex video #####
+##### flex video
 ```` scss
 @include flex-video($ratio);
 // $ratio: 9/16 | ...
@@ -396,10 +396,10 @@ A shorthand @mixin for hide elements on some parts of viewport.
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-flex-video.php)
 
-#### Color Functions
+#### 【 Color Functions 】
 Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
 
-##### adjacent #####
+##### adjacent
 `adjacent` is for creating adjacent colors.
 ```` scss
 adjacent( $color, $order, $saturation, $lightness, $dist );
@@ -413,7 +413,7 @@ adjacent( $color, $order, $saturation, $lightness, $dist );
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-adjacent.php)
 
-##### complementary #####
+##### complementary
 `complementary` is for getting a complementary color.
 ```` scss
 complementary( $color, $saturation, $lightness );
@@ -425,7 +425,7 @@ complementary( $color, $saturation, $lightness );
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-complementary.php)
 
-##### split-complementary #####
+##### split-complementary
 `split-complementary` is for getting split-complementary colors based on a given color.
 ```` scss
 split-complementary( $color, $order, $saturation, $lightness, $dist );
@@ -439,7 +439,7 @@ split-complementary( $color, $order, $saturation, $lightness, $dist );
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-split-complementary.php)
 
-##### triad #####
+##### triad
 `triad` is for getting triad colors based on a given color.
 ```` scss
 triad( $color, $order, $saturation, $lightness, $dist );
@@ -453,7 +453,7 @@ triad( $color, $order, $saturation, $lightness, $dist );
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-triad.php)
 
-##### rectangle #####
+##### rectangle
 `rectangle` is for getting rectangle colors based on a given color.
 ```` scss
 rectangle( $color, $order, $saturation, $lightness, $dist );
@@ -467,7 +467,7 @@ rectangle( $color, $order, $saturation, $lightness, $dist );
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-rectangle.php)
 
-##### square #####
+##### square
 `square` is for getting square colors based on a given color.
 ```` scss
 square( $color, $order, $saturation, $lightness, $dist );
@@ -481,7 +481,7 @@ square( $color, $order, $saturation, $lightness, $dist );
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-square.php)
 
-#### kit.js
+#### 【 kit.js 】
 Kit.js is small Javascript library similar with jQuery. Kit.js works well on IE8 and up, and on other morden browsers.   
 The follow metheds are available:   
 `on`, `off`, `click`, `mouseover`, `mouseout`, `focus`, `blur`, `submit`, `keydown`, `keyup`,   
@@ -491,14 +491,14 @@ The follow metheds are available:
 `outerWidth`, `outerHeight`, `getTop`, `getLeft`, `offset(left top)`,   
 `before`, `after`, `append`, `prepend`  
 
-##### Ready #####
+##### Ready
 ```` javascript
 ready(function () {
   ...
 });
 ````
 
-##### Dom methods #####
+##### Dom methods
 ```` javascript
 k('.header').parent().addClass('newclass');
 k('.button').siblings('p').css({
@@ -507,7 +507,7 @@ k('.button').siblings('p').css({
 });
 ````
 
-##### Event #####
+##### Event
 ```` javascript
 k('.icon-menu').click(function() {
   k(this).parent().toggleClass('active');
@@ -518,7 +518,7 @@ k('.news').on('mouseover', function() {
 });
 ````
 
-##### forEach #####
+##### forEach
 ```` javascript
 k('.site-nav a').forEach(function (el) {
   el.onclick = function () {
@@ -530,7 +530,7 @@ k('.site-nav a').forEach(function (el) {
 });
 ````
 
-##### Reach #####
+##### Reach
 `reach` is a function to check if target element reach the edge of browser.  
 ```` javascript
 if (k(el).reach('middle',0)) {
@@ -544,7 +544,7 @@ if (k(el).reach('bottom',0)) {
 }
 ````
 
-##### scrollTo #####
+##### scrollTo
 Scroll to some point in a given period of time.  
 ```` javascript
 scrollTo (to,duration);
@@ -554,7 +554,7 @@ k('.icon-menu').click(function() {
 });
 ````
 
-##### numIncrease #####
+##### numIncrease
 Increase numbers in given period of time.
 ```` javascript
 numIncrease(element, from, to, duration);
@@ -564,7 +564,7 @@ document.onload = function  () {
 };
 ````
 
-##### animate #####
+##### animate
 ```` javascript
 animate(el, attr, from, to, duration);
 animate(k('.target'), 'left', 0, 20, 400);
