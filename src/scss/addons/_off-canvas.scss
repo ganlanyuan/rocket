@@ -56,7 +56,9 @@
     -webkit-transition: left .3s $global-bezier 0s;
     transition: left .3s $global-bezier 0s;
   }
-  .mb-subnav-show { left: 0; }
+  @at-root {
+    .off-canvas-show .mb-subnav-show { left: 0; }
+  }
   [data-offcanvas-back]{ 
     padding: $padding;
     cursor: pointer;
@@ -80,6 +82,7 @@
   > [data-page-cover] {
     display: block;
     position: fixed;
+    left: 0;
     top: 0;
     @include size(100%);
     z-index: -1;

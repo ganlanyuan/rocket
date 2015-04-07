@@ -82,7 +82,7 @@ Grid wrap, works with `span`.
 ##### gallery #####
 `gallery` is for creating picture galleries.
 ```` scss
-@include gallery($per-row, $columns, $gutter, $child, $position);
+@include gallery($per-row, $gutter, $child, $columns, $position);
 // $per-row: num
 // $gutter: num | px | em | rem | 1/20 | 5% | 0.1
 // $child: div | span | ...
@@ -569,9 +569,6 @@ document.onload = function  () {
 animate(el, attr, from, to, duration);
 animate(k('.target'), 'left', 0, 20, 400);
 ````
-
-# Document
-[Document and demo](http://designdev.cmcigroup.com/develop/rocket/docs/)
 
 # Changelog
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)

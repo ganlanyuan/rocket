@@ -1,14 +1,16 @@
 # Changelog
 
 ### v1.1.4
-+ Fix a issue on `color` mixin.
++ Fix an issue on `color` mixin.
++ Fix an `page cover stopped` issue on `off-canvas` mixin.
++ Update Readme.
 
 ### v1.1.3
-+ Fix a arg issue on `gallery`.
++ Fix an arg issue on `gallery`.
 + Simplify `type` and `button` mixins.
 
 ### v1.1.2
-+ Fix a issue on `contianer`.
++ Fix an issue on `contianer`.
 + Simplify `slider-gallery`, `container`, `wrap` and `breakpoint`.
 
 ### v1.1.1
@@ -26,7 +28,7 @@
 
 ### v0.1.4
 + Add more data to color model based on [http://paletton.com/](http://paletton.com/).
-+ Fix an issue: when $hue == 0, color function can't compile.
++ Fix an issue: when $hue == 0, color function can not compile.
 
 ### v0.1.3
 + Rewrite color core function, and fix everything.
