@@ -125,38 +125,51 @@
     @if str-index($hide, 'controls') == null {
       @for $i from 1 through $items {
         #{$id}-#{$i}:checked ~ {
+          .controls label:nth-child(n+1) { display: none; }
           @if $slide-by-page == true {
             // prev
             @if $i == 1 {
+              .controls label:nth-child(#{$items - $perpage + 1}),
               .controls label:nth-child(#{$items - $perpage + 1}) .prev { display: block; }
             }
             @else if $i > 1 and $i <= $perpage {
+              .controls label:nth-child(1),
               .controls label:nth-child(1) .prev { display: block; }
             }
             @else {
+              .controls label:nth-child(#{$i - $perpage}),
               .controls label:nth-child(#{$i - $perpage}) .prev { display: block; }
             }
             // next
             @if $i >= ($items - $perpage + 1) {
+              .controls label:nth-child(1),
               .controls label:nth-child(1) .next { display: block; }
             }
             @else if $i > ($items - $perpage * 2 + 1) and $i < ($items - $perpage + 1) {
+              .controls label:nth-child(#{$items - $perpage + 1}),
               .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
             }
             @else {
+              .controls label:nth-child(#{$i + $perpage}),
               .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
             }
           }
           @else {
             @if $i == 1 {
+              .controls label:nth-child(#{$pages}), 
+              .controls label:nth-child(#{$i + 1}),
               .controls label:nth-child(#{$pages}) .prev, 
               .controls label:nth-child(#{$i + 1}) .next { display: block; }
             }
             @else if $i < $pages {
+              .controls label:nth-child(#{$i - 1}), 
+              .controls label:nth-child(#{$i + 1}),
               .controls label:nth-child(#{$i - 1}) .prev, 
               .controls label:nth-child(#{$i + 1}) .next { display: block; }
             }
             @else {
+              .controls label:nth-child(#{$i - 1}), 
+              .controls label:nth-child(1),
               .controls label:nth-child(#{$i - 1}) .prev, 
               .controls label:nth-child(1) .next { display: block; }
             }

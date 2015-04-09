@@ -536,26 +536,51 @@ pre[class*="language-"] {
 .carousel-c .autoplay {
   display: none;
 }
+#carousel-c-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-c-1:checked ~ .controls label:nth-child(5),
+#carousel-c-1:checked ~ .controls label:nth-child(2),
 #carousel-c-1:checked ~ .controls label:nth-child(5) .prev,
 #carousel-c-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
+#carousel-c-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-c-2:checked ~ .controls label:nth-child(1),
+#carousel-c-2:checked ~ .controls label:nth-child(3),
 #carousel-c-2:checked ~ .controls label:nth-child(1) .prev,
 #carousel-c-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
+#carousel-c-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-c-3:checked ~ .controls label:nth-child(2),
+#carousel-c-3:checked ~ .controls label:nth-child(4),
 #carousel-c-3:checked ~ .controls label:nth-child(2) .prev,
 #carousel-c-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
+#carousel-c-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-c-4:checked ~ .controls label:nth-child(3),
+#carousel-c-4:checked ~ .controls label:nth-child(5),
 #carousel-c-4:checked ~ .controls label:nth-child(3) .prev,
 #carousel-c-4:checked ~ .controls label:nth-child(5) .next {
   display: block;
 }
 
+#carousel-c-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-c-5:checked ~ .controls label:nth-child(4),
+#carousel-c-5:checked ~ .controls label:nth-child(1),
 #carousel-c-5:checked ~ .controls label:nth-child(4) .prev,
 #carousel-c-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
@@ -591,26 +616,51 @@ pre[class*="language-"] {
 .carousel-e .autoplay {
   display: none;
 }
+#carousel-e-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-e-1:checked ~ .controls label:nth-child(4),
+#carousel-e-1:checked ~ .controls label:nth-child(2),
 #carousel-e-1:checked ~ .controls label:nth-child(4) .prev,
 #carousel-e-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
+#carousel-e-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-e-2:checked ~ .controls label:nth-child(1),
+#carousel-e-2:checked ~ .controls label:nth-child(3),
 #carousel-e-2:checked ~ .controls label:nth-child(1) .prev,
 #carousel-e-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
+#carousel-e-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-e-3:checked ~ .controls label:nth-child(2),
+#carousel-e-3:checked ~ .controls label:nth-child(4),
 #carousel-e-3:checked ~ .controls label:nth-child(2) .prev,
 #carousel-e-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
+#carousel-e-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-e-4:checked ~ .controls label:nth-child(3),
+#carousel-e-4:checked ~ .controls label:nth-child(1),
 #carousel-e-4:checked ~ .controls label:nth-child(3) .prev,
 #carousel-e-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
+#carousel-e-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-e-5:checked ~ .controls label:nth-child(4),
+#carousel-e-5:checked ~ .controls label:nth-child(1),
 #carousel-e-5:checked ~ .controls label:nth-child(4) .prev,
 #carousel-e-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
@@ -744,26 +794,51 @@ pre[class*="language-"] {
 #carousel-f-autoplay:checked ~ .controls {
   display: none !important;
 }
+#carousel-f-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-f-1:checked ~ .controls label:nth-child(4),
+#carousel-f-1:checked ~ .controls label:nth-child(2),
 #carousel-f-1:checked ~ .controls label:nth-child(4) .prev,
 #carousel-f-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
+#carousel-f-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-f-2:checked ~ .controls label:nth-child(1),
+#carousel-f-2:checked ~ .controls label:nth-child(3),
 #carousel-f-2:checked ~ .controls label:nth-child(1) .prev,
 #carousel-f-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
+#carousel-f-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-f-3:checked ~ .controls label:nth-child(2),
+#carousel-f-3:checked ~ .controls label:nth-child(4),
 #carousel-f-3:checked ~ .controls label:nth-child(2) .prev,
 #carousel-f-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
+#carousel-f-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-f-4:checked ~ .controls label:nth-child(3),
+#carousel-f-4:checked ~ .controls label:nth-child(1),
 #carousel-f-4:checked ~ .controls label:nth-child(3) .prev,
 #carousel-f-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
+#carousel-f-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-f-5:checked ~ .controls label:nth-child(4),
+#carousel-f-5:checked ~ .controls label:nth-child(1),
 #carousel-f-5:checked ~ .controls label:nth-child(4) .prev,
 #carousel-f-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
@@ -772,185 +847,257 @@ pre[class*="language-"] {
 #carousel-a-autoplay:checked ~ .dots {
   display: none;
 }
-@media (min-width: 0) and (max-width: 43.6875em) {
-  .carousel-a .slider-container {
-    margin: 0 -10px;
-  }
-  .carousel-a .slider-container .item {
-    margin: 0 10px;
-  }
-  #carousel-a-1:checked ~ .slider-container .inner {
-    left: 0%;
-  }
-  #carousel-a-2:checked ~ .slider-container .inner {
-    left: -100%;
-  }
-  #carousel-a-3:checked ~ .slider-container .inner {
-    left: -200%;
-  }
-  #carousel-a-4:checked ~ .slider-container .inner {
-    left: -300%;
-  }
-  #carousel-a-5:checked ~ .slider-container .inner {
-    left: -400%;
-  }
-  .carousel-a .dots label:nth-child(n + 6) {
-    display: none;
-  }
-  .carousel-a .autoplay {
-    display: none;
-  }
-  #carousel-a-1:checked ~ .controls label:nth-child(5) .prev,
-  #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
-    display: block;
-  }
-
-  #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-  #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-
-  #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-  #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
-    display: block;
-  }
-
-  #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-a-4:checked ~ .controls label:nth-child(5) .next {
-    display: block;
-  }
-
-  #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
+.carousel-a .slider-container {
+  margin: 0 -10px;
 }
+.carousel-a .slider-container .item {
+  margin: 0 10px;
+}
+#carousel-a-1:checked ~ .slider-container .inner {
+  left: 0%;
+}
+#carousel-a-2:checked ~ .slider-container .inner {
+  left: -100%;
+}
+#carousel-a-3:checked ~ .slider-container .inner {
+  left: -200%;
+}
+#carousel-a-4:checked ~ .slider-container .inner {
+  left: -300%;
+}
+#carousel-a-5:checked ~ .slider-container .inner {
+  left: -400%;
+}
+.carousel-a .dots label:nth-child(n + 6) {
+  display: none;
+}
+.carousel-a .autoplay {
+  display: none;
+}
+#carousel-a-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-a-1:checked ~ .controls label:nth-child(5),
+#carousel-a-1:checked ~ .controls label:nth-child(2),
+#carousel-a-1:checked ~ .controls label:nth-child(5) .prev,
+#carousel-a-1:checked ~ .controls label:nth-child(2) .next {
+  display: block;
+}
+
+#carousel-a-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-a-2:checked ~ .controls label:nth-child(1),
+#carousel-a-2:checked ~ .controls label:nth-child(3),
+#carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
+#carousel-a-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+#carousel-a-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-a-3:checked ~ .controls label:nth-child(2),
+#carousel-a-3:checked ~ .controls label:nth-child(4),
+#carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
+#carousel-a-3:checked ~ .controls label:nth-child(4) .next {
+  display: block;
+}
+
+#carousel-a-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-a-4:checked ~ .controls label:nth-child(3),
+#carousel-a-4:checked ~ .controls label:nth-child(5),
+#carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
+#carousel-a-4:checked ~ .controls label:nth-child(5) .next {
+  display: block;
+}
+
+#carousel-a-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-a-5:checked ~ .controls label:nth-child(4),
+#carousel-a-5:checked ~ .controls label:nth-child(1),
+#carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
+#carousel-a-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
 #carousel-b-autoplay:checked ~ .dots {
   display: none;
 }
-@media (min-width: 0) and (max-width: 43.6875em) {
-  .carousel-b .slider-container {
-    margin: 0 -10px;
-  }
-  .carousel-b .slider-container .item {
-    margin: 0 10px;
-  }
-  #carousel-b-1:checked ~ .slider-container .inner {
-    left: 0%;
-  }
-  #carousel-b-2:checked ~ .slider-container .inner {
-    left: -100%;
-  }
-  #carousel-b-3:checked ~ .slider-container .inner {
-    left: -200%;
-  }
-  #carousel-b-4:checked ~ .slider-container .inner {
-    left: -300%;
-  }
-  #carousel-b-5:checked ~ .slider-container .inner {
-    left: -400%;
-  }
-  .carousel-b .dots label:nth-child(n + 6) {
-    display: none;
-  }
-  .carousel-b .autoplay {
-    display: none;
-  }
-  #carousel-b-1:checked ~ .controls label:nth-child(5) .prev,
-  #carousel-b-1:checked ~ .controls label:nth-child(2) .next {
-    display: block;
-  }
-
-  #carousel-b-2:checked ~ .controls label:nth-child(1) .prev,
-  #carousel-b-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-
-  #carousel-b-3:checked ~ .controls label:nth-child(2) .prev,
-  #carousel-b-3:checked ~ .controls label:nth-child(4) .next {
-    display: block;
-  }
-
-  #carousel-b-4:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-b-4:checked ~ .controls label:nth-child(5) .next {
-    display: block;
-  }
-
-  #carousel-b-5:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-b-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
+.carousel-b .slider-container {
+  margin: 0 -10px;
 }
+.carousel-b .slider-container .item {
+  margin: 0 10px;
+}
+#carousel-b-1:checked ~ .slider-container .inner {
+  left: 0%;
+}
+#carousel-b-2:checked ~ .slider-container .inner {
+  left: -100%;
+}
+#carousel-b-3:checked ~ .slider-container .inner {
+  left: -200%;
+}
+#carousel-b-4:checked ~ .slider-container .inner {
+  left: -300%;
+}
+#carousel-b-5:checked ~ .slider-container .inner {
+  left: -400%;
+}
+.carousel-b .dots label:nth-child(n + 6) {
+  display: none;
+}
+.carousel-b .autoplay {
+  display: none;
+}
+#carousel-b-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-b-1:checked ~ .controls label:nth-child(5),
+#carousel-b-1:checked ~ .controls label:nth-child(2),
+#carousel-b-1:checked ~ .controls label:nth-child(5) .prev,
+#carousel-b-1:checked ~ .controls label:nth-child(2) .next {
+  display: block;
+}
+
+#carousel-b-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-b-2:checked ~ .controls label:nth-child(1),
+#carousel-b-2:checked ~ .controls label:nth-child(3),
+#carousel-b-2:checked ~ .controls label:nth-child(1) .prev,
+#carousel-b-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+#carousel-b-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-b-3:checked ~ .controls label:nth-child(2),
+#carousel-b-3:checked ~ .controls label:nth-child(4),
+#carousel-b-3:checked ~ .controls label:nth-child(2) .prev,
+#carousel-b-3:checked ~ .controls label:nth-child(4) .next {
+  display: block;
+}
+
+#carousel-b-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-b-4:checked ~ .controls label:nth-child(3),
+#carousel-b-4:checked ~ .controls label:nth-child(5),
+#carousel-b-4:checked ~ .controls label:nth-child(3) .prev,
+#carousel-b-4:checked ~ .controls label:nth-child(5) .next {
+  display: block;
+}
+
+#carousel-b-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-b-5:checked ~ .controls label:nth-child(4),
+#carousel-b-5:checked ~ .controls label:nth-child(1),
+#carousel-b-5:checked ~ .controls label:nth-child(4) .prev,
+#carousel-b-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
 #carousel-d-autoplay:checked ~ .dots {
   display: none;
 }
-@media (min-width: 0) and (max-width: 43.6875em) {
-  .carousel-d .slider-container {
-    margin: 0 -10px;
-  }
-  .carousel-d .slider-container li {
-    width: 50%;
-  }
-  .carousel-d .slider-container .item {
-    margin: 0 10px;
-  }
-  #carousel-d-1:checked ~ .slider-container .inner {
-    left: 0%;
-  }
-  #carousel-d-2:checked ~ .slider-container .inner {
-    left: -50%;
-  }
-  #carousel-d-3:checked ~ .slider-container .inner {
-    left: -100%;
-  }
-  #carousel-d-4:checked ~ .slider-container .inner {
-    left: -150%;
-  }
-  #carousel-d-5:checked ~ .slider-container .inner {
-    left: -150%;
-  }
-  .carousel-d .autoplay {
-    display: none;
-  }
-  #carousel-d-1:checked ~ .controls label:nth-child(4) .prev {
-    display: block;
-  }
-  #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-
-  #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
-    display: block;
-  }
-  #carousel-d-2:checked ~ .controls label:nth-child(4) .next {
-    display: block;
-  }
-
-  #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
-    display: block;
-  }
-  #carousel-d-3:checked ~ .controls label:nth-child(4) .next {
-    display: block;
-  }
-
-  #carousel-d-4:checked ~ .controls label:nth-child(2) .prev {
-    display: block;
-  }
-  #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-
-  #carousel-d-5:checked ~ .controls label:nth-child(3) .prev {
-    display: block;
-  }
-  #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
+.carousel-d .slider-container {
+  margin: 0 -10px;
 }
+.carousel-d .slider-container li {
+  width: 50%;
+}
+.carousel-d .slider-container .item {
+  margin: 0 10px;
+}
+#carousel-d-1:checked ~ .slider-container .inner {
+  left: 0%;
+}
+#carousel-d-2:checked ~ .slider-container .inner {
+  left: -50%;
+}
+#carousel-d-3:checked ~ .slider-container .inner {
+  left: -100%;
+}
+#carousel-d-4:checked ~ .slider-container .inner {
+  left: -150%;
+}
+#carousel-d-5:checked ~ .slider-container .inner {
+  left: -150%;
+}
+.carousel-d .autoplay {
+  display: none;
+}
+#carousel-d-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-d-1:checked ~ .controls label:nth-child(4),
+#carousel-d-1:checked ~ .controls label:nth-child(4) .prev {
+  display: block;
+}
+#carousel-d-1:checked ~ .controls label:nth-child(3),
+#carousel-d-1:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+#carousel-d-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-d-2:checked ~ .controls label:nth-child(1),
+#carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+#carousel-d-2:checked ~ .controls label:nth-child(4),
+#carousel-d-2:checked ~ .controls label:nth-child(4) .next {
+  display: block;
+}
+
+#carousel-d-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-d-3:checked ~ .controls label:nth-child(1),
+#carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+#carousel-d-3:checked ~ .controls label:nth-child(4),
+#carousel-d-3:checked ~ .controls label:nth-child(4) .next {
+  display: block;
+}
+
+#carousel-d-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-d-4:checked ~ .controls label:nth-child(2),
+#carousel-d-4:checked ~ .controls label:nth-child(2) .prev {
+  display: block;
+}
+#carousel-d-4:checked ~ .controls label:nth-child(1),
+#carousel-d-4:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+#carousel-d-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+#carousel-d-5:checked ~ .controls label:nth-child(3),
+#carousel-d-5:checked ~ .controls label:nth-child(3) .prev {
+  display: block;
+}
+#carousel-d-5:checked ~ .controls label:nth-child(1),
+#carousel-d-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
 #carousel-a-autoplay:checked ~ .dots {
   display: none;
 }
-@media (min-width: 43.75em) and (max-width: 62.4375em) {
+@media (min-width: 43.75em) {
   .carousel-a .slider-container {
     margin: 0 -10px;
   }
@@ -981,26 +1128,51 @@ pre[class*="language-"] {
   .carousel-a .autoplay {
     display: none;
   }
+  #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-1:checked ~ .controls label:nth-child(4),
+  #carousel-a-1:checked ~ .controls label:nth-child(2),
   #carousel-a-1:checked ~ .controls label:nth-child(4) .prev,
   #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
 
+  #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-2:checked ~ .controls label:nth-child(1),
+  #carousel-a-2:checked ~ .controls label:nth-child(3),
   #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
   #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
 
+  #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-3:checked ~ .controls label:nth-child(2),
+  #carousel-a-3:checked ~ .controls label:nth-child(4),
   #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
   #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
     display: block;
   }
 
+  #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-4:checked ~ .controls label:nth-child(3),
+  #carousel-a-4:checked ~ .controls label:nth-child(1),
   #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
   #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 
+  #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-5:checked ~ .controls label:nth-child(4),
+  #carousel-a-5:checked ~ .controls label:nth-child(1),
   #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
   #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
@@ -1040,26 +1212,51 @@ pre[class*="language-"] {
   .carousel-b .autoplay {
     display: none;
   }
+  #carousel-b-1:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-b-1:checked ~ .controls label:nth-child(4),
+  #carousel-b-1:checked ~ .controls label:nth-child(2),
   #carousel-b-1:checked ~ .controls label:nth-child(4) .prev,
   #carousel-b-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
 
+  #carousel-b-2:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-b-2:checked ~ .controls label:nth-child(1),
+  #carousel-b-2:checked ~ .controls label:nth-child(3),
   #carousel-b-2:checked ~ .controls label:nth-child(1) .prev,
   #carousel-b-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
 
+  #carousel-b-3:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-b-3:checked ~ .controls label:nth-child(2),
+  #carousel-b-3:checked ~ .controls label:nth-child(4),
   #carousel-b-3:checked ~ .controls label:nth-child(2) .prev,
   #carousel-b-3:checked ~ .controls label:nth-child(4) .next {
     display: block;
   }
 
+  #carousel-b-4:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-b-4:checked ~ .controls label:nth-child(3),
+  #carousel-b-4:checked ~ .controls label:nth-child(1),
   #carousel-b-4:checked ~ .controls label:nth-child(3) .prev,
   #carousel-b-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 
+  #carousel-b-5:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-b-5:checked ~ .controls label:nth-child(4),
+  #carousel-b-5:checked ~ .controls label:nth-child(1),
   #carousel-b-5:checked ~ .controls label:nth-child(4) .prev,
   #carousel-b-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
@@ -1096,37 +1293,62 @@ pre[class*="language-"] {
   .carousel-d .autoplay {
     display: none;
   }
+  #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-d-1:checked ~ .controls label:nth-child(3),
   #carousel-d-1:checked ~ .controls label:nth-child(3) .prev {
     display: block;
   }
+  #carousel-d-1:checked ~ .controls label:nth-child(3),
   #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
 
+  #carousel-d-2:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-d-2:checked ~ .controls label:nth-child(1),
   #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
     display: block;
   }
+  #carousel-d-2:checked ~ .controls label:nth-child(3),
   #carousel-d-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
 
+  #carousel-d-3:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-d-3:checked ~ .controls label:nth-child(1),
   #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
     display: block;
   }
+  #carousel-d-3:checked ~ .controls label:nth-child(1),
   #carousel-d-3:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 
+  #carousel-d-4:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-d-4:checked ~ .controls label:nth-child(1),
   #carousel-d-4:checked ~ .controls label:nth-child(1) .prev {
     display: block;
   }
+  #carousel-d-4:checked ~ .controls label:nth-child(1),
   #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 
+  #carousel-d-5:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-d-5:checked ~ .controls label:nth-child(2),
   #carousel-d-5:checked ~ .controls label:nth-child(2) .prev {
     display: block;
   }
+  #carousel-d-5:checked ~ .controls label:nth-child(1),
   #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
@@ -1165,26 +1387,51 @@ pre[class*="language-"] {
   .carousel-a .autoplay {
     display: none;
   }
+  #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-1:checked ~ .controls label:nth-child(3),
+  #carousel-a-1:checked ~ .controls label:nth-child(2),
   #carousel-a-1:checked ~ .controls label:nth-child(3) .prev,
   #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
 
+  #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-2:checked ~ .controls label:nth-child(1),
+  #carousel-a-2:checked ~ .controls label:nth-child(3),
   #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
   #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
 
+  #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-3:checked ~ .controls label:nth-child(2),
+  #carousel-a-3:checked ~ .controls label:nth-child(1),
   #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
   #carousel-a-3:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 
+  #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-4:checked ~ .controls label:nth-child(3),
+  #carousel-a-4:checked ~ .controls label:nth-child(1),
   #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
   #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 
+  #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-a-5:checked ~ .controls label:nth-child(4),
+  #carousel-a-5:checked ~ .controls label:nth-child(1),
   #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
   #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
     display: block;

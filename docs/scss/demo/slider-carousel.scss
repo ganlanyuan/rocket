@@ -60,15 +60,11 @@
     .carousel-c { @include slider-carousel(); }
     .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
     .carousel-f { @include slider-carousel($perpage: 2, $autoplay: true); }
-    @include bp-mm(0,em(699)) {
-      .carousel-a { @include slider-carousel(); }
-      .carousel-b { @include slider-carousel(); }
-      .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
-    }
-    @include bp-mm(em(700),em(999)) {
-      .carousel-a { @include slider-carousel($perpage: 2); }
-    }
+    .carousel-a { @include slider-carousel(); }
+    .carousel-b { @include slider-carousel(); }
+    .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
     @include bp-mi(em(700)) {
+      .carousel-a { @include slider-carousel($perpage: 2); }
       .carousel-b { @include slider-carousel($perpage: 2); }
       .carousel-d { @include slider-carousel($perpage: 3, $slide-by-page: true); }
     }
