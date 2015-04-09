@@ -20,14 +20,14 @@
   @at-root (without: media) { 
     // base
     @extend %slide-base; 
-    @for $i from 1 through $items {
-      #{$id}-#{$i}:checked ~ {
-          .dots label:nth-child(#{$i}) .active { @extend %show; }
-          .dots label:nth-child(#{$i}) .normal { @extend %hide; }
-      }
-    }
-    // hide dots on autoplay
     @at-root {
+      @for $i from 1 through $items {
+        #{$id}-#{$i}:checked ~ {
+            .dots label:nth-child(#{$i}) .active { @extend %show; }
+            .dots label:nth-child(#{$i}) .normal { @extend %hide; }
+        }
+      }
+      // hide dots on autoplay
       #{$id}-autoplay:checked ~ .dots { display: none; }
     }
     @each $item in controls, dots, autoplay {

@@ -16,14 +16,6 @@
     .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
     .slider-container {
       overflow: hidden;
-      .inner {
-        position: relative;
-        left: 0;
-        @extend %clearfix;
-        letter-spacing: -0.34em;
-        white-space: nowrap;
-        @extend %slider-transition;
-      }
       li {
         display: inline-block;
         vertical-align: top;
@@ -31,6 +23,14 @@
         letter-spacing: 0;
         box-sizing: border-box;
       }
+    }
+    .inner {
+      position: relative;
+      left: 0;
+      @extend %clearfix;
+      letter-spacing: -0.34em;
+      white-space: nowrap;
+      @extend %slider-transition;
     }
     // .item { position: relative; }
     .info, .controls, .dots, .autoplay { 

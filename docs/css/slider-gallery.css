@@ -1,4 +1,4 @@
-.gallery-a .slider-container .inner:after, .gallery-b .slider-container .inner:after {
+.gallery-a .inner:after, .gallery-b .inner:after {
   clear: both;
   content: "";
   display: table;
@@ -291,7 +291,7 @@ pre[class*="language-"] {
   display: block;
 }
 
-.gallery-a .slider-container .inner, .gallery-b .slider-container .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-a .autoplay, .gallery-a .slider-container li, .gallery-b .slider-container li {
+.gallery-a .inner, .gallery-b .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-a .autoplay, .gallery-a .slider-container li, .gallery-b .slider-container li {
   transition: all 1s ease 0s;
 }
 
@@ -313,18 +313,18 @@ pre[class*="language-"] {
 .gallery-a .slider-container, .gallery-b .slider-container {
   overflow: hidden;
 }
-.gallery-a .slider-container .inner, .gallery-b .slider-container .inner {
-  position: relative;
-  left: 0;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-}
 .gallery-a .slider-container li, .gallery-b .slider-container li {
   display: inline-block;
   vertical-align: top;
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+}
+.gallery-a .inner, .gallery-b .inner {
+  position: relative;
+  left: 0;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
 }
 .gallery-a .info, .gallery-b .info, .gallery-a .controls, .gallery-b .controls, .gallery-a .dots, .gallery-b .dots, .gallery-a .autoplay, .gallery-b .autoplay {
   position: absolute;
