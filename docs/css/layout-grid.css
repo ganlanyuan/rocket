@@ -86,7 +86,7 @@ pre[class*="language-"] { padding: 0 1em; }
 
 .site-footer { padding: 15px 0; background-color: #0E1721; }
 
-.copy-right { ont-size: 12px; line-height: 1.3; color: #b1b1b1; }
+.copy-right { font-size: 12px; line-height: 1.3; color: #b1b1b1; }
 
 .example-span-1 { float: left; width: 62.5%; margin-right: 3.125%; }
 

@@ -20,11 +20,7 @@
     
     <?php include "include/more-demos.php" ?>
   </div>
-  <footer class="site-footer">
-    <div class="container">
-      <p class="copy-right">Copyright © 2014 Rocket, All rights reserved. </p>
-    </div>
-  </footer>
+  <?php include "include/site-footer.php" ?>
 </div>
 </body>
 </html>
