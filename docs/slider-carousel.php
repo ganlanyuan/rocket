@@ -14,7 +14,7 @@
         <input type="radio" name="option-carousel" id="carousel-sm">
         <input type="radio" name="option-carousel" id="slide-by-page">
         <input type="radio" name="option-carousel" id="slider-center">
-        <input type="radio" name="option-carousel" id="carousel-auto-play" checked="">
+        <input type="radio" name="option-carousel" id="carousel-auto-play">
         <div class="slider-labels">
           <div>
             <div class="title">Options: </div>

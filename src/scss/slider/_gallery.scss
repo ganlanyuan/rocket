@@ -85,7 +85,7 @@
       }
       @at-root { 
         #{$id}-autoplay:checked ~ {
-          .dots { display: none; }
+          .controls, .dots { display: none !important; }
           .slider-container li {
             @include animation( #{$prefix} $peritem * $items ease infinite);
             @for $i from 2 through $items {

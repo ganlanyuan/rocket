@@ -1,5 +1,10 @@
 # Changelog
 
+### v1.1.5
++ Add animations to `off-canvas`.
++ Enhance `carousel` slideshow: hide extra dots when per-page items are more than one.
++ Hide *controls* when sliders are set to autoplay.
+
 ### v1.1.4
 + Fix an issue on `color` mixin.
 + Fix an `page cover stopped` issue on `off-canvas` mixin.

@@ -2,13 +2,18 @@
 @import '../color/contrast';
 @import '../color/analogous';
 
+$off-canvas-length: 12;
+
 @mixin off-canvas (
   $style: move,
   $direction: left,
   $font-size: 14,
   $padding: em(16, 14) em(16, 14),
-  $bgc: #000
+  $bgc: #000,
+  $animation: false
 ){
+
+  // common
   position: fixed;
   height: 100%;
   color: contrast($bgc);
@@ -32,6 +37,30 @@
   }
   .active > a,
   .current > a { background-color: analogous($bgc, 23%); }
+  [data-offcanvas-close] { cursor: pointer; }
+  [data-offcanvas-subnav] {
+    width: 100%;
+    @include position(absolute, 0px null 0px 100%);
+    background-color: $bgc;
+    -webkit-transition: left .3s $global-bezier 0s;
+    transition: left .3s $global-bezier 0s;
+  }
+  [data-offcanvas-back]{ 
+    padding: $padding;
+    cursor: pointer;
+    background-color: analogous($bgc, 15%);
+  }
+  [data-icon-haschild] { 
+    display: inline-block;
+    padding: $padding;
+    float: right;
+    height: 1em;
+    cursor: pointer;
+   &:hover { background-color: analogous($bgc, 15%); } 
+  }
+  @at-root { .off-canvas-show .mb-subnav-show { left: 0; } }
+
+  // styles
   @if $style == move {
     .off-canvas-show & { margin-#{$direction}: 0; }
   }
@@ -48,28 +77,33 @@
     @if $style == move or 
         $style == translate { margin-#{$direction}: -$nav-width; }
   }
-  [data-offcanvas-close] { cursor: pointer; }
-  [data-offcanvas-subnav] {
-    width: 100%;
-    @include position(absolute, 0px null 0px 100%);
-    background-color: $bgc;
-    -webkit-transition: left .3s $global-bezier 0s;
-    transition: left .3s $global-bezier 0s;
-  }
-  @at-root {
-    .off-canvas-show .mb-subnav-show { left: 0; }
-  }
-  [data-offcanvas-back]{ 
-    padding: $padding;
-    cursor: pointer;
-    background-color: analogous($bgc, 15%);
-  }
-  [data-icon-haschild] { 
-    display: inline-block;
-    padding: $padding;
-    float: right;
-    cursor: pointer;
-   &:hover { background-color: analogous($bgc, 15%); } 
+
+  // animation
+  @if $animation == true {
+    @at-root {
+      & > ul > li > a {
+        opacity: 0;
+        @include transform(translate3d(-100%,0,0));
+        .off-canvas-show & { 
+          opacity: 1; 
+          @include transform(none);
+        }
+      }
+      [data-offcanvas-subnav] a {
+        opacity: 0;
+        @include transform(translate3d(100%,0,0));
+      }
+      .mb-subnav-show a {
+        opacity: 1;
+        @include transform(none);
+      }
+      @for $i from 1 through $off-canvas-length {
+        & > ul > li:nth-child(#{$i}) > a ,
+        [data-offcanvas-subnav] li:nth-child(#{$i}) a {
+          @include transition-delay(($i * $global-animation-duration / $off-canvas-length));
+        }
+      }
+    }
   }
 }
 

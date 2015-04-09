@@ -8,6 +8,7 @@ $rem-base: 16px !default;
 $z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100;
 
 // transition
+$global-animation-duration: 0.4s;
 $global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 // off-canvas

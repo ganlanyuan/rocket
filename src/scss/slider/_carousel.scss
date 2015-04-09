@@ -10,16 +10,41 @@
   $default: true
 ){
   $half: 0;
+  $pages: $items - $perpage +1;
   $prefix: get-slider-selector(&);
   $id: "#" + $prefix;
   @if $center == true and $perpage > 1 { 
     $half: (1 / ($perpage * 2)); 
   }
+
   @at-root (without: media) { 
+    // base
     @extend %slide-base; 
+    @for $i from 1 through $items {
+      #{$id}-#{$i}:checked ~ {
+          .dots label:nth-child(#{$i}) .active { @extend %show; }
+          .dots label:nth-child(#{$i}) .normal { @extend %hide; }
+      }
+    }
+    // hide dots on autoplay
+    @at-root {
+      #{$id}-autoplay:checked ~ .dots { display: none; }
+    }
+    @each $item in controls, dots, autoplay {
+      @if str-index($hide, $item) == null {
+        // default style
+        @if $default == true {
+          @extend %default-#{$item};
+        }
+      }
+      @else {
+        // hide
+        & .#{$item} { display: none !important; }
+      }
+    }
   }
 
-  // basic
+  // container and items
   .slider-container {
     @if $perpage != 1 { li { width: percentage(1/$perpage) } }
     @if $gutter != 0 and $gutter != 0px and $gutter != null and $gutter != false {
@@ -27,7 +52,6 @@
       .item { margin: 0 $gutter; }
     }
   }
-
   // setting inner
   @for $i from 1 through $items {
     @at-root {
@@ -44,13 +68,22 @@
       }
     }
   }
+  // hide extra dots
+  @if str-index($hide, 'dots') == null {
+    @if $slide-by-page == false {
+      .dots label:nth-child(n + #{$pages + 1}) { display: none; }
+    }
+    // @else {
+    //   @for $i from 2 through $perpage {
+    //     .dots label:nth-child(#{$perpage}n + #{$i}) { display: none; }
+    //   }
+    //   .dots label:nth-child(#{$perpage}n + 1) { display: inline-block; }
+    // }
+  }
 
   // animation
   @if str-index($hide, 'autoplay') == null and $autoplay == true {
-    @if $default {
-      @extend %default-autoplay;
-      #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; }
-    }
+    @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; } }
 
     $left-val: 0;
     $frames: 1;
@@ -81,85 +114,55 @@
     @at-root {
       #{$id}-autoplay:checked ~ {
         .slider-container .inner { @include animation(#{$prefix}-inner $peritem * $frames ease infinite); }
+        .controls { display: none !important; }
       }
     }
   }
+  @else { .autoplay { display: none; } }
 
   // setting controls
-  @if str-index($hide, 'controls') == null {
-    @at-root {
+  @at-root {
+    @if str-index($hide, 'controls') == null {
       @for $i from 1 through $items {
         #{$id}-#{$i}:checked ~ {
           @if $slide-by-page == true {
+            // prev
             @if $i == 1 {
-              .controls label:nth-child(#{$items - $perpage + 1}) .prev,
-              .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
+              .controls label:nth-child(#{$items - $perpage + 1}) .prev { display: block; }
             }
-            @if $i > 1 and $i <= $perpage {
-              .controls label:nth-child(1) .prev, 
-              .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
-            }
-            @if $i > ($items - 2 * $perpage + 1) and $i < ($items - $perpage + 1) {
-              .controls label:nth-child(#{$i - $perpage}) .prev, 
-              .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
-            }
-            @if $i >= ($items - $perpage + 1) {
-              .controls label:nth-child(#{$i - $perpage}) .prev, 
-              .controls label:nth-child(1) .next { display: block; }
+            @else if $i > 1 and $i <= $perpage {
+              .controls label:nth-child(1) .prev { display: block; }
             }
             @else {
-              .controls label:nth-child(#{$i - $perpage}) .prev, 
+              .controls label:nth-child(#{$i - $perpage}) .prev { display: block; }
+            }
+            // next
+            @if $i >= ($items - $perpage + 1) {
+              .controls label:nth-child(1) .next { display: block; }
+            }
+            @else if $i > ($items - $perpage * 2 + 1) and $i < ($items - $perpage + 1) {
+              .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
+            }
+            @else {
               .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
             }
           }
           @else {
             @if $i == 1 {
-              .controls label:nth-child(#{$items}) .prev, 
+              .controls label:nth-child(#{$pages}) .prev, 
               .controls label:nth-child(#{$i + 1}) .next { display: block; }
             }
-            @else if $i == $items {
+            @else if $i < $pages {
               .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(1) .next { display: block; }
+              .controls label:nth-child(#{$i + 1}) .next { display: block; }
             }
             @else {
               .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { display: block; }
+              .controls label:nth-child(1) .next { display: block; }
             }
           }
         }
       }
-    }
-  }
-
-  @at-root (without: media) { 
-    // setting controls
-    @if str-index($hide, 'controls') == null {
-      @if $default == true { @extend %default-controls; }
-    }
-
-    // setting dots
-    @if str-index($hide, 'dots') == null {
-      @if $default == true { @extend %default-dots; }
-      @for $i from 1 through $items {
-        @at-root {
-          #{$id}-#{$i}:checked ~ {
-            .dots label:nth-child(#{$i}) .active { @extend %show; }
-            .dots label:nth-child(#{$i}) .normal { @extend %hide; }
-          }
-        }
-      }
-      // redefine dots on autoplay
-      @at-root {
-        #{$id}-autoplay:checked ~ .dots { display: none; }
-      }
-    }
-
-  } // @at-root end
-
-  // hide controls, dots or autoplay
-  @each $item in controls, dots, autoplay {
-    @if str-index($hide, $item) != null {
-      & .#{$item} { display: none !important; }
     }
   }
 

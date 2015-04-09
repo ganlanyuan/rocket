@@ -308,9 +308,6 @@ pre[class*="language-"] {
 .mb-nav .current > a {
   background-color: #2651a3;
 }
-.off-canvas-show .mb-nav {
-  left: 200px;
-}
 .mb-nav [data-offcanvas-close] {
   cursor: pointer;
 }
@@ -324,9 +321,6 @@ pre[class*="language-"] {
   -webkit-transition: left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   transition: left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
-.off-canvas-show .mb-subnav-show {
-  left: 0;
-}
 .mb-nav [data-offcanvas-back] {
   padding: 16px;
   cursor: pointer;
@@ -336,10 +330,135 @@ pre[class*="language-"] {
   display: inline-block;
   padding: 16px;
   float: right;
+  height: 1em;
   cursor: pointer;
 }
 .mb-nav [data-icon-haschild]:hover {
   background-color: #1f4182;
+}
+.off-canvas-show .mb-subnav-show {
+  left: 0;
+}
+.off-canvas-show .mb-nav {
+  left: 200px;
+}
+.mb-nav > ul > li > a {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.off-canvas-show .mb-nav > ul > li > a {
+  opacity: 1;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+[data-offcanvas-subnav] a {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  -o-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+.mb-subnav-show a {
+  opacity: 1;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+.mb-nav > ul > li:nth-child(1) > a,
+[data-offcanvas-subnav] li:nth-child(1) a {
+  -webkit-transition-delay: 0.0333333333s;
+  -moz-transition-delay: 0.0333333333s;
+  transition-delay: 0.0333333333s;
+}
+
+.mb-nav > ul > li:nth-child(2) > a,
+[data-offcanvas-subnav] li:nth-child(2) a {
+  -webkit-transition-delay: 0.0666666667s;
+  -moz-transition-delay: 0.0666666667s;
+  transition-delay: 0.0666666667s;
+}
+
+.mb-nav > ul > li:nth-child(3) > a,
+[data-offcanvas-subnav] li:nth-child(3) a {
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.mb-nav > ul > li:nth-child(4) > a,
+[data-offcanvas-subnav] li:nth-child(4) a {
+  -webkit-transition-delay: 0.1333333333s;
+  -moz-transition-delay: 0.1333333333s;
+  transition-delay: 0.1333333333s;
+}
+
+.mb-nav > ul > li:nth-child(5) > a,
+[data-offcanvas-subnav] li:nth-child(5) a {
+  -webkit-transition-delay: 0.1666666667s;
+  -moz-transition-delay: 0.1666666667s;
+  transition-delay: 0.1666666667s;
+}
+
+.mb-nav > ul > li:nth-child(6) > a,
+[data-offcanvas-subnav] li:nth-child(6) a {
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.mb-nav > ul > li:nth-child(7) > a,
+[data-offcanvas-subnav] li:nth-child(7) a {
+  -webkit-transition-delay: 0.2333333333s;
+  -moz-transition-delay: 0.2333333333s;
+  transition-delay: 0.2333333333s;
+}
+
+.mb-nav > ul > li:nth-child(8) > a,
+[data-offcanvas-subnav] li:nth-child(8) a {
+  -webkit-transition-delay: 0.2666666667s;
+  -moz-transition-delay: 0.2666666667s;
+  transition-delay: 0.2666666667s;
+}
+
+.mb-nav > ul > li:nth-child(9) > a,
+[data-offcanvas-subnav] li:nth-child(9) a {
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.mb-nav > ul > li:nth-child(10) > a,
+[data-offcanvas-subnav] li:nth-child(10) a {
+  -webkit-transition-delay: 0.3333333333s;
+  -moz-transition-delay: 0.3333333333s;
+  transition-delay: 0.3333333333s;
+}
+
+.mb-nav > ul > li:nth-child(11) > a,
+[data-offcanvas-subnav] li:nth-child(11) a {
+  -webkit-transition-delay: 0.3666666667s;
+  -moz-transition-delay: 0.3666666667s;
+  transition-delay: 0.3666666667s;
+}
+
+.mb-nav > ul > li:nth-child(12) > a,
+[data-offcanvas-subnav] li:nth-child(12) a {
+  -webkit-transition-delay: 0.4s;
+  -moz-transition-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 
 [data-offcanvas-close] {

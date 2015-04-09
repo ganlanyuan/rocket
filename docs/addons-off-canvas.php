@@ -10,7 +10,7 @@
       <div data-icon-nav class="icon-nav"><span></span></div>
       <pre><code class="language-scss">
 .mb-nav {
-  @include off-canvas(translate,left,14px,16px,#102244);
+  @include off-canvas(translate,left,14px,16px,#102244,true);
 }
 [data-offcanvas-close] { 
   @include icon-close(#fff, #74baff, 18px 2px 3px, 10px, true); 

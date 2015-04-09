@@ -300,12 +300,13 @@ h1 { @include type(32px,700,null,1.1); }
 </div>
 ````
 ```` scss
-nav { @include off-canvas($style, $direction, $font-size, $padding, $bg); }
+nav { @include off-canvas($style, $direction, $font-size, $padding, $bgc, $animation); }
 // $style: move | translate | reveal
 // $direction: left | right
 // $font-size: font-size (nav-item)
 // $padding: padding (nav-item)
 // $bgc: background-color (nav-item)
+// $animation (optional): false | true
 .page { @include page-container($style, $direction); }
 // $style: move | translate | reveal
 // $direction: left | right

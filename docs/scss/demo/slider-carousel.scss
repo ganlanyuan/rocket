@@ -43,7 +43,7 @@
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }
-    @include bp-ma(1178){
+    @include bp-ma(em(1178)){
       .controls {
         .prev { margin-left: 10px !important; }
         .next { margin-right: 10px !important; }
@@ -57,15 +57,20 @@
     .carousel-d, 
     .carousel-e, 
     .carousel-f { display: none; }
-    .carousel-a { @include slider-carousel(); }
-    .carousel-b { @include slider-carousel(); }
     .carousel-c { @include slider-carousel(); }
-    .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
     .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
-    .carousel-f { @include slider-carousel($perpage: 3, $autoplay: true); }
-    @include bp-mi(em(700)) {
+    .carousel-f { @include slider-carousel($perpage: 2, $autoplay: true); }
+    @include bp-mm(0,em(699)) {
+      .carousel-a { @include slider-carousel(); }
+      .carousel-b { @include slider-carousel(); }
+      .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
+    }
+    @include bp-mm(em(700),em(999)) {
       .carousel-a { @include slider-carousel($perpage: 2); }
+    }
+    @include bp-mi(em(700)) {
       .carousel-b { @include slider-carousel($perpage: 2); }
+      .carousel-d { @include slider-carousel($perpage: 3, $slide-by-page: true); }
     }
     @include bp-mi(em(1000)) {
       .carousel-a { @include slider-carousel($perpage: 3); }
