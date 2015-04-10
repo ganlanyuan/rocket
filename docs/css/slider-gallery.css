@@ -312,6 +312,8 @@ pre[class*="language-"] {
 }
 .gallery-a .slider-container, .gallery-b .slider-container {
   overflow: hidden;
+  -webkit-transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
+  transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
 }
 .gallery-a .slider-container li, .gallery-b .slider-container li {
   display: inline-block;

@@ -23,6 +23,7 @@
       &:hover { background-color: $active;}
     }
   }
+  .item { position: relative; }
   .info { 
     padding: 10px; 
     @include visible(null, 800px);
@@ -30,7 +31,7 @@
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in slider-gallery, gallery-lg, gallery-md, gallery-sm, gallery-auto-play, gallery-customise, slider-carousel, carousel-lg, carousel-md, carousel-sm, slide-by-page, slider-center, carousel-auto-play {
+    @each $item in slider-gallery, gallery-lg, gallery-md, gallery-sm, gallery-auto-play, gallery-customise, slider-carousel, carousel-lg, carousel-md, carousel-sm, slide-by-page, slider-center, carousel-auto-play, carousel-auto-height {
       [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
@@ -56,27 +57,32 @@
     .carousel-c, 
     .carousel-d, 
     .carousel-e, 
-    .carousel-f { display: none; }
-    .carousel-c { @include slider-carousel(); }
+    .carousel-f,
+    .carousel-g { display: none; }
+    .carousel-a, 
+    .carousel-c,
+    .carousel-g { @include slider-carousel(); }
     .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
     .carousel-f { @include slider-carousel($perpage: 2, $autoplay: true); }
-    .carousel-a { @include slider-carousel(); }
     .carousel-b { @include slider-carousel(); }
     .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
     @include bp-mi(em(700)) {
       .carousel-a { @include slider-carousel($perpage: 2); }
       .carousel-b { @include slider-carousel($perpage: 2); }
       .carousel-d { @include slider-carousel($perpage: 3, $slide-by-page: true); }
+      .carousel-g { @include slider-carousel($perpage: 2); }
     }
     @include bp-mi(em(1000)) {
       .carousel-a { @include slider-carousel($perpage: 3); }
+      .carousel-g { @include slider-carousel($perpage: 3); }
     }
     [id="carousel-lg"]:checked ~ .carousel-a, 
     [id="carousel-md"]:checked ~ .carousel-b, 
     [id="carousel-sm"]:checked ~ .carousel-c, 
     [id="slide-by-page"]:checked ~ .carousel-d,
     [id="slider-center"]:checked ~ .carousel-e,
-    [id="carousel-auto-play"]:checked ~ .carousel-f { display: block; }
+    [id="carousel-auto-play"]:checked ~ .carousel-f,
+    [id="carousel-auto-height"]:checked ~ .carousel-g { display: block; }
   }
 }
 

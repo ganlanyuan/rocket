@@ -118,7 +118,7 @@
       }
     }
   }
-  @else { .autoplay { display: none; } }
+  @else { .autoplay { display: none !important; } }
 
   // setting controls
   @at-root {

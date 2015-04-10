@@ -8,13 +8,13 @@
     </div>
     <div class="content">
       <div class="slider">
-        <input type="radio" name="slider-carousel" id="slider-carousel" checked="">
-        <input type="radio" name="option-carousel" id="carousel-lg" checked="">
+        <input type="radio" name="option-carousel" id="carousel-lg">
         <input type="radio" name="option-carousel" id="carousel-md">
         <input type="radio" name="option-carousel" id="carousel-sm">
         <input type="radio" name="option-carousel" id="slide-by-page">
         <input type="radio" name="option-carousel" id="slider-center">
         <input type="radio" name="option-carousel" id="carousel-auto-play">
+        <input type="radio" name="option-carousel" id="carousel-auto-height" checked="">
         <div class="slider-labels">
           <div>
             <div class="title">Options: </div>
@@ -24,6 +24,7 @@
             <label for="slide-by-page">slide-by-page</label>
             <label for="slider-center">center</label>
             <label for="carousel-auto-play">auto-play</label>
+            <label for="carousel-auto-height">auto-height</label>
           </div>
         </div>
         <div class="carousel-a">
@@ -337,6 +338,58 @@
             <label for="carousel-f-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="autoplay"><label for="carousel-f-autoplay"><span></span></label></div>
+        </div>
+        <div class="carousel-g">
+          <input type="radio" name="carousel-g" id="carousel-g-1" checked="">
+          <input type="radio" name="carousel-g" id="carousel-g-2">
+          <input type="radio" name="carousel-g" id="carousel-g-3">
+          <input type="radio" name="carousel-g" id="carousel-g-4">
+          <input type="radio" name="carousel-g" id="carousel-g-5">
+          <input type="checkbox" name="carousel-g-autoplay" id="carousel-g-autoplay">
+          <div class="slider-container" autoheight-carousel>
+            <ul class="inner">
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x919/97cddd/97cddd"></a>
+                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x719/e3d189/e3d189"></a>
+                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x519/b6cc84/b6cc84"></a>
+                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="controls">
+            <label for="carousel-g-1"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-g-2"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-g-3"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-g-4"><span class="prev"></span><span class="next"></span></label>
+            <label for="carousel-g-5"><span class="prev"></span><span class="next"></span></label>
+          </div>
+          <div class="dots">
+            <label for="carousel-g-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-g-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-g-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-g-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-g-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="autoplay"><label for="carousel-g-autoplay"><span></span></label></div>
         </div>
       </div>
       <div>

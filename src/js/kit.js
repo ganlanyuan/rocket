@@ -8,3 +8,4 @@
 // *** components ***
 // @codekit-prepend "components/off-canvas.js"
 // @codekit-prepend "components/dropdown.js"
+// @codekit-prepend "components/autoheight-carousel.js"

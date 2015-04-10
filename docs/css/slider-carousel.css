@@ -1,4 +1,6 @@
-.carousel-c .inner:after, .carousel-e .inner:after, .carousel-f .inner:after, .carousel-a .inner:after, .carousel-b .inner:after, .carousel-d .inner:after {
+.carousel-a .inner:after,
+.carousel-c .inner:after,
+.carousel-g .inner:after, .carousel-e .inner:after, .carousel-f .inner:after, .carousel-b .inner:after, .carousel-d .inner:after {
   clear: both;
   content: "";
   display: table;
@@ -273,137 +275,215 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-#carousel-c-1:checked ~ .dots label:nth-child(1) .normal, #carousel-c-2:checked ~ .dots label:nth-child(2) .normal, #carousel-c-3:checked ~ .dots label:nth-child(3) .normal, #carousel-c-4:checked ~ .dots label:nth-child(4) .normal, #carousel-c-5:checked ~ .dots label:nth-child(5) .normal, #carousel-e-1:checked ~ .dots label:nth-child(1) .normal, #carousel-e-2:checked ~ .dots label:nth-child(2) .normal, #carousel-e-3:checked ~ .dots label:nth-child(3) .normal, #carousel-e-4:checked ~ .dots label:nth-child(4) .normal, #carousel-e-5:checked ~ .dots label:nth-child(5) .normal, #carousel-f-1:checked ~ .dots label:nth-child(1) .normal, #carousel-f-2:checked ~ .dots label:nth-child(2) .normal, #carousel-f-3:checked ~ .dots label:nth-child(3) .normal, #carousel-f-4:checked ~ .dots label:nth-child(4) .normal, #carousel-f-5:checked ~ .dots label:nth-child(5) .normal, #carousel-a-1:checked ~ .dots label:nth-child(1) .normal, #carousel-a-2:checked ~ .dots label:nth-child(2) .normal, #carousel-a-3:checked ~ .dots label:nth-child(3) .normal, #carousel-a-4:checked ~ .dots label:nth-child(4) .normal, #carousel-a-5:checked ~ .dots label:nth-child(5) .normal, #carousel-b-1:checked ~ .dots label:nth-child(1) .normal, #carousel-b-2:checked ~ .dots label:nth-child(2) .normal, #carousel-b-3:checked ~ .dots label:nth-child(3) .normal, #carousel-b-4:checked ~ .dots label:nth-child(4) .normal, #carousel-b-5:checked ~ .dots label:nth-child(5) .normal, #carousel-d-1:checked ~ .dots label:nth-child(1) .normal, #carousel-d-2:checked ~ .dots label:nth-child(2) .normal, #carousel-d-3:checked ~ .dots label:nth-child(3) .normal, #carousel-d-4:checked ~ .dots label:nth-child(4) .normal, #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
+#carousel-g-1:checked ~ .dots label:nth-child(1) .normal, #carousel-g-2:checked ~ .dots label:nth-child(2) .normal, #carousel-g-3:checked ~ .dots label:nth-child(3) .normal, #carousel-g-4:checked ~ .dots label:nth-child(4) .normal, #carousel-g-5:checked ~ .dots label:nth-child(5) .normal, #carousel-e-1:checked ~ .dots label:nth-child(1) .normal, #carousel-e-2:checked ~ .dots label:nth-child(2) .normal, #carousel-e-3:checked ~ .dots label:nth-child(3) .normal, #carousel-e-4:checked ~ .dots label:nth-child(4) .normal, #carousel-e-5:checked ~ .dots label:nth-child(5) .normal, #carousel-f-1:checked ~ .dots label:nth-child(1) .normal, #carousel-f-2:checked ~ .dots label:nth-child(2) .normal, #carousel-f-3:checked ~ .dots label:nth-child(3) .normal, #carousel-f-4:checked ~ .dots label:nth-child(4) .normal, #carousel-f-5:checked ~ .dots label:nth-child(5) .normal, #carousel-b-1:checked ~ .dots label:nth-child(1) .normal, #carousel-b-2:checked ~ .dots label:nth-child(2) .normal, #carousel-b-3:checked ~ .dots label:nth-child(3) .normal, #carousel-b-4:checked ~ .dots label:nth-child(4) .normal, #carousel-b-5:checked ~ .dots label:nth-child(5) .normal, #carousel-d-1:checked ~ .dots label:nth-child(1) .normal, #carousel-d-2:checked ~ .dots label:nth-child(2) .normal, #carousel-d-3:checked ~ .dots label:nth-child(3) .normal, #carousel-d-4:checked ~ .dots label:nth-child(4) .normal, #carousel-d-5:checked ~ .dots label:nth-child(5) .normal, #carousel-a-1:checked ~ .dots label:nth-child(1) .normal, #carousel-a-2:checked ~ .dots label:nth-child(2) .normal, #carousel-a-3:checked ~ .dots label:nth-child(3) .normal, #carousel-a-4:checked ~ .dots label:nth-child(4) .normal, #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-#carousel-c-1:checked ~ .dots label:nth-child(1) .active, #carousel-c-2:checked ~ .dots label:nth-child(2) .active, #carousel-c-3:checked ~ .dots label:nth-child(3) .active, #carousel-c-4:checked ~ .dots label:nth-child(4) .active, #carousel-c-5:checked ~ .dots label:nth-child(5) .active, #carousel-e-1:checked ~ .dots label:nth-child(1) .active, #carousel-e-2:checked ~ .dots label:nth-child(2) .active, #carousel-e-3:checked ~ .dots label:nth-child(3) .active, #carousel-e-4:checked ~ .dots label:nth-child(4) .active, #carousel-e-5:checked ~ .dots label:nth-child(5) .active, #carousel-f-1:checked ~ .dots label:nth-child(1) .active, #carousel-f-2:checked ~ .dots label:nth-child(2) .active, #carousel-f-3:checked ~ .dots label:nth-child(3) .active, #carousel-f-4:checked ~ .dots label:nth-child(4) .active, #carousel-f-5:checked ~ .dots label:nth-child(5) .active, #carousel-a-1:checked ~ .dots label:nth-child(1) .active, #carousel-a-2:checked ~ .dots label:nth-child(2) .active, #carousel-a-3:checked ~ .dots label:nth-child(3) .active, #carousel-a-4:checked ~ .dots label:nth-child(4) .active, #carousel-a-5:checked ~ .dots label:nth-child(5) .active, #carousel-b-1:checked ~ .dots label:nth-child(1) .active, #carousel-b-2:checked ~ .dots label:nth-child(2) .active, #carousel-b-3:checked ~ .dots label:nth-child(3) .active, #carousel-b-4:checked ~ .dots label:nth-child(4) .active, #carousel-b-5:checked ~ .dots label:nth-child(5) .active, #carousel-d-1:checked ~ .dots label:nth-child(1) .active, #carousel-d-2:checked ~ .dots label:nth-child(2) .active, #carousel-d-3:checked ~ .dots label:nth-child(3) .active, #carousel-d-4:checked ~ .dots label:nth-child(4) .active, #carousel-d-5:checked ~ .dots label:nth-child(5) .active {
+#carousel-g-1:checked ~ .dots label:nth-child(1) .active, #carousel-g-2:checked ~ .dots label:nth-child(2) .active, #carousel-g-3:checked ~ .dots label:nth-child(3) .active, #carousel-g-4:checked ~ .dots label:nth-child(4) .active, #carousel-g-5:checked ~ .dots label:nth-child(5) .active, #carousel-e-1:checked ~ .dots label:nth-child(1) .active, #carousel-e-2:checked ~ .dots label:nth-child(2) .active, #carousel-e-3:checked ~ .dots label:nth-child(3) .active, #carousel-e-4:checked ~ .dots label:nth-child(4) .active, #carousel-e-5:checked ~ .dots label:nth-child(5) .active, #carousel-f-1:checked ~ .dots label:nth-child(1) .active, #carousel-f-2:checked ~ .dots label:nth-child(2) .active, #carousel-f-3:checked ~ .dots label:nth-child(3) .active, #carousel-f-4:checked ~ .dots label:nth-child(4) .active, #carousel-f-5:checked ~ .dots label:nth-child(5) .active, #carousel-b-1:checked ~ .dots label:nth-child(1) .active, #carousel-b-2:checked ~ .dots label:nth-child(2) .active, #carousel-b-3:checked ~ .dots label:nth-child(3) .active, #carousel-b-4:checked ~ .dots label:nth-child(4) .active, #carousel-b-5:checked ~ .dots label:nth-child(5) .active, #carousel-d-1:checked ~ .dots label:nth-child(1) .active, #carousel-d-2:checked ~ .dots label:nth-child(2) .active, #carousel-d-3:checked ~ .dots label:nth-child(3) .active, #carousel-d-4:checked ~ .dots label:nth-child(4) .active, #carousel-d-5:checked ~ .dots label:nth-child(5) .active, #carousel-a-1:checked ~ .dots label:nth-child(1) .active, #carousel-a-2:checked ~ .dots label:nth-child(2) .active, #carousel-a-3:checked ~ .dots label:nth-child(3) .active, #carousel-a-4:checked ~ .dots label:nth-child(4) .active, #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-.carousel-c .inner, .carousel-e .inner, .carousel-f .inner, .carousel-a .inner, .carousel-b .inner, .carousel-d .inner, .carousel-c .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-a .dots span, .carousel-b .dots span, .carousel-d .dots span, .carousel-c .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-a .controls span, .carousel-b .controls span, .carousel-d .controls span, .carousel-c .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-a .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
+.carousel-a .inner,
+.carousel-c .inner,
+.carousel-g .inner, .carousel-e .inner, .carousel-f .inner, .carousel-b .inner, .carousel-d .inner, .carousel-a .dots span,
+.carousel-c .dots span,
+.carousel-g .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-b .dots span, .carousel-d .dots span, .carousel-a .controls span,
+.carousel-c .controls span,
+.carousel-g .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-b .controls span, .carousel-d .controls span, .carousel-a .autoplay,
+.carousel-c .autoplay,
+.carousel-g .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
   transition: all 1s ease 0s;
 }
 
-.carousel-c, .carousel-e, .carousel-f, .carousel-a, .carousel-b, .carousel-d {
+.carousel-a,
+.carousel-c,
+.carousel-g, .carousel-e, .carousel-f, .carousel-b, .carousel-d {
   position: relative;
 }
-.carousel-c img, .carousel-e img, .carousel-f img, .carousel-a img, .carousel-b img, .carousel-d img {
+.carousel-a img,
+.carousel-c img,
+.carousel-g img, .carousel-e img, .carousel-f img, .carousel-b img, .carousel-d img {
   width: 100%;
 }
-.carousel-c > input, .carousel-e > input, .carousel-f > input, .carousel-a > input, .carousel-b > input, .carousel-d > input {
+.carousel-a > input,
+.carousel-c > input,
+.carousel-g > input, .carousel-e > input, .carousel-f > input, .carousel-b > input, .carousel-d > input {
   display: none;
 }
-.lt-ie9 .carousel-c > input, .lt-ie9 .carousel-e > input, .lt-ie9 .carousel-f > input, .lt-ie9 .carousel-a > input, .lt-ie9 .carousel-b > input, .lt-ie9 .carousel-d > input {
+.lt-ie9 .carousel-a > input,
+.lt-ie9 .carousel-c > input,
+.lt-ie9 .carousel-g > input, .lt-ie9 .carousel-e > input, .lt-ie9 .carousel-f > input, .lt-ie9 .carousel-b > input, .lt-ie9 .carousel-d > input {
   display: inline-block;
   width: 0;
   height: 0;
   overflow: hidden;
 }
-.carousel-c .slider-container, .carousel-e .slider-container, .carousel-f .slider-container, .carousel-a .slider-container, .carousel-b .slider-container, .carousel-d .slider-container {
+.carousel-a .slider-container,
+.carousel-c .slider-container,
+.carousel-g .slider-container, .carousel-e .slider-container, .carousel-f .slider-container, .carousel-b .slider-container, .carousel-d .slider-container {
   overflow: hidden;
+  -webkit-transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
+  transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
 }
-.carousel-c .slider-container li, .carousel-e .slider-container li, .carousel-f .slider-container li, .carousel-a .slider-container li, .carousel-b .slider-container li, .carousel-d .slider-container li {
+.carousel-a .slider-container li,
+.carousel-c .slider-container li,
+.carousel-g .slider-container li, .carousel-e .slider-container li, .carousel-f .slider-container li, .carousel-b .slider-container li, .carousel-d .slider-container li {
   display: inline-block;
   vertical-align: top;
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
 }
-.carousel-c .inner, .carousel-e .inner, .carousel-f .inner, .carousel-a .inner, .carousel-b .inner, .carousel-d .inner {
+.carousel-a .inner,
+.carousel-c .inner,
+.carousel-g .inner, .carousel-e .inner, .carousel-f .inner, .carousel-b .inner, .carousel-d .inner {
   position: relative;
   left: 0;
   letter-spacing: -0.34em;
   white-space: nowrap;
 }
-.carousel-c .info, .carousel-e .info, .carousel-f .info, .carousel-a .info, .carousel-b .info, .carousel-d .info, .carousel-c .controls, .carousel-e .controls, .carousel-f .controls, .carousel-a .controls, .carousel-b .controls, .carousel-d .controls, .carousel-c .dots, .carousel-e .dots, .carousel-f .dots, .carousel-a .dots, .carousel-b .dots, .carousel-d .dots, .carousel-c .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-a .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
+.carousel-a .info,
+.carousel-c .info,
+.carousel-g .info, .carousel-e .info, .carousel-f .info, .carousel-b .info, .carousel-d .info, .carousel-a .controls,
+.carousel-c .controls,
+.carousel-g .controls, .carousel-e .controls, .carousel-f .controls, .carousel-b .controls, .carousel-d .controls, .carousel-a .dots,
+.carousel-c .dots,
+.carousel-g .dots, .carousel-e .dots, .carousel-f .dots, .carousel-b .dots, .carousel-d .dots, .carousel-a .autoplay,
+.carousel-c .autoplay,
+.carousel-g .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
   position: absolute;
   z-index: 10;
 }
-.carousel-c .info, .carousel-e .info, .carousel-f .info, .carousel-a .info, .carousel-b .info, .carousel-d .info {
+.carousel-a .info,
+.carousel-c .info,
+.carousel-g .info, .carousel-e .info, .carousel-f .info, .carousel-b .info, .carousel-d .info {
   bottom: 20px;
   z-index: 9;
 }
-.carousel-c .controls, .carousel-e .controls, .carousel-f .controls, .carousel-a .controls, .carousel-b .controls, .carousel-d .controls {
+.carousel-a .controls,
+.carousel-c .controls,
+.carousel-g .controls, .carousel-e .controls, .carousel-f .controls, .carousel-b .controls, .carousel-d .controls {
   top: 50%;
   width: 100%;
   box-sizing: border-box;
 }
-.carousel-c .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-a .controls span, .carousel-b .controls span, .carousel-d .controls span {
+.carousel-a .controls span,
+.carousel-c .controls span,
+.carousel-g .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-b .controls span, .carousel-d .controls span {
   display: none;
 }
-.carousel-c .dots, .carousel-e .dots, .carousel-f .dots, .carousel-a .dots, .carousel-b .dots, .carousel-d .dots {
+.carousel-a .dots,
+.carousel-c .dots,
+.carousel-g .dots, .carousel-e .dots, .carousel-f .dots, .carousel-b .dots, .carousel-d .dots {
   width: 100%;
   text-align: center;
 }
-.carousel-c .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-a .dots label, .carousel-b .dots label, .carousel-d .dots label {
+.carousel-a .dots label,
+.carousel-c .dots label,
+.carousel-g .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-b .dots label, .carousel-d .dots label {
   display: inline-block;
 }
-.carousel-c .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-a .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
+.carousel-a .autoplay,
+.carousel-c .autoplay,
+.carousel-g .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
   left: 50%;
   top: 50%;
 }
 
-.carousel-c .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-a .dots label, .carousel-b .dots label, .carousel-d .dots label, .carousel-c .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-a .dots span, .carousel-b .dots span, .carousel-d .dots span {
+.carousel-a .dots label,
+.carousel-c .dots label,
+.carousel-g .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-b .dots label, .carousel-d .dots label, .carousel-a .dots span,
+.carousel-c .dots span,
+.carousel-g .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-b .dots span, .carousel-d .dots span {
   display: inline-block;
   vertical-align: top;
 }
-.carousel-c .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-a .dots label, .carousel-b .dots label, .carousel-d .dots label {
+.carousel-a .dots label,
+.carousel-c .dots label,
+.carousel-g .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-b .dots label, .carousel-d .dots label {
   padding: 12px 3px 0px;
 }
-.carousel-c .dots label:hover .normal, .carousel-e .dots label:hover .normal, .carousel-f .dots label:hover .normal, .carousel-a .dots label:hover .normal, .carousel-b .dots label:hover .normal, .carousel-d .dots label:hover .normal {
+.carousel-a .dots label:hover .normal,
+.carousel-c .dots label:hover .normal,
+.carousel-g .dots label:hover .normal, .carousel-e .dots label:hover .normal, .carousel-f .dots label:hover .normal, .carousel-b .dots label:hover .normal, .carousel-d .dots label:hover .normal {
   background-color: #5a5a5a;
 }
-.carousel-c .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-a .dots span, .carousel-b .dots span, .carousel-d .dots span {
+.carousel-a .dots span,
+.carousel-c .dots span,
+.carousel-g .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-b .dots span, .carousel-d .dots span {
   width: 9px;
   height: 9px;
   background-color: #d3d3d3;
   border-radius: 50%;
 }
-.carousel-c .dots .active, .carousel-e .dots .active, .carousel-f .dots .active, .carousel-a .dots .active, .carousel-b .dots .active, .carousel-d .dots .active {
+.carousel-a .dots .active,
+.carousel-c .dots .active,
+.carousel-g .dots .active, .carousel-e .dots .active, .carousel-f .dots .active, .carousel-b .dots .active, .carousel-d .dots .active {
   background-color: #5a5a5a;
   display: none;
 }
 
-.carousel-c .controls, .carousel-e .controls, .carousel-f .controls, .carousel-a .controls, .carousel-b .controls, .carousel-d .controls {
+.carousel-a .controls,
+.carousel-c .controls,
+.carousel-g .controls, .carousel-e .controls, .carousel-f .controls, .carousel-b .controls, .carousel-d .controls {
   margin-top: -23px;
 }
-.carousel-c .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-a .controls span, .carousel-b .controls span, .carousel-d .controls span {
+.carousel-a .controls span,
+.carousel-c .controls span,
+.carousel-g .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-b .controls span, .carousel-d .controls span {
   position: absolute;
   width: 40px;
   height: 46px;
   opacity: 0.4;
 }
-.carousel-c .controls span:before, .carousel-e .controls span:before, .carousel-f .controls span:before, .carousel-a .controls span:before, .carousel-b .controls span:before, .carousel-d .controls span:before {
+.carousel-a .controls span:before,
+.carousel-c .controls span:before,
+.carousel-g .controls span:before, .carousel-e .controls span:before, .carousel-f .controls span:before, .carousel-b .controls span:before, .carousel-d .controls span:before {
   font-family: 'icon-font';
   font-size: 40px;
 }
-.carousel-c .controls span:hover, .carousel-e .controls span:hover, .carousel-f .controls span:hover, .carousel-a .controls span:hover, .carousel-b .controls span:hover, .carousel-d .controls span:hover {
+.carousel-a .controls span:hover,
+.carousel-c .controls span:hover,
+.carousel-g .controls span:hover, .carousel-e .controls span:hover, .carousel-f .controls span:hover, .carousel-b .controls span:hover, .carousel-d .controls span:hover {
   opacity: 0.8;
 }
-.carousel-c .controls .prev, .carousel-e .controls .prev, .carousel-f .controls .prev, .carousel-a .controls .prev, .carousel-b .controls .prev, .carousel-d .controls .prev {
+.carousel-a .controls .prev,
+.carousel-c .controls .prev,
+.carousel-g .controls .prev, .carousel-e .controls .prev, .carousel-f .controls .prev, .carousel-b .controls .prev, .carousel-d .controls .prev {
   left: 0;
   margin-left: -60px;
 }
-.carousel-c .controls .prev:before, .carousel-e .controls .prev:before, .carousel-f .controls .prev:before, .carousel-a .controls .prev:before, .carousel-b .controls .prev:before, .carousel-d .controls .prev:before {
+.carousel-a .controls .prev:before,
+.carousel-c .controls .prev:before,
+.carousel-g .controls .prev:before, .carousel-e .controls .prev:before, .carousel-f .controls .prev:before, .carousel-b .controls .prev:before, .carousel-d .controls .prev:before {
   content: 'n';
 }
-.carousel-c .controls .next, .carousel-e .controls .next, .carousel-f .controls .next, .carousel-a .controls .next, .carousel-b .controls .next, .carousel-d .controls .next {
+.carousel-a .controls .next,
+.carousel-c .controls .next,
+.carousel-g .controls .next, .carousel-e .controls .next, .carousel-f .controls .next, .carousel-b .controls .next, .carousel-d .controls .next {
   right: 0;
   margin-right: -60px;
 }
-.carousel-c .controls .next:before, .carousel-e .controls .next:before, .carousel-f .controls .next:before, .carousel-a .controls .next:before, .carousel-b .controls .next:before, .carousel-d .controls .next:before {
+.carousel-a .controls .next:before,
+.carousel-c .controls .next:before,
+.carousel-g .controls .next:before, .carousel-e .controls .next:before, .carousel-f .controls .next:before, .carousel-b .controls .next:before, .carousel-d .controls .next:before {
   content: 'm';
 }
 
-.carousel-c .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-a .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
+.carousel-a .autoplay,
+.carousel-c .autoplay,
+.carousel-g .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-b .autoplay, .carousel-d .autoplay {
   opacity: 0;
   margin-top: -25px;
 }
-.no-opacity .carousel-c .autoplay, .no-opacity .carousel-e .autoplay, .no-opacity .carousel-f .autoplay, .no-opacity .carousel-a .autoplay, .no-opacity .carousel-b .autoplay, .no-opacity .carousel-d .autoplay {
+.no-opacity .carousel-a .autoplay,
+.no-opacity .carousel-c .autoplay,
+.no-opacity .carousel-g .autoplay, .no-opacity .carousel-e .autoplay, .no-opacity .carousel-f .autoplay, .no-opacity .carousel-b .autoplay, .no-opacity .carousel-d .autoplay {
   display: none;
 }
-.carousel-c .autoplay label:before, .carousel-e .autoplay label:before, .carousel-f .autoplay label:before, .carousel-a .autoplay label:before, .carousel-b .autoplay label:before, .carousel-d .autoplay label:before {
+.carousel-a .autoplay label:before,
+.carousel-c .autoplay label:before,
+.carousel-g .autoplay label:before, .carousel-e .autoplay label:before, .carousel-f .autoplay label:before, .carousel-b .autoplay label:before, .carousel-d .autoplay label:before {
   display: inline-block;
   font-family: 'icon-font';
   content: 'U';
@@ -415,10 +495,14 @@ pre[class*="language-"] {
   text-align: center;
   border-radius: 50%;
 }
-.carousel-c:hover .autoplay, .carousel-e:hover .autoplay, .carousel-f:hover .autoplay, .carousel-a:hover .autoplay, .carousel-b:hover .autoplay, .carousel-d:hover .autoplay {
+.carousel-a:hover .autoplay,
+.carousel-c:hover .autoplay,
+.carousel-g:hover .autoplay, .carousel-e:hover .autoplay, .carousel-f:hover .autoplay, .carousel-b:hover .autoplay, .carousel-d:hover .autoplay {
   opacity: 0.8;
 }
-.no-opacity .carousel-c:hover .autoplay, .no-opacity .carousel-e:hover .autoplay, .no-opacity .carousel-f:hover .autoplay, .no-opacity .carousel-a:hover .autoplay, .no-opacity .carousel-b:hover .autoplay, .no-opacity .carousel-d:hover .autoplay {
+.no-opacity .carousel-a:hover .autoplay,
+.no-opacity .carousel-c:hover .autoplay,
+.no-opacity .carousel-g:hover .autoplay, .no-opacity .carousel-e:hover .autoplay, .no-opacity .carousel-f:hover .autoplay, .no-opacity .carousel-b:hover .autoplay, .no-opacity .carousel-d:hover .autoplay {
   display: block;
 }
 
@@ -461,6 +545,9 @@ pre[class*="language-"] {
 .slider .slider-labels label:hover {
   background-color: #FFBE39;
 }
+.slider .item {
+  position: relative;
+}
 .slider .info {
   padding: 10px;
 }
@@ -472,7 +559,7 @@ pre[class*="language-"] {
 .slider .info h3 {
   margin-bottom: 0;
 }
-.slider [id=slider-gallery]:checked ~ .slider-labels [for=slider-gallery], [id=slider-gallery]:checked ~ .slider-labels .slider [for=slider-gallery], .slider [id=gallery-lg]:checked ~ .slider-labels [for=gallery-lg], [id=gallery-lg]:checked ~ .slider-labels .slider [for=gallery-lg], .slider [id=gallery-md]:checked ~ .slider-labels [for=gallery-md], [id=gallery-md]:checked ~ .slider-labels .slider [for=gallery-md], .slider [id=gallery-sm]:checked ~ .slider-labels [for=gallery-sm], [id=gallery-sm]:checked ~ .slider-labels .slider [for=gallery-sm], .slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], [id=gallery-auto-play]:checked ~ .slider-labels .slider [for=gallery-auto-play], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise], [id=gallery-customise]:checked ~ .slider-labels .slider [for=gallery-customise], .slider [id=slider-carousel]:checked ~ .slider-labels [for=slider-carousel], [id=slider-carousel]:checked ~ .slider-labels .slider [for=slider-carousel], .slider [id=carousel-lg]:checked ~ .slider-labels [for=carousel-lg], [id=carousel-lg]:checked ~ .slider-labels .slider [for=carousel-lg], .slider [id=carousel-md]:checked ~ .slider-labels [for=carousel-md], [id=carousel-md]:checked ~ .slider-labels .slider [for=carousel-md], .slider [id=carousel-sm]:checked ~ .slider-labels [for=carousel-sm], [id=carousel-sm]:checked ~ .slider-labels .slider [for=carousel-sm], .slider [id=slide-by-page]:checked ~ .slider-labels [for=slide-by-page], [id=slide-by-page]:checked ~ .slider-labels .slider [for=slide-by-page], .slider [id=slider-center]:checked ~ .slider-labels [for=slider-center], [id=slider-center]:checked ~ .slider-labels .slider [for=slider-center], .slider [id=carousel-auto-play]:checked ~ .slider-labels [for=carousel-auto-play], [id=carousel-auto-play]:checked ~ .slider-labels .slider [for=carousel-auto-play] {
+.slider [id=slider-gallery]:checked ~ .slider-labels [for=slider-gallery], [id=slider-gallery]:checked ~ .slider-labels .slider [for=slider-gallery], .slider [id=gallery-lg]:checked ~ .slider-labels [for=gallery-lg], [id=gallery-lg]:checked ~ .slider-labels .slider [for=gallery-lg], .slider [id=gallery-md]:checked ~ .slider-labels [for=gallery-md], [id=gallery-md]:checked ~ .slider-labels .slider [for=gallery-md], .slider [id=gallery-sm]:checked ~ .slider-labels [for=gallery-sm], [id=gallery-sm]:checked ~ .slider-labels .slider [for=gallery-sm], .slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], [id=gallery-auto-play]:checked ~ .slider-labels .slider [for=gallery-auto-play], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise], [id=gallery-customise]:checked ~ .slider-labels .slider [for=gallery-customise], .slider [id=slider-carousel]:checked ~ .slider-labels [for=slider-carousel], [id=slider-carousel]:checked ~ .slider-labels .slider [for=slider-carousel], .slider [id=carousel-lg]:checked ~ .slider-labels [for=carousel-lg], [id=carousel-lg]:checked ~ .slider-labels .slider [for=carousel-lg], .slider [id=carousel-md]:checked ~ .slider-labels [for=carousel-md], [id=carousel-md]:checked ~ .slider-labels .slider [for=carousel-md], .slider [id=carousel-sm]:checked ~ .slider-labels [for=carousel-sm], [id=carousel-sm]:checked ~ .slider-labels .slider [for=carousel-sm], .slider [id=slide-by-page]:checked ~ .slider-labels [for=slide-by-page], [id=slide-by-page]:checked ~ .slider-labels .slider [for=slide-by-page], .slider [id=slider-center]:checked ~ .slider-labels [for=slider-center], [id=slider-center]:checked ~ .slider-labels .slider [for=slider-center], .slider [id=carousel-auto-play]:checked ~ .slider-labels [for=carousel-auto-play], [id=carousel-auto-play]:checked ~ .slider-labels .slider [for=carousel-auto-play], .slider [id=carousel-auto-height]:checked ~ .slider-labels [for=carousel-auto-height], [id=carousel-auto-height]:checked ~ .slider-labels .slider [for=carousel-auto-height] {
   background-color: #FFBE39;
 }
 [class^="gallery-"], [class^="carousel-"] {
@@ -502,87 +589,96 @@ pre[class*="language-"] {
 .carousel-c,
 .carousel-d,
 .carousel-e,
-.carousel-f {
+.carousel-f,
+.carousel-g {
   display: none;
 }
 
-#carousel-c-autoplay:checked ~ .dots {
+#carousel-g-autoplay:checked ~ .dots {
   display: none;
 }
-.carousel-c .slider-container {
+.carousel-a .slider-container,
+.carousel-c .slider-container,
+.carousel-g .slider-container {
   margin: 0 -10px;
 }
-.carousel-c .slider-container .item {
+.carousel-a .slider-container .item,
+.carousel-c .slider-container .item,
+.carousel-g .slider-container .item {
   margin: 0 10px;
 }
-#carousel-c-1:checked ~ .slider-container .inner {
+#carousel-g-1:checked ~ .slider-container .inner {
   left: 0%;
 }
-#carousel-c-2:checked ~ .slider-container .inner {
+#carousel-g-2:checked ~ .slider-container .inner {
   left: -100%;
 }
-#carousel-c-3:checked ~ .slider-container .inner {
+#carousel-g-3:checked ~ .slider-container .inner {
   left: -200%;
 }
-#carousel-c-4:checked ~ .slider-container .inner {
+#carousel-g-4:checked ~ .slider-container .inner {
   left: -300%;
 }
-#carousel-c-5:checked ~ .slider-container .inner {
+#carousel-g-5:checked ~ .slider-container .inner {
   left: -400%;
 }
-.carousel-c .dots label:nth-child(n + 6) {
+.carousel-a .dots label:nth-child(n + 6),
+.carousel-c .dots label:nth-child(n + 6),
+.carousel-g .dots label:nth-child(n + 6) {
   display: none;
 }
-.carousel-c .autoplay {
+.carousel-a .autoplay,
+.carousel-c .autoplay,
+.carousel-g .autoplay {
+  display: none !important;
+}
+#carousel-g-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
-#carousel-c-1:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-#carousel-c-1:checked ~ .controls label:nth-child(5),
-#carousel-c-1:checked ~ .controls label:nth-child(2),
-#carousel-c-1:checked ~ .controls label:nth-child(5) .prev,
-#carousel-c-1:checked ~ .controls label:nth-child(2) .next {
+#carousel-g-1:checked ~ .controls label:nth-child(5),
+#carousel-g-1:checked ~ .controls label:nth-child(2),
+#carousel-g-1:checked ~ .controls label:nth-child(5) .prev,
+#carousel-g-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-#carousel-c-2:checked ~ .controls label:nth-child(n+1) {
+#carousel-g-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
-#carousel-c-2:checked ~ .controls label:nth-child(1),
-#carousel-c-2:checked ~ .controls label:nth-child(3),
-#carousel-c-2:checked ~ .controls label:nth-child(1) .prev,
-#carousel-c-2:checked ~ .controls label:nth-child(3) .next {
+#carousel-g-2:checked ~ .controls label:nth-child(1),
+#carousel-g-2:checked ~ .controls label:nth-child(3),
+#carousel-g-2:checked ~ .controls label:nth-child(1) .prev,
+#carousel-g-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-c-3:checked ~ .controls label:nth-child(n+1) {
+#carousel-g-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
-#carousel-c-3:checked ~ .controls label:nth-child(2),
-#carousel-c-3:checked ~ .controls label:nth-child(4),
-#carousel-c-3:checked ~ .controls label:nth-child(2) .prev,
-#carousel-c-3:checked ~ .controls label:nth-child(4) .next {
+#carousel-g-3:checked ~ .controls label:nth-child(2),
+#carousel-g-3:checked ~ .controls label:nth-child(4),
+#carousel-g-3:checked ~ .controls label:nth-child(2) .prev,
+#carousel-g-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-c-4:checked ~ .controls label:nth-child(n+1) {
+#carousel-g-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
-#carousel-c-4:checked ~ .controls label:nth-child(3),
-#carousel-c-4:checked ~ .controls label:nth-child(5),
-#carousel-c-4:checked ~ .controls label:nth-child(3) .prev,
-#carousel-c-4:checked ~ .controls label:nth-child(5) .next {
+#carousel-g-4:checked ~ .controls label:nth-child(3),
+#carousel-g-4:checked ~ .controls label:nth-child(5),
+#carousel-g-4:checked ~ .controls label:nth-child(3) .prev,
+#carousel-g-4:checked ~ .controls label:nth-child(5) .next {
   display: block;
 }
 
-#carousel-c-5:checked ~ .controls label:nth-child(n+1) {
+#carousel-g-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
-#carousel-c-5:checked ~ .controls label:nth-child(4),
-#carousel-c-5:checked ~ .controls label:nth-child(1),
-#carousel-c-5:checked ~ .controls label:nth-child(4) .prev,
-#carousel-c-5:checked ~ .controls label:nth-child(1) .next {
+#carousel-g-5:checked ~ .controls label:nth-child(4),
+#carousel-g-5:checked ~ .controls label:nth-child(1),
+#carousel-g-5:checked ~ .controls label:nth-child(4) .prev,
+#carousel-g-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -614,7 +710,7 @@ pre[class*="language-"] {
   display: none;
 }
 .carousel-e .autoplay {
-  display: none;
+  display: none !important;
 }
 #carousel-e-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
@@ -844,86 +940,6 @@ pre[class*="language-"] {
   display: block;
 }
 
-#carousel-a-autoplay:checked ~ .dots {
-  display: none;
-}
-.carousel-a .slider-container {
-  margin: 0 -10px;
-}
-.carousel-a .slider-container .item {
-  margin: 0 10px;
-}
-#carousel-a-1:checked ~ .slider-container .inner {
-  left: 0%;
-}
-#carousel-a-2:checked ~ .slider-container .inner {
-  left: -100%;
-}
-#carousel-a-3:checked ~ .slider-container .inner {
-  left: -200%;
-}
-#carousel-a-4:checked ~ .slider-container .inner {
-  left: -300%;
-}
-#carousel-a-5:checked ~ .slider-container .inner {
-  left: -400%;
-}
-.carousel-a .dots label:nth-child(n + 6) {
-  display: none;
-}
-.carousel-a .autoplay {
-  display: none;
-}
-#carousel-a-1:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-#carousel-a-1:checked ~ .controls label:nth-child(5),
-#carousel-a-1:checked ~ .controls label:nth-child(2),
-#carousel-a-1:checked ~ .controls label:nth-child(5) .prev,
-#carousel-a-1:checked ~ .controls label:nth-child(2) .next {
-  display: block;
-}
-
-#carousel-a-2:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-#carousel-a-2:checked ~ .controls label:nth-child(1),
-#carousel-a-2:checked ~ .controls label:nth-child(3),
-#carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-#carousel-a-2:checked ~ .controls label:nth-child(3) .next {
-  display: block;
-}
-
-#carousel-a-3:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-#carousel-a-3:checked ~ .controls label:nth-child(2),
-#carousel-a-3:checked ~ .controls label:nth-child(4),
-#carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-#carousel-a-3:checked ~ .controls label:nth-child(4) .next {
-  display: block;
-}
-
-#carousel-a-4:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-#carousel-a-4:checked ~ .controls label:nth-child(3),
-#carousel-a-4:checked ~ .controls label:nth-child(5),
-#carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-#carousel-a-4:checked ~ .controls label:nth-child(5) .next {
-  display: block;
-}
-
-#carousel-a-5:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-#carousel-a-5:checked ~ .controls label:nth-child(4),
-#carousel-a-5:checked ~ .controls label:nth-child(1),
-#carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-#carousel-a-5:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
 #carousel-b-autoplay:checked ~ .dots {
   display: none;
 }
@@ -952,7 +968,7 @@ pre[class*="language-"] {
   display: none;
 }
 .carousel-b .autoplay {
-  display: none;
+  display: none !important;
 }
 #carousel-b-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
@@ -1032,7 +1048,7 @@ pre[class*="language-"] {
   left: -150%;
 }
 .carousel-d .autoplay {
-  display: none;
+  display: none !important;
 }
 #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
@@ -1126,7 +1142,7 @@ pre[class*="language-"] {
     display: none;
   }
   .carousel-a .autoplay {
-    display: none;
+    display: none !important;
   }
   #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
@@ -1210,7 +1226,7 @@ pre[class*="language-"] {
     display: none;
   }
   .carousel-b .autoplay {
-    display: none;
+    display: none !important;
   }
   #carousel-b-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
@@ -1291,7 +1307,7 @@ pre[class*="language-"] {
     left: -66.6666666667%;
   }
   .carousel-d .autoplay {
-    display: none;
+    display: none !important;
   }
   #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
@@ -1353,6 +1369,90 @@ pre[class*="language-"] {
     display: block;
   }
 }
+#carousel-g-autoplay:checked ~ .dots {
+  display: none;
+}
+@media (min-width: 43.75em) {
+  .carousel-g .slider-container {
+    margin: 0 -10px;
+  }
+  .carousel-g .slider-container li {
+    width: 50%;
+  }
+  .carousel-g .slider-container .item {
+    margin: 0 10px;
+  }
+  #carousel-g-1:checked ~ .slider-container .inner {
+    left: 0%;
+  }
+  #carousel-g-2:checked ~ .slider-container .inner {
+    left: -50%;
+  }
+  #carousel-g-3:checked ~ .slider-container .inner {
+    left: -100%;
+  }
+  #carousel-g-4:checked ~ .slider-container .inner {
+    left: -150%;
+  }
+  #carousel-g-5:checked ~ .slider-container .inner {
+    left: -150%;
+  }
+  .carousel-g .dots label:nth-child(n + 5) {
+    display: none;
+  }
+  .carousel-g .autoplay {
+    display: none !important;
+  }
+  #carousel-g-1:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-1:checked ~ .controls label:nth-child(4),
+  #carousel-g-1:checked ~ .controls label:nth-child(2),
+  #carousel-g-1:checked ~ .controls label:nth-child(4) .prev,
+  #carousel-g-1:checked ~ .controls label:nth-child(2) .next {
+    display: block;
+  }
+
+  #carousel-g-2:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-2:checked ~ .controls label:nth-child(1),
+  #carousel-g-2:checked ~ .controls label:nth-child(3),
+  #carousel-g-2:checked ~ .controls label:nth-child(1) .prev,
+  #carousel-g-2:checked ~ .controls label:nth-child(3) .next {
+    display: block;
+  }
+
+  #carousel-g-3:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-3:checked ~ .controls label:nth-child(2),
+  #carousel-g-3:checked ~ .controls label:nth-child(4),
+  #carousel-g-3:checked ~ .controls label:nth-child(2) .prev,
+  #carousel-g-3:checked ~ .controls label:nth-child(4) .next {
+    display: block;
+  }
+
+  #carousel-g-4:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-4:checked ~ .controls label:nth-child(3),
+  #carousel-g-4:checked ~ .controls label:nth-child(1),
+  #carousel-g-4:checked ~ .controls label:nth-child(3) .prev,
+  #carousel-g-4:checked ~ .controls label:nth-child(1) .next {
+    display: block;
+  }
+
+  #carousel-g-5:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-5:checked ~ .controls label:nth-child(4),
+  #carousel-g-5:checked ~ .controls label:nth-child(1),
+  #carousel-g-5:checked ~ .controls label:nth-child(4) .prev,
+  #carousel-g-5:checked ~ .controls label:nth-child(1) .next {
+    display: block;
+  }
+}
 #carousel-a-autoplay:checked ~ .dots {
   display: none;
 }
@@ -1385,7 +1485,7 @@ pre[class*="language-"] {
     display: none;
   }
   .carousel-a .autoplay {
-    display: none;
+    display: none !important;
   }
   #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
@@ -1437,12 +1537,97 @@ pre[class*="language-"] {
     display: block;
   }
 }
+#carousel-g-autoplay:checked ~ .dots {
+  display: none;
+}
+@media (min-width: 62.5em) {
+  .carousel-g .slider-container {
+    margin: 0 -10px;
+  }
+  .carousel-g .slider-container li {
+    width: 33.3333333333%;
+  }
+  .carousel-g .slider-container .item {
+    margin: 0 10px;
+  }
+  #carousel-g-1:checked ~ .slider-container .inner {
+    left: 0%;
+  }
+  #carousel-g-2:checked ~ .slider-container .inner {
+    left: -33.3333333333%;
+  }
+  #carousel-g-3:checked ~ .slider-container .inner {
+    left: -66.6666666667%;
+  }
+  #carousel-g-4:checked ~ .slider-container .inner {
+    left: -66.6666666667%;
+  }
+  #carousel-g-5:checked ~ .slider-container .inner {
+    left: -66.6666666667%;
+  }
+  .carousel-g .dots label:nth-child(n + 4) {
+    display: none;
+  }
+  .carousel-g .autoplay {
+    display: none !important;
+  }
+  #carousel-g-1:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-1:checked ~ .controls label:nth-child(3),
+  #carousel-g-1:checked ~ .controls label:nth-child(2),
+  #carousel-g-1:checked ~ .controls label:nth-child(3) .prev,
+  #carousel-g-1:checked ~ .controls label:nth-child(2) .next {
+    display: block;
+  }
+
+  #carousel-g-2:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-2:checked ~ .controls label:nth-child(1),
+  #carousel-g-2:checked ~ .controls label:nth-child(3),
+  #carousel-g-2:checked ~ .controls label:nth-child(1) .prev,
+  #carousel-g-2:checked ~ .controls label:nth-child(3) .next {
+    display: block;
+  }
+
+  #carousel-g-3:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-3:checked ~ .controls label:nth-child(2),
+  #carousel-g-3:checked ~ .controls label:nth-child(1),
+  #carousel-g-3:checked ~ .controls label:nth-child(2) .prev,
+  #carousel-g-3:checked ~ .controls label:nth-child(1) .next {
+    display: block;
+  }
+
+  #carousel-g-4:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-4:checked ~ .controls label:nth-child(3),
+  #carousel-g-4:checked ~ .controls label:nth-child(1),
+  #carousel-g-4:checked ~ .controls label:nth-child(3) .prev,
+  #carousel-g-4:checked ~ .controls label:nth-child(1) .next {
+    display: block;
+  }
+
+  #carousel-g-5:checked ~ .controls label:nth-child(n+1) {
+    display: none;
+  }
+  #carousel-g-5:checked ~ .controls label:nth-child(4),
+  #carousel-g-5:checked ~ .controls label:nth-child(1),
+  #carousel-g-5:checked ~ .controls label:nth-child(4) .prev,
+  #carousel-g-5:checked ~ .controls label:nth-child(1) .next {
+    display: block;
+  }
+}
 [id="carousel-lg"]:checked ~ .carousel-a,
 [id="carousel-md"]:checked ~ .carousel-b,
 [id="carousel-sm"]:checked ~ .carousel-c,
 [id="slide-by-page"]:checked ~ .carousel-d,
 [id="slider-center"]:checked ~ .carousel-e,
-[id="carousel-auto-play"]:checked ~ .carousel-f {
+[id="carousel-auto-play"]:checked ~ .carousel-f,
+[id="carousel-auto-height"]:checked ~ .carousel-g {
   display: block;
 }
 

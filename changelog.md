@@ -3,6 +3,7 @@
 ### v1.1.5
 + Add animations to `off-canvas`.
 + Enhance `carousel` slideshow: hide extra dots when per-page items are more than one.
++ Add `autoheight` to `slider-carousel`.
 + Hide *controls* when sliders are set to autoplay.
 
 ### v1.1.4
