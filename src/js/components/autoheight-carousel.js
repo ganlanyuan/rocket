@@ -12,10 +12,11 @@ ready(function () {
   function setContainerHeight () {
     containers.forEach(function(el) {
       var thisHeight = k(el).outerHeight() + 'px';
+      console.log(thisHeight);
       k(el).css('height', thisHeight);
     });
   }
-  setContainerHeight();
+  window.onload = function() { setContainerHeight(); }
 
   // autoheight-carousel
   function autoHeightCarousel() {
@@ -28,19 +29,17 @@ ready(function () {
       children.forEach(function(ele) {
         var childL = k(ele).getLeft(),
             childR = childL + k(ele).outerWidth(),
-            childH = Math.ceil(k(ele).outerHeight());
+            childH = k(ele).outerHeight();
         if ( childL >= containerL && childL < containerR || childR > containerL && childR <= containerR ) {
           heights.push(childH);
         }
       });
       containerH = getMaxOfArray(heights) + 'px';
       k(el).css('height', containerH);
-      console.log(containerH);
     });
   }
   if (k('[autoheight-carousel]').length > 0) {
     setInterval(autoHeightCarousel, 200);
-    // setTimeout(autoHeightCarousel, 1000);
   }
 });
 

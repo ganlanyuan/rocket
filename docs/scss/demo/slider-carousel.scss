@@ -59,13 +59,13 @@
     .carousel-e, 
     .carousel-f,
     .carousel-g { display: none; }
-    .carousel-a, 
-    .carousel-c,
-    .carousel-g { @include slider-carousel(); }
+    .carousel-a { @include slider-carousel(); }
+    .carousel-b { @include slider-carousel(); }
+    .carousel-c { @include slider-carousel(); }
+    .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
     .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
     .carousel-f { @include slider-carousel($perpage: 2, $autoplay: true); }
-    .carousel-b { @include slider-carousel(); }
-    .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
+    .carousel-g { @include slider-carousel(); }
     @include bp-mi(em(700)) {
       .carousel-a { @include slider-carousel($perpage: 2); }
       .carousel-b { @include slider-carousel($perpage: 2); }

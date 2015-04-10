@@ -73,12 +73,6 @@
     @if $slide-by-page == false {
       .dots label:nth-child(n + #{$pages + 1}) { display: none; }
     }
-    // @else {
-    //   @for $i from 2 through $perpage {
-    //     .dots label:nth-child(#{$perpage}n + #{$i}) { display: none; }
-    //   }
-    //   .dots label:nth-child(#{$perpage}n + 1) { display: inline-block; }
-    // }
   }
 
   // animation

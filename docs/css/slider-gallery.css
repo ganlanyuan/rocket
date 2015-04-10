@@ -1,4 +1,4 @@
-.gallery-a .inner:after, .gallery-b .inner:after {
+.gallery-a .inner:after, .gallery-b .inner:after, .gallery-c .inner:after {
   clear: both;
   content: "";
   display: table;
@@ -273,7 +273,7 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-#gallery-a-1:checked ~ .dots label:nth-child(1) .normal, #gallery-a-2:checked ~ .dots label:nth-child(2) .normal, #gallery-a-3:checked ~ .dots label:nth-child(3) .normal, #gallery-a-4:checked ~ .dots label:nth-child(4) .normal, #gallery-a-5:checked ~ .dots label:nth-child(5) .normal, #gallery-b-1:checked ~ .dots label:nth-child(1) .normal, #gallery-b-2:checked ~ .dots label:nth-child(2) .normal, #gallery-b-3:checked ~ .dots label:nth-child(3) .normal, #gallery-b-4:checked ~ .dots label:nth-child(4) .normal, #gallery-b-5:checked ~ .dots label:nth-child(5) .normal {
+#gallery-a-1:checked ~ .dots label:nth-child(1) .normal, #gallery-a-2:checked ~ .dots label:nth-child(2) .normal, #gallery-a-3:checked ~ .dots label:nth-child(3) .normal, #gallery-a-4:checked ~ .dots label:nth-child(4) .normal, #gallery-a-5:checked ~ .dots label:nth-child(5) .normal, #gallery-b-1:checked ~ .dots label:nth-child(1) .normal, #gallery-b-2:checked ~ .dots label:nth-child(2) .normal, #gallery-b-3:checked ~ .dots label:nth-child(3) .normal, #gallery-b-4:checked ~ .dots label:nth-child(4) .normal, #gallery-b-5:checked ~ .dots label:nth-child(5) .normal, #gallery-c-1:checked ~ .dots label:nth-child(1) .normal, #gallery-c-2:checked ~ .dots label:nth-child(2) .normal, #gallery-c-3:checked ~ .dots label:nth-child(3) .normal, #gallery-c-4:checked ~ .dots label:nth-child(4) .normal, #gallery-c-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -287,124 +287,129 @@ pre[class*="language-"] {
 #gallery-b-2:checked ~ .controls label:nth-child(3) .next, #gallery-b-3:checked ~ .controls label:nth-child(2) .prev,
 #gallery-b-3:checked ~ .controls label:nth-child(4) .next, #gallery-b-4:checked ~ .controls label:nth-child(3) .prev,
 #gallery-b-4:checked ~ .controls label:nth-child(5) .next, #gallery-b-5:checked ~ .controls label:nth-child(4) .prev,
-#gallery-b-5:checked ~ .controls label:nth-child(1) .next, #gallery-b-1:checked ~ .dots label:nth-child(1) .active, #gallery-b-2:checked ~ .dots label:nth-child(2) .active, #gallery-b-3:checked ~ .dots label:nth-child(3) .active, #gallery-b-4:checked ~ .dots label:nth-child(4) .active, #gallery-b-5:checked ~ .dots label:nth-child(5) .active {
+#gallery-b-5:checked ~ .controls label:nth-child(1) .next, #gallery-b-1:checked ~ .dots label:nth-child(1) .active, #gallery-b-2:checked ~ .dots label:nth-child(2) .active, #gallery-b-3:checked ~ .dots label:nth-child(3) .active, #gallery-b-4:checked ~ .dots label:nth-child(4) .active, #gallery-b-5:checked ~ .dots label:nth-child(5) .active, #gallery-c-1:checked ~ .controls label:nth-child(5) .prev,
+#gallery-c-1:checked ~ .controls label:nth-child(2) .next, #gallery-c-2:checked ~ .controls label:nth-child(1) .prev,
+#gallery-c-2:checked ~ .controls label:nth-child(3) .next, #gallery-c-3:checked ~ .controls label:nth-child(2) .prev,
+#gallery-c-3:checked ~ .controls label:nth-child(4) .next, #gallery-c-4:checked ~ .controls label:nth-child(3) .prev,
+#gallery-c-4:checked ~ .controls label:nth-child(5) .next, #gallery-c-5:checked ~ .controls label:nth-child(4) .prev,
+#gallery-c-5:checked ~ .controls label:nth-child(1) .next, #gallery-c-1:checked ~ .dots label:nth-child(1) .active, #gallery-c-2:checked ~ .dots label:nth-child(2) .active, #gallery-c-3:checked ~ .dots label:nth-child(3) .active, #gallery-c-4:checked ~ .dots label:nth-child(4) .active, #gallery-c-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-.gallery-a .inner, .gallery-b .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-a .autoplay, .gallery-a .slider-container li, .gallery-b .slider-container li {
+.gallery-a .inner, .gallery-b .inner, .gallery-c .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-c .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-c .controls span, .gallery-a .autoplay, .gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
   transition: all 1s ease 0s;
 }
 
-.gallery-a, .gallery-b {
+.gallery-a, .gallery-b, .gallery-c {
   position: relative;
 }
-.gallery-a img, .gallery-b img {
+.gallery-a img, .gallery-b img, .gallery-c img {
   width: 100%;
 }
-.gallery-a > input, .gallery-b > input {
+.gallery-a > input, .gallery-b > input, .gallery-c > input {
   display: none;
 }
-.lt-ie9 .gallery-a > input, .lt-ie9 .gallery-b > input {
+.lt-ie9 .gallery-a > input, .lt-ie9 .gallery-b > input, .lt-ie9 .gallery-c > input {
   display: inline-block;
   width: 0;
   height: 0;
   overflow: hidden;
 }
-.gallery-a .slider-container, .gallery-b .slider-container {
+.gallery-a .slider-container, .gallery-b .slider-container, .gallery-c .slider-container {
   overflow: hidden;
   -webkit-transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
   transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
 }
-.gallery-a .slider-container li, .gallery-b .slider-container li {
+.gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
   display: inline-block;
   vertical-align: top;
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
 }
-.gallery-a .inner, .gallery-b .inner {
+.gallery-a .inner, .gallery-b .inner, .gallery-c .inner {
   position: relative;
   left: 0;
   letter-spacing: -0.34em;
   white-space: nowrap;
 }
-.gallery-a .info, .gallery-b .info, .gallery-a .controls, .gallery-b .controls, .gallery-a .dots, .gallery-b .dots, .gallery-a .autoplay, .gallery-b .autoplay {
+.gallery-a .info, .gallery-b .info, .gallery-c .info, .gallery-a .controls, .gallery-b .controls, .gallery-c .controls, .gallery-a .dots, .gallery-b .dots, .gallery-c .dots, .gallery-a .autoplay, .gallery-b .autoplay, .gallery-c .autoplay {
   position: absolute;
   z-index: 10;
 }
-.gallery-a .info, .gallery-b .info {
+.gallery-a .info, .gallery-b .info, .gallery-c .info {
   bottom: 20px;
   z-index: 9;
 }
-.gallery-a .controls, .gallery-b .controls {
+.gallery-a .controls, .gallery-b .controls, .gallery-c .controls {
   top: 50%;
   width: 100%;
   box-sizing: border-box;
 }
-.gallery-a .controls span, .gallery-b .controls span {
+.gallery-a .controls span, .gallery-b .controls span, .gallery-c .controls span {
   display: none;
 }
-.gallery-a .dots, .gallery-b .dots {
+.gallery-a .dots, .gallery-b .dots, .gallery-c .dots {
   width: 100%;
   text-align: center;
 }
-.gallery-a .dots label, .gallery-b .dots label {
+.gallery-a .dots label, .gallery-b .dots label, .gallery-c .dots label {
   display: inline-block;
 }
-.gallery-a .autoplay, .gallery-b .autoplay {
+.gallery-a .autoplay, .gallery-b .autoplay, .gallery-c .autoplay {
   left: 50%;
   top: 50%;
 }
 
-.gallery-a .dots label, .gallery-b .dots label, .gallery-a .dots span, .gallery-b .dots span {
+.gallery-a .dots label, .gallery-b .dots label, .gallery-c .dots label, .gallery-a .dots span, .gallery-b .dots span, .gallery-c .dots span {
   display: inline-block;
   vertical-align: top;
 }
-.gallery-a .dots label, .gallery-b .dots label {
+.gallery-a .dots label, .gallery-b .dots label, .gallery-c .dots label {
   padding: 12px 3px 0px;
 }
-.gallery-a .dots label:hover .normal, .gallery-b .dots label:hover .normal {
+.gallery-a .dots label:hover .normal, .gallery-b .dots label:hover .normal, .gallery-c .dots label:hover .normal {
   background-color: #5a5a5a;
 }
-.gallery-a .dots span, .gallery-b .dots span {
+.gallery-a .dots span, .gallery-b .dots span, .gallery-c .dots span {
   width: 9px;
   height: 9px;
   background-color: #d3d3d3;
   border-radius: 50%;
 }
-.gallery-a .dots .active, .gallery-b .dots .active {
+.gallery-a .dots .active, .gallery-b .dots .active, .gallery-c .dots .active {
   background-color: #5a5a5a;
   display: none;
 }
 
-.gallery-a .controls, .gallery-b .controls {
+.gallery-a .controls, .gallery-b .controls, .gallery-c .controls {
   margin-top: -23px;
 }
-.gallery-a .controls span, .gallery-b .controls span {
+.gallery-a .controls span, .gallery-b .controls span, .gallery-c .controls span {
   position: absolute;
   width: 40px;
   height: 46px;
   opacity: 0.4;
 }
-.gallery-a .controls span:before, .gallery-b .controls span:before {
+.gallery-a .controls span:before, .gallery-b .controls span:before, .gallery-c .controls span:before {
   font-family: 'icon-font';
   font-size: 40px;
 }
-.gallery-a .controls span:hover, .gallery-b .controls span:hover {
+.gallery-a .controls span:hover, .gallery-b .controls span:hover, .gallery-c .controls span:hover {
   opacity: 0.8;
 }
-.gallery-a .controls .prev, .gallery-b .controls .prev {
+.gallery-a .controls .prev, .gallery-b .controls .prev, .gallery-c .controls .prev {
   left: 0;
   margin-left: -60px;
 }
-.gallery-a .controls .prev:before, .gallery-b .controls .prev:before {
+.gallery-a .controls .prev:before, .gallery-b .controls .prev:before, .gallery-c .controls .prev:before {
   content: 'n';
 }
-.gallery-a .controls .next, .gallery-b .controls .next {
+.gallery-a .controls .next, .gallery-b .controls .next, .gallery-c .controls .next {
   right: 0;
   margin-right: -60px;
 }
-.gallery-a .controls .next:before, .gallery-b .controls .next:before {
+.gallery-a .controls .next:before, .gallery-b .controls .next:before, .gallery-c .controls .next:before {
   content: 'm';
 }
 
@@ -440,27 +445,27 @@ pre[class*="language-"] {
   box-sizing: border-box;
 }
 
-.gallery-a .slider-container li, .gallery-b .slider-container li {
+.gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
   z-index: 7;
   opacity: 0;
   width: 100%;
 }
-.no-opacity .gallery-a .slider-container li, .gallery-a .slider-container .no-opacity li, .no-opacity .gallery-b .slider-container li, .gallery-b .slider-container .no-opacity li {
+.no-opacity .gallery-a .slider-container li, .gallery-a .slider-container .no-opacity li, .no-opacity .gallery-b .slider-container li, .gallery-b .slider-container .no-opacity li, .no-opacity .gallery-c .slider-container li, .gallery-c .slider-container .no-opacity li {
   display: none;
 }
 
-#gallery-a-1:checked ~ .slider-container li:nth-child(1), #gallery-a-2:checked ~ .slider-container li:nth-child(2), #gallery-a-3:checked ~ .slider-container li:nth-child(3), #gallery-a-4:checked ~ .slider-container li:nth-child(4), #gallery-a-5:checked ~ .slider-container li:nth-child(5), #gallery-b-1:checked ~ .slider-container li:nth-child(1), #gallery-b-2:checked ~ .slider-container li:nth-child(2), #gallery-b-3:checked ~ .slider-container li:nth-child(3), #gallery-b-4:checked ~ .slider-container li:nth-child(4), #gallery-b-5:checked ~ .slider-container li:nth-child(5) {
+#gallery-a-1:checked ~ .slider-container li:nth-child(1), #gallery-a-2:checked ~ .slider-container li:nth-child(2), #gallery-a-3:checked ~ .slider-container li:nth-child(3), #gallery-a-4:checked ~ .slider-container li:nth-child(4), #gallery-a-5:checked ~ .slider-container li:nth-child(5), #gallery-b-1:checked ~ .slider-container li:nth-child(1), #gallery-b-2:checked ~ .slider-container li:nth-child(2), #gallery-b-3:checked ~ .slider-container li:nth-child(3), #gallery-b-4:checked ~ .slider-container li:nth-child(4), #gallery-b-5:checked ~ .slider-container li:nth-child(5), #gallery-c-1:checked ~ .slider-container li:nth-child(1), #gallery-c-2:checked ~ .slider-container li:nth-child(2), #gallery-c-3:checked ~ .slider-container li:nth-child(3), #gallery-c-4:checked ~ .slider-container li:nth-child(4), #gallery-c-5:checked ~ .slider-container li:nth-child(5) {
   z-index: 8;
   opacity: 1;
 }
-.no-opacity #gallery-a-1:checked ~ .slider-container li:nth-child(1), #gallery-a-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-a-2:checked ~ .slider-container li:nth-child(2), #gallery-a-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-a-3:checked ~ .slider-container li:nth-child(3), #gallery-a-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-a-4:checked ~ .slider-container li:nth-child(4), #gallery-a-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-a-5:checked ~ .slider-container li:nth-child(5), #gallery-a-5:checked ~ .slider-container .no-opacity li:nth-child(5), .no-opacity #gallery-b-1:checked ~ .slider-container li:nth-child(1), #gallery-b-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-b-2:checked ~ .slider-container li:nth-child(2), #gallery-b-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-b-3:checked ~ .slider-container li:nth-child(3), #gallery-b-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-b-4:checked ~ .slider-container li:nth-child(4), #gallery-b-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-b-5:checked ~ .slider-container li:nth-child(5), #gallery-b-5:checked ~ .slider-container .no-opacity li:nth-child(5) {
+.no-opacity #gallery-a-1:checked ~ .slider-container li:nth-child(1), #gallery-a-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-a-2:checked ~ .slider-container li:nth-child(2), #gallery-a-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-a-3:checked ~ .slider-container li:nth-child(3), #gallery-a-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-a-4:checked ~ .slider-container li:nth-child(4), #gallery-a-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-a-5:checked ~ .slider-container li:nth-child(5), #gallery-a-5:checked ~ .slider-container .no-opacity li:nth-child(5), .no-opacity #gallery-b-1:checked ~ .slider-container li:nth-child(1), #gallery-b-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-b-2:checked ~ .slider-container li:nth-child(2), #gallery-b-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-b-3:checked ~ .slider-container li:nth-child(3), #gallery-b-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-b-4:checked ~ .slider-container li:nth-child(4), #gallery-b-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-b-5:checked ~ .slider-container li:nth-child(5), #gallery-b-5:checked ~ .slider-container .no-opacity li:nth-child(5), .no-opacity #gallery-c-1:checked ~ .slider-container li:nth-child(1), #gallery-c-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-c-2:checked ~ .slider-container li:nth-child(2), #gallery-c-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-c-3:checked ~ .slider-container li:nth-child(3), #gallery-c-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-c-4:checked ~ .slider-container li:nth-child(4), #gallery-c-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-c-5:checked ~ .slider-container li:nth-child(5), #gallery-c-5:checked ~ .slider-container .no-opacity li:nth-child(5) {
   display: block;
 }
 
-.gallery-a .slider-container, .gallery-b .slider-container {
+.gallery-a .slider-container, .gallery-b .slider-container, .gallery-c .slider-container {
   position: relative;
 }
-.gallery-a .slider-container li, .gallery-b .slider-container li {
+.gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
   position: absolute;
 }
 
@@ -508,7 +513,7 @@ pre[class*="language-"] {
 .slider .info h3 {
   margin-bottom: 0;
 }
-.slider [id=slider-gallery]:checked ~ .slider-labels [for=slider-gallery], [id=slider-gallery]:checked ~ .slider-labels .slider [for=slider-gallery], .slider [id=gallery-lg]:checked ~ .slider-labels [for=gallery-lg], [id=gallery-lg]:checked ~ .slider-labels .slider [for=gallery-lg], .slider [id=gallery-md]:checked ~ .slider-labels [for=gallery-md], [id=gallery-md]:checked ~ .slider-labels .slider [for=gallery-md], .slider [id=gallery-sm]:checked ~ .slider-labels [for=gallery-sm], [id=gallery-sm]:checked ~ .slider-labels .slider [for=gallery-sm], .slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], [id=gallery-auto-play]:checked ~ .slider-labels .slider [for=gallery-auto-play], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise], [id=gallery-customise]:checked ~ .slider-labels .slider [for=gallery-customise], .slider [id=slider-carousel]:checked ~ .slider-labels [for=slider-carousel], [id=slider-carousel]:checked ~ .slider-labels .slider [for=slider-carousel], .slider [id=carousel-lg]:checked ~ .slider-labels [for=carousel-lg], [id=carousel-lg]:checked ~ .slider-labels .slider [for=carousel-lg], .slider [id=carousel-md]:checked ~ .slider-labels [for=carousel-md], [id=carousel-md]:checked ~ .slider-labels .slider [for=carousel-md], .slider [id=carousel-sm]:checked ~ .slider-labels [for=carousel-sm], [id=carousel-sm]:checked ~ .slider-labels .slider [for=carousel-sm], .slider [id=slide-by-page]:checked ~ .slider-labels [for=slide-by-page], [id=slide-by-page]:checked ~ .slider-labels .slider [for=slide-by-page], .slider [id=slider-center]:checked ~ .slider-labels [for=slider-center], [id=slider-center]:checked ~ .slider-labels .slider [for=slider-center], .slider [id=carousel-auto-play]:checked ~ .slider-labels [for=carousel-auto-play], [id=carousel-auto-play]:checked ~ .slider-labels .slider [for=carousel-auto-play] {
+.slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], [id=gallery-auto-play]:checked ~ .slider-labels .slider [for=gallery-auto-play], .slider [id=gallery-auto-height]:checked ~ .slider-labels [for=gallery-auto-height], [id=gallery-auto-height]:checked ~ .slider-labels .slider [for=gallery-auto-height], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise], [id=gallery-customise]:checked ~ .slider-labels .slider [for=gallery-customise] {
   background-color: #FFBE39;
 }
 [class^="gallery-"], [class^="carousel-"] {
@@ -533,15 +538,9 @@ pre[class*="language-"] {
     margin-right: 10px !important;
   }
 }
-[id="gallery-md"]:checked ~ .gallery .controls,
-[id="gallery-sm"]:checked ~ .gallery .controls,
-[id="carousel-md"]:checked ~ .carousel .controls,
-[id="carousel-sm"]:checked ~ .carousel .controls {
-  padding-left: 70px;
-  padding-right: 70px;
-}
-
-.gallery-a, .gallery-b {
+.gallery-a,
+.gallery-b,
+.gallery-c {
   display: none;
 }
 
@@ -638,79 +637,83 @@ pre[class*="language-"] {
   padding-bottom: 56.25%;
 }
 
+.gallery-c .slider-container {
+  padding-bottom: 56.25%;
+}
+
 [id="gallery-auto-play"]:checked ~ .gallery-a,
-[id="gallery-customise"]:checked ~ .gallery-b {
+[id="gallery-customise"]:checked ~ .gallery-c {
   display: block;
 }
 
-.gallery-b .slider-container {
+.gallery-c .slider-container {
   overflow: visible;
 }
-.gallery-b li {
+.gallery-c li {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-.gallery-b #gallery-b-1:checked ~ .slider-container li:nth-child(1) {
+.gallery-c #gallery-c-1:checked ~ .slider-container li:nth-child(1) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-b #gallery-b-2:checked ~ .slider-container li:nth-child(2) {
+.gallery-c #gallery-c-2:checked ~ .slider-container li:nth-child(2) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-b #gallery-b-3:checked ~ .slider-container li:nth-child(3) {
+.gallery-c #gallery-c-3:checked ~ .slider-container li:nth-child(3) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-b #gallery-b-4:checked ~ .slider-container li:nth-child(4) {
+.gallery-c #gallery-c-4:checked ~ .slider-container li:nth-child(4) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-b #gallery-b-5:checked ~ .slider-container li:nth-child(5) {
+.gallery-c #gallery-c-5:checked ~ .slider-container li:nth-child(5) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-b .info {
+.gallery-c .info {
   opacity: 0;
   margin-left: 0;
   -webkit-transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
 }
-.gallery-b #gallery-b-1:checked ~ .slider-container li:nth-child(1) .info {
+.gallery-c #gallery-c-1:checked ~ .slider-container li:nth-child(1) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-b #gallery-b-2:checked ~ .slider-container li:nth-child(2) .info {
+.gallery-c #gallery-c-2:checked ~ .slider-container li:nth-child(2) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-b #gallery-b-3:checked ~ .slider-container li:nth-child(3) .info {
+.gallery-c #gallery-c-3:checked ~ .slider-container li:nth-child(3) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-b #gallery-b-4:checked ~ .slider-container li:nth-child(4) .info {
+.gallery-c #gallery-c-4:checked ~ .slider-container li:nth-child(4) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-b #gallery-b-5:checked ~ .slider-container li:nth-child(5) .info {
+.gallery-c #gallery-c-5:checked ~ .slider-container li:nth-child(5) .info {
   opacity: 1;
   margin-left: 20px;
 }

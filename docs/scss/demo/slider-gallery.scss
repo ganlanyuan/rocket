@@ -30,7 +30,7 @@
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in slider-gallery, gallery-lg, gallery-md, gallery-sm, gallery-auto-play, gallery-customise, slider-carousel, carousel-lg, carousel-md, carousel-sm, slide-by-page, slider-center, carousel-auto-play {
+    @each $item in gallery-auto-play, gallery-auto-height, gallery-customise {
       [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
@@ -51,21 +51,21 @@
     }
 
     // gallery
-    [id="gallery-md"]:checked ~ .gallery .controls, 
-    [id="gallery-sm"]:checked ~ .gallery .controls, 
-    [id="carousel-md"]:checked ~ .carousel .controls, 
-    [id="carousel-sm"]:checked ~ .carousel .controls { padding-left: 70px; padding-right: 70px; }
-    .gallery-a, .gallery-b { display: none; }
+    .gallery-a, 
+    .gallery-b,
+    .gallery-c { display: none; }
     .gallery-a { @include slider-gallery($autoplay: true); }
     .gallery-b { @include slider-gallery(); }
+    .gallery-c { @include slider-gallery(); }
     [id="gallery-auto-play"]:checked ~ .gallery-a, 
-    [id="gallery-customise"]:checked ~ .gallery-b { display: block; }
-    .gallery-b {
+    // [id="gallery-auto-height"]:checked ~ .gallery-b,
+    [id="gallery-customise"]:checked ~ .gallery-c { display: block; }
+    .gallery-c {
       // setting item
       .slider-container { overflow: visible; }
       li { @include transform(scale(1.1)); }
       @for $i from 1 through 5 {
-        #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
+        #gallery-c-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
       }
       // setting .info
       .info { opacity: 0; margin-left: 0;
@@ -73,7 +73,7 @@
         transition: all 1s $global-bezier 0.5s;
        }
       @for $i from 1 through 5 {
-        #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .info {
+        #gallery-c-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .info {
           opacity: 1;
           margin-left: 20px;
         }
