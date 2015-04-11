@@ -3,7 +3,8 @@
 ### v1.1.5
 + Add animations to `off-canvas`.
 + Enhance `carousel` slideshow: hide extra dots when per-page items are more than one.
-+ Add `autoheight` to `slider-carousel`.
++ Add `autoheight` to `slider-carousel` and `slider-gallery`. `slider-gallery: autoheight` on IE8 are not supported for now.
++ Update `selectivizr`. CSS3 selectors inside `@mediaquery` works well on IE7+ now.
 + Hide *controls* when sliders are set to autoplay.
 
 ### v1.1.4

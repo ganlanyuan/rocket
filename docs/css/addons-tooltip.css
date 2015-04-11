@@ -240,6 +240,7 @@ pre[class*="language-"] {
 .demo-links a {
   display: inline-block;
   padding: 2em 3em;
+  margin-bottom: 4px;
   border-radius: 0.3em;
   background-color: #f2f2f2;
   font-size: 14px;

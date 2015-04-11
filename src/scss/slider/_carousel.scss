@@ -45,7 +45,7 @@
   }
 
   // container and items
-  .slider-container {
+  .outer {
     @if $perpage != 1 { li { width: percentage(1/$perpage) } }
     @if $gutter != 0 and $gutter != 0px and $gutter != null and $gutter != false {
       @if $center == false { margin: 0 (- $gutter); }
@@ -56,7 +56,7 @@
   @for $i from 1 through $items {
     @at-root {
       #{$id}-#{$i}:checked ~ {
-        .slider-container .inner { 
+        .outer .inner { 
           @if ($i / $perpage) >= floor($items / $perpage) and 
               ($i / $perpage) < ceil($items / $perpage) {
             left: - percentage(($items / $perpage) - 1 - $half);
@@ -107,7 +107,7 @@
     }
     @at-root {
       #{$id}-autoplay:checked ~ {
-        .slider-container .inner { @include animation(#{$prefix}-inner $peritem * $frames ease infinite); }
+        .outer .inner { @include animation(#{$prefix}-inner $peritem * $frames ease infinite); }
         .controls { display: none !important; }
       }
     }

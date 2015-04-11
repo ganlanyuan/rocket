@@ -250,6 +250,7 @@ pre[class*="language-"] {
 .demo-links a {
   display: inline-block;
   padding: 2em 3em;
+  margin-bottom: 4px;
   border-radius: 0.3em;
   background-color: #f2f2f2;
   font-size: 14px;
@@ -296,8 +297,18 @@ pre[class*="language-"] {
   display: block;
 }
 
-.gallery-a .inner, .gallery-b .inner, .gallery-c .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-c .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-c .controls span, .gallery-a .autoplay, .gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
+.gallery-a .inner, .gallery-b .inner, .gallery-c .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-c .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-c .controls span, .gallery-a .autoplay, .gallery-a .outer li, .gallery-b .outer li, .gallery-c .outer li {
   transition: all 1s ease 0s;
+}
+
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
 }
 
 .gallery-a, .gallery-b, .gallery-c {
@@ -315,12 +326,10 @@ pre[class*="language-"] {
   height: 0;
   overflow: hidden;
 }
-.gallery-a .slider-container, .gallery-b .slider-container, .gallery-c .slider-container {
+.gallery-a .outer, .gallery-b .outer, .gallery-c .outer {
   overflow: hidden;
-  -webkit-transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
-  transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
 }
-.gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
+.gallery-a .outer li, .gallery-b .outer li, .gallery-c .outer li {
   display: inline-block;
   vertical-align: top;
   width: 100%;
@@ -445,27 +454,27 @@ pre[class*="language-"] {
   box-sizing: border-box;
 }
 
-.gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
+.gallery-a .outer li, .gallery-b .outer li, .gallery-c .outer li {
   z-index: 7;
   opacity: 0;
   width: 100%;
 }
-.no-opacity .gallery-a .slider-container li, .gallery-a .slider-container .no-opacity li, .no-opacity .gallery-b .slider-container li, .gallery-b .slider-container .no-opacity li, .no-opacity .gallery-c .slider-container li, .gallery-c .slider-container .no-opacity li {
+.no-opacity .gallery-a .outer li, .gallery-a .outer .no-opacity li, .no-opacity .gallery-b .outer li, .gallery-b .outer .no-opacity li, .no-opacity .gallery-c .outer li, .gallery-c .outer .no-opacity li {
   display: none;
 }
 
-#gallery-a-1:checked ~ .slider-container li:nth-child(1), #gallery-a-2:checked ~ .slider-container li:nth-child(2), #gallery-a-3:checked ~ .slider-container li:nth-child(3), #gallery-a-4:checked ~ .slider-container li:nth-child(4), #gallery-a-5:checked ~ .slider-container li:nth-child(5), #gallery-b-1:checked ~ .slider-container li:nth-child(1), #gallery-b-2:checked ~ .slider-container li:nth-child(2), #gallery-b-3:checked ~ .slider-container li:nth-child(3), #gallery-b-4:checked ~ .slider-container li:nth-child(4), #gallery-b-5:checked ~ .slider-container li:nth-child(5), #gallery-c-1:checked ~ .slider-container li:nth-child(1), #gallery-c-2:checked ~ .slider-container li:nth-child(2), #gallery-c-3:checked ~ .slider-container li:nth-child(3), #gallery-c-4:checked ~ .slider-container li:nth-child(4), #gallery-c-5:checked ~ .slider-container li:nth-child(5) {
+#gallery-a-1:checked ~ .outer li:nth-child(1), #gallery-a-2:checked ~ .outer li:nth-child(2), #gallery-a-3:checked ~ .outer li:nth-child(3), #gallery-a-4:checked ~ .outer li:nth-child(4), #gallery-a-5:checked ~ .outer li:nth-child(5), #gallery-b-1:checked ~ .outer li:nth-child(1), #gallery-b-2:checked ~ .outer li:nth-child(2), #gallery-b-3:checked ~ .outer li:nth-child(3), #gallery-b-4:checked ~ .outer li:nth-child(4), #gallery-b-5:checked ~ .outer li:nth-child(5), #gallery-c-1:checked ~ .outer li:nth-child(1), #gallery-c-2:checked ~ .outer li:nth-child(2), #gallery-c-3:checked ~ .outer li:nth-child(3), #gallery-c-4:checked ~ .outer li:nth-child(4), #gallery-c-5:checked ~ .outer li:nth-child(5) {
   z-index: 8;
   opacity: 1;
 }
-.no-opacity #gallery-a-1:checked ~ .slider-container li:nth-child(1), #gallery-a-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-a-2:checked ~ .slider-container li:nth-child(2), #gallery-a-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-a-3:checked ~ .slider-container li:nth-child(3), #gallery-a-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-a-4:checked ~ .slider-container li:nth-child(4), #gallery-a-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-a-5:checked ~ .slider-container li:nth-child(5), #gallery-a-5:checked ~ .slider-container .no-opacity li:nth-child(5), .no-opacity #gallery-b-1:checked ~ .slider-container li:nth-child(1), #gallery-b-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-b-2:checked ~ .slider-container li:nth-child(2), #gallery-b-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-b-3:checked ~ .slider-container li:nth-child(3), #gallery-b-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-b-4:checked ~ .slider-container li:nth-child(4), #gallery-b-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-b-5:checked ~ .slider-container li:nth-child(5), #gallery-b-5:checked ~ .slider-container .no-opacity li:nth-child(5), .no-opacity #gallery-c-1:checked ~ .slider-container li:nth-child(1), #gallery-c-1:checked ~ .slider-container .no-opacity li:nth-child(1), .no-opacity #gallery-c-2:checked ~ .slider-container li:nth-child(2), #gallery-c-2:checked ~ .slider-container .no-opacity li:nth-child(2), .no-opacity #gallery-c-3:checked ~ .slider-container li:nth-child(3), #gallery-c-3:checked ~ .slider-container .no-opacity li:nth-child(3), .no-opacity #gallery-c-4:checked ~ .slider-container li:nth-child(4), #gallery-c-4:checked ~ .slider-container .no-opacity li:nth-child(4), .no-opacity #gallery-c-5:checked ~ .slider-container li:nth-child(5), #gallery-c-5:checked ~ .slider-container .no-opacity li:nth-child(5) {
+.no-opacity #gallery-a-1:checked ~ .outer li:nth-child(1), #gallery-a-1:checked ~ .outer .no-opacity li:nth-child(1), .no-opacity #gallery-a-2:checked ~ .outer li:nth-child(2), #gallery-a-2:checked ~ .outer .no-opacity li:nth-child(2), .no-opacity #gallery-a-3:checked ~ .outer li:nth-child(3), #gallery-a-3:checked ~ .outer .no-opacity li:nth-child(3), .no-opacity #gallery-a-4:checked ~ .outer li:nth-child(4), #gallery-a-4:checked ~ .outer .no-opacity li:nth-child(4), .no-opacity #gallery-a-5:checked ~ .outer li:nth-child(5), #gallery-a-5:checked ~ .outer .no-opacity li:nth-child(5), .no-opacity #gallery-b-1:checked ~ .outer li:nth-child(1), #gallery-b-1:checked ~ .outer .no-opacity li:nth-child(1), .no-opacity #gallery-b-2:checked ~ .outer li:nth-child(2), #gallery-b-2:checked ~ .outer .no-opacity li:nth-child(2), .no-opacity #gallery-b-3:checked ~ .outer li:nth-child(3), #gallery-b-3:checked ~ .outer .no-opacity li:nth-child(3), .no-opacity #gallery-b-4:checked ~ .outer li:nth-child(4), #gallery-b-4:checked ~ .outer .no-opacity li:nth-child(4), .no-opacity #gallery-b-5:checked ~ .outer li:nth-child(5), #gallery-b-5:checked ~ .outer .no-opacity li:nth-child(5), .no-opacity #gallery-c-1:checked ~ .outer li:nth-child(1), #gallery-c-1:checked ~ .outer .no-opacity li:nth-child(1), .no-opacity #gallery-c-2:checked ~ .outer li:nth-child(2), #gallery-c-2:checked ~ .outer .no-opacity li:nth-child(2), .no-opacity #gallery-c-3:checked ~ .outer li:nth-child(3), #gallery-c-3:checked ~ .outer .no-opacity li:nth-child(3), .no-opacity #gallery-c-4:checked ~ .outer li:nth-child(4), #gallery-c-4:checked ~ .outer .no-opacity li:nth-child(4), .no-opacity #gallery-c-5:checked ~ .outer li:nth-child(5), #gallery-c-5:checked ~ .outer .no-opacity li:nth-child(5) {
   display: block;
 }
 
-.gallery-a .slider-container, .gallery-b .slider-container, .gallery-c .slider-container {
+.gallery-a .outer, .gallery-b .outer, .gallery-c .outer {
   position: relative;
 }
-.gallery-a .slider-container li, .gallery-b .slider-container li, .gallery-c .slider-container li {
+.gallery-a .outer li, .gallery-b .outer li, .gallery-c .outer li {
   position: absolute;
 }
 
@@ -544,7 +553,7 @@ pre[class*="language-"] {
   display: none;
 }
 
-.gallery-a .slider-container {
+.gallery-a .outer {
   padding-bottom: 56.25%;
 }
 #gallery-a-autoplay:checked ~ .autoplay label:before {
@@ -607,46 +616,47 @@ pre[class*="language-"] {
 #gallery-a-autoplay:checked ~ .controls, #gallery-a-autoplay:checked ~ .dots {
   display: none !important;
 }
-#gallery-a-autoplay:checked ~ .slider-container li {
+#gallery-a-autoplay:checked ~ .outer li {
   -webkit-animation: gallery-a 25s ease infinite;
   -moz-animation: gallery-a 25s ease infinite;
   animation: gallery-a 25s ease infinite;
 }
-#gallery-a-autoplay:checked ~ .slider-container li:nth-child(2) {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(2) {
   -webkit-animation-delay: 5s;
   -moz-animation-delay: 5s;
   animation-delay: 5s;
 }
-#gallery-a-autoplay:checked ~ .slider-container li:nth-child(3) {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(3) {
   -webkit-animation-delay: 10s;
   -moz-animation-delay: 10s;
   animation-delay: 10s;
 }
-#gallery-a-autoplay:checked ~ .slider-container li:nth-child(4) {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(4) {
   -webkit-animation-delay: 15s;
   -moz-animation-delay: 15s;
   animation-delay: 15s;
 }
-#gallery-a-autoplay:checked ~ .slider-container li:nth-child(5) {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(5) {
   -webkit-animation-delay: 20s;
   -moz-animation-delay: 20s;
   animation-delay: 20s;
 }
 
-.gallery-b .slider-container {
+.gallery-b .outer {
   padding-bottom: 56.25%;
 }
 
-.gallery-c .slider-container {
+.gallery-c .outer {
   padding-bottom: 56.25%;
 }
 
 [id="gallery-auto-play"]:checked ~ .gallery-a,
+[id="gallery-auto-height"]:checked ~ .gallery-b,
 [id="gallery-customise"]:checked ~ .gallery-c {
   display: block;
 }
 
-.gallery-c .slider-container {
+.gallery-c .outer {
   overflow: visible;
 }
 .gallery-c li {
@@ -656,35 +666,35 @@ pre[class*="language-"] {
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-.gallery-c #gallery-c-1:checked ~ .slider-container li:nth-child(1) {
+.gallery-c #gallery-c-1:checked ~ .outer li:nth-child(1) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-c #gallery-c-2:checked ~ .slider-container li:nth-child(2) {
+.gallery-c #gallery-c-2:checked ~ .outer li:nth-child(2) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-c #gallery-c-3:checked ~ .slider-container li:nth-child(3) {
+.gallery-c #gallery-c-3:checked ~ .outer li:nth-child(3) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-c #gallery-c-4:checked ~ .slider-container li:nth-child(4) {
+.gallery-c #gallery-c-4:checked ~ .outer li:nth-child(4) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
 }
-.gallery-c #gallery-c-5:checked ~ .slider-container li:nth-child(5) {
+.gallery-c #gallery-c-5:checked ~ .outer li:nth-child(5) {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
@@ -697,23 +707,23 @@ pre[class*="language-"] {
   -webkit-transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
 }
-.gallery-c #gallery-c-1:checked ~ .slider-container li:nth-child(1) .info {
+.gallery-c #gallery-c-1:checked ~ .outer li:nth-child(1) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-c #gallery-c-2:checked ~ .slider-container li:nth-child(2) .info {
+.gallery-c #gallery-c-2:checked ~ .outer li:nth-child(2) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-c #gallery-c-3:checked ~ .slider-container li:nth-child(3) .info {
+.gallery-c #gallery-c-3:checked ~ .outer li:nth-child(3) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-c #gallery-c-4:checked ~ .slider-container li:nth-child(4) .info {
+.gallery-c #gallery-c-4:checked ~ .outer li:nth-child(4) .info {
   opacity: 1;
   margin-left: 20px;
 }
-.gallery-c #gallery-c-5:checked ~ .slider-container li:nth-child(5) .info {
+.gallery-c #gallery-c-5:checked ~ .outer li:nth-child(5) .info {
   opacity: 1;
   margin-left: 20px;
 }

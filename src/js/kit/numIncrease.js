@@ -10,4 +10,4 @@ function numIncrease(element, from, to, duration){
     if (from === to) { return; }
     numIncrease(element, from, to, duration - 10);
   }, 10);
-};
+}

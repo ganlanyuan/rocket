@@ -9,13 +9,13 @@
         <div class="content-main">
           <div class="slider">
             <input type="radio" name="option-gallery" id="gallery-auto-play">
-            <input type="radio" name="option-gallery" id="gallery-auto-height">
-            <input type="radio" name="option-gallery" id="gallery-customise" checked="">
+            <input type="radio" name="option-gallery" id="gallery-auto-height" checked="">
+            <input type="radio" name="option-gallery" id="gallery-customise">
             <div class="slider-labels">
               <div>
                 <div class="title">Options: </div>
                 <label for="gallery-auto-play">auto-play</label>
-                <!-- <label for="gallery&#45;auto&#45;height">auto&#45;height</label> -->
+                <label for="gallery-auto-height">auto-height</label>
                 <label for="gallery-customise">customise</label>
               </div>
             </div>
@@ -26,7 +26,7 @@
               <input type="radio" name="gallery-a" id="gallery-a-4">
               <input type="radio" name="gallery-a" id="gallery-a-5">
               <input type="checkbox" name="gallery-a-autoplay" id="gallery-a-autoplay" checked="">
-              <div class="slider-container">
+              <div class="outer">
                 <ul class="inner">
                   <li>
                     <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -78,7 +78,7 @@
               <input type="radio" name="gallery-b" id="gallery-b-4">
               <input type="radio" name="gallery-b" id="gallery-b-5">
               <input type="checkbox" name="gallery-b-autoplay" id="gallery-b-autoplay" checked="">
-              <div class="slider-container" autoheight-gallery>
+              <div class="outer" autoheight-gallery>
                 <ul class="inner">
                   <li>
                     <div class="item"><a href=""><img src="http://placehold.it/1100x919/97cddd/97cddd"></a>
@@ -131,7 +131,7 @@
               <input type="radio" name="gallery-c" id="gallery-c-4">
               <input type="radio" name="gallery-c" id="gallery-c-5">
               <input type="checkbox" name="gallery-c-autoplay" id="gallery-c-autoplay" checked="">
-              <div class="slider-container">
+              <div class="outer">
                 <ul class="inner">
                   <li>
                     <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -185,10 +185,10 @@
 .gallery-b { @include slider-gallery(); }
 .gallery-b {
   // setting item
-  .slider-container { overflow: visible; }
+  .outer { overflow: visible; }
   li { @include transform(scale(1.1)); }
   @for $i from 1 through 5 {
-    #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
+    #gallery-b-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
   }
   // setting .info
   .info { opacity: 0; margin-left: 0;
@@ -196,7 +196,7 @@
     transition: all 1s $global-bezier 0.5s;
    }
   @for $i from 1 through 5 {
-    #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) .info {
+    #gallery-b-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
       opacity: 1;
       margin-left: 20px;
     }

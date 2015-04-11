@@ -7,6 +7,15 @@
 // transition
 %slider-transition { transition: all 1s ease 0s; }
 
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 // slide-base
 %slide-base {
   position: relative;
@@ -14,10 +23,8 @@
     img { width: 100%; }
     > input { display: none; }
     .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
-    .slider-container {
+    .outer {
       overflow: hidden;
-      -webkit-transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
-      transition: height 0.3s ease 0s, padding-bottom 0.3s ease 0s;
       li {
         display: inline-block;
         vertical-align: top;

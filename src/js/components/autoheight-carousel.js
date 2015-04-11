@@ -9,14 +9,14 @@ ready(function () {
   var containers = k('[autoheight-carousel]');
 
   // setting original height
-  function setContainerHeight () {
+  function setCarouselHeight () {
     containers.forEach(function(el) {
       var thisHeight = k(el).outerHeight() + 'px';
-      console.log(thisHeight);
+      if (thisHeight === '0px') { thisHeight = 'auto'; }
       k(el).css('height', thisHeight);
     });
   }
-  window.onload = function() { setContainerHeight(); }
+  window.onload = function() { setCarouselHeight(); };
 
   // autoheight-carousel
   function autoHeightCarousel() {

@@ -19,7 +19,7 @@
 
 %slide-fade-base {
   @at-root (without: media) {
-    .slider-container {
+    .outer {
       position: relative;
       li { position: absolute; 
         @extend %item-normal;

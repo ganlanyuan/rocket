@@ -1,6 +1,7 @@
 # Rocket
 
-Rocket is a powerful SASS library to help web developer handle layout, color and other components.
+Rocket is a powerful SASS library to help web developer handle layout, color and other components.    
+Check out [demos](http://designdev.cmcigroup.com/develop/rocket/docs/layout-grid.php)!
 
 # Install
 
@@ -133,7 +134,7 @@ Use `debug` to show your grid.
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-debug.php)
 
 #### 【 Pure CSS slideshow 】
-A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay` and more. It works well on modern browsers and IE8+, but it doesn't support `loop`, `autoheight` and `lazyload` for now.
+A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`, `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
 
 ##### markup
 First, set a specific class (or ID) for each slider.   
@@ -147,7 +148,7 @@ In the example shows on the left, I used banner as my specific class.
   <input type="radio" name="banner" id="banner-4">
   <input type="radio" name="banner" id="banner-5">
   <input type="checkbox" name="banner-autoplay" id="banner-autoplay" checked="">
-  <div class="slider-container">
+  <div class="outer">
     <ul class="inner">
       <li> slider01 </li>
       <li> slider02 </li>
@@ -195,13 +196,20 @@ In the example shows on the left, I used banner as my specific class.
 
 // customise items
 .yourSlider {
-  .slider-container { overflow: visible; }
+  .outer { overflow: visible; }
   li { @include transform(scale(1.1)); }
   @for $i from 1 through 5 {
     #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
   }
 }
 ````
+
+// autoheight
+Add `kit.min.js` to <head>, and then put `autoheight-gallery` attribute to the slideshow container (.outer). IE8 is not supported for now.
+```` html
+<div class="outer" autoheight-gallery></div>
+````
+
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/slider-gallery.php)
 
 ##### slider-carousel
@@ -225,6 +233,13 @@ In the example shows on the left, I used banner as my specific class.
   .yourSlider { @include slider-carousel($perpage: 3); }
 }
 ````
+
+// autoheight
+Add `kit.min.js` to <head>, and then put `autoheight-carousel` attribute to the slideshow container (.outer). 
+```` html
+<div class="outer" autoheight-carousel></div>
+````
+
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/slider-carousel.php)
 
 #### 【 Addons 】

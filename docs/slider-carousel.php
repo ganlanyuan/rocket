@@ -34,7 +34,7 @@
           <input type="radio" name="carousel-a" id="carousel-a-4">
           <input type="radio" name="carousel-a" id="carousel-a-5">
           <input type="checkbox" name="carousel-a-autoplay" id="carousel-a-autoplay">
-          <div class="slider-container">
+          <div class="outer">
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -86,7 +86,7 @@
           <input type="radio" name="carousel-b" id="carousel-b-4">
           <input type="radio" name="carousel-b" id="carousel-b-5">
           <input type="checkbox" name="carousel-b-autoplay" id="carousel-b-autoplay">
-          <div class="slider-container">
+          <div class="outer">
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -138,7 +138,7 @@
           <input type="radio" name="carousel-c" id="carousel-c-4">
           <input type="radio" name="carousel-c" id="carousel-c-5">
           <input type="checkbox" name="carousel-c-autoplay" id="carousel-c-autoplay">
-          <div class="slider-container">
+          <div class="outer">
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -190,7 +190,7 @@
           <input type="radio" name="carousel-d" id="carousel-d-4">
           <input type="radio" name="carousel-d" id="carousel-d-5">
           <input type="checkbox" name="carousel-d-autoplay" id="carousel-d-autoplay">
-          <div class="slider-container">
+          <div class="outer">
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -242,7 +242,7 @@
           <input type="radio" name="carousel-e" id="carousel-e-4">
           <input type="radio" name="carousel-e" id="carousel-e-5">
           <input type="checkbox" name="carousel-e-autoplay" id="carousel-e-autoplay">
-          <div class="slider-container">
+          <div class="outer">
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -294,7 +294,7 @@
           <input type="radio" name="carousel-f" id="carousel-f-4">
           <input type="radio" name="carousel-f" id="carousel-f-5">
           <input type="checkbox" name="carousel-f-autoplay" id="carousel-f-autoplay" checked="">
-          <div class="slider-container">
+          <div class="outer">
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
@@ -346,7 +346,7 @@
           <input type="radio" name="carousel-g" id="carousel-g-4">
           <input type="radio" name="carousel-g" id="carousel-g-5">
           <input type="checkbox" name="carousel-g-autoplay" id="carousel-g-autoplay">
-          <div class="slider-container" autoheight-carousel>
+          <div class="outer" autoheight-carousel>
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x919/97cddd/97cddd"></a>

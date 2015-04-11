@@ -325,7 +325,7 @@ k.prototype.fadeIn = function (time) {
 		var tick = function() {
 		  opacity += (new Date() - last) / time;
 		  el.style.opacity = opacity;
-		  el.style.filter = 'alpha(opacity=' + (100 * opacity)|0 + ')';
+		  el.style.filter = 'alpha(opacity=' + (100 * opacity) || 0 + ')';
 
 		  last = +new Date();
 
@@ -601,6 +601,10 @@ k.css = function(el, css, value) {
 	}
 };
 
+k.getCurrentStyle = function(el, css) {
+  return el.currentStyle ? el.currentStyle[css] : getComputedStyle(el, null)[css];
+};
+
 k.hasClass = function(el, value) {   
 	return (" " + el.className + " ").indexOf(" " + value + " ") > -1;
 };
@@ -654,8 +658,14 @@ k.toggleClass = function(el, value) {
 // ========== STYLE INSTANCE METHODS ==========
 k.prototype.css = function(css, value) {
 	return this.forEach(function (el) {
-		return k.css(el, css, value) || el;
+		return k.css(el, css, value);
 	});
+};
+
+k.prototype.getCurrentStyle = function(css) {
+  return this.mapOne(function (el) {
+    return k.getCurrentStyle(el, css);
+  });
 };
 
 k.prototype.addClass = function(value) {
