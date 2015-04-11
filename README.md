@@ -204,8 +204,8 @@ In the example shows on the left, I used banner as my specific class.
 }
 ````
 
-// autoheight
-Add `kit.min.js` to <head>, and then put `autoheight-gallery` attribute to the slideshow container (.outer). IE8 is not supported for now.
+**Autoheight**       
+Add `kit.min.js` to `head`, and then put `autoheight-gallery` attribute to the slideshow container (.outer). IE8 is not supported for now.
 ```` html
 <div class="outer" autoheight-gallery></div>
 ````
@@ -234,8 +234,8 @@ Add `kit.min.js` to <head>, and then put `autoheight-gallery` attribute to the s
 }
 ````
 
-// autoheight
-Add `kit.min.js` to <head>, and then put `autoheight-carousel` attribute to the slideshow container (.outer). 
+**Autoheight**   
+Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer). 
 ```` html
 <div class="outer" autoheight-carousel></div>
 ````
