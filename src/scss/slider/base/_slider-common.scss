@@ -127,6 +127,7 @@
     margin-top: -25px;
     @extend %slider-transition;
     .no-opacity & { display: none; }
+    .no-cssanimations & { display: none !important; }
     label:before {
       display: inline-block;
       font-family: 'icon-font';

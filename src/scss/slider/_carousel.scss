@@ -28,7 +28,10 @@
         }
       }
       // hide dots on autoplay
-      #{$id}-autoplay:checked ~ .dots { display: none; }
+      #{$id}-autoplay:checked ~ .dots { 
+        display: none; 
+        .no-cssanimations & { display: block !important; }
+      }
     }
     @each $item in controls, dots, autoplay {
       @if str-index($hide, $item) == null {
@@ -71,11 +74,14 @@
   // hide extra dots
   @if str-index($hide, 'dots') == null {
     @if $slide-by-page == false {
+      @if $center == true {
+        .dots label:nth-child(n + #{$pages}) { display: none; }
+      }
       .dots label:nth-child(n + #{$pages + 1}) { display: none; }
     }
   }
 
-  // animation
+  // setting autoplay animation
   @if str-index($hide, 'autoplay') == null and $autoplay == true {
     @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; } }
 
@@ -108,7 +114,10 @@
     @at-root {
       #{$id}-autoplay:checked ~ {
         .outer .inner { @include animation(#{$prefix}-inner $peritem * $frames ease infinite); }
-        .controls { display: none !important; }
+        .controls { 
+          display: none !important; 
+          .no-cssanimations & { display: block !important; }
+        }
       }
     }
   }
@@ -148,6 +157,26 @@
               .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
             }
           }
+          @else if $center == true {
+            @if $i == 1 {
+              .controls label:nth-child(#{$pages}), 
+              .controls label:nth-child(#{$i + 1}),
+              .controls label:nth-child(#{$pages}) .prev, 
+              .controls label:nth-child(#{$i + 1}) .next { display: block; }
+            }
+            @else if $i < ($pages - 1 ) {
+              .controls label:nth-child(#{$i - 1}), 
+              .controls label:nth-child(#{$i + 1}),
+              .controls label:nth-child(#{$i - 1}) .prev, 
+              .controls label:nth-child(#{$i + 1}) .next { display: block; }
+            }
+            @else {
+              .controls label:nth-child(#{$i - 1}), 
+              .controls label:nth-child(1),
+              .controls label:nth-child(#{$i - 1}) .prev, 
+              .controls label:nth-child(1) .next { display: block; }
+            }
+          }
           @else {
             @if $i == 1 {
               .controls label:nth-child(#{$pages}), 
@@ -167,6 +196,7 @@
               .controls label:nth-child(#{$i - 1}) .prev, 
               .controls label:nth-child(1) .next { display: block; }
             }
+
           }
         }
       }

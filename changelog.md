@@ -1,5 +1,9 @@
 # Changelog
 
+### v1.1.6
++ Fix an issue on `slider-carousel: center`.
++ Hide `autoplay` on non-supported browsers.
+
 ### v1.1.5
 + Add animations to `off-canvas`.
 + Enhance `carousel` slideshow: hide extra dots when per-page items are more than one.

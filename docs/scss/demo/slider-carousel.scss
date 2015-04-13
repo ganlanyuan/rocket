@@ -65,16 +65,16 @@
     .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
     .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
     .carousel-f { @include slider-carousel($perpage: 2, $autoplay: true); }
-    .carousel-g { @include slider-carousel(); }
+    .carousel-g { @include slider-carousel($autoplay: true); }
     @include bp-mi(em(700)) {
       .carousel-a { @include slider-carousel($perpage: 2); }
       .carousel-b { @include slider-carousel($perpage: 2); }
       .carousel-d { @include slider-carousel($perpage: 3, $slide-by-page: true); }
-      .carousel-g { @include slider-carousel($perpage: 2); }
+      .carousel-g { @include slider-carousel($perpage: 2, $autoplay: true); }
     }
     @include bp-mi(em(1000)) {
       .carousel-a { @include slider-carousel($perpage: 3); }
-      .carousel-g { @include slider-carousel($perpage: 3); }
+      .carousel-g { @include slider-carousel($perpage: 3, $autoplay: true); }
     }
     [id="carousel-lg"]:checked ~ .carousel-a, 
     [id="carousel-md"]:checked ~ .carousel-b, 

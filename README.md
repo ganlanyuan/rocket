@@ -134,7 +134,7 @@ Use `debug` to show your grid.
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-debug.php)
 
 #### 【 Pure CSS slideshow 】
-A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`, `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
+A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`(IE8- are not supported), `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
 
 ##### markup
 First, set a specific class (or ID) for each slider.   
@@ -205,7 +205,7 @@ In the example shows on the left, I used banner as my specific class.
 ````
 
 *Autoheight*       
-Add `kit.min.js` to `head`, and then put `autoheight-gallery` attribute to the slideshow container (.outer). IE8 is not supported for now.
+Add `kit.min.js` to `head`, and then put `autoheight-gallery` attribute to the slideshow container (.outer).
 ```` html
 <div class="outer" autoheight-gallery></div>
 ````

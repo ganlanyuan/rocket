@@ -345,7 +345,7 @@
           <input type="radio" name="carousel-g" id="carousel-g-3">
           <input type="radio" name="carousel-g" id="carousel-g-4">
           <input type="radio" name="carousel-g" id="carousel-g-5">
-          <input type="checkbox" name="carousel-g-autoplay" id="carousel-g-autoplay">
+          <input type="checkbox" name="carousel-g-autoplay" id="carousel-g-autoplay" checked="">
           <div class="outer" autoheight-carousel>
             <ul class="inner">
               <li>

@@ -9,8 +9,8 @@
         <div class="content-main">
           <div class="slider">
             <input type="radio" name="option-gallery" id="gallery-auto-play">
-            <input type="radio" name="option-gallery" id="gallery-auto-height" checked="">
-            <input type="radio" name="option-gallery" id="gallery-customise">
+            <input type="radio" name="option-gallery" id="gallery-auto-height">
+            <input type="radio" name="option-gallery" id="gallery-customise" checked="">
             <div class="slider-labels">
               <div>
                 <div class="title">Options: </div>
