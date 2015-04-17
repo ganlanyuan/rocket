@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.1.8
++ Update `off-canvas`. Now you can use `off-canvas` in @mediaquery.
+
 ### v1.1.7
 + Simplify layout functions: `span`, `span-calc`, `gallery`, `two-columns` and `debug`.
 

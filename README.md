@@ -288,6 +288,7 @@ h1 { @include type(32px,700,null,1.1); }
 ##### off-canvas
 `off-canvas` is for creating the navigation of mobile site.
 ```` html
+<!-- nav -->
 <nav>
   <ul>
     <li><span data-offcanvas-close>close</span></li>
@@ -304,8 +305,12 @@ h1 { @include type(32px,700,null,1.1); }
     <li><a href="">item04</a></li>
   </ul>
 </nav>
+
+<!-- page -->
 <div class="page">
   <div data-page-cover=""></div>
+
+  <!-- nav icon -->
   <div data-icon-nav></div>
 </div>
 ````
