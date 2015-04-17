@@ -1,8 +1,8 @@
 @import 'demo-base';
-@import "../../../src/scss/layout/base/base";
+@import "../../../src/scss/layout/setting";
 @import "../../../src/scss/layout/two-columns";
 
 // *** layout: two-columns *** //
 
-.example-two-columns { @include two-columns(right, 200, 20); }
+.example-two-columns { @include two-columns(right, 200px, 20px); }
 

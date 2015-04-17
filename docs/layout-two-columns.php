@@ -18,7 +18,7 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.example-two-columns { @include two-columns(right, 200, 20); }
+.example-two-columns { @include two-columns(right, 200px, 20px); }
       </code></pre>
     </div>
     

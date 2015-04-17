@@ -1,7 +1,7 @@
 // *** span-calc *** // 
 
-// columns-width-with-gutter 
-@function columns-width-with-gutter ( $column, $columns, $gutter ){
+// columns-width
+@function column-width ( $column, $columns, $gutter ){
   $column-percentage: percentage($column / $columns);
   $column-gutter: ($gutter * $column / $columns);
   @return #{$column-percentage} + #{$column-gutter};
@@ -28,18 +28,18 @@
   @if $gutter == default or $gutter == null { $gutter: map-get($layout, gutter); }
 
   // add unit to gutter
-  @if $gutter { $gutter: add-unit($gutter); }
+	@if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
 
   // no gutter
-  @if get-unit($gutter) == '0' {
+  @if not $gutter or $gutter == 0 {
     width: column-width-percentage($columns, 0) * $column;
     @if $push and $push != 0 { left: percentage($push / $columns); }
     @if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
   }
   // fixed gutter
-  @else if get-unit($gutter) == 'others' {
-    $columns-width-with-gutter: columns-width-with-gutter($column, $columns, $gutter);
-    width: calc( #{$columns-width-with-gutter} - #{$gutter} );
+  @else if unit($gutter) and unit($gutter) != '%' {
+    $column-width: column-width($column, $columns, $gutter);
+    width: calc( #{$column-width} - #{$gutter} );
     @if not $last { 
       @if $float == left or $float == right {
         margin-#{opposite($float)}: $gutter; 
@@ -48,12 +48,12 @@
     }
     // change order
     @if $push and $push != 0 { 
-      $columns-width-with-gutter: columns-width-with-gutter($push, $columns, $gutter);
-      left: calc( #{$columns-width-with-gutter} ); 
+      $column-width: column-width($push, $columns, $gutter);
+      left: calc( #{$column-width} ); 
     }
     @if $pull and $pull != 0 { 
-      $columns-width-with-gutter: columns-width-with-gutter(-$pull, $columns, $gutter);
-      left: calc( #{$columns-width-with-gutter} ); 
+      $column-width: column-width(-$pull, $columns, $gutter);
+      left: calc( #{$column-width} ); 
     }
   }
   @else {

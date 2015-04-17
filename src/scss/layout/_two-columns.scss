@@ -1,9 +1,5 @@
 // fixed columns
 @mixin two-columns($direction, $aside, $gutter) {
-  // add units
-  @if $aside { $aside: add-unit($aside); }
-  @if $gutter { $gutter: add-unit($gutter); }
-
   $total: ($aside + $gutter);
   @at-root (without: media) { @extend %clearfix; }
   

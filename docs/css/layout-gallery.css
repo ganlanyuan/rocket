@@ -271,11 +271,11 @@ pre[class*="language-"] {
 }
 
 .example-gallery {
-  margin: 0 -10px;
+  margin: 0 -1%;
 }
 .example-gallery > li {
   width: 25%;
-  padding: 0.625rem;
+  padding: 1%;
 }
 .example-gallery span {
   display: block;

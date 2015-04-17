@@ -8,7 +8,7 @@
       <ul class="example-gallery">
         <li data-padding><span class="example-content" data-content>
           3 colomns / 12 columns<br>
-          $gutter: 20px
+          $gutter: 2%
         </span></li>
         <li data-padding><span data-content></span></li>
         <li data-padding><span data-content></span></li>
@@ -19,7 +19,7 @@
         <li data-padding><span data-content></span></li>
       </ul>
       <pre><code class="language-scss">
-.example-gallery { @include gallery(4,20px,'li',12); }
+.example-gallery { @include gallery(4,2%,'li',12); }
       </code></pre>
     </div>
     

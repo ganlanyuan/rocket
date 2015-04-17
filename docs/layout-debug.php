@@ -19,7 +19,7 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.example-debug { @include debug(12, 20);}
+.example-debug { @include debug(11, 20px, #f2f2f2); }
       </code></pre>
     </div>
     

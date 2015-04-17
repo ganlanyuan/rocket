@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../../src/scss/layout/base/base";
+@import "../../../src/scss/layout/setting";
 @import "../../../src/scss/layout/container";
 @import "../../../src/scss/layout/wrap";
 @import "../../../src/scss/layout/span";
@@ -7,7 +7,7 @@
 
 // *** layout: grid *** //
 
-.example-span-1 { @include span(7,11,1/2); }
-.example-span-2 { @include span(4,11,1/2,$last:true); }
-.example-span-calc-1 { @include span-calc(8,11,20); }
-.example-span-calc-2 { @include span-calc(3,11,20,$last:true); }
+.example-span-1 { @include span(7,11,2%); }
+.example-span-2 { @include span(4,11,2%,$last:true); }
+.example-span-calc-1 { @include span-calc(8,11,20px); }
+.example-span-calc-2 { @include span-calc(3,11,20px,$last:true); }

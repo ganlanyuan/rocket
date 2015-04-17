@@ -266,7 +266,7 @@ pre[class*="language-"] {
 }
 
 .example-two-columns {
-  padding-right: 13.75rem;
+  padding-right: 220px;
 }
 .example-two-columns > [data-col-main] {
   float: left;
@@ -274,8 +274,8 @@ pre[class*="language-"] {
 }
 .example-two-columns > [data-col-aside] {
   float: right;
-  width: 12.5rem;
-  margin-right: -13.75rem;
+  width: 200px;
+  margin-right: -220px;
 }
 
 /*# sourceMappingURL=layout-two-columns.css.map */

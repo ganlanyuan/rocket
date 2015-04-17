@@ -22,7 +22,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 $layout: (
   container: num | px | em | rem | % 
   columns: num
-  gutter: num | px | em | rem | 1/20 | % | 0.1
+  gutter: num | px | em | rem | (1/20) | % | 0.1
 );
 ````
 
@@ -51,16 +51,11 @@ Grid wrap, works with `span`.
 @include span($column, $columns, $gutter, $pull, $push, $float, $last)
 // $column: num
 // $columns: default | null | num
-// $gutter: default | null | num | px | em | rem | 1/2 | 5% | 0.1
+// $gutter: default | null | px | em | rem | (2/100) | 5% | 0.1
 // $pull(optional): num
 // $push(optional): num
 // $float(optional): left | right
 // $last(optional): false | true
-
-// note: 
-// if you set $gutter as fraction, percentage or decimal,
-// it's related to column-width, not container-width
-// e.g. $gutter: 1/2 means $gutter = 1/2 * $column-width
 ````
 
 ##### span-calc
@@ -69,7 +64,7 @@ Grid wrap, works with `span`.
 @include span-calc($column, $columns, $gutter, $pull, $push, $float, $last)
 // $column: num
 // $columns: default | null | num
-// $gutter: default | null | num | px | em | rem
+// $gutter: default | null | px | em | rem
 // $pull(optional): num
 // $push(optional): num
 // $float(optional): left | right
@@ -85,7 +80,7 @@ Grid wrap, works with `span`.
 ```` scss
 @include gallery($per-row, $gutter, $child, $columns, $position);
 // $per-row: num
-// $gutter: num | px | em | rem | 1/20 | 5% | 0.1
+// $gutter: num | px | em | rem | (2/100) | 5% | 0.1
 // $child: div | span | ...
 // $columns (optional): num
 // $position (optional): middle | bottom
@@ -128,7 +123,7 @@ Use `debug` to show your grid.
 ```` scss
 @include debug($columns, $gutter, $color)
 // $columns: num
-// $gutter: num | px | em | rem | 1/20 | 5% | 0.1
+// $gutter: px | em | rem | (2/100) | 5% | 0.01
 // $color: rgba | ...
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-debug.php)

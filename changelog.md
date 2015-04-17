@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.1.7
++ Simplify layout functions: `span`, `span-calc`, `gallery`, `two-columns` and `debug`.
+
 ### v1.1.6
 + Fix an issue on `slider-carousel: center`.
 + Hide `autoplay` on non-supported browsers.

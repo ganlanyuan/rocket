@@ -261,24 +261,24 @@ pre[class*="language-"] {
 
 .example-span-1 {
   float: left;
-  width: 62.5%;
-  margin-right: 3.125%;
+  width: 62.9090909091%;
+  margin-right: 2%;
 }
 
 .example-span-2 {
   float: left;
-  width: 34.375%;
+  width: 35.0909090909%;
 }
 
 .example-span-calc-1 {
   float: left;
-  width: calc( 72.7272727273% + 0.9090909091rem - 1.25rem );
-  margin-right: 1.25rem;
+  width: calc( 72.7272727273% + 14.5454545455px - 20px );
+  margin-right: 20px;
 }
 
 .example-span-calc-2 {
   float: left;
-  width: calc( 27.2727272727% + 0.3409090909rem - 1.25rem );
+  width: calc( 27.2727272727% + 5.4545454545px - 20px );
 }
 
 /*# sourceMappingURL=layout-grid.css.map */

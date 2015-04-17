@@ -3,12 +3,5 @@
   $columns: map-get($layout, columns)
 ){
   @at-root (without: media) { @extend %layout-wrap; }
-  
-  @if unit($gutter) == '%' {
-    $gw: gutter-width-percentage($columns, $gutter);
-    margin: 0 (-$gw / 2);
-  }
-  @else {
-    margin: 0 (-$gutter / 2);
-  }
+  margin: 0 (-$gutter / 2);
 }

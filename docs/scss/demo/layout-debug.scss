@@ -1,10 +1,10 @@
 @import 'demo-base';
-@import "../../../src/scss/layout/base/base";
+@import "../../../src/scss/layout/setting";
 @import "../../../src/scss/layout/span-calc";
 @import "../../../src/scss/layout/debug";
 
 // *** layout: debug *** //
 
-.example-debug { @include debug(11, 20, #f2f2f2); padding: 30px 0; }
-.example-span-calc-1 { @include span-calc(8,11,20); }
-.example-span-calc-2 { @include span-calc(3,11,20,$last:true); }
+.example-debug { @include debug(11, 20px, #f2f2f2); padding: 30px 0; }
+.example-span-calc-1 { @include span-calc(8,11,20px); }
+.example-span-calc-2 { @include span-calc(3,11,20px,$last:true); }
