@@ -20,20 +20,24 @@ $off-canvas-length: 12;
   background: $bgc;
   z-index: 300;
   box-sizing: border-box;
-  @extend %global-transition;
+  -webkit-transition: all $global-animation-duration $global-bezier 0s;
+  transition: all $global-animation-duration $global-bezier 0s;
   li { 
     font-size: rem($font-size); 
     line-height: 1;
     white-space: nowrap;
-    @extend %clearfix;
+    @include clearfix;
   }
   a { 
     display: block;
     padding: $padding;
     color: contrast($bgc);
-    @extend %hover-tdn;
-    @extend %global-transition;
-    &:hover { background-color: analogous($bgc, 15%); }
+    -webkit-transition: all $global-animation-duration $global-bezier 0s;
+    transition: all $global-animation-duration $global-bezier 0s;
+    &:hover { 
+      text-decoration: none;
+      background-color: analogous($bgc, 15%); 
+    }
   }
   .active > a,
   .current > a { background-color: analogous($bgc, 23%); }
@@ -112,7 +116,8 @@ $off-canvas-length: 12;
   $direction: left
 ){
   position: relative;
-  @extend %global-transition;
+  -webkit-transition: all $global-animation-duration $global-bezier 0s;
+  transition: all $global-animation-duration $global-bezier 0s;
   > [data-page-cover] {
     display: block;
     position: fixed;
@@ -120,7 +125,8 @@ $off-canvas-length: 12;
     top: 0;
     @include size(100%);
     z-index: -1;
-    @extend %global-transition;
+    -webkit-transition: all $global-animation-duration $global-bezier 0s;
+    transition: all $global-animation-duration $global-bezier 0s;
     .off-canvas-show & {
       background-color: $cover-bg;
       z-index: 200;
@@ -154,7 +160,8 @@ $off-canvas-length: 12;
     display: block;
     height: nth($size, 2);
     background-color: $color;
-    @extend %global-transition;
+    -webkit-transition: all $global-animation-duration $global-bezier 0s;
+    transition: all $global-animation-duration $global-bezier 0s;
   }
   &:before, &:after { content: ''; }
   > span, &:after { margin-top: nth($size, 3); }

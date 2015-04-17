@@ -1,18 +1,3 @@
-.mb-nav li:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.mb-nav a:hover {
-  text-decoration: none;
-}
-
-.mb-nav, .mb-nav a, [data-offcanvas-close] > span, [data-offcanvas-close]:before, [data-offcanvas-close]:after, .icon-nav > span, .icon-nav:before, .icon-nav:after, .page, .page > [data-page-cover] {
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -286,6 +271,8 @@ pre[class*="language-"] {
   background: #102244;
   z-index: 300;
   box-sizing: border-box;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   width: 200px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -297,12 +284,20 @@ pre[class*="language-"] {
   line-height: 1;
   white-space: nowrap;
 }
+.mb-nav li:after {
+  clear: both;
+  content: "";
+  display: table;
+}
 .mb-nav a {
   display: block;
   padding: 16px;
   color: #fff;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 .mb-nav a:hover {
+  text-decoration: none;
   background-color: #1f4182;
 }
 .mb-nav .active > a,
@@ -475,6 +470,8 @@ pre[class*="language-"] {
   display: block;
   height: 2px;
   background-color: #fff;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 [data-offcanvas-close]:before, [data-offcanvas-close]:after {
   content: '';
@@ -525,6 +522,8 @@ pre[class*="language-"] {
   display: block;
   height: 0.125rem;
   background-color: #333;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 .icon-nav:before, .icon-nav:after {
   content: '';
@@ -538,6 +537,8 @@ pre[class*="language-"] {
 
 .page {
   position: relative;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   left: 0;
   padding-top: 1px;
 }
@@ -549,6 +550,8 @@ pre[class*="language-"] {
   height: 100%;
   width: 100%;
   z-index: -1;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 .off-canvas-show .page > [data-page-cover] {
   background-color: rgba(48, 68, 117, 0.57);
