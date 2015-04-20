@@ -1,7 +1,7 @@
 $layout: (
   container: rem(1200),
   columns: 12,
-  gutter: 25%
+  gutter: 2%
 ) !default;
 
 %layout-wrap {
@@ -13,4 +13,3 @@ $layout: (
   vertical-align: top;
   box-sizing: border-box;
 }
-%layout-relative { position: relative; }
