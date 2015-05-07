@@ -260,30 +260,35 @@ pre[class*="language-"] {
 }
 
 h1.example-type {
+  font-size: 32px;
   font-size: 2rem;
   line-height: 1.1;
   margin-bottom: 10px;
 }
 
 h2.example-type {
+  font-size: 28px;
   font-size: 1.75rem;
   line-height: 1.2;
   margin-bottom: 10px;
 }
 
 h3.example-type {
+  font-size: 24px;
   font-size: 1.5rem;
   line-height: 1.3;
   margin-bottom: 10px;
 }
 
 h4.example-type {
+  font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.4;
   margin-bottom: 10px;
 }
 
 h5.example-type {
+  font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 10px;

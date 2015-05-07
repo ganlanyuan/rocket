@@ -8,6 +8,7 @@
   $font-family: null
 ){
   @if $font-size != null {
+    font-size: $font-size;
     font-size: rem($font-size);
   }
   @if $font-weight != null {

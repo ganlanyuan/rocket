@@ -323,6 +323,7 @@ pre[class*="language-"] {
 }
 .example-justify input {
   width: 150px;
+  font-size: 14px;
   font-size: 0.875rem;
   padding: 5px 10px;
   border: 1px solid #dbdbdb;

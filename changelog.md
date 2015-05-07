@@ -1,5 +1,10 @@
 # Changelog
 
+### v1.1.9
++ `type`, `button`: add "px" value to "rem-non-support" browser.
++ Fix an issue on `span` and `span-clac`.
++ Update demos.
+
 ### v1.1.8
 + Update `off-canvas`. Now you can use `off-canvas` in @mediaquery.
 

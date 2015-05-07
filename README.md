@@ -241,8 +241,7 @@ Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the 
 ##### type
 `type` is a shorthand mixin for type.
 ```` scss
-@include type($type...);
-$type: ($font-size, $font-weight, $font-style, $line-height, $font-family);
+@include type($font-size, $font-weight, $font-style, $line-height, $font-family);
 // font-size: null | num | px | em | rem
 // font-weight: null | normal | bold | num | ...
 // font-style: null | normal | italic | ...
@@ -256,12 +255,12 @@ h1 { @include type(32px,700,null,1.1); }
 ##### button
 `button` is not just for "button". Everything which is an inline-block box can be considered as a button.
 ```` scss
-@include button(font-size, padding, background-color, border, border-radius);
-// font-size: value | null
-// padding: value | null
-// background-color: value | null
-// border: value | null
-// border-radius: value | null
+@include button($font-size, $padding, $background-color, $border, $border-radius);
+// $font-size: value | null
+// $padding: value | null
+// $background-color: value | null
+// $border: value | null
+// $border-radius: value | null
 ````
 [demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-button.php)
 

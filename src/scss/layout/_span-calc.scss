@@ -21,7 +21,7 @@
   @else { float: left; }
 
   // change order
-  @if $push or $pull { @extend %layout-relative; }
+  @if $push or $pull { position: relative; }
 
   // set default
   @if $columns == default or $columns == null { $columns: map-get($layout, columns); }
