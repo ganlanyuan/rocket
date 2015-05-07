@@ -1,7 +1,7 @@
 # Rocket
 
 Rocket is a powerful SASS library to help web developer handle layout, color and other components.    
-Check out [demos](http://designdev.cmcigroup.com/develop/rocket/docs/layout-grid.php)!
+Check out [demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)!
 
 # Install
 
@@ -73,7 +73,7 @@ Grid wrap, works with `span`.
 // Note: if you want use a fixible $gutter (e.g. 30%), 
 // use span mixin instead.
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-grid.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-grid.php)
 
 ##### gallery
 `gallery` is for creating picture galleries.
@@ -87,7 +87,7 @@ Grid wrap, works with `span`.
 //
 // $columns is only needed when using gutter as percentage
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-gallery.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-gallery.php)
 
 ##### justify
 `justify` is for creating `justify` list.
@@ -97,7 +97,7 @@ Grid wrap, works with `span`.
   @include justify($child); // for old browsers
 }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-justify.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-justify.php)
 
 ##### center
 `center` is for creating both horizontal and vertical center aligned layout.
@@ -106,7 +106,7 @@ Grid wrap, works with `span`.
 // $child: div | li | span | ...
 // $align: left | center
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-center.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-center.php)
 
 ##### two-columns
 `two-columns` is for creating a two columns layout. One of them has a fixed width.
@@ -116,7 +116,7 @@ Grid wrap, works with `span`.
 // $aside (fixed columns width): px | em | rem
 // $gutter: px | em | rem
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-two-columns.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-two-columns.php)
 
 ##### debug
 Use `debug` to show your grid.
@@ -126,7 +126,7 @@ Use `debug` to show your grid.
 // $gutter: px | em | rem | (2/100) | 5% | 0.01
 // $color: rgba | ...
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/layout-debug.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-debug.php)
 
 #### 【 Pure CSS slideshow 】
 A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`(IE8- are not supported), `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
@@ -205,7 +205,7 @@ Add `kit.min.js` to `head`, and then put `autoheight-gallery` attribute to the s
 <div class="outer" autoheight-gallery></div>
 ````
 
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/slider-gallery.php)
+[demo](http://creatiointl.org/gallery/william/rocket/slider-gallery.php)
 
 ##### slider-carousel
 ```` scss
@@ -235,7 +235,7 @@ Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the 
 <div class="outer" autoheight-carousel></div>
 ````
 
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/slider-carousel.php)
+[demo](http://creatiointl.org/gallery/william/rocket/slider-carousel.php)
 
 #### 【 Addons 】
 ##### type
@@ -250,7 +250,7 @@ Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the 
 
 h1 { @include type(32px,700,null,1.1); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-type.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
 
 ##### button
 `button` is not just for "button". Everything which is an inline-block box can be considered as a button.
@@ -262,7 +262,7 @@ h1 { @include type(32px,700,null,1.1); }
 // $border: value | null
 // $border-radius: value | null
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-button.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-button.php)
 
 ##### Media list
 `media` displays a media object (images, video, audio) to the left or right of a block.
@@ -282,7 +282,7 @@ h1 { @include type(32px,700,null,1.1); }
 .news-right { @include media(1em, '.media', '.media-body', right); } 
 .news-left { @include media(15px, 'figure', 'div'); } 
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-media-list.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-media-list.php)
 
 ##### off-canvas
 `off-canvas` is for creating the navigation of mobile site.
@@ -325,7 +325,7 @@ nav { @include off-canvas($style, $direction, $font-size, $padding, $bgc, $anima
 // $style: move | translate | reveal
 // $direction: left | right
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-off-canvas.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-off-canvas.php)
 
 ##### dropdown
 There are two ways to show a dropdown menu. If you set as `click`, you need add an `<span data-dropdown-toggle></span>` beside your dropdown menu.
@@ -341,7 +341,7 @@ There are two ways to show a dropdown menu. If you set as `click`, you need add 
 // If you set $open: click, 
 // you need insert <span data-dropdown-toggle></span> inside your dropdown tag.
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-dropdown.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-dropdown.php)
 
 ##### tooltip
 This is a pure css tooltip.
@@ -358,7 +358,7 @@ This is a pure css tooltip.
 // it's better to set tooltip box as a block element, 
 // or give it a width;
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-tooltip.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-tooltip.php)
 
 ##### breakpoint
 A shorthand @mixin for break point.
@@ -399,7 +399,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 // @include hidden(screen, 300, 500, 700)
 // hidden between 300px and 500px, and 700px up on screen
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-visibility.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-visibility.php)
 
 ##### flex video
 ```` scss
@@ -409,7 +409,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 
 .flex-video { @include flex-video(3/4); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/addons-flex-video.php)
+[demo](http://creatiointl.org/gallery/william/rocket/addons-flex-video.php)
 
 #### 【 Color Functions 】
 Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
@@ -426,7 +426,7 @@ adjacent( $color, $order, $saturation, $lightness, $dist );
 
 // .youclass { color: adjacent(#a6e36e, 1, $dist: 20); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-adjacent.php)
+[demo](http://creatiointl.org/gallery/william/rocket/color-adjacent.php)
 
 ##### complementary
 `complementary` is for getting a complementary color.
@@ -438,7 +438,7 @@ complementary( $color, $saturation, $lightness );
 
 // .youclass { color: complementary(#a6e36e, null, 20%); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-complementary.php)
+[demo](http://creatiointl.org/gallery/william/rocket/color-complementary.php)
 
 ##### split-complementary
 `split-complementary` is for getting split-complementary colors based on a given color.
@@ -452,7 +452,7 @@ split-complementary( $color, $order, $saturation, $lightness, $dist );
 
 // .youclass { color: split-complementary(#a6e36e, 1); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-split-complementary.php)
+[demo](http://creatiointl.org/gallery/william/rocket/color-split-complementary.php)
 
 ##### triad
 `triad` is for getting triad colors based on a given color.
@@ -466,7 +466,7 @@ triad( $color, $order, $saturation, $lightness, $dist );
 
 // .youclass { color: triad(#a6e36e, 1); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-triad.php)
+[demo](http://creatiointl.org/gallery/william/rocket/color-triad.php)
 
 ##### rectangle
 `rectangle` is for getting rectangle colors based on a given color.
@@ -480,7 +480,7 @@ rectangle( $color, $order, $saturation, $lightness, $dist );
 
 // .youclass { color: rectangle(#a6e36e, -3); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-rectangle.php)
+[demo](http://creatiointl.org/gallery/william/rocket/color-rectangle.php)
 
 ##### square
 `square` is for getting square colors based on a given color.
@@ -494,7 +494,7 @@ square( $color, $order, $saturation, $lightness, $dist );
 
 // .youclass { color: square(#a6e36e, -3); }
 ````
-[demo](http://designdev.cmcigroup.com/develop/rocket/docs/color-square.php)
+[demo](http://creatiointl.org/gallery/william/rocket/color-square.php)
 
 #### 【 kit.js 】
 Kit.js is small Javascript library similar with jQuery. Kit.js works well on IE8 and up, and on other morden browsers.   
