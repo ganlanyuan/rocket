@@ -38,7 +38,7 @@ The container of the main content. It can be center, left or right aligned.
 ##### wrap
 Grid wrap, works with `span`.
 ```` scss
-@include wrap($columns, $gutter);
+@include wrap($gutter, $columns);
 // $gutter: px | em | rem | %
 // $columns (optional): num
 //
