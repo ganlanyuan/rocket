@@ -2,6 +2,7 @@
 
 ### v1.1.9
 + `type`, `button`: add "px" value to "rem-non-support" browser.
++ Simplify `wrap`. now argument `$columns` is not required.
 + Fix an issue on `span` and `span-clac`.
 + Update demos.
 

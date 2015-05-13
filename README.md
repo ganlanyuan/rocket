@@ -38,11 +38,10 @@ The container of the main content. It can be center, left or right aligned.
 ##### wrap
 Grid wrap, works with `span`.
 ```` scss
-@include wrap($gutter, $columns);
+@include wrap($gutter);
 // $gutter: px | em | rem | %
-// $columns (optional): num
 //
-// $columns is only needed when using gutter as percentage
+// $columns is only needed while using gutter as percentage
 ````
 
 ##### span
