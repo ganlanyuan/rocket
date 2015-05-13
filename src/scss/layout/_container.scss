@@ -8,20 +8,31 @@
 ){
   max-width: $container;
 
-  @if not $gutter or $gutter == 0 { margin: 0 auto; }
+  @if not $gutter or $gutter == 0 { 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
   @else if unit($container) != '%' and unit($gutter) == '%' {
-    margin: 0 $gutter;
+    margin-left: $gutter; 
+    margin-right: $gutter; 
     @if $align == center {
-      @include bp-mi($container) { margin: 0 auto; }
+      @include bp-mi($container) { 
+        margin-left: auto; 
+        margin-right: auto; 
+      }
     }
     @else { 
       @include bp-mi($container) { margin-#{opposite($align)}: auto; }
     }
   }
   @else if unit($container) != '%'{
-    margin: 0 $gutter;
+    margin-left: $gutter; 
+    margin-right: $gutter; 
     @if $align == center {
-      @include bp-mi(($container + ($gutter * 2))) { margin: 0 auto; }
+      @include bp-mi(($container + ($gutter * 2))) { 
+        margin-left: auto; 
+        margin-right: auto; 
+      }
     }
     @else { 
       @include bp-mi(($container + ($gutter * 2))) { margin-#{opposite($align)}: auto; }

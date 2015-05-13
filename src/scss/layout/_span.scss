@@ -48,11 +48,11 @@
     box-sizing: border-box;
 
 		width: percentage($column / $columns);
-		padding: 0 ($gutter / 2);
+		padding-left: ($gutter / 2);
+		padding-right: ($gutter / 2);
 
 		@if $push and $push != 0 { left: percentage($push / $columns); }
 		@if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
 	}
 }
-
 
