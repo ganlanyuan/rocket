@@ -15,6 +15,7 @@
   @if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
 
   @include wrap($gutter);
+  letter-spacing: -.43em;
   > #{$selector} {
     letter-spacing: normal;
     display: inline-block;

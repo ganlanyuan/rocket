@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.1.11
++ Modify `span`, `wrap`, `gallery`. 
+
 ### v1.1.10
 + update `span`, `gallery`.
 

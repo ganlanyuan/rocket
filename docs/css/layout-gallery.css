@@ -260,8 +260,8 @@ pre[class*="language-"] {
 }
 
 .example-gallery {
-  letter-spacing: -.43em;
   margin: 0 -1%;
+  letter-spacing: -.43em;
 }
 .example-gallery > li {
   letter-spacing: normal;

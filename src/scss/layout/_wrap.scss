@@ -1,6 +1,3 @@
-@mixin wrap(
-  $gutter: map-get($layout, gutter)
-){
-  letter-spacing: -.43em;
+@mixin wrap( $gutter: map-get($layout, gutter)){
   margin: 0 (-$gutter / 2);
 }
