@@ -9,9 +9,6 @@
 	$float: false,
 	$last: false
 ){
-	// direction
-	@if $float == left or $float == right { float: $float; }
-	@else { float: left; }
 
 	// change order
 	@if $push or $pull { position: relative; }
@@ -25,11 +22,19 @@
 
 	// no gutter
 	@if not $gutter or $gutter == 0 {
+    // direction
+    @if $float == left or $float == right { float: $float; }
+    @else { float: left; }
+
 	  width: percentage($column / $columns);
 	  @if $push and $push != 0 { left: percentage($push / $columns); }
 	  @if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
 	}
 	@else if unit($gutter) == '%' {
+    // direction
+    @if $float == left or $float == right { float: $float; }
+    @else { float: left; }
+
 		$cw: ((100% - ($columns - 1) * $gutter) / $columns);
 		$gw: $gutter;
 
