@@ -1,6 +1,6 @@
 @mixin wrap(
   $gutter: map-get($layout, gutter)
 ){
-  @at-root (without: media) { @extend %layout-wrap; }
+  letter-spacing: -.43em;
   margin: 0 (-$gutter / 2);
 }

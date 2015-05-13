@@ -261,19 +261,13 @@ pre[class*="language-"] {
 
 .example-gallery {
   letter-spacing: -.43em;
+  margin: 0 -1%;
 }
-
 .example-gallery > li {
   letter-spacing: normal;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
-}
-
-.example-gallery {
-  margin: 0 -1%;
-}
-.example-gallery > li {
   width: 25%;
   padding: 1%;
 }

@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.1.10
++ update `span`, `gallery`.
+
 ### v1.1.9
 + `type`, `button`: add "px" value to "rem-non-support" browser.
 + Simplify `wrap`. now argument `$columns` is not required.

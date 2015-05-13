@@ -45,7 +45,10 @@
 		@if $pull and $pull != 0 { left: -($cw + $gw) * $pull; }
 	}
 	@else {
-		@at-root (without: media) { @extend %layout-span; }
+    letter-spacing: normal;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
 
 		width: percentage($column / $columns);
 		padding: 0 ($gutter / 2);
