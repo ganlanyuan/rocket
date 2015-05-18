@@ -14,18 +14,17 @@
   $pull: false,
   $push: false,
   $float: false,
-  $last: false
+  $last: false,
+  $keep: false
 ){
   // direction
-  @if $float == left or $float == right { float: $float; }
-  @else { float: left; }
+  @if not $keep {
+    @if $float == right { float: $float; }
+    @else { float: left; }
+  }
 
   // change order
   @if $push or $pull { position: relative; }
-
-  // set default
-  @if $columns == default or $columns == null { $columns: map-get($layout, columns); }
-  @if $gutter == default or $gutter == null { $gutter: map-get($layout, gutter); }
 
   // add unit to gutter
 	@if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
@@ -40,11 +39,13 @@
   @else if unit($gutter) and unit($gutter) != '%' {
     $column-width: column-width($column, $columns, $gutter);
     width: calc( #{$column-width} - #{$gutter} );
-    @if not $last { 
-      @if $float == left or $float == right {
-        margin-#{opposite($float)}: $gutter; 
+    @if not $keep {
+      @if not $last { 
+        @if $float == left or $float == right {
+          margin-#{opposite($float)}: $gutter; 
+        }
+        @else { margin-right: $gutter; }
       }
-      @else { margin-right: $gutter; }
     }
     // change order
     @if $push and $push != 0 { 

@@ -19,6 +19,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 #### 【 Grid System 】
 ##### layout setting
 ```` scss
+// layout/_setting.scss
 $layout: (
   container: num | px | em | rem | % 
   columns: num
@@ -77,11 +78,10 @@ Grid wrap, works with `span`.
 ##### gallery
 `gallery` is for creating picture galleries.
 ```` scss
-@include gallery($per-row, $gutter, $child, $columns, $position);
+@include gallery($per-row, $gutter, $child, $position);
 // $per-row: num
-// $gutter: num | px | em | rem | (2/100) | 5% | 0.1
-// $child: div | span | ...
-// $columns (optional): num
+// $gutter (optional): num | px | em | rem | (2/100) | 5% | 0.1
+// $child (child tag, optional): li(default) | div | span | ...
 // $position (optional): middle | bottom
 //
 // $columns is only needed when using gutter as percentage

@@ -2,40 +2,42 @@
 @import "../addons/breakpoint";
 
 @mixin container(
-  $container,
-  $gutter: 0,
+  $container: map-get($layout, container),
+  $gutter: map-get($layout, gutter),
   $align: center
 ){
   max-width: $container;
 
-  @if not $gutter or $gutter == 0 { 
-    margin-left: auto; 
-    margin-right: auto; 
-  }
-  @else if unit($container) != '%' and unit($gutter) == '%' {
-    margin-left: $gutter; 
-    margin-right: $gutter; 
+  @if unit($container) == '%' {
     @if $align == center {
-      @include bp-mi($container) { 
-        margin-left: auto; 
-        margin-right: auto; 
-      }
+      margin-left: auto; 
+      margin-right: auto; 
     }
-    @else { 
-      @include bp-mi($container) { margin-#{opposite($align)}: auto; }
-    }
+    @else {
+      margin-#{opposite($align)}: auto;
+    } 
   }
-  @else if unit($container) != '%'{
-    margin-left: $gutter; 
-    margin-right: $gutter; 
-    @if $align == center {
-      @include bp-mi(($container + ($gutter * 2))) { 
-        margin-left: auto; 
-        margin-right: auto; 
+  @else {
+    @if $gutter and $gutter != 0 { 
+      margin-left: $gutter; 
+      margin-right: $gutter; 
+
+      $container-breakpoint: $container;
+      @if unit($gutter) != '%' and unit($container) == unit($gutter) {
+        $container-breakpoint: ( $container + ( $gutter * 2 ) );
       }
-    }
-    @else { 
-      @include bp-mi(($container + ($gutter * 2))) { margin-#{opposite($align)}: auto; }
+
+      @if $align == center {
+        @include bp-mi($container-breakpoint) { 
+          margin-left: auto; 
+          margin-right: auto; 
+        }
+      }
+      @else { 
+        @include bp-mi($container-breakpoint) { 
+          margin-#{opposite($align)}: auto; 
+        }
+      }
     }
   }
 }

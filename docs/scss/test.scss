@@ -1,0 +1,57 @@
+@charset "UTF-8";
+$font-path:"../../src/icon-font";
+$cover-bg: rgba(48, 68, 117, .57);
+@import "../../src/scss/rocket"; 
+ul, ol { margin: 0; padding: 0; }
+li { list-style: none; }
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+%common {
+  background-color: #dbdbdb;
+  margin-bottom: 20px;
+}
+.container { @include container(); }
+.main {
+  @include span(8, 12);
+  @include bp-mi( em(640px) ) {
+    &-left {
+      @at-root (without:media) { @extend %common; }
+      @include span(6, $gutter: (2% / span(8) ) );
+    }
+    &-right {
+      @at-root (without:media) { @extend %common; }
+      @include span(6, $gutter: (2% / span(8) ) , $last:true);
+    }
+  }
+  @include bp-mi( em(980px) ) {
+    &-left {
+      @include span(8, $keep:true);
+    }
+    &-right {
+      @include span(4, $keep:true);
+    }
+  }
+}
+.aside {
+  @extend %common;
+  @include span(4, 12, $last:true);
+}
+.gallery {
+  clear: both;
+}
+@include bp-mi( em(640px) ) {
+  .gallery {
+    @include gallery(3);
+  }
+}
+@include bp-mi( em(980px) ) {
+  .gallery {
+    @include gallery(4, $keep:true);
+  }
+}
