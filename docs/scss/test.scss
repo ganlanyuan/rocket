@@ -16,26 +16,33 @@ body {
   background-color: #dbdbdb;
   margin-bottom: 20px;
 }
+$gutter-2: (map-get($layout, gutter) / span(8) );
+$gutter-3: (map-get($layout, gutter) / ( span(8) * span(6) ) );
+$gutter-4: (map-get($layout, gutter) / ( span(8) * span(8) ) );
 .container { @include container(); }
 .main {
   @include span(8, 12);
   @include bp-mi( em(640px) ) {
     &-left {
       @at-root (without:media) { @extend %common; }
-      @include span(6, $gutter: (2% / span(8) ) );
+      @include span(6, $gutter: $gutter-2 );
     }
     &-right {
       @at-root (without:media) { @extend %common; }
-      @include span(6, $gutter: (2% / span(8) ) , $last:true);
+      @include span(6, $gutter: $gutter-2 , $last:true);
     }
+    .news { @include span(7, $gutter: $gutter-3); }
+    .popular { @include span(5, $gutter: $gutter-3, $last:true); }
   }
   @include bp-mi( em(980px) ) {
     &-left {
-      @include span(8, $keep:true);
+      @include span(8, $gutter: $gutter-2, $keep:true);
     }
     &-right {
-      @include span(4, $keep:true);
+      @include span(4, $gutter: $gutter-2, $keep:true);
     }
+    .news { @include span(5, $gutter: $gutter-4); }
+    .popular { @include span(7, $gutter: $gutter-4, $last:true); }
   }
 }
 .aside {

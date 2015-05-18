@@ -1,5 +1,10 @@
 # Changelog
 
+### v1.2.0
++ Add `keep` argument to `span`, `span-calc`, `gallery`. Now you can reduce your code by using `$keep:true` if your want keep some setting(float, margin) when you do media query.
++ Add `span` function to get column width(percentage). Now you can easily set up same `gutter` between nested grid by using `$gutter: $container-gutter / span($container-column, $container-columns, $container-gutter)`.
++ Simplify `span`, `span-calc`, `gallery` and `container`.
+
 ### v1.1.11
 + Modify `span`, `wrap`, `gallery`. 
 

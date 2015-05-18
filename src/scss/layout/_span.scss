@@ -81,5 +81,5 @@
 		$ratio: $cw * $column + $gw * ($column - 1);
 	}
 
-	@return ($ratio);
+	@return ( ( $ratio / 100% ) );
 }

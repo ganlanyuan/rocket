@@ -31,7 +31,7 @@ $layout: (
 The container of the main content. It can be center, left or right aligned.
 ```` scss
 @include container {$container, $gutter, $align}
-// $container: px | em | rem
+// $container: px | em | rem | %
 // $gutter (optional): px | em | rem | %
 // $align (optional): center | left | right
 ````
@@ -48,7 +48,7 @@ Grid wrap, works with `span`.
 ##### span
 `span` is used to create columns. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
 ```` scss
-@include span($column, $columns, $gutter, $pull, $push, $float, $last)
+@include span($column, $columns, $gutter, $pull, $push, $float, $last, $keep)
 // $column: num
 // $columns: default | null | num
 // $gutter: default | null | px | em | rem | (2/100) | 5% | 0.1
@@ -56,12 +56,13 @@ Grid wrap, works with `span`.
 // $push(optional): num
 // $float(optional): left | right
 // $last(optional): false | true
+// $keep (optional): false | true
 ````
 
 ##### span-calc
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
-@include span-calc($column, $columns, $gutter, $pull, $push, $float, $last)
+@include span-calc($column, $columns, $gutter, $pull, $push, $float, $last, $keep)
 // $column: num
 // $columns: default | null | num
 // $gutter: default | null | px | em | rem
@@ -69,6 +70,7 @@ Grid wrap, works with `span`.
 // $push(optional): num
 // $float(optional): left | right
 // $last(optional): false | true
+// $keep (optional): false | true
 
 // Note: if you want use a fixible $gutter (e.g. 30%), 
 // use span mixin instead.
@@ -78,12 +80,13 @@ Grid wrap, works with `span`.
 ##### gallery
 `gallery` is for creating picture galleries.
 ```` scss
-@include gallery($per-row, $gutter, $child, $position);
+@include gallery($per-row, $gutter, $child, $position, $keep);
 // $per-row: num
 // $gutter (optional): num | px | em | rem | (2/100) | 5% | 0.1
 // $child (child tag, optional): li(default) | div | span | ...
 // $position (optional): middle | bottom
-//
+// $keep (optional): false | true
+
 // $columns is only needed when using gutter as percentage
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-gallery.php)

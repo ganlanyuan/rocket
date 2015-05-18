@@ -70,13 +70,31 @@ body {
     float: left;
     width: 48.4848484848%;
   }
+  .main .news {
+    float: left;
+    width: 55.7565450423%;
+    margin-right: 6.1842918986%;
+  }
+  .main .popular {
+    float: left;
+    width: 38.0591630592%;
+  }
 }
 @media (min-width: 61.25em) {
   .main-left {
-    width: 66%;
+    width: 65.6565656566%;
   }
   .main-right {
-    width: 32%;
+    width: 31.3131313131%;
+  }
+  .main .news {
+    float: left;
+    width: 38.9883685338%;
+    margin-right: 4.5913682277%;
+  }
+  .main .popular {
+    float: left;
+    width: 56.4202632384%;
   }
 }
 
