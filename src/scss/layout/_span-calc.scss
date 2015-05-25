@@ -7,16 +7,47 @@
   @return #{$column-percentage} + #{$column-gutter};
 }
 
-@mixin span-calc(
-  $column,
-  $columns: map-get($layout, columns),
-  $gutter: map-get($layout, gutter),
-  $pull: false,
-  $push: false,
-  $float: false,
-  $last: false,
-  $keep: false
-){
+@mixin span-calc($span-calc-var){
+  $column: 0;
+  $columns: 0;
+  $gutter: 0;
+  $move: false;
+  $float: false;
+  $last: false;
+  $keep: false;
+
+  @if type-of($span-calc-var) == number {
+    $column: $span-calc-var;
+  } @else if type-of($span-calc-var) == list {
+    @each $direction in left, right {
+      @if index($span-calc-var, $direction) { 
+        $float: $direction;
+      } 
+    }
+    @if index($span-calc-var, keep) {
+      $keep: true;
+    }
+    @if index($span-calc-var, last) {
+      $last: true;
+    }
+    @if index($span-calc-var, of) {
+      $column: get-prev($span-calc-var, of);
+      $columns: get-next($span-calc-var, of);
+    } @else {
+      $col: 1;
+      @while nth($span-calc-var, $col) and is-number(nth($span-calc-var, $col)) == false {
+        $col: $col + 1;
+      }
+      $column: nth($span-calc-var, $col);
+    }
+    @if index($span-calc-var, gutter) {
+      $gutter: get-next($span-calc-var, gutter);
+    }
+    @if index($span-calc-var, move) {
+      $move: get-next($span-calc-var, move);
+    }
+  }
+
   // direction
   @if not $keep {
     @if $float == right { float: $float; }
@@ -24,7 +55,7 @@
   }
 
   // change order
-  @if $push or $pull { position: relative; }
+  @if $move { position: relative; }
 
   // add unit to gutter
 	@if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
@@ -32,8 +63,7 @@
   // no gutter
   @if not $gutter or $gutter == 0 {
     width: column-width-percentage($columns, 0) * $column;
-    @if $push and $push != 0 { left: percentage($push / $columns); }
-    @if $pull and $pull != 0 { left: percentage(-$pull / $columns); }
+    @if $move and $move != 0 { left: percentage($move / $columns); }
   }
   // fixed gutter
   @else if unit($gutter) and unit($gutter) != '%' {
@@ -48,12 +78,8 @@
       }
     }
     // change order
-    @if $push and $push != 0 { 
-      $column-width: column-width($push, $columns, $gutter);
-      left: calc( #{$column-width} ); 
-    }
-    @if $pull and $pull != 0 { 
-      $column-width: column-width(-$pull, $columns, $gutter);
+    @if $move and $move != 0 { 
+      $column-width: column-width($move, $columns, $gutter);
       left: calc( #{$column-width} ); 
     }
   }

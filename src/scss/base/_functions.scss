@@ -1,4 +1,17 @@
 // *** function *** //
+@function contains($list, $values...) {
+  @each $value in $values {
+    @if type-of(index($list, $value)) != "number" {
+      @return false;
+    }
+  }
+
+  @return true;
+}
+
+@function is-number($value) {
+  @return contains("0" "1" "2" "3" "4" "5" "6" "7" "8" "9" 0 1 2 3 4 5 6 7 8 9, $value);
+}
 
 @function opposite($direction){
   @if $direction == left { @return right; }
@@ -30,4 +43,28 @@
     @if unit($base) == 'px' or unitless($base) { $base: strip-units($base); }
     @return ($pxval / $base) * 1rem;
   } 
+}
+
+// reject
+@function reject($list, $val){
+  $list-new: ();
+  @for $i from 1 through length($list) {
+    @if nth($list, $i) != $val {
+      $list-new: append($list-new, nth($list, $i));
+    }
+  }
+
+  $list: $list-new;
+  @return $list;
+}
+
+// get-prev & get-next
+@function get-prev($list, $val) {
+  $this-index: index($list, $val);
+  @return nth($list, ($this-index - 1));
+}
+
+@function get-next($list, $val) {
+  $this-index: index($list, $val);
+  @return nth($list, ($this-index + 1));
 }

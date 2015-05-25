@@ -1,8 +1,29 @@
 @mixin debug(
-  $columns: map-get($layout, $columns),
-  $gutter: map-get($layout, $gutter),
-  $color:rgba(41, 181, 255, .15)
+  $debug-var:
+    12
+    gutter 20px
+    color rgba(41, 181, 255, .15)
 ){
+  $columns: 0;
+  $gutter: 0;
+  $color: false;
+
+  @if type-of($debug-var) == number {
+    $columns: $debug-var;
+  } @else if type-of($debug-var) == list {
+    @if index($debug-var, gutter) {
+      $gutter: get-next($debug-var, gutter);
+      $debug-var: reject($debug-var, $gutter);
+      $debug-var: reject($debug-var, gutter);
+    }
+    @if index($debug-var, color) {
+      $color: get-next($debug-var, color);
+      $debug-var: reject($debug-var, $color);
+      $debug-var: reject($debug-var, color);
+    }
+    $columns: nth($debug-var, 1);
+  }
+
   $size:null;
   $ratio:null;
 

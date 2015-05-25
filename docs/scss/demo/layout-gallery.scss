@@ -4,7 +4,7 @@
 
 // *** layout: gallery *** //
 
-.example-gallery { @include gallery(4,2%,'li',12); 
+.example-gallery { @include gallery(4 gutter 2% child li); 
   span {
     display: block;
     min-height: 120px;

@@ -3,5 +3,5 @@
 
 // *** layout: two-columns *** //
 
-.example-two-columns { @include two-columns(right, 200px, 20px); }
+.example-two-columns { @include two-columns(right 200px gutter 20px); }
 

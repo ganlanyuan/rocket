@@ -2,10 +2,40 @@
 @import "../addons/breakpoint";
 
 @mixin container(
-  $container: map-get($layout, container),
-  $gutter: map-get($layout, gutter),
-  $align: center
+  $container-var: 
+    map-get($layout, container) 
+    map-get($layout, gutter) 
+    center
 ){
+  $container: 0;
+  $gutter: 0;
+  $align: center;
+
+  @if type-of($container-var) == number {
+    $container: $container-var;
+    $gutter: map-get($layout, gutter);
+    $align: center;
+  } @else if type-of($container-var) == list {
+    @each $direction in left, right, center {
+      @if index($container-var, $direction) { 
+        $align: $direction;
+        $container-var: reject($container-var, $direction);
+      } 
+    }
+
+    $container: nth($container-var, 1);
+    @if length($container-var) >= 2 {
+      $gutter: nth($container-var, 2);
+    } @else {
+      $gutter: map-get($layout, gutter);
+    }
+  } @else {
+    $container: map-get($layout, container);
+    $gutter: map-get($layout, gutter);
+    $align: center;
+  }
+
+
   max-width: $container;
 
   @if unit($container) == '%' {
@@ -16,6 +46,10 @@
     @else {
       margin-#{opposite($align)}: auto;
     } 
+    @if $gutter {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
   }
   @else {
     @if $gutter and $gutter != 0 { 

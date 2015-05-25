@@ -1,8 +1,28 @@
 // fixed columns
-@mixin two-columns($direction, $aside, $gutter) {
-  $total: ($aside + $gutter);
+@mixin two-columns($two-columns-var: left 300px gutter 20px) {
+  $direction: left; 
+  $aside: 300px; 
+  $gutter: 20px;
+  $total: 320px;
+
+  @if type-of($two-columns-var) == number {
+    $aside: $two-columns-var;
+  } @else if type-of($two-columns-var) == list {
+    @each $item in left, right {
+      @if index($two-columns-var, $item) { 
+        $direction: $item;
+        $two-columns-var: reject($two-columns-var, $item);
+      } 
+    }
+    $aside: nth($two-columns-var, 1);
+    @if index($two-columns-var, gutter) {
+      $gutter: get-next($two-columns-var, gutter);
+    }
+  }
+
   @at-root (without: media) { @extend %clearfix; }
   
+  $total: ($aside + $gutter);
   // aside is on the right
   @if $direction == right {
   padding-right: $total;
