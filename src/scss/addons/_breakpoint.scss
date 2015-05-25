@@ -1,42 +1,73 @@
 // *** break point *** //
+$media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed;
 
 // min-width
-@mixin bp-mi($min, $media: false){
-  @if $media {
-    @media #{$media} and (min-width: $min) {
-      @content;
+@mixin bp-mi($bp-mi-var){
+  $min: 0;
+  $media: all;
+
+  @if type-of($bp-mi-var) == number {
+    $min: $bp-mi-var;
+  } @else if type-of($bp-mi-var) == list {
+    @each $type in $media-types {
+      @if index($bp-mi-var, $type) {
+        $media: $type;
+        $bp-mi-var: reject($bp-mi-var, $type);
+      }
+      $min: nth($bp-mi-var, 1);
     }
   }
-  @else {
-    @media (min-width: $min) {
+
+  @if $media {
+    @media #{$media} and (min-width: $min) {
       @content;
     }
   }
 }
 
 //  max-width
-@mixin bp-ma($max, $media: false){
-  @if $media {
-    @media #{$media} and (max-width: $max) {
-      @content;
+@mixin bp-ma($bp-ma-var){
+  $max: 0;
+  $media: all;
+
+  @if type-of($bp-ma-var) == number {
+    $max: $bp-ma-var;
+  } @else if type-of($bp-ma-var) == list {
+    @each $type in $media-types {
+      @if index($bp-ma-var, $type) {
+        $media: $type;
+        $bp-ma-var: reject($bp-ma-var, $type);
+      }
+      $max: nth($bp-ma-var, 1);
     }
   }
-  @else {
-    @media (max-width: $max) {
+
+  @if $media {
+    @media #{$media} and (max-width: $max) {
       @content;
     }
   }
 }
 
 // min-width & max-width
-@mixin bp-mm($min, $max, $media: false){
-  @if $media {
-    @media #{$media} and (min-width: $min) and (max-width: $max) {
-      @content;
+@mixin bp-mm($bp-mm-var){
+  $min: 0;
+  $max: 0;
+  $media: all;
+
+  @if type-of($bp-mm-var) == list {
+    @each $type in $media-types {
+      @if index($bp-mm-var, $type) {
+        $media: $type;
+        $bp-mm-var: reject($bp-mm-var, $type);
+      }
+      $min: nth($bp-mm-var, 1);
+      $max: nth($bp-mm-var, 2);
     }
   }
-  @else {
-    @media (min-width: $min) and (max-width: $max) {
+
+  @if $media {
+    @media #{$media} and (min-width: $min) and (max-width: $max) {
       @content;
     }
   }

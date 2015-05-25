@@ -544,7 +544,7 @@ pre[class*="language-"] {
   max-width: 400px;
 }
 
-@media (max-width: 1178) {
+@media all and (max-width: 1178) {
   .controls .prev {
     margin-left: 10px !important;
   }

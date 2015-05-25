@@ -508,7 +508,7 @@ pre[class*="language-"] {
   max-width: 400px;
 }
 
-@media (max-width: 73.625em) {
+@media all and (max-width: 73.625em) {
   .controls .prev {
     margin-left: 10px !important;
   }
@@ -1343,7 +1343,7 @@ pre[class*="language-"] {
 .no-cssanimations #carousel-a-autoplay:checked ~ .dots {
   display: block !important;
 }
-@media (min-width: 43.75em) {
+@media all and (min-width: 43.75em) {
   .carousel-a .outer {
     margin: 0 -10px;
   }
@@ -1430,7 +1430,7 @@ pre[class*="language-"] {
 .no-cssanimations #carousel-b-autoplay:checked ~ .dots {
   display: block !important;
 }
-@media (min-width: 43.75em) {
+@media all and (min-width: 43.75em) {
   .carousel-b .outer {
     margin: 0 -10px;
   }
@@ -1517,7 +1517,7 @@ pre[class*="language-"] {
 .no-cssanimations #carousel-d-autoplay:checked ~ .dots {
   display: block !important;
 }
-@media (min-width: 43.75em) {
+@media all and (min-width: 43.75em) {
   .carousel-d .outer {
     margin: 0 -10px;
   }
@@ -1611,7 +1611,7 @@ pre[class*="language-"] {
 .no-cssanimations #carousel-g-autoplay:checked ~ .dots {
   display: block !important;
 }
-@media (min-width: 43.75em) {
+@media all and (min-width: 43.75em) {
   .carousel-g .outer {
     margin: 0 -10px;
   }
@@ -1796,7 +1796,7 @@ pre[class*="language-"] {
 .no-cssanimations #carousel-a-autoplay:checked ~ .dots {
   display: block !important;
 }
-@media (min-width: 62.5em) {
+@media all and (min-width: 62.5em) {
   .carousel-a .outer {
     margin: 0 -10px;
   }
@@ -1883,7 +1883,7 @@ pre[class*="language-"] {
 .no-cssanimations #carousel-g-autoplay:checked ~ .dots {
   display: block !important;
 }
-@media (min-width: 62.5em) {
+@media all and (min-width: 62.5em) {
   .carousel-g .outer {
     margin: 0 -10px;
   }
