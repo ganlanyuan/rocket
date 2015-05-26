@@ -17,3 +17,5 @@ $cover-bg: rgba(0,0,0,.35) !default;
 
 // media type
 $media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed;
+$font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900;
+$font-styles: italic, oblique;

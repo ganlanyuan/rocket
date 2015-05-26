@@ -1,26 +1,65 @@
 // *** type *** //
 
-@mixin type(
-  $font-size: null,
-  $font-weight: null,
-  $font-style: null,
-  $line-height: null,
-  $font-family: null
-){
-  @if $font-size != null {
+@mixin type($type-var){
+  $font-size: null;
+  $font-weight: null;
+  $font-style: null;
+  $line-height: null;
+  $font-family: null;
+
+  @if type-of($type-var) == number {
+    @if unitless($type-var) {
+      @if $type-var >= 100 {
+        $font-weight: $type-var;
+      } @else {
+        $line-height: $type-var;
+      }
+    } @else {
+      $font-size: $type-var;
+    }
+  } @else if type-of($type-var) == list {
+    @for $i from 1 through length($type-var) {
+      @if type-of(nth($type-var, $i)) == number {
+        $this: nth($type-var, $i);
+        @if unitless($this) {
+          @if $this >= 100 {
+            $font-weight: $this;
+          } @else {
+            $line-height: $this;
+          }
+        } @else {
+          $font-size: $this;
+        }
+      } @else if str_index(nth($type-var, $i), ',') {
+        $font-family: nth($type-var, $i);
+      }
+    }
+    @each $weight in $font-weights {
+      @if index($type-var, $weight) {
+        $font-weight: $weight;
+      }
+    }
+    @each $style in $font-styles {
+      @if index($type-var, $style) {
+        $font-style: $style;
+      }
+    }
+  }
+
+  @if $font-size {
     font-size: $font-size;
     font-size: rem($font-size);
   }
-  @if $font-weight != null {
+  @if $font-weight {
     font-weight: $font-weight;
   }
-  @if $font-style != null {
+  @if $font-style {
     font-style: $font-style;
   }
-  @if $line-height != null {
+  @if $line-height {
     line-height: $line-height;
   }
-  @if $font-family != null {
+  @if $font-family {
     font-family: $font-family;
   }
 }
