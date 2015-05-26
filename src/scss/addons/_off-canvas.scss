@@ -5,13 +5,61 @@
 $off-canvas-length: 12;
 
 @mixin off-canvas (
-  $style: move,
-  $direction: left,
-  $font-size: 14,
-  $padding: em(16, 14) em(16, 14),
-  $bgc: #000,
-  $animation: true
+  $off-canvas-var:
+    move
+    left
+    200px
+    padding
+    em(16, 14)
+    #000
+    true
 ){
+  $style: move;
+  $direction: left;
+  $animation: true;
+  $nav-width: 200px;
+  $padding: em(16, 14);
+  $bgc: #000;
+
+  @if type-of($off-canvas-var) == color {
+    $bgc: $off-canvas-var;
+  } @else if type-of($off-canvas-var) == number {
+    $nav-width: $off-canvas-var;
+  } @else if type-of($off-canvas-var) == animation {
+    $animation: true;
+  } @else if type-of($off-canvas-var) == string {
+    @if index($off-canvas-styles, $off-canvas-var) {
+      $style: $off-canvas-var;
+    } @else if index($off-canvas-direction, $off-canvas-var) {
+      $direction: $off-canvas-var;
+    } 
+  } @else if type-of($off-canvas-var) == list {
+    @if index($off-canvas-var, padding) {
+      $padding: get-next($off-canvas-var, padding);
+      $off-canvas-var: reject($off-canvas-var, padding);
+      $off-canvas-var: reject($off-canvas-var, $padding);
+    }
+    @if length($off-canvas-var) >= 1 {
+      @for $i from 1 through length($off-canvas-var) {
+        $val: nth($off-canvas-var, $i);
+
+        @if type-of($val) == color {
+          $bgc: $val;
+        } @else if type-of($val) == number {
+          $nav-width: $val;
+        } @else if type-of($val) == animation {
+          $animation: true;
+        } @else if type-of($val) == string {
+          @if index($off-canvas-styles, $val) {
+            $style: $val;
+          } @else if index($off-canvas-direction, $val) {
+            $direction: $val;
+          } 
+        }
+      }
+    }
+  }
+
   // common
   position: fixed;
   height: 100%;
@@ -22,7 +70,6 @@ $off-canvas-length: 12;
   -webkit-transition: all $global-animation-duration $global-bezier 0s;
   transition: all $global-animation-duration $global-bezier 0s;
   li { 
-    font-size: rem($font-size); 
     line-height: 1;
     white-space: nowrap;
     @include clearfix;
@@ -111,9 +158,52 @@ $off-canvas-length: 12;
 }
 
 @mixin page-container(
-  $style: move,
-  $direction: left
+  $page-container-var:
+    200px
+    move
+    left
+    rgba(0,0,0,.35) 
 ){
+  $nav-width: 200px;
+  $style: move;
+  $direction: left;
+  $cover-bg: rgba(0,0,0,.35);
+
+  @if type-of($page-container-var) == string {
+    @for $i from 1 through length($off-canvas-styles) {
+      $val: nth($off-canvas-styles, $i);
+      @if $val == $page-container-var {
+        $style: $page-container-var;
+      }
+    }
+    @for $i from 1 through length($off-canvas-direction) {
+      $val: nth($off-canvas-direction, $i);
+      @if $val == $page-container-var {
+        $direction: $page-container-var;
+      }
+    }
+  } @else if type-of($page-container-var) == color {
+    $cover-bg: $page-container-var;
+  } @else if type-of($page-container-var) == number {
+    $nav-width: $page-container-var;
+  } @else if type-of($page-container-var) == list {
+    @for $i from 1 through length($page-container-var) {
+      $val: nth($page-container-var, $i);
+      @if type-of($val) == number {
+        $nav-width: $val;
+      }
+      @if type-of($val) == color {
+        $cover-bg: $val;
+      }
+      @if index($off-canvas-styles, $val) {
+        $style: $val;
+      }
+      @if index($off-canvas-direction, $val) {
+        $direction: $val;
+      }
+    }
+  }
+
   position: relative;
   -webkit-transition: all $global-animation-duration $global-bezier 0s;
   transition: all $global-animation-duration $global-bezier 0s;
@@ -142,66 +232,5 @@ $off-canvas-length: 12;
     min-width: 320px;
     background-color: #fff;
     z-index: 200;
-  }
-}
-
-@mixin icon-nav(
-  $color: #212121,
-  $active-color: #fd5619,
-  $size: rem(18) rem(2) rem(3),
-  $padding: rem(10) rem(9)
-){
-  display: inline-block;
-  padding: $padding;
-  width: nth($size, 1);
-  cursor: pointer;
-  > span, &:before, &:after { 
-    display: block;
-    height: nth($size, 2);
-    background-color: $color;
-    -webkit-transition: all $global-animation-duration $global-bezier 0s;
-    transition: all $global-animation-duration $global-bezier 0s;
-  }
-  &:before, &:after { content: ''; }
-  > span, &:after { margin-top: nth($size, 3); }
-  &:hover { span, &:before, &:after { background-color: $active-color;} }
-}
-
-@mixin icon-close(
-  $color: #212121,
-  $active-color: #fd5619,
-  $size: rem(18) rem(2) rem(3),
-  $padding: rem(10) rem(9),
-  $inverted: false
-){
-  @include icon-nav($color, $active-color, $size, $padding);
-  position: relative;
-  height: ( nth($size, 2) * 3 + nth($size, 3) * 2 );
-  > span { display: none; }
-  &:before,
-  &:after { 
-    position: absolute;
-    top: 50%;
-    width: ( nth($size, 1) * 1.1 );
-    margin-left: ( - nth($size, 1) * 0.05 );
-    margin-top: - nth($size, 2);
-    -webkit-transform-origin: center center; 
-    -ms-transform-origin: center center; 
-    transform-origin: center center; 
-    .no-csstransforms & { display: none; }
-  }
-  &:before { 
-    -webkit-transform: rotate(45deg); 
-    -ms-transform: rotate(45deg); 
-    transform: rotate(45deg); 
-  }
-  &:after { 
-    -webkit-transform: rotate(-45deg); 
-    -ms-transform: rotate(-45deg); 
-    transform: rotate(-45deg); 
-  }
-  .no-csstransforms & { 
-    @if $inverted {background: url('data:image/gif;base64,R0lGODlhEAAQAPAAAP///wAAACH5BAEAAAEALAAAAAAQABAAAAIoDIKpeOC7XHvQUHviZVtWj1WclIlYaZLmCH5Uq8BwqJVz4t3xg4pHAQA7') center center no-repeat; }
-    @else {background: url('data:image/gif;base64,R0lGODlhEAAQAPEAAAAAABEREQAAAAAAACH5BAEAAAIALAAAAAAQABAAAAIpFISpeOC7XHvQUHviZVtWj1WclIlYaUqBOYIf5SpxHGolnXi4/KDiUQAAOw==') center center no-repeat; }
   }
 }

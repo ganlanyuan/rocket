@@ -7,7 +7,7 @@
 
     <div class="topic">
       <h2 id=""><span>addons: </span>off-canvas</h2>
-      <div data-icon-nav class="icon-nav"><span></span></div>
+      <div data-icon-nav class="icon-nav">Menu</div>
       <pre><code class="language-scss">
 .mb-nav {
   @include off-canvas(translate,left,14px,16px,#102244,true);

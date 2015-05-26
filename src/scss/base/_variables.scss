@@ -11,12 +11,10 @@ $z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100;
 $global-animation-duration: 0.4s;
 $global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-// off-canvas
-$nav-width: 200px !default;
-$cover-bg: rgba(0,0,0,.35) !default;
-
 // media type
 $media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed;
 $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit;
 $font-styles: italic, oblique, style-normal, style-inherit;
 $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit;
+$off-canvas-styles: move, translate, reveal;
+$off-canvas-direction: left, right;
