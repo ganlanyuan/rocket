@@ -107,7 +107,7 @@ p {
 }
 .site-nav {
   margin-right: -10px;
-  @include visible(null, 800);
+  @include visible(800);
   &__level1 {
     text-align: right;
     > li { 
@@ -261,7 +261,7 @@ p {
     }
     .info { 
       padding: 10px; 
-      @include visible(null, 800px);
+      @include visible(800px);
       h3 { margin-bottom: 0; }
     }
     %label-active {background-color: $active;}
@@ -484,12 +484,12 @@ p {
   &-hidden-1,
   &-hidden-2,
   &-hidden-3 { margin: 1em 0; font-size: 14px;}
-  &-visible-1 { @include visible(null, 900);}
-  &-visible-2 { @include visible(null, 900, 1000);}
-  &-visible-3 { @include visible(null, 700, 900, 1200);}
-  &-hidden-1 { @include hidden(null, 900);}
-  &-hidden-2 { @include hidden(null, 900, 1000);}
-  &-hidden-3 { @include hidden(null, 700, 900, 1200);}
+  &-visible-1 { @include visible(900);}
+  &-visible-2 { @include visible(900 1000);}
+  &-visible-3 { @include visible(700 900 1200);}
+  &-hidden-1 { @include hidden(900);}
+  &-hidden-2 { @include hidden(900 1000);}
+  &-hidden-3 { @include hidden(700 900 1200);}
   &-content { 
     padding: 15px; 
     font-size: 13px;

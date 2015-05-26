@@ -14,3 +14,6 @@ $global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
 // off-canvas
 $nav-width: 200px !default;
 $cover-bg: rgba(0,0,0,.35) !default;
+
+// media type
+$media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed;

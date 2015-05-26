@@ -26,7 +26,7 @@
   .item { position: relative; }
   .info { 
     padding: 10px; 
-    @include visible(null, 800px);
+    @include visible(800px);
     h3 { margin-bottom: 0; }
   }
   %label-active {background-color: $active;}

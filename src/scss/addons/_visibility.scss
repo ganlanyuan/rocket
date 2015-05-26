@@ -1,89 +1,84 @@
 // *** visibility *** //
+
 // accept maximum 5 numbers
-@mixin visible($media, $bp...){
-	$bp-em: ();
-	@each $num in $bp {
+@mixin visible($visible-var){
+  $media: all;
+
+  @if type-of($visible-var) == number {
+		@media #{$media} and ( max-width: em($visible-var -  1)) { & { display: none; } }
+  } @else if type-of($visible-var) == list {
+    @each $type in $media-types {
+      @if index($visible-var, $type) {
+        $media: $type;
+        $visible-var: reject($visible-var, $type);
+      }
+    }
+  }
+
+	$visible-em: ();
+	@each $num in $visible-var {
 		@if unitless($num) or unit($num) == 'px' {
-			$bp-em: append($bp-em, em($num));
+			$visible-em: append($visible-em, em($num));
 		}
-		@else { $bp-em: append($bp-em, $num); }
+		@else { $visible-em: append($visible-em, $num); }
 	}
-	@if $media != null  {
-		@if length($bp-em) >= 1 and nth($bp, 1) != 0 and nth($bp, 1) != '0px' {
-			@media #{$media} and ( max-width: (nth($bp-em, 1) - em(1))) { & { display: none; } }
+
+	@if $media {
+		@if length($visible-em) >= 1 {
+			@media #{$media} and ( max-width: (nth($visible-em, 1) - em(1))) { & { display: none; } }
 		}
-		@if length($bp-em) == 2 {
-			@media #{$media} and ( min-width: nth($bp-em, 2)) { & { display: none; } }
+		@if length($visible-em) == 2 {
+			@media #{$media} and ( min-width: nth($visible-em, 2)) { & { display: none; } }
 		}
-		@else if length($bp-em) >= 3 {
-			@media #{$media} and ( min-width: nth($bp-em, 2)) and ( max-width: (nth($bp-em, 3) - em(1))) { & { display: none; } }
+		@if length($visible-em) >= 3 {
+			@media #{$media} and ( min-width: nth($visible-em, 2)) and ( max-width: (nth($visible-em, 3) - em(1))) { & { display: none; } }
 		}
-		@if length($bp-em) == 4 {
-			@media #{$media} and ( min-width: nth($bp-em, 4)) { & { display: none; } }
+		@if length($visible-em) == 4 {
+			@media #{$media} and ( min-width: nth($visible-em, 4)) { & { display: none; } }
 		}
-		@else if length($bp-em) > 4 {
-			@media #{$media} and ( min-width: nth($bp-em, 4)) and ( max-width: (nth($bp-em, 5) - em(1))) { & { display: none; } }
-		}
-	}
-	@else {
-		@if length($bp-em) >= 1 and nth($bp, 1) != 0 and nth($bp, 1) != '0px' {
-			@media ( max-width: (nth($bp-em, 1) - em(1))) { & { display: none; } }
-		}
-		@if length($bp-em) == 2 {
-			@media ( min-width: nth($bp-em, 2)) { & { display: none; } }
-		}
-		@else if length($bp-em) >= 3 {
-			@media ( min-width: nth($bp-em, 2)) and ( max-width: (nth($bp-em, 3) - em(1))) { & { display: none; } }
-		}
-		@if length($bp-em) == 4 {
-			@media ( min-width: nth($bp-em, 4)) { & { display: none; } }
-		}
-		@else if length($bp-em) > 4 {
-			@media ( min-width: nth($bp-em, 4)) and ( max-width: (nth($bp-em, 5) - em(1))) { & { display: none; } }
+		@if length($visible-em) > 4 {
+			@media #{$media} and ( min-width: nth($visible-em, 4)) and ( max-width: (nth($visible-em, 5) - em(1))) { & { display: none; } }
 		}
 	}
 }
 
-@mixin hidden($media, $bp...){
-	$bp-em: ();
-	@each $num in $bp {
+@mixin hidden($hidden-var){
+  $media: all;
+
+  @if type-of($hidden-var) == number {
+		@media #{$media} and ( min-width: em($hidden-var)) { & { display: none; } }
+  } @else if type-of($hidden-var) == list {
+    @each $type in $media-types {
+      @if index($hidden-var, $type) {
+        $media: $type;
+        $hidden-var: reject($hidden-var, $type);
+      }
+    }
+  }
+
+	$hidden-em: ();
+	@each $num in $hidden-var {
 		@if unitless($num) or unit($num) == 'px' {
-			$bp-em: append($bp-em, em($num));
+			$hidden-em: append($hidden-em, em($num));
 		}
-		@else { $bp-em: append($bp-em, $num); }
+		@else { $hidden-em: append($hidden-em, $num); }
 	}
-	@if $media != null  {
-		@if length($bp-em) >= 2 and nth($bp, 1) != 0 and nth($bp, 1) != '0px' {
-			@media #{$media} and ( min-width: nth($bp-em, 1)) and ( max-width: (nth($bp-em, 2) - em(1))) { & { display: none; } }
+
+	@if $media {
+		@if length($hidden-em) == 1 {
+			@media #{$media} and ( min-width: nth($hidden-em, 1)) { & { display: none; } }
 		}
-		@if length($bp-em) == 1 and nth($bp, 1) != 0 and nth($bp, 1) != '0px' {
-			@media #{$media} and ( min-width: nth($bp-em, 1)) { & { display: none; } }
+		@if length($hidden-em) >= 2 {
+			@media #{$media} and ( min-width: nth($hidden-em, 1)) and ( max-width: (nth($hidden-em, 2) - em(1))) { & { display: none; } }
 		}
-		@else if length($bp-em) == 3 {
-			@media #{$media} and ( min-width: nth($bp-em, 3)) { & { display: none; } }
+		@if length($hidden-em) == 3 {
+			@media #{$media} and ( min-width: nth($hidden-em, 3)) { & { display: none; } }
 		}
-		@else if length($bp-em) > 3 {
-			@media #{$media} and ( min-width: nth($bp-em, 3)) and ( max-width: (nth($bp-em, 4) - em(1))) { & { display: none; } }
+		@if length($hidden-em) >= 4 {
+			@media #{$media} and ( min-width: nth($hidden-em, 3)) and ( max-width: (nth($hidden-em, 4) - em(1))) { & { display: none; } }
 		}
-		@if length($bp-em) == 5 {
-			@media #{$media} and ( min-width: nth($bp-em, 5)) { & { display: none; } }
-		}
-	}
-	@else {
-		@if length($bp-em) >= 2 and nth($bp, 1) != 0 and nth($bp, 1) != '0px' {
-			@media ( min-width: nth($bp-em, 1)) and ( max-width: (nth($bp-em, 2) - em(1))) { & { display: none; } }
-		}
-		@if length($bp-em) == 1 and nth($bp, 1) != 0 and nth($bp, 1) != '0px' {
-			@media ( min-width: nth($bp-em, 1)) { & { display: none; } }
-		}
-		@else if length($bp-em) == 3 {
-			@media ( min-width: nth($bp-em, 3)) { & { display: none; } }
-		}
-		@else if length($bp-em) > 3 {
-			@media ( min-width: nth($bp-em, 3)) and ( max-width: (nth($bp-em, 4) - em(1))) { & { display: none; } }
-		}
-		@if length($bp-em) == 5 {
-			@media ( min-width: nth($bp-em, 5)) { & { display: none; } }
+		@if length($hidden-em) == 5 {
+			@media #{$media} and ( min-width: nth($hidden-em, 5)) { & { display: none; } }
 		}
 	}
 }

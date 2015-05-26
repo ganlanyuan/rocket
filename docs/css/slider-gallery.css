@@ -519,7 +519,12 @@ pre[class*="language-"] {
 .slider .info {
   padding: 10px;
 }
-@media (max-width: 49.9375em) {
+@media all and (max-width: 49.9375em) {
+  .slider .info {
+    display: none;
+  }
+}
+@media all and (max-width: 49.9375em) {
   .slider .info {
     display: none;
   }
