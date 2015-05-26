@@ -4,14 +4,14 @@
 // *** addons: media list *** //
 
 .news-left > li { 
-  @include media(15px, 'figure', 'div', left); 
+  @include media(15px media 'figure' body 'div' left); 
   p { 
     margin-top: 0; 
     max-width: none;
   }
 }
 .news-right > li { 
-  @include media(15px, 'figure', 'div', right); 
+  @include media(media '.media' 50px body '.media-body' right); 
   p { 
     margin-top: 0; 
     max-width: none;

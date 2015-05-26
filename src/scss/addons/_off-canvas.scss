@@ -12,7 +12,6 @@ $off-canvas-length: 12;
   $bgc: #000,
   $animation: true
 ){
-
   // common
   position: fixed;
   height: 100%;
@@ -167,6 +166,7 @@ $off-canvas-length: 12;
   > span, &:after { margin-top: nth($size, 3); }
   &:hover { span, &:before, &:after { background-color: $active-color;} }
 }
+
 @mixin icon-close(
   $color: #212121,
   $active-color: #fd5619,

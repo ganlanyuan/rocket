@@ -261,28 +261,28 @@ pre[class*="language-"] {
 
 .example-span-1 {
   float: left;
-  width: 62.90909%;
+  width: 62.9090909091%;
   margin-right: 2%;
 }
 
 .example-span-2 {
   float: left;
-  width: 35.09091%;
+  width: 35.0909090909%;
 }
 
 .example-span-calc-1 {
   float: left;
   position: relative;
-  width: calc( 72.72727% + 14.54545px - 20px );
+  width: calc( 72.7272727273% + 14.5454545455px - 20px );
   margin-right: 20px;
-  left: calc( 27.27273% + 5.45455px );
+  left: calc( 27.2727272727% + 5.4545454545px );
 }
 
 .example-span-calc-2 {
   float: left;
   position: relative;
-  width: calc( 27.27273% + 5.45455px - 20px );
-  left: calc( -72.72727% + -14.54545px );
+  width: calc( 27.2727272727% + 5.4545454545px - 20px );
+  left: calc( -72.7272727273% + -14.5454545455px );
 }
 
 /*# sourceMappingURL=layout-grid.css.map */

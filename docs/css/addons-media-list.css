@@ -259,7 +259,7 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.news-left > li > figure, .news-left > li > div, .news-right > li > figure, .news-right > li > div {
+.news-left > li > figure, .news-left > li > div, .news-right > li > .media, .news-right > li > .media-body {
   display: table-cell;
   vertical-align: top;
 }
@@ -272,8 +272,8 @@ pre[class*="language-"] {
   max-width: none;
 }
 
-.news-right > li > figure {
-  padding-left: 15px;
+.news-right > li > .media {
+  padding-left: 50px;
 }
 .news-right > li p {
   margin-top: 0;
