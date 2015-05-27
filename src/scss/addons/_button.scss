@@ -1,39 +1,54 @@
 // *** buttons *** //
 @import '../color/contrast';
 
-
 %button-style {
 	display: inline-block;
 	// line-height: normal !important;
-	cursor: pointer;
+	// cursor: pointer;
 	box-sizing: border-box;
 	@extend %hover-tdn;
 	@extend %global-transition;
 }
+
 @mixin button (
-  $font-size: null,
-  $padding: null,
-  $background-color: null, 
-  $border: null, 
-  $border-radius: null
+	$button-var:
+		14px
+		'0.5em 0.8em'
 ){
+  $font-size: null;
+  $padding: null;
+  $background-color: null; 
+
+  @if type-of($button-var) == color {
+  	$background-color: $button-var;
+  } @else if type-of($button-var) == number {
+  	$font-size: $button-var;
+  } @else if type-of($button-var) == string {
+  	$padding: unquote($button-var);
+  } @else if type-of($button-var) == list {
+  	@for $i from 1 through length($button-var) {
+  		$val: nth($button-var, $i);
+
+  		@if type-of($val) == color {
+  			$background-color: $val;
+  		} @else if type-of($val) == number {
+  			$font-size: $val;
+  		} @else if type-of($val) == string {
+  			$padding: unquote($val);
+  		}
+  	}
+  }
+
 	@extend %button-style;
 	@if $font-size != null {
 		font-size: $font-size;
 		font-size: rem($font-size);
 	}
-	@if $padding != null {
+	@if $padding {
 		padding: $padding;
 	}
-	@if $background-color != null {
+	@if $background-color {
 		background-color: $background-color;
 		color: contrast($background-color);
-		&:hover { background-color: analogous($background-color, 10%); }
-	}
-	@if $border != null {
-		border: $border;
-	}
-	@if $border-radius != null {
-		border-radius: $border-radius;
 	}
 }

@@ -12,18 +12,38 @@
 }
 
 @mixin flex-video(
-  $ratio: 9/16,
-  $child: false
+  $flex-video-var:
+    9/16
+    false
 ){
+  $ratio: 9/16;
+  $child: false;
+
+  @if type-of($flex-video-var) == number {
+    $ratio: $flex-video-var;
+  } @else if type-of($flex-video-var) == string {
+    $child: $flex-video-var;
+  } @else if type-of($flex-video-var) == list {
+    @for $i from 1 through length($flex-video-var) {
+      $val: nth($flex-video-var, $i);
+
+      @if type-of($val) == number {
+        $ratio: $val;
+      } @else if type-of($val) == string {
+        $child: $val;
+      } 
+    }
+  }
+
   @extend %flex-video-container;
   @if unitless($ratio) { $ratio: percentage($ratio); }
   padding-bottom: $ratio;
   @if $child {
-    #{$child} { @extend %flex-video; }
+    > #{$child} { @extend %flex-video; }
   }
   @else {
-    iframe,
-    object,
-    embed { @extend %flex-video; }
+    > iframe,
+    > object,
+    > embed { @extend %flex-video; }
   }
 }

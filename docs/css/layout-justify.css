@@ -270,7 +270,6 @@ pre[class*="language-"] {
 
 .example-justify input {
   display: inline-block;
-  cursor: pointer;
   box-sizing: border-box;
 }
 
@@ -326,8 +325,6 @@ pre[class*="language-"] {
   font-size: 14px;
   font-size: 0.875rem;
   padding: 5px 10px;
-  border: 1px solid #dbdbdb;
-  border-radius: 3px;
 }
 .example-justify input:focus {
   width: 250px;

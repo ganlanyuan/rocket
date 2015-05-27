@@ -438,7 +438,6 @@ pre[class*="language-"] {
 
 .slider .slider-labels label {
   display: inline-block;
-  cursor: pointer;
   box-sizing: border-box;
 }
 
@@ -468,11 +467,7 @@ pre[class*="language-"] {
   padding: 12px 22px;
   background-color: #d2d2d2;
   color: #000;
-  border-radius: 3px;
   margin: 0 10px 10px 0;
-}
-.slider .slider-labels label:hover {
-  background-color: analogous(#d2d2d2, 10%);
 }
 .slider .slider-labels label:hover {
   background-color: #FFBE39;

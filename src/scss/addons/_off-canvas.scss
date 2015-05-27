@@ -9,8 +9,7 @@ $off-canvas-length: 12;
     move
     left
     200px
-    padding
-    em(16, 14)
+    'em(16, 14)'
     #000
     true
 ){
@@ -21,40 +20,37 @@ $off-canvas-length: 12;
   $padding: em(16, 14);
   $bgc: #000;
 
-  @if type-of($off-canvas-var) == color {
+  @if $off-canvas-var == animation {
+    $animation: true;
+  } @else if type-of($off-canvas-var) == color {
     $bgc: $off-canvas-var;
   } @else if type-of($off-canvas-var) == number {
     $nav-width: $off-canvas-var;
-  } @else if type-of($off-canvas-var) == animation {
-    $animation: true;
   } @else if type-of($off-canvas-var) == string {
     @if index($off-canvas-styles, $off-canvas-var) {
       $style: $off-canvas-var;
     } @else if index($off-canvas-direction, $off-canvas-var) {
       $direction: $off-canvas-var;
-    } 
-  } @else if type-of($off-canvas-var) == list {
-    @if index($off-canvas-var, padding) {
-      $padding: get-next($off-canvas-var, padding);
-      $off-canvas-var: reject($off-canvas-var, padding);
-      $off-canvas-var: reject($off-canvas-var, $padding);
+    } @else {
+      $padding: unquote($off-canvas-var);
     }
-    @if length($off-canvas-var) >= 1 {
-      @for $i from 1 through length($off-canvas-var) {
-        $val: nth($off-canvas-var, $i);
+  } @else if type-of($off-canvas-var) == list {
+    @for $i from 1 through length($off-canvas-var) {
+      $val: nth($off-canvas-var, $i);
 
-        @if type-of($val) == color {
-          $bgc: $val;
-        } @else if type-of($val) == number {
-          $nav-width: $val;
-        } @else if type-of($val) == animation {
-          $animation: true;
-        } @else if type-of($val) == string {
-          @if index($off-canvas-styles, $val) {
-            $style: $val;
-          } @else if index($off-canvas-direction, $val) {
-            $direction: $val;
-          } 
+      @if $val == animation {
+        $animation: true;
+      } @else if type-of($val) == color {
+        $bgc: $val;
+      } @else if type-of($val) == number {
+        $nav-width: $val;
+      } @else if type-of($val) == string {
+        @if index($off-canvas-styles, $val) {
+          $style: $val;
+        } @else if index($off-canvas-direction, $val) {
+          $direction: $val;
+        } @else {
+          $padding: unquote($val);
         }
       }
     }

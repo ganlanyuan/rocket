@@ -270,7 +270,6 @@ pre[class*="language-"] {
 
 .example-button button, .example-button input, .example-button .pagination a, .example-button .breadcrumb a {
   display: inline-block;
-  cursor: pointer;
   box-sizing: border-box;
 }
 
@@ -283,34 +282,24 @@ pre[class*="language-"] {
 .example-button button {
   font-size: 14px;
   font-size: 0.875rem;
-  padding: 0.5em 0.8em;
+  padding: .5em .8em;
   background-color: #3255ff;
   color: #fff;
-  border-radius: 3px;
-}
-.example-button button:hover {
-  background-color: analogous(#3255ff, 10%);
 }
 .example-button input {
   display: block;
   font-size: 16px;
   font-size: 1rem;
-  padding: 0.5em 1em;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  padding: .5em 1em;
 }
 .example-button .pagination a {
   display: inline-block;
   font-size: 13px;
   font-size: 0.8125rem;
-  padding: 0.3125em 0.5em;
+  padding: .5em .6em;
   background-color: #dbdbdb;
   color: #000;
-  border-radius: 3px;
   margin: 0 3px 3px 0;
-}
-.example-button .pagination a:hover {
-  background-color: analogous(#dbdbdb, 10%);
 }
 .example-button .breadcrumb li {
   display: inline-block;
@@ -319,7 +308,6 @@ pre[class*="language-"] {
   display: inline-block;
   font-size: 14px;
   font-size: 0.875rem;
-  padding: 5px;
   vertical-align: middle;
 }
 .example-button .breadcrumb span {
