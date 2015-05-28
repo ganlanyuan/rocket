@@ -1,4 +1,5 @@
 @import 'demo-base';
+@import "../../../src/scss/color/analogous";
 @import "../../../src/scss/addons/button";
 
 // *** addons: button *** //
@@ -6,7 +7,7 @@
 .example-button {
   margin-top: 20px;
   > * { margin-bottom: 10px; }
-  button { @include button(14px '.5em .8em' #3255ff radius round); }
+  button { @include button(14px '.5em .8em' #3255ff radius round hover); }
   input {
     display: block; 
     @include button(16px '.5em 1em' radius); 

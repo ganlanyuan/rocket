@@ -59,22 +59,22 @@
     .carousel-e, 
     .carousel-f,
     .carousel-g { display: none; }
-    .carousel-a { @include slider-carousel(); }
-    .carousel-b { @include slider-carousel(); }
-    .carousel-c { @include slider-carousel(); }
-    .carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
-    .carousel-e { @include slider-carousel($perpage: 2, $center: true); }
-    .carousel-f { @include slider-carousel($perpage: 2, $autoplay: true); }
-    .carousel-g { @include slider-carousel($autoplay: true); }
+    .carousel-a { @include slider-carousel(dots controls 5); }
+    .carousel-b { @include slider-carousel(dots controls 5); }
+    .carousel-c { @include slider-carousel(dots controls 5); }
+    .carousel-d { @include slider-carousel(dots controls 5 of 2 bypage); }
+    .carousel-e { @include slider-carousel(dots controls 5 of 2 center); }
+    .carousel-f { @include slider-carousel(controls 5 of 2 autoplay); }
+    .carousel-g { @include slider-carousel(autoplay 5 of 1); }
     @include bp-mi(em(700)) {
-      .carousel-a { @include slider-carousel($perpage: 2); }
-      .carousel-b { @include slider-carousel($perpage: 2); }
-      .carousel-d { @include slider-carousel($perpage: 3, $slide-by-page: true); }
-      .carousel-g { @include slider-carousel($perpage: 2, $autoplay: true); }
+      .carousel-a { @include slider-carousel(5 of 2); }
+      .carousel-b { @include slider-carousel(5 of 2); }
+      .carousel-d { @include slider-carousel(5 of 3 bypage); }
+      .carousel-g { @include slider-carousel(5 of 2 autoplay); }
     }
     @include bp-mi(em(1000)) {
-      .carousel-a { @include slider-carousel($perpage: 3); }
-      .carousel-g { @include slider-carousel($perpage: 3, $autoplay: true); }
+      .carousel-a { @include slider-carousel(5 of 3); }
+      .carousel-g { @include slider-carousel(5 of 3 autoplay); }
     }
     [id="carousel-lg"]:checked ~ .carousel-a, 
     [id="carousel-md"]:checked ~ .carousel-b, 

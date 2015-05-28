@@ -4,6 +4,7 @@
   cursor: pointer;
 }
 %dropdown-menu {
+  @extend %global-transition;
   position: absolute;
   z-index: nth($z-index, 4);
   -ms-transform: scaleY(0);
@@ -12,15 +13,9 @@
   -ms-transform-origin: top;
   -webkit-transform-origin: top;
   transform-origin: top;
-  @extend %global-transition;
   .no-csstransforms & { display: none; }
-  li { @extend %global-transition; }
-  a { 
-    display: block;
-    @extend %hover-tdn;
-  }
 }
-%dropdown-menu-open {
+%dropdown-menu-show {
   -ms-transform: scaleY(1);
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
@@ -28,36 +23,76 @@
 }
 
 @mixin dropdown(
-  $bgc: #fff,
-  $padding: 0.31em 1.25em,
-  $border: 1px solid #dbdbdb,
-  $border-radius: 0.19em,
-  $shadow: rgba(0,0,0,0.15) 0px 6px 12px,
-  $open: hover
+  $dropdown-var:
+    ul
+    hover
 ){
+  $child: ul;
+  $show: hover;
+  $default: false;
+
+  @if type-of($dropdown-var) == string {
+    @if $dropdown-var == default {
+      $default: true;
+    } @else if index($dropdown-show, $dropdown-var) {
+      $show: $dropdown-var;
+    } @else {
+      $child: $dropdown-var;
+    }
+  } @else if type-of($dropdown-var) == list {
+    @for $i from 1 through length($dropdown-var) {
+      $val: nth($dropdown-var, $i);
+
+      @if $val == default {
+        $default: true;
+      } @else if index($dropdown-show, $val) {
+        $show: $val;
+      } @else {
+        $child: $val;
+      }
+    }
+  }
+
+  // default style
+  $bgc: #fff;
+  $padding: 0.31em 1.25em;
+  $border: 1px solid #dbdbdb;
+  $border-radius: 0.19em;
+  $shadow: rgba(0,0,0,0.15) 0px 6px 12px;
+
   @extend %dropdown;
-  [data-dropdown-menu] {
+  #{$child} {
     @extend %dropdown-menu;
-    background-color: $bgc;
-    @if $border != null { border: $border; }
-    @if $border-radius != null { border-radius: $border-radius; }
-    @if $shadow != null { box-shadow: $shadow; }
-    .current a,li:hover a { background-color: analogous($bgc, 15%);}
-    a { 
-      padding: $padding;
-      color: contrast($bgc);
+
+    // default style
+    @if $default {
+      background-color: $bgc;
+      @if $border { border: $border; }
+      @if $border-radius { border-radius: $border-radius; }
+      @if $shadow { box-shadow: $shadow; }
+      .current a,li:hover a { background-color: analogous($bgc 10%);}
+      li { 
+        @extend %global-transition; 
+        &:first-child > a { padding-top: nth($padding, 1) * 2;}
+        &:last-child > a { padding-bottom: nth($padding, 1) * 2;}
+      }
+      a { 
+        @extend %hover-tdn;
+        display: block;
+        padding: $padding;
+        color: contrast($bgc);
+      }
     }
-    li:first-child > a { padding-top: nth($padding, 1) * 2;}
-    li:last-child > a { padding-bottom: nth($padding, 1) * 2;}
+
   }
-  @if $open == hover {
-    &:hover [data-dropdown-menu] {
-      @extend %dropdown-menu-open;
+  @if $show == hover {
+    &:hover #{$child} {
+      @extend %dropdown-menu-show;
     }
   }
-  @else if $open == click {
-    &.dropdown-open [data-dropdown-menu] {
-      @extend %dropdown-menu-open;
+  @else if $show == click {
+    &.dropdown-open #{$child} {
+      @extend %dropdown-menu-show;
     }
   }
 }

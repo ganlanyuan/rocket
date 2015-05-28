@@ -8,7 +8,7 @@
       <div class="example">
         <div class="dropdown-1">
           <span>dropdown: hover</span>
-          <ul data-dropdown-menu>
+          <ul>
             <li><a href="">item01</a></li>
             <li><a href="">item02</a></li>
             <li><a href="">item03</a></li>
@@ -17,7 +17,7 @@
         <div class="dropdown-2">
           <span>dropdown: </span>
           <span class="ic-angle-down" data-dropdown-toggle></span>
-          <ul data-dropdown-menu>
+          <ul>
             <li><a href="">item01</a></li>
             <li><a href="">item02</a></li>
             <li><a href="">item03</a></li>

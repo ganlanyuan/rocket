@@ -8,7 +8,7 @@ $rem-base: 16px !default;
 $z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100;
 
 // transition
-$global-animation-duration: 0.4s;
+$global-animation-duration: 0.3s;
 $global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 // media type
@@ -22,11 +22,14 @@ $off-canvas-direction: left, right;
 // button
 $button-radius: 0.22em;
 $button-round: 1000px;
-$button-hover-lightness: 7%;
+$button-hover-lightness: 10%;
 
 // tooltip
 $tooltip-direction: left, right, top, bottom;
 $tooltip-radius: 0.22em;
+
+// dropdown
+$dropdown-show: hover, click;
 
 // color functions
 $color-methods: adjacent, complementary, split-complementary, triad, rectangle, square;

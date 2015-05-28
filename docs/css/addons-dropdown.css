@@ -1,10 +1,10 @@
-.dropdown-1 [data-dropdown-menu] a:hover, .dropdown-2 [data-dropdown-menu] a:hover {
+.dropdown-1 ul a:hover, .dropdown-2 ul a:hover {
   text-decoration: none;
 }
 
-.dropdown-1 [data-dropdown-menu], .dropdown-2 [data-dropdown-menu], .dropdown-1 [data-dropdown-menu] li, .dropdown-2 [data-dropdown-menu] li {
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+.dropdown-1 ul, .dropdown-2 ul, .dropdown-1 ul li, .dropdown-2 ul li {
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -273,7 +273,7 @@ pre[class*="language-"] {
   cursor: pointer;
 }
 
-.dropdown-1 [data-dropdown-menu], .dropdown-2 [data-dropdown-menu] {
+.dropdown-1 ul, .dropdown-2 ul {
   position: absolute;
   z-index: 700;
   -ms-transform: scaleY(0);
@@ -283,19 +283,16 @@ pre[class*="language-"] {
   -webkit-transform-origin: top;
   transform-origin: top;
 }
-.no-csstransforms .dropdown-1 [data-dropdown-menu], .dropdown-1 .no-csstransforms [data-dropdown-menu], .no-csstransforms .dropdown-2 [data-dropdown-menu], .dropdown-2 .no-csstransforms [data-dropdown-menu] {
+.no-csstransforms .dropdown-1 ul, .dropdown-1 .no-csstransforms ul, .no-csstransforms .dropdown-2 ul, .dropdown-2 .no-csstransforms ul {
   display: none;
 }
-.dropdown-1 [data-dropdown-menu] a, .dropdown-2 [data-dropdown-menu] a {
-  display: block;
-}
 
-.dropdown-1:hover [data-dropdown-menu], .dropdown-2.dropdown-open [data-dropdown-menu] {
+.dropdown-1:hover ul, .dropdown-2.dropdown-open ul {
   -ms-transform: scaleY(1);
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
 }
-.no-csstransforms .dropdown-1:hover [data-dropdown-menu], .dropdown-1:hover .no-csstransforms [data-dropdown-menu], .no-csstransforms .dropdown-2.dropdown-open [data-dropdown-menu], .dropdown-2.dropdown-open .no-csstransforms [data-dropdown-menu] {
+.no-csstransforms .dropdown-1:hover ul, .dropdown-1:hover .no-csstransforms ul, .no-csstransforms .dropdown-2.dropdown-open ul, .dropdown-2.dropdown-open .no-csstransforms ul {
   display: block;
 }
 
@@ -310,43 +307,46 @@ pre[class*="language-"] {
   margin-top: 10px;
 }
 
-.dropdown-1 [data-dropdown-menu] {
+.dropdown-1 ul {
   background-color: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 0.19em;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 12px;
 }
-.dropdown-1 [data-dropdown-menu] .current a, .dropdown-1 [data-dropdown-menu] li:hover a {
-  background-color: analogous(#fff, 15%);
+.dropdown-1 ul .current a, .dropdown-1 ul li:hover a {
+  background-color: #e6e6e6;
 }
-.dropdown-1 [data-dropdown-menu] a {
+.dropdown-1 ul li:first-child > a {
+  padding-top: 0.62em;
+}
+.dropdown-1 ul li:last-child > a {
+  padding-bottom: 0.62em;
+}
+.dropdown-1 ul a {
+  display: block;
   padding: 0.31em 1.25em;
   color: contrast(#fff);
 }
-.dropdown-1 [data-dropdown-menu] li:first-child > a {
+
+.dropdown-2 ul {
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 0.19em;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 12px;
+}
+.dropdown-2 ul .current a, .dropdown-2 ul li:hover a {
+  background-color: #e6e6e6;
+}
+.dropdown-2 ul li:first-child > a {
   padding-top: 0.62em;
 }
-.dropdown-1 [data-dropdown-menu] li:last-child > a {
+.dropdown-2 ul li:last-child > a {
   padding-bottom: 0.62em;
 }
-
-.dropdown-2 [data-dropdown-menu] {
-  background-color: #fff;
-  border: 1px solid #f3ecec;
-  border-radius: 3px;
-}
-.dropdown-2 [data-dropdown-menu] .current a, .dropdown-2 [data-dropdown-menu] li:hover a {
-  background-color: analogous(#fff, 15%);
-}
-.dropdown-2 [data-dropdown-menu] a {
-  padding: 0.5em 0.75em;
+.dropdown-2 ul a {
+  display: block;
+  padding: 0.31em 1.25em;
   color: contrast(#fff);
-}
-.dropdown-2 [data-dropdown-menu] li:first-child > a {
-  padding-top: 1em;
-}
-.dropdown-2 [data-dropdown-menu] li:last-child > a {
-  padding-bottom: 1em;
 }
 
 /*# sourceMappingURL=addons-dropdown.css.map */

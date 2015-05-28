@@ -271,8 +271,8 @@ pre[class*="language-"] {
   background: #102244;
   z-index: 300;
   box-sizing: border-box;
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   width: 300px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -292,8 +292,8 @@ pre[class*="language-"] {
   display: block;
   padding: 1em;
   color: #fff;
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 .mb-nav a:hover {
   text-decoration: none;
@@ -374,86 +374,86 @@ pre[class*="language-"] {
 
 .mb-nav > ul > li:nth-child(1) > a,
 [data-offcanvas-subnav] li:nth-child(1) a {
-  -webkit-transition-delay: 0.0333333333s;
-  -moz-transition-delay: 0.0333333333s;
-  transition-delay: 0.0333333333s;
+  -webkit-transition-delay: 0.025s;
+  -moz-transition-delay: 0.025s;
+  transition-delay: 0.025s;
 }
 
 .mb-nav > ul > li:nth-child(2) > a,
 [data-offcanvas-subnav] li:nth-child(2) a {
-  -webkit-transition-delay: 0.0666666667s;
-  -moz-transition-delay: 0.0666666667s;
-  transition-delay: 0.0666666667s;
+  -webkit-transition-delay: 0.05s;
+  -moz-transition-delay: 0.05s;
+  transition-delay: 0.05s;
 }
 
 .mb-nav > ul > li:nth-child(3) > a,
 [data-offcanvas-subnav] li:nth-child(3) a {
+  -webkit-transition-delay: 0.075s;
+  -moz-transition-delay: 0.075s;
+  transition-delay: 0.075s;
+}
+
+.mb-nav > ul > li:nth-child(4) > a,
+[data-offcanvas-subnav] li:nth-child(4) a {
   -webkit-transition-delay: 0.1s;
   -moz-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
-.mb-nav > ul > li:nth-child(4) > a,
-[data-offcanvas-subnav] li:nth-child(4) a {
-  -webkit-transition-delay: 0.1333333333s;
-  -moz-transition-delay: 0.1333333333s;
-  transition-delay: 0.1333333333s;
-}
-
 .mb-nav > ul > li:nth-child(5) > a,
 [data-offcanvas-subnav] li:nth-child(5) a {
-  -webkit-transition-delay: 0.1666666667s;
-  -moz-transition-delay: 0.1666666667s;
-  transition-delay: 0.1666666667s;
+  -webkit-transition-delay: 0.125s;
+  -moz-transition-delay: 0.125s;
+  transition-delay: 0.125s;
 }
 
 .mb-nav > ul > li:nth-child(6) > a,
 [data-offcanvas-subnav] li:nth-child(6) a {
+  -webkit-transition-delay: 0.15s;
+  -moz-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+
+.mb-nav > ul > li:nth-child(7) > a,
+[data-offcanvas-subnav] li:nth-child(7) a {
+  -webkit-transition-delay: 0.175s;
+  -moz-transition-delay: 0.175s;
+  transition-delay: 0.175s;
+}
+
+.mb-nav > ul > li:nth-child(8) > a,
+[data-offcanvas-subnav] li:nth-child(8) a {
   -webkit-transition-delay: 0.2s;
   -moz-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
 
-.mb-nav > ul > li:nth-child(7) > a,
-[data-offcanvas-subnav] li:nth-child(7) a {
-  -webkit-transition-delay: 0.2333333333s;
-  -moz-transition-delay: 0.2333333333s;
-  transition-delay: 0.2333333333s;
-}
-
-.mb-nav > ul > li:nth-child(8) > a,
-[data-offcanvas-subnav] li:nth-child(8) a {
-  -webkit-transition-delay: 0.2666666667s;
-  -moz-transition-delay: 0.2666666667s;
-  transition-delay: 0.2666666667s;
-}
-
 .mb-nav > ul > li:nth-child(9) > a,
 [data-offcanvas-subnav] li:nth-child(9) a {
-  -webkit-transition-delay: 0.3s;
-  -moz-transition-delay: 0.3s;
-  transition-delay: 0.3s;
+  -webkit-transition-delay: 0.225s;
+  -moz-transition-delay: 0.225s;
+  transition-delay: 0.225s;
 }
 
 .mb-nav > ul > li:nth-child(10) > a,
 [data-offcanvas-subnav] li:nth-child(10) a {
-  -webkit-transition-delay: 0.3333333333s;
-  -moz-transition-delay: 0.3333333333s;
-  transition-delay: 0.3333333333s;
+  -webkit-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  transition-delay: 0.25s;
 }
 
 .mb-nav > ul > li:nth-child(11) > a,
 [data-offcanvas-subnav] li:nth-child(11) a {
-  -webkit-transition-delay: 0.3666666667s;
-  -moz-transition-delay: 0.3666666667s;
-  transition-delay: 0.3666666667s;
+  -webkit-transition-delay: 0.275s;
+  -moz-transition-delay: 0.275s;
+  transition-delay: 0.275s;
 }
 
 .mb-nav > ul > li:nth-child(12) > a,
 [data-offcanvas-subnav] li:nth-child(12) a {
-  -webkit-transition-delay: 0.4s;
-  -moz-transition-delay: 0.4s;
-  transition-delay: 0.4s;
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 
 .icon-nav {
@@ -462,8 +462,8 @@ pre[class*="language-"] {
 
 .page {
   position: relative;
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   left: 0;
   padding-top: 1px;
 }
@@ -475,8 +475,8 @@ pre[class*="language-"] {
   height: 100%;
   width: 100%;
   z-index: -1;
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 .off-canvas-show .page > [data-page-cover] {
   background-color: rgba(0, 0, 0, 0.35);

@@ -74,8 +74,8 @@
 		color: contrast($background-color);
     @if $hover {
       &:hover {
-        background-color: darken($background-color, $button-hover-lightness);
-        color: contrast(darken($background-color, $button-hover-lightness));
+        background-color: analogous($background-color $button-hover-lightness);
+        color: contrast(analogous($background-color $button-hover-lightness));
       }
     }
 	}

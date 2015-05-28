@@ -3,8 +3,8 @@
 }
 
 .example-button button, .example-button input, .example-button .pagination a {
-  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -288,6 +288,10 @@ pre[class*="language-"] {
   background-color: #3255ff;
   color: #fff;
 }
+.example-button button:hover {
+  background-color: #002bfe;
+  color: #fff;
+}
 .example-button input {
   display: block;
   border-radius: 0.22em;
@@ -307,7 +311,7 @@ pre[class*="language-"] {
   margin: 0 3px 3px 0;
 }
 .example-button .pagination a:hover {
-  background-color: #c9c9c9;
+  background-color: #c2c2c2;
   color: #000;
 }
 .example-button .pagination a span {

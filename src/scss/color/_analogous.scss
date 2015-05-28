@@ -1,5 +1,31 @@
 // analogous
-@function analogous($color, $degree) {
-  @if lightness($color) >= 50% { @return darken($color, $degree); }
-  @else { @return lighten($color, $degree); }
+@function analogous($analogous-var) {
+  $color: false;
+  $lightness: false;
+  
+  @if type-of($analogous-var) == color {
+    $color: $analogous-var;
+  } @else if type-of($analogous-var) == number {
+    $lightness: $analogous-var;
+  } @else if type-of($analogous-var) == list {
+    @for $i from 1 through length($analogous-var) {
+      $val: nth($analogous-var, $i);
+
+      @if type-of($val) == color {
+        $color: $val;
+      } @else if type-of($val) == number {
+        $lightness: $val;
+      }
+
+    }
+  }
+
+  @if $color and $lightness {
+    @if lightness($color) >= 50% { 
+      @return darken($color, $lightness); 
+    } @else { 
+      @return lighten($color, $lightness); 
+    }
+  }
+
 }
