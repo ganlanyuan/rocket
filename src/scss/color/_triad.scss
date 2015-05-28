@@ -1,11 +1,13 @@
 // *** triad *** //
 
-@function triad(
-  $color,
-  $order,
-  $saturation: null,
-  $lightness: null
-){
-  @return color(triad, $color, $order, $saturation, $lightness);
-}
+@function triad($val){
+  $val-new: ();
 
+  @if type-of($val) == list {
+    $val-new: append($val, triad);
+  } @else {
+    $val-new: ($val triad);
+  }
+
+  @return color($val-new);
+}

@@ -1,12 +1,13 @@
 // *** rectangle *** //
 
-@function rectangle(
-  $color,
-  $order,
-  $saturation: null,
-  $lightness: null,
-  $dist: 30
-){
-  @return color(rectangle, $color, $order, $saturation, $lightness, $dist);
-}
+@function rectangle($val){
+  $val-new: ();
 
+  @if type-of($val) == list {
+    $val-new: append($val, rectangle);
+  } @else {
+    $val-new: ($val rectangle);
+  }
+
+  @return color($val-new);
+}

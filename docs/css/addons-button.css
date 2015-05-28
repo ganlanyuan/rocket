@@ -1,8 +1,8 @@
-.example-button button:hover, .example-button input:hover, .example-button .pagination a:hover, .example-button .breadcrumb a:hover {
+.example-button button:hover, .example-button input:hover, .example-button .pagination a:hover {
   text-decoration: none;
 }
 
-.example-button button, .example-button input, .example-button .pagination a, .example-button .breadcrumb a {
+.example-button button, .example-button input, .example-button .pagination a {
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
@@ -268,7 +268,7 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.example-button button, .example-button input, .example-button .pagination a, .example-button .breadcrumb a {
+.example-button button, .example-button input, .example-button .pagination a {
   display: inline-block;
   box-sizing: border-box;
 }
@@ -277,9 +277,11 @@ pre[class*="language-"] {
   margin-top: 20px;
 }
 .example-button > * {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .example-button button {
+  border-radius: 0.22em;
+  border-radius: 1000px;
   font-size: 14px;
   font-size: 0.875rem;
   padding: .5em .8em;
@@ -288,12 +290,15 @@ pre[class*="language-"] {
 }
 .example-button input {
   display: block;
+  border-radius: 0.22em;
   font-size: 16px;
   font-size: 1rem;
   padding: .5em 1em;
+  border: 1px solid  #ddd;
 }
 .example-button .pagination a {
   display: inline-block;
+  border-radius: 0.22em;
   font-size: 13px;
   font-size: 0.8125rem;
   padding: .5em .6em;
@@ -301,18 +306,12 @@ pre[class*="language-"] {
   color: #000;
   margin: 0 3px 3px 0;
 }
-.example-button .breadcrumb li {
-  display: inline-block;
+.example-button .pagination a:hover {
+  background-color: #c9c9c9;
+  color: #000;
 }
-.example-button .breadcrumb a {
-  display: inline-block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  vertical-align: middle;
-}
-.example-button .breadcrumb span {
-  font-size: 13px;
-  vertical-align: middle;
+.example-button .pagination a span {
+  font-size: 11px;
 }
 
 /*# sourceMappingURL=addons-button.css.map */

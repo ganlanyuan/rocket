@@ -1,10 +1,13 @@
-// *** triad *** //
+// *** complementary *** //
 
-@function complementary(
-  $color,
-  $saturation: null,
-  $lightness: null
-){
-  @return color(complementary, $color, null, $saturation, $lightness);
+@function complementary($val){
+  $val-new: ();
+
+  @if type-of($val) == list {
+    $val-new: append($val, complementary);
+  } @else {
+    $val-new: ($val complementary);
+  }
+
+  @return color($val-new);
 }
-

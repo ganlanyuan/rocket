@@ -7,10 +7,6 @@
       <h2 id=""><span>addons: </span>buttons</h2>
       <div class="example">
         <div class="example-button">
-          <ul class="breadcrumb">
-            <li><a href="">Home</a><span class="ic-angle-right"></span></li>
-            <li><a href="">news</a></li>
-          </ul>
           <div class="pagination">
             <a href=""><span class="ic-angle-left"></span></a>
             <a href="">1</a>
@@ -19,8 +15,8 @@
             <a href="">4</a>
             <a href=""><span class="ic-angle-right"></span></a>
           </div>
-          <button>Submit</button>
           <input type="search" name="" id="">
+          <button>Submit</button>
         </div>
       </div>
       <pre><code class="language-scss">

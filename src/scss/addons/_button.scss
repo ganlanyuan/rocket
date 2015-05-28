@@ -14,12 +14,22 @@
 	$button-var:
 		14px
 		'0.5em 0.8em'
+    radius
 ){
-  $font-size: null;
-  $padding: null;
-  $background-color: null; 
+  $font-size: false;
+  $padding: false;
+  $background-color: false; 
+  $radius: false;
+  $round: false;
+  $hover: false;
 
-  @if type-of($button-var) == color {
+  @if $button-var == radius {
+    $radius: true;
+  } @else if $button-var == round {
+    $round: true;
+  } @else if $button-var == hover {
+    $hover: true;
+  } @else if type-of($button-var) == color {
   	$background-color: $button-var;
   } @else if type-of($button-var) == number {
   	$font-size: $button-var;
@@ -29,7 +39,13 @@
   	@for $i from 1 through length($button-var) {
   		$val: nth($button-var, $i);
 
-  		@if type-of($val) == color {
+      @if $val == radius {
+        $radius: true;
+      } @else if $val == round {
+        $round: true;
+      } @else if $val == hover {
+        $hover: true;
+      } @else if type-of($val) == color {
   			$background-color: $val;
   		} @else if type-of($val) == number {
   			$font-size: $val;
@@ -40,7 +56,13 @@
   }
 
 	@extend %button-style;
-	@if $font-size != null {
+  @if $radius {
+    border-radius: $button-radius;
+  }
+  @if $round {
+    border-radius: $button-round;
+  }
+	@if $font-size {
 		font-size: $font-size;
 		font-size: rem($font-size);
 	}
@@ -50,5 +72,11 @@
 	@if $background-color {
 		background-color: $background-color;
 		color: contrast($background-color);
+    @if $hover {
+      &:hover {
+        background-color: darken($background-color, $button-hover-lightness);
+        color: contrast(darken($background-color, $button-hover-lightness));
+      }
+    }
 	}
 }

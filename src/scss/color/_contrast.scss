@@ -45,8 +45,37 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   @return 100% * $number / 255;
 }
  
-@function contrast($color, $light: #fff, $dark: #000) {
-  @if brightness($color) < 65% { @return $light; } 
-  @else { @return $dark; }
+@function contrast($contrast-var) {
+  $color: false;
+  $light: #fff;
+  $dark: #000;
+
+  @if type-of($contrast-var) == color {
+    $color: $contrast-var;
+  } @else if type-of($contrast-var) == list {
+    
+    @if index($contrast-var, light) {
+      $light: get-next($contrast-var, light);
+      $contrast-var: reject($contrast-var, light);
+      $contrast-var: reject($contrast-var, $light);
+    } 
+    @if index($contrast-var, dark) {
+      $dark: get-next($contrast-var, dark);
+      $contrast-var: reject($contrast-var, dark);
+      $contrast-var: reject($contrast-var, $dark);
+    }
+    
+    @if nth($contrast-var, 1) {
+       $color: nth($contrast-var, 1);       
+    }
+  }
+
+  @if $color {
+    @if brightness($color) < 65% { 
+      @return $light; 
+    } @else { 
+      @return $dark; 
+    }
+  }
 } 
 

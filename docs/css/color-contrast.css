@@ -261,19 +261,19 @@ pre[class*="language-"] {
 
 .color-box-contrast-1 {
   background-color: #5173a3;
-  color: #fff;
+  color: #eee;
   width: 30%;
 }
 
 .color-box-contrast-2 {
   background-color: #bbf8e6;
-  color: #000;
+  color: red;
   width: 30%;
 }
 
 .color-box-contrast-3 {
   background-color: #cb7d26;
-  color: #fff;
+  color: #eee;
   width: 30%;
 }
 

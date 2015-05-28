@@ -1,12 +1,13 @@
 // *** split-complementary *** //
 
-@function split-complementary(
-  $color,
-  $order,
-  $saturation: null,
-  $lightness: null,
-  $dist: 30
-){
-  @return color(split-complementary, $color, $order, $saturation, $lightness, $dist);
-}
+@function split-complementary($val){
+  $val-new: ();
 
+  @if type-of($val) == list {
+    $val-new: append($val, split-complementary);
+  } @else {
+    $val-new: ($val split-complementary);
+  }
+
+  @return color($val-new);
+}

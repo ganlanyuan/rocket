@@ -5,18 +5,18 @@
 
 .example-button {
   margin-top: 20px;
-  > * { margin-bottom: 20px; }
-  button { @include button(14px '.5em .8em' #3255ff); }
-  input {display: block; @include button(16px '.5em 1em'); }
+  > * { margin-bottom: 10px; }
+  button { @include button(14px '.5em .8em' #3255ff radius round); }
+  input {
+    display: block; 
+    @include button(16px '.5em 1em' radius); 
+    border: 1px solid  #ddd;
+  }
   .pagination a { 
     display: inline-block; 
-    @include button(13px '.5em .6em' #dbdbdb);
+    @include button(13px '.5em .6em' #dbdbdb hover radius);
     margin: 0 3px 3px 0;
-  }
-  .breadcrumb {
-    li { display: inline-block; }
-    a { display: inline-block; @include button(14px); vertical-align: middle; }
-    span { font-size: 13px; vertical-align: middle; }
+    span { font-size: 11px; }
   }
 }
 

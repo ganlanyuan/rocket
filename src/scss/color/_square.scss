@@ -1,12 +1,14 @@
 // *** square *** //
 
-@function square(
-  $color,
-  $order,
-  $saturation: null,
-  $lightness: null,
-  $dist: 30
-){
-  @return color(square, $color, $order, $saturation, $lightness, $dist);
+@function square($val){
+  $val-new: ();
+
+  @if type-of($val) == list {
+    $val-new: append($val, square);
+  } @else {
+    $val-new: ($val square);
+  }
+
+  @return color($val-new);
 }
 

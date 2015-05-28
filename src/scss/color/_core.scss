@@ -50,19 +50,22 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
 }
 
 // color
-@function color(
-  $method,
-  $color,
-  $order: null,
-  $saturation: null,
-  $lightness: null,
-  $dist: 30
-){
-  @if $order == null { $order: 0; }
-  @if $saturation == null { $saturation: 0%; }
-  @if $lightness == null { $lightness: 0%; }
+@function color($val){
+  $map: color-vars($val);
+
+  $method: map-get($map, method);
+  $color: map-get($map, color);
+  $order: map-get($map, order);
+  $saturation: map-get($map, saturation);
+  $lightness: map-get($map, lightness);
+  $dist: map-get($map, dist);
+
+  @if not $order { $order: 0; }
+  @if not $saturation { $saturation: 0%; }
+  @if not $lightness { $lightness: 0%; }
+  @if not $dist { $dist: $color-dist; }
   $hue: hue($color);
-  $target-hue: null;
+  $target-hue: 0deg;
   
   @if $method == adjacent {
     $target-hue: to-normal-hue(to-ideal-hue($hue) + $dist * $order);
@@ -111,5 +114,66 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
 
   // return value
   @return adjust-color($color, $hue: ( $target-hue - $hue ), $saturation: $saturation, $lightness: $lightness);
+}
+
+// color-vars
+@function color-vars ($value){
+  $method: false;
+  $color: false;
+  $order: 1;
+  $saturation: 0;
+  $lightness: 0;
+  $dist: $color-dist;
+
+  @if type-of($value) == color {
+    $color: $value;
+  } @else if type-of($value) == list {
+
+    @for $i from 1 through length($color-methods) {
+      $item: nth($color-methods, $i);
+
+      @if index($value, $item) {
+        $method: $item;
+        $value: reject($value, $item);
+      }
+    }
+
+    @if index($value, saturation) {
+      $saturation: get-next($value, saturation);
+      $value: reject($value, saturation);
+      $value: reject($value, $saturation);
+    }
+    @if index($value, lightness) {
+      $lightness: get-next($value, lightness);
+      $value: reject($value, lightness);
+      $value: reject($value, $lightness);
+    }
+    @if index($value, dist) {
+      $dist: get-next($value, dist);
+      $value: reject($value, dist);
+      $value: reject($value, $dist);
+    }
+
+    @for $i from 1 through length($value) {
+      $val: nth($value, $i);
+
+      @if type-of($val) == color {
+        $color: $val;
+      } @else if type-of($val) == number {
+        $order: $val;
+      }
+
+    }
+  }
+
+  @return (
+    method: $method,
+    color: $color,
+    order: $order,
+    saturation: $saturation,
+    lightness: $lightness,
+    dist: $dist
+  );
+
 }
 

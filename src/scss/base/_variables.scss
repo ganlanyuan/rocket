@@ -18,3 +18,12 @@ $font-styles: italic, oblique, style-normal, style-inherit;
 $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit;
 $off-canvas-styles: move, translate, reveal;
 $off-canvas-direction: left, right;
+
+// button
+$button-radius: 0.22em;
+$button-round: 1000px;
+$button-hover-lightness: 7%;
+
+// color functions
+$color-methods: adjacent, complementary, split-complementary, triad, rectangle, square;
+$color-dist: 30;

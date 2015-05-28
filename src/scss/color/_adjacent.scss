@@ -1,12 +1,13 @@
 // *** adjacent *** //
 
-@function adjacent(
-  $color,
-  $order,
-  $saturation: null,
-  $lightness: null,
-  $dist: 30
-){
-  @return color(adjacent, $color, $order, $saturation, $lightness, $dist);
-}
+@function adjacent($val){
+  $val-new: ();
 
+  @if type-of($val) == list {
+    $val-new: append($val, adjacent);
+  } @else {
+    $val-new: ($val adjacent);
+  }
+
+  @return color($val-new);
+}
