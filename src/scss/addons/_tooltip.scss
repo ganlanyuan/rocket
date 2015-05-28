@@ -1,18 +1,16 @@
 // ======= tooltip ======= //
 %tooltip-common {
+  @extend %global-transition;
   position: absolute;
   z-index: 9999;
-  opacity: 0;
-  @extend %global-transition;
-  .no-opacity & { display: none; } 
+  display: none;
   &:hover {
-    & {opacity: 1;
-      .no-opacity & { display: block; }
+    & {
+      display: block;
     }
   }
 }
 %tooltip-content {
-  display: block;
   padding: 0.67em;
   font-size: 12px;
   line-height: 1.3;
@@ -23,13 +21,50 @@
 }
 
 @mixin tooltip(
-  $direction: top,
-  $color: #222,
-  $radius: null,
-  $width: 230px,
-  $height: 3.94em,
-  $content: attr(data-tooltip)
+  $tooltip-var:
+    width
+    230px
+    height
+    3.94em
 ) {
+  $direction: false;
+  $color: false;
+  $radius: false;
+  $width: 230px;
+  $height: 3.94em;
+  $content: attr(data-tooltip);
+
+  @if type-of($tooltip-var) == color {
+    $color: $tooltip-var;
+  } @else if type-of($tooltip-var) == string {
+    @if $tooltip-var == radius {
+      $radius: true;
+    } @else if index($tooltip-direction, $tooltip-var) {
+      $direction: $tooltip-var;
+    }
+  } @else if type-of($tooltip-var) == list {
+    @if index($tooltip-var, width) {
+      $width: get-next($tooltip-var, width);
+    }
+    @if index($tooltip-var, height) {
+      $height: get-next($tooltip-var, height);
+    }
+
+    @for $i from 1 through length($tooltip-var) {
+      $item: nth($tooltip-var, $i);
+
+      @if type-of($item) == color {
+        $color: $item;
+      } @else if type-of($item) == string {
+        @if $item == radius {
+          $radius: true;
+        } @else if index($tooltip-direction, $item) {
+          $direction: $item;
+        }
+      }
+    }
+  }
+
   position: relative;
   cursor: pointer;
   &:before, 
@@ -43,7 +78,7 @@
     content: $content;
     background-color: $color;
     max-width: $width;
-    @if $radius != null { border-radius: $radius; }
+    @if $radius { border-radius: $tooltip-radius; }
   }
   .no-csstransforms &:after { width: $width; }
   @if $direction == top or $direction == bottom {

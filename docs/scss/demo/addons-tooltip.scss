@@ -3,4 +3,4 @@
 
 // *** addons: tooltip *** //
 
-.tooltip { display: inline-block; @include tooltip(right, #b02df3, 3px, 300px); }
+.tooltip { display: inline-block; @include tooltip(radius right #b02df3 width 300px); }

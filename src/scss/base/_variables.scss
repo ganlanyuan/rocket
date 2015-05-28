@@ -24,6 +24,10 @@ $button-radius: 0.22em;
 $button-round: 1000px;
 $button-hover-lightness: 7%;
 
+// tooltip
+$tooltip-direction: left, right, top, bottom;
+$tooltip-radius: 0.22em;
+
 // color functions
 $color-methods: adjacent, complementary, split-complementary, triad, rectangle, square;
 $color-dist: 30;
