@@ -8,7 +8,7 @@
   $autoplay: false;
   $controls: false; 
   $dots: false; 
-  $default: true;
+  $default: false;
 
   @if type-of($carousel-var) == number {
     $item: $carousel-var;
@@ -17,7 +17,7 @@
       $val: nth($carousel-var, $i);
 
       @if $val == bypage {
-        $slider-by-page: true;
+        $slide-by-page: true;
       } @else if $val == center {
         $center: true;
       } @else if $val == autoplay {
@@ -30,7 +30,7 @@
         $default: true;
       }
 
-      @if $val == by {
+      @if index($carousel-var, by) {
         $items: get-prev($carousel-var, by);
         $perpage: get-next($carousel-var, by);
       } @else if type-of($val) == number {
@@ -44,51 +44,51 @@
   }
 
   $half: 0;
-  $pages: $items - $perpage +1;
+  $pages: $items - $perpage + 1;
   $prefix: get-slider-selector(&);
   $id: "#" + $prefix;
-  @if $center == true and $perpage > 1 { 
+  @if $center and $perpage > 1 { 
     $half: (1 / ($perpage * 2)); 
   }
 
   @at-root (without: media) { 
-    // base
+    // set basic inner, controls, dots styles
     @extend %slide-base; 
-    @if $dots {
-      @at-root {
-        @for $i from 1 through $items {
-          #{$id}-#{$i}:checked ~ {
-              .dots label:nth-child(#{$i}) .active { @extend %show; }
-              .dots label:nth-child(#{$i}) .normal { @extend %hide; }
-          }
+
+    @at-root {
+      // active dots
+      @for $i from 1 through $items {
+        #{$id}-#{$i}:checked ~ {
+            .dots label:nth-child(#{$i}) .active { @extend %show; }
+            .dots label:nth-child(#{$i}) .normal { @extend %hide; }
         }
-        // hide dots on autoplay
+      }
+    }
+
+    // set default controls, dots and autoplay styles
+    @if $default {
+      @extend %default-controls;
+      @extend %default-dots;
+      @if $autoplay {
+        @extend %default-autoplay;
+        // hide dots when autoplay
         #{$id}-autoplay:checked ~ .dots { 
           display: none; 
           .no-cssanimations & { display: block !important; }
         }
       }
     }
-    @if $controls {
-      @extend %default-controls;
-    }
-    @if $dots {
-      @extend %default-dots;
-    }
-    @if $autoplay {
-      @extend %default-autoplay;
-    }
   }
 
   // container and items
   .outer {
     @if $perpage != 1 { li { width: percentage(1/$perpage) } }
-    @if $gutter != 0 and $gutter != 0px and $gutter != null and $gutter != false {
-      @if $center == false { margin: 0 (- $gutter); }
+    @if $gutter and $gutter != 0 {
+      @if not $center { margin: 0 (- $gutter); }
       .item { margin: 0 $gutter; }
     }
   }
-  // setting inner
+  // set inner
   @for $i from 1 through $items {
     @at-root {
       #{$id}-#{$i}:checked ~ {
@@ -104,17 +104,17 @@
       }
     }
   }
+
   // hide extra dots
-  @if $dots {
-    @if $slide-by-page == false {
-      @if $center == true {
-        .dots label:nth-child(n + #{$pages}) { display: none; }
-      }
+  @if not $slide-by-page {
+    @if $center {
+      .dots label:nth-child(n + #{$pages}) { display: none; }
+    } @else {
       .dots label:nth-child(n + #{$pages + 1}) { display: none; }
     }
   }
 
-  // setting autoplay animation
+  // set autoplay animation
   @if $autoplay {
     @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; } }
 
@@ -156,80 +156,77 @@
   }
   @else { .autoplay { display: none !important; } }
 
-  // setting controls
+  // set controls
   @at-root {
-    @if $controls {
-      @for $i from 1 through $items {
-        #{$id}-#{$i}:checked ~ {
-          .controls label:nth-child(n+1) { display: none; }
-          @if $slide-by-page == true {
-            // prev
-            @if $i == 1 {
-              .controls label:nth-child(#{$items - $perpage + 1}),
-              .controls label:nth-child(#{$items - $perpage + 1}) .prev { display: block; }
-            }
-            @else if $i > 1 and $i <= $perpage {
-              .controls label:nth-child(1),
-              .controls label:nth-child(1) .prev { display: block; }
-            }
-            @else {
-              .controls label:nth-child(#{$i - $perpage}),
-              .controls label:nth-child(#{$i - $perpage}) .prev { display: block; }
-            }
-            // next
-            @if $i >= ($items - $perpage + 1) {
-              .controls label:nth-child(1),
-              .controls label:nth-child(1) .next { display: block; }
-            }
-            @else if $i > ($items - $perpage * 2 + 1) and $i < ($items - $perpage + 1) {
-              .controls label:nth-child(#{$items - $perpage + 1}),
-              .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
-            }
-            @else {
-              .controls label:nth-child(#{$i + $perpage}),
-              .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
-            }
+    @for $i from 1 through $items {
+      #{$id}-#{$i}:checked ~ {
+        .controls label:nth-child(n+1) { display: none; }
+        @if $slide-by-page == true {
+          // prev
+          @if $i == 1 {
+            .controls label:nth-child(#{$items - $perpage + 1}),
+            .controls label:nth-child(#{$items - $perpage + 1}) .prev { display: block; }
           }
-          @else if $center == true {
-            @if $i == 1 {
-              .controls label:nth-child(#{$pages}), 
-              .controls label:nth-child(#{$i + 1}),
-              .controls label:nth-child(#{$pages}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { display: block; }
-            }
-            @else if $i < ($pages - 1 ) {
-              .controls label:nth-child(#{$i - 1}), 
-              .controls label:nth-child(#{$i + 1}),
-              .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { display: block; }
-            }
-            @else {
-              .controls label:nth-child(#{$i - 1}), 
-              .controls label:nth-child(1),
-              .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(1) .next { display: block; }
-            }
+          @else if $i > 1 and $i <= $perpage {
+            .controls label:nth-child(1),
+            .controls label:nth-child(1) .prev { display: block; }
           }
           @else {
-            @if $i == 1 {
-              .controls label:nth-child(#{$pages}), 
-              .controls label:nth-child(#{$i + 1}),
-              .controls label:nth-child(#{$pages}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { display: block; }
-            }
-            @else if $i < $pages {
-              .controls label:nth-child(#{$i - 1}), 
-              .controls label:nth-child(#{$i + 1}),
-              .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { display: block; }
-            }
-            @else {
-              .controls label:nth-child(#{$i - 1}), 
-              .controls label:nth-child(1),
-              .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(1) .next { display: block; }
-            }
-
+            .controls label:nth-child(#{$i - $perpage}),
+            .controls label:nth-child(#{$i - $perpage}) .prev { display: block; }
+          }
+          // next
+          @if $i >= ($items - $perpage + 1) {
+            .controls label:nth-child(1),
+            .controls label:nth-child(1) .next { display: block; }
+          }
+          @else if $i > ($items - $perpage * 2 + 1) and $i < ($items - $perpage + 1) {
+            .controls label:nth-child(#{$items - $perpage + 1}),
+            .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i + $perpage}),
+            .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
+          }
+        }
+        @else if $center == true {
+          @if $i == 1 {
+            .controls label:nth-child(#{$pages}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$pages}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i < ($pages - 1 ) {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(1),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
+          }
+        }
+        @else {
+          @if $i == 1 {
+            .controls label:nth-child(#{$pages}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$pages}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i < $pages {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(1),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
           }
         }
       }
