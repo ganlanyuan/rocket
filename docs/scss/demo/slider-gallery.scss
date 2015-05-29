@@ -54,9 +54,9 @@
     .gallery-a, 
     .gallery-b,
     .gallery-c { display: none; }
-    .gallery-a { @include slider-gallery($autoplay: true); }
-    .gallery-b { @include slider-gallery(); }
-    .gallery-c { @include slider-gallery(); }
+    .gallery-a { @include slider-gallery(5 autoplay default); }
+    .gallery-b { @include slider-gallery(5 default); }
+    .gallery-c { @include slider-gallery(5 default); }
     [id="gallery-auto-play"]:checked ~ .gallery-a, 
     [id="gallery-auto-height"]:checked ~ .gallery-b,
     [id="gallery-customise"]:checked ~ .gallery-c { display: block; }

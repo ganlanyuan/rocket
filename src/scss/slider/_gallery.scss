@@ -1,13 +1,35 @@
 // *** slider-gallery *** //
 @import 'gallery-base';
 
-@mixin slider-gallery(
-  $items: 5,
-  $ratio: 9/16, 
-  $autoplay: false,
-  $hide: 'none', // none | controls | dots | autoplay
-  $default: true
-){
+@mixin slider-gallery($gallery-var){
+  $items: 1;
+  $ratio: 9/16; 
+  $autoplay: false;
+  $default: false;
+
+  @if type-of($gallery-var) == number {
+    $items: $gallery-var;
+  } @else if type-of($gallery-var) == list {
+    @if index($gallery-var, ratio) {
+      $ratio: get-next($gallery-var, ratio);
+      $gallery-var: reject($gallery-var, $ratio);
+    }
+    @if index($gallery-var, autoplay) {
+      $autoplay: true;
+    }
+    @if index($gallery-var, default) {
+      $default: true;
+    }
+
+    @for $i from 1 through length($gallery-var) {
+      $val: nth($gallery-var, $i);
+      
+      @if type-of($val) == number {
+        $items: $val;
+      }
+    }
+  }
+
   $prefix: get-slider-selector(&);
   $id: "#" + $prefix;
 
@@ -29,45 +51,41 @@
     }
 
     // setting controls
-    @if str-index($hide, 'controls') == null {
-      // default style
-      @if $default == true { @extend %default-controls; }
-      // show and hide
-      @for $i from 1 through $items {
-        @at-root { 
-          #{$id}-#{$i}:checked ~ {
-            @if $i == 1 {
-              .controls label:nth-child(#{$items}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
-            }
-            @else if $i == $items {
-              .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(1) .next { @extend %show; }
-            }
-            @else {
-              .controls label:nth-child(#{$i - 1}) .prev, 
-              .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
-            }
+    // default style
+    @if $default { @extend %default-controls; }
+    // show and hide
+    @for $i from 1 through $items {
+      @at-root { 
+        #{$id}-#{$i}:checked ~ {
+          @if $i == 1 {
+            .controls label:nth-child(#{$items}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
+          }
+          @else if $i == $items {
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { @extend %show; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { @extend %show; }
           }
         }
       }
     }
 
     // setting dots
-    @if str-index($hide, 'dots') == null {
-      @if $default == true { @extend %default-dots; }
-      @for $i from 1 through $items {
-        @at-root { 
-          #{$id}-#{$i}:checked ~ {
-          .dots label:nth-child(#{$i}) .active { @extend %show; }
-          .dots label:nth-child(#{$i}) .normal { @extend %hide; }
-          }
+    @if $default == true { @extend %default-dots; }
+    @for $i from 1 through $items {
+      @at-root { 
+        #{$id}-#{$i}:checked ~ {
+        .dots label:nth-child(#{$i}) .active { @extend %show; }
+        .dots label:nth-child(#{$i}) .normal { @extend %hide; }
         }
       }
     }
 
     // setting autoplay
-    @if str-index($hide, 'autoplay') == null and $autoplay == true {
+    @if $autoplay {
       @if $default {
         @extend %default-autoplay;
         @at-root { 
@@ -102,13 +120,6 @@
       //     @include animation-play-state(paused); 
       //   }
       // }
-    }
-
-    // hide controls, dots or autoplay
-    @each $item in controls, dots, autoplay {
-      @if str-index($hide, $item) != null {
-        .#{$item} { display: none !important; }
-      }
     }
 
   } // @at-root (without: media) end
