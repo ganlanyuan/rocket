@@ -5,7 +5,7 @@
 $off-canvas-length: 12;
 
 @mixin off-canvas (
-  $offcanvas-var:
+  $off-canvas-var:
     move
     left
     200px
@@ -20,23 +20,23 @@ $off-canvas-length: 12;
   $padding: em(16, 14);
   $bgc: #000;
 
-  @if $offcanvas-var == animation {
+  @if $off-canvas-var == animation {
     $animation: true;
-  } @else if type-of($offcanvas-var) == color {
-    $bgc: $offcanvas-var;
-  } @else if type-of($offcanvas-var) == number {
-    $nav-width: $offcanvas-var;
-  } @else if type-of($offcanvas-var) == string {
-    @if index($offcanvas-styles, $offcanvas-var) {
-      $style: $offcanvas-var;
-    } @else if index($offcanvas-direction, $offcanvas-var) {
-      $direction: $offcanvas-var;
+  } @else if type-of($off-canvas-var) == color {
+    $bgc: $off-canvas-var;
+  } @else if type-of($off-canvas-var) == number {
+    $nav-width: $off-canvas-var;
+  } @else if type-of($off-canvas-var) == string {
+    @if index($off-canvas-styles, $off-canvas-var) {
+      $style: $off-canvas-var;
+    } @else if index($off-canvas-direction, $off-canvas-var) {
+      $direction: $off-canvas-var;
     } @else {
-      $padding: unquote($offcanvas-var);
+      $padding: unquote($off-canvas-var);
     }
-  } @else if type-of($offcanvas-var) == list {
-    @for $i from 1 through length($offcanvas-var) {
-      $val: nth($offcanvas-var, $i);
+  } @else if type-of($off-canvas-var) == list {
+    @for $i from 1 through length($off-canvas-var) {
+      $val: nth($off-canvas-var, $i);
 
       @if $val == animation {
         $animation: true;
@@ -45,9 +45,9 @@ $off-canvas-length: 12;
       } @else if type-of($val) == number {
         $nav-width: $val;
       } @else if type-of($val) == string {
-        @if index($offcanvas-styles, $val) {
+        @if index($off-canvas-styles, $val) {
           $style: $val;
-        } @else if index($offcanvas-direction, $val) {
+        } @else if index($off-canvas-direction, $val) {
           $direction: $val;
         } @else {
           $padding: unquote($val);
@@ -169,14 +169,14 @@ $off-canvas-length: 12;
   $cover-bg: rgba(0,0,0,.35);
 
   @if type-of($page-container-var) == string {
-    @for $i from 1 through length($offcanvas-styles) {
-      $val: nth($offcanvas-styles, $i);
+    @for $i from 1 through length($off-canvas-styles) {
+      $val: nth($off-canvas-styles, $i);
       @if $val == $page-container-var {
         $style: $page-container-var;
       }
     }
-    @for $i from 1 through length($offcanvas-direction) {
-      $val: nth($offcanvas-direction, $i);
+    @for $i from 1 through length($off-canvas-direction) {
+      $val: nth($off-canvas-direction, $i);
       @if $val == $page-container-var {
         $direction: $page-container-var;
       }
@@ -194,10 +194,10 @@ $off-canvas-length: 12;
       @if type-of($val) == color {
         $cover-bg: $val;
       }
-      @if index($offcanvas-styles, $val) {
+      @if index($off-canvas-styles, $val) {
         $style: $val;
       }
-      @if index($offcanvas-direction, $val) {
+      @if index($off-canvas-direction, $val) {
         $direction: $val;
       }
     }

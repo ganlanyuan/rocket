@@ -10,12 +10,12 @@
   </nav>
   <h4>components</h4>
   <nav class="demo-links">
-    <a <?php if ($pagename == 'addons-button' ) { echo 'class="current"'; } ?> href="addons-button.php">button</a>
-    <a <?php if ($pagename == 'addons-media-list' ) { echo 'class="current"'; } ?> href="addons-media-list.php">media-list</a>
-    <a <?php if ($pagename == 'addons-off-canvas' ) { echo 'class="current"'; } ?> href="addons-off-canvas.php">off-canvas</a>
-    <a <?php if ($pagename == 'addons-dropdown' ) { echo 'class="current"'; } ?> href="addons-dropdown.php">dropdown</a>
-    <a <?php if ($pagename == 'addons-tooltip' ) { echo 'class="current"'; } ?> href="addons-tooltip.php">tooltip</a>
-    <a <?php if ($pagename == 'addons-flex-video' ) { echo 'class="current"'; } ?> href="addons-flex-video.php">flex-video</a>
+    <a <?php if ($pagename == 'addons-button' ) { echo 'class="current"'; } ?> href="components-button.php">button</a>
+    <a <?php if ($pagename == 'addons-media-list' ) { echo 'class="current"'; } ?> href="components-media-list.php">media-list</a>
+    <a <?php if ($pagename == 'addons-off-canvas' ) { echo 'class="current"'; } ?> href="components-off-canvas.php">off-canvas</a>
+    <a <?php if ($pagename == 'addons-dropdown' ) { echo 'class="current"'; } ?> href="components-dropdown.php">dropdown</a>
+    <a <?php if ($pagename == 'addons-tooltip' ) { echo 'class="current"'; } ?> href="components-tooltip.php">tooltip</a>
+    <a <?php if ($pagename == 'addons-flex-video' ) { echo 'class="current"'; } ?> href="components-flex-video.php">flex-video</a>
   </nav>
   <h4>addons</h4>
   <nav class="demo-links">

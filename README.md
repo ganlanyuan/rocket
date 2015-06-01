@@ -264,7 +264,7 @@ h1 { @include type(32px,700,null,1.1); }
 // $border: value | null
 // $border-radius: value | null
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-button.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-button.php)
 
 ##### Media list
 `media` displays a media object (images, video, audio) to the left or right of a block.
@@ -284,7 +284,7 @@ h1 { @include type(32px,700,null,1.1); }
 .news-right { @include media(1em, '.media', '.media-body', right); } 
 .news-left { @include media(15px, 'figure', 'div'); } 
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-media-list.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-media-list.php)
 
 ##### off-canvas
 `off-canvas` is for creating the navigation of mobile site.
@@ -327,7 +327,7 @@ nav { @include off-canvas($style, $direction, $font-size, $padding, $bgc, $anima
 // $style: move | translate | reveal
 // $direction: left | right
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-off-canvas.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-off-canvas.php)
 
 ##### dropdown
 There are two ways to show a dropdown menu. If you set as `click`, you need add an `<span data-dropdown-toggle></span>` beside your dropdown menu.
@@ -343,7 +343,7 @@ There are two ways to show a dropdown menu. If you set as `click`, you need add 
 // If you set $open: click, 
 // you need insert <span data-dropdown-toggle></span> inside your dropdown tag.
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-dropdown.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
 
 ##### tooltip
 This is a pure css tooltip.
@@ -360,7 +360,7 @@ This is a pure css tooltip.
 // it's better to set tooltip box as a block element, 
 // or give it a width;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-tooltip.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-tooltip.php)
 
 ##### breakpoint
 A shorthand @mixin for break point.
@@ -411,7 +411,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 
 .flex-video { @include flex-video(3/4); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-flex-video.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-flex-video.php)
 
 #### 【 Color Functions 】
 Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   

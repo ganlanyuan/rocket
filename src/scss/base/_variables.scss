@@ -34,8 +34,8 @@ $media-types: all, aural, braille, handheld, print, projection, screen, tty, tv,
 $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit;
 $font-styles: italic, oblique, style-normal, style-inherit;
 $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit;
-$offcanvas-styles: move, translate, reveal;
-$offcanvas-direction: left, right;
+$off-canvas-styles: move, translate, reveal;
+$off-canvas-direction: left, right;
 
 // button
 $button-radius: 0.22em;
