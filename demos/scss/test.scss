@@ -1,0 +1,64 @@
+@charset "UTF-8";
+$font-path:"../../src/icon-font";
+@import "../../src/scss/rocket"; 
+ul, ol { margin: 0; padding: 0; }
+li { list-style: none; }
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+%common {
+  background-color: #dbdbdb;
+  margin-bottom: 20px;
+}
+$main:(8 of 12);
+$gutter-2: (map-get($layout, gutter) / span($main) );
+$gutter-3: (map-get($layout, gutter) / ( span($main) * span(6) ) );
+$gutter-4: (map-get($layout, gutter) / ( span($main) * span($main) ) );
+.container { @include container(); }
+.main {
+  @include span($main);
+  @include breakpoint-mi( 640 ) {
+    &-left {
+      @at-root (without:media) { @extend %common; }
+      @include span(6 $gutter-2);
+    }
+    &-right {
+      @at-root (without:media) { @extend %common; }
+      @include span(6 $gutter-2 last);
+    }
+    .news { @include span(7 $gutter-3); }
+    .popular { @include span(5 $gutter-3 last); }
+  }
+  @include breakpoint-mi( em(980px) ) {
+    &-left {
+      @include span(8 $gutter-2 keep);
+    }
+    &-right {
+      @include span(4 $gutter-2 keep);
+    }
+    .news { @include span(5 $gutter-4); }
+    .popular { @include span(7 $gutter-4 last); }
+  }
+}
+.aside {
+  @extend %common;
+  @include span(4 of 12 last);
+}
+.gallery {
+  clear: both;
+}
+@include breakpoint-mi( em(640px) ) {
+  .gallery {
+    @include gallery(3);
+  }
+}
+@include breakpoint-mi( em(980px) ) {
+  .gallery {
+    @include gallery(4 keep);
+  }
+}

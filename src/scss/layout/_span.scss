@@ -4,7 +4,7 @@
 	$column: 0;
 	$columns: map-get($layout, columns);
 	$gutter: map-get($layout, gutter);
-	$position: false;
+	$location: false;
 	$move: false;
 	$isolate: false;
 	$float: false;
@@ -39,9 +39,9 @@
 			$move: get-next($span-var, move);
 		}
 
-		// set up column, position and isolate
+		// set up column, location and isolate
 		@if index($span-var, at) {
-			$position: (get-next($span-var, at) - 1);
+			$location: (get-next($span-var, at) - 1);
 			$column: get-prev($span-var, at);
 			$isolate: true;
 		} @else if index($span-var, of) {
@@ -74,17 +74,11 @@
 	}
 
 	// *** output *** //
-  // direction
-  @if not $keep {
-	  @if $float == right { 
-	  	float: $float; 
-	  } @else { 
-	  	float: left; 
-	  }
-  }
+  // float
+  @if not $keep { float: $float; }
 
 	// move
-	@if $move { position: relative; }
+	@if $move { location: relative; }
 
 	// isolate
 	@if $isolate { margin-right: -100%; }
@@ -98,9 +92,9 @@
 	  	left: percentage($move / $columns); 
 	  }
 
-	  // position
-	  @if $position and $position != 0 { 
-	  	margin-#{$float}: percentage($position / $columns); 
+	  // location
+	  @if $location and $location != 0 { 
+	  	margin-#{$float}: percentage($location / $columns); 
 	  }
 
 	// flexible gutter
@@ -117,9 +111,9 @@
 			left: ($column-width + $gutter) * $move; 
 		}
 
-		// position
-		@if $position and $position != 0 { 
-			margin-#{$float}: ($column-width + $gutter) * $position; 
+		// location
+		@if $location and $location != 0 { 
+			margin-#{$float}: ($column-width + $gutter) * $location; 
 		}
 
 	// fixed gutter
@@ -137,9 +131,9 @@
 			left: percentage($move / $columns); 
 		}
 
-		// position
-		@if $position and $position != 0 { 
-			margin-#{$float}: percentage($position / $columns); 
+		// location
+		@if $location and $location != 0 { 
+			margin-#{$float}: percentage($location / $columns); 
 		}
 	}
 }
