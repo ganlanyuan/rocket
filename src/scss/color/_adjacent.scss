@@ -1,13 +1,13 @@
 // *** adjacent *** //
 
-@function adjacent($val){
-  $val-new: ();
+@function adjacent($key){
+  $key-new: ();
 
-  @if type-of($val) == list {
-    $val-new: append($val, adjacent);
+  @if type-of($key) == list {
+    $key-new: append($key, adjacent);
   } @else {
-    $val-new: ($val adjacent);
+    $key-new: ($key adjacent);
   }
 
-  @return color($val-new);
+  @return color($key-new);
 }

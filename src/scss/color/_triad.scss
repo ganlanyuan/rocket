@@ -1,13 +1,13 @@
 // *** triad *** //
 
-@function triad($val){
-  $val-new: ();
+@function triad($key){
+  $key-new: ();
 
-  @if type-of($val) == list {
-    $val-new: append($val, triad);
+  @if type-of($key) == list {
+    $key-new: append($key, triad);
   } @else {
-    $val-new: ($val triad);
+    $key-new: ($key triad);
   }
 
-  @return color($val-new);
+  @return color($key-new);
 }

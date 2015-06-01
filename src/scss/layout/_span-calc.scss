@@ -1,43 +1,43 @@
 // *** span-calc *** // 
 
-@mixin span-calc($span-calc-var){
+@mixin span-calc($key){
   $column: 0;
-  $columns: 0;
-  $gutter: 0;
+  $columns: map-get($layout, columns);
+  $gutter: 20px;
   $move: false;
-  $float: false;
+  $float: left;
   $last: false;
   $keep: false;
 
-  @if type-of($span-calc-var) == number {
-    $column: $span-calc-var;
-  } @else if type-of($span-calc-var) == list {
+  @if type-of($key) == number {
+    $column: $key;
+  } @else if type-of($key) == list {
 
     // set up direction
     @each $direction in left, right {
-      @if index($span-calc-var, $direction) { 
+      @if index($key, $direction) { 
         $float: $direction;
       } 
     }
 
     // set up keep
-    @if index($span-calc-var, keep) {
+    @if index($key, keep) {
       $keep: true;
     }
 
     // set up last
-    @if index($span-calc-var, last) {
+    @if index($key, last) {
       $last: true;
     }
 
     // set up move
-    @if index($span-calc-var, move) {
-      $move: get-next($span-calc-var, move);
+    @if index($key, move) {
+      $move: get-next($key, move);
     }
 
     // set up gutter
-    @for $i from 1 through length($span-calc-var) {
-      $val: nth($span-calc-var, $i);
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if type-of($val) == number and
           not unitless($val) {
@@ -46,12 +46,12 @@
     }
 
     // set up column, columns
-    @if index($span-calc-var, of) {
-      $column: get-prev($span-calc-var, of);
-      $columns: get-next($span-calc-var, of);
+    @if index($key, of) {
+      $column: get-prev($key, of);
+      $columns: get-next($key, of);
     } @else {
-      @for $i from 1 through length($span-var) {
-        $val: nth($span-var, $i);
+      @for $i from 1 through length($key) {
+        $val: nth($key, $i);
 
         @if type-of($val) == number and
             unitless($val) {
@@ -86,10 +86,7 @@
     width: calc( #{$column-width} - #{$gutter} );
     @if not $keep {
       @if not $last { 
-        @if $float == left or $float == right {
-          margin-#{opposite($float)}: $gutter; 
-        }
-        @else { margin-right: $gutter; }
+        margin-#{opposite($float)}: $gutter; 
       }
     }
     // move

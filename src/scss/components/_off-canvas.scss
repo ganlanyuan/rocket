@@ -5,45 +5,44 @@
 $off-canvas-length: 12;
 
 @mixin off-canvas (
-  $off-canvas-var:
+  $key:
     move
     left
     200px
     'em(16, 14)'
     #000
-    true
 ){
   $style: move;
   $direction: left;
   $animation: true;
-  $nav-width: 200px;
+  $off-canvas-width: 200px;
   $padding: em(16, 14);
-  $bgc: #000;
+  $background-color: #000;
 
-  @if $off-canvas-var == animation {
+  @if $key == animation {
     $animation: true;
-  } @else if type-of($off-canvas-var) == color {
-    $bgc: $off-canvas-var;
-  } @else if type-of($off-canvas-var) == number {
-    $nav-width: $off-canvas-var;
-  } @else if type-of($off-canvas-var) == string {
-    @if index($off-canvas-styles, $off-canvas-var) {
-      $style: $off-canvas-var;
-    } @else if index($off-canvas-direction, $off-canvas-var) {
-      $direction: $off-canvas-var;
+  } @else if type-of($key) == color {
+    $background-color: $key;
+  } @else if type-of($key) == number {
+    $off-canvas-width: $key;
+  } @else if type-of($key) == string {
+    @if index($off-canvas-styles, $key) {
+      $style: $key;
+    } @else if index($off-canvas-direction, $key) {
+      $direction: $key;
     } @else {
-      $padding: unquote($off-canvas-var);
+      $padding: unquote($key);
     }
-  } @else if type-of($off-canvas-var) == list {
-    @for $i from 1 through length($off-canvas-var) {
-      $val: nth($off-canvas-var, $i);
+  } @else if type-of($key) == list {
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if $val == animation {
         $animation: true;
       } @else if type-of($val) == color {
-        $bgc: $val;
+        $background-color: $val;
       } @else if type-of($val) == number {
-        $nav-width: $val;
+        $off-canvas-width: $val;
       } @else if type-of($val) == string {
         @if index($off-canvas-styles, $val) {
           $style: $val;
@@ -59,8 +58,8 @@ $off-canvas-length: 12;
   // common
   position: fixed;
   height: 100%;
-  color: contrast($bgc);
-  background: $bgc;
+  color: contrast($background-color);
+  background: $background-color;
   z-index: 300;
   box-sizing: border-box;
   -webkit-transition: all $global-animation-duration $global-bezier 0s;
@@ -73,16 +72,16 @@ $off-canvas-length: 12;
   a { 
     display: block;
     padding: $padding;
-    color: contrast($bgc);
+    color: contrast($background-color);
     -webkit-transition: all $global-animation-duration $global-bezier 0s;
     transition: all $global-animation-duration $global-bezier 0s;
     &:hover { 
       text-decoration: none;
-      background-color: analogous($bgc 15%); 
+      background-color: analogous($background-color 15%); 
     }
   }
   .active > a,
-  .current > a { background-color: analogous($bgc 23%); }
+  .current > a { background-color: analogous($background-color 23%); }
   [data-offcanvas-close] { cursor: pointer; }
   [data-offcanvas-subnav] {
     width: 100%;
@@ -90,14 +89,14 @@ $off-canvas-length: 12;
     left: 100%;
     top: 0;
     bottom: 0;
-    background-color: $bgc;
+    background-color: $background-color;
     -webkit-transition: left .3s $global-bezier 0s;
     transition: left .3s $global-bezier 0s;
   }
   [data-offcanvas-back]{ 
     padding: $padding;
     cursor: pointer;
-    background-color: analogous($bgc 15%);
+    background-color: analogous($background-color 15%);
   }
   [data-icon-haschild] { 
     display: inline-block;
@@ -105,7 +104,7 @@ $off-canvas-length: 12;
     float: right;
     height: 1em;
     cursor: pointer;
-   &:hover { background-color: analogous($bgc 15%); } 
+   &:hover { background-color: analogous($background-color 15%); } 
   }
   @at-root { .off-canvas-show .mb-subnav-show { left: 0; } }
 
@@ -114,17 +113,17 @@ $off-canvas-length: 12;
     .off-canvas-show & { margin-#{$direction}: 0; }
   }
   @if $style == translate {
-    .off-canvas-show & { #{$direction}: $nav-width; }
+    .off-canvas-show & { #{$direction}: $off-canvas-width; }
   }
   @if $style == reveal { z-index: 100; }
   @if $direction == left or 
       $direction == right {
-    width: $nav-width;
+    width: $off-canvas-width;
     overflow-x: hidden;
     overflow-y: auto;
     #{$direction}: 0;
     @if $style == move or 
-        $style == translate { margin-#{$direction}: -$nav-width; }
+        $style == translate { margin-#{$direction}: -$off-canvas-width; }
   }
 
   // animation
@@ -163,7 +162,7 @@ $off-canvas-length: 12;
     left
     rgba(0,0,0,.35) 
 ){
-  $nav-width: 200px;
+  $off-canvas-width: 200px;
   $style: move;
   $direction: left;
   $cover-bg: rgba(0,0,0,.35);
@@ -184,12 +183,12 @@ $off-canvas-length: 12;
   } @else if type-of($page-container-var) == color {
     $cover-bg: $page-container-var;
   } @else if type-of($page-container-var) == number {
-    $nav-width: $page-container-var;
+    $off-canvas-width: $page-container-var;
   } @else if type-of($page-container-var) == list {
     @for $i from 1 through length($page-container-var) {
       $val: nth($page-container-var, $i);
       @if type-of($val) == number {
-        $nav-width: $val;
+        $off-canvas-width: $val;
       }
       @if type-of($val) == color {
         $cover-bg: $val;
@@ -226,7 +225,7 @@ $off-canvas-length: 12;
       $direction == right { #{$direction}: 0; }
   @if $style == translate or 
       $style == reveal {
-    .off-canvas-show & { #{$direction}: $nav-width; }
+    .off-canvas-show & { #{$direction}: $off-canvas-width; }
   }
   @if $style == reveal {
     min-width: 320px;

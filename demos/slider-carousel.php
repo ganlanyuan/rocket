@@ -395,18 +395,22 @@
       <div>
         <h4>SCSS</h4>
         <pre class="language-scss"><code>
-.carousel-a { @include slider-carousel(); }
-.carousel-b { @include slider-carousel(); }
-.carousel-c { @include slider-carousel(); }
-.carousel-d { @include slider-carousel($perpage: 2, $slide-by-page: true); }
-.carousel-e { @include slider-carousel($perpage: 2, $center: true); }
-.carousel-f { @include slider-carousel($perpage: 3, $autoplay: true); }
-@include bp-mi(em(700)) {
-  .carousel-a { @include slider-carousel($perpage: 2); }
-  .carousel-b { @include slider-carousel($perpage: 2); }
+.carousel-a { @include slider-carousel(5 by 1 default); }
+.carousel-b { @include slider-carousel(5 by 1 default); }
+.carousel-c { @include slider-carousel(5 by 1 default); }
+.carousel-d { @include slider-carousel(5 by 2 bypage default); }
+.carousel-e { @include slider-carousel(5 by 2 center default); }
+.carousel-f { @include slider-carousel(5 by 2 autoplay default); }
+.carousel-g { @include slider-carousel(5 by 1 default); }
+@include breakpoint-mi(em(700)) {
+  .carousel-a { @include slider-carousel(5 by 2); }
+  .carousel-b { @include slider-carousel(5 by 2); }
+  .carousel-d { @include slider-carousel(5 by 3 bypage); }
+  .carousel-g { @include slider-carousel(5 by 2); }
 }
-@include bp-mi(em(1000)) {
-  .carousel-a { @include slider-carousel($perpage: 3); }
+@include breakpoint-mi(em(1000)) {
+  .carousel-a { @include slider-carousel(5 by 3); }
+  .carousel-g { @include slider-carousel(5 by 3); }
 }
         </code></pre>
       </div>

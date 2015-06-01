@@ -5,6 +5,7 @@
 
     <div class="topic">
       <h2 id=""><span>layout: </span>grid</h2>
+      <h4>span</h4>
       <div class="example example-span" data-margin>
         <div class="example-span-1 cell" data-content>
           <div class="example-content">
@@ -22,6 +23,7 @@
 .example-span-1 { @include span(7,11,2%); }
 .example-span-2 { @include span(4,11,2%, $last:true); }
       </code></pre>
+      <h4>span-calc</h4>
       <div class="example" data-margin>
         <div class="example-span-calc-1 cell" data-content="">
           <div class="example-content">

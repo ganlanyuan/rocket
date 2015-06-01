@@ -1,14 +1,14 @@
 // *** square *** //
 
-@function square($val){
-  $val-new: ();
+@function square($key){
+  $key-new: ();
 
-  @if type-of($val) == list {
-    $val-new: append($val, square);
+  @if type-of($key) == list {
+    $key-new: append($key, square);
   } @else {
-    $val-new: ($val square);
+    $key-new: ($key square);
   }
 
-  @return color($val-new);
+  @return color($key-new);
 }
 

@@ -9,7 +9,7 @@
         <div class="flex-video"><iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen></iframe></div>
       </div>
       <pre><code class="language-scss">
-      .flex-video { @include flex-video(315/560); }
+      .flex-video { @include flex-video(iframe 315/560); }
       </code></pre>
     </div>
     

@@ -11,7 +11,7 @@
 }
 
 @mixin button (
-	$button-var:
+	$key:
 		14px
 		'0.5em 0.8em'
     radius
@@ -23,21 +23,21 @@
   $round: false;
   $hover: false;
 
-  @if $button-var == radius {
+  @if $key == radius {
     $radius: true;
-  } @else if $button-var == round {
+  } @else if $key == round {
     $round: true;
-  } @else if $button-var == hover {
+  } @else if $key == hover {
     $hover: true;
-  } @else if type-of($button-var) == color {
-  	$background-color: $button-var;
-  } @else if type-of($button-var) == number {
-  	$font-size: $button-var;
-  } @else if type-of($button-var) == string {
-  	$padding: unquote($button-var);
-  } @else if type-of($button-var) == list {
-  	@for $i from 1 through length($button-var) {
-  		$val: nth($button-var, $i);
+  } @else if type-of($key) == color {
+  	$background-color: $key;
+  } @else if type-of($key) == number {
+  	$font-size: $key;
+  } @else if type-of($key) == string {
+  	$padding: unquote($key);
+  } @else if type-of($key) == list {
+  	@for $i from 1 through length($key) {
+  		$val: nth($key, $i);
 
       @if $val == radius {
         $radius: true;

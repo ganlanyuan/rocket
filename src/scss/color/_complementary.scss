@@ -1,13 +1,13 @@
 // *** complementary *** //
 
-@function complementary($val){
-  $val-new: ();
+@function complementary($key){
+  $key-new: ();
 
-  @if type-of($val) == list {
-    $val-new: append($val, complementary);
+  @if type-of($key) == list {
+    $key-new: append($key, complementary);
   } @else {
-    $val-new: ($val complementary);
+    $key-new: ($key complementary);
   }
 
-  @return color($val-new);
+  @return color($key-new);
 }

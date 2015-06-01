@@ -92,15 +92,8 @@ h2 span {
   color: #999;
 }
 
-h3 {
-  font-size: 18.6667px;
-  font-size: 1.16638rem;
-  font-weight: 500;
-  margin: .5em 0;
-  padding: .7em 0;
-}
-h3[id] {
-  border-bottom: 1px solid  #dbdbdb;
+h4 {
+  margin: 1.5em 0 0.5em;
 }
 
 h5 {

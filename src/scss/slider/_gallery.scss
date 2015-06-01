@@ -1,26 +1,26 @@
 // *** slider-gallery *** //
-@mixin slider-gallery($gallery-var){
+@mixin slider-gallery($key){
   $items: 1;
   $ratio: 9/16; 
   $autoplay: false;
   $default: false;
 
-  @if type-of($gallery-var) == number {
-    $items: $gallery-var;
-  } @else if type-of($gallery-var) == list {
-    @if index($gallery-var, ratio) {
-      $ratio: get-next($gallery-var, ratio);
-      $gallery-var: reject($gallery-var, $ratio);
+  @if type-of($key) == number {
+    $items: $key;
+  } @else if type-of($key) == list {
+    @if index($key, ratio) {
+      $ratio: get-next($key, ratio);
+      $key: reject($key, $ratio);
     }
-    @if index($gallery-var, autoplay) {
+    @if index($key, autoplay) {
       $autoplay: true;
     }
-    @if index($gallery-var, default) {
+    @if index($key, default) {
       $default: true;
     }
 
-    @for $i from 1 through length($gallery-var) {
-      $val: nth($gallery-var, $i);
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
       
       @if type-of($val) == number {
         $items: $val;

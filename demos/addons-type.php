@@ -15,11 +15,11 @@
     </div>
     <div class="content-aside-long">
       <pre><code class="language-scss">
-h1.example-type { @include type(32px,null,null,1.1); }
-h2.example-type { @include type(28px,null,null,1.2); }
-h3.example-type { @include type(24px,null,null,1.3); }
-h4.example-type { @include type(20px,null,null,1.4); }
-h5.example-type { @include type(16px,null,null,1.5); }
+h1 { @include type(32px 1.1 italic); }
+h2 { @include type(28px 1.2 weight-normal uppercase); }
+h3 { @include type(24px 900 1.3); }
+h4 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4); }
+h5 { @include type(16px 1.5); }
       </code></pre>
     </div>
     

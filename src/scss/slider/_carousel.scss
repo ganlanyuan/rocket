@@ -1,20 +1,18 @@
 // *** slider-carousel *** //
-@mixin slider-carousel($carousel-var){
+@mixin slider-carousel($key){
   $items: 1;
   $perpage: 1;
   $gutter: 10px;
   $slide-by-page: false;
   $center: false;
   $autoplay: false;
-  $controls: false; 
-  $dots: false; 
   $default: false;
 
-  @if type-of($carousel-var) == number {
-    $item: $carousel-var;
-  } @else if type-of($carousel-var) == list {
-    @for $i from 1 through length($carousel-var) {
-      $val: nth($carousel-var, $i);
+  @if type-of($key) == number {
+    $item: $key;
+  } @else if type-of($key) == list {
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if $val == bypage {
         $slide-by-page: true;
@@ -22,17 +20,13 @@
         $center: true;
       } @else if $val == autoplay {
         $autoplay: true;
-      } @else if $val == controls {
-        $controls: true;
-      } @else if $val == dots {
-        $dots: true;
       } @else if $val == default {
         $default: true;
       }
 
-      @if index($carousel-var, by) {
-        $items: get-prev($carousel-var, by);
-        $perpage: get-next($carousel-var, by);
+      @if index($key, by) {
+        $items: get-prev($key, by);
+        $perpage: get-next($key, by);
       } @else if type-of($val) == number {
         @if unitless($val) {
           $items: $val;

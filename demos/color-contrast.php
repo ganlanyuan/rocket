@@ -11,9 +11,13 @@
         <div class="color-box color-box-contrast-3">contrast</div>
       </div>
       <pre><code class="language-scss">
-.color-box-contrast { 
-  background-color: $contrast; 
-  color: contrast($contrast);
+$contrast: #5173a3, #bbf8e6, #cb7d26;
+@for $i from 1 through 3 {
+  .color-box-contrast-#{$i} { 
+    background-color: nth($contrast, $i); 
+    color: contrast(nth($contrast, $i) light #eee dark red);
+    width: 30%;
+  }
 }
       </code></pre>
     </div>

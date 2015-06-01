@@ -12,12 +12,12 @@
       <div class="hidden-2">Hidden between <strong>900px</strong> and <strong>1000px</strong></div>
       <div class="hidden-3">Hidden between <strong>700px</strong> and <strong>900px</strong>, and <strong>1200px</strong> up</div>
       <pre><code class="language-scss">
-.visible-1 { @include visible(null, 900);}
-.visible-2 { @include visible(null, 900, 1000);}
-.visible-3 { @include visible(null, 700, 900, 1200);}
-.hidden-1 { @include hidden(null, 900);}
-.hidden-2 { @include hidden(null, 900, 1000);}
-.hidden-3 { @include hidden(null, 700, 900, 1200);}
+.visible-1 { @include visible(900);}
+.visible-2 { @include visible(900 1000 screen);}
+.visible-3 { @include visible(700 900 1200);}
+.hidden-1 { @include hidden(900);}
+.hidden-2 { @include hidden(900 1000);}
+.hidden-3 { @include hidden(900 1000 1200);}
       </code></pre>
     </div>
     

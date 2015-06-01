@@ -20,10 +20,16 @@
         </div>
       </div>
       <pre><code class="language-scss">
-button { @include button(14px, .5em .8em,#3255ff, null, 3px ); }
-input { @include button(16px, .5em 1em, null, 1px solid #ccc, 3px); }
-.pagination a { @include button(13px, em(5) em(8), #dbdbdb, null, 3px); }
-.breadcrumb a { @include button(14px, 5px); }
+button { @include button(14px '.5em .8em' #3255ff round hover); }
+input {
+  display: block; 
+  @include button(16px '.5em 1em' radius); 
+  border: 1px solid  #ddd;
+}
+.pagination a { 
+  display: inline-block; 
+  @include button(13px '.5em .6em' #dbdbdb hover radius);
+}
       </code></pre>
     </div>
     

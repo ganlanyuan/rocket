@@ -1,20 +1,20 @@
 // *** break point *** //
 
 // min-width
-@mixin breakpoint-mi($bp-mi-var){
+@mixin breakpoint-mi($key){
   $min: 0;
   $media: false;
 
   // get min, media type
-  @if type-of($bp-mi-var) == number {
-    $min: $bp-mi-var;
-  } @else if type-of($bp-mi-var) == list {
+  @if type-of($key) == number {
+    $min: $key;
+  } @else if type-of($key) == list {
     @each $type in $media-types {
-      @if index($bp-mi-var, $type) {
+      @if index($key, $type) {
         $media: $type;
-        $bp-mi-var: reject($bp-mi-var, $type);
+        $key: reject($key, $type);
       }
-      $min: nth($bp-mi-var, 1);
+      $min: nth($key, 1);
     }
   }
 
@@ -37,20 +37,20 @@
 }
 
 //  max-width
-@mixin breakpoint-ma($bp-ma-var){
+@mixin breakpoint-ma($key){
   $max: 0;
   $media: false;
 
   // get max, media type
-  @if type-of($bp-ma-var) == number {
-    $max: $bp-ma-var;
-  } @else if type-of($bp-ma-var) == list {
+  @if type-of($key) == number {
+    $max: $key;
+  } @else if type-of($key) == list {
     @each $type in $media-types {
-      @if index($bp-ma-var, $type) {
+      @if index($key, $type) {
         $media: $type;
-        $bp-ma-var: reject($bp-ma-var, $type);
+        $key: reject($key, $type);
       }
-      $max: nth($bp-ma-var, 1);
+      $max: nth($key, 1);
     }
   }
 
@@ -73,20 +73,20 @@
 }
 
 // min-width & max-width
-@mixin breakpoint-mm($bp-mm-var){
+@mixin breakpoint-mm($key){
   $min: 0;
   $max: 0;
   $media: false;
 
   // get min, max, media type
-  @if type-of($bp-mm-var) == list {
+  @if type-of($key) == list {
     @each $type in $media-types {
-      @if index($bp-mm-var, $type) {
+      @if index($key, $type) {
         $media: $type;
-        $bp-mm-var: reject($bp-mm-var, $type);
+        $key: reject($key, $type);
       }
-      $min: nth($bp-mm-var, 1);
-      $max: nth($bp-mm-var, 2);
+      $min: nth($key, 1);
+      $max: nth($key, 2);
     }
   }
 

@@ -14,16 +14,16 @@
       </div>
       <pre><code class="language-scss">
 .color-box-rectangle-1 { 
-  background-color: rectangle($original, 1); 
-  color: contrast(rectangle($original, 1));
+  background-color: rectangle($original 1); 
+  color: contrast(rectangle($original 1));
 }
 .color-box-rectangle-2 { 
-  background-color: rectangle($original, 2);
-  color: contrast(rectangle($original, 2));
+  background-color: rectangle($original 2);
+  color: contrast(rectangle($original 2));
 }
 .color-box-rectangle-3 { 
-  background-color: rectangle($original, 3);
-  color: contrast(rectangle($original, 3));
+  background-color: rectangle($original 3);
+  color: contrast(rectangle($original 3));
 }
       </code></pre>
     </div>

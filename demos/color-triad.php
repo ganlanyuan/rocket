@@ -13,12 +13,12 @@
       </div>
       <pre><code class="language-scss">
 .color-box-triad-1 { 
-  background-color: triad($original, 1); 
-  color: contrast(triad($original, 1));
+  background-color: triad($original 1); 
+  color: contrast(triad($original 1));
 }
 .color-box-triad-2 { 
-  background-color: triad($original, 2);
-  color: contrast(triad($original, 2));
+  background-color: triad($original 2);
+  color: contrast(triad($original 2));
 }
       </code></pre>
     </div>

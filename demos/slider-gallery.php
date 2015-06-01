@@ -181,14 +181,16 @@
         </div>
         <div class="content-aside">
           <pre class="language-scss"><code>
-.gallery-a { @include slider-gallery($autoplay: true); }
-.gallery-b { @include slider-gallery(); }
-.gallery-b {
+.gallery-a { @include slider-gallery(5 autoplay default); }
+.gallery-b { @include slider-gallery(5 default); }
+.gallery-c { @include slider-gallery(5 default); }
+
+.gallery-c {
   // setting item
   .outer { overflow: visible; }
   li { @include transform(scale(1.1)); }
   @for $i from 1 through 5 {
-    #gallery-b-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
+    #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
   }
   // setting .info
   .info { opacity: 0; margin-left: 0;
@@ -196,7 +198,7 @@
     transition: all 1s $global-bezier 0.5s;
    }
   @for $i from 1 through 5 {
-    #gallery-b-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
+    #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
       opacity: 1;
       margin-left: 20px;
     }

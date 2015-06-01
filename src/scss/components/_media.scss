@@ -5,30 +5,30 @@
 	vertical-align: top;
 }
 
-@mixin media($media-var){
+@mixin media($key){
 	$gutter: 10px;
 	$media: null;
-	$body: null;
+	$media-body: null;
 	$direction: left;
 
-	@if type-of($media-var) == number {
-		$gutter: $media-var;
-	} @else if type-of($media-var) == list {
-		@for $i from 1 through length($media-var) {
-			@if type-of(nth($media-var, $i)) == number {
-				$gutter: nth($media-var, $i);
+	@if type-of($key) == number {
+		$gutter: $key;
+	} @else if type-of($key) == list {
+		@for $i from 1 through length($key) {
+			@if type-of(nth($key, $i)) == number {
+				$gutter: nth($key, $i);
 			}
 		}
 		@each $item in left, right {
-			@if index($media-var, $item) {
+			@if index($key, $item) {
 				$direction: $item;
 			}
 		}
-		@if index($media-var, media) {
-			$media: get-next($media-var, media);
+		@if index($key, media) {
+			$media: get-next($key, media);
 		}
-		@if index($media-var, body) {
-			$body: get-next($media-var, body);
+		@if index($key, body) {
+			$media-body: get-next($key, body);
 		}
 	}
 
@@ -50,8 +50,8 @@
 	}
 
 	// media body
-	@if $body and $body != null {
-		> #{$body} { @extend %media-style; }
+	@if $media-body and $media-body != null {
+		> #{$media-body} { @extend %media-style; }
 	} @else {
 		> [data-media-body] { @extend %media-style; }
 	}

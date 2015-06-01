@@ -29,15 +29,15 @@
   }
 }
 
-@mixin justify($justify-var){
+@mixin justify($key){
   $child:false;
 
   // set up child
-  @if type-of($justify-var) == string {
-    $child: $justify-var;
-  } @else if type-of($justify-var) == list {
-    @if index($justify-var, child) {
-      $child: get-next($justify-var, child);
+  @if type-of($key) == string {
+    $child: $key;
+  } @else if type-of($key) == list {
+    @if index($key, child) {
+      $child: get-next($key, child);
     }
   }
 

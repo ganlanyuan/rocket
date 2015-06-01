@@ -1,15 +1,15 @@
 // analogous
-@function analogous($analogous-var) {
+@function analogous($key) {
   $color: false;
   $lightness: false;
   
-  @if type-of($analogous-var) == color {
-    $color: $analogous-var;
-  } @else if type-of($analogous-var) == number {
-    $lightness: $analogous-var;
-  } @else if type-of($analogous-var) == list {
-    @for $i from 1 through length($analogous-var) {
-      $val: nth($analogous-var, $i);
+  @if type-of($key) == color {
+    $color: $key;
+  } @else if type-of($key) == number {
+    $lightness: $key;
+  } @else if type-of($key) == list {
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if type-of($val) == color {
         $color: $val;

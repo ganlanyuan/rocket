@@ -1,13 +1,13 @@
 // *** rectangle *** //
 
-@function rectangle($val){
-  $val-new: ();
+@function rectangle($key){
+  $key-new: ();
 
-  @if type-of($val) == list {
-    $val-new: append($val, rectangle);
+  @if type-of($key) == list {
+    $key-new: append($key, rectangle);
   } @else {
-    $val-new: ($val rectangle);
+    $key-new: ($key rectangle);
   }
 
-  @return color($val-new);
+  @return color($key-new);
 }

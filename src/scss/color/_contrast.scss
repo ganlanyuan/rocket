@@ -45,28 +45,28 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   @return 100% * $number / 255;
 }
  
-@function contrast($contrast-var) {
+@function contrast($key) {
   $color: false;
   $light: #fff;
   $dark: #000;
 
-  @if type-of($contrast-var) == color {
-    $color: $contrast-var;
-  } @else if type-of($contrast-var) == list {
+  @if type-of($key) == color {
+    $color: $key;
+  } @else if type-of($key) == list {
     
-    @if index($contrast-var, light) {
-      $light: get-next($contrast-var, light);
-      $contrast-var: reject($contrast-var, light);
-      $contrast-var: reject($contrast-var, $light);
+    @if index($key, light) {
+      $light: get-next($key, light);
+      $key: reject($key, light);
+      $key: reject($key, $light);
     } 
-    @if index($contrast-var, dark) {
-      $dark: get-next($contrast-var, dark);
-      $contrast-var: reject($contrast-var, dark);
-      $contrast-var: reject($contrast-var, $dark);
+    @if index($key, dark) {
+      $dark: get-next($key, dark);
+      $key: reject($key, dark);
+      $key: reject($key, $dark);
     }
     
-    @if nth($contrast-var, 1) {
-       $color: nth($contrast-var, 1);       
+    @if nth($key, 1) {
+       $color: nth($key, 1);       
     }
   }
 

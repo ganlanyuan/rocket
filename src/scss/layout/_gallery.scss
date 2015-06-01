@@ -1,19 +1,19 @@
 @import 'wrap';
 
-@mixin gallery($gallery-var){
+@mixin gallery($key){
   $per-row: 1;
   $gutter: map-get($layout, gutter);
-  $child: li;
+  $child: '*';
   $position: middle;
   $keep: false;
 
-  @if type-of($gallery-var) == number {
-    $per-row: $gallery-var;  
-  } @else if type-of($gallery-var) == list {
+  @if type-of($key) == number {
+    $per-row: $key;  
+  } @else if type-of($key) == list {
 
     // set up per-row, gutter
-    @for $i from 1 through length($gallery-var) {
-      $val: nth($gallery-var, $i);
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if type-of($val) == number {
         @if unitless($val) {
@@ -26,25 +26,25 @@
 
     // set up position
     @each $this-position in middle, bottom {
-      @if index($gallery-var, $this-position) { 
+      @if index($key, $this-position) { 
         $position: $this-position;
       } 
     }
 
     // set up child
-    @if index($gallery-var, child) {
-      $child: get-next($gallery-var, child);
+    @if index($key, child) {
+      $child: get-next($key, child);
     }
 
     // set up keep
-    @if index($gallery-var, keep) {
+    @if index($key, keep) {
       $keep: true;
     }
   }
 
   // set up gallery container
   @if not $keep {
-    @if $gutter and $gutter != 0 and $gutter != null {
+    @if $gutter and $gutter != 0 {
       @include wrap($gutter);
     }
   }
@@ -57,9 +57,12 @@
 
     // set up gallery gutter
     @if not $keep {
-      @if $gutter and $gutter != 0 and $gutter != null {
-        @if $position == bottom { padding: 0 ($gutter / 2) $gutter; }
-        @else { padding: ($gutter / 2); }
+      @if $gutter and $gutter != 0{
+        @if $position == bottom { 
+          padding: 0 ($gutter / 2) $gutter; 
+        } @else { 
+          padding: ($gutter / 2); 
+        }
       }
     }
   }

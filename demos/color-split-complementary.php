@@ -13,12 +13,12 @@
       </div>
       <pre><code class="language-scss">
 .color-box-split-complementary-1 { 
-  background-color: split-complementary($original, 1); 
-  color: contrast(split-complementary($original, 1));
+  background-color: split-complementary($original 1); 
+  color: contrast(split-complementary($original 1));
 }
 .color-box-split-complementary-2 { 
-  background-color: split-complementary($original, 2);
-  color: contrast(split-complementary($original, 2));
+  background-color: split-complementary($original 2);
+  color: contrast(split-complementary($original 2));
 }
       </code></pre>
     </div>

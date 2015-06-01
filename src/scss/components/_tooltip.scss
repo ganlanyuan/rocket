@@ -21,7 +21,7 @@
 }
 
 @mixin tooltip(
-  $tooltip-var:
+  $key:
     width
     230px
     height
@@ -34,24 +34,24 @@
   $height: 3.94em;
   $content: attr(data-tooltip);
 
-  @if type-of($tooltip-var) == color {
-    $color: $tooltip-var;
-  } @else if type-of($tooltip-var) == string {
-    @if $tooltip-var == radius {
+  @if type-of($key) == color {
+    $color: $key;
+  } @else if type-of($key) == string {
+    @if $key == radius {
       $radius: true;
-    } @else if index($tooltip-direction, $tooltip-var) {
-      $direction: $tooltip-var;
+    } @else if index($tooltip-direction, $key) {
+      $direction: $key;
     }
-  } @else if type-of($tooltip-var) == list {
-    @if index($tooltip-var, width) {
-      $width: get-next($tooltip-var, width);
+  } @else if type-of($key) == list {
+    @if index($key, width) {
+      $width: get-next($key, width);
     }
-    @if index($tooltip-var, height) {
-      $height: get-next($tooltip-var, height);
+    @if index($key, height) {
+      $height: get-next($key, height);
     }
 
-    @for $i from 1 through length($tooltip-var) {
-      $item: nth($tooltip-var, $i);
+    @for $i from 1 through length($key) {
+      $item: nth($key, $i);
 
       @if type-of($item) == color {
         $color: $item;

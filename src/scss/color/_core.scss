@@ -50,8 +50,8 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
 }
 
 // color
-@function color($val){
-  $map: color-vars($val);
+@function color($key){
+  $map: color-vars($key);
 
   $method: map-get($map, method);
   $color: map-get($map, color);
@@ -117,7 +117,7 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
 }
 
 // color-vars
-@function color-vars ($value){
+@function color-vars ($key){
   $method: false;
   $color: false;
   $order: 1;
@@ -125,37 +125,37 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
   $lightness: 0;
   $dist: $color-dist;
 
-  @if type-of($value) == color {
-    $color: $value;
-  } @else if type-of($value) == list {
+  @if type-of($key) == color {
+    $color: $key;
+  } @else if type-of($key) == list {
 
     @for $i from 1 through length($color-methods) {
       $item: nth($color-methods, $i);
 
-      @if index($value, $item) {
+      @if index($key, $item) {
         $method: $item;
-        $value: reject($value, $item);
+        $key: reject($key, $item);
       }
     }
 
-    @if index($value, saturation) {
-      $saturation: get-next($value, saturation);
-      $value: reject($value, saturation);
-      $value: reject($value, $saturation);
+    @if index($key, saturation) {
+      $saturation: get-next($key, saturation);
+      $key: reject($key, saturation);
+      $key: reject($key, $saturation);
     }
-    @if index($value, lightness) {
-      $lightness: get-next($value, lightness);
-      $value: reject($value, lightness);
-      $value: reject($value, $lightness);
+    @if index($key, lightness) {
+      $lightness: get-next($key, lightness);
+      $key: reject($key, lightness);
+      $key: reject($key, $lightness);
     }
-    @if index($value, dist) {
-      $dist: get-next($value, dist);
-      $value: reject($value, dist);
-      $value: reject($value, $dist);
+    @if index($key, dist) {
+      $dist: get-next($key, dist);
+      $key: reject($key, dist);
+      $key: reject($key, $dist);
     }
 
-    @for $i from 1 through length($value) {
-      $val: nth($value, $i);
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if type-of($val) == color {
         $color: $val;

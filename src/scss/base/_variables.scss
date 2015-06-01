@@ -23,39 +23,39 @@ $em-base: 16px !default;
 $rem-base: 16px !default;
 
 // z-index
-$z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100;
+$z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 !default;
 
 // transition
-$global-animation-duration: 0.3s;
-$global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+$global-animation-duration: 0.3s !default;
+$global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
 // media type
-$media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed;
-$font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit;
-$font-styles: italic, oblique, style-normal, style-inherit;
-$text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit;
-$off-canvas-styles: move, translate, reveal;
-$off-canvas-direction: left, right;
+$media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
+$font-styles: italic, oblique, style-normal, style-inherit !default;
+$text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
+$off-canvas-styles: move, translate, reveal !default;
+$off-canvas-direction: left, right !default;
 
 // button
-$button-radius: 0.22em;
-$button-round: 1000px;
-$button-hover-lightness: 10%;
+$button-radius: 0.22em !default;
+$button-round: 1000px !default;
+$button-hover-lightness: 10% !default;
 
 // tooltip
-$tooltip-direction: left, right, top, bottom;
-$tooltip-radius: 0.22em;
+$tooltip-direction: left, right, top, bottom !default;
+$tooltip-radius: 0.22em !default;
 
 // dropdown
-$dropdown-show: hover, click;
+$dropdown-show: hover, click !default;
 
 // color functions
-$color-methods: adjacent, complementary, split-complementary, triad, rectangle, square;
-$color-dist: 30;
+$color-methods: adjacent, complementary, split-complementary, triad, rectangle, square !default;
+$color-dist: 30 !default;
 
 // slider
-$slider-time: 3s;
-$slider-play: 1s;
-$slider-pause: 4s;
-$slider-peritem: ($slider-play + $slider-pause);
-$slider-z-index: 10,9,8,7,6,5,4,3,2,1;
+$slider-time: 3s !default;
+$slider-play: 1s !default;
+$slider-pause: 4s !default;
+$slider-peritem: ($slider-play + $slider-pause) !default;
+$slider-z-index: 10,9,8,7,6,5,4,3,2,1 !default;

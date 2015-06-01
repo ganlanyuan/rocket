@@ -10,13 +10,11 @@
       <div data-icon-nav class="icon-nav">Menu</div>
       <pre><code class="language-scss">
 .mb-nav {
-  @include off-canvas(translate,left,14px,16px,#102244,true);
+  @include off-canvas(translate 300px '1em' left #102244 animation);
 }
-[data-offcanvas-close] { 
-  @include icon-close(#fff, #74baff, 18px 2px 3px, 10px, true); 
+.page {
+  @include page-container(translate left 300px);
 }
-.icon-nav { @include icon-nav(#333); }
-.page { @include page-container(translate,left); }
       </code></pre>
     </div>
     

@@ -1,30 +1,30 @@
 // *** visibility *** //
 
 // accept maximum 5 numbers
-@mixin visible($visible-var){
+@mixin visible($key){
   $media: false;
 
-  @if type-of($visible-var) == number {
+  @if type-of($key) == number {
 
     // output
     @if $media {
-      @media #{$media} and ( max-width: em($visible-var -  1)) { & { display: none; } }
+      @media #{$media} and ( max-width: em($key -  1)) { & { display: none; } }
     } @else {
-      @media ( max-width: em($visible-var -  1)) { & { display: none; } }
+      @media ( max-width: em($key -  1)) { & { display: none; } }
     }
-  } @else if type-of($visible-var) == list {
+  } @else if type-of($key) == list {
 
     // get media type
     @each $type in $media-types {
-      @if index($visible-var, $type) {
+      @if index($key, $type) {
         $media: $type;
-        $visible-var: reject($visible-var, $type);
+        $key: reject($key, $type);
       }
     }
 
     // px to em
   	$visible-em: ();
-  	@each $num in $visible-var {
+  	@each $num in $key {
   		@if unitless($num) or unit($num) == 'px' {
   			$visible-em: append($visible-em, em($num));
   		}
@@ -69,30 +69,30 @@
 
 }
 
-@mixin hidden($hidden-var){
+@mixin hidden($key){
   $media: false;
 
-  @if type-of($hidden-var) == number {
+  @if type-of($key) == number {
 
     // output
     @if $media {
-  		@media #{$media} and ( min-width: em($hidden-var)) { & { display: none; } }
+  		@media #{$media} and ( min-width: em($key)) { & { display: none; } }
     } @else {
-      @media ( min-width: em($hidden-var)) { & { display: none; } }
+      @media ( min-width: em($key)) { & { display: none; } }
     }
-  } @else if type-of($hidden-var) == list {
+  } @else if type-of($key) == list {
 
     // get media type
     @each $type in $media-types {
-      @if index($hidden-var, $type) {
+      @if index($key, $type) {
         $media: $type;
-        $hidden-var: reject($hidden-var, $type);
+        $key: reject($key, $type);
       }
     }
 
     // px to em
   	$hidden-em: ();
-  	@each $num in $hidden-var {
+  	@each $num in $key {
   		@if unitless($num) or unit($num) == 'px' {
   			$hidden-em: append($hidden-em, em($num));
   		}

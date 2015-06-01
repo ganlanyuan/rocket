@@ -1,24 +1,24 @@
 @mixin center(
-	$center-var:
+	$key:
 		child '*'
 		center
 ){
 	$child: '*';
 	$align: center;
 
-  @if type-of($center-var) == string {
-    $child: $center-var;
-  } @else if type-of($center-var) == list {
+  @if type-of($key) == string {
+    $child: $key;
+  } @else if type-of($key) == list {
     @each $direction in left, right, center {
-      @if index($center-var, $direction) { 
+      @if index($key, $direction) { 
         $align: $direction;
-        $center-var: reject($center-var, $direction);
+        $key: reject($key, $direction);
       } 
     }
-    @if index($center-var, child) {
-    	$child: get-next($center-var, child);
+    @if index($key, child) {
+    	$child: get-next($key, child);
     } @else {
-      $child: nth($center-var, 1);
+      $child: nth($key, 1);
     }
   }
 

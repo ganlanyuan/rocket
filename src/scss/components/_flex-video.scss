@@ -12,25 +12,38 @@
 }
 
 @mixin flex-video(
-  $flex-video-var:
+  $key:
     9/16
     false
 ){
   $ratio: 9/16;
   $child: false;
 
-  @if type-of($flex-video-var) == number {
-    $ratio: $flex-video-var;
-  } @else if type-of($flex-video-var) == string {
-    $child: $flex-video-var;
-  } @else if type-of($flex-video-var) == list {
-    @for $i from 1 through length($flex-video-var) {
-      $val: nth($flex-video-var, $i);
+  @if type-of($key) == number {
+    $ratio: $key;
+  } @else if type-of($key) == string {
+    $child: $key;
+  } @else if type-of($key) == list {
+    
+    // set up child
+    @if index($key, child) {
+      $child: get-next($key, child);
+    } @else {
+      @for $i from 1 through length($key) {
+        $val: nth($key, $i);
+
+        @if type-of($val) == string {
+          $child: $val;
+        } 
+      }
+    }
+
+    // set up ratio
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if type-of($val) == number {
         $ratio: $val;
-      } @else if type-of($val) == string {
-        $child: $val;
       } 
     }
   }

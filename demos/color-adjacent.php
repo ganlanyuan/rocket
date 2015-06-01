@@ -13,12 +13,12 @@
       </div>
       <pre><code class="language-scss">
 .color-box-adjacent-1 { 
-  background-color: adjacent($original, -1); 
-  color: contrast(adjacent($original, -1));
+  background-color: adjacent($original -1); 
+  color: contrast(adjacent($original -1));
 }
 .color-box-adjacent-2 { 
-  background-color: adjacent($original, 1);
-  color: contrast(adjacent($original, 1));
+  background-color: adjacent($original 1);
+  color: contrast(adjacent($original 1));
 }
       </code></pre>
     </div>

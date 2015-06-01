@@ -1,34 +1,34 @@
 // fixed columns
-@mixin two-columns($two-columns-var: left 300px gutter 20px) {
+@mixin two-columns($key: left 300px gutter 20px) {
   $direction: left; 
-  $aside: 300px; 
+  $aside-width: 300px; 
   $gutter: 20px;
   $total: 320px;
 
-  @if type-of($two-columns-var) == number {
-    $aside: $two-columns-var;
-  } @else if type-of($two-columns-var) == list {
+  @if type-of($key) == number {
+    $aside-width: $key;
+  } @else if type-of($key) == list {
 
     // set up gutter
-    @if index($two-columns-var, gutter) {
-      $gutter: get-next($two-columns-var, gutter);
-      $two-columns-var: reject($two-columns-var, gutter);
-      $two-columns-var: reject($two-columns-var, $gutter);
+    @if index($key, gutter) {
+      $gutter: get-next($key, gutter);
+      $key: reject($key, gutter);
+      $key: reject($key, $gutter);
     }
 
     // set up direction 
     @each $item in left, right {
-      @if index($two-columns-var, $item) { 
+      @if index($key, $item) { 
         $direction: $item;
-        $two-columns-var: reject($two-columns-var, $item);
+        $key: reject($key, $item);
       } 
     }
 
     // set up aside width
-    $aside: nth($two-columns-var, 1);
+    $aside-width: nth($key, 1);
   }
 
-  $total: ($aside + $gutter);
+  $total: ($aside-width + $gutter);
 
   // output
   @at-root (without: media) { @extend %clearfix; }
@@ -43,7 +43,7 @@
   // aside
   > [data-col-aside] {
     float: $direction;
-    width: $aside;
+    width: $aside-width;
     margin-#{$direction}: - $total;
   }
 }

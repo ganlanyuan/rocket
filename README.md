@@ -16,124 +16,552 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 
 # Usage
 
-#### 【 Grid System 】
-##### layout setting
+
+###### 【 Grid System 】
+#### layout setting
 ```` scss
-// layout/_setting.scss
+// default setting
 $layout: (
-  container: num | px | em | rem | % 
-  columns: num
-  gutter: num | px | em | rem | (1/20) | % | 0.1
+  container: 1024px 
+  columns: 12
+  gutter: 2%
 );
 ````
 
-##### container
-The container of the main content. It can be center, left or right aligned.
-```` scss
-@include container {$container, $gutter, $align}
-// $container: px | em | rem | %
-// $gutter (optional): px | em | rem | %
-// $align (optional): center | left | right
-````
-
-##### wrap
-Grid wrap, works with `span`.
-```` scss
-@include wrap($gutter);
-// $gutter: px | em | rem | %
-//
-// $columns is only needed while using gutter as percentage
-````
-
-##### span
+#### span
 `span` is used to create columns. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
 ```` scss
-@include span($column, $columns, $gutter, $pull, $push, $float, $last, $keep)
-// $column: num
-// $columns: default | null | num
-// $gutter: default | null | px | em | rem | (2/100) | 5% | 0.1
-// $pull(optional): num
-// $push(optional): num
-// $float(optional): left | right
-// $last(optional): false | true
-// $keep (optional): false | true
+@include span($key);
+
+// pattern
+$key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep;
+
+// column: 3;
+// columns: 12; (default)
+// columns: 2%; (default)
+.nav { @include span(3); }
+
+// column: 3;
+// columns: 12;
+// gutter: 2%;
+.nav { @include span(11 of 16 2%); }
+
+// location: 5; (isolate mode)
+.nav { @include span(11 at 5 of 16 2%); }
+
+// last: true; (The last column)
+// float: right;
+// move: -5; (move left 5 columns)
+.nav { @include span(last right 11 of 16 2% move -5); }
+````
+*Isolate mode*: read [this article](http://www.palantir.net/blog/responsive-design-s-dirty-little-secret) for more detail. If you want to use isolate mode on one column, other siblings columns also need use isolate mode: 
+````scss
+.col-1 { @include span(.. at ..); } 
+.col-2 { @include span(.. at ..); } 
+````
+*Keep*: you may want keep some parts(float, gutter) constant when doing media query, then you can use `keep`;
+````scss
+// scss
+.nav { @include span(7 of 11 2%); }
+
+@media screen and (min-width: 800px) {
+  .nav { @include span(4 of 11 keep); }
+}
+````
+````css
+/* css */
+.nav {
+  float: left;
+  width: 62.9090909091%;
+  margin-right: 2%;
+}
+
+@media screen and (min-width: 800px) {
+  .nav { width: 35.0909090909%; }
+}
 ````
 
-##### span-calc
+#### span-calc
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
-@include span-calc($column, $columns, $gutter, $pull, $push, $float, $last, $keep)
-// $column: num
-// $columns: default | null | num
-// $gutter: default | null | px | em | rem
-// $pull(optional): num
-// $push(optional): num
-// $float(optional): left | right
-// $last(optional): false | true
-// $keep (optional): false | true
+@include span-calc($key);
 
-// Note: if you want use a fixible $gutter (e.g. 30%), 
-// use span mixin instead.
+// pattern
+$key: ($column of $columns) $gutter (move $move) (float $float) last keep;
+
+// column: 3;
+// columns: 12; (default)
+// columns: 20px; (default)
+.nav { @include span-calc(3); }
+
+// column: 3;
+// columns: 12;
+// gutter: 2%;
+.nav { @include span-calc(11 of 16 30px); }
+
+// last: true; (The last column)
+// float: right;
+// move: -5; (move left 5 columns)
+.nav { @include span(last right 11 of 16 30px move -5); }
+
+// Keep: similar with span(keep).
+// Tips: gutter must be a fixed value(px, em, rem).
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/layout-grid.php)
 
-##### gallery
+#### container
+The container of the main content. It can be center, left or right aligned.
+```` scss
+@include container {$key}
+
+// pattern
+$key: ($container $gutter) $align;
+
+// container: 1200px;
+// gutter: 2%; (default)
+// align: center; (default)
+.wrapper { @include container(1200px); }
+
+// container: 1200px
+// gutter: 20px;
+// align: left;
+.wrapper { @include container(1200px 20px left); }
+
+// container: 64em;
+// gutter: 2%;
+// align: center;
+.wrapper { @include container(64em 2% center); }
+````
+
+#### wrap
+Grid wrap, works with `span` when using a fixed value for `gutter`.
+```` scss
+@include wrap($key);
+
+// pattern
+$key: $gutter;
+
+// gutter: 20px;
+@include wrap(20px);
+````
+[Grid demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)
+
+#### gallery
 `gallery` is for creating picture galleries.
 ```` scss
-@include gallery($per-row, $gutter, $child, $position, $keep);
-// $per-row: num
-// $gutter (optional): num | px | em | rem | (2/100) | 5% | 0.1
-// $child (child tag, optional): li(default) | div | span | ...
-// $position (optional): middle | bottom
-// $keep (optional): false | true
+@include gallery($key);
 
-// $columns is only needed when using gutter as percentage
+//pattern
+$key: $per-row $gutter (child $child) $position keep;
+
+// per-row: 3;
+// gutter: 2%;
+// child: li;
+// position: middle; (same padding on the top and bottom for each item)
+.pic { @include gallery(3 2% child li middle); }
+
+@media screen and (min-width: 768px) {
+  .pic { @include gallery(4 child li keep); }
+}
+// Keep: similar with span(keep).
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-gallery.php)
 
-##### justify
+#### justify
 `justify` is for creating `justify` list.
 ```` scss
 @include justify-flex();
+
 .no-flexbox {
-  @include justify($child); // for old browsers
+  // for old browsers
+  // child: div
+  @include justify(div);
 }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-justify.php)
 
-##### center
+#### center
 `center` is for creating both horizontal and vertical center aligned layout.
 ```` scss
-@include center($child, $align)
-// $child: div | li | span | ...
-// $align: left | center
+@include center($key);
+
+// pattern
+$key: $child $align;
+
+// child: div;
+// align: left; (left | right | center, for old browser)
+.banner { @include center(div left); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-center.php)
 
-##### two-columns
+#### two-columns
 `two-columns` is for creating a two columns layout. One of them has a fixed width.
+````html
+<!-- html -->
+<!-- Add "data-col-main", "data-col-aside" attributes to your markup. -->
+
+<div class="wrapper">
+
+  <!-- main -->
+  <div data-col-main=""></div>
+
+  <!-- aside -->
+  <div data-col-aside=""></div>
+</div>
+````
 ```` scss
-@include two-columns($direction, $aside, $gutter);
-// $direction (fixed columns direction): left | right
-// $aside (fixed columns width): px | em | rem
-// $gutter: px | em | rem
+// scss
+@include two-columns($key);
+
+// pattern
+$key: $direction $aside-width gutter $gutter;
+
+// direction: left; (aside is on the left)
+// aside-width: 300px;
+// gutter: 30px;
+.wrapper { @include two-columns(left 300px gutter 30px); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-two-columns.php)
 
-##### debug
-Use `debug` to show your grid.
-```` scss
-@include debug($columns, $gutter, $color)
-// $columns: num
-// $gutter: px | em | rem | (2/100) | 5% | 0.01
-// $color: rgba | ...
+
+###### 【 Components 】
+#### button
+````scss
+@include button($key);
+
+// pattern
+$key: $font-size $padding $background-color radius round hover;
+
+// font-size: 14px;
+// background-color: #00c8ff;
+// padding: 0.8em 1em; (Tips: padding must be quoted)
+// radius: 0.22em; (default, you can modify it by change the varible "$button-radius: 0.22em;" )
+// hover: true; (change background-color when mouse over)
+.button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/layout-debug.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-button.php)
 
-#### 【 Pure CSS slideshow 】
-A 100% pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`(IE8- are not supported), `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
+#### Media list
+`media` displays a media object (images, video, audio) to the left or right of a block.
+```` scss
+@include media($key);
 
-##### markup
+// pattern
+$key: $gutter (media $media) (body $media-body) $direction;
+
+// gutter: 10px; (default)
+// media: [data-media-left] or [data-media-right]; (default)
+// media-body: [data-media-body]; (default)
+// direction: left; (default)
+.news { @include media(); } 
+
+// gutter: 1em;
+// media: .media;
+// media-body: .media-body;
+// direction: right;
+.news-right { @include media(1em, '.media', '.media-body', right); } 
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-media-list.php)
+
+#### flex video
+```` scss
+@include flex-video($key);
+
+// pattern
+$key: $ratio (child $child);
+
+// ratio: 3/4;
+// child: iframe, object, embed; (default)
+.flex-video { @include flex-video(3/4); }
+
+// ratio: 9/16;
+// child: embed; 
+.flex-video { @include flex-video(9/16 embed); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-flex-video.php)
+
+#### dropdown
+```` scss
+@include dropdown($key);
+
+// pattern
+$key: $child $show default;
+
+// child: ul;
+// show: hover; (or click)
+// default: true; (use default dropdown menu style)
+.dropdown { @include dropdown(ul hover default); }
+
+// If you set $show: click, you need:
+// 1. link "kit.min.js" to your html
+// 2. add "<span data-dropdown-toggle></span>" to your dropdown tag.
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
+
+#### tooltip
+This is a pure css `tooltip`.
+```` scss
+@include tooltip($key);
+
+// pattern
+$key: $direction $color radius (width $width) (height $height);
+
+// radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
+// direction: right;
+// background-color: #b02df3;
+// width: 300px; (for old browsers)
+.tooltip { @include tooltip(radius right #b02df3 width 300px); }
+
+// To make tooltip shows perfect, 
+// it's better to set tooltip box as a block element, 
+// or give it a width;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-tooltip.php)
+
+#### off-canvas
+`off-canvas` is for creating the navigation of mobile site.
+````html
+<!-- include kit.js -->
+<script src="path/to/kit.min.js"></script>
+
+<!-- markup -->
+<!-- off-canvas -->
+<nav class="nav">
+  <ul>
+    <li><span data-offcanvas-close>close</span></li>
+    <li><a href="">item01</a></li>
+    <li><a href="">item02</a></li>
+    <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">item03</a>
+      <ul data-offcanvas-subnav>
+        <li data-offcanvas-back>back</li>
+        <li><a href="">sub item02</a></li>
+        <li><a href="">sub item03</a></li>
+        <li><a href="">sub item04</a></li>
+      </ul>
+    </li>
+    <li><a href="">item04</a></li>
+  </ul>
+</nav>
+
+<!-- page -->
+<div class="page">
+  <!-- page cover -->
+  <div data-page-cover=""></div>
+
+  <!-- nav icon -->
+  <div data-icon-nav></div>
+</div>
+````
+```` scss
+// *** off-canvas *** //
+@include off-canvas($key);
+
+// pattern
+$key: $style $direction animation $off-canvas-width $padding $background-color;
+
+// style: translate; (move | transition | reveal)
+// off-canvas-width: 300px;
+// nav-item-padding: 1em;
+// direction: left; (left | right)
+// off-canvas-background-color: #102244;
+// animation: true;
+.nav { @include off-canvas(translate 300px '1em' left #102244 animation); }
+
+// *** page-container *** //
+@include page-container($key);
+
+// pattern
+$key: $style $direction $off-canvas-width $cover-bg;
+
+// style: translate;
+// off-canvas-width: 300px;
+// direction: left;
+.page { @include page-container(translate left 300px); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-off-canvas.php)
+
+
+###### 【 Addons 】
+#### type
+`type` is a shorthand mixin for type.
+```` scss
+@include type($key);
+
+// pattern
+$key: $font-size $font-weight $font-style $line-height $font-family $text-transform; 
+
+// font-size: 20px;
+// font-weight: bold; 
+// font-style: italic; 
+// font-family: 'Georgia, Helvetica, sans-serif';
+// line-height: 1.4;
+h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
+
+// Tips: to set 'font-weight', 'font-style' or 'text-transform' value 
+// to 'inherit' or 'normal', 
+// you need add prefix 'weight-', 'style-' or 'transform-'.
+
+// $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
+// $font-styles: italic, oblique, style-normal, style-inherit !default;
+// $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
+
+#### breakpoint
+A shorthand @mixin for break point.
+```` scss
+@include breakpoint-mi($key);
+
+// pattern
+$key: $min $media;
+
+@include breakpoint-mi(640) {};
+// output: @media (min-width: 40em) {};
+
+@include breakpoint-ma($key);
+
+// pattern
+$key: $min $media;
+
+@include breakpoint-ma(640 screen) {};
+// output: @media screen and (max-width: 40em) {};
+
+@include breakpoint-mm($key);
+
+// pattern
+$key: $min $media;
+
+@include breakpoint-mm(640 767) {};
+// output: @media (min-width: 40em) and (max-width: 47.94em) {};
+````
+
+#### visibility
+A shorthand @mixin for hide elements on some parts of viewport.
+```` scss
+@include visible($key);
+@include hidden($key);
+
+// pattern
+$key: $media $breakpoints;
+
+@include visible(500)
+// visible on 500px up on all media
+
+@include hidden(screen 300 500 700)
+// hidden between 300px and 500px, and 700px up on screen
+````
+[demo](http://creatiointl.org/gallery/william/rocket/addons-visibility.php)
+
+
+###### 【 Color Functions 】
+Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
+
+#### contrast
+Get a contrast `font-color` based on the `background-color`.
+```` scss
+@include contrast($key);
+
+// pattern
+$key: $color (light $light) (dark $dark);
+
+// color: #a6e36e;
+// light: #fff; (default)
+// dark: #000; (default)
+.main { color: contrast(#a6e36e); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-contrast.php)
+
+#### adjacent
+`adjacent` is for creating adjacent colors.
+```` scss
+@include adjacent($key);
+
+// pattern
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+
+// color: #a6e36e;
+// order: -1;
+// saturation: 10%;
+// lightness -20%;
+// distribution: 20;
+.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-adjacent.php)
+
+#### complementary
+`complementary` is for getting a complementary color.
+```` scss
+@include complementary($key);
+
+// pattern
+$key: $color (saturation $saturation) (lightness $lightness) (dist $dist);
+
+// color: #a6e36e;
+// saturation: 20%;
+.main { color: complementary(#a6e36e saturation 20%); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-complementary.php)
+
+#### split-complementary
+`split-complementary` is for getting split-complementary colors based on a given color.
+```` scss
+@include split-complementary($key);
+
+// pattern
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+
+// color: #a6e36e;
+// order: 2; (-2 | -1 | 1 | 2)
+.main { color: split-complementary(#a6e36e 2); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-split-complementary.php)
+
+#### triad
+`triad` is for getting triad colors based on a given color.
+```` scss
+@include triad($key);
+
+// pattern
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+
+// color: #a6e36e;
+// order: 2; (-2 | -1 | 1 | 2)
+.main { color: triad(#a6e36e, 2); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-triad.php)
+
+#### rectangle
+`rectangle` is for getting rectangle colors based on a given color.
+```` scss
+@include rectangle($key);
+
+// pattern
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+
+// color: #a6e36e;
+// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)
+.main { color: rectangle(#a6e36e, -3); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-rectangle.php)
+
+#### square
+`square` is for getting square colors based on a given color.
+```` scss
+@include square($key);
+
+// pattern
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+
+// color: #a6e36e;
+// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
+.main { color: square(#a6e36e, 3); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/color-square.php)
+
+
+###### 【 Pure CSS slideshow 】
+A pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`(IE8- are not supported), `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
+
+#### markup
 First, set a specific class (or ID) for each slider.   
 Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 In the example shows on the left, I used banner as my specific class.    
@@ -171,28 +599,28 @@ In the example shows on the left, I used banner as my specific class.
   <div class="autoplay"><label for="banner-autoplay"><span></span></label></div>
 </div>
 ````
-##### slider-gallery
+#### slider-gallery
 ```` scss
 // basic
-@include slider-gallery($items, $ratio, $autoplay, $hide, $default);
-// $items: num
-// $ratio: height/width 
-// $autoplay: false | true
-// $hide: none | controls | dots | autoplay
-// $default: true | false
-.yourSlider { @include slider-gallery(10, 9/16, false, 'autoplay dots', false); }
+@include slider-gallery($key);
 
-// autoplay
-.autoplay { @include slider-gallery($autoplay: true); }
+// pattern
+$key: $items $ratio autoplay default;
+
+// items: 5;
+// ratio: 9/16; (default) 
+// autoplay: true;
+// default: true; (default styles for controls and dots)
+.slider { @include slider-gallery(5 autoplay default); }
 
 // customise dots and controls
-.yourSlider .dots .normal { ... }
-.yourSlider .dots .active { ... }
-.yourSlider .controls .prev { ... }
-.yourSlider .controls .next { ... }
+.slider .dots .normal { ... }
+.slider .dots .active { ... }
+.slider .controls .prev { ... }
+.slider .controls .next { ... }
 
 // customise items
-.yourSlider {
+.slider {
   .outer { overflow: visible; }
   li { @include transform(scale(1.1)); }
   @for $i from 1 through 5 {
@@ -204,301 +632,45 @@ In the example shows on the left, I used banner as my specific class.
 *Autoheight*       
 Add `kit.min.js` to `head`, and then put `autoheight-gallery` attribute to the slideshow container (.outer).
 ```` html
+<!-- include kit.js -->
+<script src="path/to/kit.min.js"></script>
+
+<!-- add "autoheight-gallery" attribute -->
 <div class="outer" autoheight-gallery></div>
 ````
 
 [demo](http://creatiointl.org/gallery/william/rocket/slider-gallery.php)
 
-##### slider-carousel
+#### slider-carousel
 ```` scss
 // basic
-@include slider-carousel($items, $perpage, $gutter, $slide-by-page, $center, $autoplay, $hide, $default);
-// $items: num
-// $perpage: num
-// $gutter: px | em | rem
-// $slide-by-page: false | true
-// $center: false | true
-// $autoplay: false | true
-// $hide: none | autoplay | dots | controls
-// $default: true | false
+@include slider-carousel($key);
 
-.yourSlider { @include slider-carousel(8, 1, 0px, true, false, false, none, true); }
-@media screen and (min-width: 48em) {
-  .yourSlider { @include slider-carousel($perpage: 2); }
-}
-@media screen and (min-width: 64em) {
-  .yourSlider { @include slider-carousel($perpage: 3); }
-}
+// pattern
+$key: ($items by $perpage) $gutter bypage center autoplay default;
+
+// items: 5;
+// perpage: 2;
+// gutter: 10px; (default)
+// slide-by-page: true;
+// default: true; (default styles for controls and dots)
+.slider { @include slider-carousel(5 by 2 bypage default); }
 ````
 
 *Autoheight*   
 Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer). 
 ```` html
+<!-- include kit.js -->
+<script src="path/to/kit.min.js"></script>
+
+<!-- add "autoheight-carousel" attribute -->
 <div class="outer" autoheight-carousel></div>
 ````
 
 [demo](http://creatiointl.org/gallery/william/rocket/slider-carousel.php)
 
-#### 【 Addons 】
-##### type
-`type` is a shorthand mixin for type.
-```` scss
-@include type($font-size, $font-weight, $font-style, $line-height, $font-family);
-// font-size: null | num | px | em | rem
-// font-weight: null | normal | bold | num | ...
-// font-style: null | normal | italic | ...
-// line-height: null | num | %
-// font-family: null | ...
 
-h1 { @include type(32px,700,null,1.1); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
-
-##### button
-`button` is not just for "button". Everything which is an inline-block box can be considered as a button.
-```` scss
-@include button($font-size, $padding, $background-color, $border, $border-radius);
-// $font-size: value | null
-// $padding: value | null
-// $background-color: value | null
-// $border: value | null
-// $border-radius: value | null
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-button.php)
-
-##### Media list
-`media` displays a media object (images, video, audio) to the left or right of a block.
-```` scss
-.news { @include media($gutter, $media, $media-body, $direction); }
-// $gutter(optional): px | em | rem
-// $media(optional): null | . | # | tag
-// $media-body(optional): null | . | # | tag
-// $direction(optional): left | right
-
-.news { @include media(); } 
-// $gutter: 10px
-// $media: [data-media-left] or [data-media-right]
-// $media-body: [data-media-body]
-// $direction: left
-
-.news-right { @include media(1em, '.media', '.media-body', right); } 
-.news-left { @include media(15px, 'figure', 'div'); } 
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-media-list.php)
-
-##### off-canvas
-`off-canvas` is for creating the navigation of mobile site.
-```` html
-<!-- nav -->
-<nav>
-  <ul>
-    <li><span data-offcanvas-close>close</span></li>
-    <li><a href="">item01</a></li>
-    <li><a href="">item02</a></li>
-    <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">item03</a>
-      <ul data-offcanvas-subnav>
-        <li data-offcanvas-back>back</li>
-        <li><a href="">sub item02</a></li>
-        <li><a href="">sub item03</a></li>
-        <li><a href="">sub item04</a></li>
-      </ul>
-    </li>
-    <li><a href="">item04</a></li>
-  </ul>
-</nav>
-
-<!-- page -->
-<div class="page">
-  <div data-page-cover=""></div>
-
-  <!-- nav icon -->
-  <div data-icon-nav></div>
-</div>
-````
-```` scss
-nav { @include off-canvas($style, $direction, $font-size, $padding, $bgc, $animation); }
-// $style: move | translate | reveal
-// $direction: left | right
-// $font-size: font-size (nav-item)
-// $padding: padding (nav-item)
-// $bgc: background-color (nav-item)
-// $animation (optional): false | true
-.page { @include page-container($style, $direction); }
-// $style: move | translate | reveal
-// $direction: left | right
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-off-canvas.php)
-
-##### dropdown
-There are two ways to show a dropdown menu. If you set as `click`, you need add an `<span data-dropdown-toggle></span>` beside your dropdown menu.
-```` scss
-@include dropdown($bgc, $padding, $border, $border-radius, $shadow, $open);
-// $bgc: dropdown menu background-color
-// $padding: dropdown menu item padding
-// $border: value | null
-// $border-radius: value | null
-// $shadow: value | null
-// $open: hover | click
-
-// If you set $open: click, 
-// you need insert <span data-dropdown-toggle></span> inside your dropdown tag.
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
-
-##### tooltip
-This is a pure css tooltip.
-```` scss
-@include tooltip($direction, $color, $radius, $width, $height, $content);
-// $direction: top | bottom | left | right
-// $color: background-color
-// $radius: value | null
-// $width: max-width
-// $height: (for old browser)
-// $content: attr(data-tooltip) | your content
-
-// To make tooltip shows perfect, 
-// it's better to set tooltip box as a block element, 
-// or give it a width;
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-tooltip.php)
-
-##### breakpoint
-A shorthand @mixin for break point.
-```` scss
-@include bp-mi(
-  $min: num | px | em | rem, 
-  $media: false | screen | print | ...
-);
-// @include bp-mi(640) { ... };
-// output: @media (min-width: 40em) { ... };
-
-@include bp-ma(
-  $max: num | px | em | rem, 
-  $media: false | screen | print | ...
-);
-// @include bp-ma(640, screen) { ... };
-// output: @media screen and (max-width: 40em) { ... };
-
-@include bp-mm(
-  $min: num | px | em | rem, 
-  $max: num | px | em | rem, 
-  $media: false | screen | print | ...
-);
-// @include bp-mi(640, 767) { ... };
-// output: @media (min-width: 40em) and (max-width: 47.94em) { ... };
-````
-
-##### visibility
-A shorthand @mixin for hide elements on some parts of viewport.
-```` scss
-@include visible($media, $bp...);
-@include hidden($media, $bp...);
-// $media: null | screen | print | ...
-// $bp: num | px | em | ... (accept maximum 5 values)
-
-// @include visible(null, 500)
-// visible on 500px up on all media
-// @include hidden(screen, 300, 500, 700)
-// hidden between 300px and 500px, and 700px up on screen
-````
-[demo](http://creatiointl.org/gallery/william/rocket/addons-visibility.php)
-
-##### flex video
-```` scss
-@include flex-video($ratio);
-// $ratio: 9/16 | ...
-// $child (optional): false | 'div' | ...
-
-.flex-video { @include flex-video(3/4); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-flex-video.php)
-
-#### 【 Color Functions 】
-Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
-
-##### adjacent
-`adjacent` is for creating adjacent colors.
-```` scss
-adjacent( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: adjacent(#a6e36e, 1, $dist: 20); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/color-adjacent.php)
-
-##### complementary
-`complementary` is for getting a complementary color.
-```` scss
-complementary( $color, $saturation, $lightness );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-
-// .youclass { color: complementary(#a6e36e, null, 20%); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/color-complementary.php)
-
-##### split-complementary
-`split-complementary` is for getting split-complementary colors based on a given color.
-```` scss
-split-complementary( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: split-complementary(#a6e36e, 1); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/color-split-complementary.php)
-
-##### triad
-`triad` is for getting triad colors based on a given color.
-```` scss
-triad( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: triad(#a6e36e, 1); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/color-triad.php)
-
-##### rectangle
-`rectangle` is for getting rectangle colors based on a given color.
-```` scss
-rectangle( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: rectangle(#a6e36e, -3); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/color-rectangle.php)
-
-##### square
-`square` is for getting square colors based on a given color.
-```` scss
-square( $color, $order, $saturation, $lightness, $dist );
-// $color: #dbdbdb | rgb | rgba | hsl | hsla | ...
-// $order: num,
-// $saturation (optional): false | null | %,
-// $lightness (optional): false | null | %
-// $dist (optianal): 30 | num
-
-// .youclass { color: square(#a6e36e, -3); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/color-square.php)
-
-#### 【 kit.js 】
+###### 【 kit.js 】
 Kit.js is small Javascript library similar with jQuery. Kit.js works well on IE8 and up, and on other morden browsers.   
 The follow metheds are available:   
 `on`, `off`, `click`, `mouseover`, `mouseout`, `focus`, `blur`, `submit`, `keydown`, `keyup`,   
@@ -508,14 +680,14 @@ The follow metheds are available:
 `outerWidth`, `outerHeight`, `getTop`, `getLeft`, `offset(left top)`,   
 `before`, `after`, `append`, `prepend`  
 
-##### Ready
+#### Ready
 ```` javascript
 ready(function () {
   ...
 });
 ````
 
-##### Dom methods
+#### Dom methods
 ```` javascript
 k('.header').parent().addClass('newclass');
 k('.button').siblings('p').css({
@@ -524,7 +696,7 @@ k('.button').siblings('p').css({
 });
 ````
 
-##### Event
+#### Event
 ```` javascript
 k('.icon-menu').click(function() {
   k(this).parent().toggleClass('active');
@@ -535,7 +707,7 @@ k('.news').on('mouseover', function() {
 });
 ````
 
-##### forEach
+#### forEach
 ```` javascript
 k('.site-nav a').forEach(function (el) {
   el.onclick = function () {
@@ -547,7 +719,7 @@ k('.site-nav a').forEach(function (el) {
 });
 ````
 
-##### Reach
+#### Reach
 `reach` is a function to check if target element reach the edge of browser.  
 ```` javascript
 if (k(el).reach('middle',0)) {
@@ -561,7 +733,7 @@ if (k(el).reach('bottom',0)) {
 }
 ````
 
-##### scrollTo
+#### scrollTo
 Scroll to some point in a given period of time.  
 ```` javascript
 scrollTo (to,duration);
@@ -571,7 +743,7 @@ k('.icon-menu').click(function() {
 });
 ````
 
-##### numIncrease
+#### numIncrease
 Increase numbers in given period of time.
 ```` javascript
 numIncrease(element, from, to, duration);
@@ -581,7 +753,7 @@ document.onload = function  () {
 };
 ````
 
-##### animate
+#### animate
 ```` javascript
 animate(el, attr, from, to, duration);
 animate(k('.target'), 'left', 0, 20, 400);

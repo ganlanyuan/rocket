@@ -1,4 +1,4 @@
-@mixin wrap( $gutter: map-get($layout, gutter)){
-  margin-left: (-$gutter / 2);
-  margin-right: (-$gutter / 2);
+@mixin wrap( $key: map-get($layout, gutter)){
+  margin-left: (-$key / 2);
+  margin-right: (-$key / 2);
 }

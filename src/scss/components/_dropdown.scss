@@ -23,7 +23,7 @@
 }
 
 @mixin dropdown(
-  $dropdown-var:
+  $key:
     ul
     hover
 ){
@@ -31,17 +31,17 @@
   $show: hover;
   $default: false;
 
-  @if type-of($dropdown-var) == string {
-    @if $dropdown-var == default {
+  @if type-of($key) == string {
+    @if $key == default {
       $default: true;
-    } @else if index($dropdown-show, $dropdown-var) {
-      $show: $dropdown-var;
+    } @else if index($dropdown-show, $key) {
+      $show: $key;
     } @else {
-      $child: $dropdown-var;
+      $child: $key;
     }
-  } @else if type-of($dropdown-var) == list {
-    @for $i from 1 through length($dropdown-var) {
-      $val: nth($dropdown-var, $i);
+  } @else if type-of($key) == list {
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if $val == default {
         $default: true;

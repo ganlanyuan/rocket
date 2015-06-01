@@ -1,21 +1,21 @@
 // span
-@function span($span-var){
+@function span($key){
   $column: false;
   $columns: map-get($layout, columns);
   $gutter: map-get($layout, gutter);
   $ratio: false;
 
-  @if type-of($span-var) == number {
-    $column: $span-var;
-  } @else if type-of($span-var) == list {
+  @if type-of($key) == number {
+    $column: $key;
+  } @else if type-of($key) == list {
 
     // set up column and columns
-    @if index($span-var, of) {
-      $column: get-prev($span-var, of);
-      $columns: get-next($span-var, of);
+    @if index($key, of) {
+      $column: get-prev($key, of);
+      $columns: get-next($key, of);
     } @else {
-      @for $i from 1 through length($span-var) {
-        $val: nth($span-var, $i);
+      @for $i from 1 through length($key) {
+        $val: nth($key, $i);
 
         @if type-of($val) == number and
             unitless($val) {
@@ -25,8 +25,8 @@
     }
 
     // set up gutter
-    @for $i from 1 through length($span-var) {
-      $val: nth($span-var, $i);
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
 
       @if type-of($val) == number and
           not unitless($val) {

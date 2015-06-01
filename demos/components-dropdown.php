@@ -25,8 +25,8 @@
         </div>              
       </div>
       <pre><code class="language-scss">
-.dropdown-1 { @include dropdown(); }
-.dropdown-2 { @include dropdown(#fff, em(8) em(12), 1px solid #f3ecec, 3px, null, click); }
+.dropdown-1 { @include dropdown(default); }
+.dropdown-2 { @include dropdown(default click); }
       </code></pre>
     </div>
     
