@@ -7,6 +7,44 @@
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
+.dropdown-1, .dropdown-2 {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-1 ul, .dropdown-2 ul {
+  position: absolute;
+  z-index: 700;
+  -ms-transform: scaleY(0);
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -ms-transform-origin: top;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+}
+.no-csstransforms .dropdown-1 ul, .dropdown-1 .no-csstransforms ul, .no-csstransforms .dropdown-2 ul, .dropdown-2 .no-csstransforms ul {
+  display: none;
+}
+
+.dropdown-1:hover ul, .dropdown-2.dropdown-open ul {
+  -ms-transform: scaleY(1);
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+.no-csstransforms .dropdown-1:hover ul, .dropdown-1:hover .no-csstransforms ul, .no-csstransforms .dropdown-2.dropdown-open ul, .dropdown-2.dropdown-open .no-csstransforms ul {
+  display: block;
+}
+
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -268,34 +306,6 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.dropdown-1, .dropdown-2 {
-  position: relative;
-  cursor: pointer;
-}
-
-.dropdown-1 ul, .dropdown-2 ul {
-  position: absolute;
-  z-index: 700;
-  -ms-transform: scaleY(0);
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -ms-transform-origin: top;
-  -webkit-transform-origin: top;
-  transform-origin: top;
-}
-.no-csstransforms .dropdown-1 ul, .dropdown-1 .no-csstransforms ul, .no-csstransforms .dropdown-2 ul, .dropdown-2 .no-csstransforms ul {
-  display: none;
-}
-
-.dropdown-1:hover ul, .dropdown-2.dropdown-open ul {
-  -ms-transform: scaleY(1);
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-}
-.no-csstransforms .dropdown-1:hover ul, .dropdown-1:hover .no-csstransforms ul, .no-csstransforms .dropdown-2.dropdown-open ul, .dropdown-2.dropdown-open .no-csstransforms ul {
-  display: block;
-}
-
 .dropdown-1,
 .dropdown-2 {
   padding: 10px 0;
@@ -325,7 +335,7 @@ pre[class*="language-"] {
 .dropdown-1 ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: #000;
 }
 
 .dropdown-2 ul {
@@ -346,7 +356,7 @@ pre[class*="language-"] {
 .dropdown-2 ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: #000;
 }
 
 /*# sourceMappingURL=addons-dropdown.css.map */

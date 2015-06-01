@@ -5,7 +5,7 @@
 %clearfix { @include clearfix; }
 
 // link hover
-%hover-tdn {&:hover { text-decoration: none; } }
+%hover-no-text-decoration {&:hover { text-decoration: none; } }
 
 // transition
 %global-transition {

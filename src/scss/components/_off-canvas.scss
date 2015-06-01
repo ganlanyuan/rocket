@@ -1,0 +1,236 @@
+// ======= off-canvas ======= //
+@import '../color/contrast';
+@import '../color/analogous';
+
+$off-canvas-length: 12;
+
+@mixin off-canvas (
+  $offcanvas-var:
+    move
+    left
+    200px
+    'em(16, 14)'
+    #000
+    true
+){
+  $style: move;
+  $direction: left;
+  $animation: true;
+  $nav-width: 200px;
+  $padding: em(16, 14);
+  $bgc: #000;
+
+  @if $offcanvas-var == animation {
+    $animation: true;
+  } @else if type-of($offcanvas-var) == color {
+    $bgc: $offcanvas-var;
+  } @else if type-of($offcanvas-var) == number {
+    $nav-width: $offcanvas-var;
+  } @else if type-of($offcanvas-var) == string {
+    @if index($offcanvas-styles, $offcanvas-var) {
+      $style: $offcanvas-var;
+    } @else if index($offcanvas-direction, $offcanvas-var) {
+      $direction: $offcanvas-var;
+    } @else {
+      $padding: unquote($offcanvas-var);
+    }
+  } @else if type-of($offcanvas-var) == list {
+    @for $i from 1 through length($offcanvas-var) {
+      $val: nth($offcanvas-var, $i);
+
+      @if $val == animation {
+        $animation: true;
+      } @else if type-of($val) == color {
+        $bgc: $val;
+      } @else if type-of($val) == number {
+        $nav-width: $val;
+      } @else if type-of($val) == string {
+        @if index($offcanvas-styles, $val) {
+          $style: $val;
+        } @else if index($offcanvas-direction, $val) {
+          $direction: $val;
+        } @else {
+          $padding: unquote($val);
+        }
+      }
+    }
+  }
+
+  // common
+  position: fixed;
+  height: 100%;
+  color: contrast($bgc);
+  background: $bgc;
+  z-index: 300;
+  box-sizing: border-box;
+  -webkit-transition: all $global-animation-duration $global-bezier 0s;
+  transition: all $global-animation-duration $global-bezier 0s;
+  li { 
+    line-height: 1;
+    white-space: nowrap;
+    @include clearfix;
+  }
+  a { 
+    display: block;
+    padding: $padding;
+    color: contrast($bgc);
+    -webkit-transition: all $global-animation-duration $global-bezier 0s;
+    transition: all $global-animation-duration $global-bezier 0s;
+    &:hover { 
+      text-decoration: none;
+      background-color: analogous($bgc 15%); 
+    }
+  }
+  .active > a,
+  .current > a { background-color: analogous($bgc 23%); }
+  [data-offcanvas-close] { cursor: pointer; }
+  [data-offcanvas-subnav] {
+    width: 100%;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: $bgc;
+    -webkit-transition: left .3s $global-bezier 0s;
+    transition: left .3s $global-bezier 0s;
+  }
+  [data-offcanvas-back]{ 
+    padding: $padding;
+    cursor: pointer;
+    background-color: analogous($bgc 15%);
+  }
+  [data-icon-haschild] { 
+    display: inline-block;
+    padding: $padding;
+    float: right;
+    height: 1em;
+    cursor: pointer;
+   &:hover { background-color: analogous($bgc 15%); } 
+  }
+  @at-root { .off-canvas-show .mb-subnav-show { left: 0; } }
+
+  // styles
+  @if $style == move {
+    .off-canvas-show & { margin-#{$direction}: 0; }
+  }
+  @if $style == translate {
+    .off-canvas-show & { #{$direction}: $nav-width; }
+  }
+  @if $style == reveal { z-index: 100; }
+  @if $direction == left or 
+      $direction == right {
+    width: $nav-width;
+    overflow-x: hidden;
+    overflow-y: auto;
+    #{$direction}: 0;
+    @if $style == move or 
+        $style == translate { margin-#{$direction}: -$nav-width; }
+  }
+
+  // animation
+  @if $animation == true {
+    @at-root {
+      & > ul > li > a {
+        opacity: 0;
+        @include transform(translate3d(-100%,0,0));
+        .off-canvas-show & { 
+          opacity: 1; 
+          @include transform(none);
+        }
+      }
+      [data-offcanvas-subnav] a {
+        opacity: 0;
+        @include transform(translate3d(100%,0,0));
+      }
+      .mb-subnav-show a {
+        opacity: 1;
+        @include transform(none);
+      }
+      @for $i from 1 through $off-canvas-length {
+        & > ul > li:nth-child(#{$i}) > a ,
+        [data-offcanvas-subnav] li:nth-child(#{$i}) a {
+          @include transition-delay(($i * $global-animation-duration / $off-canvas-length));
+        }
+      }
+    }
+  }
+}
+
+@mixin page-container(
+  $page-container-var:
+    200px
+    move
+    left
+    rgba(0,0,0,.35) 
+){
+  $nav-width: 200px;
+  $style: move;
+  $direction: left;
+  $cover-bg: rgba(0,0,0,.35);
+
+  @if type-of($page-container-var) == string {
+    @for $i from 1 through length($offcanvas-styles) {
+      $val: nth($offcanvas-styles, $i);
+      @if $val == $page-container-var {
+        $style: $page-container-var;
+      }
+    }
+    @for $i from 1 through length($offcanvas-direction) {
+      $val: nth($offcanvas-direction, $i);
+      @if $val == $page-container-var {
+        $direction: $page-container-var;
+      }
+    }
+  } @else if type-of($page-container-var) == color {
+    $cover-bg: $page-container-var;
+  } @else if type-of($page-container-var) == number {
+    $nav-width: $page-container-var;
+  } @else if type-of($page-container-var) == list {
+    @for $i from 1 through length($page-container-var) {
+      $val: nth($page-container-var, $i);
+      @if type-of($val) == number {
+        $nav-width: $val;
+      }
+      @if type-of($val) == color {
+        $cover-bg: $val;
+      }
+      @if index($offcanvas-styles, $val) {
+        $style: $val;
+      }
+      @if index($offcanvas-direction, $val) {
+        $direction: $val;
+      }
+    }
+  }
+
+  position: relative;
+  -webkit-transition: all $global-animation-duration $global-bezier 0s;
+  transition: all $global-animation-duration $global-bezier 0s;
+  > [data-page-cover] {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-transition: all $global-animation-duration $global-bezier 0s;
+    transition: all $global-animation-duration $global-bezier 0s;
+    .off-canvas-show & {
+      background-color: $cover-bg;
+      z-index: 200;
+      cursor: pointer;
+    }
+  }
+  @if $direction == left or 
+      $direction == right { #{$direction}: 0; }
+  @if $style == translate or 
+      $style == reveal {
+    .off-canvas-show & { #{$direction}: $nav-width; }
+  }
+  @if $style == reveal {
+    min-width: 320px;
+    background-color: #fff;
+    z-index: 200;
+  }
+}

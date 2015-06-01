@@ -44,11 +44,11 @@
     // .item { position: relative; }
     .info, .controls, .dots, .autoplay { 
       position: absolute; 
-      z-index: nth($slider-zindex, 1);
+      z-index: nth($slider-z-index, 1);
     }
     .info { 
       bottom: 20px;
-      z-index: nth($slider-zindex, 2);
+      z-index: nth($slider-z-index, 2);
     }
     .controls {
       top: 50%;

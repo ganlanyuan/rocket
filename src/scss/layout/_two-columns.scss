@@ -8,45 +8,42 @@
   @if type-of($two-columns-var) == number {
     $aside: $two-columns-var;
   } @else if type-of($two-columns-var) == list {
+
+    // set up gutter
+    @if index($two-columns-var, gutter) {
+      $gutter: get-next($two-columns-var, gutter);
+      $two-columns-var: reject($two-columns-var, gutter);
+      $two-columns-var: reject($two-columns-var, $gutter);
+    }
+
+    // set up direction 
     @each $item in left, right {
       @if index($two-columns-var, $item) { 
         $direction: $item;
         $two-columns-var: reject($two-columns-var, $item);
       } 
     }
+
+    // set up aside width
     $aside: nth($two-columns-var, 1);
-    @if index($two-columns-var, gutter) {
-      $gutter: get-next($two-columns-var, gutter);
-    }
   }
 
-  @at-root (without: media) { @extend %clearfix; }
-  
   $total: ($aside + $gutter);
-  // aside is on the right
-  @if $direction == right {
-  padding-right: $total;
-    > [data-col-main] {
-      float: left;
-      width: 100%;
-    }
-    > [data-col-aside] {
-      float: right;
-      width: $aside;
-      margin-right: - $total;
-    }
+
+  // output
+  @at-root (without: media) { @extend %clearfix; }
+  padding-#{$direction}: $total;
+
+  // main
+  > [data-col-main] {
+    float: opposite($direction);
+    width: 100%;
   }
-  // aside is on the left
-  @else {
-    padding-left: $total;
-    > [data-col-main] {
-      float: right;
-      width: 100%;
-    }
-    > [data-col-aside] {
-      float: left;
-      width: $aside;
-      margin-left: - $total;
-    }
+
+  // aside
+  > [data-col-aside] {
+    float: $direction;
+    width: $aside;
+    margin-#{$direction}: - $total;
   }
 }

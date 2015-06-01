@@ -1,6 +1,4 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/button";
-@import "../../../src/scss/layout/justify";
 
 // *** layout: justify *** //
 
@@ -9,7 +7,7 @@
   .no-flexbox & { @include justify(li); }
   a {
     display: block;
-    @extend %hover-tdn;
+    @extend %hover-no-text-decoration;
     @extend %global-transition;
     &:hover { padding: 0 20px; }
   }

@@ -1,3 +1,13 @@
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }

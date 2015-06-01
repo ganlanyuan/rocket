@@ -122,7 +122,7 @@
     $frames: 1;
     @if $slide-by-page == true { $frames: ceil($items/$perpage); }
     @else { $frames: $items + 1 - $perpage; }
-    $unit: (100/($peritem * $frames));
+    $unit: (100/($slider-peritem * $frames));
 
     @include keyframes(#{$prefix}-inner) {
       @for $i from 1 through $frames {
@@ -132,21 +132,21 @@
           }
           @else { $left-val: (- ($i - 1) * 100%);}
 
-          #{percentage((($i - 1) * $peritem) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $peritem - $play) * $unit / 100)} { left: $left-val; }
+          #{percentage((($i - 1) * $slider-peritem) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $slider-peritem - $slider-play) * $unit / 100)} { left: $left-val; }
         }
         @else { 
           $left-val: percentage(- ($i - 1) / $perpage);
 
-          #{percentage((($i - 1) * $peritem) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $peritem - $play) * $unit / 100)} { left: $left-val; }
+          #{percentage((($i - 1) * $slider-peritem) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $slider-peritem - $slider-play) * $unit / 100)} { left: $left-val; }
         }
       }
       100% { left: 0; }
     }
     @at-root {
       #{$id}-autoplay:checked ~ {
-        .outer .inner { @include animation(#{$prefix}-inner $peritem * $frames ease infinite); }
+        .outer .inner { @include animation(#{$prefix}-inner $slider-peritem * $frames ease infinite); }
         .controls { 
           display: none !important; 
           .no-cssanimations & { display: block !important; }

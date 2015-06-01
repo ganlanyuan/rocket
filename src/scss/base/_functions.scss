@@ -1,24 +1,17 @@
 // *** function *** //
-@function contains($list, $values...) {
-  @each $value in $values {
-    @if type-of(index($list, $value)) != "number" {
-      @return false;
-    }
-  }
-
-  @return true;
-}
-
-@function is-number($value) {
-  @return contains("0" "1" "2" "3" "4" "5" "6" "7" "8" "9" 0 1 2 3 4 5 6 7 8 9, $value);
-}
 
 @function opposite($direction){
-  @if $direction == left { @return right; }
-  @else if $direction == right { @return left; }
-  @else if $direction == top { @return bottom; }
-  @else if $direction == bottom { @return top; }
-  @else { @return false; }
+  @if $direction == left { 
+    @return right; 
+  } @else if $direction == right { 
+    @return left; 
+  } @else if $direction == top { 
+    @return bottom; 
+  } @else if $direction == bottom { 
+    @return top; 
+  } @else { 
+    @return false; 
+  }
 }
 
 @function strip-units($val) {
@@ -87,4 +80,24 @@
   }
 
   @return $final-string;
+}
+
+
+// get-slider-selector
+@function get-slider-selector($selector){
+  $str-selector: #{$selector};
+  $start: 0;
+  $result: null;
+  
+  @while (str-index($str-selector, '.')) { $str-selector: str-slice($str-selector, str-index($str-selector, '.') + 1, str-length($str-selector)); }
+  @while (str-index($str-selector, '#')) { $str-selector: str-slice($str-selector, str-index($str-selector, '#') + 1, str-length($str-selector)); }
+
+  @return $str-selector;
+}
+
+// calc-columns-width
+@function calc-column-width ( $column, $columns, $gutter ){
+  $column-percentage: percentage($column / $columns);
+  $column-gutter: ($gutter * $column / $columns);
+  @return #{$column-percentage} + #{$column-gutter};
 }

@@ -1,0 +1,18 @@
+{
+  "basePath": "https://github.com/ganlanyuan/rocket",
+  "shortcutIcon": "assets/images/favicon.png",
+  "display": {
+    "access": ["public", "private"],
+    "alias": false,
+    "watermark": true
+  },
+
+  "package": "./package.json",
+  "theme": "default",
+  "groups": {
+    "undefined": "General"
+  },
+
+  "googleAnalytics": "UA-XXXXX-YY",
+  "tracking": "<img src=\"http://piwik.example.org/piwik.php?idsite={$IDSITE}amp;rec=1\" style=\"border:0\" alt=\"\" />"
+}

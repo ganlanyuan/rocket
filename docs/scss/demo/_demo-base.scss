@@ -1,10 +1,7 @@
 // *** demo base *** //
 @charset "UTF-8";
 
-$cover-bg: rgba(48, 68, 117, .57);
-@import "../../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
-@import "../../../src/scss/base/base";
-// @import "../../../src/scss/rocket"; 
+@import "../../../src/scss/rocket"; 
 
 $active: #FFBE39;
 $original: #d92626;

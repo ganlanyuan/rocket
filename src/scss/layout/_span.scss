@@ -4,7 +4,9 @@
 	$column: 0;
 	$columns: map-get($layout, columns);
 	$gutter: map-get($layout, gutter);
+	$position: false;
 	$move: false;
+	$isolate: false;
 	$float: false;
 	$last: false;
 	$keep: false;
@@ -12,70 +14,116 @@
 	@if type-of($span-var) == number {
 		$column: $span-var;
 	} @else if type-of($span-var) == list {
+
+		// set up direction
 		@each $direction in left, right {
       @if index($span-var, $direction) { 
         $float: $direction;
+      } @else {
+      	$float: left;
       } 
 		}
+
+		// set up keep
 		@if index($span-var, keep) {
 			$keep: true;
 		}
+
+		// set up last
 		@if index($span-var, last) {
 			$last: true;
 		}
-		@if index($span-var, of) {
-			$column: get-prev($span-var, of);
-			$columns: get-next($span-var, of);
-		} @else {
-			$col: 1;
-			@while nth($span-var, $col) and is-number(nth($span-var, $col)) == false {
-				$col: $col + 1;
-			}
-			$column: nth($span-var, $col);
-		}
-		@if index($span-var, gutter) {
-			$gutter: get-next($span-var, gutter);
-		}
+
+		// set up move
 		@if index($span-var, move) {
 			$move: get-next($span-var, move);
 		}
-	}
 
-  // direction
-  @if not $keep {
-	  @if $float == right { float: $float; }
-	  @else { float: left; }
-  }
+		// set up column, position and isolate
+		@if index($span-var, at) {
+			$position: (get-next($span-var, at) - 1);
+			$column: get-prev($span-var, at);
+			$isolate: true;
+		} @else if index($span-var, of) {
+			$column: get-prev($span-var, of);
+		} @else {
+			@for $i from 1 through length($span-var) {
+				$val: nth($span-var, $i);
 
-	// change order
-	@if $move { position: relative; }
-
-	// add unit to gutter
-	@if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
-
-	// no gutter
-	@if not $gutter or $gutter == 0 {
-	  width: percentage($column / $columns);
-	  @if $move and $move != 0 { left: percentage($move / $columns); }
-	}
-	@else if unit($gutter) == '%' {
-		$cw: ((100% - ($columns - 1) * $gutter) / $columns);
-		$gw: $gutter;
-
-		width: $cw * $column + $gw * ($column - 1);
-
-		@if not $keep {
-			@if not $last { 
-				@if $float == left or $float == right {
-					margin-#{opposite($float)}: $gutter; 
+				@if type-of($val) == number and
+						unitless($val) {
+					$column: $val;
 				}
-				@else { margin-right: $gutter; }
 			}
 		}
 
-		@if $move and $move != 0 { left: ($cw + $gw) * $move; }
+		// set up columns
+		@if index($span-var, of) {
+			$columns: get-next($span-var, of);
+		}
+
+		// set up gutter
+		@for $i from 1 through length($span-var) {
+			$val: nth($span-var, $i);
+
+			@if type-of($val) == number and
+					not unitless($val) {
+				$gutter: $val;
+			}
+		}
 	}
-	@else {
+
+	// *** output *** //
+  // direction
+  @if not $keep {
+	  @if $float == right { 
+	  	float: $float; 
+	  } @else { 
+	  	float: left; 
+	  }
+  }
+
+	// move
+	@if $move { position: relative; }
+
+	// isolate
+	@if $isolate { margin-right: -100%; }
+	
+	// no gutter
+	@if not $gutter or $gutter == 0 {
+	  width: percentage($column / $columns);
+
+	  // move
+	  @if $move and $move != 0 { 
+	  	left: percentage($move / $columns); 
+	  }
+
+	  // position
+	  @if $position and $position != 0 { 
+	  	margin-#{$float}: percentage($position / $columns); 
+	  }
+
+	// flexible gutter
+	} @else if unit($gutter) == '%' {
+		$column-width: ((100% - ($columns - 1) * $gutter) / $columns);
+		width: $column-width * $column + $gutter * ($column - 1);
+
+		@if not $keep and not $last and not $isolate {
+				margin-#{opposite($float)}: $gutter; 
+		}
+
+		// move
+		@if $move and $move != 0 { 
+			left: ($column-width + $gutter) * $move; 
+		}
+
+		// position
+		@if $position and $position != 0 { 
+			margin-#{$float}: ($column-width + $gutter) * $position; 
+		}
+
+	// fixed gutter
+	} @else {
 		width: percentage($column / $columns);
 
 		@if not $keep {
@@ -84,30 +132,15 @@
 			padding-right: ($gutter / 2);
 		}
 
-		@if $move and $move != 0 { left: percentage($move / $columns); }
+		// move
+		@if $move and $move != 0 { 
+			left: percentage($move / $columns); 
+		}
+
+		// position
+		@if $position and $position != 0 { 
+			margin-#{$float}: percentage($position / $columns); 
+		}
 	}
 }
 
-@function span(
-	$column,
-	$columns: map-get($layout, columns),
-	$gutter: map-get($layout, gutter)
-){
-	$ratio: 1;
-
-	// add unit to gutter
-	@if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
-
-	// get ratio
-	@if not $gutter or $gutter == 0 or unit($gutter) != '%' {
-	  $ratio: percentage($column / $columns);
-	}
-	@else {
-		$cw: ((100% - ($columns - 1) * $gutter) / $columns);
-		$gw: $gutter;
-
-		$ratio: $cw * $column + $gw * ($column - 1);
-	}
-
-	@return ( ( $ratio / 100% ) );
-}

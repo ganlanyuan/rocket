@@ -1,6 +1,24 @@
 // variables
 //-----------------------------
 
+// layout
+$layout: (
+  container: 1024px,
+  columns: 12,
+  gutter: 2%,
+) !default;
+
+%layout-wrap {
+  letter-spacing: -.43em;
+}
+%layout-span {
+  letter-spacing: normal;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+// base
 $em-base: 16px !default;
 $rem-base: 16px !default;
 
@@ -16,8 +34,8 @@ $media-types: all, aural, braille, handheld, print, projection, screen, tty, tv,
 $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit;
 $font-styles: italic, oblique, style-normal, style-inherit;
 $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit;
-$off-canvas-styles: move, translate, reveal;
-$off-canvas-direction: left, right;
+$offcanvas-styles: move, translate, reveal;
+$offcanvas-direction: left, right;
 
 // button
 $button-radius: 0.22em;
@@ -34,3 +52,10 @@ $dropdown-show: hover, click;
 // color functions
 $color-methods: adjacent, complementary, split-complementary, triad, rectangle, square;
 $color-dist: 30;
+
+// slider
+$slider-time: 3s;
+$slider-play: 1s;
+$slider-pause: 4s;
+$slider-peritem: ($slider-play + $slider-pause);
+$slider-z-index: 10,9,8,7,6,5,4,3,2,1;

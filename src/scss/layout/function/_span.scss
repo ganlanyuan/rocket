@@ -1,0 +1,48 @@
+// span
+@function span($span-var){
+  $column: false;
+  $columns: map-get($layout, columns);
+  $gutter: map-get($layout, gutter);
+  $ratio: false;
+
+  @if type-of($span-var) == number {
+    $column: $span-var;
+  } @else if type-of($span-var) == list {
+
+    // set up column and columns
+    @if index($span-var, of) {
+      $column: get-prev($span-var, of);
+      $columns: get-next($span-var, of);
+    } @else {
+      @for $i from 1 through length($span-var) {
+        $val: nth($span-var, $i);
+
+        @if type-of($val) == number and
+            unitless($val) {
+          $column: $val;
+        }
+      }
+    }
+
+    // set up gutter
+    @for $i from 1 through length($span-var) {
+      $val: nth($span-var, $i);
+
+      @if type-of($val) == number and
+          not unitless($val) {
+        $gutter: $val;
+      }
+    }
+  }
+
+  // output
+  @if not $gutter or $gutter == 0 or unit($gutter) != '%' {
+    $ratio: percentage($column / $columns);
+  } @else {
+    $column-width: ((100% - ($columns - 1) * $gutter) / $columns);
+    $ratio: $column-width * $column + $gutter * ($column - 1);
+  }
+
+  @return ( ( $ratio / 100% ) );
+}
+

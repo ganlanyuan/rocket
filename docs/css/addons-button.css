@@ -7,6 +7,21 @@
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
+.example-button button, .example-button input, .example-button .pagination a {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -268,11 +283,6 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.example-button button, .example-button input, .example-button .pagination a {
-  display: inline-block;
-  box-sizing: border-box;
-}
-
 .example-button {
   margin-top: 20px;
 }
@@ -280,7 +290,6 @@ pre[class*="language-"] {
   margin-bottom: 10px;
 }
 .example-button button {
-  border-radius: 0.22em;
   border-radius: 1000px;
   font-size: 14px;
   font-size: 0.875rem;

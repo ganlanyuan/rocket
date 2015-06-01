@@ -1,6 +1,4 @@
 // *** slider-gallery *** //
-@import 'gallery-base';
-
 @mixin slider-gallery($gallery-var){
   $items: 1;
   $ratio: 9/16; 
@@ -97,18 +95,18 @@
       // animation
       @include keyframes(#{$prefix}) {
         0% { @include item-normal; }
-        #{percentage($play / ($peritem * $items))} { @include item-active; }
-        #{percentage($peritem / ($peritem * $items))} { @include item-active; }
-        #{percentage(($play + $peritem) / ($peritem * $items))} { @include item-normal; }
+        #{percentage($slider-play / ($slider-peritem * $items))} { @include item-active; }
+        #{percentage($slider-peritem / ($slider-peritem * $items))} { @include item-active; }
+        #{percentage(($slider-play + $slider-peritem) / ($slider-peritem * $items))} { @include item-normal; }
       }
       @at-root { 
         #{$id}-autoplay:checked ~ {
           .controls, .dots { display: none !important; }
           .outer li {
-            @include animation( #{$prefix} $peritem * $items ease infinite);
+            @include animation( #{$prefix} $slider-peritem * $items ease infinite);
             @for $i from 2 through $items {
               &:nth-child(#{$i}) {
-                @include animation-delay(($peritem * ($i - 1)));
+                @include animation-delay(($slider-peritem * ($i - 1)));
               }
             }
           }

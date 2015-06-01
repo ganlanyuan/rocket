@@ -1,6 +1,4 @@
 // *** container *** //
-@import "../addons/breakpoint";
-
 @mixin container(
   $container-var: 
     map-get($layout, container) 
@@ -35,7 +33,8 @@
     $align: center;
   }
 
-
+  // output
+  @extend %clearfix;
   max-width: $container;
 
   @if unit($container) == '%' {
@@ -62,13 +61,13 @@
       }
 
       @if $align == center {
-        @include bp-mi($container-breakpoint) { 
+        @include breakpoint-mi($container-breakpoint) { 
           margin-left: auto; 
           margin-right: auto; 
         }
       }
       @else { 
-        @include bp-mi($container-breakpoint) { 
+        @include breakpoint-mi($container-breakpoint) { 
           margin-#{opposite($align)}: auto; 
         }
       }

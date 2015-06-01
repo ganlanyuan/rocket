@@ -1,3 +1,13 @@
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -261,28 +271,28 @@ pre[class*="language-"] {
 
 .example-span-1 {
   float: left;
-  width: 62.9090909091%;
+  width: 62.90909%;
   margin-right: 2%;
 }
 
 .example-span-2 {
   float: left;
-  width: 35.0909090909%;
+  width: 35.09091%;
 }
 
 .example-span-calc-1 {
   float: left;
   position: relative;
-  width: calc( 72.7272727273% + 14.5454545455px - 20px );
+  width: calc( 72.72727% + 14.54545px - 20px );
   margin-right: 20px;
-  left: calc( 27.2727272727% + 5.4545454545px );
+  left: calc( 27.27273% + 5.45455px );
 }
 
 .example-span-calc-2 {
   float: left;
   position: relative;
-  width: calc( 27.2727272727% + 5.4545454545px - 20px );
-  left: calc( -72.7272727273% + -14.5454545455px );
+  width: calc( 27.27273% + 5.45455px - 20px );
+  left: calc( -72.72727% + -14.54545px );
 }
 
 /*# sourceMappingURL=layout-grid.css.map */

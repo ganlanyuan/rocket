@@ -1,10 +1,63 @@
-@import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 
-// *** for develop *** //
-// @import "../../../bourbon/app/assets/stylesheets/_bourbon.scss"; 
+// vendors
+@import "vendors/prefixer";
+@import "vendors/keyframes";
+@import "vendors/animation";
+@import "vendors/transform";
+@import "vendors/transition";
+@import "vendors/triangle";
+@import "vendors/flex-box";
 
-@import "base/base";
-@import "color/color";
-@import "layout/layout";
-@import "addons/addons";
-@import "slider/slider";
+// base
+@import "base/variables";
+@import "base/functions";
+@import "base/mixins";
+@import "base/placeholders";
+        
+// addons
+@import "addons/opacity";
+@import "addons/ie-rgba";
+@import "addons/rems";
+@import "addons/breakpoint";
+@import "addons/visibility";
+@import "addons/type";
+
+// layout
+@import "layout/function/span";
+
+@import "layout/container";
+@import "layout/wrap";
+@import "layout/span";
+@import "layout/span-calc";
+@import "layout/two-columns";
+@import "layout/gallery";
+@import "layout/justify";
+@import "layout/center";
+
+// components
+@import "components/button";
+@import "components/media";
+@import "components/off-canvas";
+@import "components/dropdown";
+@import "components/tooltip";
+@import "components/flex-video";
+
+// slider
+@import "slider/base/gallery-base";
+@import "slider/base/slider-common";
+
+@import "slider/gallery";
+@import "slider/carousel";
+
+// color functions
+@import "color/core"; 
+
+@import "color/analogous"; 
+@import "color/contrast";  
+@import "color/adjacent";  
+@import "color/complementary";  
+@import "color/split-complementary";  
+@import "color/triad"; 
+@import "color/rectangle"; 
+@import "color/square"; 
+

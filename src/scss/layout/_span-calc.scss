@@ -1,12 +1,5 @@
 // *** span-calc *** // 
 
-// columns-width
-@function column-width ( $column, $columns, $gutter ){
-  $column-percentage: percentage($column / $columns);
-  $column-gutter: ($gutter * $column / $columns);
-  @return #{$column-percentage} + #{$column-gutter};
-}
-
 @mixin span-calc($span-calc-var){
   $column: 0;
   $columns: 0;
@@ -19,32 +12,52 @@
   @if type-of($span-calc-var) == number {
     $column: $span-calc-var;
   } @else if type-of($span-calc-var) == list {
+
+    // set up direction
     @each $direction in left, right {
       @if index($span-calc-var, $direction) { 
         $float: $direction;
       } 
     }
+
+    // set up keep
     @if index($span-calc-var, keep) {
       $keep: true;
     }
+
+    // set up last
     @if index($span-calc-var, last) {
       $last: true;
     }
+
+    // set up move
+    @if index($span-calc-var, move) {
+      $move: get-next($span-calc-var, move);
+    }
+
+    // set up gutter
+    @for $i from 1 through length($span-calc-var) {
+      $val: nth($span-calc-var, $i);
+
+      @if type-of($val) == number and
+          not unitless($val) {
+        $gutter: $val;
+      }
+    }
+
+    // set up column, columns
     @if index($span-calc-var, of) {
       $column: get-prev($span-calc-var, of);
       $columns: get-next($span-calc-var, of);
     } @else {
-      $col: 1;
-      @while nth($span-calc-var, $col) and is-number(nth($span-calc-var, $col)) == false {
-        $col: $col + 1;
+      @for $i from 1 through length($span-var) {
+        $val: nth($span-var, $i);
+
+        @if type-of($val) == number and
+            unitless($val) {
+          $column: $val;
+        }
       }
-      $column: nth($span-calc-var, $col);
-    }
-    @if index($span-calc-var, gutter) {
-      $gutter: get-next($span-calc-var, gutter);
-    }
-    @if index($span-calc-var, move) {
-      $move: get-next($span-calc-var, move);
     }
   }
 
@@ -62,12 +75,14 @@
 
   // no gutter
   @if not $gutter or $gutter == 0 {
-    width: column-width-percentage($columns, 0) * $column;
+    width: percentage($column / $columns);
+
+    // move
     @if $move and $move != 0 { left: percentage($move / $columns); }
-  }
+  
   // fixed gutter
-  @else if unit($gutter) and unit($gutter) != '%' {
-    $column-width: column-width($column, $columns, $gutter);
+  } @else if unit($gutter) and unit($gutter) != '%' {
+    $column-width: calc-column-width($column, $columns, $gutter);
     width: calc( #{$column-width} - #{$gutter} );
     @if not $keep {
       @if not $last { 
@@ -77,13 +92,12 @@
         @else { margin-right: $gutter; }
       }
     }
-    // change order
+    // move
     @if $move and $move != 0 { 
-      $column-width: column-width($move, $columns, $gutter);
+      $column-width: calc-column-width($move, $columns, $gutter);
       left: calc( #{$column-width} ); 
     }
-  }
-  @else {
+  } @else {
     $warn: "$gutter can't be a percentage, use a fixed $gutter instead.";
     @warn $warn + ' Current value: #{$gutter}';
   }

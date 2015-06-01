@@ -1,3 +1,24 @@
+.example-gallery {
+  letter-spacing: -.43em;
+}
+
+.example-gallery > li {
+  letter-spacing: normal;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -257,17 +278,6 @@ pre[class*="language-"] {
   font-size: 12px;
   line-height: 1.3;
   color: #b1b1b1;
-}
-
-.example-gallery {
-  letter-spacing: -.43em;
-}
-
-.example-gallery > li {
-  letter-spacing: normal;
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
 }
 
 .example-gallery {

@@ -1,10 +1,8 @@
 @import 'demo-base';
-@import "../../../src/scss/layout/setting";
-@import "../../../src/scss/layout/gallery";
 
 // *** layout: gallery *** //
 
-.example-gallery { @include gallery(4 gutter 2% child li); 
+.example-gallery { @include gallery(4 2% child li); 
   span {
     display: block;
     min-height: 120px;

@@ -1,10 +1,11 @@
 // *** break point *** //
 
 // min-width
-@mixin bp-mi($bp-mi-var){
+@mixin breakpoint-mi($bp-mi-var){
   $min: 0;
-  $media: all;
+  $media: false;
 
+  // get min, media type
   @if type-of($bp-mi-var) == number {
     $min: $bp-mi-var;
   } @else if type-of($bp-mi-var) == list {
@@ -17,18 +18,30 @@
     }
   }
 
+  // px to em
+  @if unitless($min) or
+      unit($min) == px {
+    $min: em($min);
+  }
+
+  // output
   @if $media {
     @media #{$media} and (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min) {
       @content;
     }
   }
 }
 
 //  max-width
-@mixin bp-ma($bp-ma-var){
+@mixin breakpoint-ma($bp-ma-var){
   $max: 0;
-  $media: all;
+  $media: false;
 
+  // get max, media type
   @if type-of($bp-ma-var) == number {
     $max: $bp-ma-var;
   } @else if type-of($bp-ma-var) == list {
@@ -41,19 +54,31 @@
     }
   }
 
+  // px to em
+  @if unitless($max) or
+      unit($max) == px {
+    $max: em($max);
+  }
+
+  // output
   @if $media {
     @media #{$media} and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $max) {
       @content;
     }
   }
 }
 
 // min-width & max-width
-@mixin bp-mm($bp-mm-var){
+@mixin breakpoint-mm($bp-mm-var){
   $min: 0;
   $max: 0;
-  $media: all;
+  $media: false;
 
+  // get min, max, media type
   @if type-of($bp-mm-var) == list {
     @each $type in $media-types {
       @if index($bp-mm-var, $type) {
@@ -65,8 +90,21 @@
     }
   }
 
+  // px to em
+  @each $item in $min, $max {
+    @if unitless($item) or
+        unit($item) == px {
+      $item: em($item);
+    }
+  }
+
+  // output
   @if $media {
     @media #{$media} and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min) and (max-width: $max) {
       @content;
     }
   }

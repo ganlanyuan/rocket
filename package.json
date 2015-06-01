@@ -1,0 +1,5 @@
+{
+  "name": "rocket",
+  "description": "Rocket is a powerful SASS library to help web developer handle layout, color and other components.",
+  "tags": ["css", "mixins", "scss", "sass", "grid", "color", "type", "breakpoint", "javascript"]
+}

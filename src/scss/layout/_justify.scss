@@ -6,6 +6,7 @@
   @include justify-content(space-between);
   @include align-items(center);
 }
+
 @mixin justify-flex(){
   @include display(flex);
   @include justify-content(space-between);
@@ -22,12 +23,24 @@
     width: 100%;
     display: inline-block;
   }
-  > li, > div, > span, > a {
+  > * {
     line-height: 1;
     display: inline-block;
   }
 }
-@mixin justify($child:false){
+
+@mixin justify($justify-var){
+  $child:false;
+
+  // set up child
+  @if type-of($justify-var) == string {
+    $child: $justify-var;
+  } @else if type-of($justify-var) == list {
+    @if index($justify-var, child) {
+      $child: get-next($justify-var, child);
+    }
+  }
+
   text-align: justify;
   line-height: 0;
   margin-bottom: -5px;
@@ -43,7 +56,7 @@
     }
   }
   @else {
-    > li, > div, > span, > a {
+    > * {
       line-height: 1;
       display: inline-block;
     }

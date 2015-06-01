@@ -1,0 +1,30 @@
+// gallery base
+@mixin item-normal {
+  z-index: nth($slider-z-index, 4); 
+  opacity: 0; 
+}
+@mixin item-active {
+  z-index: nth($slider-z-index, 3); 
+  opacity: 1; 
+}
+%item-normal { 
+  @include item-normal; 
+  width: 100%;
+  .no-opacity & { display: none; } 
+}
+%item-active { 
+  @include item-active; 
+  .no-opacity & { display: block; } 
+}
+
+%slide-fade-base {
+  @at-root (without: media) {
+    .outer {
+      position: relative;
+      li { position: absolute; 
+        @extend %item-normal;
+        @extend %slider-transition;
+      }
+    }
+  }
+}

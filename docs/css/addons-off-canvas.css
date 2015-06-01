@@ -1,3 +1,13 @@
+[autoheight-carousel] {
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+
+[autoheight-gallery] {
+  -webkit-transition: padding-bottom 0.3s ease 0s;
+  transition: padding-bottom 0.3s ease 0s;
+}
+
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -309,9 +319,9 @@ pre[class*="language-"] {
 .mb-nav [data-offcanvas-subnav] {
   width: 100%;
   position: absolute;
-  top: 0px;
-  bottom: 0px;
   left: 100%;
+  top: 0;
+  bottom: 0;
   background-color: #102244;
   -webkit-transition: left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   transition: left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
@@ -472,8 +482,8 @@ pre[class*="language-"] {
   position: fixed;
   left: 0;
   top: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   z-index: -1;
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;

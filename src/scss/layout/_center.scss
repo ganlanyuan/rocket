@@ -6,14 +6,20 @@
 	$child: '*';
 	$align: center;
 
-  @each $direction in left, right, center {
-    @if index($center-var, $direction) { 
-      $align: $direction;
-      $center-var: reject($center-var, $direction);
-    } 
-  }
-  @if index($center-var, child) {
-  	$child: get-next($center-var, child);
+  @if type-of($center-var) == string {
+    $child: $center-var;
+  } @else if type-of($center-var) == list {
+    @each $direction in left, right, center {
+      @if index($center-var, $direction) { 
+        $align: $direction;
+        $center-var: reject($center-var, $direction);
+      } 
+    }
+    @if index($center-var, child) {
+    	$child: get-next($center-var, child);
+    } @else {
+      $child: nth($center-var, 1);
+    }
   }
 
 	@include display(flex);

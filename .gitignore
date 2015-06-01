@@ -6,7 +6,8 @@
 *.swp
 
 /.codekit-cache/
-/design/
+/doc/
+/sassdoc/
 /develop/
 /bower_components/
 

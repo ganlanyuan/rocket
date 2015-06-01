@@ -1,14 +1,6 @@
 @import 'demo-base';
-@import "../../../src/scss/slider/base/base";
-@import "../../../src/scss/addons/type";
-@import "../../../src/scss/addons/button";
-@import "../../../src/scss/addons/visibility";
-@import "../../../src/scss/addons/breakpoint";
-
-@import "../../../src/scss/slider/gallery";
 
 // *** slider: gallery *** //
-
 .slider {
   // common
   > input { display: none; }
@@ -43,7 +35,7 @@
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }
-    @include bp-ma(1178){
+    @include breakpoint-ma(1178){
       .controls {
         .prev { margin-left: 10px !important; }
         .next { margin-right: 10px !important; }
