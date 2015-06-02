@@ -1,4 +1,4 @@
-# Rocket
+# Rocket 2.0
 
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.    
 Check out [demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)!
@@ -14,22 +14,105 @@ Or install with [git](http://www.git-scm.com/):
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
 
-# Usage
+# Structure
 
+````html      
+<!-- addons -->
+addons
+  |opacity
+  |ie-rgba
+  |rems
+  |breakpoint
+  |visibility
+  |type
+
+<!-- layout -->
+layout
+  |container
+  |wrap
+  |span
+  |span-calc
+  |two-columns
+  |gallery
+  |justify
+  |center
+
+<!-- components -->
+components
+  |button
+  |media
+  |off-canvas
+  |dropdown
+  |tooltip
+  |flex-video
+
+<!-- slider -->
+slider
+  |gallery
+  |carousel
+
+<!-- color functions -->
+color functions
+  |analogous
+  |contrast
+  |adjacent
+  |complementary
+  |split-complementary
+  |triad
+  |rectangle
+  |square
+````
+# Usage
 
 ###### 【 Grid System 】
 #### layout setting
 ```` scss
 // default setting
 $layout: (
-  container: 1024px 
-  columns: 12
-  gutter: 2%
+  container: 1024px,
+  columns: 12,
+  gutter: 2%,
 );
 ````
 
+#### container
+The container of the main content. It can be center, left or right aligned.
+```` scss
+@include container {$key}
+
+// pattern
+$key: ($container $gutter) $align;
+
+// container: 1200px;
+// gutter: 2%; (default)
+// align: center; (default)
+.wrapper { @include container(1200px); }
+
+// container: 1200px
+// gutter: 20px;
+// align: left;
+.wrapper { @include container(1200px 20px left); }
+
+// container: 64em;
+// gutter: 2%;
+// align: center;
+.wrapper { @include container(64em 2% center); }
+````
+
+#### wrap
+Grid wrap, works with `span` when using a fixed value for `gutter`.
+```` scss
+@include wrap($key);
+
+// pattern
+$key: $gutter;
+
+// gutter: 20px;
+@include wrap(20px);
+````
+
 #### span
-`span` is used to create columns. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
+`span` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
 ```` scss
 @include span($key);
 
@@ -108,41 +191,6 @@ $key: ($column of $columns) $gutter (move $move) (float $float) last keep;
 // Tips: gutter must be a fixed value(px, em, rem).
 ````
 
-#### container
-The container of the main content. It can be center, left or right aligned.
-```` scss
-@include container {$key}
-
-// pattern
-$key: ($container $gutter) $align;
-
-// container: 1200px;
-// gutter: 2%; (default)
-// align: center; (default)
-.wrapper { @include container(1200px); }
-
-// container: 1200px
-// gutter: 20px;
-// align: left;
-.wrapper { @include container(1200px 20px left); }
-
-// container: 64em;
-// gutter: 2%;
-// align: center;
-.wrapper { @include container(64em 2% center); }
-````
-
-#### wrap
-Grid wrap, works with `span` when using a fixed value for `gutter`.
-```` scss
-@include wrap($key);
-
-// pattern
-$key: $gutter;
-
-// gutter: 20px;
-@include wrap(20px);
-````
 [Grid demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)
 
 #### gallery
@@ -213,7 +261,7 @@ $key: $child $align;
 @include two-columns($key);
 
 // pattern
-$key: $direction $aside-width gutter $gutter;
+$key: $direction $aside-width (gutter $gutter);
 
 // direction: left; (aside is on the left)
 // aside-width: 300px;
@@ -258,7 +306,7 @@ $key: $gutter (media $media) (body $media-body) $direction;
 // media: .media;
 // media-body: .media-body;
 // direction: right;
-.news-right { @include media(1em, '.media', '.media-body', right); } 
+.news-right { @include media(1em media '.media' body '.media-body' right); } 
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-media-list.php)
 

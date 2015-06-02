@@ -13,7 +13,7 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.example-center { @include center(div,left);
+.example-center { @include center(child div left);
   > div { width: 200px; padding: 10px; }
 }
       </code></pre>

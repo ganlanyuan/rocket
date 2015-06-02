@@ -20,8 +20,8 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.example-span-1 { @include span(7,11,2%); }
-.example-span-2 { @include span(4,11,2%, $last:true); }
+.example-span-1 { @include span(7 of 11 2%); }
+.example-span-2 { @include span(4 of 11 2% last); }
       </code></pre>
       <h4>span-calc</h4>
       <div class="example" data-margin>
@@ -38,8 +38,8 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.example-span-calc-1 { @include span-calc(8,11,20px); }
-.example-span-calc-2 { @include span-calc(3,11,20px, $last:true); }
+.example-span-calc-1 { @include span-calc(8 of 11 move 3 20px); }
+.example-span-calc-2 { @include span-calc(3 of 11 move -8 20px last); }
       </code></pre>
     </div>
     

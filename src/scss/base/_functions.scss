@@ -30,7 +30,7 @@
 
 // rem
 @function rem($pxval, $base: $rem-base) {
-  @if unit($pxval) == 'rem' { @return $pxval; }
+  @if unit($pxval) == 'rem' or unit($pxval) == 'em' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-units($pxval); }
     @if unit($base) == 'px' or unitless($base) { $base: strip-units($base); }

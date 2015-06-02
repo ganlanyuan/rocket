@@ -66,7 +66,9 @@
 
   @if $font-size {
     font-size: $font-size;
-    font-size: rem($font-size);
+    @if unit($font-size) == 'px' {
+      font-size: rem($font-size);
+    }
   }
   @if $line-height {
     line-height: $line-height;
