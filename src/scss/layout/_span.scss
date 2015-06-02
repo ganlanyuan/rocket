@@ -76,7 +76,7 @@
   @if not $keep { float: $float; }
 
 	// move
-	@if $move { location: relative; }
+	@if $move { position: relative; }
 
 	// isolate
 	@if $isolate { margin-right: -100%; }
