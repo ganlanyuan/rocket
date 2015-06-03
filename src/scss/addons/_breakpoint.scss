@@ -91,11 +91,11 @@
   }
 
   // px to em
-  @each $item in $min, $max {
-    @if unitless($item) or
-        unit($item) == px {
-      $item: em($item);
-    }
+  @if unitless($min) or unit($min) == px {
+    $min: em($min);
+  }
+  @if unitless($max) or unit($max) == px {
+    $max: em($max);
   }
 
   // output
