@@ -17,7 +17,7 @@
 .visible-3 { @include visible(700 900 1200);}
 .hidden-1 { @include hidden(900);}
 .hidden-2 { @include hidden(900 1000);}
-.hidden-3 { @include hidden(900 1000 1200);}
+.hidden-3 { @include hidden(700 900 1200);}
       </code></pre>
     </div>
     

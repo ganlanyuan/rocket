@@ -1,137 +1,35 @@
 // *** visibility *** //
 
-// accept maximum 5 numbers
+// accept maximum 6 numbers
 @mixin visible($key){
-  $media: false;
-
+  $empty: ();
   @if type-of($key) == number {
-
     // output
-    @if $media {
-      @media #{$media} and ( max-width: em($key -  1)) { & { display: none; } }
-    } @else {
-      @media ( max-width: em($key -  1)) { & { display: none; } }
-    }
+    @include breakpoint('max' $key) { display: none; }
   } @else if type-of($key) == list {
+    @if nth($key, 1) == 0 {
+      $key: reject($key, 0);
+    } @else {
+      // append 0 to $empty
+      $empty: append($empty, 0);
 
-    // get media type
-    @each $type in $media-types {
-      @if index($key, $type) {
-        $media: $type;
-        $key: reject($key, $type);
+      // append $key to $empty 
+      @for $i from 1 through length($key) {
+        $empty: append($empty, nth($key, $i));
       }
+
+      // give the value of $empty to $key
+      $key: $empty;
     }
-
-    // px to em
-  	$visible-em: ();
-  	@each $num in $key {
-  		@if unitless($num) or unit($num) == 'px' {
-  			$visible-em: append($visible-em, em($num));
-  		}
-  		@else { $visible-em: append($visible-em, $num); }
-  	}
-
-    // output
-  	@if $media {
-  		@if length($visible-em) >= 1 {
-  			@media #{$media} and ( max-width: (nth($visible-em, 1) - em(1))) { & { display: none; } }
-  		}
-  		@if length($visible-em) == 2 {
-  			@media #{$media} and ( min-width: nth($visible-em, 2)) { & { display: none; } }
-  		}
-  		@if length($visible-em) >= 3 {
-  			@media #{$media} and ( min-width: nth($visible-em, 2)) and ( max-width: (nth($visible-em, 3) - em(1))) { & { display: none; } }
-  		}
-  		@if length($visible-em) == 4 {
-  			@media #{$media} and ( min-width: nth($visible-em, 4)) { & { display: none; } }
-  		}
-  		@if length($visible-em) > 4 {
-  			@media #{$media} and ( min-width: nth($visible-em, 4)) and ( max-width: (nth($visible-em, 5) - em(1))) { & { display: none; } }
-  		}
-  	} @else {
-      @if length($visible-em) >= 1 {
-        @media ( max-width: (nth($visible-em, 1) - em(1))) { & { display: none; } }
-      }
-      @if length($visible-em) == 2 {
-        @media ( min-width: nth($visible-em, 2)) { & { display: none; } }
-      }
-      @if length($visible-em) >= 3 {
-        @media ( min-width: nth($visible-em, 2)) and ( max-width: (nth($visible-em, 3) - em(1))) { & { display: none; } }
-      }
-      @if length($visible-em) == 4 {
-        @media ( min-width: nth($visible-em, 4)) { & { display: none; } }
-      }
-      @if length($visible-em) > 4 {
-        @media ( min-width: nth($visible-em, 4)) and ( max-width: (nth($visible-em, 5) - em(1))) { & { display: none; } }
-      }
-    }
+    @include breakpoint($key) { display: none; }
   }
-
 }
 
 @mixin hidden($key){
-  $media: false;
-
   @if type-of($key) == number {
-
     // output
-    @if $media {
-  		@media #{$media} and ( min-width: em($key)) { & { display: none; } }
-    } @else {
-      @media ( min-width: em($key)) { & { display: none; } }
-    }
+    @include breakpoint('min' $key) { display: none; }
   } @else if type-of($key) == list {
-
-    // get media type
-    @each $type in $media-types {
-      @if index($key, $type) {
-        $media: $type;
-        $key: reject($key, $type);
-      }
-    }
-
-    // px to em
-  	$hidden-em: ();
-  	@each $num in $key {
-  		@if unitless($num) or unit($num) == 'px' {
-  			$hidden-em: append($hidden-em, em($num));
-  		}
-  		@else { $hidden-em: append($hidden-em, $num); }
-  	}
-
-    // output
-  	@if $media {
-  		@if length($hidden-em) == 1 {
-  			@media #{$media} and ( min-width: nth($hidden-em, 1)) { & { display: none; } }
-  		}
-  		@if length($hidden-em) >= 2 {
-  			@media #{$media} and ( min-width: nth($hidden-em, 1)) and ( max-width: (nth($hidden-em, 2) - em(1))) { & { display: none; } }
-  		}
-  		@if length($hidden-em) == 3 {
-  			@media #{$media} and ( min-width: nth($hidden-em, 3)) { & { display: none; } }
-  		}
-  		@if length($hidden-em) >= 4 {
-  			@media #{$media} and ( min-width: nth($hidden-em, 3)) and ( max-width: (nth($hidden-em, 4) - em(1))) { & { display: none; } }
-  		}
-  		@if length($hidden-em) == 5 {
-  			@media #{$media} and ( min-width: nth($hidden-em, 5)) { & { display: none; } }
-  		}
-  	} @else {
-      @if length($hidden-em) == 1 {
-        @media ( min-width: nth($hidden-em, 1)) { & { display: none; } }
-      }
-      @if length($hidden-em) >= 2 {
-        @media ( min-width: nth($hidden-em, 1)) and ( max-width: (nth($hidden-em, 2) - em(1))) { & { display: none; } }
-      }
-      @if length($hidden-em) == 3 {
-        @media ( min-width: nth($hidden-em, 3)) { & { display: none; } }
-      }
-      @if length($hidden-em) >= 4 {
-        @media ( min-width: nth($hidden-em, 3)) and ( max-width: (nth($hidden-em, 4) - em(1))) { & { display: none; } }
-      }
-      @if length($hidden-em) == 5 {
-        @media ( min-width: nth($hidden-em, 5)) { & { display: none; } }
-      }
-    }
+    @include breakpoint($key) { display: none; }
   }
 }

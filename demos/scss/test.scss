@@ -22,7 +22,7 @@ $gutter-4: (map-get($layout, gutter) / ( span($main) * span($main) ) );
 .container { @include container(); }
 .main {
   @include span($main);
-  @include breakpoint-mi( 640 ) {
+  @include breakpoint('min' 640 ) {
     &-left {
       @at-root (without:media) { @extend %common; }
       @include span(6 $gutter-2);
@@ -34,7 +34,7 @@ $gutter-4: (map-get($layout, gutter) / ( span($main) * span($main) ) );
     .news { @include span(7 $gutter-3); }
     .popular { @include span(5 $gutter-3 last); }
   }
-  @include breakpoint-mi( em(980px) ) {
+  @include breakpoint('min' em(980px) ) {
     &-left {
       @include span(8 $gutter-2 keep);
     }
@@ -52,12 +52,12 @@ $gutter-4: (map-get($layout, gutter) / ( span($main) * span($main) ) );
 .gallery {
   clear: both;
 }
-@include breakpoint-mi( em(640px) ) {
+@include breakpoint('min' em(640px) ) {
   .gallery {
     @include gallery(3);
   }
 }
-@include breakpoint-mi( em(980px) ) {
+@include breakpoint('min' em(980px) ) {
   .gallery {
     @include gallery(4 keep);
   }

@@ -35,7 +35,7 @@
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }
-    @include breakpoint-ma(1178){
+    @include breakpoint('max' 1178){
       .controls {
         .prev { margin-left: 10px !important; }
         .next { margin-right: 10px !important; }

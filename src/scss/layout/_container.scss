@@ -35,43 +35,38 @@
 
   // output
   @extend %clearfix;
+  @extend %global-transition;
   max-width: $container;
 
+  // direction
+  @if $align == center {
+    margin-left: auto; 
+    margin-right: auto; 
+  } @else {
+    margin-#{opposite($align)}: auto;
+  } 
+
+  // flexible container
   @if unit($container) == '%' {
-    @if $align == center {
-      margin-left: auto; 
-      margin-right: auto; 
-    }
-    @else {
-      margin-#{opposite($align)}: auto;
-    } 
     @if $gutter {
       padding-left: $gutter;
       padding-right: $gutter;
     }
-  }
-  @else {
+  // fixed container
+  } @else {
     @if $gutter and $gutter != 0 { 
-      margin-left: $gutter; 
-      margin-right: $gutter; 
-
       $container-breakpoint: $container;
       @if unit($gutter) != '%' and unit($container) == unit($gutter) {
         $container-breakpoint: ( $container + ( $gutter * 2 ) );
       }
 
-      @if $align == center {
-        @include breakpoint-mi($container-breakpoint) { 
-          margin-left: auto; 
-          margin-right: auto; 
-        }
-      }
-      @else { 
-        @include breakpoint-mi($container-breakpoint) { 
-          margin-#{opposite($align)}: auto; 
-        }
+      padding-left: $gutter; 
+      padding-right: $gutter; 
+
+      @include breakpoint('min' $container-breakpoint) { 
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }
 }
-

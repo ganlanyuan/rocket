@@ -457,28 +457,16 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
 #### breakpoint
 A shorthand @mixin for break point.
 ```` scss
-@include breakpoint-mi($key);
+@include breakpoint($key);
 
 // pattern
-$key: $min $media;
+$key: $condition $media $breakpoints;
 
-@include breakpoint-mi(640) {};
+@include breakpoint('min' 640) {};
 // output: @media (min-width: 40em) {};
-
-@include breakpoint-ma($key);
-
-// pattern
-$key: $min $media;
-
-@include breakpoint-ma(640 screen) {};
+@include breakpoint('max' 640 screen) {};
 // output: @media screen and (max-width: 40em) {};
-
-@include breakpoint-mm($key);
-
-// pattern
-$key: $min $media;
-
-@include breakpoint-mm(640 767) {};
+@include breakpoint(640 767) {};
 // output: @media (min-width: 40em) and (max-width: 47.94em) {};
 ````
 

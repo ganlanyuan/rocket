@@ -472,7 +472,7 @@ pre[class*="language-"] {
 .slider .info {
   padding: 10px;
 }
-@media (max-width: 49.9375em) {
+@media (max-width: 50em) {
   .slider .info {
     display: none;
   }
