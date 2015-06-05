@@ -1,4 +1,20 @@
 # Changelog
+### v2.0.0
++ All mixins now require only one parameter(list). The advantage is that you don't need to remeber the order of parameters any more, you just need to remember which element you want to use. For example, `button(16px '.5em 1em' radius)` and ` button(radius '.5em 1em' 16px)` are the same.
++ Add `keep` to `span`, `span-calc` and `gallery`.
++ Add 'isolate mode' to `span`.
++ Combine `breakpoint-mi`, `breakpoint-ma` and `breakpoint-mm` to one mixin `breakpoint`. Now `breakpoint` accept a maximun 6 numbers' list.
++ Simplify `visible` and `hidden` mixins by including `breakpoint` mixin.
++ Add more features to `type`. Now it's very helpful that you can see most of the type properties at one place.
++ Remove javascript dependence from `dropdown`.
++ Remove `debug`.
++ Simplify other functions and mixins.
+
+Things we are working on:
++ Support libsass
++ Update css slider
++ Add more mixins and functions
++ Rocket document
 
 ### v1.2.0
 + Add `keep` argument to `span`, `span-calc`, `gallery`. Now you can reduce your code by using `$keep:true` if your want keep some setting(float, margin) when you do media query.

@@ -163,6 +163,27 @@ $key: ($column at $location of $columns) $gutter (move $move) (float $float) las
   .nav { width: 35.0909090909%; }
 }
 ````
+*Nested grid*: use function `span` to calculate the right gutter. We're still working on this to make it even easier.
+```` html
+<!-- nested grid -->
+<div class="parent">
+  <div class="child-1"></div>
+  <div class="child-2"></div>
+</div>
+<div class="aside"></div>
+````
+```` scss
+$gutter-1: 2%;
+$gutter-2: ($gutter-1 / span(7 of 10 2%)); // 1
+// 1. or you can directly $gutter-2: ($gutter-1 / 69.99%)
+
+.parent {
+  @include span(7 of 10 $gutter-1);
+  .child-1 { @include span(9 of 16 $gutter-2); }
+  .child-2 { @include span(7 of 16 $gutter-2); }
+}
+.aside { @include span(3 of 10 $gutter-1); }
+````
 
 #### span-calc
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
@@ -324,20 +345,26 @@ $key: $ratio (child $child);
 [demo](http://creatiointl.org/gallery/william/rocket/components-flex-video.php)
 
 #### dropdown
+```` html
+<!-- 
+  if you set $show: click, add these markup to your dropdown 
+  make sure the value of "for" match the checkbox id
+  -->
+
+<input type="checkbox" name="" id="dropdown" style="display: none">
+<label for="dropdown">▼</label>
+````
 ```` scss
 @include dropdown($key);
 
 // pattern
-$key: $child $show default;
+$key: $child $show $style default;
 
 // child: ul;
-// show: hover; (or click)
+// show: hover; (hover | click)
+// style: display; (scale | display)
 // default: true; (use default dropdown menu style)
-.dropdown { @include dropdown(ul hover default); }
-
-// If you set $show: click, you need:
-// 1. link "kit.min.js" to your html
-// 2. add "<span data-dropdown-toggle></span>" to your dropdown tag.
+.dropdown { @include dropdown(ul hover display default); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
 

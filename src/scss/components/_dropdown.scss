@@ -7,64 +7,80 @@
   @extend %global-transition;
   position: absolute;
   z-index: nth($z-index, 4);
+}
+%dropdown-menu-hide {
   -ms-transform: scaleY(0);
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -ms-transform-origin: top;
   -webkit-transform-origin: top;
   transform-origin: top;
-  .no-csstransforms & { display: none; }
 }
 %dropdown-menu-show {
   -ms-transform: scaleY(1);
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
-  .no-csstransforms & { display: block; }
 }
 
 @mixin dropdown(
   $key:
-    ul
-    hover
+    'ul'
+    'hover'
+    'scale'
 ){
-  $child: ul;
-  $show: hover;
+  $child: 'ul';
+  $show: 'hover';
+  $style: 'scale';
   $default: false;
+  $path: false;
 
-  @if type-of($key) == string {
-    @if $key == default {
+  @if type-of($key) == 'string' {
+    @if $key == 'default' {
       $default: true;
     } @else if index($dropdown-show, $key) {
       $show: $key;
+    } @else if index($dropdown-style, $key) {
+      $style: $key;
     } @else {
       $child: $key;
     }
-  } @else if type-of($key) == list {
+  } @else if type-of($key) == 'list' {
     @for $i from 1 through length($key) {
       $val: nth($key, $i);
 
-      @if $val == default {
+      @if $val == 'default' {
         $default: true;
       } @else if index($dropdown-show, $val) {
         $show: $val;
+      } @else if index($dropdown-style, $val) {
+        $style: $val;
       } @else {
         $child: $val;
       }
     }
   }
 
-  // default style
-  $bgc: #fff;
-  $padding: 0.31em 1.25em;
-  $border: 1px solid #dbdbdb;
-  $border-radius: 0.19em;
-  $shadow: rgba(0,0,0,0.15) 0px 6px 12px;
-
+  // basic dropdown style
   @extend %dropdown;
   #{$child} {
+    // basic menu style
     @extend %dropdown-menu;
+    
+    // hide menu
+    @if $style == 'scale' {
+      @extend %dropdown-menu-hide;
+      .no-csstransforms & { display: none; }
+    } @else if $style == 'display' {
+      display: none;
+    }
 
-    // default style
+    // default menu style
+    $bgc: #fff;
+    $padding: 0.31em 1.25em;
+    $border: 1px solid #dbdbdb;
+    $border-radius: 0.19em;
+    $shadow: rgba(0,0,0,0.15) 0px 6px 12px;
+
     @if $default {
       background-color: $bgc;
       @if $border { border: $border; }
@@ -83,16 +99,22 @@
         color: contrast($bgc);
       }
     }
+  }
 
+  // set path
+  @if $show == 'hover' {
+    $path: '&:hover >';
+  } @else if $show == 'click' {
+    $path: '> input:checked ~';
   }
-  @if $show == hover {
-    &:hover #{$child} {
+
+  // show
+  #{$path} #{$child} {
+    @if $style == 'scale' {
       @extend %dropdown-menu-show;
-    }
-  }
-  @else if $show == click {
-    &.dropdown-open #{$child} {
-      @extend %dropdown-menu-show;
+      .no-csstransforms & { display: block; }
+    } @else if $style == 'display' {
+      display: block;
     }
   }
 }

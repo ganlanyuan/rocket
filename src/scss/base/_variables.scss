@@ -32,12 +32,14 @@ $global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $vertical-align: 'baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle', 'top', 'bottom';
 
 // media type
-$media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
-$font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
-$font-styles: italic, oblique, style-normal, style-inherit !default;
-$text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
-$off-canvas-styles: move, translate, reveal !default;
-$off-canvas-direction: left, right !default;
+$media-types: 'all', 'aural', 'braille', 'handheld', 'print', 'projection', 'screen', 'tty', 'tv', 'embossed' !default;
+$font-weights: 'thin', 'hairline', 'extra light', 'ultra light', 'lighter', 'light', 'normal', 'medium', 'semi bold', 'demi bold', 'bold', 'bolder', 'extra bold', 'black', 'heavy', 100, 200, 300, 400, 500, 600, 700, 800, 900, 'weight-normal', 'weight-inherit' !default;
+$font-styles: 'italic', 'oblique', 'style-normal', 'style-inherit' !default;
+$text-transforms: 'capitalize', 'uppercase', 'lowercase', 'none', 'full-width', 'transform-inherit' !default;
+
+// off-canvas
+$off-canvas-styles: 'move', 'translate', 'reveal' !default;
+$off-canvas-direction: 'left', 'right' !default;
 
 // button
 $button-radius: 0.22em !default;
@@ -45,14 +47,15 @@ $button-round: 1000px !default;
 $button-hover-lightness: 10% !default;
 
 // tooltip
-$tooltip-direction: left, right, top, bottom !default;
+$tooltip-direction: 'left', 'right', 'top', 'bottom' !default;
 $tooltip-radius: 0.22em !default;
 
 // dropdown
-$dropdown-show: hover, click !default;
+$dropdown-show: 'hover', 'click' !default;
+$dropdown-style: 'display', 'scale' !default;
 
 // color functions
-$color-methods: adjacent, complementary, split-complementary, triad, rectangle, square !default;
+$color-methods: 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square' !default;
 $color-dist: 30 !default;
 
 // slider

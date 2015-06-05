@@ -16,7 +16,8 @@
         </div>              
         <div class="dropdown-2">
           <span>dropdown: </span>
-          <span class="ic-angle-down" data-dropdown-toggle></span>
+          <input type="checkbox" name="" id="dropdown" style="display: none">
+          <label for="dropdown">▼</label>
           <ul>
             <li><a href="">item01</a></li>
             <li><a href="">item02</a></li>

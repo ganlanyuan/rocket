@@ -266,7 +266,7 @@ h1.example-type {
   font-size: 32px;
   font-size: 2rem;
   line-height: 1.1;
-  font-style: italic;
+  font-style: "italic";
   margin-bottom: 10px;
 }
 
@@ -274,8 +274,8 @@ h2.example-type {
   font-size: 28px;
   font-size: 1.75rem;
   line-height: 1.2;
-  font-weight: normal;
-  text-transform: uppercase;
+  font-weight: "normal";
+  text-transform: "uppercase";
   margin-bottom: 10px;
 }
 
