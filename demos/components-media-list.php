@@ -39,10 +39,10 @@
       </div>
       <pre><code class="language-scss">
 .news-left > li { 
-  @include media(15px media 'figure' body 'div' left); 
+  @include media(15px child 'figure' 'div'); 
 }
 .news-right > li { 
-  @include media(50px media '.media' body '.media-body' right); 
+  @include media(50px child '.media' '.media-body'); 
 }
       </code></pre>
     </div>

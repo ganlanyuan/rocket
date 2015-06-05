@@ -294,19 +294,15 @@ $key: $font-size $padding $background-color radius round hover;
 @include media($key);
 
 // pattern
-$key: $gutter (media $media) (body $media-body) $direction;
+$key: $gutter (child $child1 $child2 ...);
 
 // gutter: 10px; (default)
-// media: [data-media-left] or [data-media-right]; (default)
-// media-body: [data-media-body]; (default)
-// direction: left; (default)
+// child: '*'; (default)
 .news { @include media(); } 
 
 // gutter: 1em;
-// media: .media;
-// media-body: .media-body;
-// direction: right;
-.news-right { @include media(1em media '.media' body '.media-body' right); } 
+// child: '.media' '.media-body';
+.news-right { @include media(1em child '.media' '.media-body'); } 
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-media-list.php)
 

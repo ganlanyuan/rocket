@@ -29,6 +29,8 @@ $z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 !default;
 $global-animation-duration: 0.3s !default;
 $global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
+$vertical-align: 'baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle', 'top', 'bottom';
+
 // media type
 $media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
 $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;

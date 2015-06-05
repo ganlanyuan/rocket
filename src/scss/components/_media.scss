@@ -1,58 +1,53 @@
 // *** media *** //
 
-%media-style {
-	display: table-cell;
-	vertical-align: top;
-}
-
-@mixin media($key){
+@mixin media(
+	$key: 10px '*'
+){
 	$gutter: 10px;
-	$media: null;
-	$media-body: null;
-	$direction: left;
+	$child: ();
+	$position: top;
 
 	@if type-of($key) == number {
 		$gutter: $key;
 	} @else if type-of($key) == list {
-		@for $i from 1 through length($key) {
-			@if type-of(nth($key, $i)) == number {
-				$gutter: nth($key, $i);
+		@each $item in $key {
+			@if type-of($item) == number {
+				$gutter: $item;
+				$key: reject($key, $item);
 			}
 		}
-		@each $item in left, right {
+		@each $item in top, middle, bottom {
 			@if index($key, $item) {
-				$direction: $item;
+				$position: $item;
+				$key: reject($key, $item);
 			}
 		}
-		@if index($key, media) {
-			$media: get-next($key, media);
+		@if index($key, 'child') {
+			$key: reject($key, 'child');
 		}
-		@if index($key, body) {
-			$media-body: get-next($key, body);
-		}
+		$child: $key;
 	}
 
-	// media
-	@if $media and $media != null {
-		> #{$media} { 
-			@extend %media-style; 
+	// if no child
+	@if length($child) == 0 {
+		$child: append($child, '*');
+	}
+
+	// output
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
+
+	@for $i from 1 through length($child) {
+		$item: nth($child, $i);
+		
+		> #{$item} {
+			display: table-cell;
+			vertical-align: $position;
 			@if $gutter and $gutter != 0 and $gutter != '0px' {
-				padding-#{opposite($direction)}: $gutter;
+				padding-right: $gutter;
+				&:last-child { padding-right: 0; }
 			}
 		}
-	} @else {
-		> [data-media-left],
-		> [data-media-right] { @extend %media-style; }
-		@if $gutter and $gutter != 0 and $gutter != '0px' {
-			> [data-media-left] { padding-right: $gutter; }
-			> [data-media-right] { padding-left: $gutter; }
-		}
-	}
-
-	// media body
-	@if $media-body and $media-body != null {
-		> #{$media-body} { @extend %media-style; }
-	} @else {
-		> [data-media-body] { @extend %media-style; }
 	}
 }
