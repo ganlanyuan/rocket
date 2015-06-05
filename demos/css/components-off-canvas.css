@@ -269,6 +269,7 @@ pre[class*="language-"] {
 
 .mb-nav {
   position: fixed;
+  top: 0;
   height: 100%;
   color: #fff;
   background: #102244;
