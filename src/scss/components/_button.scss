@@ -6,8 +6,8 @@
 	// line-height: normal !important;
 	// cursor: pointer;
 	box-sizing: border-box;
-	@extend %hover-no-text-decoration;
-	@extend %global-transition;
+	@extend %ro-hover-no-text-decoration;
+	@extend %ro-global-transition;
 }
 
 @mixin button (
@@ -57,7 +57,7 @@
 
 	@extend %button-style;
   @if $radius {
-    border-radius: $button-radius;
+    border-radius: $ro-button-radius;
   }
   @if $round {
     border-radius: $button-round;

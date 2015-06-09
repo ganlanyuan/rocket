@@ -63,7 +63,7 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
   @if not $order { $order: 0; }
   @if not $saturation { $saturation: 0%; }
   @if not $lightness { $lightness: 0%; }
-  @if not $dist { $dist: $color-dist; }
+  @if not $dist { $dist: $ro-color-dist; }
   $hue: hue($color);
   $target-hue: 0deg;
   
@@ -123,14 +123,14 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
   $order: 1;
   $saturation: 0;
   $lightness: 0;
-  $dist: $color-dist;
+  $dist: $ro-color-dist;
 
   @if type-of($key) == color {
     $color: $key;
   } @else if type-of($key) == list {
 
-    @for $i from 1 through length($color-methods) {
-      $item: nth($color-methods, $i);
+    @for $i from 1 through length($ro-color-methods) {
+      $item: nth($ro-color-methods, $i);
 
       @if index($key, $item) {
         $method: $item;

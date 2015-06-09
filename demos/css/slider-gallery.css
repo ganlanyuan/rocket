@@ -69,12 +69,7 @@
   transition: all 1s ease 0s;
 }
 
-[autoheight-carousel] {
-  -webkit-transition: height 0.3s ease 0s;
-  transition: height 0.3s ease 0s;
-}
-
-[autoheight-gallery] {
+.slider [autoheight-gallery] {
   -webkit-transition: padding-bottom 0.3s ease 0s;
   transition: padding-bottom 0.3s ease 0s;
 }
@@ -490,7 +485,7 @@ pre[class*="language-"] {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.3;
-  font-weight: "bold";
+  font-weight: bold;
   margin: 0 0 .3em;
 }
 .slider .slider-labels label {

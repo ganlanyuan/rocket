@@ -2,8 +2,8 @@
 
 @mixin span($key){
 	$column: 0;
-	$columns: map-get($layout, columns);
-	$gutter: map-get($layout, gutter);
+	$columns: map-get($ro-layout, columns);
+	$gutter: map-get($ro-layout, gutter);
 	$location: false;
 	$move: false;
 	$isolate: false;
@@ -82,7 +82,7 @@
 	@if $isolate { margin-right: -100%; }
 	
 	// no gutter
-	@if not $gutter or $gutter == 0 {
+	@if not $gutter or $gutter == 0 or $gutter == 0px {
 	  width: percentage($column / $columns);
 
 	  // move

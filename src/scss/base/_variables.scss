@@ -2,65 +2,55 @@
 //-----------------------------
 
 // layout
-$layout: (
+$ro-layout: (
   container: 1024px,
   columns: 12,
   gutter: 2%,
 ) !default;
 
-%layout-wrap {
-  letter-spacing: -.43em;
-}
-%layout-span {
-  letter-spacing: normal;
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
-}
-
 // base
-$em-base: 16px !default;
-$rem-base: 16px !default;
+$ro-em-base: 16px !default;
+$ro-rem-base: 16px !default;
 
 // z-index
-$z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 !default;
+$ro-z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 !default;
 
 // transition
-$global-animation-duration: 0.3s !default;
-$global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$ro-global-animation-duration: 0.3s !default;
+$ro-global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
-$vertical-align: 'baseline', 'sub', 'super', 'text-top', 'text-bottom', 'middle', 'top', 'bottom';
+$ro-vertical-align: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
 
 // media type
-$media-types: 'all', 'aural', 'braille', 'handheld', 'print', 'projection', 'screen', 'tty', 'tv', 'embossed' !default;
-$font-weights: 'thin', 'hairline', 'extra light', 'ultra light', 'lighter', 'light', 'normal', 'medium', 'semi bold', 'demi bold', 'bold', 'bolder', 'extra bold', 'black', 'heavy', 100, 200, 300, 400, 500, 600, 700, 800, 900, 'weight-normal', 'weight-inherit' !default;
-$font-styles: 'italic', 'oblique', 'style-normal', 'style-inherit' !default;
-$text-transforms: 'capitalize', 'uppercase', 'lowercase', 'none', 'full-width', 'transform-inherit' !default;
+$ro-media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$ro-font-weights: thin, hairline, extra light, ultra light, lighter, light, normal, medium, semi bold, demi bold, bold, bolder, extra bold, black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, 'weight-normal', 'weight-inherit' !default;
+$ro-font-styles: italic, oblique, 'style-normal', 'style-inherit' !default;
+$ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, 'transform-inherit' !default;
 
 // off-canvas
-$off-canvas-styles: 'move', 'translate', 'reveal' !default;
-$off-canvas-direction: 'left', 'right' !default;
+$ro-off-canvas-styles: 'move', 'translate', 'reveal' !default;
+$ro-off-canvas-direction: left, right !default;
 
 // button
-$button-radius: 0.22em !default;
+$ro-button-radius: 0.22em !default;
 $button-round: 1000px !default;
 $button-hover-lightness: 10% !default;
 
 // tooltip
-$tooltip-direction: 'left', 'right', 'top', 'bottom' !default;
-$tooltip-radius: 0.22em !default;
+$ro-tooltip-direction: left, right, top, bottom !default;
+$ro-tooltip-radius: 0.22em !default;
 
 // dropdown
-$dropdown-show: 'hover', 'click' !default;
+$ro-dropdown-show: 'hover', 'click' !default;
 $dropdown-style: 'display', 'scale' !default;
 
 // color functions
-$color-methods: 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square' !default;
-$color-dist: 30 !default;
+$ro-color-methods: 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square' !default;
+$ro-color-dist: 30 !default;
 
 // slider
-$slider-time: 3s !default;
-$slider-play: 1s !default;
-$slider-pause: 4s !default;
-$slider-peritem: ($slider-play + $slider-pause) !default;
-$slider-z-index: 10,9,8,7,6,5,4,3,2,1 !default;
+$ro-slider-time: 3s !default;
+$ro-slider-play: 1s !default;
+$ro-slider-pause: 4s !default;
+$ro-slider-peritem: ($ro-slider-play + $ro-slider-pause) !default;
+$ro-slider-z-index: 10,9,8,7,6,5,4,3,2,1 !default;

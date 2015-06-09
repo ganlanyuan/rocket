@@ -1,6 +1,6 @@
 // ======= tooltip ======= //
 %tooltip-common {
-  @extend %global-transition;
+  @extend %ro-global-transition;
   position: absolute;
   z-index: 9999;
   display: none;
@@ -39,7 +39,7 @@
   } @else if type-of($key) == string {
     @if $key == radius {
       $radius: true;
-    } @else if index($tooltip-direction, $key) {
+    } @else if index($ro-tooltip-direction, $key) {
       $direction: $key;
     }
   } @else if type-of($key) == list {
@@ -58,7 +58,7 @@
       } @else if type-of($item) == string {
         @if $item == radius {
           $radius: true;
-        } @else if index($tooltip-direction, $item) {
+        } @else if index($ro-tooltip-direction, $item) {
           $direction: $item;
         }
       }
@@ -78,7 +78,7 @@
     content: $content;
     background-color: $color;
     max-width: $width;
-    @if $radius { border-radius: $tooltip-radius; }
+    @if $radius { border-radius: $ro-tooltip-radius; }
   }
   .no-csstransforms &:after { width: $width; }
   @if $direction == top or $direction == bottom {

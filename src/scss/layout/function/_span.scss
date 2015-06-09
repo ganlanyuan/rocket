@@ -1,8 +1,8 @@
 // span
 @function span($key){
   $column: false;
-  $columns: map-get($layout, columns);
-  $gutter: map-get($layout, gutter);
+  $columns: map-get($ro-layout, columns);
+  $gutter: map-get($ro-layout, gutter);
   $ratio: false;
 
   @if type-of($key) == number {

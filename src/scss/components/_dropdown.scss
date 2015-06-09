@@ -1,12 +1,8 @@
 // *** dropdown *** //
-%dropdown {
-  position: relative; 
-  cursor: pointer;
-}
 %dropdown-menu {
-  @extend %global-transition;
+  @extend %ro-global-transition;
   position: absolute;
-  z-index: nth($z-index, 4);
+  z-index: nth($ro-z-index, 4);
 }
 %dropdown-menu-hide {
   -ms-transform: scaleY(0);
@@ -37,7 +33,7 @@
   @if type-of($key) == 'string' {
     @if $key == 'default' {
       $default: true;
-    } @else if index($dropdown-show, $key) {
+    } @else if index($ro-dropdown-show, $key) {
       $show: $key;
     } @else if index($dropdown-style, $key) {
       $style: $key;
@@ -50,7 +46,7 @@
 
       @if $val == 'default' {
         $default: true;
-      } @else if index($dropdown-show, $val) {
+      } @else if index($ro-dropdown-show, $val) {
         $show: $val;
       } @else if index($dropdown-style, $val) {
         $style: $val;
@@ -60,9 +56,14 @@
     }
   }
 
-  // basic dropdown style
-  @extend %dropdown;
-  #{$child} {
+  position: relative;
+  @if $show == 'hover' {
+    cursor: pointer;
+  }
+  // hide checkbox. 
+  // IE8 don't support click event on "display: none" element.
+  > [type='checkbox'] { @extend %ro-hidden-checkbox; }
+  > #{$child} {
     // basic menu style
     @extend %dropdown-menu;
     
@@ -88,12 +89,12 @@
       @if $shadow { box-shadow: $shadow; }
       .current a,li:hover a { background-color: analogous($bgc 10%);}
       li { 
-        @extend %global-transition; 
+        @extend %ro-global-transition; 
         &:first-child > a { padding-top: nth($padding, 1) * 2;}
         &:last-child > a { padding-bottom: nth($padding, 1) * 2;}
       }
       a { 
-        @extend %hover-no-text-decoration;
+        @extend %ro-hover-no-text-decoration;
         display: block;
         padding: $padding;
         color: contrast($bgc);

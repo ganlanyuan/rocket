@@ -16,7 +16,7 @@
         </div>              
         <div class="dropdown-2">
           <span>dropdown: </span>
-          <input type="checkbox" name="" id="dropdown" style="display: none">
+          <input type="checkbox" name="" id="dropdown">
           <label for="dropdown">▼</label>
           <ul>
             <li><a href="">item01</a></li>

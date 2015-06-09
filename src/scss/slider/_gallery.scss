@@ -95,18 +95,18 @@
       // animation
       @include keyframes(#{$prefix}) {
         0% { @include item-normal; }
-        #{percentage($slider-play / ($slider-peritem * $items))} { @include item-active; }
-        #{percentage($slider-peritem / ($slider-peritem * $items))} { @include item-active; }
-        #{percentage(($slider-play + $slider-peritem) / ($slider-peritem * $items))} { @include item-normal; }
+        #{percentage($ro-slider-play / ($ro-slider-peritem * $items))} { @include item-active; }
+        #{percentage($ro-slider-peritem / ($ro-slider-peritem * $items))} { @include item-active; }
+        #{percentage(($ro-slider-play + $ro-slider-peritem) / ($ro-slider-peritem * $items))} { @include item-normal; }
       }
       @at-root { 
         #{$id}-autoplay:checked ~ {
           .controls, .dots { display: none !important; }
           .outer li {
-            @include animation( #{$prefix} $slider-peritem * $items ease infinite);
+            @include animation( #{$prefix} $ro-slider-peritem * $items ease infinite);
             @for $i from 2 through $items {
               &:nth-child(#{$i}) {
-                @include animation-delay(($slider-peritem * ($i - 1)));
+                @include animation-delay(($ro-slider-peritem * ($i - 1)));
               }
             }
           }

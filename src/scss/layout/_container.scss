@@ -1,8 +1,8 @@
 // *** container *** //
 @mixin container(
   $key: 
-    map-get($layout, container) 
-    map-get($layout, gutter) 
+    map-get($ro-layout, container) 
+    map-get($ro-layout, gutter) 
     center
 ){
   $container: 0;
@@ -11,7 +11,7 @@
 
   @if type-of($key) == number {
     $container: $key;
-    $gutter: map-get($layout, gutter);
+    $gutter: map-get($ro-layout, gutter);
     $align: center;
   } @else if type-of($key) == list {
     @each $direction in left, right, center {
@@ -25,17 +25,17 @@
     @if length($key) >= 2 {
       $gutter: nth($key, 2);
     } @else {
-      $gutter: map-get($layout, gutter);
+      $gutter: map-get($ro-layout, gutter);
     }
   } @else {
-    $container: map-get($layout, container);
-    $gutter: map-get($layout, gutter);
+    $container: map-get($ro-layout, container);
+    $gutter: map-get($ro-layout, gutter);
     $align: center;
   }
 
   // output
-  @extend %clearfix;
-  @extend %global-transition;
+  @extend %ro-clearfix;
+  @extend %ro-global-transition;
   max-width: $container;
 
   // direction

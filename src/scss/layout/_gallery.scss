@@ -2,8 +2,9 @@
 
 @mixin gallery($key){
   $per-row: 1;
-  $gutter: map-get($layout, gutter);
+  $gutter: map-get($ro-layout, gutter);
   $child: '*';
+  $float: left;
   $position: middle;
   $keep: false;
 
@@ -22,6 +23,13 @@
           $gutter: $val;
         }
       }
+    }
+
+    // set up float
+    @each $this-float in left, right {
+      @if index($key, $this-float) { 
+        $float: $this-float;
+      } 
     }
 
     // set up position
@@ -48,15 +56,21 @@
       @include wrap($gutter);
     }
   }
-  @at-root (without: media) { @extend %layout-wrap; }
 
   // set up gallery items
   > #{$child} {
     width: percentage(1 / $per-row);
-    @at-root (without: media) { @extend %layout-span; }
+    &:nth-child(#{$per-row}n+1) { clear: both; }
+    @for $i from 2 through $per-row {
+      &:nth-child(#{$per-row}n+#{$i}) {
+        clear: none;
+      }
+    }
 
     // set up gallery gutter
     @if not $keep {
+      float: $float;
+      box-sizing: border-box;
       @if $gutter and $gutter != 0{
         @if $position == bottom { 
           padding: 0 ($gutter / 2) $gutter; 

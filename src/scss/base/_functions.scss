@@ -19,7 +19,7 @@
 }
 
 // em
-@function em($pxval, $base: $em-base) {
+@function em($pxval, $base: $ro-em-base) {
   @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-units($pxval); }
@@ -29,7 +29,7 @@
 }
 
 // rem
-@function rem($pxval, $base: $rem-base) {
+@function rem($pxval, $base: $ro-rem-base) {
   @if unit($pxval) == 'rem' or unit($pxval) == 'em' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-units($pxval); }

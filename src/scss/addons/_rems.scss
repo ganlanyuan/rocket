@@ -1,6 +1,6 @@
 // *** rems *** //
 // @include rems(margin, 0 10 20 0);
-@mixin rems($property, $size, $base: $em-base) {
+@mixin rems($property, $size, $base: $ro-em-base) {
   @if not unitless($base) {
     $base: strip-units($base);
   }

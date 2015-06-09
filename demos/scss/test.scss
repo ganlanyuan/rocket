@@ -16,9 +16,9 @@ body {
   margin-bottom: 20px;
 }
 $main:(8 of 12);
-$gutter-2: (map-get($layout, gutter) / span($main) );
-$gutter-3: (map-get($layout, gutter) / ( span($main) * span(6) ) );
-$gutter-4: (map-get($layout, gutter) / ( span($main) * span($main) ) );
+$gutter-2: (map-get($ro-layout, gutter) / span($main) );
+$gutter-3: (map-get($ro-layout, gutter) / ( span($main) * span(6) ) );
+$gutter-4: (map-get($ro-layout, gutter) / ( span($main) * span($main) ) );
 .container { @include container(); }
 .main {
   @include span($main);

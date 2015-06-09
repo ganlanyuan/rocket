@@ -31,7 +31,7 @@
   $total: ($aside-width + $gutter);
 
   // output
-  @at-root (without: media) { @extend %clearfix; }
+  @at-root (without: media) { @extend %ro-clearfix; }
   padding-#{$direction}: $total;
 
   // main

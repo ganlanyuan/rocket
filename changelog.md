@@ -1,4 +1,10 @@
 # Changelog
+
+### v2.0.1
++ Add prefix 'ro-' to all variables and placeholder selectors to prevent attach with other frameworks.
++ Change layout `gallery` from `inline-block` to `float`.
++ Fix `font-family` string issue on `type'.
+
 ### v2.0.0
 + All mixins now require only one parameter(list). The advantage is that you don't need to remeber the order of parameters any more, you just need to remember which element you want to use. For example, `button(16px '.5em 1em' radius)` and ` button(radius '.5em 1em' 16px)` are the same.
 + Add `keep` to `span`, `span-calc` and `gallery`.

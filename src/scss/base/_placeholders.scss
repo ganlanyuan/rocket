@@ -2,13 +2,18 @@
 //-----------------------------
 
 // clearfix
-%clearfix { @include clearfix; }
+%ro-clearfix { @include clearfix; }
 
 // link hover
-%hover-no-text-decoration {&:hover { text-decoration: none; } }
+%ro-hover-no-text-decoration {&:hover { text-decoration: none; } }
+
+%ro-hidden-checkbox {
+  position: absolute; 
+  left: -9999em;
+}
 
 // transition
-%global-transition {
-  -webkit-transition: all $global-animation-duration $global-bezier 0s;
-  transition: all $global-animation-duration $global-bezier 0s;
+%ro-global-transition {
+  -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
+  transition: all $ro-global-animation-duration $ro-global-bezier 0s;
 }

@@ -35,7 +35,7 @@
         $font-family: nth($key, $i);
       }
     }
-    @each $weight in $font-weights {
+    @each $weight in $ro-font-weights {
       @if index($key, $weight) {
         @if type-of($weight) == string and str-index($weight, '-') {
           $font-weight: str-cut($weight, '-', after);
@@ -44,7 +44,7 @@
         }
       }
     }
-    @each $style in $font-styles {
+    @each $style in $ro-font-styles {
       @if index($key, $style) {
         @if str-index($style, '-') {
           $font-style: str-cut($style, '-', after);
@@ -53,7 +53,7 @@
         }
       }
     }
-    @each $transform in $text-transforms {
+    @each $transform in $ro-text-transforms {
       @if index($key, $transform) {
         @if str-index($transform, '-') {
           $text-transform: str-cut($transform, '-', after);
@@ -83,6 +83,6 @@
     text-transform: $text-transform;
   }
   @if $font-family {
-    font-family: $font-family;
+    font-family: unquote($font-family);
   }
 }

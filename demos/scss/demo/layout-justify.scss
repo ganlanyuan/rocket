@@ -7,14 +7,14 @@
   .no-flexbox & { @include justify(li); }
   a {
     display: block;
-    @extend %hover-no-text-decoration;
-    @extend %global-transition;
+    @extend %ro-hover-no-text-decoration;
+    @extend %ro-global-transition;
     &:hover { padding: 0 20px; }
   }
   input {
     width: 150px;
     @include button(14px '5px 10px');
-    @extend %global-transition;
+    @extend %ro-global-transition;
     &:focus { width: 250px; }
   }
 }

@@ -26,9 +26,9 @@ $off-canvas-length: 12;
   } @else if type-of($key) == number {
     $off-canvas-width: $key;
   } @else if type-of($key) == string {
-    @if index($off-canvas-styles, $key) {
+    @if index($ro-off-canvas-styles, $key) {
       $style: $key;
-    } @else if index($off-canvas-direction, $key) {
+    } @else if index($ro-off-canvas-direction, $key) {
       $direction: $key;
     } @else {
       $padding: unquote($key);
@@ -44,9 +44,9 @@ $off-canvas-length: 12;
       } @else if type-of($val) == number {
         $off-canvas-width: $val;
       } @else if type-of($val) == string {
-        @if index($off-canvas-styles, $val) {
+        @if index($ro-off-canvas-styles, $val) {
           $style: $val;
-        } @else if index($off-canvas-direction, $val) {
+        } @else if index($ro-off-canvas-direction, $val) {
           $direction: $val;
         } @else {
           $padding: unquote($val);
@@ -63,22 +63,22 @@ $off-canvas-length: 12;
   background: $background-color;
   z-index: 300;
   box-sizing: border-box;
-  -webkit-transition: all $global-animation-duration $global-bezier 0s;
-  transition: all $global-animation-duration $global-bezier 0s;
+  -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
+  transition: all $ro-global-animation-duration $ro-global-bezier 0s;
   li { 
     line-height: 1;
     white-space: nowrap;
     @include clearfix;
-  }
-  a { 
-    display: block;
-    padding: $padding;
-    color: contrast($background-color);
-    -webkit-transition: all $global-animation-duration $global-bezier 0s;
-    transition: all $global-animation-duration $global-bezier 0s;
-    &:hover { 
-      text-decoration: none;
-      background-color: analogous($background-color 15%); 
+    a { 
+      display: block;
+      padding: $padding;
+      color: contrast($background-color);
+      -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
+      transition: all $ro-global-animation-duration $ro-global-bezier 0s;
+      &:hover { 
+        text-decoration: none;
+        background-color: analogous($background-color 15%); 
+      }
     }
   }
   .active > a,
@@ -91,8 +91,8 @@ $off-canvas-length: 12;
     top: 0;
     bottom: 0;
     background-color: $background-color;
-    -webkit-transition: left .3s $global-bezier 0s;
-    transition: left .3s $global-bezier 0s;
+    -webkit-transition: left .3s $ro-global-bezier 0s;
+    transition: left .3s $ro-global-bezier 0s;
   }
   [data-offcanvas-back]{ 
     padding: $padding;
@@ -149,7 +149,7 @@ $off-canvas-length: 12;
       @for $i from 1 through $off-canvas-length {
         & > ul > li:nth-child(#{$i}) > a ,
         [data-offcanvas-subnav] li:nth-child(#{$i}) a {
-          @include transition-delay(($i * $global-animation-duration / $off-canvas-length));
+          @include transition-delay(($i * $ro-global-animation-duration / $off-canvas-length));
         }
       }
     }
@@ -169,14 +169,14 @@ $off-canvas-length: 12;
   $cover-bg: rgba(0,0,0,.35);
 
   @if type-of($page-container-var) == string {
-    @for $i from 1 through length($off-canvas-styles) {
-      $val: nth($off-canvas-styles, $i);
+    @for $i from 1 through length($ro-off-canvas-styles) {
+      $val: nth($ro-off-canvas-styles, $i);
       @if $val == $page-container-var {
         $style: $page-container-var;
       }
     }
-    @for $i from 1 through length($off-canvas-direction) {
-      $val: nth($off-canvas-direction, $i);
+    @for $i from 1 through length($ro-off-canvas-direction) {
+      $val: nth($ro-off-canvas-direction, $i);
       @if $val == $page-container-var {
         $direction: $page-container-var;
       }
@@ -194,18 +194,18 @@ $off-canvas-length: 12;
       @if type-of($val) == color {
         $cover-bg: $val;
       }
-      @if index($off-canvas-styles, $val) {
+      @if index($ro-off-canvas-styles, $val) {
         $style: $val;
       }
-      @if index($off-canvas-direction, $val) {
+      @if index($ro-off-canvas-direction, $val) {
         $direction: $val;
       }
     }
   }
 
   position: relative;
-  -webkit-transition: all $global-animation-duration $global-bezier 0s;
-  transition: all $global-animation-duration $global-bezier 0s;
+  -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
+  transition: all $ro-global-animation-duration $ro-global-bezier 0s;
   > [data-page-cover] {
     display: block;
     position: fixed;
@@ -214,8 +214,8 @@ $off-canvas-length: 12;
     width: 100%;
     height: 100%;
     z-index: -1;
-    -webkit-transition: all $global-animation-duration $global-bezier 0s;
-    transition: all $global-animation-duration $global-bezier 0s;
+    -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
+    transition: all $ro-global-animation-duration $ro-global-bezier 0s;
     .off-canvas-show & {
       background-color: $cover-bg;
       z-index: 200;

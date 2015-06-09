@@ -1,10 +1,10 @@
 // gallery base
 @mixin item-normal {
-  z-index: nth($slider-z-index, 4); 
+  z-index: nth($ro-slider-z-index, 4); 
   opacity: 0; 
 }
 @mixin item-active {
-  z-index: nth($slider-z-index, 3); 
+  z-index: nth($ro-slider-z-index, 3); 
   opacity: 1; 
 }
 %item-normal { 

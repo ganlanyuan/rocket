@@ -220,11 +220,12 @@ $key: ($column of $columns) $gutter (move $move) (float $float) last keep;
 @include gallery($key);
 
 //pattern
-$key: $per-row $gutter (child $child) $position keep;
+$key: $per-row $gutter (child $child) $float $position keep;
 
 // per-row: 3;
 // gutter: 2%;
 // child: li;
+// float: left; (default)
 // position: middle; (same padding on the top and bottom for each item)
 .pic { @include gallery(3 2% child li middle); }
 
@@ -351,7 +352,7 @@ $key: $ratio (child $child);
   make sure the value of "for" match the checkbox id
   -->
 
-<input type="checkbox" name="" id="dropdown" style="display: none">
+<input type="checkbox" name="" id="dropdown">
 <label for="dropdown">▼</label>
 ````
 ```` scss

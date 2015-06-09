@@ -48,6 +48,7 @@
   @at-root (without: media) { 
     // set basic inner, controls, dots styles
     @extend %slide-base; 
+    @extend %autoheight-carousel; 
 
     @at-root {
       // active dots
@@ -116,7 +117,7 @@
     $frames: 1;
     @if $slide-by-page == true { $frames: ceil($items/$perpage); }
     @else { $frames: $items + 1 - $perpage; }
-    $unit: (100/($slider-peritem * $frames));
+    $unit: (100/($ro-slider-peritem * $frames));
 
     @include keyframes(#{$prefix}-inner) {
       @for $i from 1 through $frames {
@@ -126,21 +127,21 @@
           }
           @else { $left-val: (- ($i - 1) * 100%);}
 
-          #{percentage((($i - 1) * $slider-peritem) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $slider-peritem - $slider-play) * $unit / 100)} { left: $left-val; }
+          #{percentage((($i - 1) * $ro-slider-peritem) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $ro-slider-peritem - $ro-slider-play) * $unit / 100)} { left: $left-val; }
         }
         @else { 
           $left-val: percentage(- ($i - 1) / $perpage);
 
-          #{percentage((($i - 1) * $slider-peritem) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $slider-peritem - $slider-play) * $unit / 100)} { left: $left-val; }
+          #{percentage((($i - 1) * $ro-slider-peritem) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $ro-slider-peritem - $ro-slider-play) * $unit / 100)} { left: $left-val; }
         }
       }
       100% { left: 0; }
     }
     @at-root {
       #{$id}-autoplay:checked ~ {
-        .outer .inner { @include animation(#{$prefix}-inner $slider-peritem * $frames ease infinite); }
+        .outer .inner { @include animation(#{$prefix}-inner $ro-slider-peritem * $frames ease infinite); }
         .controls { 
           display: none !important; 
           .no-cssanimations & { display: block !important; }

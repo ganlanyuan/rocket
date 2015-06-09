@@ -23,7 +23,7 @@
     $length: 1;
   } @else if type-of($key) == list {
     // get media type
-    @each $type in $media-types {
+    @each $type in $ro-media-types {
       @if index($key, $type) {
         $media: $type;
         $key: reject($key, $type);

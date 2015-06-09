@@ -7,13 +7,17 @@
 // transition
 %slider-transition { transition: all 1s ease 0s; }
 
-[autoheight-carousel] {
-  -webkit-transition: height 0.3s ease 0s;
-  transition: height 0.3s ease 0s;
+%autoheight-carousel {
+  [autoheight-carousel] {
+    -webkit-transition: height 0.3s ease 0s;
+    transition: height 0.3s ease 0s;
+  }
 }
-[autoheight-gallery] {
-  -webkit-transition: padding-bottom 0.3s ease 0s;
-  transition: padding-bottom 0.3s ease 0s;
+%autoheight-gallery {
+  [autoheight-gallery] {
+    -webkit-transition: padding-bottom 0.3s ease 0s;
+    transition: padding-bottom 0.3s ease 0s;
+  }
 }
 
 // slide-base
@@ -36,7 +40,7 @@
     .inner {
       position: relative;
       left: 0;
-      @extend %clearfix;
+      @extend %ro-clearfix;
       letter-spacing: -0.34em;
       white-space: nowrap;
       @extend %slider-transition;
@@ -44,11 +48,11 @@
     // .item { position: relative; }
     .info, .controls, .dots, .autoplay { 
       position: absolute; 
-      z-index: nth($slider-z-index, 1);
+      z-index: nth($ro-slider-z-index, 1);
     }
     .info { 
       bottom: 20px;
-      z-index: nth($slider-z-index, 2);
+      z-index: nth($ro-slider-z-index, 2);
     }
     .controls {
       top: 50%;
