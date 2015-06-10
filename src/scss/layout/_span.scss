@@ -1,5 +1,16 @@
-// *** span *** //
-
+/// Return column at `$index` from `$matrix`
+/// @group layout
+/// @param {Matrix} $matrix - matrix
+/// @example scss - Usage
+///   .element {
+///     @include fill-parent;
+///   }
+///
+/// @example css - CSS Output
+///   .element {
+///     width: 100%;
+///     box-sizing: border-box;
+///   }
 @mixin span($key){
 	$column: 0;
 	$columns: map-get($ro-layout, columns);

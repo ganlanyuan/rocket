@@ -1,0 +1,15 @@
+basePath: "https://github.com/ganlanyuan/rocket/tree/master/src/scss"
+display:
+    access: ["public", "private"]
+    alias: false
+    watermark: true
+
+package: "./package.json"
+theme: "default"
+groups:
+    undefined: "General"
+    layout: "Layout"
+    components: "Components"
+    addons: "Addons"
+    color functions: "Color Functions"
+    slider: "Slider"
