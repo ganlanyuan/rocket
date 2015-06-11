@@ -1,9 +1,9 @@
 # Rocket 2.0
 
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.    
+[sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
 [demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
-[sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
 
 # Install
 
