@@ -15,6 +15,8 @@ Or install with [git](http://www.git-scm.com/):
 ```` bash
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
+# Requirements
++ Sass > 3.4.0    
 
 # Structure
 

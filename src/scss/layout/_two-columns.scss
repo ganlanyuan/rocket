@@ -53,7 +53,8 @@
   $total: ($aside-width + $gutter);
 
   // output
-  @at-root (without: media) { @extend %ro-clearfix; }
+  @include clearfix; 
+  padding-#{opposite($direction)}: 0;
   padding-#{$direction}: $total;
 
   // main

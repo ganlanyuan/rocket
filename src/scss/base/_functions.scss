@@ -96,8 +96,11 @@
 }
 
 // calc-columns-width
-@function calc-column-width ( $column, $columns, $gutter ){
-  $column-percentage: percentage($column / $columns);
-  $column-gutter: ($gutter * $column / $columns);
-  @return #{$column-percentage} + #{$column-gutter};
+@function span-calc ( $col, $cols, $gutter ){
+  $_return: '';
+
+  $col-percentage: percentage($col / $cols);
+  $col-gutter: ($gutter * $col / $cols);
+  $_return: #{#{$col-percentage} + ' + ' + #{$col-gutter}};
+  @return $_return;
 }

@@ -22,18 +22,18 @@ $gutter-4: (map-get($ro-layout, gutter) / ( span($main) * span($main) ) );
 .container { @include container(); }
 .main {
   @include span($main);
+  &-left,
+  &-right { @extend %common; }
   @include breakpoint('min' 640 ) {
     &-left {
-      @at-root (without:media) { @extend %common; }
       @include span(6 $gutter-2);
     }
     &-right {
-      @at-root (without:media) { @extend %common; }
       @include span(6 $gutter-2 last);
     }
     .news { @include span(7 $gutter-3); }
     .popular { @include span(5 $gutter-3 last); }
-  }
+    }
   @include breakpoint('min' em(980px) ) {
     &-left {
       @include span(8 $gutter-2 keep);

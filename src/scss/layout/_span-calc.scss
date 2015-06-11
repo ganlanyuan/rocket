@@ -21,7 +21,6 @@
 /// 
 /// // Keep: similar with span(keep).
 /// // Tips: gutter must be a fixed value(px, em, rem).
-/// 
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin span-calc($key){
@@ -102,11 +101,15 @@
     width: percentage($column / $columns);
 
     // move
-    @if $move and $move != 0 { left: percentage($move / $columns); }
+    @if $move and $move != 0 { 
+      left: percentage($move / $columns); 
+    } @else {
+      left: 0;
+    }
   
   // fixed gutter
   } @else if unit($gutter) and unit($gutter) != '%' {
-    $column-width: calc-column-width($column, $columns, $gutter);
+    $column-width: span-calc($column, $columns, $gutter);
     width: calc( #{$column-width} - #{$gutter} );
     @if not $keep {
       @if not $last { 
@@ -115,8 +118,10 @@
     }
     // move
     @if $move and $move != 0 { 
-      $column-width: calc-column-width($move, $columns, $gutter);
-      left: calc( #{$column-width} ); 
+      $move-cols: span-calc($move, $columns, $gutter);
+      left: calc( #{$move-cols} ); 
+    } @else {
+      left: 0;
     }
   } @else {
     $warn: "$gutter can't be a percentage, use a fixed $gutter instead.";

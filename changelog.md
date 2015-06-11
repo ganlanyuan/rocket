@@ -1,5 +1,8 @@
 # Changelog
 
+### v2.1.0
++ Add [sassdoc](http://creatiointl.org/gallery/william/sassdoc/).   
+
 ### v2.0.1
 + Add prefix 'ro-' to all variables and placeholder selectors to prevent attach with other frameworks.
 + Change layout `gallery` from `inline-block` to `float`.

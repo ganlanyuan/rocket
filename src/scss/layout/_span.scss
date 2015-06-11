@@ -113,6 +113,8 @@
 	  // move
 	  @if $move and $move != 0 { 
 	  	left: percentage($move / $columns); 
+	  } @else {
+	  	left: 0;
 	  }
 
 	  // location
@@ -132,6 +134,8 @@
 		// move
 		@if $move and $move != 0 { 
 			left: ($column-width + $gutter) * $move; 
+		} @else {
+			left: 0;
 		}
 
 		// location
@@ -152,6 +156,8 @@
 		// move
 		@if $move and $move != 0 { 
 			left: percentage($move / $columns); 
+		} @else {
+			left: 0;
 		}
 
 		// location

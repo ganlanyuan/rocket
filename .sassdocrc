@@ -13,3 +13,4 @@ groups:
     addons: "Addons"
     color functions: "Color Functions"
     slider: "Slider"
+    helper: "helper"
