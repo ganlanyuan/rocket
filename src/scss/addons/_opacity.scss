@@ -1,3 +1,12 @@
+/// *opacity* for old IE.
+/// 
+/// $key: `$opacity`
+/// @group addons
+/// @param {number} $key - key 
+/// .example { @include opacity(0.3); }
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @mixin opacity($key) {
   opacity: $key;
   $opacity-ie: $key * 100;

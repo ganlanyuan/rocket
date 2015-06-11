@@ -45,6 +45,7 @@ $ro-dropdown-show: 'hover', 'click' !default;
 $dropdown-style: 'display', 'scale' !default;
 
 // color functions
+$ro-loops : 0;
 $ro-color-methods: 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square' !default;
 $ro-color-dist: 30 !default;
 

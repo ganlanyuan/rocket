@@ -1,4 +1,26 @@
-// fixed columns
+/// *two-columns* is for creating a two columns layout. One of them has a fixed width.
+/// 
+/// $key: `$direction $aside-width (gutter $gutter)`
+/// @group layout
+/// @param {list} $key - key 
+/// @example markup - markup
+/// <!-- Add "data-col-main", "data-col-aside" attributes to your markup. -->
+/// 
+/// <div class="wrapper">
+/// 
+///   <!-- main -->
+///   <div data-col-main=""></div>
+/// 
+///   <!-- aside -->
+///   <div data-col-aside=""></div>
+/// </div>
+/// @example scss - scss
+/// .wrapper { @include two-columns(left 300px gutter 30px); }
+/// // direction: left; (aside is on the left)
+/// // aside-width: 300px;
+/// // gutter: 30px;
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @mixin two-columns($key: left 300px gutter 20px) {
   $direction: left; 
   $aside-width: 300px; 

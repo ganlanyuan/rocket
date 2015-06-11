@@ -1,4 +1,21 @@
-// *** justify *** //
+/// *justify* is for creating justify list.
+/// @group layout
+/// @param
+/// @example scss - scss
+/// nav {
+///   @include justify-flex();
+///
+///   .no-flexbox {
+///     @include justify(div);
+///     // for old browsers
+///     // child: div
+///   } 
+/// }
+/// @require {mixin} display
+/// @require {mixin} justify-content
+/// @require {mixin} align-items
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 // for morden browsers
 %justify-flex {

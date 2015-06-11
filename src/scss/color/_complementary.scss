@@ -1,4 +1,14 @@
-// *** complementary *** //
+/// *complementary* is for getting a complementary color.
+/// 
+/// $key: `$color $order (saturation $saturation) (lightness $lightness) (dist $dist)`
+/// @group color functions
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .main { color: complementary(#a6e36e saturation 20%); }
+/// // color: #a6e36e;
+/// // saturation: 20%;
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @function complementary($key){
   $key-new: ();

@@ -1,4 +1,52 @@
-// ======= off-canvas ======= //
+/// *off-canvas* and *page-container* are for creating the navigation of mobile site.
+///
+/// $key: `$style $direction animation $off-canvas-width $padding $background-color`
+/// @group components
+/// @param {list} $key - key 
+/// @example markup - markup
+/// <!-- include kit.js -->
+/// <script src="path/to/kit.min.js"></script>
+/// 
+/// <!-- off-canvas -->
+/// <nav class="nav">
+///   <ul>
+///     <li><span data-offcanvas-close>close</span></li>
+///     <li><a href="">item01</a></li>
+///     <li><a href="">item02</a></li>
+///     <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">/// item03</a>
+///       <ul data-offcanvas-subnav>
+///         <li data-offcanvas-back>back</li>
+///         <li><a href="">sub item02</a></li>
+///         <li><a href="">sub item03</a></li>
+///         <li><a href="">sub item04</a></li>
+///       </ul>
+///     </li>
+///     <li><a href="">item04</a></li>
+///   </ul>
+/// </nav>
+/// 
+/// <!-- page -->
+/// <div class="page">
+///   <!-- page cover -->
+///   <div data-page-cover=""></div>
+/// 
+///   <!-- nav icon -->
+///   <div data-icon-nav></div>
+/// </div>
+/// @example scss - scss
+/// .nav { @include off-canvas(translate 300px '1em' left #102244 animation); }
+/// // style: translate; (move | transition | reveal)
+/// // off-canvas-width: 300px;
+/// // nav-item-padding: 1em;
+/// // direction: left; (left | right)
+/// // off-canvas-background-color: #102244;
+/// // animation: true;
+/// @require {mixin} transform
+/// @require {mixin} analogous
+/// @require {mixin} contrast
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @import '../color/contrast';
 @import '../color/analogous';
 
@@ -155,6 +203,21 @@ $off-canvas-length: 12;
     }
   }
 }
+
+/// *off-canvas* and *page-container* are for creating the navigation of mobile site.
+///
+/// $key: `$style $direction $off-canvas-width $cover-bg`
+/// @group components
+/// @param {list} $key - key 
+/// @example scss - scss
+/// .page { @include page-container(translate left 300px); }
+/// // style: translate;
+/// // off-canvas-width: 300px;
+/// // direction: left;
+/// @require {mixin} transform
+/// @require {mixin} transition-delay
+///
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin page-container(
   $page-container-var:

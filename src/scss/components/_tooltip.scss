@@ -1,24 +1,20 @@
-// ======= tooltip ======= //
-%tooltip-common {
-  @extend %ro-global-transition;
-  position: absolute;
-  z-index: 9999;
-  display: none;
-  &:hover {
-    & {
-      display: block;
-    }
-  }
-}
-%tooltip-content {
-  padding: 0.67em;
-  font-size: 12px;
-  line-height: 1.3;
-  font-weight: normal;
-  color: #fff;
-  // white-space: nowrap;
-  // box-sizing: border-box;
-}
+/// pure css *tooltip*.
+/// 
+/// $key: `$direction $color radius (width $width) (height $height)`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .tooltip { @include tooltip(radius right #b02df3 width 300px); }
+/// // radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
+/// // direction: right;
+/// // background-color: #b02df3;
+/// // width: 300px; (for old browsers)
+/// 
+/// // To make tooltip shows perfect, 
+/// // it's better to set tooltip box as a block element, 
+/// // or give it a width;
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin tooltip(
   $key:

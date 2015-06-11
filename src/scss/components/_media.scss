@@ -1,4 +1,18 @@
-// *** media *** //
+/// *media* displays a media object (images, video, audio) to the left or right of a block.
+/// 
+/// $key: `$gutter (child $child1 $child2 ...)`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .news { @include media(); } 
+/// // gutter: 10px; (default)
+/// // child: '*'; (default)
+/// 
+/// .news-right { @include media(1em child '.media' '.media-body'); } 
+/// // gutter: 1em;
+/// // child: '.media' '.media-body';
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin media(
 	$key: 10px '*'

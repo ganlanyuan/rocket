@@ -1,4 +1,16 @@
-// *** buttons *** //
+/// $key: `$font-size $padding $background-color radius round hover`
+/// @group components
+/// @param {number | list} $key - key 
+/// .button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
+/// // font-size: 14px;
+/// // background-color: #00c8ff;
+/// // padding: 0.8em 1em; (Tips: padding must be quoted)
+/// // radius: 0.22em; (default, you can modify it by change the varible "$button-radius: 0.22em;" )
+/// // hover: true; (change background-color when mouse over)
+/// @require {function} contrast
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @import '../color/contrast';
 
 %button-style {

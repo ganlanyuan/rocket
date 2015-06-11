@@ -1,3 +1,18 @@
+/// *center* is for creating both horizontal and vertical center-aligned layout.
+/// 
+/// $key: `$child $align`
+/// @group layout
+/// @param {list} $key - key 
+/// @example scss - scss
+/// .banner { @include center(div left); }
+/// // child: div;
+/// // align: left; (left | right | center, for old browser)
+/// @require {mixin} display
+/// @require {mixin} justify-content
+/// @require {mixin} align-items
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @mixin center(
 	$key:
 		child '*'

@@ -1,4 +1,17 @@
-// *** adjacent *** //
+/// *adjacent* is for creating adjacent colors.
+/// 
+/// $key: `$color $order (saturation $saturation) (lightness $lightness) (dist $dist)`
+/// @group color functions
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
+/// // color: #a6e36e;
+/// // order: -1;
+/// // saturation: 10%;
+/// // lightness -20%;
+/// // distribution: 20;
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @function adjacent($key){
   $key-new: ();

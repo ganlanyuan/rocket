@@ -1,4 +1,4 @@
-basePath: "https://github.com/ganlanyuan/rocket/tree/master/src/scss"
+basePath: "https://github.com/ganlanyuan/rocket/tree/master/"
 display:
     access: ["public", "private"]
     alias: false

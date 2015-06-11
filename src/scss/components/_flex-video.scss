@@ -1,15 +1,16 @@
-// *** flex video *** //
-
-%flex-video-container {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-}
-%flex-video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+/// $key: `$ratio (child $child)`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .flex-video { @include flex-video(3/4); }
+/// // ratio: 3/4;
+/// // child: iframe, object, embed; (default)
+/// 
+/// .flex-video { @include flex-video(9/16 embed); }
+/// // ratio: 9/16;
+/// // child: embed; 
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin flex-video(
   $key:

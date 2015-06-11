@@ -1,6 +1,15 @@
-// *** visibility *** //
+/// A shorthand @mixin for hide elements on some parts of viewport.
+/// 
+/// $key: `$media $breakpoints` 
+/// @group addons
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .example { @include visible(500) }
+/// // visible on 500px up on all media
+/// @require {mixin} breakpoint
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
-// accept maximum 6 numbers
 @mixin visible($key){
   $empty: ();
   @if type-of($key) == number {
@@ -21,15 +30,6 @@
       // give the value of $empty to $key
       $key: $empty;
     }
-    @include breakpoint($key) { display: none; }
-  }
-}
-
-@mixin hidden($key){
-  @if type-of($key) == number {
-    // output
-    @include breakpoint('min' $key) { display: none; }
-  } @else if type-of($key) == list {
     @include breakpoint($key) { display: none; }
   }
 }

@@ -1,4 +1,17 @@
-// *** break point *** //
+/// A shorthand @mixin for *break point*.
+/// 
+/// $key: `$condition $media $breakpoints`
+/// @group addons
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .bp { @include breakpoint('min' 640) {}; }
+/// // output: @media (min-width: 40em) {};
+/// .bp {@include breakpoint('max' 640 screen) {}; }
+/// // output: @media screen and (max-width: 40em) {};
+/// .bp {@include breakpoint(640 767) {}; }
+/// // output: @media (min-width: 40em) and (max-width: 47.94em) {};
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin breakpoint($key){
   $media: false;

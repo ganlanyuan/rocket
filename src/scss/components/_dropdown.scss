@@ -1,22 +1,22 @@
-// *** dropdown *** //
-%dropdown-menu {
-  @extend %ro-global-transition;
-  position: absolute;
-  z-index: nth($ro-z-index, 4);
-}
-%dropdown-menu-hide {
-  -ms-transform: scaleY(0);
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -ms-transform-origin: top;
-  -webkit-transform-origin: top;
-  transform-origin: top;
-}
-%dropdown-menu-show {
-  -ms-transform: scaleY(1);
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-}
+/// $key: `$child $show $style default`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example markup -markup
+/// <!-- 
+///   if you set $show: click, add these markup to your dropdown 
+///   make sure the value of "for" match the checkbox id
+///   -->
+/// 
+/// <input type="checkbox" name="" id="dropdown">
+/// <label for="dropdown">▼</label>
+/// @example scss -scss
+/// .dropdown { @include dropdown(ul hover display default); }
+/// // child: ul;
+/// // show: hover; (hover | click)
+/// // style: display; (scale | display)
+/// // default: true; (use default dropdown menu style)
+///
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin dropdown(
   $key:

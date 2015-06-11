@@ -1,4 +1,28 @@
-// *** span-calc *** // 
+/// *span-calc* is using css-calc to create columns, old browser (e.g. IE8) will not be supported.
+///
+/// $key: `($column of $columns) $gutter (move $move) (float $float) last keep`
+/// @group layout
+/// @param {number | list} $key - key 
+/// @example scss - scss
+/// .nav { @include span-calc(3); }
+/// // column: 3;
+/// // columns: 12; (default)
+/// // columns: 20px; (default)
+/// 
+/// .nav { @include span-calc(11 of 16 30px); }
+/// // column: 3;
+/// // columns: 12;
+/// // gutter: 2%;
+/// 
+/// .nav { @include span(last right 11 of 16 30px move -5); }
+/// // last: true; (The last column)
+/// // float: right;
+/// // move: -5; (move left 5 columns)
+/// 
+/// // Keep: similar with span(keep).
+/// // Tips: gutter must be a fixed value(px, em, rem).
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin span-calc($key){
   $column: 0;

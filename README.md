@@ -1,7 +1,9 @@
 # Rocket 2.0
 
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.    
-Check out [demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)!
+[demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)   
+[Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
+[sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
 
 # Install
 
@@ -16,17 +18,16 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 
 # Structure
 
-````html      
-<!-- addons -->
+```` html      
 addons
   |opacity
   |ie-rgba
   |rems
   |breakpoint
-  |visibility
+  |visible
+  |hidden
   |type
 
-<!-- layout -->
 layout
   |container
   |wrap
@@ -37,7 +38,6 @@ layout
   |justify
   |center
 
-<!-- components -->
 components
   |button
   |media
@@ -46,12 +46,10 @@ components
   |tooltip
   |flex-video
 
-<!-- slider -->
 slider
   |gallery
   |carousel
 
-<!-- color functions -->
 color functions
   |analogous
   |contrast
@@ -62,12 +60,16 @@ color functions
   |rectangle
   |square
 ````
-# Usage
 
-###### 【 Grid System 】
+#【 Layout 】
 #### layout setting
 ```` scss
 // default setting
+// items: 5;
+// perpage: 2;
+// gutter: 10px; (default)
+// slide-by-page: true;
+// default: true; (default styles for controls and dots)
 $layout: (
   container: 1024px,
   columns: 12,
@@ -79,63 +81,60 @@ $layout: (
 The container of the main content. It can be center, left or right aligned.
 ```` scss
 @include container {$key}
-
 // pattern
 $key: ($container $gutter) $align;
 
+.wrapper { @include container(1200px); }
 // container: 1200px;
 // gutter: 2%; (default)
 // align: center; (default)
-.wrapper { @include container(1200px); }
 
+.wrapper { @include container(1200px 20px left); }
 // container: 1200px
 // gutter: 20px;
 // align: left;
-.wrapper { @include container(1200px 20px left); }
 
+.wrapper { @include container(64em 2% center); }
 // container: 64em;
 // gutter: 2%;
 // align: center;
-.wrapper { @include container(64em 2% center); }
 ````
 
 #### wrap
-Grid wrap, works with `span` when using a fixed value for `gutter`.
+Grid wrapper, works with `span` when using a fixed value for `gutter`.
 ```` scss
 @include wrap($key);
-
 // pattern
 $key: $gutter;
 
+.wrapper { @include wrap(20px); }
 // gutter: 20px;
-@include wrap(20px);
 ````
 
 #### span
-`span` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, otherwise you need use `span-calc`.
+`span` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, or you can use `span-calc`.
 ```` scss
 @include span($key);
-
 // pattern
 $key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep;
 
+.nav { @include span(3); }
 // column: 3;
 // columns: 12; (default)
 // columns: 2%; (default)
-.nav { @include span(3); }
 
+.nav { @include span(11 of 16 2%); }
 // column: 3;
 // columns: 12;
 // gutter: 2%;
-.nav { @include span(11 of 16 2%); }
 
-// location: 5; (isolate mode)
 .nav { @include span(11 at 5 of 16 2%); }
+// location: 5; (isolate mode)
 
+.nav { @include span(11 of 16 2% right move -5 last); }
 // last: true; (The last column)
 // float: right;
 // move: -5; (move left 5 columns)
-.nav { @include span(last right 11 of 16 2% move -5); }
 ````
 *Isolate mode*: read [this article](http://www.palantir.net/blog/responsive-design-s-dirty-little-secret) for more detail. If you want to use isolate mode on one column, other siblings columns also need use isolate mode: 
 ````scss
@@ -174,8 +173,8 @@ $key: ($column at $location of $columns) $gutter (move $move) (float $float) las
 ````
 ```` scss
 $gutter-1: 2%;
-$gutter-2: ($gutter-1 / span(7 of 10 2%)); // 1
-// 1. or you can directly $gutter-2: ($gutter-1 / 69.99%)
+$gutter-2: ($gutter-1 / span(7 of 10 2%)); 
+// or you can $gutter-2: ($gutter-1 / 69.99%)
 
 .parent {
   @include span(7 of 10 $gutter-1);
@@ -189,24 +188,23 @@ $gutter-2: ($gutter-1 / span(7 of 10 2%)); // 1
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
 @include span-calc($key);
-
 // pattern
 $key: ($column of $columns) $gutter (move $move) (float $float) last keep;
 
+.nav { @include span-calc(3); }
 // column: 3;
 // columns: 12; (default)
 // columns: 20px; (default)
-.nav { @include span-calc(3); }
 
+.nav { @include span-calc(11 of 16 30px); }
 // column: 3;
 // columns: 12;
 // gutter: 2%;
-.nav { @include span-calc(11 of 16 30px); }
 
+.nav { @include span(last right 11 of 16 30px move -5); }
 // last: true; (The last column)
 // float: right;
 // move: -5; (move left 5 columns)
-.nav { @include span(last right 11 of 16 30px move -5); }
 
 // Keep: similar with span(keep).
 // Tips: gutter must be a fixed value(px, em, rem).
@@ -218,16 +216,15 @@ $key: ($column of $columns) $gutter (move $move) (float $float) last keep;
 `gallery` is for creating picture galleries.
 ```` scss
 @include gallery($key);
-
 //pattern
 $key: $per-row $gutter (child $child) $float $position keep;
 
+.pic { @include gallery(3 2% child li middle); }
 // per-row: 3;
 // gutter: 2%;
 // child: li;
 // float: left; (default)
 // position: middle; (same padding on the top and bottom for each item)
-.pic { @include gallery(3 2% child li middle); }
 
 @media screen and (min-width: 768px) {
   .pic { @include gallery(4 child li keep); }
@@ -242,9 +239,9 @@ $key: $per-row $gutter (child $child) $float $position keep;
 @include justify-flex();
 
 .no-flexbox {
+  @include justify(div);
   // for old browsers
   // child: div
-  @include justify(div);
 }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-justify.php)
@@ -253,20 +250,18 @@ $key: $per-row $gutter (child $child) $float $position keep;
 `center` is for creating both horizontal and vertical center aligned layout.
 ```` scss
 @include center($key);
-
 // pattern
 $key: $child $align;
 
+.banner { @include center(div left); }
 // child: div;
 // align: left; (left | right | center, for old browser)
-.banner { @include center(div left); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-center.php)
 
 #### two-columns
 `two-columns` is for creating a two columns layout. One of them has a fixed width.
 ````html
-<!-- html -->
 <!-- Add "data-col-main", "data-col-aside" attributes to your markup. -->
 
 <div class="wrapper">
@@ -281,32 +276,30 @@ $key: $child $align;
 ```` scss
 // scss
 @include two-columns($key);
-
 // pattern
 $key: $direction $aside-width (gutter $gutter);
 
+.wrapper { @include two-columns(left 300px gutter 30px); }
 // direction: left; (aside is on the left)
 // aside-width: 300px;
 // gutter: 30px;
-.wrapper { @include two-columns(left 300px gutter 30px); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-two-columns.php)
 
 
-###### 【 Components 】
+#【 Components 】
 #### button
 ````scss
 @include button($key);
-
 // pattern
 $key: $font-size $padding $background-color radius round hover;
 
+.button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
 // font-size: 14px;
 // background-color: #00c8ff;
 // padding: 0.8em 1em; (Tips: padding must be quoted)
 // radius: 0.22em; (default, you can modify it by change the varible "$button-radius: 0.22em;" )
 // hover: true; (change background-color when mouse over)
-.button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-button.php)
 
@@ -314,34 +307,32 @@ $key: $font-size $padding $background-color radius round hover;
 `media` displays a media object (images, video, audio) to the left or right of a block.
 ```` scss
 @include media($key);
-
 // pattern
 $key: $gutter (child $child1 $child2 ...);
 
+.news { @include media(); } 
 // gutter: 10px; (default)
 // child: '*'; (default)
-.news { @include media(); } 
 
+.news-right { @include media(1em child '.media' '.media-body'); } 
 // gutter: 1em;
 // child: '.media' '.media-body';
-.news-right { @include media(1em child '.media' '.media-body'); } 
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-media-list.php)
 
 #### flex video
 ```` scss
 @include flex-video($key);
-
 // pattern
 $key: $ratio (child $child);
 
+.flex-video { @include flex-video(3/4); }
 // ratio: 3/4;
 // child: iframe, object, embed; (default)
-.flex-video { @include flex-video(3/4); }
 
+.flex-video { @include flex-video(9/16 embed); }
 // ratio: 9/16;
 // child: embed; 
-.flex-video { @include flex-video(9/16 embed); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-flex-video.php)
 
@@ -357,31 +348,29 @@ $key: $ratio (child $child);
 ````
 ```` scss
 @include dropdown($key);
-
 // pattern
 $key: $child $show $style default;
 
+.dropdown { @include dropdown(ul hover display default); }
 // child: ul;
 // show: hover; (hover | click)
 // style: display; (scale | display)
 // default: true; (use default dropdown menu style)
-.dropdown { @include dropdown(ul hover display default); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
 
 #### tooltip
-This is a pure css `tooltip`.
+pure css `tooltip`
 ```` scss
 @include tooltip($key);
-
 // pattern
 $key: $direction $color radius (width $width) (height $height);
 
+.tooltip { @include tooltip(radius right #b02df3 width 300px); }
 // radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
 // direction: right;
 // background-color: #b02df3;
 // width: 300px; (for old browsers)
-.tooltip { @include tooltip(radius right #b02df3 width 300px); }
 
 // To make tooltip shows perfect, 
 // it's better to set tooltip box as a block element, 
@@ -395,7 +384,6 @@ $key: $direction $color radius (width $width) (height $height);
 <!-- include kit.js -->
 <script src="path/to/kit.min.js"></script>
 
-<!-- markup -->
 <!-- off-canvas -->
 <nav class="nav">
   <ul>
@@ -426,47 +414,44 @@ $key: $direction $color radius (width $width) (height $height);
 ```` scss
 // *** off-canvas *** //
 @include off-canvas($key);
-
 // pattern
 $key: $style $direction animation $off-canvas-width $padding $background-color;
 
+.nav { @include off-canvas(translate 300px '1em' left #102244 animation); }
 // style: translate; (move | transition | reveal)
 // off-canvas-width: 300px;
 // nav-item-padding: 1em;
 // direction: left; (left | right)
 // off-canvas-background-color: #102244;
 // animation: true;
-.nav { @include off-canvas(translate 300px '1em' left #102244 animation); }
 
 // *** page-container *** //
 @include page-container($key);
-
 // pattern
 $key: $style $direction $off-canvas-width $cover-bg;
 
+.page { @include page-container(translate left 300px); }
 // style: translate;
 // off-canvas-width: 300px;
 // direction: left;
-.page { @include page-container(translate left 300px); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-off-canvas.php)
 
 
-###### 【 Addons 】
+#【 Addons 】
 #### type
 `type` is a shorthand mixin for type.
 ```` scss
 @include type($key);
-
 // pattern
 $key: $font-size $font-weight $font-style $line-height $font-family $text-transform; 
 
+h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
 // font-size: 20px;
 // font-weight: bold; 
 // font-style: italic; 
 // font-family: 'Georgia, Helvetica, sans-serif';
 // line-height: 1.4;
-h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
 
 // Tips: to set 'font-weight', 'font-style' or 'text-transform' value 
 // to 'inherit' or 'normal', 
@@ -478,11 +463,20 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
 
+#### opacity
+`opacity` for old IE.
+```` scss
+@include opacity($key);
+// pattern
+$key: $key: $opacity;
+
+.example { @include opacity(0.3); }
+````
+
 #### breakpoint
 A shorthand @mixin for break point.
 ```` scss
 @include breakpoint($key);
-
 // pattern
 $key: $condition $media $breakpoints;
 
@@ -494,17 +488,23 @@ $key: $condition $media $breakpoints;
 // output: @media (min-width: 40em) and (max-width: 47.94em) {};
 ````
 
-#### visibility
+#### visible
 A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
 @include visible($key);
-@include hidden($key);
-
 // pattern
 $key: $media $breakpoints;
 
 @include visible(500)
 // visible on 500px up on all media
+````
+
+#### hidden
+A shorthand @mixin for hide elements on some parts of viewport.
+```` scss
+@include hidden($key);
+// pattern
+$key: $media $breakpoints;
 
 @include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
@@ -512,21 +512,20 @@ $key: $media $breakpoints;
 [demo](http://creatiointl.org/gallery/william/rocket/addons-visibility.php)
 
 
-###### 【 Color Functions 】
+#【 Color Functions 】
 Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
 
 #### contrast
 Get a contrast `font-color` based on the `background-color`.
 ```` scss
 @include contrast($key);
-
 // pattern
 $key: $color (light $light) (dark $dark);
 
+.main { color: contrast(#a6e36e); }
 // color: #a6e36e;
 // light: #fff; (default)
 // dark: #000; (default)
-.main { color: contrast(#a6e36e); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-contrast.php)
 
@@ -534,16 +533,15 @@ $key: $color (light $light) (dark $dark);
 `adjacent` is for creating adjacent colors.
 ```` scss
 @include adjacent($key);
-
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
 
+.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
 // color: #a6e36e;
 // order: -1;
 // saturation: 10%;
 // lightness -20%;
 // distribution: 20;
-.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-adjacent.php)
 
@@ -551,13 +549,12 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 `complementary` is for getting a complementary color.
 ```` scss
 @include complementary($key);
-
 // pattern
 $key: $color (saturation $saturation) (lightness $lightness) (dist $dist);
 
+.main { color: complementary(#a6e36e saturation 20%); }
 // color: #a6e36e;
 // saturation: 20%;
-.main { color: complementary(#a6e36e saturation 20%); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-complementary.php)
 
@@ -565,13 +562,12 @@ $key: $color (saturation $saturation) (lightness $lightness) (dist $dist);
 `split-complementary` is for getting split-complementary colors based on a given color.
 ```` scss
 @include split-complementary($key);
-
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
 
+.main { color: split-complementary(#a6e36e 2); }
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
-.main { color: split-complementary(#a6e36e 2); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-split-complementary.php)
 
@@ -579,13 +575,12 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 `triad` is for getting triad colors based on a given color.
 ```` scss
 @include triad($key);
-
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
 
+.main { color: triad(#a6e36e, 2); }
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
-.main { color: triad(#a6e36e, 2); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-triad.php)
 
@@ -593,13 +588,12 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 `rectangle` is for getting rectangle colors based on a given color.
 ```` scss
 @include rectangle($key);
-
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
 
+.main { color: rectangle(#a6e36e, -3); }
 // color: #a6e36e;
 // order: -3; (-3 | -2 | -1 | 1 | 2 | 3)
-.main { color: rectangle(#a6e36e, -3); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-rectangle.php)
 
@@ -607,18 +601,17 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 `square` is for getting square colors based on a given color.
 ```` scss
 @include square($key);
-
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
 
+.main { color: square(#a6e36e, 3); }
 // color: #a6e36e;
 // order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
-.main { color: square(#a6e36e, 3); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/color-square.php)
 
 
-###### 【 Pure CSS slideshow 】
+#【 Pure CSS slideshow 】
 A pure CSS responsive slider with `previous/next` buttons, `nav dots`, `autoplay`(IE8- are not supported), `autoheight` and more. It works well on modern browsers and IE8+, but it doesn't support `loop` and `lazyload` for now.
 
 #### markup
@@ -663,15 +656,14 @@ In the example shows on the left, I used banner as my specific class.
 ```` scss
 // basic
 @include slider-gallery($key);
-
 // pattern
 $key: $items $ratio autoplay default;
 
+.slider { @include slider-gallery(5 autoplay default); }
 // items: 5;
 // ratio: 9/16; (default) 
 // autoplay: true;
 // default: true; (default styles for controls and dots)
-.slider { @include slider-gallery(5 autoplay default); }
 
 // customise dots and controls
 .slider .dots .normal { ... }
@@ -705,16 +697,15 @@ Add `kit.min.js` to `head`, and then put `autoheight-gallery` attribute to the s
 ```` scss
 // basic
 @include slider-carousel($key);
-
 // pattern
 $key: ($items by $perpage) $gutter bypage center autoplay default;
 
+.slider { @include slider-carousel(5 by 2 bypage default); }
 // items: 5;
 // perpage: 2;
 // gutter: 10px; (default)
 // slide-by-page: true;
 // default: true; (default styles for controls and dots)
-.slider { @include slider-carousel(5 by 2 bypage default); }
 ````
 
 *Autoheight*   
@@ -730,7 +721,7 @@ Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the 
 [demo](http://creatiointl.org/gallery/william/rocket/slider-carousel.php)
 
 
-###### 【 kit.js 】
+#【 kit.js 】
 Kit.js is small Javascript library similar with jQuery. Kit.js works well on IE8 and up, and on other morden browsers.   
 The follow metheds are available:   
 `on`, `off`, `click`, `mouseover`, `mouseout`, `focus`, `blur`, `submit`, `keydown`, `keyup`,   
@@ -818,6 +809,3 @@ document.onload = function  () {
 animate(el, attr, from, to, duration);
 animate(k('.target'), 'left', 0, 20, 400);
 ````
-
-# Changelog
-[Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)

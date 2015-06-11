@@ -1,16 +1,30 @@
-/// Return column at `$index` from `$matrix`
+/// *span* is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a wrap, or you can use span-calc.
+/// 
+/// $key: `($column at $location of $columns) $gutter (move $move) (float $float) last keep;`
 /// @group layout
-/// @param {Matrix} $matrix - matrix
+/// @param {number | list} $key - key 
 /// @example scss - Usage
-///   .element {
-///     @include fill-parent;
-///   }
+/// .nav { @include span(3); }
+/// // column: 3;
+/// // columns: 12; (default)
+/// // columns: 2%; (default)
+/// 
+/// .nav { @include span(11 of 16 2%); }
+/// // column: 3;
+/// // columns: 12;
+/// // gutter: 2%;
+/// 
+/// .nav { @include span(11 at 5 of 16 2%); }
+/// // location: 5; (isolate mode)
+/// 
+/// .nav { @include span(11 of 16 2% right move -5 last); }
+/// // last: true; (The last column)
+/// // float: right;
+/// // move: -5; (move left 5 columns)
 ///
-/// @example css - CSS Output
-///   .element {
-///     width: 100%;
-///     box-sizing: border-box;
-///   }
+/// .nav { @include span(11 of 16 keep); }
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @mixin span($key){
 	$column: 0;
 	$columns: map-get($ro-layout, columns);
