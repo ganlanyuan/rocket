@@ -54,19 +54,26 @@
 
   // output
   @include clearfix; 
-  padding-#{opposite($direction)}: 0;
-  padding-#{$direction}: $total;
+  .no-csscalc & {
+    padding-#{opposite($direction)}: 0;
+    padding-#{$direction}: $total;
+  }
 
   // main
   > [data-col-main] {
     float: opposite($direction);
-    width: 100%;
+    width: calc(100% - #{$total});
+    .no-csscalc & {
+      width: 100%;
+    }
   }
 
   // aside
   > [data-col-aside] {
     float: $direction;
     width: $aside-width;
-    margin-#{$direction}: - $total;
+    .no-csscalc & {
+      margin-#{$direction}: - $total;
+    }
   }
 }

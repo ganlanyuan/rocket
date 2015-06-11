@@ -4,6 +4,7 @@
 
 .news-left > li { 
   @include media(15px child 'figure' 'div'); 
+  figure { width: 120px; }
   p { 
     margin-top: 0; 
     max-width: none;
@@ -11,6 +12,7 @@
 }
 .news-right > li { 
   @include media(); 
+  figure { width: 120px; }
   p { 
     margin-top: 0; 
     max-width: none;

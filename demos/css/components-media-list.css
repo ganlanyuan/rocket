@@ -384,6 +384,10 @@ pre[class*="language-"] {
   padding-right: 0;
 }
 
+.news-left > li figure {
+  width: 120px;
+}
+
 .news-left > li p {
   margin-top: 0;
   max-width: none;
@@ -403,6 +407,10 @@ pre[class*="language-"] {
 
 .news-right > li > *:last-child {
   padding-right: 0;
+}
+
+.news-right > li figure {
+  width: 120px;
 }
 
 .news-right > li p {

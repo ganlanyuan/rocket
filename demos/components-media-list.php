@@ -40,9 +40,11 @@
       <pre><code class="language-scss">
 .news-left > li { 
   @include media(15px child 'figure' 'div'); 
+  figure { width: 120px; }
 }
 .news-right > li { 
   @include media(50px child '.media' '.media-body'); 
+  figure { width: 120px; }
 }
       </code></pre>
     </div>

@@ -358,45 +358,57 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.example-two-columns {
-  padding-left: 0;
-  padding-right: 220px;
-}
-
 .example-two-columns:after {
   clear: both;
   content: "";
   display: table;
 }
 
+.no-csscalc .example-two-columns {
+  padding-left: 0;
+  padding-right: 220px;
+}
+
 .example-two-columns > [data-col-main] {
   float: left;
+  width: calc(100% - 220px);
+}
+
+.no-csscalc .example-two-columns > [data-col-main] {
   width: 100%;
 }
 
 .example-two-columns > [data-col-aside] {
   float: right;
   width: 200px;
+}
+
+.no-csscalc .example-two-columns > [data-col-aside] {
   margin-right: -220px;
 }
 
 @media (min-width: 50em) {
-  .example-two-columns {
-    padding-right: 0;
-    padding-left: 320px;
-  }
   .example-two-columns:after {
     clear: both;
     content: "";
     display: table;
   }
+  .no-csscalc .example-two-columns {
+    padding-right: 0;
+    padding-left: 320px;
+  }
   .example-two-columns > [data-col-main] {
     float: right;
+    width: calc(100% - 320px);
+  }
+  .no-csscalc .example-two-columns > [data-col-main] {
     width: 100%;
   }
   .example-two-columns > [data-col-aside] {
     float: left;
     width: 300px;
+  }
+  .no-csscalc .example-two-columns > [data-col-aside] {
     margin-left: -320px;
   }
 }
