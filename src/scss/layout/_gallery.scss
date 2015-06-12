@@ -3,6 +3,7 @@
 /// $key: `$per-row $gutter (child $child) $float $position keep`
 /// @group layout
 /// @param {number | list} $key - key 
+/// @example scss - scss
 /// .pic { @include gallery(3 2% child li middle); }
 /// // per-row: 3;
 /// // gutter: 2%;
