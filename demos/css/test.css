@@ -1,4 +1,4 @@
-.inner:after, .container:after {
+.container:after {
   clear: both;
   content: "";
   display: table;
@@ -7,89 +7,6 @@
 .container {
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
-.outer li {
-  z-index: 7;
-  opacity: 0;
-  width: 100%;
-}
-
-.no-opacity .outer li, .outer .no-opacity li {
-  display: none;
-}
-
-.outer {
-  position: relative;
-}
-
-.outer li {
-  position: absolute;
-}
-
-.outer li, .inner {
-  transition: all 1s ease 0s;
-}
-
-img {
-  width: 100%;
-}
-
-> input {
-  display: none;
-}
-
-.outer {
-  overflow: hidden;
-}
-
-.outer li {
-  display: inline-block;
-  vertical-align: top;
-  width: 100%;
-  letter-spacing: 0;
-  box-sizing: border-box;
-}
-
-.inner {
-  position: relative;
-  left: 0;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-}
-
-.info, .controls, .dots, .autoplay {
-  position: absolute;
-  z-index: 10;
-}
-
-.info {
-  bottom: 20px;
-  z-index: 9;
-}
-
-.controls {
-  top: 50%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.controls span {
-  display: none;
-}
-
-.dots {
-  width: 100%;
-  text-align: center;
-}
-
-.dots label {
-  display: inline-block;
-}
-
-.autoplay {
-  left: 50%;
-  top: 50%;
 }
 
 ul, ol {
@@ -142,46 +59,24 @@ body {
 @media (min-width: 40em) {
   .main-left {
     float: left;
-    width: 48.4848484848%;
+    width: 74.2424242424%;
     margin-right: 3.0303030303%;
     left: 0;
   }
   .main-right {
     float: left;
-    width: 48.4848484848%;
+    width: 22.7272727273%;
     left: 0;
   }
   .main .news {
     float: left;
-    width: 55.7565450423%;
-    margin-right: 6.1842918986%;
+    width: 56.6385329808%;
+    margin-right: 4.067520846%;
     left: 0;
   }
   .main .popular {
     float: left;
-    width: 38.0591630592%;
-    left: 0;
-  }
-}
-
-@media (min-width: 61.25em) {
-  .main-left {
-    width: 65.6565656566%;
-    left: 0;
-  }
-  .main-right {
-    width: 31.3131313131%;
-    left: 0;
-  }
-  .main .news {
-    float: left;
-    width: 38.9883685338%;
-    margin-right: 4.5913682277%;
-    left: 0;
-  }
-  .main .popular {
-    float: left;
-    width: 56.4202632384%;
+    width: 39.2939461731%;
     left: 0;
   }
 }
@@ -235,5 +130,4 @@ body {
     clear: none;
   }
 }
-
 /*# sourceMappingURL=test.css.map */

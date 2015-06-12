@@ -5,7 +5,7 @@
 .mb-nav a,
 .site-nav a { white-space: nowrap; }
 .mb-nav {
-  @include off-canvas(translate 300px '1em' left #102244 animation);
+  @include offcanvas(translate 300px '1em' left #102244 animation);
 }
 .icon-nav { cursor: pointer; }
 .page {

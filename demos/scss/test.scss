@@ -16,33 +16,17 @@ body {
   margin-bottom: 20px;
 }
 $main:(8 of 12);
-$gutter-2: (map-get($ro-layout, gutter) / span($main) );
-$gutter-3: (map-get($ro-layout, gutter) / ( span($main) * span(6) ) );
-$gutter-4: (map-get($ro-layout, gutter) / ( span($main) * span($main) ) );
+$main-left: (9 of 12);
 .container { @include container(); }
 .main {
-  @include span($main);
+  @include span($main 2%);
   &-left,
   &-right { @extend %common; }
   @include breakpoint('min' 640 ) {
-    &-left {
-      @include span(6 $gutter-2);
-    }
-    &-right {
-      @include span(6 $gutter-2 last);
-    }
-    .news { @include span(7 $gutter-3); }
-    .popular { @include span(5 $gutter-3 last); }
-    }
-  @include breakpoint('min' em(980px) ) {
-    &-left {
-      @include span(8 $gutter-2 keep);
-    }
-    &-right {
-      @include span(4 $gutter-2 keep);
-    }
-    .news { @include span(5 $gutter-4); }
-    .popular { @include span(7 $gutter-4 last); }
+    &-left { @include span($main-left (2% / span($main))); }
+    &-right { @include span(3 of 12 (2% / span($main)) last); }
+    .news { @include span(7 (2% / (span($main) * span($main-left)))); }
+    .popular { @include span(5 (2% / (span($main) * span($main-left))) last); }
   }
 }
 .aside {

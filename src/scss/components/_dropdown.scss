@@ -7,8 +7,16 @@
 ///   make sure the value of "for" match the checkbox id
 ///   -->
 /// 
-/// <input type="checkbox" name="" id="dropdown">
-/// <label for="dropdown">▼</label>
+/// <div class="dropdown">
+///   <span>dropdown</span>
+///   <input type="checkbox" name="" id="dropdown">
+///   <label for="dropdown">▼</label>
+///   <ul>
+///     <li><a href="">item01</a></li>
+///     <li><a href="">item02</a></li>
+///     <li><a href="">item03</a></li>
+///   </ul>
+/// </div>
 /// @example scss -scss
 /// .dropdown { @include dropdown(ul hover display default); }
 /// // child: ul;
@@ -35,7 +43,7 @@
       $default: true;
     } @else if index($ro-dropdown-show, $key) {
       $show: $key;
-    } @else if index($dropdown-style, $key) {
+    } @else if index($ro-dropdown-style, $key) {
       $style: $key;
     } @else {
       $child: $key;
@@ -48,7 +56,7 @@
         $default: true;
       } @else if index($ro-dropdown-show, $val) {
         $show: $val;
-      } @else if index($dropdown-style, $val) {
+      } @else if index($ro-dropdown-style, $val) {
         $style: $val;
       } @else {
         $child: $val;

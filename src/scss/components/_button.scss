@@ -72,7 +72,7 @@
     border-radius: $ro-button-radius;
   }
   @if $round {
-    border-radius: $button-round;
+    border-radius: $ro-button-round;
   }
 	@if $font-size {
 		font-size: $font-size;
@@ -86,8 +86,8 @@
 		color: contrast($background-color);
     @if $hover {
       &:hover {
-        background-color: analogous($background-color $button-hover-lightness);
-        color: contrast(analogous($background-color $button-hover-lightness));
+        background-color: analogous($background-color $ro-button-hover-lightness);
+        color: contrast(analogous($background-color $ro-button-hover-lightness));
       }
     }
 	}

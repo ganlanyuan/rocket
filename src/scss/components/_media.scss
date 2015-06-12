@@ -1,67 +1,49 @@
 /// *media* displays a media object (images, video, audio) to the left or right of a block.
 /// 
-/// $key: `$gutter (child $child1 $child2 ...)`
+/// $key: `$role $gutter $direction`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example scss - scss
-/// .news { @include media(); } 
+/// .media { @include media(); } 
+/// // role: 'media'; (media:default | media-body)
 /// // gutter: 10px; (default)
-/// // child: '*'; (default)
-/// 
-/// .news-right { @include media(1em child '.media' '.media-body'); } 
-/// // gutter: 1em;
-/// // child: '.media' '.media-body';
+/// // direction: left; (default)
+
+/// .media { @include media('media' 15px right); }
+/// // role: 'media';
+/// // gutter: 15px;
+/// // direction: right;
+/// .media-body { @include media('media-body'); }
+/// // role: 'media-body'; 
 /// 
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin media(
-	$key: 10px '*'
-){
+@mixin media($key){
+	$role: 'media';
 	$gutter: 10px;
-	$child: ();
-	$position: top;
+	$direction: left;
 
-	@if type-of($key) == number {
+	@if type-of($key) == 'number' {
 		$gutter: $key;
-	} @else if type-of($key) == list {
+	} @else if type-of($key) == 'string' {
+		$role: $key;
+	} @else if type-of($key) == 'list' {
 		@each $item in $key {
-			@if type-of($item) == number {
+			@if type-of($item) == 'number' {
 				$gutter: $item;
-				$key: reject($key, $item);
+			} @else if index($ro-media-type, $item) {
+				$role: $item;
+			} @else if index($ro-media-direction, $item) {
+				$direction: $item;
 			}
 		}
-		@each $item in top, middle, bottom {
-			@if index($key, $item) {
-				$position: $item;
-				$key: reject($key, $item);
-			}
-		}
-		@if index($key, 'child') {
-			$key: reject($key, 'child');
-		}
-		$child: $key;
-	}
-
-	// if no child
-	@if length($child) == 0 {
-		$child: append($child, '*');
 	}
 
 	// output
-	display: table;
-	width: 100%;
-	box-sizing: border-box;
-
-	@for $i from 1 through length($child) {
-		$item: nth($child, $i);
-		
-		> #{$item} {
-			display: table-cell;
-			vertical-align: $position;
-			@if $gutter and $gutter != 0 and $gutter != '0px' {
-				padding-right: $gutter;
-				&:last-child { padding-right: 0; }
-			}
-		}
+	@at-root (without: media) { @extend %media; }
+	@if $role == 'media' {
+		padding-#{opposite($direction)}: $gutter;
+	} @else if $role == 'media-body' {
+		width: 10000px;
 	}
 }

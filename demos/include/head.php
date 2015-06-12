@@ -49,8 +49,8 @@
 		if ($pagename == 'components-media-list') {
 			echo 'components-media-list';
 		} 
-		if ($pagename == 'components-off-canvas') {
-			echo 'components-off-canvas';
+		if ($pagename == 'components-offcanvas') {
+			echo 'components-offcanvas';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'components-dropdown';
@@ -66,6 +66,9 @@
 		} 
 		if ($pagename == 'addons-visibility') {
 			echo 'addons-visibility';
+		} 
+		if ($pagename == 'addons-breakpoint') {
+			echo 'addons-breakpoint';
 		} 
 		if ($pagename == 'color-contrast') {
 			echo 'color-contrast';
@@ -140,8 +143,8 @@
 		if ($pagename == 'components-media-list') {
 			echo 'href="css/components-media-list.css"';
 		} 
-		if ($pagename == 'components-off-canvas') {
-			echo 'href="css/components-off-canvas.css"';
+		if ($pagename == 'components-offcanvas') {
+			echo 'href="css/components-offcanvas.css"';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'href="css/components-dropdown.css"';
@@ -157,6 +160,9 @@
 		} 
 		if ($pagename == 'addons-visibility') {
 			echo 'href="css/addons-visibility.css"';
+		} 
+		if ($pagename == 'addons-breakpoint') {
+			echo 'href="css/addons-breakpoint.css"';
 		} 
 		if ($pagename == 'color-contrast') {
 			echo 'href="css/color-contrast.css"';

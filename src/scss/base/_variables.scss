@@ -21,20 +21,26 @@ $ro-global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
 $ro-vertical-align: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
 
-// media type
+// breakpoint
 $ro-media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+
+// type
 $ro-font-weights: thin, hairline, extra light, ultra light, lighter, light, normal, medium, semi bold, demi bold, bold, bolder, extra bold, black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, 'weight-normal', 'weight-inherit' !default;
 $ro-font-styles: italic, oblique, 'style-normal', 'style-inherit' !default;
 $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, 'transform-inherit' !default;
 
-// off-canvas
-$ro-off-canvas-styles: 'move', 'translate', 'reveal' !default;
-$ro-off-canvas-direction: left, right !default;
+// media list
+$ro-media-type: 'media', 'media-body';
+$ro-media-direction: left, right;
+
+// offcanvas
+$ro-offcanvas-styles: 'move', 'translate', 'reveal' !default;
+$ro-offcanvas-direction: left, right !default;
 
 // button
 $ro-button-radius: 0.22em !default;
-$button-round: 1000px !default;
-$button-hover-lightness: 10% !default;
+$ro-button-round: 1000px !default;
+$ro-button-hover-lightness: 10% !default;
 
 // tooltip
 $ro-tooltip-direction: left, right, top, bottom !default;
@@ -42,16 +48,13 @@ $ro-tooltip-radius: 0.22em !default;
 
 // dropdown
 $ro-dropdown-show: 'hover', 'click' !default;
-$dropdown-style: 'display', 'scale' !default;
+$ro-dropdown-style: 'display', 'scale' !default;
 
 // color functions
 $ro-loops : 0;
 $ro-color-methods: 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square' !default;
 $ro-color-dist: 30 !default;
 
-// slider
-$ro-slider-time: 3s !default;
-$ro-slider-play: 1s !default;
-$ro-slider-pause: 4s !default;
-$ro-slider-peritem: ($ro-slider-play + $ro-slider-pause) !default;
-$ro-slider-z-index: 10,9,8,7,6,5,4,3,2,1 !default;
+// visibility
+$ro-even: 2 4 6 8 10 12 14 16 18 20;
+$ro-odd: 1 3 5 7 9 11 13 15 17 19;

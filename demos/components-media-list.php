@@ -30,6 +30,7 @@
         </ul>
         <ul class="news-right">
           <li>
+            <figure class="media-left"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
             <div class="media-body">
               <p>Magnam, modi. Saepe quaerat, nihil debitis. Quae vel delectus, nulla quaerat porro, aperiam ipsam dicta earum beatae hic nobis ex reiciendis provident, quo sit! Dolore impedit non optio numquam veniam.</p>
             </div>

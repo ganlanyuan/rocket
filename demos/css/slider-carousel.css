@@ -45,7 +45,8 @@
 }
 
 .outer li, .inner, .carousel-a .dots span, .carousel-b .dots span, .carousel-c .dots span, .carousel-d .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-g .dots span, .carousel-a .controls span, .carousel-b .controls span, .carousel-c .controls span, .carousel-d .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-g .controls span, .carousel-f .autoplay {
-  transition: all 1s ease 0s;
+  -webkit-transition: all 1s ease 0s;
+          transition: all 1s ease 0s;
 }
 
 .carousel-a [autoheight-carousel], .carousel-b [autoheight-carousel], .carousel-c [autoheight-carousel], .carousel-d [autoheight-carousel], .carousel-e [autoheight-carousel], .carousel-f [autoheight-carousel], .carousel-g [autoheight-carousel] {
@@ -1136,36 +1137,6 @@ pre[class*="language-"] {
   }
 }
 
-@-moz-keyframes carousel-f-inner {
-  0% {
-    left: 0%;
-  }
-  20% {
-    left: 0%;
-  }
-  25% {
-    left: -50%;
-  }
-  45% {
-    left: -50%;
-  }
-  50% {
-    left: -100%;
-  }
-  70% {
-    left: -100%;
-  }
-  75% {
-    left: -150%;
-  }
-  95% {
-    left: -150%;
-  }
-  100% {
-    left: 0;
-  }
-}
-
 @keyframes carousel-f-inner {
   0% {
     left: 0%;
@@ -1198,7 +1169,6 @@ pre[class*="language-"] {
 
 #carousel-f-autoplay:checked ~ .outer .inner {
   -webkit-animation: carousel-f-inner 20s ease infinite;
-  -moz-animation: carousel-f-inner 20s ease infinite;
   animation: carousel-f-inner 20s ease infinite;
 }
 
@@ -1521,5 +1491,4 @@ pre[class*="language-"] {
 [id="carousel-auto-height"]:checked ~ .carousel-g {
   display: block;
 }
-
 /*# sourceMappingURL=slider-carousel.css.map */

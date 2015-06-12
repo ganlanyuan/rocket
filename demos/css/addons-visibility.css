@@ -1,92 +1,3 @@
-.inner:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.outer li {
-  z-index: 7;
-  opacity: 0;
-  width: 100%;
-}
-
-.no-opacity .outer li, .outer .no-opacity li {
-  display: none;
-}
-
-.outer {
-  position: relative;
-}
-
-.outer li {
-  position: absolute;
-}
-
-.outer li, .inner {
-  transition: all 1s ease 0s;
-}
-
-img {
-  width: 100%;
-}
-
-> input {
-  display: none;
-}
-
-.outer {
-  overflow: hidden;
-}
-
-.outer li {
-  display: inline-block;
-  vertical-align: top;
-  width: 100%;
-  letter-spacing: 0;
-  box-sizing: border-box;
-}
-
-.inner {
-  position: relative;
-  left: 0;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-}
-
-.info, .controls, .dots, .autoplay {
-  position: absolute;
-  z-index: 10;
-}
-
-.info {
-  bottom: 20px;
-  z-index: 9;
-}
-
-.controls {
-  top: 50%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.controls span {
-  display: none;
-}
-
-.dots {
-  width: 100%;
-  text-align: center;
-}
-
-.dots label {
-  display: inline-block;
-}
-
-.autoplay {
-  left: 50%;
-  top: 50%;
-}
-
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -368,19 +279,19 @@ pre[class*="language-"] {
   font-size: 14px;
 }
 
-@media (max-width: 56.25em) {
+@media (max-width: 56.1875em) {
   .visible-1 {
     display: none;
   }
 }
 
-@media screen and (min-width: 0) and (max-width: 56.25em), screen and (min-width: 62.5em) {
+@media screen and (min-width: 0) and (max-width: 56.1875em), screen and (min-width: 62.5625em) {
   .visible-2 {
     display: none;
   }
 }
 
-@media (min-width: 0) and (max-width: 43.75em), (min-width: 56.25em) and (max-width: 75em) {
+@media (min-width: 0) and (max-width: 43.6875em), (min-width: 56.3125em) and (max-width: 74.9375em) {
   .visible-3 {
     display: none;
   }
@@ -403,5 +314,4 @@ pre[class*="language-"] {
     display: none;
   }
 }
-
 /*# sourceMappingURL=addons-visibility.css.map */

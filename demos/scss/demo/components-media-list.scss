@@ -2,17 +2,17 @@
 
 // *** addons: media list *** //
 
-.news-left > li { 
-  @include media(15px child 'figure' 'div'); 
-  figure { width: 120px; }
+.media-body { @include media('media-body'); }
+.news-left { 
+  .media { @include media('media' 15px); }
   p { 
     margin-top: 0; 
     max-width: none;
   }
 }
-.news-right > li { 
-  @include media(); 
-  figure { width: 120px; }
+.news-right { 
+  .media-left { @include media('media' 15px); }
+  .media { @include media('media' 15px right); }
   p { 
     margin-top: 0; 
     max-width: none;

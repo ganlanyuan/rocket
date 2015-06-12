@@ -36,9 +36,15 @@
 	$last: false;
 	$keep: false;
 
-	@if type-of($key) == number {
+	@if type-of($key) == 'number' {
 		$column: $key;
-	} @else if type-of($key) == list {
+	} @else if type-of($key) == 'list' {
+
+		@each $item in $key {
+			@if type-of($item) == 'list' {
+				$key: join($item, reject($key, $item), 'space');
+			}
+		}
 
 		// set up direction
 		@each $direction in left, right {

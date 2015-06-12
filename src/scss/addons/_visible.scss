@@ -13,6 +13,7 @@
 @mixin visible($key){
   $empty: ();
   @if type-of($key) == number {
+    $key: minus-one($key);
     // output
     @include breakpoint('max' $key) { display: none; }
   } @else if type-of($key) == list {
@@ -24,7 +25,15 @@
 
       // append $key to $empty 
       @for $i from 1 through length($key) {
-        $empty: append($empty, nth($key, $i));
+        $item: nth($key, $i);
+
+        @if index($ro-odd, $i) {
+          $item: minus-one($item);
+        } @else if index($ro-even, $i) {
+          $item: plus-one($item);
+        }
+
+        $empty: append($empty, $item);
       }
 
       // give the value of $empty to $key

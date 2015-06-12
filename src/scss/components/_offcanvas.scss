@@ -1,13 +1,13 @@
-/// *off-canvas* and *page-container* are for creating the navigation of mobile site.
+/// *offcanvas* and *page-container* are for creating the navigation of mobile site.
 ///
-/// $key: `$style $direction animation $off-canvas-width $padding $background-color`
+/// $key: `$style $direction animation $offcanvas-width $padding $background-color`
 /// @group components
 /// @param {list} $key - key 
 /// @example markup - markup
 /// <!-- include kit.js -->
 /// <script src="path/to/kit.min.js"></script>
 /// 
-/// <!-- off-canvas -->
+/// <!-- offcanvas -->
 /// <nav class="nav">
 ///   <ul>
 ///     <li><span data-offcanvas-close>close</span></li>
@@ -34,12 +34,12 @@
 ///   <div data-icon-nav></div>
 /// </div>
 /// @example scss - scss
-/// .nav { @include off-canvas(translate 300px '1em' left #102244 animation); }
+/// .nav { @include offcanvas(translate 300px '1em' left #102244 animation); }
 /// // style: translate; (move | transition | reveal)
-/// // off-canvas-width: 300px;
+/// // offcanvas-width: 300px;
 /// // nav-item-padding: 1em;
 /// // direction: left; (left | right)
-/// // off-canvas-background-color: #102244;
+/// // offcanvas-background-color: #102244;
 /// // animation: true;
 /// @require {mixin} transform
 /// @require {mixin} analogous
@@ -50,9 +50,9 @@
 @import '../color/contrast';
 @import '../color/analogous';
 
-$off-canvas-length: 12;
+$offcanvas-length: 12;
 
-@mixin off-canvas (
+@mixin offcanvas (
   $key:
     move
     left
@@ -63,7 +63,7 @@ $off-canvas-length: 12;
   $style: move;
   $direction: left;
   $animation: true;
-  $off-canvas-width: 200px;
+  $offcanvas-width: 200px;
   $padding: em(16, 14);
   $background-color: #000;
 
@@ -72,11 +72,11 @@ $off-canvas-length: 12;
   } @else if type-of($key) == color {
     $background-color: $key;
   } @else if type-of($key) == number {
-    $off-canvas-width: $key;
+    $offcanvas-width: $key;
   } @else if type-of($key) == string {
-    @if index($ro-off-canvas-styles, $key) {
+    @if index($ro-offcanvas-styles, $key) {
       $style: $key;
-    } @else if index($ro-off-canvas-direction, $key) {
+    } @else if index($ro-offcanvas-direction, $key) {
       $direction: $key;
     } @else {
       $padding: unquote($key);
@@ -90,11 +90,11 @@ $off-canvas-length: 12;
       } @else if type-of($val) == color {
         $background-color: $val;
       } @else if type-of($val) == number {
-        $off-canvas-width: $val;
+        $offcanvas-width: $val;
       } @else if type-of($val) == string {
-        @if index($ro-off-canvas-styles, $val) {
+        @if index($ro-offcanvas-styles, $val) {
           $style: $val;
-        } @else if index($ro-off-canvas-direction, $val) {
+        } @else if index($ro-offcanvas-direction, $val) {
           $direction: $val;
         } @else {
           $padding: unquote($val);
@@ -155,64 +155,62 @@ $off-canvas-length: 12;
     cursor: pointer;
    &:hover { background-color: analogous($background-color 15%); } 
   }
-  @at-root { .off-canvas-show .mb-subnav-show { left: 0; } }
+  @at-root { .offcanvas-show .mb-subnav-show { left: 0; } }
 
   // styles
   @if $style == move {
-    .off-canvas-show & { margin-#{$direction}: 0; }
+    .offcanvas-show & { margin-#{$direction}: 0; }
   }
   @if $style == translate {
-    .off-canvas-show & { #{$direction}: $off-canvas-width; }
+    .offcanvas-show & { #{$direction}: $offcanvas-width; }
   }
   @if $style == reveal { z-index: 100; }
   @if $direction == left or 
       $direction == right {
-    width: $off-canvas-width;
+    width: $offcanvas-width;
     overflow-x: hidden;
     overflow-y: auto;
     #{$direction}: 0;
     @if $style == move or 
-        $style == translate { margin-#{$direction}: -$off-canvas-width; }
+        $style == translate { margin-#{$direction}: -$offcanvas-width; }
   }
 
   // animation
   @if $animation == true {
-    @at-root {
-      & > ul > li > a {
-        opacity: 0;
-        @include transform(translate3d(-100%,0,0));
-        .off-canvas-show & { 
-          opacity: 1; 
-          @include transform(none);
-        }
-      }
-      [data-offcanvas-subnav] a {
-        opacity: 0;
-        @include transform(translate3d(100%,0,0));
-      }
-      .mb-subnav-show a {
-        opacity: 1;
+    & > ul > li > a {
+      opacity: 0;
+      @include transform(translate3d(-100%,0,0));
+      .offcanvas-show & { 
+        opacity: 1; 
         @include transform(none);
       }
-      @for $i from 1 through $off-canvas-length {
-        & > ul > li:nth-child(#{$i}) > a ,
-        [data-offcanvas-subnav] li:nth-child(#{$i}) a {
-          @include transition-delay(($i * $ro-global-animation-duration / $off-canvas-length));
-        }
+    }
+    [data-offcanvas-subnav] a {
+      opacity: 0;
+      @include transform(translate3d(100%,0,0));
+    }
+    .mb-subnav-show a {
+      opacity: 1;
+      @include transform(none);
+    }
+    @for $i from 1 through $offcanvas-length {
+      & > ul > li:nth-child(#{$i}) > a ,
+      [data-offcanvas-subnav] li:nth-child(#{$i}) a {
+        @include transition-delay(($i * $ro-global-animation-duration / $offcanvas-length));
       }
     }
   }
 }
 
-/// *off-canvas* and *page-container* are for creating the navigation of mobile site.
+/// *offcanvas* and *page-container* are for creating the navigation of mobile site.
 ///
-/// $key: `$style $direction $off-canvas-width $cover-bg`
+/// $key: `$style $direction $offcanvas-width $cover-bg`
 /// @group components
 /// @param {list} $key - key 
 /// @example scss - scss
 /// .page { @include page-container(translate left 300px); }
 /// // style: translate;
-/// // off-canvas-width: 300px;
+/// // offcanvas-width: 300px;
 /// // direction: left;
 /// @require {mixin} transform
 /// @require {mixin} transition-delay
@@ -226,20 +224,20 @@ $off-canvas-length: 12;
     left
     rgba(0,0,0,.35) 
 ){
-  $off-canvas-width: 200px;
+  $offcanvas-width: 200px;
   $style: move;
   $direction: left;
   $cover-bg: rgba(0,0,0,.35);
 
   @if type-of($page-container-var) == string {
-    @for $i from 1 through length($ro-off-canvas-styles) {
-      $val: nth($ro-off-canvas-styles, $i);
+    @for $i from 1 through length($ro-offcanvas-styles) {
+      $val: nth($ro-offcanvas-styles, $i);
       @if $val == $page-container-var {
         $style: $page-container-var;
       }
     }
-    @for $i from 1 through length($ro-off-canvas-direction) {
-      $val: nth($ro-off-canvas-direction, $i);
+    @for $i from 1 through length($ro-offcanvas-direction) {
+      $val: nth($ro-offcanvas-direction, $i);
       @if $val == $page-container-var {
         $direction: $page-container-var;
       }
@@ -247,20 +245,20 @@ $off-canvas-length: 12;
   } @else if type-of($page-container-var) == color {
     $cover-bg: $page-container-var;
   } @else if type-of($page-container-var) == number {
-    $off-canvas-width: $page-container-var;
+    $offcanvas-width: $page-container-var;
   } @else if type-of($page-container-var) == list {
     @for $i from 1 through length($page-container-var) {
       $val: nth($page-container-var, $i);
       @if type-of($val) == number {
-        $off-canvas-width: $val;
+        $offcanvas-width: $val;
       }
       @if type-of($val) == color {
         $cover-bg: $val;
       }
-      @if index($ro-off-canvas-styles, $val) {
+      @if index($ro-offcanvas-styles, $val) {
         $style: $val;
       }
-      @if index($ro-off-canvas-direction, $val) {
+      @if index($ro-offcanvas-direction, $val) {
         $direction: $val;
       }
     }
@@ -279,7 +277,7 @@ $off-canvas-length: 12;
     z-index: -1;
     -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
     transition: all $ro-global-animation-duration $ro-global-bezier 0s;
-    .off-canvas-show & {
+    .offcanvas-show & {
       background-color: $cover-bg;
       z-index: 200;
       cursor: pointer;
@@ -289,7 +287,7 @@ $off-canvas-length: 12;
       $direction == right { #{$direction}: 0; }
   @if $style == translate or 
       $style == reveal {
-    .off-canvas-show & { #{$direction}: $off-canvas-width; }
+    .offcanvas-show & { #{$direction}: $offcanvas-width; }
   }
   @if $style == reveal {
     min-width: 320px;

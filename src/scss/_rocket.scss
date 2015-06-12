@@ -43,17 +43,10 @@
 // components
 @import "components/button";
 @import "components/media";
-@import "components/off-canvas";
+@import "components/offcanvas";
 @import "components/dropdown";
 @import "components/tooltip";
 @import "components/flex-video";
-
-// slider
-@import "slider/base/gallery-base";
-@import "slider/base/slider-common";
-
-@import "slider/gallery";
-@import "slider/carousel";
 
 // color functions
 @import "color/core"; 

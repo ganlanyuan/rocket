@@ -51,6 +51,40 @@
 .span-isolate-2 { @include span(5 at 1 of 10 2%); }
 .span-isolate-3 { @include span(3 at 6 of 10 2%); }
       </code></pre>
+      <br />
+      Nested grid
+      <div class="example example-span" data-margin>
+        <div class="span-nested-main">
+          <div>main</div>
+          <div class="span-nested-main-left cell" data-content>
+            <div class="example-content">
+              main-left
+            </div>
+          </div>
+          <div class="span-nested-main-right cell" data-content>
+            <div class="example-content">
+              main-right
+            </div>
+          </div>
+        </div>
+        <div class="span-nested-aside" >
+          <div>aside</div>
+          <div class="cell" data-content>
+          </div>
+        </div>
+      </div>
+      <pre><code class="language-scss">
+$gutter: 2%;
+$layout-main: (8 of 12);
+.span-nested {
+  &-main {
+    @include span($layout-main $gutter);
+    &-left { @include span(2 of 5 ($gutter / span($layout-main)))};
+    &-right { @include span(3 of 5 ($gutter / span($layout-main)) last)};
+  }
+  &-aside { @include span(4 of 12 $gutter last); }
+}
+      </code></pre>
       <h4>span-calc</h4>
       <div class="example" data-margin>
         <div class="span-calc-1 cell" data-content="">

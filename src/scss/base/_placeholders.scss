@@ -72,3 +72,8 @@
   // box-sizing: border-box;
 }
 
+// media list
+%media {
+  display: table-cell;
+  vertical-align: top;
+}

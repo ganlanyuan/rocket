@@ -1,90 +1,6 @@
-.inner:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.outer li {
-  z-index: 7;
-  opacity: 0;
-  width: 100%;
-}
-
-.no-opacity .outer li, .outer .no-opacity li {
-  display: none;
-}
-
-.outer {
-  position: relative;
-}
-
-.outer li {
-  position: absolute;
-}
-
-.outer li, .inner {
-  transition: all 1s ease 0s;
-}
-
-img {
-  width: 100%;
-}
-
-> input {
-  display: none;
-}
-
-.outer {
-  overflow: hidden;
-}
-
-.outer li {
-  display: inline-block;
+.media-body, .news-left .media, .news-right .media-left, .news-right .media {
+  display: table-cell;
   vertical-align: top;
-  width: 100%;
-  letter-spacing: 0;
-  box-sizing: border-box;
-}
-
-.inner {
-  position: relative;
-  left: 0;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-}
-
-.info, .controls, .dots, .autoplay {
-  position: absolute;
-  z-index: 10;
-}
-
-.info {
-  bottom: 20px;
-  z-index: 9;
-}
-
-.controls {
-  top: 50%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.controls span {
-  display: none;
-}
-
-.dots {
-  width: 100%;
-  text-align: center;
-}
-
-.dots label {
-  display: inline-block;
-}
-
-.autoplay {
-  left: 50%;
-  top: 50%;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -358,62 +274,28 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.news-left > li {
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
+.media-body {
+  width: 10000px;
 }
 
-.news-left > li > figure {
-  display: table-cell;
-  vertical-align: top;
+.news-left .media {
   padding-right: 15px;
 }
 
-.news-left > li > figure:last-child {
-  padding-right: 0;
-}
-
-.news-left > li > div {
-  display: table-cell;
-  vertical-align: top;
-  padding-right: 15px;
-}
-
-.news-left > li > div:last-child {
-  padding-right: 0;
-}
-
-.news-left > li figure {
-  width: 120px;
-}
-
-.news-left > li p {
+.news-left p {
   margin-top: 0;
   max-width: none;
 }
 
-.news-right > li {
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
+.news-right .media-left {
+  padding-right: 15px;
 }
 
-.news-right > li > * {
-  display: table-cell;
-  vertical-align: top;
-  padding-right: 10px;
+.news-right .media {
+  padding-left: 15px;
 }
 
-.news-right > li > *:last-child {
-  padding-right: 0;
-}
-
-.news-right > li figure {
-  width: 120px;
-}
-
-.news-right > li p {
+.news-right p {
   margin-top: 0;
   max-width: none;
 }
@@ -423,5 +305,4 @@ pre[class*="language-"] {
   max-width: 900px;
   margin: 0 auto;
 }
-
 /*# sourceMappingURL=components-media-list.css.map */

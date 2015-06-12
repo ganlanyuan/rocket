@@ -1,7 +1,9 @@
 <nav class="mb-nav">
   <ul>
     <li><span data-offcanvas-close><span></span></span></li>
-    <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#layout">Layout</a>
+    <li class="mb-nav__level1">
+      <span data-icon-haschild><span class="ic-angle-right"></span></span>
+      <a href="#layout">Layout</a>
       <ul data-offcanvas-subnav>
         <li data-offcanvas-back><span class="ic-angle-left"></span></li>
         <li><a href="#layout-mixin">layout</a></li>
@@ -16,14 +18,18 @@
         <li><a href="#debug">debug</a></li>
       </ul>
     </li>
-    <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#slider">slider</a>
+    <li class="mb-nav__level1">
+      <span data-icon-haschild><span class="ic-angle-right"></span></span>
+      <a href="#slider">slider</a>
       <ul data-offcanvas-subnav>
         <li data-offcanvas-back><span class="ic-angle-left"></span></li>
         <li><a href="#slider-gallery-topic">slider-gallery</a></li>
         <li><a href="#slider-carousel-topic">slider-carousel</a></li>
       </ul>
     </li>
-    <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#addons">Addons</a>
+    <li class="mb-nav__level1">
+      <span data-icon-haschild><span class="ic-angle-right"></span></span>
+      <a href="#addons">Addons</a>
       <ul data-offcanvas-subnav>
         <li data-offcanvas-back><span class="ic-angle-left"></span></li>
         <li><a href="#type">type</a></li>
@@ -38,7 +44,9 @@
         <li><a href="#icon-font">icon-font</a></li>
       </ul>
     </li>
-    <li class="mb-nav__level1"><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="#color">color</a>
+    <li class="mb-nav__level1">
+      <span data-icon-haschild><span class="ic-angle-right"></span></span>
+      <a href="#color">color</a>
       <ul data-offcanvas-subnav>
         <li data-offcanvas-back><span class="ic-angle-left"></span></li>
         <li><a href="#contrast">contrast</a></li>

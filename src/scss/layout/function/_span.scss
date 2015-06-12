@@ -9,6 +9,12 @@
     $column: $key;
   } @else if type-of($key) == list {
 
+    @each $item in $key {
+      @if type-of($item) == 'list' {
+        $key: join($item, reject($key, $item), 'space');
+      }
+    }
+    
     // set up column and columns
     @if index($key, of) {
       $column: get-prev($key, of);

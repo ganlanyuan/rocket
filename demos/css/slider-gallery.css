@@ -69,7 +69,8 @@
 }
 
 .outer li, .inner, .gallery-a .dots span, .gallery-b .dots span, .gallery-c .dots span, .gallery-a .controls span, .gallery-b .controls span, .gallery-c .controls span, .gallery-a .autoplay {
-  transition: all 1s ease 0s;
+  -webkit-transition: all 1s ease 0s;
+          transition: all 1s ease 0s;
 }
 
 .slider [autoheight-gallery] {
@@ -631,25 +632,6 @@ pre[class*="language-"] {
   }
 }
 
-@-moz-keyframes gallery-a {
-  0% {
-    z-index: 7;
-    opacity: 0;
-  }
-  4% {
-    z-index: 8;
-    opacity: 1;
-  }
-  20% {
-    z-index: 8;
-    opacity: 1;
-  }
-  24% {
-    z-index: 7;
-    opacity: 0;
-  }
-}
-
 @keyframes gallery-a {
   0% {
     z-index: 7;
@@ -675,31 +657,26 @@ pre[class*="language-"] {
 
 #gallery-a-autoplay:checked ~ .outer li {
   -webkit-animation: gallery-a 25s ease infinite;
-  -moz-animation: gallery-a 25s ease infinite;
   animation: gallery-a 25s ease infinite;
 }
 
 #gallery-a-autoplay:checked ~ .outer li:nth-child(2) {
   -webkit-animation-delay: 5s;
-  -moz-animation-delay: 5s;
   animation-delay: 5s;
 }
 
 #gallery-a-autoplay:checked ~ .outer li:nth-child(3) {
   -webkit-animation-delay: 10s;
-  -moz-animation-delay: 10s;
   animation-delay: 10s;
 }
 
 #gallery-a-autoplay:checked ~ .outer li:nth-child(4) {
   -webkit-animation-delay: 15s;
-  -moz-animation-delay: 15s;
   animation-delay: 15s;
 }
 
 #gallery-a-autoplay:checked ~ .outer li:nth-child(5) {
   -webkit-animation-delay: 20s;
-  -moz-animation-delay: 20s;
   animation-delay: 20s;
 }
 
@@ -723,49 +700,37 @@ pre[class*="language-"] {
 
 .gallery-c li {
   -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
   transform: scale(1.1);
 }
 
 .gallery-c #gallery-c-1:checked ~ .outer li:nth-child(1) {
   -webkit-transform: scale(1);
-  -moz-transform: scale(1);
   -ms-transform: scale(1);
-  -o-transform: scale(1);
   transform: scale(1);
 }
 
 .gallery-c #gallery-c-2:checked ~ .outer li:nth-child(2) {
   -webkit-transform: scale(1);
-  -moz-transform: scale(1);
   -ms-transform: scale(1);
-  -o-transform: scale(1);
   transform: scale(1);
 }
 
 .gallery-c #gallery-c-3:checked ~ .outer li:nth-child(3) {
   -webkit-transform: scale(1);
-  -moz-transform: scale(1);
   -ms-transform: scale(1);
-  -o-transform: scale(1);
   transform: scale(1);
 }
 
 .gallery-c #gallery-c-4:checked ~ .outer li:nth-child(4) {
   -webkit-transform: scale(1);
-  -moz-transform: scale(1);
   -ms-transform: scale(1);
-  -o-transform: scale(1);
   transform: scale(1);
 }
 
 .gallery-c #gallery-c-5:checked ~ .outer li:nth-child(5) {
   -webkit-transform: scale(1);
-  -moz-transform: scale(1);
   -ms-transform: scale(1);
-  -o-transform: scale(1);
   transform: scale(1);
 }
 
@@ -800,5 +765,4 @@ pre[class*="language-"] {
   opacity: 1;
   margin-left: 20px;
 }
-
 /*# sourceMappingURL=slider-gallery.css.map */

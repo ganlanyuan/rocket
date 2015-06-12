@@ -6,11 +6,11 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>off-canvas</h2>
+      <h2 id=""><span>components: </span>offcanvas</h2>
       <div data-icon-nav class="icon-nav">Menu</div>
       <pre><code class="language-scss">
 .mb-nav {
-  @include off-canvas(translate 300px '1em' left #102244 animation);
+  @include offcanvas(translate 300px '1em' left #102244 animation);
 }
 .page {
   @include page-container(translate left 300px);

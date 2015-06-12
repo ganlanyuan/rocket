@@ -2,12 +2,12 @@ ready(function () {
   
   // open
   k('[data-icon-nav]').click(function() {
-    k('body').addClass('off-canvas-show');
+    k('body').addClass('offcanvas-show');
   });
 
   // close
   k('[data-page-cover],[data-offcanvas-close]').click(function() {
-    k('body').removeClass('off-canvas-show');
+    k('body').removeClass('offcanvas-show');
   });
 
   // data-icon-haschild
@@ -31,7 +31,7 @@ ready(function () {
   window.onresize = function () {
     var winW = k.win.W();
     if (winW > 1023) {
-      k('body').removeClass('off-canvas-show');
+      k('body').removeClass('offcanvas-show');
     }
     
     // set cover height

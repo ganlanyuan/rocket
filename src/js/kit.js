@@ -6,6 +6,4 @@
 // @codekit-prepend "kit/animate.js"
 
 // *** components ***
-// @codekit-prepend "components/off-canvas.js"
-// @codekit-prepend "components/autoheight-carousel.js"
-// @codekit-prepend "components/autoheight-gallery.js"
+// @codekit-prepend "components/offcanvas.js"
