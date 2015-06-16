@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.1.1
++ Fix a issue on `media`.
++ Add '!important' to `visible` and `hidden`.
++ Modify `offcanvas` hover-background.
+
 ### v2.1.0
 + Add [sassdoc](http://creatiointl.org/gallery/william/sassdoc/).   
 + Rocket now works correctly on LibSass 3.2.0.
