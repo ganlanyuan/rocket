@@ -125,12 +125,12 @@ $offcanvas-length: 12;
       transition: all $ro-global-animation-duration $ro-global-bezier 0s;
       &:hover { 
         text-decoration: none;
-        background-color: analogous($background-color 15%); 
+        background-color: analogous($background-color 7%); 
       }
     }
   }
   .active > a,
-  .current > a { background-color: analogous($background-color 23%); }
+  .current > a { background-color: analogous($background-color 13%); }
   [data-offcanvas-close] { cursor: pointer; }
   [data-offcanvas-subnav] {
     width: 100%;
@@ -145,7 +145,7 @@ $offcanvas-length: 12;
   [data-offcanvas-back]{ 
     padding: $padding;
     cursor: pointer;
-    background-color: analogous($background-color 15%);
+    background-color: analogous($background-color 7%);
   }
   [data-icon-haschild] { 
     display: inline-block;
@@ -153,7 +153,7 @@ $offcanvas-length: 12;
     float: right;
     height: 1em;
     cursor: pointer;
-   &:hover { background-color: analogous($background-color 15%); } 
+   &:hover { background-color: analogous($background-color 7%); } 
   }
   @at-root { .offcanvas-show .mb-subnav-show { left: 0; } }
 

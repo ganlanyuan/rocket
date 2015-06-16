@@ -312,12 +312,12 @@ pre[class*="language-"] {
 
 .mb-nav li a:hover {
   text-decoration: none;
-  background-color: #1f4182;
+  background-color: #173061;
 }
 
 .mb-nav .active > a,
 .mb-nav .current > a {
-  background-color: #2651a3;
+  background-color: #1d3d7a;
 }
 
 .mb-nav [data-offcanvas-close] {
@@ -338,7 +338,7 @@ pre[class*="language-"] {
 .mb-nav [data-offcanvas-back] {
   padding: 1em;
   cursor: pointer;
-  background-color: #1f4182;
+  background-color: #173061;
 }
 
 .mb-nav [data-icon-haschild] {
@@ -350,7 +350,7 @@ pre[class*="language-"] {
 }
 
 .mb-nav [data-icon-haschild]:hover {
-  background-color: #1f4182;
+  background-color: #173061;
 }
 
 .offcanvas-show .mb-subnav-show {

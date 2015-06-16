@@ -15,7 +15,7 @@
   @if type-of($key) == number {
     $key: minus-one($key);
     // output
-    @include breakpoint('max' $key) { display: none; }
+    @include breakpoint('max' $key) { display: none !important; }
   } @else if type-of($key) == list {
     @if nth($key, 1) == 0 {
       $key: reject($key, 0);
@@ -39,6 +39,6 @@
       // give the value of $empty to $key
       $key: $empty;
     }
-    @include breakpoint($key) { display: none; }
+    @include breakpoint($key) { display: none !important; }
   }
 }

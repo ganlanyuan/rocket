@@ -40,7 +40,8 @@
 	}
 
 	// output
-	@at-root (without: media) { @extend %media; }
+	display: table-cell;
+  vertical-align: top;
 	@if $role == 'media' {
 		padding-#{opposite($direction)}: $gutter;
 	} @else if $role == 'media-body' {
