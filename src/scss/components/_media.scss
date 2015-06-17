@@ -40,10 +40,11 @@
 	}
 
 	// output
-	display: table-cell;
+  display: table-cell;
   vertical-align: top;
 	@if $role == 'media' {
 		padding-#{opposite($direction)}: $gutter;
+		img { max-width: none; }
 	} @else if $role == 'media-body' {
 		width: 10000px;
 	}

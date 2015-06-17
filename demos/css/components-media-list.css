@@ -281,6 +281,10 @@ pre[class*="language-"] {
   padding-right: 15px;
 }
 
+.news-left .media img {
+  max-width: none;
+}
+
 .news-left p {
   margin-top: 0;
   max-width: none;
@@ -292,10 +296,18 @@ pre[class*="language-"] {
   padding-right: 15px;
 }
 
+.news-right .media-left img {
+  max-width: none;
+}
+
 .news-right .media {
   display: table-cell;
   vertical-align: top;
   padding-left: 15px;
+}
+
+.news-right .media img {
+  max-width: none;
 }
 
 .news-right p {

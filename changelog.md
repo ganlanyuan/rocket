@@ -1,7 +1,10 @@
 # Changelog
 
+### v2.1.2
++ Fix an image issue (which cause the images '0px-width' on webkit browsers) on `media` by setting `max-width: none;`.
+
 ### v2.1.1
-+ Fix a issue on `media`.
++ Fix an issue on `media`.
 + Add '!important' to `visible` and `hidden`.
 + Modify `offcanvas` hover-background.
 
