@@ -3,7 +3,7 @@
 /// $key: `$color $order (saturation $saturation) (lightness $lightness) (dist $dist)`
 /// @group color functions
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .main { color: triad(#a6e36e, 2); }
 /// // color: #a6e36e;
 /// // order: 2; (-2 | -1 | 1 | 2)

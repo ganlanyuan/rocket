@@ -71,3 +71,13 @@
   // white-space: nowrap;
   // box-sizing: border-box;
 }
+
+// button
+%button-style {
+  display: inline-block;
+  // line-height: normal !important;
+  // cursor: pointer;
+  box-sizing: border-box;
+  @extend %ro-hover-no-text-decoration;
+  @extend %ro-global-transition;
+}

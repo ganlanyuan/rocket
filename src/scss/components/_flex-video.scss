@@ -1,7 +1,7 @@
 /// $key: `$ratio (child $child)`
 /// @group components
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .flex-video { @include flex-video(3/4); }
 /// // ratio: 3/4;
 /// // child: iframe, object, embed; (default)

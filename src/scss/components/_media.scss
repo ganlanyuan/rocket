@@ -3,12 +3,12 @@
 /// $key: `$role $gutter $direction`
 /// @group components
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .media { @include media(); } 
 /// // role: 'media'; (media:default | media-body)
 /// // gutter: 10px; (default)
 /// // direction: left; (default)
-
+///
 /// .media { @include media('media' 15px right); }
 /// // role: 'media';
 /// // gutter: 15px;

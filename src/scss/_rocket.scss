@@ -13,6 +13,18 @@
 @import "vendors/triangle";
 @import "vendors/flex-box";
 
+// color functions
+@import "color/core"; 
+
+@import "color/analogous"; 
+@import "color/contrast";  
+@import "color/adjacent";  
+@import "color/complementary";  
+@import "color/split-complementary";  
+@import "color/triad"; 
+@import "color/rectangle"; 
+@import "color/square"; 
+
 // base
 @import "base/variables";
 @import "base/functions";
@@ -36,27 +48,15 @@
 @import "layout/span";
 @import "layout/span-calc";
 @import "layout/two-columns";
-@import "layout/gallery";
+@import "layout/gallery"; // @require mixin wrap
 @import "layout/justify";
 @import "layout/center";
 
 // components
-@import "components/button";
+@import "components/button"; // @require function contrast
 @import "components/media";
-@import "components/offcanvas";
+@import "components/offcanvas";  // @require mixin transform, transition-delay and function contrast, analogous
 @import "components/dropdown";
 @import "components/tooltip";
 @import "components/flex-video";
-
-// color functions
-@import "color/core"; 
-
-@import "color/analogous"; 
-@import "color/contrast";  
-@import "color/adjacent";  
-@import "color/complementary";  
-@import "color/split-complementary";  
-@import "color/triad"; 
-@import "color/rectangle"; 
-@import "color/square"; 
 

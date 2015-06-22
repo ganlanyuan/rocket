@@ -3,7 +3,7 @@
 /// $key: `$child $align`
 /// @group layout
 /// @param {list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .banner { @include center(div left); }
 /// // child: div;
 /// // align: left; (left | right | center, for old browser)

@@ -3,7 +3,7 @@
 /// $key: `$per-row $gutter (child $child) $float $position keep`
 /// @group layout
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .pic { @include gallery(3 2% child li middle); }
 /// // per-row: 3;
 /// // gutter: 2%;
@@ -11,14 +11,10 @@
 /// // float: left; (default)
 /// // position: middle; (same padding on the top and bottom for each item)
 /// 
-/// @media screen and (min-width: 768px) {
-///   .pic { @include gallery(4 child li keep); }
-/// }
+/// .pic { @include gallery(4 child li keep); }
 /// // Keep: similar with span(keep).
 /// @require {mixin} wrap
 /// @link https://github.com/ganlanyuan/rocket full document
-
-@import 'wrap';
 
 @mixin gallery($key){
   $per-row: 1;

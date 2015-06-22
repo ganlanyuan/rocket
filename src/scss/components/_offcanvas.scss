@@ -33,7 +33,7 @@
 ///   <!-- nav icon -->
 ///   <div data-icon-nav></div>
 /// </div>
-/// @example scss - scss
+/// @example scss - Usage
 /// .nav { @include offcanvas(translate 300px '1em' left #102244 animation); }
 /// // style: translate; (move | transition | reveal)
 /// // offcanvas-width: 300px;
@@ -42,15 +42,10 @@
 /// // offcanvas-background-color: #102244;
 /// // animation: true;
 /// @require {mixin} transform
-/// @require {mixin} analogous
-/// @require {mixin} contrast
+/// @require {function} analogous
+/// @require {function} contrast
 /// 
 /// @link https://github.com/ganlanyuan/rocket full document
-
-@import '../color/contrast';
-@import '../color/analogous';
-
-$offcanvas-length: 12;
 
 @mixin offcanvas (
   $key:
@@ -193,10 +188,10 @@ $offcanvas-length: 12;
       opacity: 1;
       @include transform(none);
     }
-    @for $i from 1 through $offcanvas-length {
+    @for $i from 1 through $ro-offcanvas-length {
       & > ul > li:nth-child(#{$i}) > a ,
       [data-offcanvas-subnav] li:nth-child(#{$i}) a {
-        @include transition-delay(($i * $ro-global-animation-duration / $offcanvas-length));
+        @include transition-delay(($i * $ro-global-animation-duration / $ro-offcanvas-length));
       }
     }
   }
@@ -207,7 +202,7 @@ $offcanvas-length: 12;
 /// $key: `$style $direction $offcanvas-width $cover-bg`
 /// @group components
 /// @param {list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .page { @include page-container(translate left 300px); }
 /// // style: translate;
 /// // offcanvas-width: 300px;

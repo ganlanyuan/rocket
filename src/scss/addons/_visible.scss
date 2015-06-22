@@ -3,7 +3,7 @@
 /// $key: `$media $breakpoints` 
 /// @group addons
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .example { @include visible(500) }
 /// // visible on 500px up on all media
 /// @require {mixin} breakpoint

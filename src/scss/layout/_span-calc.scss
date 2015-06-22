@@ -3,7 +3,7 @@
 /// $key: `($column of $columns) $gutter (move $move) (float $float) last keep`
 /// @group layout
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .nav { @include span-calc(3); }
 /// // column: 3;
 /// // columns: 12; (default)

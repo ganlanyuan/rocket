@@ -3,7 +3,7 @@
 /// $key: `$color $order (saturation $saturation) (lightness $lightness) (dist $dist)`
 /// @group color functions
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
 /// // color: #a6e36e;
 /// // order: -1;

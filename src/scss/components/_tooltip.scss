@@ -3,7 +3,7 @@
 /// $key: `$direction $color radius (width $width) (height $height)`
 /// @group components
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .tooltip { @include tooltip(radius right #b02df3 width 300px); }
 /// // radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
 /// // direction: right;

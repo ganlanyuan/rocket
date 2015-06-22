@@ -14,7 +14,7 @@
 ///   <!-- aside -->
 ///   <div data-col-aside=""></div>
 /// </div>
-/// @example scss - scss
+/// @example scss - Usage
 /// .wrapper { @include two-columns(left 300px gutter 30px); }
 /// // direction: left; (aside is on the left)
 /// // aside-width: 300px;

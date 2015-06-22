@@ -60,9 +60,6 @@
 // CSS3 Flexible Box Model and property defaults
 // Unified attributes for 2009, 2011, and 2012 flavours.
 
-/// @group helper
-/// @param
-
 // 2009 - display (box | inline-box)
 // 2011 - display (flexbox | inline-flexbox)
 // 2012 - display (flex | inline-flex)
@@ -199,9 +196,6 @@
   -ms-flex-preferred-size: $width;
 }
 
-/// @group helper
-/// @param
-
 // 2009 - box-pack (start | end | center | justify)
 // 2011 - flex-pack (start | end | center | justify)
 // 2012 - justify-content (flex-start | flex-end | center | space-between | space-around)
@@ -228,9 +222,6 @@
   // 2011 (IE 10)
   -ms-flex-pack: $alt-value;
 }
-
-/// @group helper
-/// @param
 
 // 2009 - box-align (start | end | center | baseline | stretch)
 // 2011 - flex-align (start | end | center | baseline | stretch)

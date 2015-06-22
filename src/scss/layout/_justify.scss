@@ -1,15 +1,8 @@
-/// *justify* is for creating justify list.
+/// *justify-flex* is for creating justify list.
 /// @group layout
-/// @param
-/// @example scss - scss
+/// @example scss - Usage
 /// nav {
 ///   @include justify-flex();
-///
-///   .no-flexbox {
-///     @include justify(div);
-///     // for old browsers
-///     // child: div
-///   } 
 /// }
 /// @require {mixin} display
 /// @require {mixin} justify-content
@@ -17,34 +10,24 @@
 /// 
 /// @link https://github.com/ganlanyuan/rocket full document
 
-// for morden browsers
-%justify-flex {
-  @include display(flex);
-  @include justify-content(space-between);
-  @include align-items(center);
-}
-
 @mixin justify-flex(){
   @include display(flex);
   @include justify-content(space-between);
   @include align-items(center);
 }
 
-// for old browsers
-%justify {
-  text-align: justify;
-  line-height: 0;
-  margin-bottom: -5px;
-  &:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
-  }
-  > * {
-    line-height: 1;
-    display: inline-block;
-  }
-}
+/// *justify* is for creating justify list.
+/// @group layout
+/// @example scss - Usage
+/// nav {
+///   .no-flexbox {
+///     @include justify(div);
+///     // for old browsers
+///     // child: div
+///   } 
+/// }
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin justify($key){
   $child:false;

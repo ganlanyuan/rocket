@@ -3,7 +3,7 @@
 /// $key: `$font-size $font-weight $font-style $line-height $font-family $text-transform`
 /// @group addons
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
 /// // font-size: 20px;
 /// // font-weight: bold; 

@@ -3,7 +3,7 @@
 /// $key: `($container $gutter) $align`
 /// @group layout
 /// @param {number | list} $key - key 
-/// @example scss - scss
+/// @example scss - Usage
 /// .wrapper { @include container(1200px); }
 /// // container: 1200px;
 /// // gutter: 2%; (default)

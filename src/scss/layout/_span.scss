@@ -1,6 +1,6 @@
 /// *span* is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a wrap, or you can use span-calc.
 /// 
-/// $key: `($column at $location of $columns) $gutter (move $move) (float $float) last keep;`
+/// $key: `($column at $location of $columns) $gutter (move $move) (float $float) last keep`
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
