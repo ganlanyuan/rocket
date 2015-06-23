@@ -4,9 +4,6 @@
 /// nav {
 ///   @include justify-flex();
 /// }
-/// @require {mixin} display
-/// @require {mixin} justify-content
-/// @require {mixin} align-items
 /// 
 /// @link https://github.com/ganlanyuan/rocket full document
 
@@ -27,6 +24,7 @@
 ///   } 
 /// }
 /// 
+/// @link http://creatiointl.org/gallery/william/rocket/layout-justify.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin justify($key){

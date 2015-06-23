@@ -41,10 +41,8 @@
 /// // direction: left; (left | right)
 /// // offcanvas-background-color: #102244;
 /// // animation: true;
-/// @require {mixin} transform
-/// @require {function} analogous
-/// @require {function} contrast
 /// 
+/// @link http://creatiointl.org/gallery/william/rocket/components-offcanvas.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin offcanvas (
@@ -207,8 +205,6 @@
 /// // style: translate;
 /// // offcanvas-width: 300px;
 /// // direction: left;
-/// @require {mixin} transform
-/// @require {mixin} transition-delay
 ///
 /// @link https://github.com/ganlanyuan/rocket full document
 

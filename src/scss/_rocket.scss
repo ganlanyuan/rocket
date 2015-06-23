@@ -15,7 +15,6 @@
 
 // color functions
 @import "color/core"; 
-
 @import "color/analogous"; 
 @import "color/contrast";  
 @import "color/adjacent";  
@@ -36,26 +35,25 @@
 @import "addons/ie-rgba";
 @import "addons/rems";
 @import "addons/breakpoint";
-@import "addons/visible";
-@import "addons/hidden";
+@import "addons/visible"; // @required [mixin] breakpoint
+@import "addons/hidden"; // @required [mixin] breakpoint
 @import "addons/type";
 
 // layout
 @import "layout/function/span";
-
-@import "layout/container";
+@import "layout/container"; // @required [mixin] breakpoint
 @import "layout/wrap";
 @import "layout/span";
 @import "layout/span-calc";
 @import "layout/two-columns";
-@import "layout/gallery"; // @require mixin wrap
-@import "layout/justify";
+@import "layout/gallery"; // @require [mixin] wrap
+@import "layout/justify"; // @required [mixin] display, justify-content, align-items
 @import "layout/center";
 
 // components
-@import "components/button"; // @require function contrast
+@import "components/button"; // @require [function] contrast
 @import "components/media";
-@import "components/offcanvas";  // @require mixin transform, transition-delay and function contrast, analogous
+@import "components/offcanvas";  // @require [mixin] transform, transition-delay and [function] contrast, analogous
 @import "components/dropdown";
 @import "components/tooltip";
 @import "components/flex-video";

@@ -6,8 +6,8 @@
 /// @example scss - Usage
 /// .example { @include hidden(screen 300 500 700); }
 /// // hidden between 300px and 500px, and 700px up on screen
-/// @require {mixin} breakpoint
 /// 
+/// @link http://creatiointl.org/gallery/william/rocket/addons-visibility.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin hidden($key){

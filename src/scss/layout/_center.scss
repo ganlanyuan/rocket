@@ -7,10 +7,8 @@
 /// .banner { @include center(div left); }
 /// // child: div;
 /// // align: left; (left | right | center, for old browser)
-/// @require {mixin} display
-/// @require {mixin} justify-content
-/// @require {mixin} align-items
 /// 
+/// @link http://creatiointl.org/gallery/william/rocket/layout-center.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin center(

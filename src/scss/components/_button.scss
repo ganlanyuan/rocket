@@ -1,4 +1,5 @@
-/// button
+/// Short hands for creating button.
+/// 
 /// $key: `$font-size $padding $background-color radius round hover`
 /// @group components
 /// @param {number | list} $key - key 
@@ -7,9 +8,10 @@
 /// // font-size: 14px;
 /// // background-color: #00c8ff;
 /// // padding: 0.8em 1em; (Tips: padding must be quoted)
-/// // radius: 0.22em; (default, you can modify it by change the varible "$button-radius: 0.22em;" )
+/// // radius: 0.22em; (default, you can modify it by change the varible "$ro-button-radius: 0.22em;" )
 /// // hover: true; (change background-color when mouse over)
-/// @require {function} contrast
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/components-button.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin button (

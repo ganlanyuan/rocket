@@ -6,8 +6,9 @@
 /// @example scss - Usage
 /// .example { @include visible(500) }
 /// // visible on 500px up on all media
-/// @require {mixin} breakpoint
 /// 
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/addons-visibility.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin visible($key){

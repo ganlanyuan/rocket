@@ -19,6 +19,8 @@
 /// // direction: left; (aside is on the left)
 /// // aside-width: 300px;
 /// // gutter: 30px;
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/layout-two-columns.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin two-columns($key: left 300px gutter 20px) {

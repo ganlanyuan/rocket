@@ -21,6 +21,8 @@
 /// 
 /// // Keep: similar with span(keep).
 /// // Tips: gutter must be a fixed value(px, em, rem).
+///
+/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin span-calc($key){

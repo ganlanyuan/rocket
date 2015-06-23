@@ -13,7 +13,8 @@
 /// 
 /// .pic { @include gallery(4 child li keep); }
 /// // Keep: similar with span(keep).
-/// @require {mixin} wrap
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/layout-gallery.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin gallery($key){

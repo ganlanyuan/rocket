@@ -16,6 +16,7 @@
 /// .media-body { @include media('media-body'); }
 /// // role: 'media-body'; 
 /// 
+/// @link http://creatiointl.org/gallery/william/rocket/components-media-list.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin media($key){

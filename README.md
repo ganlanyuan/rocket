@@ -69,7 +69,7 @@ color functions
 // gutter: 10px; (default)
 // slide-by-page: true;
 // default: true; (default styles for controls and dots)
-$layout: (
+$ro-layout: (
   container: 1024px,
   columns: 12,
   gutter: 2%,
@@ -529,6 +529,7 @@ $key: $media $breakpoints;
 @include visible(500)
 // visible on 500px up on all media
 ````
+[demo](http://creatiointl.org/gallery/william/rocket/addons-visibility.php)
 
 #### hidden
 A shorthand @mixin for hide elements on some parts of viewport.

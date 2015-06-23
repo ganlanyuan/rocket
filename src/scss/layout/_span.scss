@@ -1,4 +1,6 @@
-/// *span* is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a wrap, or you can use span-calc.
+/// `span` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, or you can use `span-calc`.   
+/// *Isolate mode*: read [this article](http://www.palantir.net/blog/responsive-design-s-dirty-little-secret) for more detail. If you want to use isolate mode on one column, other siblings columns also need use isolate mode:   
+/// *Nested grid*: use function `span` to calculate child element's gutter.   
 /// 
 /// $key: `($column at $location of $columns) $gutter (move $move) (float $float) last keep`
 /// @group layout
@@ -23,6 +25,8 @@
 /// // move: -5; (move left 5 columns)
 ///
 /// .nav { @include span(11 of 16 keep); }
+///
+/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin span($key){

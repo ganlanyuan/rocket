@@ -1,8 +1,8 @@
-/// A shorthand @mixin for *break point*.
+/// A shorthand @mixin for *break point*. Accept maximumly 6 breakpoints. 
 /// 
 /// $key: `$condition $media $breakpoints`
 /// @group addons
-/// @param {number | list} $key - key 
+/// @param {list} $key - key 
 /// @example scss - Usage
 /// .bp { @include breakpoint('min' 640) {}; }
 /// // output: @media (min-width: 40em) {};
