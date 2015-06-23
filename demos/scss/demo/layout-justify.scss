@@ -7,9 +7,11 @@
   .no-flexbox & { @include justify(li); }
   a {
     display: block;
-    @extend %ro-hover-no-text-decoration;
     @extend %ro-global-transition;
-    &:hover { padding: 0 20px; }
+    &:hover { 
+      padding: 0 20px; 
+      text-decoration: none;
+    }
   }
   input {
     width: 150px;

@@ -103,10 +103,10 @@
         &:last-child > a { padding-bottom: nth($padding, 1) * 2;}
       }
       a { 
-        @extend %ro-hover-no-text-decoration;
         display: block;
         padding: $padding;
         color: contrast($bgc);
+        &:hover { text-decoration: none; }
       }
     }
   }

@@ -4,9 +4,6 @@
 // clearfix
 %ro-clearfix { @include clearfix; }
 
-// link hover
-%ro-hover-no-text-decoration {&:hover { text-decoration: none; } }
-
 %ro-hidden-checkbox {
   position: absolute; 
   left: -9999em;
@@ -22,7 +19,7 @@
 %dropdown-menu {
   @extend %ro-global-transition;
   position: absolute;
-  z-index: nth($ro-z-index, 4);
+  z-index: 100;
 }
 %dropdown-menu-hide {
   -ms-transform: scaleY(0);
@@ -78,6 +75,6 @@
   // line-height: normal !important;
   // cursor: pointer;
   box-sizing: border-box;
-  @extend %ro-hover-no-text-decoration;
   @extend %ro-global-transition;
+  &:hover { text-decoration: none; }
 }

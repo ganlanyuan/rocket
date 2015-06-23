@@ -12,9 +12,6 @@ $ro-layout: (
 $ro-em-base: 16px !default;
 $ro-rem-base: 16px !default;
 
-// z-index
-$ro-z-index: 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 !default;
-
 // transition
 $ro-global-animation-duration: 0.3s !default;
 $ro-global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;

@@ -1,7 +1,3 @@
-.dropdown-1 > ul a:hover, .dropdown-2 > ul a:hover {
-  text-decoration: none;
-}
-
 .dropdown-1 > [type='checkbox'], .dropdown-2 > [type='checkbox'] {
   position: absolute;
   left: -9999em;
@@ -14,7 +10,7 @@
 
 .dropdown-1 > ul, .dropdown-2 > ul {
   position: absolute;
-  z-index: 700;
+  z-index: 100;
 }
 
 .dropdown-1 > ul, .dropdown-2 > ul {
@@ -349,6 +345,10 @@ pre[class*="language-"] {
   color: #000;
 }
 
+.dropdown-1 > ul a:hover {
+  text-decoration: none;
+}
+
 .no-csstransforms .dropdown-1:hover > ul {
   display: block;
 }
@@ -384,6 +384,10 @@ pre[class*="language-"] {
   display: block;
   padding: 0.31em 1.25em;
   color: #000;
+}
+
+.dropdown-2 > ul a:hover {
+  text-decoration: none;
 }
 
 .no-csstransforms .dropdown-2 > input:checked ~ ul {

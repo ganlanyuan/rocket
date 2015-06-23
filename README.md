@@ -399,31 +399,31 @@ $key: $direction $color radius (width $width) (height $height);
 <!-- include kit.js -->
 <script src="path/to/kit.min.js"></script>
 
-<!-- offcanvas -->
-<nav class="nav">
-  <ul>
-    <li><span data-offcanvas-close>close</span></li>
-    <li><a href="">item01</a></li>
-    <li><a href="">item02</a></li>
-    <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">item03</a>
-      <ul data-offcanvas-subnav>
-        <li data-offcanvas-back>back</li>
-        <li><a href="">sub item02</a></li>
-        <li><a href="">sub item03</a></li>
-        <li><a href="">sub item04</a></li>
-      </ul>
-    </li>
-    <li><a href="">item04</a></li>
-  </ul>
-</nav>
-
 <!-- page -->
 <div class="page">
-  <!-- page cover -->
-  <div data-page-cover=""></div>
-
   <!-- nav icon -->
   <div data-icon-nav></div>
+
+  <!-- offcanvas -->
+  <nav class="nav">
+    <ul>
+      <li><span data-offcanvas-close>close</span></li>
+      <li><a href="">item01</a></li>
+      <li><a href="">item02</a></li>
+      <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">item03</a>
+        <ul data-offcanvas-subnav>
+          <li data-offcanvas-back>back</li>
+          <li><a href="">sub item02</a></li>
+          <li><a href="">sub item03</a></li>
+          <li><a href="">sub item04</a></li>
+        </ul>
+      </li>
+      <li><a href="">item04</a></li>
+    </ul>
+  </nav>
+
+  <!-- page cover -->
+  <div data-page-cover=""></div>
 </div>
 ````
 ```` scss
