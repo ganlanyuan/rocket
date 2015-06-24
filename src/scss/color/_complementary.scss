@@ -14,7 +14,7 @@
 @function complementary($key){
   $key-new: ();
 
-  @if type-of($key) == list {
+  @if type-of($key) == 'list' {
     $key-new: append($key, complementary);
   } @else {
     $key-new: ($key complementary);

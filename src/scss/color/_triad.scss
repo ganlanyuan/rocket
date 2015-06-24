@@ -14,7 +14,7 @@
 @function triad($key){
   $key-new: ();
 
-  @if type-of($key) == list {
+  @if type-of($key) == 'list' {
     $key-new: append($key, triad);
   } @else {
     $key-new: ($key triad);

@@ -5,7 +5,7 @@
   $gutter: map-get($ro-layout, gutter);
   $ratio: false;
 
-  @if type-of($key) == number {
+  @if type-of($key) == 'number' {
     $column: $key;
   } @else if type-of($key) == list {
 
@@ -41,7 +41,7 @@
     }
   }
 
-  // output
+  // *** output *** //
   @if not $gutter or $gutter == 0 or unit($gutter) != '%' {
     $ratio: percentage($column / $columns);
   } @else {

@@ -19,7 +19,12 @@
         <li data-padding><span data-content></span></li>
       </ul>
       <pre><code class="language-scss">
-.example-gallery { @include gallery(4 2% child li); }
+.example-gallery {
+  @include gallery(3 2% child li); 
+  @include breakpoint('min' 800) {
+    @include gallery(4 child li keep);
+  }
+}
       </code></pre>
     </div>
     

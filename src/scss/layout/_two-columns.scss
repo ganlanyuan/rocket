@@ -24,41 +24,34 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin two-columns($key: left 300px gutter 20px) {
-  $direction: left; 
+  $direction: ro-set($key, left right, left);
+  $gutter: get-next($key, 'gutter', '20px');
   $aside-width: 300px; 
-  $gutter: 20px;
+
+  // set up aside width
+  $key: reject($key, $gutter);
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      $aside-width: $item;
+    }
+  }
+  
+  // set up total
   $total: 320px;
-
-  @if type-of($key) == number {
-    $aside-width: $key;
-  } @else if type-of($key) == list {
-
-    // set up gutter
-    @if index($key, gutter) {
-      $gutter: get-next($key, gutter);
-      $key: reject($key, gutter);
-      $key: reject($key, $gutter);
-    }
-
-    // set up direction 
-    @each $item in left, right {
-      @if index($key, $item) { 
-        $direction: $item;
-        $key: reject($key, $item);
-      } 
-    }
-
-    // set up aside width
-    $aside-width: nth($key, 1);
+  $total-no-csscalc: 320px;
+  @if unit($aside-width) == unit($gutter) {
+    $total: ($aside-width + $gutter);
+    $total-no-csscalc: ($aside-width + $gutter);
+  } @else {
+    $total: '#{$aside-width}' + ' - ' + '#{$gutter}';
+    $total-no-csscalc: $aside-width;
   }
 
-  $total: ($aside-width + $gutter);
-
-  // output
+  // *** output *** //
   @include clearfix; 
   .no-csscalc & {
     padding-#{opposite($direction)}: 0;
-    padding-#{$direction}: $total;
+    padding-#{$direction}: $total-no-csscalc;
   }
 
   // main
@@ -75,7 +68,7 @@
     float: $direction;
     width: $aside-width;
     .no-csscalc & {
-      margin-#{$direction}: - $total;
+      margin-#{$direction}: - $total-no-csscalc;
     }
   }
 }

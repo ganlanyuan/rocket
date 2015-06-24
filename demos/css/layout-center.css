@@ -293,6 +293,7 @@ pre[class*="language-"] {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
+  height: 200px;
 }
 
 .no-flexbox .example-center {
@@ -314,7 +315,6 @@ pre[class*="language-"] {
 }
 
 .example-center > div {
-  width: 200px;
   padding: 10px;
 }
 /*# sourceMappingURL=layout-center.css.map */

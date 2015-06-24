@@ -14,7 +14,7 @@
 @function rectangle($key){
   $key-new: ();
 
-  @if type-of($key) == list {
+  @if type-of($key) == 'list' {
     $key-new: append($key, rectangle);
   } @else {
     $key-new: ($key rectangle);

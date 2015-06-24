@@ -20,27 +20,11 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin media($key){
-	$role: 'media';
-	$gutter: 10px;
-	$direction: left;
+	$gutter: ro-type($key, 'number');
+	$role: ro-set($key, $ro-media-type, 'media');
+	$direction: ro-set($key, $ro-media-direction, left);
 
-	@if type-of($key) == 'number' {
-		$gutter: $key;
-	} @else if type-of($key) == 'string' {
-		$role: $key;
-	} @else if type-of($key) == 'list' {
-		@each $item in $key {
-			@if type-of($item) == 'number' {
-				$gutter: $item;
-			} @else if index($ro-media-type, $item) {
-				$role: $item;
-			} @else if index($ro-media-direction, $item) {
-				$direction: $item;
-			}
-		}
-	}
-
-	// output
+	// *** output *** //
   display: table-cell;
   vertical-align: top;
 	@if $role == 'media' {

@@ -8,7 +8,8 @@
       <div class="example example-center cell" data-margin>
         <div data-content>
         <div class="example-content">
-          center
+          center align content <br>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus doloribus dicta voluptate quaerat vero!
         </div>
         </div>
       </div>

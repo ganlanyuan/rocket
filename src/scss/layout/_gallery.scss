@@ -20,53 +20,27 @@
 @mixin gallery($key){
   $per-row: 1;
   $gutter: map-get($ro-layout, gutter);
-  $child: '*';
-  $float: left;
-  $position: middle;
-  $keep: false;
+  $child: get-next($key, 'child', '*');
+  $float: ro-set($key, left right, left);
+  $position: ro-set($key, 'middle' 'bottom', 'middle');
+  $keep: ro-set($key, 'keep');
 
-  @if type-of($key) == number {
+  // set up per-row, gutter
+  @if type-of($key) == 'number' {
     $per-row: $key;  
   } @else if type-of($key) == list {
-
-    // set up per-row, gutter
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if type-of($val) == number {
-        @if unitless($val) {
-          $per-row: $val;
+    @each $item in $key {
+      @if type-of($item) == number {
+        @if unitless($item) {
+          $per-row: $item;
         } @else {
-          $gutter: $val;
+          $gutter: $item;
         }
       }
     }
-
-    // set up float
-    @each $this-float in left, right {
-      @if index($key, $this-float) { 
-        $float: $this-float;
-      } 
-    }
-
-    // set up position
-    @each $this-position in middle, bottom {
-      @if index($key, $this-position) { 
-        $position: $this-position;
-      } 
-    }
-
-    // set up child
-    @if index($key, child) {
-      $child: get-next($key, child);
-    }
-
-    // set up keep
-    @if index($key, keep) {
-      $keep: true;
-    }
   }
 
+  // *** output *** //
   // set up gallery container
   @if not $keep {
     @if $gutter and $gutter != 0 {

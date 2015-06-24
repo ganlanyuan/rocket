@@ -14,7 +14,7 @@
 @function split-complementary($key){
   $key-new: ();
 
-  @if type-of($key) == list {
+  @if type-of($key) == 'list' {
     $key-new: append($key, split-complementary);
   } @else {
     $key-new: ($key split-complementary);

@@ -30,49 +30,34 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin span($key){
+	// merge list items
+	@each $item in $key {
+		@if type-of($item) == 'list' {
+			$key: join($item, reject($key, $item), 'space');
+		}
+	}
 	$column: 0;
-	$columns: map-get($ro-layout, columns);
+	$columns: get-next($key, of, map-get($ro-layout, columns));
 	$gutter: map-get($ro-layout, gutter);
 	$location: false;
-	$move: false;
 	$isolate: false;
-	$float: left;
-	$last: false;
-	$keep: false;
+	$float: ro-set($key, left right, left);
+	$last: ro-set($key, 'last');
+	$keep: ro-set($key, 'keep');
+	$move: get-next($key, move);
 
+	// set up gutter
+	@each $item in $key {
+		@if type-of($item) == number and
+				not unitless($item) {
+			$gutter: $item;
+		}
+	}
+	
+	// set up column, location and isolate
 	@if type-of($key) == 'number' {
 		$column: $key;
 	} @else if type-of($key) == 'list' {
-
-		@each $item in $key {
-			@if type-of($item) == 'list' {
-				$key: join($item, reject($key, $item), 'space');
-			}
-		}
-
-		// set up direction
-		@each $direction in left, right {
-      @if index($key, $direction) { 
-        $float: $direction;
-      } 
-		}
-
-		// set up keep
-		@if index($key, keep) {
-			$keep: true;
-		}
-
-		// set up last
-		@if index($key, last) {
-			$last: true;
-		}
-
-		// set up move
-		@if index($key, move) {
-			$move: get-next($key, move);
-		}
-
-		// set up column, location and isolate
 		@if index($key, at) {
 			$location: (get-next($key, at) - 1);
 			$column: get-prev($key, at);
@@ -80,31 +65,15 @@
 		} @else if index($key, of) {
 			$column: get-prev($key, of);
 		} @else {
-			@for $i from 1 through length($key) {
-				$val: nth($key, $i);
-
-				@if type-of($val) == number and
-						unitless($val) {
-					$column: $val;
+			@each $item in $key {
+				@if type-of($item) == number and
+						unitless($item) {
+					$column: $item;
 				}
 			}
 		}
-
-		// set up columns
-		@if index($key, of) {
-			$columns: get-next($key, of);
-		}
-
-		// set up gutter
-		@for $i from 1 through length($key) {
-			$val: nth($key, $i);
-
-			@if type-of($val) == number and
-					not unitless($val) {
-				$gutter: $val;
-			}
-		}
 	}
+
 
 	// *** output *** //
   // float

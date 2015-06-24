@@ -13,7 +13,9 @@
   @include align-items(center);
 }
 
-/// *justify* is for creating justify list.
+/// *justify* is for creating justify list.  
+///
+/// $key: `(child $child)`
 /// @group layout
 /// @example scss - Usage
 /// nav {
@@ -28,17 +30,10 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin justify($key){
-  $child:false;
+  $child: get-next($key, 'child', '*');
+  @if type-of($key) == 'string' { $child: $key; }
 
-  // set up child
-  @if type-of($key) == string {
-    $child: $key;
-  } @else if type-of($key) == list {
-    @if index($key, child) {
-      $child: get-next($key, child);
-    }
-  }
-
+  // *** output *** //
   text-align: justify;
   line-height: 0;
   margin-bottom: -5px;
@@ -49,12 +44,6 @@
   }
   @if $child {
     > #{$child} {
-      line-height: 1;
-      display: inline-block;
-    }
-  }
-  @else {
-    > * {
       line-height: 1;
       display: inline-block;
     }

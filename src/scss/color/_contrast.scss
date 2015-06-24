@@ -17,7 +17,7 @@
   $light: #fff;
   $dark: #000;
 
-  @if type-of($key) == color {
+  @if type-of($key) == 'color' {
     $color: $key;
   } @else if type-of($key) == list {
     

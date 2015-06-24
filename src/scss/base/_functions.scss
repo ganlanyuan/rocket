@@ -51,15 +51,62 @@
   @return $list;
 }
 
-// get-prev & get-next
-@function get-prev($list, $val) {
-  $this-index: index($list, $val);
-  @return nth($list, ($this-index - 1));
+// ro-set
+@function ro-set($key, $arg, $def: false){
+  $_return: $def;
+
+  @if type-of($arg) == 'string' {
+    @if index($key, $arg) {
+      $_return: $arg;
+    } 
+  } @else if type-of($arg) == 'list' {
+    @each $item in $arg {
+      @if index($key, $item) {
+        $_return: $item;
+      } 
+    }
+  }
+
+  @return $_return;
 }
 
-@function get-next($list, $val) {
+// ro-type
+@function ro-type($key, $arg, $check:false, $def:false) {
+  $_return: $def;
+
+  @each $item in $key {
+    @if type-of($item) == $arg {
+      @if $check {
+        @if not index($check, $item) {
+          $_return: $item;
+        }
+      } @else {
+        $_return: $item;
+      }
+    }
+  }
+
+  @return $_return;
+}
+
+// get-prev
+@function get-prev($list, $val, $def:false) {
   $this-index: index($list, $val);
-  @return nth($list, ($this-index + 1));
+  @if $this-index {
+    @return nth($list, ($this-index - 1));
+  } @else {
+    @return $def;
+  }
+}
+
+// get-next
+@function get-next($list, $val, $def:false) {
+  $this-index: index($list, $val);
+  @if $this-index {
+    @return nth($list, ($this-index + 1));
+  } @else {
+    @return $def;
+  }
 }
 
 // plus-one
@@ -95,6 +142,7 @@
 
   @return $key;
 }
+
 // str-dash slice
 @function str-cut($string, $separator, $position) {
   $i: 1;
@@ -115,25 +163,14 @@
   @return $final-string;
 }
 
-
-// get-slider-selector
-@function get-slider-selector($selector){
-  $str-selector: #{$selector};
-  $start: 0;
-  $result: null;
-  
-  @while (str-index($str-selector, '.')) { $str-selector: str-slice($str-selector, str-index($str-selector, '.') + 1, str-length($str-selector)); }
-  @while (str-index($str-selector, '#')) { $str-selector: str-slice($str-selector, str-index($str-selector, '#') + 1, str-length($str-selector)); }
-
-  @return $str-selector;
-}
-
-// calc-columns-width
-@function span-calc ( $col, $cols, $gutter ){
+// span-calc
+@function span-calc ($col, $cols, $gutter){
   $_return: '';
 
   $col-percentage: percentage($col / $cols);
   $col-gutter: ($gutter * $col / $cols);
-  $_return: #{#{$col-percentage} + ' + ' + #{$col-gutter}};
+  $_return: '#{$col-percentage}' + ' + ' + '#{$col-gutter}';
   @return $_return;
 }
+
+

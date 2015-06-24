@@ -81,7 +81,7 @@ The container of the main content. It can be center, left or right aligned.
 ```` scss
 @mixin container($key)
 // pattern
-$key: ($container $gutter) $align;
+$key: ($container $gutter) $align
 
 .wrapper { @include container(1200px); }
 // container: 1200px;
@@ -104,7 +104,7 @@ Grid wrapper, works with `span` when using a fixed value for `gutter`.
 ```` scss
 @mixin wrap($key);
 // pattern
-$key: $gutter;
+$key: $gutter
 
 .wrapper { @include wrap(20px); }
 // gutter: 20px;
@@ -115,7 +115,7 @@ $key: $gutter;
 ```` scss
 @mixin span($key);
 // pattern
-$key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep;
+$key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep
 
 .nav { @include span(3); }
 // column: 3;
@@ -188,7 +188,7 @@ $parent-layout: (7 of 10 $gutter);
 ```` scss
 @mixin span-calc($key);
 // pattern
-$key: ($column of $columns) $gutter (move $move) (float $float) last keep;
+$key: ($column of $columns) $gutter (move $move) (float $float) last keep
 
 .nav { @include span-calc(3); }
 // column: 3;
@@ -216,7 +216,7 @@ $key: ($column of $columns) $gutter (move $move) (float $float) last keep;
 ```` scss
 @mixin gallery($key);
 //pattern
-$key: $per-row $gutter (child $child) $float $position keep;
+$key: $per-row $gutter (child $child) $float $position keep
 
 .pic { @include gallery(3 2% child li middle); }
 // per-row: 3;
@@ -237,6 +237,7 @@ $key: $per-row $gutter (child $child) $float $position keep;
 ```` scss
 @mixin justify-flex();
 @mixin justify();
+$key: (child $child)
 
 .example {
   @include justify-flex();
@@ -254,7 +255,7 @@ $key: $per-row $gutter (child $child) $float $position keep;
 ```` scss
 @mixin center($key);
 // pattern
-$key: $child $align;
+$key: $child $align
 
 .banner { @include center(div left); }
 // child: div;
@@ -280,7 +281,7 @@ $key: $child $align;
 // scss
 @mixin two-columns($key);
 // pattern
-$key: $direction $aside-width (gutter $gutter);
+$key: $direction $aside-width (gutter $gutter)
 
 .wrapper { @include two-columns(left 300px gutter 30px); }
 // direction: left; (aside is on the left)
@@ -295,7 +296,7 @@ $key: $direction $aside-width (gutter $gutter);
 ````scss
 @mixin button($key);
 // pattern
-$key: $font-size $padding $background-color radius round hover;
+$key: $font-size $padding $background-color radius round hover
 
 .button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
 // font-size: 14px;
@@ -311,7 +312,7 @@ $key: $font-size $padding $background-color radius round hover;
 ```` scss
 @mixin media($key);
 // pattern
-$key: $role $gutter $direction;
+$key: $role $gutter $direction
 
 .media { @include media(); } 
 // role: 'media'; (media:default | media-body)
@@ -331,7 +332,7 @@ $key: $role $gutter $direction;
 ```` scss
 @mixin flex-video($key);
 // pattern
-$key: $ratio (child $child);
+$key: $ratio $child
 
 .flex-video { @include flex-video(3/4); }
 // ratio: 3/4;
@@ -364,7 +365,7 @@ $key: $ratio (child $child);
 ```` scss
 @mixin dropdown($key);
 // pattern
-$key: $child $show $style default;
+$key: $child $show $style default
 
 .dropdown { @include dropdown(ul hover display default); }
 // child: ul;
@@ -379,7 +380,7 @@ pure css `tooltip`
 ```` scss
 @mixin tooltip($key);
 // pattern
-$key: $direction $color radius (width $width) (height $height);
+$key: $direction $color radius (width $width) (height $height)
 
 .tooltip { @include tooltip(radius right #b02df3 width 300px); }
 // radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
@@ -430,7 +431,7 @@ $key: $direction $color radius (width $width) (height $height);
 // *** offcanvas *** //
 @mixin offcanvas($key);
 // pattern
-$key: $style $direction animation $offcanvas-width $padding $background-color;
+$key: $style $direction animation $offcanvas-width $padding $background-color
 
 .nav { @include offcanvas(translate 300px '1em' left #102244 animation); }
 // style: translate; (move | transition | reveal)
@@ -443,7 +444,7 @@ $key: $style $direction animation $offcanvas-width $padding $background-color;
 // *** page-container *** //
 @mixin page-container($key);
 // pattern
-$key: $style $direction $offcanvas-width $cover-bg;
+$key: $style $direction $offcanvas-width $cover-bg
 
 .page { @include page-container(translate left 300px); }
 // style: translate;
@@ -459,7 +460,7 @@ $key: $style $direction $offcanvas-width $cover-bg;
 ```` scss
 @mixin type($key);
 // pattern
-$key: $font-size $font-weight $font-style $line-height $font-family $text-transform; 
+$key: $font-size $font-weight $font-style $line-height $font-family $text-transform 
 
 h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
 // font-size: 20px;
@@ -483,7 +484,7 @@ Use `opacity` to set `opacity` property for old IE and modern browsers.
 ```` scss
 @mixin opacity($key);
 // pattern
-$key: $opacity;
+$key: $opacity
 
 .example { @include opacity(0.3); }
 ````
@@ -493,7 +494,7 @@ $key: $opacity;
 ```` scss
 @mixin ie-rgba($key);
 // pattern
-$key: $rgba;
+$key: $rgba
 
 .lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }
 // output:
@@ -509,7 +510,7 @@ A shorthand @mixin for break point.
 ```` scss
 @mixin breakpoint($key);
 // pattern
-$key: $condition $media $breakpoints;
+$key: $condition $media $breakpoints
 
 @include breakpoint('min' 640) {};
 // output: @media (min-width: 40em) {};
@@ -524,7 +525,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
 @mixin visible($key);
 // pattern
-$key: $media $breakpoints;
+$key: $media $breakpoints
 
 @include visible(500)
 // visible on 500px up on all media
@@ -536,7 +537,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
 @mixin hidden($key);
 // pattern
-$key: $media $breakpoints;
+$key: $media $breakpoints
 
 @include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
@@ -552,7 +553,7 @@ Get a contrast `font-color` based on the `background-color`.
 ```` scss
 @mixin contrast($key);
 // pattern
-$key: $color (light $light) (dark $dark);
+$key: $color (light $light) (dark $dark)
 
 .main { color: contrast(#a6e36e); }
 // color: #a6e36e;
@@ -566,7 +567,7 @@ $key: $color (light $light) (dark $dark);
 ```` scss
 @mixin adjacent($key);
 // pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 .main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
 // color: #a6e36e;
@@ -582,7 +583,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 ```` scss
 @mixin complementary($key);
 // pattern
-$key: $color (saturation $saturation) (lightness $lightness) (dist $dist);
+$key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
 
 .main { color: complementary(#a6e36e saturation 20%); }
 // color: #a6e36e;
@@ -595,7 +596,7 @@ $key: $color (saturation $saturation) (lightness $lightness) (dist $dist);
 ```` scss
 @mixin split-complementary($key);
 // pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 .main { color: split-complementary(#a6e36e 2); }
 // color: #a6e36e;
@@ -608,7 +609,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 ```` scss
 @mixin triad($key);
 // pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 .main { color: triad(#a6e36e, 2); }
 // color: #a6e36e;
@@ -621,7 +622,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 ```` scss
 @mixin rectangle($key);
 // pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 .main { color: rectangle(#a6e36e, -3); }
 // color: #a6e36e;
@@ -634,7 +635,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 ```` scss
 @mixin square($key);
 // pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist);
+$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 .main { color: square(#a6e36e, 3); }
 // color: #a6e36e;

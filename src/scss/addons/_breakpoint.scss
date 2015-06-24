@@ -27,7 +27,7 @@
   $key-em: ();
   $length: false;
 
-  @if type-of($key) == number {
+  @if type-of($key) == 'number' {
     @if $key != 0 and unitless($key) or unit($key) == 'px' {
       $key: em($key);
     }

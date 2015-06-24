@@ -30,7 +30,7 @@
   $font-family: null;
   $text-transform: null;
 
-  @if type-of($key) == number {
+  @if type-of($key) == 'number' {
     @if unitless($key) {
       @if $key >= 100 {
         $font-weight: $key;

@@ -1,4 +1,4 @@
-/// $key: `$ratio (child $child)`
+/// $key: `$ratio $child`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -18,45 +18,16 @@
     9/16
     false
 ){
-  $ratio: 9/16;
-  $child: false;
-
-  @if type-of($key) == number {
-    $ratio: $key;
-  } @else if type-of($key) == string {
-    $child: $key;
-  } @else if type-of($key) == list {
-    
-    // set up child
-    @if index($key, child) {
-      $child: get-next($key, child);
-    } @else {
-      @for $i from 1 through length($key) {
-        $val: nth($key, $i);
-
-        @if type-of($val) == string {
-          $child: $val;
-        } 
-      }
-    }
-
-    // set up ratio
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if type-of($val) == number {
-        $ratio: $val;
-      } 
-    }
-  }
-
-  @extend %flex-video-container;
+  $ratio: ro-type($key, 'number');
+  $child: ro-type($key, 'string');
   @if unitless($ratio) { $ratio: percentage($ratio); }
+
+  // *** output *** //
+  @extend %flex-video-container;
   padding-bottom: $ratio;
   @if $child {
     > #{$child} { @extend %flex-video; }
-  }
-  @else {
+  } @else {
     > iframe,
     > object,
     > embed { @extend %flex-video; }

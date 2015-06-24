@@ -31,7 +31,7 @@
   $gutter: 0;
   $align: center;
 
-  @if type-of($key) == number {
+  @if type-of($key) == 'number' {
     $container: $key;
     $gutter: map-get($ro-layout, gutter);
     $align: center;
@@ -55,7 +55,7 @@
     $align: center;
   }
 
-  // output
+  // *** output *** //
   @extend %ro-clearfix;
   @extend %ro-global-transition;
   max-width: $container;

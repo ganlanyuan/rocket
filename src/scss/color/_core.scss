@@ -125,7 +125,7 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
   $lightness: 0;
   $dist: $ro-color-dist;
 
-  @if type-of($key) == color {
+  @if type-of($key) == 'color' {
     $color: $key;
   } @else if type-of($key) == list {
 

@@ -20,45 +20,16 @@
 		'0.5em 0.8em'
     radius
 ){
-  $font-size: false;
-  $padding: false;
-  $background-color: false; 
-  $radius: false;
-  $round: false;
-  $hover: false;
+  $check: ('radius' 'round' 'hover');
 
-  @if $key == radius {
-    $radius: true;
-  } @else if $key == round {
-    $round: true;
-  } @else if $key == hover {
-    $hover: true;
-  } @else if type-of($key) == color {
-  	$background-color: $key;
-  } @else if type-of($key) == number {
-  	$font-size: $key;
-  } @else if type-of($key) == string {
-  	$padding: unquote($key);
-  } @else if type-of($key) == list {
-  	@for $i from 1 through length($key) {
-  		$val: nth($key, $i);
+  $font-size: ro-type($key, 'number');
+  $padding: unquote(ro-type($key, 'string', $check));
+  $background-color: ro-type($key, 'color'); 
+  $radius: ro-set($key, 'radius');
+  $round: ro-set($key, 'round');
+  $hover: ro-set($key, 'hover');
 
-      @if $val == radius {
-        $radius: true;
-      } @else if $val == round {
-        $round: true;
-      } @else if $val == hover {
-        $hover: true;
-      } @else if type-of($val) == color {
-  			$background-color: $val;
-  		} @else if type-of($val) == number {
-  			$font-size: $val;
-  		} @else if type-of($val) == string {
-  			$padding: unquote($val);
-  		}
-  	}
-  }
-
+  // *** output *** //
 	@extend %button-style;
   @if $radius {
     border-radius: $ro-button-radius;

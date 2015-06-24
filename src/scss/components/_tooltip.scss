@@ -31,7 +31,7 @@
   $height: 3.94em;
   $content: attr(data-tooltip);
 
-  @if type-of($key) == color {
+  @if type-of($key) == 'color' {
     $color: $key;
   } @else if type-of($key) == string {
     @if $key == radius {

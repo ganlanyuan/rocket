@@ -2,6 +2,8 @@
 
 // *** layout: center *** //
 
-.example-center { @include center(child div left);
-  > div { width: 200px; padding: 10px; }
+.example-center { 
+  @include center(child div left);
+  height: 200px;
+  > div { padding: 10px; }
 }

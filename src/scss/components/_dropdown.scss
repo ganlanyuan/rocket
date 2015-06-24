@@ -33,38 +33,16 @@
     'hover'
     'scale'
 ){
-  $child: 'ul';
-  $show: 'hover';
-  $style: 'scale';
-  $default: false;
+  $check: append(join($ro-dropdown-show, $ro-dropdown-style, comma), 'default', comma);
+
+  $child: ro-type($key, 'string', $check, 'ul');
+  $show: ro-set($key, $ro-dropdown-show, 'hover');
+  $style: ro-set($key, $ro-dropdown-style, 'scale');
+  $default: ro-set($key, 'default');
   $path: false;
 
-  @if type-of($key) == 'string' {
-    @if $key == 'default' {
-      $default: true;
-    } @else if index($ro-dropdown-show, $key) {
-      $show: $key;
-    } @else if index($ro-dropdown-style, $key) {
-      $style: $key;
-    } @else {
-      $child: $key;
-    }
-  } @else if type-of($key) == 'list' {
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if $val == 'default' {
-        $default: true;
-      } @else if index($ro-dropdown-show, $val) {
-        $show: $val;
-      } @else if index($ro-dropdown-style, $val) {
-        $style: $val;
-      } @else {
-        $child: $val;
-      }
-    }
-  }
-
+  
+  // *** output *** //
   position: relative;
   @if $show == 'hover' {
     cursor: pointer;

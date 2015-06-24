@@ -19,7 +19,7 @@
 	$child: '*';
 	$align: center;
 
-  @if type-of($key) == string {
+  @if type-of($key) == 'string' {
     $child: $key;
   } @else if type-of($key) == list {
     @each $direction in left, right, center {

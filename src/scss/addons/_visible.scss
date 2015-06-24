@@ -13,9 +13,9 @@
 
 @mixin visible($key){
   $empty: ();
-  @if type-of($key) == number {
+  @if type-of($key) == 'number' {
     $key: minus-one($key);
-    // output
+    // *** output *** //
     @include breakpoint('max' $key) { display: none !important; }
   } @else if type-of($key) == list {
     @if nth($key, 1) == 0 {

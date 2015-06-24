@@ -17,7 +17,7 @@
 @function adjacent($key){
   $key-new: ();
 
-  @if type-of($key) == list {
+  @if type-of($key) == 'list' {
     $key-new: append($key, adjacent);
   } @else {
     $key-new: ($key adjacent);

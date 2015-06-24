@@ -10,4 +10,4 @@
   background-color: adjacent($original 1);
   color: contrast(adjacent($original 1));
 }
-.example-adjacent { @extend %ro-clearfix; }
+.example-adjacent { @include clearfix(); }
