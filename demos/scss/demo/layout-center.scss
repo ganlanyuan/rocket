@@ -3,7 +3,7 @@
 // *** layout: center *** //
 
 .example-center { 
-  @include center(child div left);
+  @include center(div left);
   height: 200px;
   > div { padding: 10px; }
 }

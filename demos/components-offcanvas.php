@@ -2,7 +2,6 @@
 <body>
 <?php include 'include/mb-nav.php'; ?>
 <div class="page">
-  <div data-page-cover=""></div>
   <div class="container">
 
     <div class="topic">
@@ -21,6 +20,7 @@
     <?php include "include/more-demos.php" ?>
   </div>
   <?php include "include/site-footer.php"; ?>
+  <div data-page-cover=""></div>
 </div>
 </body>
 </html>

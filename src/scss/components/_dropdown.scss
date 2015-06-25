@@ -35,10 +35,10 @@
 ){
   $check: append(join($ro-dropdown-show, $ro-dropdown-style, comma), 'default', comma);
 
-  $child: ro-type($key, 'string', $check, 'ul');
-  $show: ro-set($key, $ro-dropdown-show, 'hover');
-  $style: ro-set($key, $ro-dropdown-style, 'scale');
-  $default: ro-set($key, 'default');
+  $child: ro-get-type($key, 'string', $check, 'ul');
+  $show: ro-get($key, $ro-dropdown-show, 'hover');
+  $style: ro-get($key, $ro-dropdown-style, 'scale');
+  $default: ro-get($key, 'default');
   $path: false;
 
   

@@ -2,7 +2,7 @@
 // @include rems(margin, 0 10 20 0);
 @mixin rems($property, $size, $base: $ro-em-base) {
   @if not unitless($base) {
-    $base: strip-units($base);
+    $base: strip-unit($base);
   }
 
   $unitless_values: ();
@@ -12,7 +12,7 @@
         $num: $num * $base;
       }
 
-      $num: strip-units($num);
+      $num: strip-unit($num);
     }
 
     $unitless_values: append($unitless_values, $num);

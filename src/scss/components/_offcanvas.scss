@@ -53,50 +53,17 @@
     'em(16, 14)'
     #000
 ){
-  $style: move;
-  $direction: left;
-  $animation: true;
-  $offcanvas-width: 200px;
-  $padding: em(16, 14);
-  $background-color: #000;
+  $check: append(join($ro-offcanvas-styles, $ro-offcanvas-direction), 'animation');
 
-  @if $key == animation {
-    $animation: true;
-  } @else if type-of($key) == color {
-    $background-color: $key;
-  } @else if type-of($key) == number {
-    $offcanvas-width: $key;
-  } @else if type-of($key) == string {
-    @if index($ro-offcanvas-styles, $key) {
-      $style: $key;
-    } @else if index($ro-offcanvas-direction, $key) {
-      $direction: $key;
-    } @else {
-      $padding: unquote($key);
-    }
-  } @else if type-of($key) == list {
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
+  $style: ro-get($key, $ro-offcanvas-styles, 'move');
+  $direction: ro-get($key, $ro-offcanvas-direction, left);
+  $animation: ro-get($key, 'animation', true);
+  $offcanvas-width: ro-get-type($key, 'number', false, 200px);
+  $padding: unquote(ro-get-type($key, 'string', $check, em(16, 14)));
+  $background-color: ro-get-type($key, 'color', false, #000);
 
-      @if $val == animation {
-        $animation: true;
-      } @else if type-of($val) == color {
-        $background-color: $val;
-      } @else if type-of($val) == number {
-        $offcanvas-width: $val;
-      } @else if type-of($val) == string {
-        @if index($ro-offcanvas-styles, $val) {
-          $style: $val;
-        } @else if index($ro-offcanvas-direction, $val) {
-          $direction: $val;
-        } @else {
-          $padding: unquote($val);
-        }
-      }
-    }
-  }
 
-  // common
+  // *** output *** //
   position: fixed;
   top: 0;
   height: 100%;
@@ -209,52 +176,19 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin page-container(
-  $page-container-var:
+  $key:
     200px
     move
     left
     rgba(0,0,0,.35) 
 ){
-  $offcanvas-width: 200px;
-  $style: move;
-  $direction: left;
-  $cover-bg: rgba(0,0,0,.35);
+  $style: ro-get($key, $ro-offcanvas-styles, 'move');
+  $direction: ro-get($key, $ro-offcanvas-direction, left);
+  $offcanvas-width: ro-get-type($key, 'number', false, 200px);
+  $cover-bg: ro-get-type($key, 'color', false, rgba(0,0,0,.35));
 
-  @if type-of($page-container-var) == string {
-    @for $i from 1 through length($ro-offcanvas-styles) {
-      $val: nth($ro-offcanvas-styles, $i);
-      @if $val == $page-container-var {
-        $style: $page-container-var;
-      }
-    }
-    @for $i from 1 through length($ro-offcanvas-direction) {
-      $val: nth($ro-offcanvas-direction, $i);
-      @if $val == $page-container-var {
-        $direction: $page-container-var;
-      }
-    }
-  } @else if type-of($page-container-var) == color {
-    $cover-bg: $page-container-var;
-  } @else if type-of($page-container-var) == number {
-    $offcanvas-width: $page-container-var;
-  } @else if type-of($page-container-var) == list {
-    @for $i from 1 through length($page-container-var) {
-      $val: nth($page-container-var, $i);
-      @if type-of($val) == number {
-        $offcanvas-width: $val;
-      }
-      @if type-of($val) == color {
-        $cover-bg: $val;
-      }
-      @if index($ro-offcanvas-styles, $val) {
-        $style: $val;
-      }
-      @if index($ro-offcanvas-direction, $val) {
-        $direction: $val;
-      }
-    }
-  }
 
+  // *** output *** //
   position: relative;
   -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
   transition: all $ro-global-animation-duration $ro-global-bezier 0s;

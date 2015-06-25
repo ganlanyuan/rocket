@@ -27,12 +27,12 @@
 
 @mixin span-calc($key){
   $column: 0;
-  $columns: get-next($key, 'of', map-get($ro-layout, 'columns'));
+  $columns: ro-get-next($key, 'of', map-get($ro-layout, 'columns'));
   $gutter: 20px;
-  $move: get-next($key, 'move');
-  $float: ro-set($key, left right, left);
-  $last: ro-set($key, 'last');
-  $keep: ro-set($key, 'keep');
+  $move: ro-get-next($key, 'move');
+  $float: ro-get($key, left right, left);
+  $last: ro-get($key, 'last');
+  $keep: ro-get($key, 'keep');
 
   // set up gutter
   @each $item in $key {
@@ -41,13 +41,16 @@
       $gutter: $item;
     }
   }
+  @if strip-unit($gutter) == 0 {
+    $gutter: 0;
+  }
 
   // set up column
   @if type-of($key) == 'number' {
     $column: $key;
   } @else if type-of($key) == list {
     @if index($key, 'of') {
-      $column: get-prev($key, 'of');
+      $column: ro-get-prev($key, 'of');
     } @else {
       @each $item in $key {
         @if type-of($item) == number and
@@ -72,7 +75,7 @@
   @if $gutter and unitless($gutter) and $gutter > 0 and $gutter < 1 { $gutter: percentage($gutter); }
 
   // no gutter
-  @if not $gutter or $gutter == 0 or $gutter == 0px {
+  @if not $gutter or $gutter == 0 {
     width: percentage($column / $columns);
 
     // move

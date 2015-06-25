@@ -383,14 +383,10 @@ pure css `tooltip`
 $key: $direction $color radius (width $width) (height $height)
 
 .tooltip { @include tooltip(radius right #b02df3 width 300px); }
-// radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
+// radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
 // direction: right;
 // background-color: #b02df3;
 // width: 300px; (for old browsers)
-
-// To make tooltip shows perfect, 
-// it's better to set tooltip box as a block element, 
-// or give it a width;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tooltip.php)
 
@@ -519,6 +515,7 @@ $key: $condition $media $breakpoints
 @include breakpoint(640 767) {};
 // output: @media (min-width: 40em) and (max-width: 47.94em) {};
 ````
+[demo](http://creatiointl.org/gallery/william/rocket/addons-breakpoint.php)
 
 #### visible
 A shorthand @mixin for hide elements on some parts of viewport.

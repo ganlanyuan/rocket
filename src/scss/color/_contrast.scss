@@ -13,29 +13,13 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @function contrast($key) {
-  $color: false;
-  $light: #fff;
-  $dark: #000;
+  $light: ro-get-next($key, 'light', #fff);
+  $dark: ro-get-next($key, 'dark', #000);
 
-  @if type-of($key) == 'color' {
-    $color: $key;
-  } @else if type-of($key) == list {
-    
-    @if index($key, light) {
-      $light: get-next($key, light);
-      $key: reject($key, light);
-      $key: reject($key, $light);
-    } 
-    @if index($key, dark) {
-      $dark: get-next($key, dark);
-      $key: reject($key, dark);
-      $key: reject($key, $dark);
-    }
-    
-    @if nth($key, 1) {
-       $color: nth($key, 1);       
-    }
-  }
+  $key: reject($key, $light);
+  $key: reject($key, $dark);
+  $color: ro-get-type($key, 'color');
+
 
   @if $color {
     @if brightness($color) < 65% { 

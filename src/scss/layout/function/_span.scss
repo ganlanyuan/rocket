@@ -17,8 +17,8 @@
     
     // set up column and columns
     @if index($key, of) {
-      $column: get-prev($key, of);
-      $columns: get-next($key, of);
+      $column: ro-get-prev($key, of);
+      $columns: ro-get-next($key, of);
     } @else {
       @for $i from 1 through length($key) {
         $val: nth($key, $i);

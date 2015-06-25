@@ -1,5 +1,31 @@
 // *** function *** //
 
+// em
+@function em($pxval, $base: $ro-em-base) {
+  @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
+  @else {
+    @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }
+    @if unit($base) == 'px' or unitless($base) { $base: strip-unit($base); }
+    @return ($pxval / $base) * 1em;
+  } 
+}
+
+// rem
+@function rem($pxval, $base: $ro-rem-base) {
+  @if unit($pxval) == 'rem' or unit($pxval) == 'em' { @return $pxval; }
+  @else {
+    @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }
+    @if unit($base) == 'px' or unitless($base) { $base: strip-unit($base); }
+    @return ($pxval / $base) * 1rem;
+  } 
+}
+
+// strip-unit
+@function strip-unit($val) {
+  @return ($val / ($val * 0 + 1));
+}
+
+// opposite
 @function opposite($direction){
   @if $direction == left { 
     @return right; 
@@ -14,50 +40,30 @@
   }
 }
 
-@function strip-units($val) {
-  @return ($val / ($val * 0 + 1));
-}
-
-// em
-@function em($pxval, $base: $ro-em-base) {
-  @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
-  @else {
-    @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-units($pxval); }
-    @if unit($base) == 'px' or unitless($base) { $base: strip-units($base); }
-    @return ($pxval / $base) * 1em;
-  } 
-}
-
-// rem
-@function rem($pxval, $base: $ro-rem-base) {
-  @if unit($pxval) == 'rem' or unit($pxval) == 'em' { @return $pxval; }
-  @else {
-    @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-units($pxval); }
-    @if unit($base) == 'px' or unitless($base) { $base: strip-units($base); }
-    @return ($pxval / $base) * 1rem;
-  } 
-}
-
 // reject
 @function reject($list, $val){
-  $list-new: ();
-  @for $i from 1 through length($list) {
-    @if nth($list, $i) != $val {
-      $list-new: append($list-new, nth($list, $i));
+  $_return: ();
+
+  @if type-of($list) == 'list' {
+    @for $i from 1 through length($list) {
+      @if nth($list, $i) != $val {
+        $_return: append($_return, nth($list, $i));
+      }
     }
+  } @else {
+    $_return: $list;
   }
 
-  $list: $list-new;
-  @return $list;
+  @return $_return;
 }
 
-// ro-set
-@function ro-set($key, $arg, $def: false){
+// ro-get
+@function ro-get($key, $arg, $def: false){
   $_return: $def;
 
   @if type-of($arg) == 'string' {
     @if index($key, $arg) {
-      $_return: $arg;
+      $_return: true;
     } 
   } @else if type-of($arg) == 'list' {
     @each $item in $arg {
@@ -70,8 +76,8 @@
   @return $_return;
 }
 
-// ro-type
-@function ro-type($key, $arg, $check:false, $def:false) {
+// ro-get-type
+@function ro-get-type($key, $arg, $check:false, $def:false) {
   $_return: $def;
 
   @each $item in $key {
@@ -89,8 +95,8 @@
   @return $_return;
 }
 
-// get-prev
-@function get-prev($list, $val, $def:false) {
+// ro-get-prev
+@function ro-get-prev($list, $val, $def:false) {
   $this-index: index($list, $val);
   @if $this-index {
     @return nth($list, ($this-index - 1));
@@ -99,8 +105,8 @@
   }
 }
 
-// get-next
-@function get-next($list, $val, $def:false) {
+// ro-get-next
+@function ro-get-next($list, $val, $def:false) {
   $this-index: index($list, $val);
   @if $this-index {
     @return nth($list, ($this-index + 1));
@@ -143,21 +149,23 @@
   @return $key;
 }
 
-// str-dash slice
+// str-cut
 @function str-cut($string, $separator, $position) {
   $i: 1;
-  $final-string: null;
+  $final-string: '';
   $length: str-length($string);
 
   @if str-index($string, $separator) {
     $i: str-index($string, $separator);
-  }
-  @if $position == after {
-    $i: $i + 1;
-    $final-string: str-slice($string, $i, $length);
-  } @else if $position == before {
-    $i: $i - 1;
-    $final-string: str-slice($string, 1, $i);
+    @if $position == after {
+      $i: $i + 1;
+      $final-string: str-slice($string, $i, $length);
+    } @else if $position == before {
+      $i: $i - 1;
+      $final-string: str-slice($string, 1, $i);
+    }
+  } @else {
+    $final-string: $string;
   }
 
   @return $final-string;
@@ -172,5 +180,3 @@
   $_return: '#{$col-percentage}' + ' + ' + '#{$col-gutter}';
   @return $_return;
 }
-
-

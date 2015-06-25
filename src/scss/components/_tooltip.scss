@@ -10,63 +10,33 @@
 /// // background-color: #b02df3;
 /// // width: 300px; (for old browsers)
 /// 
-/// // To make tooltip shows perfect, 
-/// // it's better to set tooltip box as a block element, 
-/// // or give it a width;
+/// // it's better don't set tooltip element as a inline-block element 
 /// 
 /// @link http://creatiointl.org/gallery/william/rocket/components-tooltip.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin tooltip(
   $key:
-    width
-    230px
-    height
-    3.94em
+    width 230px
+    height 3.94em
 ) {
-  $direction: false;
-  $color: false;
-  $radius: false;
-  $width: 230px;
-  $height: 3.94em;
+  $direction: ro-get($key, $ro-tooltip-direction, 'right');
+  $color: ro-get-type($key, 'color', false, #333);
+  $radius: ro-get($key, 'radius');
+  $width: ro-get-next($key, 'width', 230px);
+  $height: ro-get-next($key, 'height', 3.94em);
   $content: attr(data-tooltip);
 
-  @if type-of($key) == 'color' {
-    $color: $key;
-  } @else if type-of($key) == string {
-    @if $key == radius {
-      $radius: true;
-    } @else if index($ro-tooltip-direction, $key) {
-      $direction: $key;
-    }
-  } @else if type-of($key) == list {
-    @if index($key, width) {
-      $width: get-next($key, width);
-    }
-    @if index($key, height) {
-      $height: get-next($key, height);
-    }
 
-    @for $i from 1 through length($key) {
-      $item: nth($key, $i);
-
-      @if type-of($item) == color {
-        $color: $item;
-      } @else if type-of($item) == string {
-        @if $item == radius {
-          $radius: true;
-        } @else if index($ro-tooltip-direction, $item) {
-          $direction: $item;
-        }
-      }
-    }
-  }
-
+  // *** output *** //
   position: relative;
   cursor: pointer;
+  overflow: hidden;
   &:before, 
   &:after {
+    @extend %ro-global-transition;
     @extend %tooltip-common;
+    @include opacity(0);
     #{$direction}: -8px;
   }
   &:before { content: ''; }
@@ -77,7 +47,17 @@
     max-width: $width;
     @if $radius { border-radius: $ro-tooltip-radius; }
   }
-  .no-csstransforms &:after { width: $width; }
+  &:hover { 
+    overflow: visible; 
+    &:before,
+    &:after { @include opacity(1); }
+  }
+  .no-csstransforms &:after { 
+    padding: 8px; // rewrite the padding for calculating left value later
+    width: $width; 
+  }
+
+  // horizontal or vertical
   @if $direction == top or $direction == bottom {
     &:before,
     &:after { left: 50%; }
@@ -85,34 +65,48 @@
     .no-csstransforms &:before,
     .no-csstransforms &:after { #{opposite($direction)}: 100%; }
     .no-csstransforms &:after { 
-      margin-left: - ($width / 2); 
+      @if unit($width) == 'px' {
+        margin-left: - ($width / 2 + 8px); 
+      } @else if unit($width) == 'em' {
+        margin-left: - ($width / 2 + em(8)); 
+      }
       height: $height;
     }
-  }
-  @else if $direction == left or $direction == right {
+  } @else if $direction == left or $direction == right {
     &:before,
     &:after { top: 50%; }
-    &:before { margin-top: -6px; }
+    &:before { margin-top: -8px; }
     .no-csstransforms &:before,
-    .no-csstransforms &:after { top: 0; }
-    .no-csstransforms &:before { margin-top: 4px; }
+    .no-csstransforms &:after { top: -2px; }
+    .no-csstransforms &:before { margin-top: 5px; }
   }
+
+  // individual direction
   @if $direction == top {
     &:before { @include triangle(12px, $color, down); }
     &:after { @include transform(translate(-50%, -100%)); }
-    .no-csstransforms &:after { margin-top: - $height; }
-  }
-  @else if $direction == bottom {
+    .no-csstransforms &:after { 
+      @if unit($height) == 'px' {
+        margin-top: - ($height + 19px); 
+      } @else if unit($height) == 'em' {
+        margin-top: - ($height + em(19)); 
+      }
+    }
+  } @else if $direction == bottom {
     &:before { @include triangle(12px, $color, up); }
     &:after { @include transform(translate(-50%, 100%)); }
     .no-csstransforms &:after { margin-top: 6px; }
-  }
-  @else if $direction == left {
+  } @else if $direction == left {
     &:before { @include triangle(12px, $color, right); }
     &:after { @include transform(translate(-100%, -50%)); }
-    .no-csstransforms &:after { left: (- $width - 8px); }
-  }
-  @else if $direction == right {
+    .no-csstransforms &:after { 
+      @if unit($width) == 'px' {
+        left: - ($width + 16px + 8px); // double padding + left
+      } @else if unit($width) == 'em' {
+        left: - ($width + em(16) + em(8)); 
+      }
+    } 
+  } @else if $direction == right {
     &:before { @include triangle(12px, $color, left); }
     &:after { @include transform(translate(100%, -50%)); }
     .no-csstransforms &:after {

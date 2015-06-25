@@ -17,75 +17,51 @@
 /// 
 /// // $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
 /// // $font-styles: italic, oblique, style-normal, style-inherit !default;
-/// // $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-/// inherit !default;
+/// // $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 /// 
 /// @link http://creatiointl.org/gallery/william/rocket/addons-type.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin type($key){
+  $check: join(join($ro-font-weights, $ro-font-styles), $ro-text-transforms);
+
+  // set up font-size, font-weight, line-height
   $font-size: null;
   $font-weight: null;
-  $font-style: null;
   $line-height: null;
-  $font-family: null;
-  $text-transform: null;
-
-  @if type-of($key) == 'number' {
-    @if unitless($key) {
-      @if $key >= 100 {
-        $font-weight: $key;
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if unitless($item) {
+        @if $item >= 100 {
+          $font-weight: $item;
+        } @else {
+          $line-height: $item;
+        }
       } @else {
-        $line-height: $key;
-      }
-    } @else {
-      $font-size: $key;
-    }
-  } @else if type-of($key) == list {
-    @for $i from 1 through length($key) {
-      @if type-of(nth($key, $i)) == number {
-        $this: nth($key, $i);
-        @if unitless($this) {
-          @if $this >= 100 {
-            $font-weight: $this;
-          } @else {
-            $line-height: $this;
-          }
-        } @else {
-          $font-size: $this;
-        }
-      } @else if str_index(nth($key, $i), ',') {
-        $font-family: nth($key, $i);
-      }
-    }
-    @each $weight in $ro-font-weights {
-      @if index($key, $weight) {
-        @if type-of($weight) == string and str-index($weight, '-') {
-          $font-weight: str-cut($weight, '-', after);
-        } @else {
-          $font-weight: $weight;
-        }
-      }
-    }
-    @each $style in $ro-font-styles {
-      @if index($key, $style) {
-        @if str-index($style, '-') {
-          $font-style: str-cut($style, '-', after);
-        } @else {
-          $font-style: $style;
-        }
-      }
-    }
-    @each $transform in $ro-text-transforms {
-      @if index($key, $transform) {
-        @if str-index($transform, '-') {
-          $text-transform: str-cut($transform, '-', after);
-        } @else {
-          $text-transform: $transform;
-        }
+        $font-size: $item;
       }
     }
   }
 
+  // set up font-family, font-weight, font-style, text-transform
+  $font-family: ro-get-type($key, 'string', $check);
+  $font-weight: ro-get($key, $ro-font-weights); 
+  $font-style: ro-get($key, $ro-font-styles);
+  $text-transform: ro-get($key, $ro-text-transforms);
+
+  // remove prefix
+  @if type-of($font-weight) == 'string' {
+    $font-weight: str-cut($font-weight, '-', after);
+  }
+  @if type-of($font-style) == 'string' {
+    $font-style: str-cut($font-style, '-', after);
+  }
+  @if type-of($text-transform) == 'string' {
+    $text-transform: str-cut($text-transform, '-', after);
+  }
+
+
+  // *** output *** //
   @if $font-size {
     font-size: $font-size;
     @if unit($font-size) == 'px' {

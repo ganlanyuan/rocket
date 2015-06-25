@@ -18,8 +18,8 @@
     9/16
     false
 ){
-  $ratio: ro-type($key, 'number');
-  $child: ro-type($key, 'string');
+  $ratio: ro-get-type($key, 'number');
+  $child: ro-get-type($key, 'string');
   @if unitless($ratio) { $ratio: percentage($ratio); }
 
   // *** output *** //

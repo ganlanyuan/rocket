@@ -2,4 +2,10 @@
 
 // *** addons: tooltip *** //
 
-.tooltip { display: inline-block; @include tooltip(radius right #b02df3 width 300px); }
+.tooltip { 
+  display: inline-block; 
+  margin-right: 3em;
+  @each $item in (left right bottom top) {
+    &.#{$item} { @include tooltip(radius $item #b02df3 width 100px); }
+  }
+}

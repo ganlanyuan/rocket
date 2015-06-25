@@ -24,8 +24,8 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin two-columns($key: left 300px gutter 20px) {
-  $direction: ro-set($key, left right, left);
-  $gutter: get-next($key, 'gutter', '20px');
+  $direction: ro-get($key, left right, left);
+  $gutter: ro-get-next($key, 'gutter', '20px');
   $aside-width: 300px; 
 
   // set up aside width

@@ -20,9 +20,9 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin media($key){
-	$gutter: ro-type($key, 'number');
-	$role: ro-set($key, $ro-media-type, 'media');
-	$direction: ro-set($key, $ro-media-direction, left);
+	$gutter: ro-get-type($key, 'number');
+	$role: ro-get($key, $ro-media-type, 'media');
+	$direction: ro-get($key, $ro-media-direction, left);
 
 	// *** output *** //
   display: table-cell;

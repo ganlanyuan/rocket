@@ -15,7 +15,7 @@ $contrast: #5173a3, #bbf8e6, #cb7d26;
 @for $i from 1 through 3 {
   .color-box-contrast-#{$i} { 
     background-color: nth($contrast, $i); 
-    color: contrast(nth($contrast, $i) light #eee dark red);
+    color: contrast(nth($contrast, $i) light #eee dark #333);
     width: 30%;
   }
 }

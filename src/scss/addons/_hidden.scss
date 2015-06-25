@@ -12,6 +12,7 @@
 
 @mixin hidden($key){
   @if type-of($key) == 'number' {
+    
     // *** output *** //
     @include breakpoint('min' $key) { display: none !important; }
   } @else if type-of($key) == list {

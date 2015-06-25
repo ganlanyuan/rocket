@@ -20,10 +20,10 @@
 @mixin gallery($key){
   $per-row: 1;
   $gutter: map-get($ro-layout, gutter);
-  $child: get-next($key, 'child', '*');
-  $float: ro-set($key, left right, left);
-  $position: ro-set($key, 'middle' 'bottom', 'middle');
-  $keep: ro-set($key, 'keep');
+  $child: ro-get-next($key, 'child', '*');
+  $float: ro-get($key, left right, left);
+  $position: ro-get($key, 'middle' 'bottom', 'middle');
+  $keep: ro-get($key, 'keep');
 
   // set up per-row, gutter
   @if type-of($key) == 'number' {

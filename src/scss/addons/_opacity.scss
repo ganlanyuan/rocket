@@ -13,7 +13,8 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin opacity($key) {
-  opacity: $key;
   $opacity-ie: $key * 100;
+  
+  opacity: $key;
   filter: alpha(opacity=$opacity-ie); //IE8
 }

@@ -34,7 +34,6 @@ a {
   text-decoration: none;
   color: #212121;
 }
-
 a:hover {
   text-decoration: underline;
 }
@@ -76,9 +75,8 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
-
 h2 span {
   font-weight: 300;
   color: #999;
@@ -94,12 +92,11 @@ h5 {
 }
 
 p code {
-  padding: 0.2em 0.5em;
-  margin: 0 0.3em 0 0;
+  padding: .2em .5em;
+  margin: 0 .3em 0 0;
   background-color: #F5F2F0;
   border-radius: 2px;
 }
-
 .topic p {
   font-size: 14px;
   line-height: 1.6;
@@ -122,7 +119,6 @@ pre {
     margin: 0 auto;
   }
 }
-
 [data-margin] {
   background-color: #F0D7A9;
 }
@@ -151,7 +147,6 @@ pre[class*="language-"] {
 .topic {
   margin: 4em 0;
 }
-
 .topic > section {
   margin: 2em 0;
 }
@@ -160,8 +155,7 @@ pre[class*="language-"] {
   .topic > section {
     margin: 0 0 5em;
   }
-  .topic > h2:before,
-  .topic > h2:after {
+  .topic > h2:before, .topic > h2:after {
     display: inline-block;
     vertical-align: 7px;
     margin: 0 15px;
@@ -173,7 +167,6 @@ pre[class*="language-"] {
     content: url("../images/title-next.png");
   }
 }
-
 .color-box {
   float: left;
   text-align: center;
@@ -183,21 +176,15 @@ pre[class*="language-"] {
   max-width: 200px;
   text-transform: capitalize;
 }
-
 .example-complementary .color-box {
   width: 47%;
   margin-right: 3%;
 }
-
-.example-adjacent .color-box,
-.example-split-complementary .color-box,
-.example-triad .color-box {
+.example-adjacent .color-box, .example-split-complementary .color-box, .example-triad .color-box {
   width: 30%;
   margin-right: 3%;
 }
-
-.example-rectangle .color-box,
-.example-square .color-box {
+.example-rectangle .color-box, .example-square .color-box {
   width: 22%;
   margin-right: 3%;
 }
@@ -209,7 +196,6 @@ pre[class*="language-"] {
   border-right: .33em;
   overflow: hidden;
 }
-
 .color-pattern img {
   max-width: 100%;
 }
@@ -239,7 +225,6 @@ pre[class*="language-"] {
 .demo-links {
   margin: 10px 0 30px;
 }
-
 .demo-links a {
   display: inline-block;
   padding: 2em 3em;
@@ -250,9 +235,7 @@ pre[class*="language-"] {
   -webkit-transition: 0.3s ease 0s;
   transition: 0.3s ease 0s;
 }
-
-.demo-links a.current,
-.demo-links a:hover {
+.demo-links a.current, .demo-links a:hover {
   text-decoration: none;
   background-color: #76abe9;
   color: #fff;
@@ -288,13 +271,13 @@ pre[class*="language-"] {
     width: 81.4545454545%;
     left: 18.5454545455%;
   }
+
   .span-2 {
     position: relative;
     width: 16.5454545455%;
     left: -83.4545454545%;
   }
 }
-
 .span-isolate-1 {
   float: left;
   margin-right: -100%;
@@ -302,14 +285,12 @@ pre[class*="language-"] {
   left: 0;
   margin-left: 81.6%;
 }
-
 .span-isolate-2 {
   float: left;
   margin-right: -100%;
   width: 49%;
   left: 0;
 }
-
 .span-isolate-3 {
   float: left;
   margin-right: -100%;
@@ -324,20 +305,17 @@ pre[class*="language-"] {
   margin-right: 2%;
   left: 0;
 }
-
 .span-nested-main-left {
   float: left;
   width: 38.1818181818%;
   margin-right: 3.0303030303%;
   left: 0;
 }
-
 .span-nested-main-right {
   float: left;
   width: 58.7878787879%;
   left: 0;
 }
-
 .span-nested-aside {
   float: left;
   width: 32%;
@@ -347,26 +325,28 @@ pre[class*="language-"] {
 .span-calc-1 {
   float: left;
   position: relative;
-  width: calc( 45.4545454545% + 9.0909090909px - 20px);
+  width: calc( 45.4545454545% + 9.0909090909px - 20px );
   margin-right: 20px;
-  left: calc( 54.5454545455% + 10.9090909091px);
+  left: calc( 54.5454545455% + 10.9090909091px );
 }
 
 .span-calc-2 {
   float: left;
   position: relative;
-  width: calc( 54.5454545455% + 10.9090909091px - 20px);
-  left: calc( -45.4545454545% + -9.0909090909px);
+  width: calc( 54.5454545455% + 10.9090909091px - 20px );
+  left: calc( -45.4545454545% + -9.0909090909px );
 }
 
 @media (min-width: 50em) {
   .span-calc-1 {
-    width: calc( 72.7272727273% + 14.5454545455px - 20px);
+    width: calc( 72.7272727273% + 14.5454545455px - 20px );
     left: 0;
   }
+
   .span-calc-2 {
-    width: calc( 27.2727272727% + 5.4545454545px - 20px);
+    width: calc( 27.2727272727% + 5.4545454545px - 20px );
     left: 0;
   }
 }
+
 /*# sourceMappingURL=layout-grid.css.map */

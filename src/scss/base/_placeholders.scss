@@ -49,31 +49,21 @@
 
 // tooltip
 %tooltip-common {
-  @extend %ro-global-transition;
   position: absolute;
   z-index: 9999;
-  display: none;
-  &:hover {
-    & {
-      display: block;
-    }
-  }
 }
 %tooltip-content {
   padding: 0.67em;
+  min-width: 8em;
   font-size: 12px;
   line-height: 1.3;
   font-weight: normal;
   color: #fff;
-  // white-space: nowrap;
-  // box-sizing: border-box;
 }
 
 // button
 %button-style {
   display: inline-block;
-  // line-height: normal !important;
-  // cursor: pointer;
   box-sizing: border-box;
   @extend %ro-global-transition;
   &:hover { text-decoration: none; }

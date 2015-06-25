@@ -36,15 +36,13 @@
 			$key: join($item, reject($key, $item), 'space');
 		}
 	}
-	$column: 0;
-	$columns: get-next($key, of, map-get($ro-layout, columns));
+	
+	$columns: ro-get-next($key, of, map-get($ro-layout, columns));
 	$gutter: map-get($ro-layout, gutter);
-	$location: false;
-	$isolate: false;
-	$float: ro-set($key, left right, left);
-	$last: ro-set($key, 'last');
-	$keep: ro-set($key, 'keep');
-	$move: get-next($key, move);
+	$float: ro-get($key, left right, left);
+	$last: ro-get($key, 'last');
+	$keep: ro-get($key, 'keep');
+	$move: ro-get-next($key, move);
 
 	// set up gutter
 	@each $item in $key {
@@ -53,17 +51,23 @@
 			$gutter: $item;
 		}
 	}
+	@if strip-unit($gutter) == 0 {
+		$gutter: 0;
+	}
 	
 	// set up column, location and isolate
+	$column: 0;
+	$location: false;
+	$isolate: false;
 	@if type-of($key) == 'number' {
 		$column: $key;
 	} @else if type-of($key) == 'list' {
 		@if index($key, at) {
-			$location: (get-next($key, at) - 1);
-			$column: get-prev($key, at);
+			$location: (ro-get-next($key, at) - 1);
+			$column: ro-get-prev($key, at);
 			$isolate: true;
 		} @else if index($key, of) {
-			$column: get-prev($key, of);
+			$column: ro-get-prev($key, of);
 		} @else {
 			@each $item in $key {
 				@if type-of($item) == number and
@@ -86,7 +90,7 @@
 	@if $isolate { margin-right: -100%; }
 	
 	// no gutter
-	@if not $gutter or $gutter == 0 or $gutter == 0px {
+	@if not $gutter or $gutter == 0 {
 	  width: percentage($column / $columns);
 
 	  // move

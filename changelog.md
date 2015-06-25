@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.2.0
++ Simplify all mixins.
++ Fix a width issue on `tooltip`.
++ Fix a string issue on `span-calc`.
+
 ### v2.1.2
 + Fix an image issue (which cause the images '0px-width' on webkit browsers) on `media` by setting `max-width: none;`.
 

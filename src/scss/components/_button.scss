@@ -22,12 +22,12 @@
 ){
   $check: ('radius' 'round' 'hover');
 
-  $font-size: ro-type($key, 'number');
-  $padding: unquote(ro-type($key, 'string', $check));
-  $background-color: ro-type($key, 'color'); 
-  $radius: ro-set($key, 'radius');
-  $round: ro-set($key, 'round');
-  $hover: ro-set($key, 'hover');
+  $font-size: ro-get-type($key, 'number');
+  $padding: unquote(ro-get-type($key, 'string', $check));
+  $background-color: ro-get-type($key, 'color'); 
+  $radius: ro-get($key, 'radius');
+  $round: ro-get($key, 'round');
+  $hover: ro-get($key, 'hover');
 
   // *** output *** //
 	@extend %button-style;

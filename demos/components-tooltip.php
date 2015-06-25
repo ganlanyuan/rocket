@@ -5,7 +5,10 @@
 
     <div class="topic">
       <h2 id=""><span>components: </span>tooltip</h2>
-      <div class="tooltip" data-tooltip="I'm a tooltip! Mouse over me to see my content.">Mouse over me!</div>
+      <div class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">top</div>
+      <div class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">right</div>
+      <div class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">bottom</div>
+      <div class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">left</div>
       <pre><code class="language-scss">
 .tooltip { @include tooltip(radius right #b02df3 width 300px); }
       </code></pre>

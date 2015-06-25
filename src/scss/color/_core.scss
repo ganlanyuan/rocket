@@ -1,69 +1,17 @@
 // *** color core *** //
 
-// defined model
-// get data from http://paletton.com/
-$normal-model: 0, 7, 12, 17, 21, 24, 27, 30, 32, 34, 36, 38, 40, 41, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60, 64, 67, 70, 73, 77, 80, 84, 87, 93, 99, 107, 120, 136, 147, 154, 162, 170, 180, 191, 200, 206, 212, 216, 222, 227, 233, 240, 245, 250, 254, 258, 262, 266, 270, 274, 278, 284, 291, 300, 312, 319, 326, 332, 337, 342, 347, 353, 360;
-
-$ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355, 360;
-
-// to-ideal-hue
-@function to-ideal-hue($hue){
-  $ideal-hue: 0;
-  $gap: 0;
-  @while $hue >= 360 { $hue: ($hue - 360); }
-  @while $hue < 0 { $hue: ($hue + 360); }
-  
-  @if $hue == 0deg {
-    $ideal-hue: 0;
-  }
-  @else {
-    @for $i from 1 through length($normal-model) {
-      @if $hue >= nth($normal-model, $i) and
-        $hue < nth($normal-model, $i + 1) {
-        $gap: (nth($ideal-model, $i + 1) - nth($ideal-model, $i)) * ($hue - nth($normal-model, $i)) / (nth($normal-model, $i + 1) - nth($normal-model, $i));
-        $ideal-hue: nth($ideal-model, $i) + $gap;
-      }
-    }
-  }
-  @return $ideal-hue;
-}
-// to-normal-hue
-@function to-normal-hue($hue){
-  $normal-hue: 0;
-  $gap: 0;
-  @while $hue >= 360 { $hue: $hue - 360; }
-  @while $hue < 0 { $hue: ($hue + 360); }
-
-  @if $hue == 0deg {
-    $ideal-hue: 0;
-  }
-  @else {
-    @for $i from 1 through length($ideal-model) {
-      @if $hue >= nth($ideal-model, $i) and
-        $hue < nth($ideal-model, $i + 1) {
-        $gap: (nth($normal-model, $i + 1) - nth($normal-model, $i)) * ($hue - nth($ideal-model, $i)) / (nth($ideal-model, $i + 1) - nth($ideal-model, $i));
-        $normal-hue: nth($normal-model, $i) + $gap;
-      }
-    }
-  }
-  @return $normal-hue;
-}
-
 // color
 @function color($key){
-  $map: color-vars($key);
+  $method: ro-get($key, $ro-color-methods);
+  $color: ro-get-type($key, 'color');
+  $saturation: ro-get-next($key, 'saturation', 0%);
+  $lightness: ro-get-next($key, 'lightness', 0%);
+  $dist: ro-get($key, 'dist', $ro-color-dist);
 
-  $method: map-get($map, method);
-  $color: map-get($map, color);
-  $order: map-get($map, order);
-  $saturation: map-get($map, saturation);
-  $lightness: map-get($map, lightness);
-  $dist: map-get($map, dist);
+  $key: reject($key, $saturation);
+  $key: reject($key, $lightness);
+  $order: ro-get-type($key, 'number', false, 0);
 
-  @if not $order { $order: 0; }
-  @if not $saturation { $saturation: 0%; }
-  @if not $lightness { $lightness: 0%; }
-  @if not $dist { $dist: $ro-color-dist; }
   $hue: hue($color);
   $target-hue: 0deg;
   
@@ -116,64 +64,47 @@ $ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 
   @return adjust-color($color, $hue: ( $target-hue - $hue ), $saturation: $saturation, $lightness: $lightness);
 }
 
-// color-vars
-@function color-vars ($key){
-  $method: false;
-  $color: false;
-  $order: 1;
-  $saturation: 0;
-  $lightness: 0;
-  $dist: $ro-color-dist;
 
-  @if type-of($key) == 'color' {
-    $color: $key;
-  } @else if type-of($key) == list {
-
-    @for $i from 1 through length($ro-color-methods) {
-      $item: nth($ro-color-methods, $i);
-
-      @if index($key, $item) {
-        $method: $item;
-        $key: reject($key, $item);
+// to-ideal-hue
+@function to-ideal-hue($hue){
+  $ideal-hue: 0;
+  $gap: 0;
+  @while $hue >= 360 { $hue: ($hue - 360); }
+  @while $hue < 0 { $hue: ($hue + 360); }
+  
+  @if $hue == 0deg {
+    $ideal-hue: 0;
+  }
+  @else {
+    @for $i from 1 through length($ro-normal-model) {
+      @if $hue >= nth($ro-normal-model, $i) and
+        $hue < nth($ro-normal-model, $i + 1) {
+        $gap: (nth($ro-ideal-model, $i + 1) - nth($ro-ideal-model, $i)) * ($hue - nth($ro-normal-model, $i)) / (nth($ro-normal-model, $i + 1) - nth($ro-normal-model, $i));
+        $ideal-hue: nth($ro-ideal-model, $i) + $gap;
       }
-    }
-
-    @if index($key, saturation) {
-      $saturation: get-next($key, saturation);
-      $key: reject($key, saturation);
-      $key: reject($key, $saturation);
-    }
-    @if index($key, lightness) {
-      $lightness: get-next($key, lightness);
-      $key: reject($key, lightness);
-      $key: reject($key, $lightness);
-    }
-    @if index($key, dist) {
-      $dist: get-next($key, dist);
-      $key: reject($key, dist);
-      $key: reject($key, $dist);
-    }
-
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if type-of($val) == color {
-        $color: $val;
-      } @else if type-of($val) == number {
-        $order: $val;
-      }
-
     }
   }
-
-  @return (
-    method: $method,
-    color: $color,
-    order: $order,
-    saturation: $saturation,
-    lightness: $lightness,
-    dist: $dist
-  );
-
+  @return $ideal-hue;
 }
 
+// to-normal-hue
+@function to-normal-hue($hue){
+  $normal-hue: 0;
+  $gap: 0;
+  @while $hue >= 360 { $hue: $hue - 360; }
+  @while $hue < 0 { $hue: ($hue + 360); }
+
+  @if $hue == 0deg {
+    $ideal-hue: 0;
+  }
+  @else {
+    @for $i from 1 through length($ro-ideal-model) {
+      @if $hue >= nth($ro-ideal-model, $i) and
+        $hue < nth($ro-ideal-model, $i + 1) {
+        $gap: (nth($ro-normal-model, $i + 1) - nth($ro-normal-model, $i)) * ($hue - nth($ro-ideal-model, $i)) / (nth($ro-ideal-model, $i + 1) - nth($ro-ideal-model, $i));
+        $normal-hue: nth($ro-normal-model, $i) + $gap;
+      }
+    }
+  }
+  @return $normal-hue;
+}
