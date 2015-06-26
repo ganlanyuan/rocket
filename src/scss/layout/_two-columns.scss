@@ -68,7 +68,13 @@
     float: $direction;
     width: $aside-width;
     .no-csscalc & {
+      margin-#{opposite($direction)}: 0;
       margin-#{$direction}: - $total-no-csscalc;
+      
+      // gutter
+      padding-#{$direction}: 0;
+      padding-#{opposite($direction)}: $gutter;
+      box-sizing: border-box;
     }
   }
 }

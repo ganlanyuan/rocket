@@ -6,13 +6,13 @@
     <div class="topic">
       <h2 id=""><span>layout: </span>two columns</h2>
       <div class="example example-two-columns" data-margin>
-        <div data-col-main data-content>
-          <div class="example-content">
+        <div data-col-main>
+          <div class="example-content" data-content>
             main
           </div>
         </div>
-        <div data-col-aside data-content>
-          <div class="example-content">
+        <div data-col-aside>
+          <div class="example-content" data-content>
             aside: 200px
           </div>
         </div>

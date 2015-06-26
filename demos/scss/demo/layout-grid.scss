@@ -28,6 +28,6 @@ $layout-main: (8 of 12);
 .span-calc-1 { @include span-calc(5 of 11 move 6 20px); }
 .span-calc-2 { @include span-calc(6 of 11 move -5 20px last); }
 @include breakpoint('min' 800) {
-  .span-calc-1 { @include span-calc(8 of 11 keep); }
-  .span-calc-2 { @include span-calc(3 of 11 keep last); }
+  .span-calc-1 { @include span-calc(8 of 11 30px); }
+  .span-calc-2 { @include span-calc(3 of 11 30px last); }
 }

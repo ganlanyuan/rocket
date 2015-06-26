@@ -1,6 +1,6 @@
 /// *span-calc* is using css-calc to create columns, old browser (e.g. IE8) will not be supported.
 ///
-/// $key: `($column of $columns) $gutter (move $move) (float $float) last keep`
+/// $key: `($column of $columns) $gutter (move $move) (float $float) last`
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -19,7 +19,6 @@
 /// // float: right;
 /// // move: -5; (move left 5 columns)
 /// 
-/// // Keep: similar with span(keep).
 /// // Tips: gutter must be a fixed value(px, em, rem).
 ///
 /// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
@@ -32,18 +31,6 @@
   $move: ro-get-next($key, 'move');
   $float: ro-get($key, left right, left);
   $last: ro-get($key, 'last');
-  $keep: ro-get($key, 'keep');
-
-  // set up gutter
-  @each $item in $key {
-    @if type-of($item) == number and
-        not unitless($item) {
-      $gutter: $item;
-    }
-  }
-  @if strip-unit($gutter) == 0 {
-    $gutter: 0;
-  }
 
   // set up column
   @if type-of($key) == 'number' {
@@ -61,11 +48,27 @@
     }
   }
 
+  // set up gutter
+  $key: reject($key, $column);
+  $key: reject($key, $columns);
+  $key: reject($key, $move);
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      $gutter: $item;
+    }
+  }
+  // strip unit when gutter == 0
+  @if strip-unit($gutter) == 0 {
+    $gutter: 0;
+  }
+
+  
   // *** output *** //
   // direction
-  @if not $keep {
-    @if $float == right { float: $float; }
-    @else { float: left; }
+  @if $float == right { 
+    float: $float; 
+  } @else { 
+    float: left; 
   }
 
   // change order
@@ -77,6 +80,7 @@
   // no gutter
   @if not $gutter or $gutter == 0 {
     width: percentage($column / $columns);
+    margin-#{opposite($float)}: 0;
 
     // move
     @if $move and $move != 0 { 
@@ -89,10 +93,8 @@
   } @else if unit($gutter) and unit($gutter) != '%' {
     $column-width: span-calc($column, $columns, $gutter);
     width: calc( #{$column-width} - #{$gutter} );
-    @if not $keep {
-      @if not $last { 
-        margin-#{opposite($float)}: $gutter; 
-      }
+    @if not $last { 
+      margin-#{opposite($float)}: $gutter; 
     }
     // move
     @if $move and $move != 0 { 

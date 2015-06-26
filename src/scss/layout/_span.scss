@@ -37,24 +37,13 @@
 		}
 	}
 	
-	$columns: ro-get-next($key, of, map-get($ro-layout, columns));
+	$columns: ro-get-next($key, 'of', map-get($ro-layout, columns));
 	$gutter: map-get($ro-layout, gutter);
 	$float: ro-get($key, left right, left);
 	$last: ro-get($key, 'last');
 	$keep: ro-get($key, 'keep');
 	$move: ro-get-next($key, move);
 
-	// set up gutter
-	@each $item in $key {
-		@if type-of($item) == number and
-				not unitless($item) {
-			$gutter: $item;
-		}
-	}
-	@if strip-unit($gutter) == 0 {
-		$gutter: 0;
-	}
-	
 	// set up column, location and isolate
 	$column: 0;
 	$location: false;
@@ -62,15 +51,15 @@
 	@if type-of($key) == 'number' {
 		$column: $key;
 	} @else if type-of($key) == 'list' {
-		@if index($key, at) {
-			$location: (ro-get-next($key, at) - 1);
-			$column: ro-get-prev($key, at);
+		@if index($key, 'at') {
+			$location: (ro-get-next($key, 'at') - 1);
+			$column: ro-get-prev($key, 'at');
 			$isolate: true;
-		} @else if index($key, of) {
-			$column: ro-get-prev($key, of);
+		} @else if index($key, 'of') {
+			$column: ro-get-prev($key, 'of');
 		} @else {
 			@each $item in $key {
-				@if type-of($item) == number and
+				@if type-of($item) == 'number' and
 						unitless($item) {
 					$column: $item;
 				}
@@ -78,6 +67,21 @@
 		}
 	}
 
+	// set up gutter
+	$key: reject($key, $column);
+	$key: reject($key, $columns);
+	$key: reject($key, ($location + 1));
+	$key: reject($key, $move);
+	@each $item in $key {
+		@if type-of($item) == 'number' {
+			$gutter: $item;
+		}
+	}
+	// strip unit when gutter == 0
+	@if strip-unit($gutter) == 0 {
+		$gutter: 0;
+	}
+	
 
 	// *** output *** //
   // float
@@ -92,6 +96,7 @@
 	// no gutter
 	@if not $gutter or $gutter == 0 {
 	  width: percentage($column / $columns);
+	  margin-#{opposite($float)}: 0; 
 
 	  // move
 	  @if $move and $move != 0 { 

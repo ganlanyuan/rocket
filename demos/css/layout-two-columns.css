@@ -259,11 +259,11 @@ pre[class*="language-"] {
 }
 .no-csscalc .example-two-columns {
   padding-left: 0;
-  padding-right: 220px;
+  padding-right: 200px;
 }
 .example-two-columns > [data-col-main] {
   float: left;
-  width: calc(100% - 220px);
+  width: calc(100% - 200px - 2%);
 }
 .no-csscalc .example-two-columns > [data-col-main] {
   width: 100%;
@@ -273,7 +273,11 @@ pre[class*="language-"] {
   width: 200px;
 }
 .no-csscalc .example-two-columns > [data-col-aside] {
-  margin-right: -220px;
+  margin-left: 0;
+  margin-right: -200px;
+  padding-right: 0;
+  padding-left: 2%;
+  box-sizing: border-box;
 }
 @media (min-width: 50em) {
   .example-two-columns:after {
@@ -283,11 +287,11 @@ pre[class*="language-"] {
   }
   .no-csscalc .example-two-columns {
     padding-right: 0;
-    padding-left: 320px;
+    padding-left: 300px;
   }
   .example-two-columns > [data-col-main] {
     float: right;
-    width: calc(100% - 320px);
+    width: calc(100% - 300px - 2%);
   }
   .no-csscalc .example-two-columns > [data-col-main] {
     width: 100%;
@@ -297,7 +301,11 @@ pre[class*="language-"] {
     width: 300px;
   }
   .no-csscalc .example-two-columns > [data-col-aside] {
-    margin-left: -320px;
+    margin-right: 0;
+    margin-left: -300px;
+    padding-left: 0;
+    padding-right: 2%;
+    box-sizing: border-box;
   }
 }
 

@@ -339,12 +339,15 @@ pre[class*="language-"] {
 
 @media (min-width: 50em) {
   .span-calc-1 {
-    width: calc( 72.7272727273% + 14.5454545455px - 20px );
+    float: left;
+    width: calc( 72.7272727273% + 21.8181818182px - 30px );
+    margin-right: 30px;
     left: 0;
   }
 
   .span-calc-2 {
-    width: calc( 27.2727272727% + 5.4545454545px - 20px );
+    float: left;
+    width: calc( 27.2727272727% + 8.1818181818px - 30px );
     left: 0;
   }
 }

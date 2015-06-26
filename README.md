@@ -188,7 +188,7 @@ $parent-layout: (7 of 10 $gutter);
 ```` scss
 @mixin span-calc($key);
 // pattern
-$key: ($column of $columns) $gutter (move $move) (float $float) last keep
+$key: ($column of $columns) $gutter (move $move) (float $float) last
 
 .nav { @include span-calc(3); }
 // column: 3;
@@ -205,7 +205,6 @@ $key: ($column of $columns) $gutter (move $move) (float $float) last keep
 // float: right;
 // move: -5; (move left 5 columns)
 
-// Keep: similar with span(keep).
 // Tips: gutter must be a fixed value(px, em, rem).
 ````
 
