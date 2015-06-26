@@ -19,9 +19,9 @@
       </div>
       <pre><code class="language-scss">
 .example-two-columns { 
-  @include two-columns(right 200px gutter 20px); 
+  @include two-columns(right 200px gutter 2%); 
   @include breakpoint('min' 800) {
-    @include two-columns(left 300px gutter 20px);
+    @include two-columns(left 300px gutter 2%);
   }
 }
       </code></pre>
