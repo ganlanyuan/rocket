@@ -22,7 +22,7 @@
   $gutter: map-get($ro-layout, gutter);
   $child: ro-get-next($key, 'child', '*');
   $float: ro-get($key, left right, left);
-  $position: ro-get($key, 'middle' 'bottom', 'middle');
+  $position: ro-get($key, 'middle' 'bottom', 'bottom');
   $keep: ro-get($key, 'keep');
 
   // set up per-row, gutter
@@ -41,6 +41,7 @@
   }
 
   // *** output *** //
+  @at-root(without: media){ @extend %ro-clearfix; }
   // set up gallery container
   @if not $keep {
     @if $gutter and $gutter != 0 {

@@ -7,6 +7,7 @@
   display: inline-block;
   box-sizing: border-box;
 }
+
 .example-button button:hover, .example-button input:hover, .example-button .pagination a:hover {
   text-decoration: none;
 }
@@ -47,6 +48,7 @@ a {
   text-decoration: none;
   color: #212121;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -88,8 +90,9 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: .5em 0;
+  margin: 0.5em 0;
 }
+
 h2 span {
   font-weight: 300;
   color: #999;
@@ -105,11 +108,12 @@ h5 {
 }
 
 p code {
-  padding: .2em .5em;
-  margin: 0 .3em 0 0;
+  padding: 0.2em 0.5em;
+  margin: 0 0.3em 0 0;
   background-color: #F5F2F0;
   border-radius: 2px;
 }
+
 .topic p {
   font-size: 14px;
   line-height: 1.6;
@@ -132,6 +136,7 @@ pre {
     margin: 0 auto;
   }
 }
+
 [data-margin] {
   background-color: #F0D7A9;
 }
@@ -160,6 +165,7 @@ pre[class*="language-"] {
 .topic {
   margin: 4em 0;
 }
+
 .topic > section {
   margin: 2em 0;
 }
@@ -168,7 +174,8 @@ pre[class*="language-"] {
   .topic > section {
     margin: 0 0 5em;
   }
-  .topic > h2:before, .topic > h2:after {
+  .topic > h2:before,
+  .topic > h2:after {
     display: inline-block;
     vertical-align: 7px;
     margin: 0 15px;
@@ -180,6 +187,7 @@ pre[class*="language-"] {
     content: url("../images/title-next.png");
   }
 }
+
 .color-box {
   float: left;
   text-align: center;
@@ -189,15 +197,21 @@ pre[class*="language-"] {
   max-width: 200px;
   text-transform: capitalize;
 }
+
 .example-complementary .color-box {
   width: 47%;
   margin-right: 3%;
 }
-.example-adjacent .color-box, .example-split-complementary .color-box, .example-triad .color-box {
+
+.example-adjacent .color-box,
+.example-split-complementary .color-box,
+.example-triad .color-box {
   width: 30%;
   margin-right: 3%;
 }
-.example-rectangle .color-box, .example-square .color-box {
+
+.example-rectangle .color-box,
+.example-square .color-box {
   width: 22%;
   margin-right: 3%;
 }
@@ -209,6 +223,7 @@ pre[class*="language-"] {
   border-right: .33em;
   overflow: hidden;
 }
+
 .color-pattern img {
   max-width: 100%;
 }
@@ -238,6 +253,7 @@ pre[class*="language-"] {
 .demo-links {
   margin: 10px 0 30px;
 }
+
 .demo-links a {
   display: inline-block;
   padding: 2em 3em;
@@ -248,7 +264,9 @@ pre[class*="language-"] {
   -webkit-transition: 0.3s ease 0s;
   transition: 0.3s ease 0s;
 }
-.demo-links a.current, .demo-links a:hover {
+
+.demo-links a.current,
+.demo-links a:hover {
   text-decoration: none;
   background-color: #76abe9;
   color: #fff;
@@ -268,9 +286,11 @@ pre[class*="language-"] {
 .example-button {
   margin-top: 20px;
 }
+
 .example-button > * {
   margin-bottom: 10px;
 }
+
 .example-button button {
   border-radius: 1000px;
   font-size: 14px;
@@ -279,18 +299,21 @@ pre[class*="language-"] {
   background-color: #3255ff;
   color: #fff;
 }
+
 .example-button button:hover {
   background-color: #002bfe;
   color: #fff;
 }
+
 .example-button input {
   display: block;
   border-radius: 0.22em;
   font-size: 16px;
   font-size: 1rem;
   padding: .5em 1em;
-  border: 1px solid  #ddd;
+  border: 1px solid #ddd;
 }
+
 .example-button .pagination a {
   display: inline-block;
   border-radius: 0.22em;
@@ -301,12 +324,13 @@ pre[class*="language-"] {
   color: #000;
   margin: 0 3px 3px 0;
 }
+
 .example-button .pagination a:hover {
   background-color: #c2c2c2;
   color: #000;
 }
+
 .example-button .pagination a span {
   font-size: 11px;
 }
-
 /*# sourceMappingURL=components-button.css.map */
