@@ -48,6 +48,9 @@ $ro-tooltip-radius: 0.22em !default;
 $ro-dropdown-show: 'hover', 'click' !default;
 $ro-dropdown-style: 'display', 'scale' !default;
 
+// tabs
+$ro-tabs-style: 'normal' 'carousel' !default;
+
 // color functions
 $ro-loops : 0;
 $ro-color-methods: 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square' !default;

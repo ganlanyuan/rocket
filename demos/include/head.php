@@ -55,6 +55,9 @@
 		if ($pagename == 'components-dropdown') {
 			echo 'components-dropdown';
 		} 
+		if ($pagename == 'components-tabs') {
+			echo 'components-tabs';
+		} 
 		if ($pagename == 'components-tooltip') {
 			echo 'components-tooltip';
 		} 
@@ -148,6 +151,9 @@
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'href="css/components-dropdown.css"';
+		} 
+		if ($pagename == 'components-tabs') {
+			echo 'href="css/components-tabs.css"';
 		} 
 		if ($pagename == 'components-tooltip') {
 			echo 'href="css/components-tooltip.css"';

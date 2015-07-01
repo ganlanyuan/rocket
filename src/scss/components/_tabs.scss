@@ -1,0 +1,84 @@
+/// $key: `$child $show $style default`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example markup -markup
+/// <!-- 
+///   if you set $show: click, add these markup to your dropdown 
+///   make sure the value of "for" match the checkbox id
+///   -->
+/// 
+/// <div class="dropdown">
+///   <span>dropdown</span>
+///   <input type="checkbox" name="" id="dropdown">
+///   <label for="dropdown">▼</label>
+///   <ul>
+///     <li><a href="">item01</a></li>
+///     <li><a href="">item02</a></li>
+///     <li><a href="">item03</a></li>
+///   </ul>
+/// </div>
+/// @example scss -scss
+/// .dropdown { @include dropdown(ul hover display default); }
+/// // child: ul;
+/// // show: hover; (hover | click)
+/// // style: display; (scale | display)
+/// // default: true; (use default dropdown menu style)
+///
+/// @link http://creatiointl.org/gallery/william/rocket/components-dropdown.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin tabs($key) {
+  $length: ro-get-type($key, 'number', 0);
+  $style: ro-get($key, $ro-tabs-style, 'normal');
+
+  // *** output *** //
+  > input {
+    position: absolute; 
+    left: -9999em;
+  }
+  @if $style == 'normal' {
+    .ro-panels > div {
+      display: none;
+    }
+  } @else if $style == 'carousel' {
+    overflow-x: hidden;
+    .ro-panels {
+      @include clearfix();
+      position: relative;
+      left: 0;
+      width: (100% * $length);
+      -webkit-transition: left $ro-global-animation-duration $ro-global-bezier 0s;
+      transition: left $ro-global-animation-duration $ro-global-bezier 0s;
+      > div {
+        float: left;
+        width: percentage(1 / $length);
+      }
+    }
+  }
+  @for $i from 1 through $length {
+    > input:nth-child(#{$i}):checked ~ {
+      .ro-panels {
+        @if $style == 'normal' {
+          > div:nth-child(#{$i}) {
+            display: block;
+          }
+        } @else if $style == 'carousel' {
+          left: - percentage(($i - 1));
+        }
+      }
+    }
+  }
+}
+
+@mixin tab-active($key) {
+  $length: ro-get-type($key, 'number', 0);
+
+  // *** output *** //
+  @for $i from 1 through $length {
+    > input:nth-child(#{$i}):checked ~ {
+      .ro-tabs > label:nth-child(#{$i}) {
+        @content;
+      }
+    }
+  }
+}

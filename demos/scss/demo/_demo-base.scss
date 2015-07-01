@@ -6,6 +6,19 @@
 $active: #FFBE39;
 $original: #d92626;
 
+/* Android 2.3 :checked fix */
+@keyframes fake {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1
+    }
+}
+body {        
+    animation: fake 1s infinite;
+}
+
 // common
 dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p { margin: 0; }
 dl,ul,ol { padding: 0; }

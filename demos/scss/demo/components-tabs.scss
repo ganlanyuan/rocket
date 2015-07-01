@@ -1,0 +1,19 @@
+@import 'demo-base';
+
+// *** components: tabs *** //
+
+.tabs {
+  @include tabs(3 carousel);
+  @include tab-active(3) {
+    display: inline-block;
+    border: 1px solid #FF0000;
+  }
+  max-width: 800px;
+  margin: 0 auto;
+  .ro-panels {
+    background-color: #f2f2f2;
+  }
+  p {
+    max-width: none;
+  }
+}

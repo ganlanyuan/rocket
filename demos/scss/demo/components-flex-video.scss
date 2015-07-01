@@ -2,5 +2,4 @@
 
 // *** addons: flex video *** //
 
-.flex-video-wrap { max-width: 800px; margin: 0 auto;}
 .flex-video { @include flex-video(iframe 315/560); }
