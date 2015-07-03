@@ -308,19 +308,7 @@ pre[class*="language-"] {
   margin: 0 auto;
 }
 
-.tabs > input:nth-child(1):checked ~ .ro-tabs > label:nth-child(1) {
-  border-color: #FF0000;
-}
-
-.tabs > input:nth-child(2):checked ~ .ro-tabs > label:nth-child(2) {
-  border-color: #FF0000;
-}
-
-.tabs > input:nth-child(3):checked ~ .ro-tabs > label:nth-child(3) {
-  border-color: #FF0000;
-}
-
-.tabs > .ro-tabs > label:hover {
+.tabs > input:nth-child(1):checked ~ .ro-tabs > label:nth-child(1), .tabs > input:nth-child(2):checked ~ .ro-tabs > label:nth-child(2), .tabs > input:nth-child(3):checked ~ .ro-tabs > label:nth-child(3) {
   border-color: #FF0000;
 }
 
@@ -440,7 +428,7 @@ pre[class*="language-"] {
   padding: 8px 12px;
 }
 
-.tabs-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1) {
+.tabs-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1), .tabs-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2), .tabs-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
   height: auto;
   padding: 8px 12px;
   -ms-transform: perspective(1000px) rotateY(0deg);
@@ -448,31 +436,7 @@ pre[class*="language-"] {
   transform: perspective(1000px) rotateY(0deg);
 }
 
-.no-csstransforms .tabs-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1) {
-  display: block;
-}
-
-.tabs-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2) {
-  height: auto;
-  padding: 8px 12px;
-  -ms-transform: perspective(1000px) rotateY(0deg);
-  -webkit-transform: perspective(1000px) rotateY(0deg);
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-.no-csstransforms .tabs-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2) {
-  display: block;
-}
-
-.tabs-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
-  height: auto;
-  padding: 8px 12px;
-  -ms-transform: perspective(1000px) rotateY(0deg);
-  -webkit-transform: perspective(1000px) rotateY(0deg);
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-.no-csstransforms .tabs-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
+.no-csstransforms .tabs-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1), .no-csstransforms .tabs-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2), .no-csstransforms .tabs-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
   display: block;
 }
 /*# sourceMappingURL=components-tabs.css.map */

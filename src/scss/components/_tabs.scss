@@ -107,25 +107,21 @@
 
 @mixin tabs-active($key) {
   $length: ro-get-type($key, 'number', 0);
-  // $selector: '';
+  $len-base: str-length(selector-str()) + 1 + 1; // space: 1
+  $path: '';
 
-  // *** output *** //
-  // active style
+  // get selector
   @for $i from 1 through $length {
     > input:nth-child(#{$i}):checked ~ {
       .ro-tabs > label:nth-child(#{$i}) {
-        @content;
-        // $selector: $selector + ro-selector();
+        $path: $path + selector-str-sliced($len-base);
       }
     }
   }
-  // hover style
-  > .ro-tabs > label:hover {
-    @content;
-    // $selector: $selector + ro-selector-last();
-  }
-  // combined
-  // @at-root #{$selector} { @content; }
+  
+  // *** output *** //
+  $path: str-remove-comma($path);
+  #{$path} { @content; }
 }
 
 /// Set panels' active styles.
@@ -146,21 +142,18 @@
 
 @mixin tabs-panel-active($key) {
   $length: ro-get-type($key, 'number', 0);
-  // $selector: '';
+  $len-base: str-length(selector-str()) + 1 + 1; // space: 1, index +1
+  $path: '';
 
-  // *** output *** //
+  // get selector
   @for $i from 1 through $length {
     > input:nth-child(#{$i}):checked ~ {
       .ro-panels > div:nth-child(#{$i}) {
-        @content;
-        // @if $i == $length {
-        //   $selector: $selector + ro-selector-last();
-        // } @else {
-        //   $selector: $selector + ro-selector();
-        // }
+        $path: $path + selector-str-sliced($len-base);
       }
     }
   }
-  // combined
-  // @at-root #{$selector} { @content; }
+  // *** output *** //
+  $path: str-remove-comma($path);
+  #{$path} { @content; }
 }
