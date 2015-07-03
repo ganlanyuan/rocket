@@ -11,7 +11,26 @@
     margin-top: 10px; 
     z-index: 1;
   }
+  small {
+    font-size: 12px;
+    display: inline-block;
+    padding: 5px 3px;
+  }
 } 
-.dropdown-1 { @include dropdown(default); }
-.dropdown-2 { @include dropdown(default scale click); }
+.dropdown-1 { 
+  @include dropdown(default); 
+  .sub { 
+    @include dropdown(default right hover); 
+    li { white-space: nowrap; }
+  }
+}
+.dropdown-2 { 
+  @include dropdown(default scale click); 
+  .sub-2 {
+    @include dropdown(default left scale click);
+    > label { float: right; }
+    li { white-space: nowrap; }
+    > input:checked ~ a { background-color: #dfdfdf; }
+  }
+}
 

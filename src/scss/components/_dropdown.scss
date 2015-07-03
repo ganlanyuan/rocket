@@ -116,7 +116,7 @@
       @if $border { border: $border; }
       @if $border-radius { border-radius: $border-radius; }
       @if $shadow { box-shadow: $shadow; }
-      .current a,li:hover a { background-color: analogous($bgc 10%);}
+      .current > a, li:hover > a { background-color: analogous($bgc 10%);}
       li { 
         @at-root (without:media) { @extend %ro-global-transition; }
         &:first-child > a { padding-top: nth($padding, 1) * 2;}
