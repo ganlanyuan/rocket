@@ -27,7 +27,7 @@
       </div>
       <pre><code class="language-scss">
 .dropdown-1 { @include dropdown(default); }
-.dropdown-2 { @include dropdown(default click); }
+.dropdown-2 { @include dropdown(default scale click); }
       </code></pre>
     </div>
     

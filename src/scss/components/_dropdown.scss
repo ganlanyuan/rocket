@@ -1,4 +1,4 @@
-/// $key: `$child $show $style default`
+/// $key: `$child $show $style $direction default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup -markup
@@ -17,11 +17,12 @@
 ///     <li><a href="">item03</a></li>
 ///   </ul>
 /// </div>
-/// @example scss -scss
-/// .dropdown { @include dropdown(ul hover display default); }
+/// @example scss - Usage
+/// .dropdown { @include dropdown(ul hover display right default); }
 /// // child: ul;
 /// // show: hover; (hover | click)
 /// // style: display; (scale | display)
+/// // direction: right; (left | right)
 /// // default: true; (use default dropdown menu style)
 ///
 /// @link http://creatiointl.org/gallery/william/rocket/components-dropdown.php demo
@@ -30,14 +31,21 @@
 @mixin dropdown(
   $key:
     'ul'
-    'hover'
-    'scale'
 ){
-  $check: append(join($ro-dropdown-show, $ro-dropdown-style, comma), 'default', comma);
+  $check: append(
+      join(
+        join($ro-dropdown-show, $ro-dropdown-style, comma), 
+        $ro-dropdown-direction, 
+        comma
+      ), 
+      'default', 
+      comma
+    );
 
   $child: ro-get-type($key, 'string', $check, 'ul');
   $show: ro-get($key, $ro-dropdown-show, 'hover');
-  $style: ro-get($key, $ro-dropdown-style, 'scale');
+  $style: ro-get($key, $ro-dropdown-style, 'display');
+  $direction: ro-get($key, $ro-dropdown-direction);
   $default: ro-get($key, 'default');
   $path: false;
 
@@ -48,35 +56,69 @@
     cursor: pointer;
   }
   // hide checkbox. 
-  // IE8 don't support click event on "display: none" element.
-  > [type='checkbox'] { @extend %ro-hidden-checkbox; }
+  > [type='checkbox'] { 
+    @at-root (without:media) { @extend %ro-hidden-checkbox; }
+  }
+
+  // add more hover space
+  @if $show == 'hover' and $direction {
+    &:before, 
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      #{$direction}: 0;
+    }
+    &:before {
+      top: -20px;
+      width: 25px;
+      height: 20px;
+    }
+    &:after {
+      width: 35px;
+      height: 30px;
+    }
+  }
+
   > #{$child} {
+    @at-root (without:media) { @extend %ro-global-transition; }
     // basic menu style
-    @extend %dropdown-menu;
+    position: absolute;
     
-    // hide menu
-    @if $style == 'scale' {
-      @extend %dropdown-menu-hide;
-      .no-csstransforms & { display: none; }
-    } @else if $style == 'display' {
-      display: none;
+    // direction
+    @if $direction {
+      top: 0;
+      #{opposite($direction)}: 100%;
     }
 
-    // default menu style
-    $bgc: #fff;
-    $padding: 0.31em 1.25em;
-    $border: 1px solid #dbdbdb;
-    $border-radius: 0.19em;
-    $shadow: rgba(0,0,0,0.15) 0px 6px 12px;
+    // hide menu
+    @if $style == 'display' {
+      display: none;
+    } @else if $style == 'scale' {
+      -ms-transform: scaleY(0);
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -ms-transform-origin: top;
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      .no-csstransforms & { display: none; }
+    } 
 
+    // default menu style
     @if $default {
+      $bgc: #fff;
+      $padding: 0.31em 1.25em;
+      $border: 1px solid #dbdbdb;
+      $border-radius: 0.19em;
+      $shadow: rgba(0,0,0,0.15) 0px 6px 12px;
+
       background-color: $bgc;
       @if $border { border: $border; }
       @if $border-radius { border-radius: $border-radius; }
       @if $shadow { box-shadow: $shadow; }
       .current a,li:hover a { background-color: analogous($bgc 10%);}
       li { 
-        @extend %ro-global-transition; 
+        @at-root (without:media) { @extend %ro-global-transition; }
         &:first-child > a { padding-top: nth($padding, 1) * 2;}
         &:last-child > a { padding-bottom: nth($padding, 1) * 2;}
       }
@@ -98,11 +140,13 @@
 
   // show
   #{$path} #{$child} {
-    @if $style == 'scale' {
-      @extend %dropdown-menu-show;
-      .no-csstransforms & { display: block; }
-    } @else if $style == 'display' {
+    @if $style == 'display' {
       display: block;
-    }
+    } @else if $style == 'scale' {
+      -ms-transform: scaleY(1);
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      .no-csstransforms & { display: block; }
+    } 
   }
 }

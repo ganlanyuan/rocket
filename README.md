@@ -364,15 +364,90 @@ $key: $ratio $child
 ```` scss
 @mixin dropdown($key);
 // pattern
-$key: $child $show $style default
+$key: $child $show $style $direction default
 
-.dropdown { @include dropdown(ul hover display default); }
+.dropdown { @include dropdown(ul hover display right default); }
 // child: ul;
 // show: hover; (hover | click)
 // style: display; (scale | display)
+// direction: right; (left | right)
 // default: true; (use default dropdown menu style)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
+
+#### Tabs
+Pure css tabs.   
+```` html
+<!-- 
+  .ro-tabs and .ro-panels are required
+  -->
+
+<div class="your-tab-class">
+  <input type="radio" name="your-radio-name" id="your-radio-id-1" checked>
+  <input type="radio" name="your-radio-name" id="your-radio-id-2">
+  <input type="radio" name="your-radio-name" id="your-radio-id-3">
+  <!-- ... -->
+  <div class="ro-tabs">
+    <label for="your-radio-id-1">tab 1</label>
+    <label for="your-radio-id-2">tab 2</label>
+    <label for="your-radio-id-3">tab 3</label>
+    <!-- ... -->
+  </div>
+  <div class="ro-panels">
+    <div>
+      <!-- Your tab-panels 1 -->
+    </div>
+    <div>
+      <!-- Your tab-panels 2 -->
+    </div>
+    <div>
+      <!-- Your tab-panels 3 -->
+    </div>
+  </div>
+</div>
+````
+```` scss
+@mixin tabs($key);
+// pattern
+$key: `$length $style`
+
+.your-tab-class { @include tabs(3 'carousel'); }
+// length: 3; (3 tabs)
+// style: carousel; (normal | carousel | customize)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
+
+#### Tabs-active
+Set tabs' active styles.   
+```` scss
+@mixin tabs-active($key);
+// pattern
+$key: `$length`
+
+.your-tab-class { 
+  @include tabs-active(3) {
+    // tab active style
+  } 
+}
+// length: 3; (3 tabs)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
+
+#### Tabs-panel-active
+Set panels' active styles.   
+```` scss
+@mixin tabs-panel-active($key);
+// pattern
+$key: `$length`
+
+.your-tab-class { 
+  @include tabs-panel-active(3) {
+    // panel active style
+  } 
+}
+// length: 3; (3 tabs)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
 
 #### tooltip
 pure css `tooltip`

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.3.1
++ Add mixin `tabs`, `tabs-active`, `tabs-panel-active`.
++ Add `$direction` to mixin `dropdown`.
+
 ### v2.2.1
 + Update `two-columns`, now flexible gutter (e.g. 2%) is acceptable.
 + Fix an issue on `span` and `span-calc` when `gutter: 0`.

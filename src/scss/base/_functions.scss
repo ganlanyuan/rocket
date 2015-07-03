@@ -115,6 +115,21 @@
   }
 }
 
+// ro-selector
+@function ro-selector(){
+  $a: &;
+  $_return: nth($a, 1) + ', ';
+  
+  @return $_return;
+}
+
+@function ro-selector-last(){
+  $a: &;
+  $_return: nth($a, 1);
+  
+  @return $_return;
+}
+
 // plus-one
 @function plus-one ($key) {
   @if type-of($key) == 'number' {

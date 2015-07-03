@@ -1,30 +1,42 @@
-/// $key: `$child $show $style default`
+/// Pure css tabs.   
+/// 
+/// $key: `$length $style`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup -markup
 /// <!-- 
-///   if you set $show: click, add these markup to your dropdown 
-///   make sure the value of "for" match the checkbox id
+///   .ro-tabs and .ro-panels are required
 ///   -->
 /// 
-/// <div class="dropdown">
-///   <span>dropdown</span>
-///   <input type="checkbox" name="" id="dropdown">
-///   <label for="dropdown">▼</label>
-///   <ul>
-///     <li><a href="">item01</a></li>
-///     <li><a href="">item02</a></li>
-///     <li><a href="">item03</a></li>
-///   </ul>
+/// <div class="your-tab-class">
+///   <input type="radio" name="your-radio-name" id="your-radio-id-1" checked>
+///   <input type="radio" name="your-radio-name" id="your-radio-id-2">
+///   <input type="radio" name="your-radio-name" id="your-radio-id-3">
+///   <!-- ... -->
+///   <div class="ro-tabs">
+///     <label for="your-radio-id-1">tab 1</label>
+///     <label for="your-radio-id-2">tab 2</label>
+///     <label for="your-radio-id-3">tab 3</label>
+///     <!-- ... -->
+///   </div>
+///   <div class="ro-panels">
+///     <div>
+///       <!-- Your tab-panels 1 -->
+///     </div>
+///     <div>
+///       <!-- Your tab-panels 2 -->
+///     </div>
+///     <div>
+///       <!-- Your tab-panels 3 -->
+///     </div>
+///   </div>
 /// </div>
 /// @example scss -scss
-/// .dropdown { @include dropdown(ul hover display default); }
-/// // child: ul;
-/// // show: hover; (hover | click)
-/// // style: display; (scale | display)
-/// // default: true; (use default dropdown menu style)
+/// .your-tab-class { @include tabs(3 'carousel'); }
+/// // length: 3; (3 tabs)
+/// // style: carousel; (normal | carousel | customize)
 ///
-/// @link http://creatiointl.org/gallery/william/rocket/components-dropdown.php demo
+/// @link http://creatiointl.org/gallery/william/rocket/components-tabs.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin tabs($key) {
@@ -37,24 +49,31 @@
     left: -9999em;
   }
   @if $style == 'normal' {
-    .ro-panels > div {
+    > .ro-panels > div {
       display: none;
     }
   } @else if $style == 'carousel' {
     overflow-x: hidden;
-    .ro-panels {
-      @include clearfix();
+    > .ro-panels {
+      @at-root (without: media) {
+        @extend %ro-clearfix;
+        @extend %ro-global-transition;
+      }
       position: relative;
       left: 0;
       width: (100% * $length);
-      -webkit-transition: left $ro-global-animation-duration $ro-global-bezier 0s;
-      transition: left $ro-global-animation-duration $ro-global-bezier 0s;
       > div {
         float: left;
         width: percentage(1 / $length);
+        box-sizing: border-box;
       }
     }
+  } @else if $style =='customize' {
+    > .ro-panels > div {
+      @content;
+    }
   }
+
   @for $i from 1 through $length {
     > input:nth-child(#{$i}):checked ~ {
       .ro-panels {
@@ -70,15 +89,78 @@
   }
 }
 
-@mixin tab-active($key) {
+/// Set tabs' active styles.
+/// 
+/// $key: `$length`
+/// @group components
+/// @param {number} $key - key 
+/// @example scss - Usage
+/// .your-tab-class { 
+///   @include tabs-active(3) {
+///     // tab active style
+///   } 
+/// }
+/// // length: 3; (3 tabs)
+///
+/// @link http://creatiointl.org/gallery/william/rocket/components-tabs.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin tabs-active($key) {
   $length: ro-get-type($key, 'number', 0);
+  // $selector: '';
 
   // *** output *** //
+  // active style
   @for $i from 1 through $length {
     > input:nth-child(#{$i}):checked ~ {
       .ro-tabs > label:nth-child(#{$i}) {
         @content;
+        // $selector: $selector + ro-selector();
       }
     }
   }
+  // hover style
+  > .ro-tabs > label:hover {
+    @content;
+    // $selector: $selector + ro-selector-last();
+  }
+  // combined
+  // @at-root #{$selector} { @content; }
+}
+
+/// Set panels' active styles.
+/// 
+/// $key: `$length`
+/// @group components
+/// @param {number} $key - key 
+/// @example scss - Usage
+/// .your-tab-class { 
+///   @include tabs-panel-active(3) {
+///     // panel active style
+///   } 
+/// }
+/// // length: 3; (3 tabs)
+///
+/// @link http://creatiointl.org/gallery/william/rocket/components-tabs.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin tabs-panel-active($key) {
+  $length: ro-get-type($key, 'number', 0);
+  // $selector: '';
+
+  // *** output *** //
+  @for $i from 1 through $length {
+    > input:nth-child(#{$i}):checked ~ {
+      .ro-panels > div:nth-child(#{$i}) {
+        @content;
+        // @if $i == $length {
+        //   $selector: $selector + ro-selector-last();
+        // } @else {
+        //   $selector: $selector + ro-selector();
+        // }
+      }
+    }
+  }
+  // combined
+  // @at-root #{$selector} { @content; }
 }

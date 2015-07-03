@@ -13,14 +13,6 @@
 }
 
 /* Android 2.3 :checked fix */
-@-webkit-keyframes fake {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fake {
   from {
     opacity: 1;
@@ -31,8 +23,7 @@
 }
 
 body {
-  -webkit-animation: fake 1s infinite;
-          animation: fake 1s infinite;
+  animation: fake 1s infinite;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -113,7 +104,7 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 
 h2 span {
@@ -315,6 +306,7 @@ pre[class*="language-"] {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
+  -moz-box-pack: justify;
   box-pack: justify;
   -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
@@ -323,6 +315,7 @@ pre[class*="language-"] {
   justify-content: space-between;
   -ms-flex-pack: justify;
   -webkit-box-align: center;
+  -moz-box-align: center;
   box-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
@@ -368,4 +361,5 @@ pre[class*="language-"] {
 .example-justify input:focus {
   width: 250px;
 }
+
 /*# sourceMappingURL=layout-justify.css.map */

@@ -1,12 +1,4 @@
 /* Android 2.3 :checked fix */
-@-webkit-keyframes fake {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fake {
   from {
     opacity: 1;
@@ -17,8 +9,7 @@
 }
 
 body {
-  -webkit-animation: fake 1s infinite;
-          animation: fake 1s infinite;
+  animation: fake 1s infinite;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -99,7 +90,7 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 
 h2 span {
@@ -308,13 +299,13 @@ pre[class*="language-"] {
 @media (min-width: 50em) {
   .span-1 {
     position: relative;
-    width: 81.4545454545%;
-    left: 18.5454545455%;
+    width: 81.45455%;
+    left: 18.54545%;
   }
   .span-2 {
     position: relative;
-    width: 16.5454545455%;
-    left: -83.4545454545%;
+    width: 16.54545%;
+    left: -83.45455%;
   }
 }
 
@@ -350,14 +341,14 @@ pre[class*="language-"] {
 
 .span-nested-main-left {
   float: left;
-  width: 38.1818181818%;
-  margin-right: 3.0303030303%;
+  width: 38.18182%;
+  margin-right: 3.0303%;
   left: 0;
 }
 
 .span-nested-main-right {
   float: left;
-  width: 58.7878787879%;
+  width: 58.78788%;
   left: 0;
 }
 
@@ -370,29 +361,30 @@ pre[class*="language-"] {
 .span-calc-1 {
   float: left;
   position: relative;
-  width: calc( 45.4545454545% + 9.0909090909px - 20px);
+  width: calc( 45.45455% + 9.09091px - 20px);
   margin-right: 20px;
-  left: calc( 54.5454545455% + 10.9090909091px);
+  left: calc( 54.54545% + 10.90909px);
 }
 
 .span-calc-2 {
   float: left;
   position: relative;
-  width: calc( 54.5454545455% + 10.9090909091px - 20px);
-  left: calc( -45.4545454545% + -9.0909090909px);
+  width: calc( 54.54545% + 10.90909px - 20px);
+  left: calc( -45.45455% + -9.09091px);
 }
 
 @media (min-width: 50em) {
   .span-calc-1 {
     float: left;
-    width: calc( 72.7272727273% + 21.8181818182px - 30px);
+    width: calc( 72.72727% + 21.81818px - 30px);
     margin-right: 30px;
     left: 0;
   }
   .span-calc-2 {
     float: left;
-    width: calc( 27.2727272727% + 8.1818181818px - 30px);
+    width: calc( 27.27273% + 8.18182px - 30px);
     left: 0;
   }
 }
+
 /*# sourceMappingURL=layout-grid.css.map */

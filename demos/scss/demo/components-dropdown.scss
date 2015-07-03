@@ -7,8 +7,11 @@
   padding: 10px 0; 
   margin-right: 30px; 
   display: inline-block; 
-  > ul { margin-top: 10px; }
+  > ul { 
+    margin-top: 10px; 
+    z-index: 1;
+  }
 } 
 .dropdown-1 { @include dropdown(default); }
-.dropdown-2 { @include dropdown(default click); }
+.dropdown-2 { @include dropdown(default scale click); }
 

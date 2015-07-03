@@ -59,24 +59,24 @@ body {
 @media (min-width: 40em) {
   .main-left {
     float: left;
-    width: 74.2424242424%;
-    margin-right: 3.0303030303%;
+    width: 74.24242%;
+    margin-right: 3.0303%;
     left: 0;
   }
   .main-right {
     float: left;
-    width: 22.7272727273%;
+    width: 22.72727%;
     left: 0;
   }
   .main .news {
     float: left;
-    width: 56.6385329808%;
-    margin-right: 4.067520846%;
+    width: 56.63853%;
+    margin-right: 4.06752%;
     left: 0;
   }
   .main .popular {
     float: left;
-    width: 39.2939461731%;
+    width: 39.29395%;
     left: 0;
   }
 }
@@ -115,4 +115,5 @@ body {
     clear: none;
   }
 }
+
 /*# sourceMappingURL=test.css.map */

@@ -3,17 +3,71 @@
 // *** components: tabs *** //
 
 .tabs {
-  @include tabs(3 carousel);
-  @include tab-active(3) {
-    display: inline-block;
-    border: 1px solid #FF0000;
+  @include tabs-active(3) {
+    border-color: #FF0000;
   }
   max-width: 800px;
   margin: 0 auto;
-  .ro-panels {
-    background-color: #f2f2f2;
+  > .ro-tabs { 
+    margin-bottom: 10px; 
+    > label {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #fff;
+    }
+  }
+  > .ro-panels > div { 
+    padding: 8px 12px;
+    background-color: #f2f2f2; 
   }
   p {
     max-width: none;
+  }
+}
+.tabs-normal {
+  @include tabs(3 normal);
+  > .ro-panels > div { 
+    &:before,
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+}
+.tabs-carousel {
+  @include tabs(3 carousel);
+}
+.tabs-customize {
+  @include tabs(3 customize) {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    -ms-transform-origin: center;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: transform 0.4s ease 0s;
+    transition: transform 0.4s ease 0s; 
+    &:nth-child(odd) {
+      -ms-transform: perspective(1000px) rotateY(180deg);
+      -webkit-transform: perspective(1000px) rotateY(180deg);
+      transform: perspective(1000px) rotateY(180deg);
+    }
+    &:nth-child(even) {
+      -ms-transform: perspective(1000px) rotateY(-180deg);
+      -webkit-transform: perspective(1000px) rotateY(-180deg);
+      transform: perspective(1000px) rotateY(-180deg);
+    }
+    .no-csstransforms & { display: none; height: auto; padding: 8px 12px; }
+  }
+  @include tabs-panel-active(3) {
+    height: auto;
+    padding: 8px 12px;
+    -ms-transform: perspective(1000px) rotateY(0deg);
+    -webkit-transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
+    .no-csstransforms & { display: block; }
   }
 }
