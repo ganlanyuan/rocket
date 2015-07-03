@@ -292,18 +292,41 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.color-box-rectangle-1 {
-  background-color: #d97726;
-  color: #fff;
+.radio > input {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  float: left;
 }
 
-.color-box-rectangle-2 {
-  background-color: #26d926;
-  color: #000;
+.radio > label {
+  display: inline-block;
+  clear: both;
+  padding: 4px 0 4px 26px;
+  margin-bottom: 3px;
+  font-size: 14px;
+  background: url("../images/radio.png") 0 50% no-repeat;
 }
 
-.color-box-rectangle-3 {
-  background-color: #26d9d9;
-  color: #000;
+.radio > input:checked + label {
+  background-image: url("../images/radio-active.png");
 }
-/*# sourceMappingURL=color-rectangle.css.map */
+
+.checkbox > input {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  float: left;
+}
+
+.checkbox > label {
+  display: inline-block;
+  clear: both;
+  padding: 4px 0 4px 26px;
+  margin-bottom: 3px;
+  font-size: 14px;
+  background: url("../images/checkbox.png") 0 50% no-repeat;
+}
+
+.checkbox > input:checked + label {
+  background-image: url("../images/checkbox-active.png");
+}
+/*# sourceMappingURL=components-checkbox.css.map */

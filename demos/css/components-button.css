@@ -13,6 +13,14 @@
 }
 
 /* Android 2.3 :checked fix */
+@-webkit-keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes fake {
   from {
     opacity: 1;
@@ -23,7 +31,8 @@
 }
 
 body {
-  animation: fake 1s infinite;
+  -webkit-animation: fake 1s infinite;
+          animation: fake 1s infinite;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -347,5 +356,4 @@ pre[class*="language-"] {
 .example-button .pagination a span {
   font-size: 11px;
 }
-
 /*# sourceMappingURL=components-button.css.map */

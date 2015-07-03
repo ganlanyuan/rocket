@@ -1,4 +1,12 @@
 /* Android 2.3 :checked fix */
+@-webkit-keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes fake {
   from {
     opacity: 1;
@@ -9,7 +17,8 @@
 }
 
 body {
-  animation: fake 1s infinite;
+  -webkit-animation: fake 1s infinite;
+          animation: fake 1s infinite;
 }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
@@ -378,120 +387,100 @@ pre[class*="language-"] {
 .mb-nav > ul > li > a {
   opacity: 0;
   -webkit-transform: translate3d(-100%, 0, 0);
-  -moz-transform: translate3d(-100%, 0, 0);
   -ms-transform: translate3d(-100%, 0, 0);
-  -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
 
 .offcanvas-show .mb-nav > ul > li > a {
   opacity: 1;
   -webkit-transform: none;
-  -moz-transform: none;
   -ms-transform: none;
-  -o-transform: none;
   transform: none;
 }
 
 .mb-nav [data-offcanvas-subnav] a {
   opacity: 0;
   -webkit-transform: translate3d(100%, 0, 0);
-  -moz-transform: translate3d(100%, 0, 0);
   -ms-transform: translate3d(100%, 0, 0);
-  -o-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
 }
 
 .mb-nav .mb-subnav-show a {
   opacity: 1;
   -webkit-transform: none;
-  -moz-transform: none;
   -ms-transform: none;
-  -o-transform: none;
   transform: none;
 }
 
 .mb-nav > ul > li:nth-child(1) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(1) a {
   -webkit-transition-delay: 0.025s;
-  -moz-transition-delay: 0.025s;
   transition-delay: 0.025s;
 }
 
 .mb-nav > ul > li:nth-child(2) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(2) a {
   -webkit-transition-delay: 0.05s;
-  -moz-transition-delay: 0.05s;
   transition-delay: 0.05s;
 }
 
 .mb-nav > ul > li:nth-child(3) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(3) a {
   -webkit-transition-delay: 0.075s;
-  -moz-transition-delay: 0.075s;
   transition-delay: 0.075s;
 }
 
 .mb-nav > ul > li:nth-child(4) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(4) a {
   -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
 .mb-nav > ul > li:nth-child(5) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(5) a {
   -webkit-transition-delay: 0.125s;
-  -moz-transition-delay: 0.125s;
   transition-delay: 0.125s;
 }
 
 .mb-nav > ul > li:nth-child(6) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(6) a {
   -webkit-transition-delay: 0.15s;
-  -moz-transition-delay: 0.15s;
   transition-delay: 0.15s;
 }
 
 .mb-nav > ul > li:nth-child(7) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(7) a {
   -webkit-transition-delay: 0.175s;
-  -moz-transition-delay: 0.175s;
   transition-delay: 0.175s;
 }
 
 .mb-nav > ul > li:nth-child(8) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(8) a {
   -webkit-transition-delay: 0.2s;
-  -moz-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
 
 .mb-nav > ul > li:nth-child(9) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(9) a {
   -webkit-transition-delay: 0.225s;
-  -moz-transition-delay: 0.225s;
   transition-delay: 0.225s;
 }
 
 .mb-nav > ul > li:nth-child(10) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(10) a {
   -webkit-transition-delay: 0.25s;
-  -moz-transition-delay: 0.25s;
   transition-delay: 0.25s;
 }
 
 .mb-nav > ul > li:nth-child(11) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(11) a {
   -webkit-transition-delay: 0.275s;
-  -moz-transition-delay: 0.275s;
   transition-delay: 0.275s;
 }
 
 .mb-nav > ul > li:nth-child(12) > a,
 .mb-nav [data-offcanvas-subnav] li:nth-child(12) a {
   -webkit-transition-delay: 0.3s;
-  -moz-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
 
@@ -528,5 +517,4 @@ pre[class*="language-"] {
 .offcanvas-show .page {
   left: 300px;
 }
-
 /*# sourceMappingURL=components-offcanvas.css.map */
