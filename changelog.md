@@ -2,6 +2,7 @@
 
 ### v2.3.1
 + Add mixin `tabs`, `tabs-active`, `tabs-panel-active`.
++ Add mixin `checkbox`, `checkbox-active`.
 + Add `$direction` to mixin `dropdown`.
 
 ### v2.2.1

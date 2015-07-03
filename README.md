@@ -449,6 +449,48 @@ $key: `$length`
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
 
+#### Checkbox
+Customize radios or checkboxes.
+```` html
+<!-- make sure label right after radio or checkbox -->
+<div class="radio">
+  <input type="radio" name="my-radio-name" id="my-radio-id-1" checked>
+  <label for="my-radio-id-1">item 1</label>
+  <br />
+  <input type="radio" name="my-radio-name" id="my-radio-id-2">
+  <label for="my-radio-id-2">item 2</label>
+  <br />
+  <input type="radio" name="my-radio-name" id="my-radio-id-3">
+  <label for="my-radio-id-3">item 3</label>
+  <br />
+</div>
+````
+```` scss
+@mixin checkbox()
+
+.radio {
+  @include checkbox() {
+    padding: 4px 0 4px 26px;
+    background: url('../images/radio.png') 0 50% no-repeat;
+  }
+}
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-checkbox.php)   
+
+#### checkbox-active
+Radios or checkboxes' active style.   
+
+```` scss
+@mixin checkbox-active()
+
+.radio {
+  @include checkbox-active() {
+    background-image: url('../images/radio-active.png');
+  }
+}
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-checkbox.php)    
+
 #### tooltip
 pure css `tooltip`
 ```` scss
