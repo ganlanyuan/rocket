@@ -1,6 +1,6 @@
 /// *type* is a shorthand mixin for type.
 /// 
-/// $key: `$font-size $font-weight $font-style $line-height $font-family $text-transform`
+/// $key: `$font-size $font-weight $font-style $text-align $line-height $font-family $text-transform`
 /// @group addons
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -11,7 +11,7 @@
 /// // font-family: 'Georgia, Helvetica, sans-serif';
 /// // line-height: 1.4;
 /// 
-/// // Tips: to set 'font-weight', 'font-style' or 'text-transform' value 
+/// // Tips: to set 'font-weight', 'font-style', 'text-align' or 'text-transform' value 
 /// // to 'inherit' or 'normal', 
 /// // you need add prefix 'weight-', 'style-' or 'transform-'.
 /// 
@@ -23,7 +23,7 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin type($key){
-  $check: join(join($ro-font-weights, $ro-font-styles), $ro-text-transforms);
+  $check: join(join(join($ro-font-weights, $ro-font-styles), $ro-text-aligns), $ro-text-transforms);
 
   // set up font-size, font-weight, line-height
   $font-size: null;
@@ -43,10 +43,11 @@
     }
   }
 
-  // set up font-family, font-weight, font-style, text-transform
+  // set up font-family, font-weight, font-style, text-align, text-transform
   $font-family: ro-get-type($key, 'string', $check);
   $font-weight: ro-get($key, $ro-font-weights); 
   $font-style: ro-get($key, $ro-font-styles);
+  $text-align: ro-get($key, $ro-text-aligns);
   $text-transform: ro-get($key, $ro-text-transforms);
 
   // remove prefix
@@ -55,6 +56,9 @@
   }
   @if type-of($font-style) == 'string' {
     $font-style: str-cut($font-style, '-', after);
+  }
+  @if type-of($text-align) == 'string' {
+    $text-align: str-cut($text-align, '-', after);
   }
   @if type-of($text-transform) == 'string' {
     $text-transform: str-cut($text-transform, '-', after);
@@ -76,6 +80,9 @@
   }
   @if $font-style {
     font-style: $font-style;
+  }
+  @if $text-align {
+    text-align: $text-align;
   }
   @if $text-transform {
     text-transform: $text-transform;
