@@ -58,7 +58,7 @@
 }
 
 // ro-get
-@function ro-get($key, $arg, $def: null){
+@function ro-get($key, $arg, $def:false){
   $_return: $def;
 
   @if type-of($arg) == 'string' {
@@ -77,7 +77,7 @@
 }
 
 // ro-get-type
-@function ro-get-type($key, $arg, $check:false, $def:null) {
+@function ro-get-type($key, $arg, $check:false, $def:false) {
   $_return: $def;
 
   @each $item in $key {
