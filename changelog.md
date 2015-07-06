@@ -1,9 +1,11 @@
 # Changelog
 
-### v2.3.1
+### v2.3.0
 + Add mixin `tabs`, `tabs-active`, `tabs-panel-active`.
 + Add mixin `checkbox`, `checkbox-active`.
 + Add `$direction` to mixin `dropdown`.
++ Add `text-align` to mixin `type`.
++ Fix an issue on `button`.
 
 ### v2.2.1
 + Update `two-columns`, now flexible gutter (e.g. 2%) is acceptable.

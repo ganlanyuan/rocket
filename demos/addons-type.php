@@ -17,9 +17,9 @@
       <pre><code class="language-scss">
 h1 { @include type(32px 1.1 italic); }
 h2 { @include type(28px 1.2 weight-normal uppercase); }
-h3 { @include type(24px 900 1.3); }
+h3 { @include type(24px 900 1.3 center); }
 h4 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4); }
-h5 { @include type(16px 1.5); }
+h5 { @include type(16px 1.5 right); }
       </code></pre>
     </div>
     

@@ -301,7 +301,7 @@ $key: $font-size $padding $background-color radius round hover
 // font-size: 14px;
 // background-color: #00c8ff;
 // padding: 0.8em 1em; (Tips: padding must be quoted)
-// radius: 0.22em; (default, you can modify it by change the varible "$button-radius: 0.22em;" )
+// radius: 0.22em; (default, you can modify it by change the varible "$ro-button-radius: 0.22em;" )
 // hover: true; (change background-color when mouse over)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-button.php)
@@ -572,22 +572,24 @@ $key: $style $direction $offcanvas-width $cover-bg
 ```` scss
 @mixin type($key);
 // pattern
-$key: $font-size $font-weight $font-style $line-height $font-family $text-transform 
+$key: $font-size $font-weight $font-style $line-height $font-family $text-align $text-transform 
 
-h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
+h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic) }
 // font-size: 20px;
 // font-weight: bold; 
 // font-style: italic; 
 // font-family: 'Georgia, Helvetica, sans-serif';
+// text-align: center;
 // line-height: 1.4;
 
-// Tips: to set 'font-weight', 'font-style' or 'text-transform' value 
+// Tips: to set 'font-weight', 'font-style', 'text-align' or 'text-transform' value 
 // to 'inherit' or 'normal', 
 // you need add prefix 'weight-', 'style-' or 'transform-'.
 
-// $font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
-// $font-styles: italic, oblique, style-normal, style-inherit !default;
-// $text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
+// $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
+// $ro-font-styles: italic, oblique, style-normal, style-inherit !default;
+// $ro-text-aligns: left, right, center, justify, align-inherit !default;
+// $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
 

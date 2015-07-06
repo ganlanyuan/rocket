@@ -136,6 +136,9 @@
     }
     .no-csstransforms & { display: none; height: auto; padding: 8px 12px; }
   }
+  @include tabs-active(3) {
+    border: 1px solid #FF0000;
+  }
   @include tabs-panel-active(3) {
     height: auto;
     padding: 8px 12px;
