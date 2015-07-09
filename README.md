@@ -375,7 +375,7 @@ $key: $child $show $style $direction default
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-dropdown.php)
 
-#### Tabs
+#### tabs
 Pure css tabs.   
 ```` html
 <!-- 
@@ -417,7 +417,7 @@ $key: `$length $style`
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
 
-#### Tabs-active
+#### tabs-active
 Set tabs' active styles.   
 ```` scss
 @mixin tabs-active($key);
@@ -433,7 +433,7 @@ $key: `$length`
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
 
-#### Tabs-panel-active
+#### tabs-panel-active
 Set panels' active styles.   
 ```` scss
 @mixin tabs-panel-active($key);
@@ -449,7 +449,36 @@ $key: `$length`
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
 
-#### Checkbox
+#### push-toggle
+Pure css push toggle.   
+```` html
+<div class="push-toggle">
+  <input type="radio" id="male" name="gender" checked="">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender">
+  <label for="female">Female</label>
+</div>
+````
+```` scss
+.your-tab-class { 
+
+  // default style
+  label {
+    padding: 1em 1.5em;
+    background-image: linear-gradient(to bottom, #fff, #e1e1e1);
+    border: 1px solid #ccc;
+  }
+
+  // active style
+  @include push-toggle(){
+    background-image: linear-gradient(to bottom, #ebebeb, #fff);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
+  }
+ }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-push-toggle.php)    
+
+#### checkbox
 Customize radios or checkboxes.
 ```` html
 <!-- make sure label right after radio or checkbox -->

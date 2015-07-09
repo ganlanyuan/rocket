@@ -3,6 +3,7 @@
 ### v2.3.0
 + Add mixin `tabs`, `tabs-active`, `tabs-panel-active`.
 + Add mixin `checkbox`, `checkbox-active`.
++ Add mixin `push-toggle`.
 + Add `$direction` to mixin `dropdown`.
 + Add `text-align` to mixin `type`.
 + Fix some issues on `button`, `span`, `span-calc`.

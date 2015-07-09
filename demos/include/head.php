@@ -58,6 +58,9 @@
 		if ($pagename == 'components-tabs') {
 			echo 'components-tabs';
 		} 
+		if ($pagename == 'components-push-toggle') {
+			echo 'components-push-toggle';
+		} 
 		if ($pagename == 'components-checkbox') {
 			echo 'components-checkbox';
 		} 
@@ -157,6 +160,9 @@
 		} 
 		if ($pagename == 'components-tabs') {
 			echo 'href="css/components-tabs.css"';
+		} 
+		if ($pagename == 'components-push-toggle') {
+			echo 'href="css/components-push-toggle.css"';
 		} 
 		if ($pagename == 'components-checkbox') {
 			echo 'href="css/components-checkbox.css"';

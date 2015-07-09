@@ -15,6 +15,7 @@
     <a <?php if ($pagename == 'components-offcanvas' ) { echo 'class="current"'; } ?> href="components-offcanvas.php">offcanvas</a>
     <a <?php if ($pagename == 'components-dropdown' ) { echo 'class="current"'; } ?> href="components-dropdown.php">dropdown</a>
     <a <?php if ($pagename == 'components-tabs' ) { echo 'class="current"'; } ?> href="components-tabs.php">tabs</a>
+    <a <?php if ($pagename == 'components-push-toggle' ) { echo 'class="current"'; } ?> href="components-push-toggle.php">push-toggle</a>
     <a <?php if ($pagename == 'components-checkbox' ) { echo 'class="current"'; } ?> href="components-checkbox.php">checkbox</a>
     <a <?php if ($pagename == 'components-tooltip' ) { echo 'class="current"'; } ?> href="components-tooltip.php">tooltip</a>
     <a <?php if ($pagename == 'components-flex-video' ) { echo 'class="current"'; } ?> href="components-flex-video.php">flex-video</a>

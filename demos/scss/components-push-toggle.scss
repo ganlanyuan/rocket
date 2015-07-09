@@ -1,0 +1,24 @@
+@import 'demo-base';
+
+// *** components: push-toggle *** //
+
+.push-toggle {
+  max-width: 400px;
+  margin: 10px auto;
+
+  // default push-toggle style
+  label {
+    padding: 1em 1.5em;
+    background-image: linear-gradient(to bottom, #fff, #e1e1e1);
+    border: 1px solid #ccc;
+  }
+
+  // active push-toggle style
+  @include push-toggle(){
+    background-image: linear-gradient(to bottom, #ebebeb, #fff);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
+  }
+  
+  &.two label { width: 50%; }
+  &.three label { width: 33.3%; }
+}

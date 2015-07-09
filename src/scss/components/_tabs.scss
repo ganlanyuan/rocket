@@ -44,7 +44,7 @@
   $style: ro-get($key, $ro-tabs-style, 'normal');
 
   // *** output *** //
-  > input {
+  > [type="radio"] {
     position: absolute; 
     left: -9999em;
   }
