@@ -31,12 +31,10 @@
     }
 
     // set up gutter
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if type-of($val) == number and
-          not unitless($val) {
-        $gutter: $val;
+    @each $item in $key {
+      @if type-of($item) == number and
+          not unitless($item) {
+        $gutter: $item;
       }
     }
   }

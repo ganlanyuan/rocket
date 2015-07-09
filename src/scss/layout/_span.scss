@@ -68,12 +68,9 @@
 	}
 
 	// set up gutter
-	$key: reject($key, $column);
-	$key: reject($key, $columns);
-	$key: reject($key, ($location + 1));
-	$key: reject($key, $move);
 	@each $item in $key {
-		@if type-of($item) == 'number' {
+		@if type-of($item) == 'number' and 
+				not unitless($item) {
 			$gutter: $item;
 		}
 	}

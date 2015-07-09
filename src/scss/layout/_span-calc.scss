@@ -49,14 +49,13 @@
   }
 
   // set up gutter
-  $key: reject($key, $column);
-  $key: reject($key, $columns);
-  $key: reject($key, $move);
   @each $item in $key {
-    @if type-of($item) == 'number' {
+    @if type-of($item) == 'number' and 
+        not unitless($item) {
       $gutter: $item;
     }
   }
+  
   // strip unit when gutter == 0
   @if strip-unit($gutter) == 0 {
     $gutter: 0;

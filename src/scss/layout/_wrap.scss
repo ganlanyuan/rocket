@@ -10,7 +10,7 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin wrap( $key: map-get($ro-layout, gutter)){
-  @at-root(without: media){ @extend %ro-clearfix; }
+  @include clearfix();
   
   margin-left: (-$key / 2);
   margin-right: (-$key / 2);

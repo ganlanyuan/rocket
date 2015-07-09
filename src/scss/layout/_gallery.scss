@@ -41,7 +41,8 @@
   }
 
   // *** output *** //
-  @at-root(without: media){ @extend %ro-clearfix; }
+  @include clearfix();
+  
   // set up gallery container
   @if not $keep {
     @if $gutter and $gutter != 0 {

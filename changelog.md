@@ -5,7 +5,7 @@
 + Add mixin `checkbox`, `checkbox-active`.
 + Add `$direction` to mixin `dropdown`.
 + Add `text-align` to mixin `type`.
-+ Fix an issue on `button`.
++ Fix some issues on `button`, `span`, `span-calc`.
 
 ### v2.2.1
 + Update `two-columns`, now flexible gutter (e.g. 2%) is acceptable.
