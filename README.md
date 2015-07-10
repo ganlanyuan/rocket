@@ -20,44 +20,30 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 + LibSass > 3.2.0    
 
 # Structure
-
+【 Components 】
 ```` html      
-addons
-  |opacity
-  |ie-rgba
-  |rems
-  |breakpoint
-  |visible
-  |hidden
-  |type
-
-layout
-  |container
-  |wrap
-  |span
-  |span-calc
-  |two-columns
-  |gallery
-  |justify
-  |center
-
-components
-  |button
-  |media
-  |offcanvas
-  |dropdown
-  |tooltip
-  |flex-video
-
-color functions
-  |analogous
-  |contrast
-  |adjacent
-  |complementary
-  |split-complementary
-  |triad
-  |rectangle
-  |square
+     == layout ==                == components ==
+        |container                  |button
+        |wrap                       |media
+        |span                       |offcanvas
+        |span-calc                  |dropdown
+        |two-columns                |tabs
+        |gallery                    |push-toggle
+        |justify                    |checkbox
+        |center                     |tooltip
+                                    |flex-video
+                                               
+                                                
+     == addons ==                == color functions ==
+        |opacity                    |analogous
+        |ie-rgba                    |contrast
+        |rems                       |adjacent
+        |breakpoint (bp)            |complementary
+        |visible                    |split-complementary
+        |hidden                     |triad
+        |type                       |rectangle
+                                    |square
+                                             
 ````
 
 #【 Layout 】
@@ -648,10 +634,11 @@ $key: $rgba
 // }
 ````
 
-#### breakpoint
+#### breakpoint (bp)
 A shorthand @mixin for break point.
 ```` scss
 @mixin breakpoint($key);
+// or @mixin bp($key);
 // pattern
 $key: $condition $media $breakpoints
 

@@ -6,6 +6,7 @@
 + Add mixin `push-toggle`.
 + Add `$direction` to mixin `dropdown`.
 + Add `text-align` to mixin `type`.
++ Add mixin `bp` which is the same with mixin `breakpoint`.
 + Fix some issues on `button`, `span`, `span-calc`.
 
 ### v2.2.1

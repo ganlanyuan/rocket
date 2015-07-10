@@ -70,6 +70,12 @@
 		if ($pagename == 'components-flex-video') {
 			echo 'components-flex-video';
 		} 
+		if ($pagename == 'components-slider-carousel') {
+			echo 'components-slider-carousel';
+		} 
+		if ($pagename == 'components-slider-gallery') {
+			echo 'components-slider-gallery';
+		} 
 		if ($pagename == 'addons-type') {
 			echo 'addons-type';
 		} 
@@ -172,6 +178,12 @@
 		} 
 		if ($pagename == 'components-flex-video') {
 			echo 'href="css/components-flex-video.css"';
+		} 
+		if ($pagename == 'components-slider-carousel') {
+			echo 'href="css/components-slider-carousel.css"';
+		} 
+		if ($pagename == 'components-slider-gallery') {
+			echo 'href="css/components-slider-gallery.css"';
 		} 
 		if ($pagename == 'addons-type') {
 			echo 'href="css/addons-type.css"';

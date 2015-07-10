@@ -1,0 +1,342 @@
+// *** slider-carousel *** //
+@mixin slider-carousel($key){
+  $items: 1;
+  $perpage: 1;
+  $gutter: 10px;
+  $slide-by-page: false;
+  $center: false;
+  $autoplay: false;
+  $default: false;
+
+  @if type-of($key) == number {
+    $item: $key;
+  } @else if type-of($key) == list {
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
+
+      @if $val == bypage {
+        $slide-by-page: true;
+      } @else if $val == center {
+        $center: true;
+      } @else if $val == autoplay {
+        $autoplay: true;
+      } @else if $val == default {
+        $default: true;
+      }
+
+      @if index($key, by) {
+        $items: ro-get-prev($key, by);
+        $perpage: ro-get-next($key, by);
+      } @else if type-of($val) == number {
+        @if unitless($val) {
+          $items: $val;
+        } @else {
+          $gutter: $val;
+        }
+      }
+    }
+  }
+
+  $half: 0;
+  $pages: $items - $perpage + 1;
+  $prefix: get-slider-selector(&);
+  $id: "#" + $prefix;
+  @if $center and $perpage > 1 { 
+    $half: (1 / ($perpage * 2)); 
+  }
+
+  @at-root (without: media) { 
+    // set basic inner, controls, dots styles
+    position: relative;
+    img { width: 100%; }
+    > input { display: none; }
+    .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
+    .outer {
+      overflow: hidden;
+      li {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        letter-spacing: 0;
+        box-sizing: border-box;
+      }
+    }
+    .inner {
+      @include clearfix();
+      position: relative;
+      left: 0;
+      letter-spacing: -0.34em;
+      white-space: nowrap;
+      transition: all 1s ease 0s;
+    }
+    // .item { position: relative; }
+    .info, .controls, .dots, .autoplay { 
+      position: absolute; 
+      z-index: nth($ro-slider-z-index, 1);
+    }
+    .info { 
+      bottom: 20px;
+      z-index: nth($ro-slider-z-index, 2);
+    }
+    .controls {
+      top: 50%;
+      width: 100%;
+      box-sizing: border-box;
+      span { display: none; }
+    }
+    .dots {
+      width: 100%;
+      text-align: center;
+      label { display: inline-block; }
+    }
+    .autoplay {
+      left: 50%;
+      top: 50%;
+    }
+    [autoheight-carousel] {
+      -webkit-transition: height 0.3s ease 0s;
+      transition: height 0.3s ease 0s;
+    }
+
+    @at-root {
+      // active dots
+      @for $i from 1 through $items {
+        #{$id}-#{$i}:checked ~ {
+            .dots label:nth-child(#{$i}) .active { display: block; }
+            .dots label:nth-child(#{$i}) .normal { display: none; }
+        }
+      }
+    }
+
+    // set default controls, dots and autoplay styles
+    @if $default {
+      .controls {
+        margin-top: -23px;
+        span {
+          position: absolute;
+          width: 40px;
+          height: 46px;
+          opacity: 0.4;
+          transition: all 1s ease 0s;
+          &:before {
+            font-family: 'icon-font';
+            font-size: 40px;
+          }
+          &:hover { opacity: 0.8; }
+        }
+        .prev {
+          left: 0;
+          margin-left: -60px;
+          &:before { content: 'n'; }
+        }
+        .next {
+          right: 0;
+          margin-right: -60px;
+          &:before { content: 'm'; }
+        }
+      }
+      .dots {
+        label, span {
+          display: inline-block;
+          vertical-align: top;
+        }
+        label {
+          padding: 12px 3px 0px;
+          &:hover .normal { background-color: #5a5a5a; }
+        }
+        span {
+          width: 9px;
+          height: 9px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          transition: all 1s ease 0s;
+        }
+        .active { background-color: #5a5a5a; display: none; }
+      }
+      @if $autoplay {
+        .autoplay {
+          opacity: 0;
+          margin-top: -25px;
+          transition: all 1s ease 0s;
+          .no-opacity & { display: none; }
+          .no-cssanimations & { display: none !important; }
+          label:before {
+            display: inline-block;
+            font-family: 'icon-font';
+            content: 'U';
+            font-size: 45px;
+            color: #fff;
+            width: 45px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+          }
+        }
+        &:hover .autoplay { 
+          opacity: 0.8; 
+          .no-opacity & { display: block; } 
+        }
+        // hide dots when autoplay
+        #{$id}-autoplay:checked ~ .dots { 
+          display: none; 
+          .no-cssanimations & { display: block !important; }
+        }
+      }
+    }
+  }
+
+  // container and items
+  .outer {
+    @if $perpage != 1 { li { width: percentage(1/$perpage) } }
+    @if $gutter and $gutter != 0 {
+      @if not $center { margin: 0 (- $gutter); }
+      .item { margin: 0 $gutter; }
+    }
+  }
+  // set inner
+  @for $i from 1 through $items {
+    @at-root {
+      #{$id}-#{$i}:checked ~ {
+        .outer .inner { 
+          @if ($i / $perpage) >= floor($items / $perpage) and 
+              ($i / $perpage) < ceil($items / $perpage) {
+            left: - percentage(($items / $perpage) - 1 - $half);
+          }
+          @else {
+            left: - percentage(($i - 1) / $perpage + $half); 
+          }
+        }
+      }
+    }
+  }
+
+  // hide extra dots
+  @if not $slide-by-page {
+    @if $center {
+      .dots label:nth-child(n + #{$pages}) { display: none; }
+    } @else {
+      .dots label:nth-child(n + #{$pages + 1}) { display: none; }
+    }
+  }
+
+  // set autoplay animation
+  @if $autoplay {
+    @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; } }
+
+    $left-val: 0;
+    $frames: 1;
+    @if $slide-by-page == true { $frames: ceil($items/$perpage); }
+    @else { $frames: $items + 1 - $perpage; }
+    $unit: (100/($ro-slider-peritem * $frames));
+
+    @include keyframes(#{$prefix}-inner) {
+      @for $i from 1 through $frames {
+        @if $slide-by-page == true {
+          @if (- ($i - 1) * 100%) < percentage(1 - $items / $perpage) {
+            $left-val: percentage(1 - $items / $perpage);
+          }
+          @else { $left-val: (- ($i - 1) * 100%);}
+
+          #{percentage((($i - 1) * $ro-slider-peritem) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $ro-slider-peritem - $ro-slider-play) * $unit / 100)} { left: $left-val; }
+        }
+        @else { 
+          $left-val: percentage(- ($i - 1) / $perpage);
+
+          #{percentage((($i - 1) * $ro-slider-peritem) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $ro-slider-peritem - $ro-slider-play) * $unit / 100)} { left: $left-val; }
+        }
+      }
+      100% { left: 0; }
+    }
+    @at-root {
+      #{$id}-autoplay:checked ~ {
+        .outer .inner { @include animation(#{$prefix}-inner $ro-slider-peritem * $frames ease infinite); }
+        .controls { 
+          display: none !important; 
+          .no-cssanimations & { display: block !important; }
+        }
+      }
+    }
+  }
+  @else { .autoplay { display: none !important; } }
+
+  // set controls
+  @at-root {
+    @for $i from 1 through $items {
+      #{$id}-#{$i}:checked ~ {
+        .controls label:nth-child(n+1) { display: none; }
+        @if $slide-by-page == true {
+          // prev
+          @if $i == 1 {
+            .controls label:nth-child(#{$items - $perpage + 1}),
+            .controls label:nth-child(#{$items - $perpage + 1}) .prev { display: block; }
+          }
+          @else if $i > 1 and $i <= $perpage {
+            .controls label:nth-child(1),
+            .controls label:nth-child(1) .prev { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - $perpage}),
+            .controls label:nth-child(#{$i - $perpage}) .prev { display: block; }
+          }
+          // next
+          @if $i >= ($items - $perpage + 1) {
+            .controls label:nth-child(1),
+            .controls label:nth-child(1) .next { display: block; }
+          }
+          @else if $i > ($items - $perpage * 2 + 1) and $i < ($items - $perpage + 1) {
+            .controls label:nth-child(#{$items - $perpage + 1}),
+            .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i + $perpage}),
+            .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
+          }
+        }
+        @else if $center == true {
+          @if $i == 1 {
+            .controls label:nth-child(#{$pages}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$pages}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i < ($pages - 1 ) {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(1),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
+          }
+        }
+        @else {
+          @if $i == 1 {
+            .controls label:nth-child(#{$pages}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$pages}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i < $pages {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(1),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
+          }
+        }
+      }
+    }
+  }
+
+}

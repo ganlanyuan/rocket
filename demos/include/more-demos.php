@@ -19,6 +19,8 @@
     <a <?php if ($pagename == 'components-checkbox' ) { echo 'class="current"'; } ?> href="components-checkbox.php">checkbox</a>
     <a <?php if ($pagename == 'components-tooltip' ) { echo 'class="current"'; } ?> href="components-tooltip.php">tooltip</a>
     <a <?php if ($pagename == 'components-flex-video' ) { echo 'class="current"'; } ?> href="components-flex-video.php">flex-video</a>
+    <a <?php if ($pagename == 'components-slider-carousel' ) { echo 'class="current"'; } ?> href="components-slider-carousel.php">slider-carousel</a>
+    <a <?php if ($pagename == 'components-slider-gallery' ) { echo 'class="current"'; } ?> href="components-slider-gallery.php">slider-gallery</a>
   </nav>
   <h4>addons</h4>
   <nav class="demo-links">

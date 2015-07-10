@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" href="css/test.css">
+  <script src="js/index.min.js"></script>
 </head>
 <body>
 
@@ -38,17 +39,7 @@
       <li>Nesciunt rerum, sunt ullam alias?</li>
     </ul>
   </div>
-  <ul class="gallery">
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-    <li><img src="http://placehold.it/500x300" alt=""></li>
-  </ul>
-  <div class="footer">footer</div>
+  <div class="sticky"><img src="http://placehold.it/300x200" alt=""></div>
 </div>
   
 </body>

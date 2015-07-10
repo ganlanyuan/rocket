@@ -87,62 +87,7 @@ body {
   left: 0;
 }
 
-.gallery {
-  clear: both;
-}
-
-@media (min-width: 40em) {
-  .gallery {
-    margin-left: -1%;
-    margin-right: -1%;
-  }
-  .gallery:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  .gallery:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  .gallery > * {
-    width: 33.3333333333%;
-    float: left;
-    box-sizing: border-box;
-    padding: 0 1% 2%;
-  }
-  .gallery > *:nth-child(3n+1) {
-    clear: both;
-  }
-  .gallery > *:nth-child(3n+2) {
-    clear: none;
-  }
-  .gallery > *:nth-child(3n+3) {
-    clear: none;
-  }
-}
-
-@media (min-width: 61.25em) {
-  .gallery:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  .gallery > * {
-    width: 25%;
-  }
-  .gallery > *:nth-child(4n+1) {
-    clear: both;
-  }
-  .gallery > *:nth-child(4n+2) {
-    clear: none;
-  }
-  .gallery > *:nth-child(4n+3) {
-    clear: none;
-  }
-  .gallery > *:nth-child(4n+4) {
-    clear: none;
-  }
+.red {
+  border: 1px solid red;
 }
 /*# sourceMappingURL=test.css.map */

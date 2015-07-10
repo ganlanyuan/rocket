@@ -33,16 +33,4 @@ $main-left: (9 of 12);
   @extend %common;
   @include span(4 of 12 last);
 }
-.gallery {
-  clear: both;
-}
-@include breakpoint('min' em(640px) ) {
-  .gallery {
-    @include gallery(3);
-  }
-}
-@include breakpoint('min' em(980px) ) {
-  .gallery {
-    @include gallery(4 keep);
-  }
-}
+.red { border: 1px solid red; }

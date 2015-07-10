@@ -1,0 +1,239 @@
+// *** slider-gallery *** //
+@mixin slider-gallery($key){
+  $items: 1;
+  $ratio: 9/16; 
+  $autoplay: false;
+  $default: false;
+
+  @if type-of($key) == number {
+    $items: $key;
+  } @else if type-of($key) == list {
+    @if index($key, ratio) {
+      $ratio: get-next($key, ratio);
+      $key: reject($key, $ratio);
+    }
+    @if index($key, autoplay) {
+      $autoplay: true;
+    }
+    @if index($key, default) {
+      $default: true;
+    }
+
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
+      
+      @if type-of($val) == number {
+        $items: $val;
+      }
+    }
+  }
+
+  $prefix: get-slider-selector(&);
+  $id: "#" + $prefix;
+
+  @at-root (without: media) { // @at-root (without: media) start
+    // base
+    position: relative;
+    @at-root (without: media) {
+      img { width: 100%; }
+      > input { display: none; }
+      .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
+      .outer {
+        overflow: hidden;
+        li {
+          display: inline-block;
+          vertical-align: top;
+          width: 100%;
+          letter-spacing: 0;
+          box-sizing: border-box;
+        }
+      }
+      .inner {
+        @include clearfix();
+        position: relative;
+        left: 0;
+        letter-spacing: -0.34em;
+        white-space: nowrap;
+        transition: all 1s ease 0s;
+      }
+      // .item { position: relative; }
+      .info, .controls, .dots, .autoplay { 
+        position: absolute; 
+        z-index: nth($ro-slider-z-index, 1);
+      }
+      .info { 
+        bottom: 20px;
+        z-index: nth($ro-slider-z-index, 2);
+      }
+      .controls {
+        top: 50%;
+        width: 100%;
+        box-sizing: border-box;
+        span { display: none; }
+      }
+      .dots {
+        width: 100%;
+        text-align: center;
+        label { display: inline-block; }
+      }
+      .autoplay {
+        left: 50%;
+        top: 50%;
+      }
+    }
+    @at-root (without: media) {
+      .outer {
+        position: relative;
+        li { position: absolute; 
+          @include item-normal; 
+          width: 100%;
+          .no-opacity & { display: none; } 
+          transition: all 1s ease 0s;
+        }
+      }
+    }
+    .outer { padding-bottom: percentage($ratio); }
+
+    // setting items
+    @for $i from 1 through $items {
+      @at-root { 
+        #{$id}-#{$i}:checked ~ {
+          .outer li:nth-child(#{$i}) { 
+            @include item-active; 
+            .no-opacity & { display: block; } 
+          }
+        }
+      }
+    }
+
+    // setting controls
+    // default style
+    @if $default { 
+      .controls {
+        margin-top: -23px;
+        span {
+          position: absolute;
+          width: 40px;
+          height: 46px;
+          opacity: 0.4;
+          transition: all 1s ease 0s;
+          &:before {
+            font-family: 'icon-font';
+            font-size: 40px;
+          }
+          &:hover { opacity: 0.8; }
+        }
+        .prev {
+          left: 0;
+          margin-left: -60px;
+          &:before { content: 'n'; }
+        }
+        .next {
+          right: 0;
+          margin-right: -60px;
+          &:before { content: 'm'; }
+        }
+      }
+    }
+    // show and hide
+    @for $i from 1 through $items {
+      @at-root { 
+        #{$id}-#{$i}:checked ~ {
+          @if $i == 1 {
+            .controls label:nth-child(#{$items}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i == $items {
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+        }
+      }
+    }
+
+    // setting dots
+    @if $default == true { @extend %default-dots; }
+    @for $i from 1 through $items {
+      @at-root { 
+        #{$id}-#{$i}:checked ~ {
+        .dots label:nth-child(#{$i}) .active { display: block; }
+        .dots label:nth-child(#{$i}) .normal { display: none; }
+        }
+      }
+    }
+
+    // setting autoplay
+    @if $autoplay {
+      @if $default {
+        .autoplay {
+          opacity: 0;
+          margin-top: -25px;
+          transition: all 1s ease 0s;
+          .no-opacity & { display: none; }
+          .no-cssanimations & { display: none !important; }
+          label:before {
+            display: inline-block;
+            font-family: 'icon-font';
+            content: 'U';
+            font-size: 45px;
+            color: #fff;
+            width: 45px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+          }
+        }
+        &:hover .autoplay { 
+          opacity: 0.8; 
+          .no-opacity & { display: block; } 
+        }
+        @at-root { 
+          #{$id}-autoplay:checked ~ .autoplay { 
+            label:before { content: '1'; } 
+          }
+        }
+      }
+      // animation
+      @include keyframes(#{$prefix}) {
+        0% { @include item-normal; }
+        #{percentage($ro-slider-play / ($ro-slider-peritem * $items))} { @include item-active; }
+        #{percentage($ro-slider-peritem / ($ro-slider-peritem * $items))} { @include item-active; }
+        #{percentage(($ro-slider-play + $ro-slider-peritem) / ($ro-slider-peritem * $items))} { @include item-normal; }
+      }
+      @at-root { 
+        #{$id}-autoplay:checked ~ {
+          .controls, .dots { display: none !important; }
+          .outer li {
+            @include animation( #{$prefix} $ro-slider-peritem * $items ease infinite);
+            @for $i from 2 through $items {
+              &:nth-child(#{$i}) {
+                @include animation-delay(($ro-slider-peritem * ($i - 1)));
+              }
+            }
+          }
+        }
+      }
+      // pause on hover
+      // &:hover {
+      //   #{$id}-autoplay ~ .outer li { 
+      //     @include animation-play-state(paused); 
+      //   }
+      // }
+    }
+
+  } // @at-root (without: media) end
+}
+
+@mixin item-normal {
+  z-index: nth($ro-slider-z-index, 4); 
+  opacity: 0; 
+}
+@mixin item-active {
+  z-index: nth($ro-slider-z-index, 3); 
+  opacity: 1; 
+}

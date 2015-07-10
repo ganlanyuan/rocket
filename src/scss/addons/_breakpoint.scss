@@ -141,3 +141,9 @@
     }
   }
 }
+
+@mixin bp($key) {
+  @include breakpoint($key) {
+    @content;
+  };
+}
