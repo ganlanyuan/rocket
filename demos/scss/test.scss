@@ -15,22 +15,3 @@ body {
   background-color: #dbdbdb;
   margin-bottom: 20px;
 }
-$main:(8 of 12);
-$main-left: (9 of 12);
-.container { @include container(); }
-.main {
-  @include span($main 2%);
-  &-left,
-  &-right { @extend %common; }
-  @include breakpoint('min' 640 ) {
-    &-left { @include span($main-left (2% / span($main))); }
-    &-right { @include span(3 of 12 (2% / span($main)) last); }
-    .news { @include span(7 (2% / (span($main) * span($main-left)))); }
-    .popular { @include span(5 (2% / (span($main) * span($main-left))) last); }
-  }
-}
-.aside {
-  @extend %common;
-  @include span(4 of 12 last);
-}
-.red { border: 1px solid red; }
