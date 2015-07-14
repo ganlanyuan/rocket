@@ -7,5 +7,5 @@
 
 // *** components ***
 // @codekit-prepend "components/offcanvas.js"
-// @codekit-prepend "components/sticky.js"
+// codekit-prepend "components/sticky.js"
 // @codekit-prepend "components/equalizer.js"

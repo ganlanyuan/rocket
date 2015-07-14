@@ -1,3 +1,14 @@
+.container:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.container {
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
 ul, ol {
   margin: 0;
   padding: 0;
@@ -15,5 +26,70 @@ img {
 body {
   margin: 0;
   padding: 0;
+}
+
+header, footer {
+  margin-bottom: 10px;
+  height: 100px;
+  border: 1px solid #ccc;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 65em) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.wrapper {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #0080FF;
+}
+
+.wrapper:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.main {
+  float: left;
+  width: 66%;
+  margin-right: 2%;
+  left: 0;
+  height: 1000px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.aside {
+  float: left;
+  width: 32%;
+  left: 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.box {
+  margin: 10px;
+  height: 100px;
+  border: 1px solid #ccc;
+}
+
+.sticky {
+  border-color: #FF0080;
+}
+
+footer {
+  height: 900px;
 }
 /*# sourceMappingURL=test.css.map */

@@ -15,3 +15,38 @@ body {
   background-color: #dbdbdb;
   margin-bottom: 20px;
 }
+
+header, footer {
+  margin-bottom: 10px;
+  height: 100px;
+  border: 1px solid  #ccc;
+}
+.container { @include container(1000px 20px); }
+.wrapper {
+  @include clearfix();
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #0080FF;
+}
+.main {
+  @include span(8);
+  height: 1000px;
+  border: 1px solid  #ccc;
+  box-sizing: border-box;
+}
+.aside {
+  @include span(4 last);
+  border: 1px solid  #ccc;
+  box-sizing: border-box;
+}
+.box {
+  margin: 10px;
+  height: 100px;
+  border: 1px solid  #ccc;
+}
+.sticky {
+  border-color: #FF0080;
+}
+footer {
+  height: 900px;
+}
