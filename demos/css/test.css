@@ -28,10 +28,10 @@ body {
   padding: 0;
 }
 
-header, footer {
+.header, .footer {
   margin-bottom: 10px;
   height: 100px;
-  border: 1px solid #ccc;
+  background-color: #ccc;
 }
 
 .container {
@@ -50,9 +50,9 @@ header, footer {
 }
 
 .wrapper {
-  padding: 10px;
+  padding: 0 10px;
   margin-bottom: 10px;
-  border: 1px solid #0080FF;
+  background: #0080FF;
 }
 
 .wrapper:after {
@@ -67,8 +67,8 @@ header, footer {
   margin-right: 2%;
   left: 0;
   height: 1000px;
-  border: 1px solid #ccc;
   box-sizing: border-box;
+  background-color: #fff;
 }
 
 .aside {
@@ -82,14 +82,16 @@ header, footer {
 .box {
   margin: 10px;
   height: 100px;
-  border: 1px solid #ccc;
+  background-color: #ccc;
 }
 
 .sticky {
-  border-color: #FF0080;
+  height: 600px;
+  margin: 0.625em;
+  background-color: #FF0080;
 }
 
-footer {
+.footer {
   height: 900px;
 }
 /*# sourceMappingURL=test.css.map */

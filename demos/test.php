@@ -8,17 +8,29 @@
 </head>
 <body>
 <div class="container">
-  <header></header>
+  <div class="header"></div>
   <div class="wrapper">
     <div class="main"></div>
     <div class="aside">
       <div class="box"></div>
       <div class="box"></div>
-      <div class="box sticky"></div>
+      <div class="box sticky">
+        <ul>
+          <li>item-1</li>
+          <li>item-2</li>
+          <li>item-3</li>
+          <li>item-4</li>
+          <li>item-5</li>
+          <li>item-6</li>
+          <li>item-7</li>
+          <li>item-8</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <footer></footer>
+  <div class="footer"></div>
 </div>
   
+<div class="output" style="position: fixed; bottom:0; left: 10px; background-color: #fff"></div>
 </body>
 </html>

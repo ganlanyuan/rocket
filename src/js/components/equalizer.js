@@ -17,7 +17,7 @@ function equalizer(){
     for (var i = 0; i < args.length; i++) {
       k(args[i]).css('height', 'auto');
       heights.push(k(args[i]).outerHeight());
-    };
+    }
   }
 
   value = Math.max.apply(Math, heights) + 'px';
@@ -25,8 +25,8 @@ function equalizer(){
   if (len === 1) {
     args.css('height', value);
   } else{
-    for (var i = 0; i < args.length; i++) {
-      k(args[i]).css('height', value);
-    };
+    for (var j = 0; j < args.length; j++) {
+      k(args[j]).css('height', value);
+    }
   }
 }
