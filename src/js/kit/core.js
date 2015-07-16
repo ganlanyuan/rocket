@@ -301,12 +301,6 @@ k.prototype.keyup = function(fn) {
 	});
 };
 
-k.prototype.scroll = function(fn) {
-	return this.forEach(function (el) {
-		k.addEvent(el, 'scroll', fn);
-	});
-};
-
 // ========== DOM MANIPULATION ==========
 k.prototype.hide = function() {
 	return this.forEach(function (el) {
