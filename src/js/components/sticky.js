@@ -89,23 +89,23 @@ function getPxValue (val) {
   };
 })(window);
 
-ready(function () {
-	var header = k('.header');
-	sticky('.sticky', '.wrapper', '.header');
-	document.onscroll = function () {
-		if (k.win.ST() > 10) {
-			header.css({
-				'position': 'fixed',
-				'width': '1000px',
-				'top': '0',
-			});
-			k('body').css('padding-top', '130px');
-		} else{
-			header.css({
-				'position': 'static',
-				'width': 'auto',
-			});
-			k('body').css('padding-top', '0');
-		}
-	};
-});
+// ready(function () {
+// 	var header = k('.header');
+// 	sticky('.sticky', '.wrapper', '.header');
+// 	document.onscroll = function () {
+// 		if (k.win.ST() > 10) {
+// 			header.css({
+// 				'position': 'fixed',
+// 				'width': '1000px',
+// 				'top': '0',
+// 			});
+// 			k('body').css('padding-top', '130px');
+// 		} else{
+// 			header.css({
+// 				'position': 'static',
+// 				'width': 'auto',
+// 			});
+// 			k('body').css('padding-top', '0');
+// 		}
+// 	};
+// });

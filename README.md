@@ -32,6 +32,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
         |justify                    |checkbox
         |center                     |tooltip
                                     |flex-video
+                                    |switch
                                                
                                                 
      == addons ==                == color functions ==
@@ -435,6 +436,26 @@ $key: `$length`
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tabs.php)
 
+#### switch
+Pure css switch.   
+```` html
+<div class="switch">
+  <input type="checkbox" id="switch1" name="switch">
+  <label for="switch1"></label>
+</div>
+````
+```` scss
+@mixin switch()
+//pattern
+$key: `$size $active-color radius round`
+
+.switch { @include switch(30px #3DD754 round); }
+// $size: 30px (default 20px)
+// $active-color: #3DD754 (default #3DD754)
+// $round: true (default false)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-switch.php)
+
 #### push-toggle
 Pure css push toggle.   
 ```` html
@@ -446,6 +467,8 @@ Pure css push toggle.
 </div>
 ````
 ```` scss
+@mixin push-toggle()
+
 .your-tab-class { 
 
   // default style

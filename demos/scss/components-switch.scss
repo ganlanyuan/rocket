@@ -1,0 +1,24 @@
+@import 'demo-base';
+
+// *** components: switch *** //
+
+
+.switch {
+  margin: 20px auto;
+  text-align: center;
+  &.one {
+    @include switch(radius);
+  }
+  &.two {
+    @include switch(round 30px #C06EE1);
+  }
+
+  &-group {
+    margin-top: 50px;
+    text-align: center;
+    .switch-g {
+      @include switch(radius 20px #CC412F);
+      margin: 20px auto;
+    }
+  }
+}
