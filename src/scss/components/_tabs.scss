@@ -46,7 +46,7 @@
   // *** output *** //
   > [type="radio"] {
     position: absolute; 
-    left: -9999em;
+    left: -9999px;
   }
   @if $style == 'normal' {
     > .ro-panels > div {

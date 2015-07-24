@@ -1,76 +1,75 @@
-// @import 'demo-base';
+@import 'demo-base';
 
-// // *** slider: gallery *** //
-// .slider {
-//   // common
-//   > input { display: none; }
-//   .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
-//   .slider-labels {
-//     margin-bottom: 20px;
-//     text-align: center;
-//     .title { @include type(14px bold 1.3); margin: 0 0 .3em; }
-//     label { 
-//       @include button(13px '12px 22px' #d2d2d2 radius); 
-//       margin: 0 10px 10px 0;
-//       &:hover { background-color: $active;}
-//     }
-//   }
-//   .info { 
-//     padding: 10px; 
-//     @include visible(800px);
-//     h3 { margin-bottom: 0; }
-//   }
-//   %label-active {background-color: $active;}
-//   @at-root (without: media) { @extend %autoheight-gallery; }
-//   @at-root {
-//     @each $item in gallery-auto-play, gallery-auto-height, gallery-customise {
-//       [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
-//     }
-//     [class^="gallery-"], [class^="carousel-"] { 
-//       margin-left: auto; 
-//       margin-right: auto; 
-//       width: 80%;
-//       max-width: 1000px; 
-//       margin-bottom: 40px; 
-//       @extend %ro-global-transition; 
-//       [id*="-md"]:checked ~ & { max-width: 700px; }
-//       [id*="-sm"]:checked ~ & { max-width: 400px; }
-//     }
-//     @include breakpoint('max' 1178){
-//       .controls {
-//         .prev { margin-left: 10px !important; }
-//         .next { margin-right: 10px !important; }
-//       }
-//     }
+// *** slider: gallery *** //
+.slider {
+  // common
+  > input { position: absolute; left: -9999px; }
+  .slider-labels {
+    margin-bottom: 20px;
+    text-align: center;
+    .title { @include type(14px bold 1.3); margin: 0 0 .3em; }
+    label { 
+      @include button(13px '12px 22px' #d2d2d2 radius); 
+      margin: 0 10px 10px 0;
+      &:hover { background-color: $active;}
+    }
+  }
+  .info { 
+    padding: 10px; 
+    @include visible(800px);
+    h3 { margin-bottom: 0; }
+  }
+  %label-active {background-color: $active;}
+  @at-root (without: media) { @extend %autoheight-gallery; }
+  @at-root {
+    @each $item in gallery-auto-play, gallery-auto-height, gallery-customise {
+      [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
+    }
+    [class^="gallery-"], [class^="carousel-"] { 
+      margin-left: auto; 
+      margin-right: auto; 
+      width: 80%;
+      max-width: 1000px; 
+      margin-bottom: 40px; 
+      @extend %ro-global-transition; 
+      [id*="-md"]:checked ~ & { max-width: 700px; }
+      [id*="-sm"]:checked ~ & { max-width: 400px; }
+    }
+    @include breakpoint('max' 1178){
+      .controls {
+        .prev { margin-left: 10px !important; }
+        .next { margin-right: 10px !important; }
+      }
+    }
 
-//     // gallery
-//     .gallery-a, 
-//     .gallery-b,
-//     .gallery-c { display: none; }
-//     .gallery-a { @include slider-gallery(5 autoplay default); }
-//     .gallery-b { @include slider-gallery(5 default); }
-//     .gallery-c { @include slider-gallery(5 default); }
-//     [id="gallery-auto-play"]:checked ~ .gallery-a, 
-//     [id="gallery-auto-height"]:checked ~ .gallery-b,
-//     [id="gallery-customise"]:checked ~ .gallery-c { display: block; }
-//     .gallery-c {
-//       // setting item
-//       .outer { overflow: visible; }
-//       li { @include transform(scale(1.1)); }
-//       @for $i from 1 through 5 {
-//         #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
-//       }
-//       // setting .info
-//       .info { opacity: 0; margin-left: 0;
-//         -webkit-transition: all 1s $ro-global-bezier 0.5s;
-//         transition: all 1s $ro-global-bezier 0.5s;
-//        }
-//       @for $i from 1 through 5 {
-//         #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
-//           opacity: 1;
-//           margin-left: 20px;
-//         }
-//       }
-//     }
-//   }
-// }
+    // gallery
+    .gallery-a, 
+    .gallery-b,
+    .gallery-c { display: none; }
+    .gallery-a { @include slider-gallery(5 autoplay default); }
+    .gallery-b { @include slider-gallery(5 default); }
+    .gallery-c { @include slider-gallery(5 default); }
+    [id="gallery-auto-play"]:checked ~ .gallery-a, 
+    [id="gallery-auto-height"]:checked ~ .gallery-b,
+    [id="gallery-customise"]:checked ~ .gallery-c { display: block; }
+    .gallery-c {
+      // setting item
+      .outer { overflow: visible; }
+      li { @include transform(scale(1.1)); }
+      @for $i from 1 through 5 {
+        #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
+      }
+      // setting .info
+      .info { opacity: 0; margin-left: 0;
+        -webkit-transition: all 1s $ro-global-bezier 0.5s;
+        transition: all 1s $ro-global-bezier 0.5s;
+       }
+      @for $i from 1 through 5 {
+        #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
+          opacity: 1;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

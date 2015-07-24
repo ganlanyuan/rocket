@@ -8,13 +8,13 @@
     </div>
     <div class="content">
       <div class="slider">
-        <input type="radio" name="option-carousel" id="carousel-lg">
+        <input type="radio" name="option-carousel" id="carousel-lg" checked="">
         <input type="radio" name="option-carousel" id="carousel-md">
         <input type="radio" name="option-carousel" id="carousel-sm">
         <input type="radio" name="option-carousel" id="slide-by-page">
         <input type="radio" name="option-carousel" id="slider-center">
         <input type="radio" name="option-carousel" id="carousel-auto-play">
-        <input type="radio" name="option-carousel" id="carousel-auto-height" checked="">
+        <input type="radio" name="option-carousel" id="carousel-auto-height">
         <div class="slider-labels">
           <div>
             <div class="title">Options: </div>

@@ -4,6 +4,7 @@
   $ratio: 9/16; 
   $autoplay: false;
   $default: false;
+  $time: 3s;
 
   @if type-of($key) == number {
     $items: $key;
@@ -23,7 +24,11 @@
       $val: nth($key, $i);
       
       @if type-of($val) == number {
-        $items: $val;
+        @if unitless($val) {
+          $items: $val;
+        } @else if unit($val) == 's' {
+          $time: $val;
+        }
       }
     }
   }
@@ -36,23 +41,25 @@
     position: relative;
     @at-root (without: media) {
       img { width: 100%; }
-      > input { display: none; }
-      .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
+      & > input { position: absolute; left: -9999px; }
       .outer {
+        position: relative;
         overflow: hidden;
         li {
+          @include item-normal; 
+          position: absolute; 
           display: inline-block;
           vertical-align: top;
           width: 100%;
-          letter-spacing: 0;
           box-sizing: border-box;
+          transition: all 1s ease 0s;
+          .no-opacity & { display: none; } 
         }
       }
       .inner {
         @include clearfix();
         position: relative;
         left: 0;
-        letter-spacing: -0.34em;
         white-space: nowrap;
         transition: all 1s ease 0s;
       }
@@ -80,16 +87,8 @@
         left: 50%;
         top: 50%;
       }
-    }
-    @at-root (without: media) {
-      .outer {
-        position: relative;
-        li { position: absolute; 
-          @include item-normal; 
-          width: 100%;
-          .no-opacity & { display: none; } 
-          transition: all 1s ease 0s;
-        }
+      [autoheight-gallery] {
+        transition: padding-bottom 0.3s ease 0s;
       }
     }
     .outer { padding-bottom: percentage($ratio); }
@@ -201,18 +200,18 @@
       // animation
       @include keyframes(#{$prefix}) {
         0% { @include item-normal; }
-        #{percentage($ro-slider-play / ($ro-slider-peritem * $items))} { @include item-active; }
-        #{percentage($ro-slider-peritem / ($ro-slider-peritem * $items))} { @include item-active; }
-        #{percentage(($ro-slider-play + $ro-slider-peritem) / ($ro-slider-peritem * $items))} { @include item-normal; }
+        #{percentage($ro-slider-play / ($time * $items))} { @include item-active; }
+        #{percentage($time / ($time * $items))} { @include item-active; }
+        #{percentage(($ro-slider-play + $time) / ($time * $items))} { @include item-normal; }
       }
       @at-root { 
         #{$id}-autoplay:checked ~ {
           .controls, .dots { display: none !important; }
           .outer li {
-            @include animation( #{$prefix} $ro-slider-peritem * $items ease infinite);
+            @include animation( #{$prefix} ($time * $items) ease infinite);
             @for $i from 2 through $items {
               &:nth-child(#{$i}) {
-                @include animation-delay(($ro-slider-peritem * ($i - 1)));
+                @include animation-delay(($time * ($i - 1)));
               }
             }
           }

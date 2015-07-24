@@ -8,17 +8,17 @@
   $autoplay: false;
   $default: false;
 
-  @if type-of($key) == number {
+  @if type-of($key) == 'number' {
     $item: $key;
   } @else if type-of($key) == list {
     @for $i from 1 through length($key) {
       $val: nth($key, $i);
 
-      @if $val == bypage {
+      @if $val == 'bypage' {
         $slide-by-page: true;
       } @else if $val == center {
         $center: true;
-      } @else if $val == autoplay {
+      } @else if $val == 'autoplay' {
         $autoplay: true;
       } @else if $val == default {
         $default: true;
@@ -27,7 +27,7 @@
       @if index($key, by) {
         $items: ro-get-prev($key, by);
         $perpage: ro-get-next($key, by);
-      } @else if type-of($val) == number {
+      } @else if type-of($val) == 'number' {
         @if unitless($val) {
           $items: $val;
         } @else {
@@ -49,8 +49,7 @@
     // set basic inner, controls, dots styles
     position: relative;
     img { width: 100%; }
-    > input { display: none; }
-    .lt-ie9 & > input { display: inline-block; width: 0; height: 0; overflow: hidden; }
+    & > input { position: absolute; left: -9999px; }
     .outer {
       overflow: hidden;
       li {
@@ -94,7 +93,6 @@
       top: 50%;
     }
     [autoheight-carousel] {
-      -webkit-transition: height 0.3s ease 0s;
       transition: height 0.3s ease 0s;
     }
 
