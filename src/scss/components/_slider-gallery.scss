@@ -1,18 +1,13 @@
 // *** slider-gallery *** //
 @mixin slider-gallery($key){
   $items: 1;
-  $ratio: 9/16; 
   $autoplay: false;
   $default: false;
-  $time: 3s;
+  $time: 1s;
 
   @if type-of($key) == number {
     $items: $key;
   } @else if type-of($key) == list {
-    @if index($key, ratio) {
-      $ratio: get-next($key, ratio);
-      $key: reject($key, $ratio);
-    }
     @if index($key, autoplay) {
       $autoplay: true;
     }
@@ -47,51 +42,15 @@
         overflow: hidden;
         li {
           @include item-normal; 
-          position: absolute; 
-          display: inline-block;
-          vertical-align: top;
-          width: 100%;
           box-sizing: border-box;
-          transition: all 1s ease 0s;
-          .no-opacity & { display: none; } 
+          transition: opacity $time ease 0s;
         }
       }
-      .inner {
-        @include clearfix();
-        position: relative;
-        left: 0;
-        white-space: nowrap;
-        transition: all 1s ease 0s;
-      }
-      // .item { position: relative; }
-      .info, .controls, .dots, .autoplay { 
-        position: absolute; 
-        z-index: nth($ro-slider-z-index, 1);
-      }
-      .info { 
-        bottom: 20px;
-        z-index: nth($ro-slider-z-index, 2);
-      }
-      .controls {
-        top: 50%;
-        width: 100%;
-        box-sizing: border-box;
-        span { display: none; }
-      }
-      .dots {
-        width: 100%;
-        text-align: center;
-        label { display: inline-block; }
-      }
-      .autoplay {
-        left: 50%;
-        top: 50%;
-      }
+      .inner { position: relative; }
       [autoheight-gallery] {
-        transition: padding-bottom 0.3s ease 0s;
+        transition: height ($time / 2) ease 0s;
       }
     }
-    .outer { padding-bottom: percentage($ratio); }
 
     // setting items
     @for $i from 1 through $items {
@@ -99,7 +58,6 @@
         #{$id}-#{$i}:checked ~ {
           .outer li:nth-child(#{$i}) { 
             @include item-active; 
-            .no-opacity & { display: block; } 
           }
         }
       }
@@ -108,30 +66,56 @@
     // setting controls
     // default style
     @if $default { 
+      .controls, .dots, .autoplay { 
+        position: absolute; 
+        z-index: nth($ro-slider-z-index, 1);
+      }
       .controls {
         margin-top: -23px;
+        top: 50%;
+        width: 100%;
+        box-sizing: border-box;
         span {
           position: absolute;
           width: 40px;
           height: 46px;
           opacity: 0.4;
           transition: all 1s ease 0s;
-          &:before {
-            font-family: 'icon-font';
-            font-size: 40px;
-          }
+          display: none;
+          &:before { font-size: 40px; }
           &:hover { opacity: 0.8; }
         }
         .prev {
           left: 0;
           margin-left: -60px;
-          &:before { content: 'n'; }
+          &:before { content: '〈'; }
         }
         .next {
           right: 0;
           margin-right: -60px;
-          &:before { content: 'm'; }
+          &:before { content: '〉'; }
         }
+      }
+      .dots {
+        width: 100%;
+        text-align: center;
+        label { display: inline-block; }
+        label, span {
+          display: inline-block;
+          vertical-align: top;
+        }
+        label {
+          padding: 12px 3px 0px;
+          &:hover .normal { background-color: #5a5a5a; }
+        }
+        span {
+          width: 9px;
+          height: 9px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          transition: all 1s ease 0s;
+        }
+        .active { background-color: #5a5a5a; display: none; }
       }
     }
     // show and hide
@@ -155,7 +139,6 @@
     }
 
     // setting dots
-    @if $default == true { @extend %default-dots; }
     @for $i from 1 through $items {
       @at-root { 
         #{$id}-#{$i}:checked ~ {
@@ -169,31 +152,24 @@
     @if $autoplay {
       @if $default {
         .autoplay {
-          opacity: 0;
-          margin-top: -25px;
-          transition: all 1s ease 0s;
-          .no-opacity & { display: none; }
+          @include opacity(0);
+          transition: opacity 1s ease 0s;
           .no-cssanimations & { display: none !important; }
           label:before {
             display: inline-block;
-            font-family: 'icon-font';
-            content: 'U';
-            font-size: 45px;
-            color: #fff;
-            width: 45px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            border-radius: 50%;
+            content: '▶';
+            font-size: 24px;
+            width: 24px;
+            height: 30px;
+            line-height: 30px;
           }
         }
         &:hover .autoplay { 
-          opacity: 0.8; 
-          .no-opacity & { display: block; } 
+          @include opacity(0.8);
         }
         @at-root { 
           #{$id}-autoplay:checked ~ .autoplay { 
-            label:before { content: '1'; } 
+            label:before { content: '▉'; } 
           }
         }
       }
@@ -229,10 +205,13 @@
 }
 
 @mixin item-normal {
+  @include opacity(0); 
+  position: absolute;
+  top: 0;
   z-index: nth($ro-slider-z-index, 4); 
-  opacity: 0; 
 }
 @mixin item-active {
+  @include opacity(1); 
+  position: static;
   z-index: nth($ro-slider-z-index, 3); 
-  opacity: 1; 
 }

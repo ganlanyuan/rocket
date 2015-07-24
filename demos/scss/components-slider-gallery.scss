@@ -15,8 +15,10 @@
     }
   }
   .info { 
-    padding: 10px; 
     @include visible(800px);
+    position: absolute;
+    padding: 10px; 
+    bottom: 20px;
     h3 { margin-bottom: 0; }
   }
   %label-active {background-color: $active;}
@@ -55,7 +57,10 @@
     .gallery-c {
       // setting item
       .outer { overflow: visible; }
-      li { @include transform(scale(1.1)); }
+      li { 
+        @include transform(scale(1.1)); 
+        transition: all 1s ease 0s;
+      }
       @for $i from 1 through 5 {
         #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
       }

@@ -603,6 +603,113 @@ $key: $style $direction $offcanvas-width $cover-bg
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-offcanvas.php)
 
+## Pure CSS Sliders
+A pure CSS responsive slider with previous/next buttons, nav dots, autoplay(IE8- are not supported), autoheight and more. It works well on modern browsers and IE8+, but it doesn't support loop and lazyload for now.
+#### markup
+
+First, set a specific class (or ID) for each slider.   
+Then, use this class (or id) to set up the radio names and IDs as well as labels.   
+In the example shows on the left, I used banner as my specific class.   
+```` html
+<div class="banner">
+  <input type="radio" name="banner" id="banner-1" checked="">
+  <input type="radio" name="banner" id="banner-2">
+  <input type="radio" name="banner" id="banner-3">
+  <input type="radio" name="banner" id="banner-4">
+  <input type="radio" name="banner" id="banner-5">
+  <input type="checkbox" name="banner-autoplay" id="banner-autoplay" checked="">
+  <div class="outer">
+    <ul class="inner">
+      <li> slider01 </li>
+      <li> slider02 </li>
+      <li> slider03 </li>
+      <li> slider04 </li>
+      <li> slider05 </li>
+    </ul>
+  </div>
+  <div class="controls">
+    <label for="banner-1"><span class="prev"></span><span class="next"></span></label>
+    <label for="banner-2"><span class="prev"></span><span class="next"></span></label>
+    <label for="banner-3"><span class="prev"></span><span class="next"></span></label>
+    <label for="banner-4"><span class="prev"></span><span class="next"></span></label>
+    <label for="banner-5"><span class="prev"></span><span class="next"></span></label>
+  </div>
+  <div class="dots">
+    <label for="banner-1"><span class="normal"></span><span class="active"></span></label>
+    <label for="banner-2"><span class="normal"></span><span class="active"></span></label>
+    <label for="banner-3"><span class="normal"></span><span class="active"></span></label>
+    <label for="banner-4"><span class="normal"></span><span class="active"></span></label>
+    <label for="banner-5"><span class="normal"></span><span class="active"></span></label>
+  </div>
+  <div class="autoplay"><label for="banner-autoplay"><span></span></label></div>
+</div>
+````
+
+#### slider-gallery
+```` html
+// basic
+@include slider-gallery($key);
+// pattern
+$key: $items $time (ratio $ratio) autoplay default;
+
+.slider { @include slider-gallery(5 3s autoplay default); }
+// items: 5;
+// time: 3s;
+// ratio: 9/16; (default) 
+// autoplay: true;
+// default: true; (default styles for controls and dots)
+
+// customise dots and controls
+.slider .dots .normal { ... }
+.slider .dots .active { ... }
+.slider .controls .prev { ... }
+.slider .controls .next { ... }
+
+// customise items
+.slider {
+  .outer { overflow: visible; }
+  li { @include transform(scale(1.1)); }
+  @for $i from 1 through 5 {
+    #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
+  }
+}
+````
+*Autoheight*
+Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+```` html
+<!-- include kit.js -->
+<script src="path/to/kit.min.js"></script>
+
+<!-- add "autoheight-gallery" attribute -->
+<div class="outer" autoheight-gallery></div>
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-slider-gallery.php)
+
+#### slider-carousel
+```` scss
+// basic
+@mixin slider-carousel($key);
+// pattern
+$key: ($items by $perpage) $gutter bypage center autoplay default;
+
+.slider { @include slider-carousel(5 by 2 bypage default); }
+// items: 5;
+// perpage: 2;
+// gutter: 10px; (default)
+// slide-by-page: true;
+// default: true; (default styles for controls and dots)
+````
+
+*Autoheight*
+Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+```` html
+<!-- include kit.js -->
+<script src="path/to/kit.min.js"></script>
+
+<!-- add "autoheight-carousel" attribute -->
+<div class="outer" autoheight-carousel></div>
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-slider-carousel.php)
 
 #【 Addons 】
 #### type

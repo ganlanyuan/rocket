@@ -56,41 +56,16 @@
         display: inline-block;
         vertical-align: top;
         width: 100%;
-        letter-spacing: 0;
+        font-size: 16px;
         box-sizing: border-box;
       }
     }
     .inner {
       @include clearfix();
       position: relative;
-      left: 0;
-      letter-spacing: -0.34em;
+      font-size: 0;
       white-space: nowrap;
-      transition: all 1s ease 0s;
-    }
-    // .item { position: relative; }
-    .info, .controls, .dots, .autoplay { 
-      position: absolute; 
-      z-index: nth($ro-slider-z-index, 1);
-    }
-    .info { 
-      bottom: 20px;
-      z-index: nth($ro-slider-z-index, 2);
-    }
-    .controls {
-      top: 50%;
-      width: 100%;
-      box-sizing: border-box;
-      span { display: none; }
-    }
-    .dots {
-      width: 100%;
-      text-align: center;
-      label { display: inline-block; }
-    }
-    .autoplay {
-      left: 50%;
-      top: 50%;
+      transition: left 1s ease 0s;
     }
     [autoheight-carousel] {
       transition: height 0.3s ease 0s;
@@ -108,32 +83,39 @@
 
     // set default controls, dots and autoplay styles
     @if $default {
+      .controls, .dots, .autoplay { 
+        position: absolute; 
+        z-index: nth($ro-slider-z-index, 1);
+      }
       .controls {
         margin-top: -23px;
+        top: 50%;
+        width: 100%;
+        box-sizing: border-box;
         span {
           position: absolute;
           width: 40px;
           height: 46px;
           opacity: 0.4;
           transition: all 1s ease 0s;
-          &:before {
-            font-family: 'icon-font';
-            font-size: 40px;
-          }
+          display: none;
+          &:before { font-size: 40px; }
           &:hover { opacity: 0.8; }
         }
         .prev {
           left: 0;
           margin-left: -60px;
-          &:before { content: 'n'; }
+          &:before { content: '〈'; }
         }
         .next {
           right: 0;
           margin-right: -60px;
-          &:before { content: 'm'; }
+          &:before { content: '〉'; }
         }
       }
       .dots {
+        width: 100%;
+        text-align: center;
         label, span {
           display: inline-block;
           vertical-align: top;
@@ -154,21 +136,16 @@
       @if $autoplay {
         .autoplay {
           opacity: 0;
-          margin-top: -25px;
-          transition: all 1s ease 0s;
+          transition: opacity 1s ease 0s;
           .no-opacity & { display: none; }
           .no-cssanimations & { display: none !important; }
           label:before {
             display: inline-block;
-            font-family: 'icon-font';
-            content: 'U';
-            font-size: 45px;
-            color: #fff;
-            width: 45px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            border-radius: 50%;
+            content: '▶';
+            font-size: 24px;
+            width: 24px;
+            height: 30px;
+            line-height: 30px;
           }
         }
         &:hover .autoplay { 
@@ -220,7 +197,7 @@
 
   // set autoplay animation
   @if $autoplay {
-    @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '1'; } }
+    @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '▉'; } }
 
     $left-val: 0;
     $frames: 1;
@@ -257,8 +234,9 @@
         }
       }
     }
+  } @else { 
+    .autoplay { display: none !important; } 
   }
-  @else { .autoplay { display: none !important; } }
 
   // set controls
   @at-root {

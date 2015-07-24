@@ -1,11 +1,6 @@
 // AUTO HEIGHT GALLERY
 ready(function () {
 
-  // get max
-  // function getMaxOfArray(numArray) {
-  //   return Math.max.apply(null, numArray);
-  // }
-
   var containers = k('[autoheight-gallery]');
 
   // autoheight-gallery
@@ -20,7 +15,7 @@ ready(function () {
           containerH = childH + 'px';
         }
       });
-      k(el).css('padding-bottom', containerH);
+      k(el).css('height', containerH);
     });
   }
   if (k('[autoheight-gallery]').length > 0) {

@@ -17,8 +17,10 @@
   }
   .item { position: relative; }
   .info { 
-    padding: 10px; 
     @include visible(800px);
+    position: absolute;
+    bottom: 20px;
+    padding: 10px; 
     h3 { margin-bottom: 0; }
   }
   %label-active {background-color: $active;}
