@@ -1,5 +1,8 @@
 # Changelog
 
+### v2.4.0
++ Add mixin `slider-carousel`, `slider-gallery`
+
 ### v2.3.0
 + Add mixin `tabs`, `tabs-active`, `tabs-panel-active`.
 + Add mixin `checkbox`, `checkbox-active`.
