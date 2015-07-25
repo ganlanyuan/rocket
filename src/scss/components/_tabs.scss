@@ -55,13 +55,11 @@
   } @else if $style == 'carousel' {
     overflow-x: hidden;
     > .ro-panels {
-      @at-root (without: media) {
-        @extend %ro-clearfix;
-        @extend %ro-global-transition;
-      }
+      @include clearfix();
       position: relative;
       left: 0;
       width: (100% * $length);
+      transition: all $ro-global-animation-duration $ro-global-bezier;
       > div {
         float: left;
         width: percentage(1 / $length);
