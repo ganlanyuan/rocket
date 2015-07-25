@@ -56,8 +56,9 @@
     cursor: pointer;
   }
   // hide checkbox. 
-  > [type='checkbox'] { 
-    @at-root (without:media) { @extend %ro-hidden-checkbox; }
+  > input { 
+    position: absolute;
+    left: -9999px;
   }
 
   // add more hover space
