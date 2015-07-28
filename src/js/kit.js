@@ -1,11 +1,14 @@
 // *** base ***
-// @codekit-prepend "kit/core.js"
-// @codekit-prepend "kit/reach.js"
-// @codekit-prepend "kit/scrollTo.js"
-// @codekit-prepend "kit/numIncrease.js"
-// @codekit-prepend "kit/animate.js"
+// @codekit-prepend "base/ready.js"
+// @codekit-prepend "base/helper.js"
+// @codekit-prepend "base/extensions.js"
+// @codekit-prepend "base/core.js"
 
 // *** components ***
+// @codekit-prepend "components/reach.js"
+// @codekit-prepend "components/scrollTo.js"
+// @codekit-prepend "components/numIncrease.js"
+// @codekit-prepend "components/animate.js"
 // @codekit-prepend "components/autoheight-carousel.js"
 // @codekit-prepend "components/autoheight-gallery.js"
 // @codekit-prepend "components/offcanvas.js"

@@ -1,3 +1,4 @@
+// get px value
 function getPxValue (val) {
 	var unit = val.match(/\D+$/),
 			valPx;
@@ -10,9 +11,27 @@ function getPxValue (val) {
 	return valPx;
 }
 
+// bind window scroll
+function winScroll (fn) {
+	if (typeof addEventListener !== "undefined") {
+		window.addEventListener('scroll', fn, false);
+	} else if (typeof attachEvent !== "undefined") {
+		window.attachEvent('onscroll', fn);
+	}
+}
+
+// bind window load
+function winLoad (fn) {
+	if (typeof addEventListener !== "undefined") {
+		window.addEventListener('load', fn, false);
+	} else if (typeof attachEvent !== "undefined") {
+		window.attachEvent('onload', fn);
+	}
+}
+
 (function (window, undefined) {
   sticky = function(sticky, stickyP, stkT) {
-  	window.onload = function () {
+  	winLoad(function () {
 			var winH = k.win.H(),
 					stk = k(sticky),
 			    parent = k(stickyP),
@@ -27,7 +46,7 @@ function getPxValue (val) {
 					T2,
 					B1,
 					B2;
-			window.onscroll = function () {
+			winScroll(function() {
 				(typeof stkT === 'number') ? stkT = stkT: stkT = k(stkT).outerHeight();
 
 				var winST = k.win.ST();
@@ -84,28 +103,29 @@ function getPxValue (val) {
 						});
 					}
 				}
-			};
-  	};
+			});
+  	});
   };
 })(window);
 
-// ready(function () {
-// 	var header = k('.header');
-// 	sticky('.sticky', '.wrapper', '.header');
-// 	document.onscroll = function () {
-// 		if (k.win.ST() > 10) {
-// 			header.css({
-// 				'position': 'fixed',
-// 				'width': '1000px',
-// 				'top': '0',
-// 			});
-// 			k('body').css('padding-top', '130px');
-// 		} else{
-// 			header.css({
-// 				'position': 'static',
-// 				'width': 'auto',
-// 			});
-// 			k('body').css('padding-top', '0');
-// 		}
-// 	};
-// });
+
+ready(function () {
+	var header = k('.header');
+	sticky('.sticky', '.wrapper', '.header');
+	window.onscroll = function() {
+		if (k.win.ST() > 10) {
+			header.css({
+				'position': 'fixed',
+				'width': '1000px',
+				'top': '0',
+			});
+			k('body').css('padding-top', '130px');
+		} else{
+			header.css({
+				'position': 'static',
+				'width': 'auto',
+			});
+			k('body').css('padding-top', '0');
+		}
+	};
+});

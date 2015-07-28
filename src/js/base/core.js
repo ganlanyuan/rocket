@@ -5,9 +5,6 @@
 // outerWidth outerHeight getTop getLeft offset(left top)
 // before after append prepend
 
-// READY
-// HELPER FUNCTIONS
-// LANGUAGE EXTENSIONS
 // KIT START
 // DOM MANIPULATION
 // HANDLE ATTR
@@ -16,78 +13,6 @@
 // HANDLE NODE
 // GET ELEMENT SIZE
 // GET WINDOW SIZE
-
-// ========== READY ==========
-// Author: Diego Perini (diego.perini at gmail.com)
-// Summary: cross-browser wrapper for DOMContentLoaded
-// URL: https://github.com/dperini/ContentLoaded/blob/master/src/contentloaded.js
-function ready(fn) {
-	var win = window, 
-	done = false, 
-	top = true,
-	doc = win.document,
-	root = doc.documentElement,
-	modern = doc.addEventListener,
-	add = modern ? 'addEventListener' : 'attachEvent',
-	rem = modern ? 'removeEventListener' : 'detachEvent',
-	pre = modern ? '' : 'on',
-	init = function(e) {
-		if (e.type === 'readystatechange' && doc.readyState !== 'complete') {return;}
-		(e.type === 'load' ? win : doc)[rem](pre + e.type, init, false);
-		if (!done && (done = true)) {fn.call(win, e.type || e);}
-	},
-	poll = function() {
-		try { root.doScroll('left'); } catch(e) { setTimeout(poll, 50); return; }
-		init('poll');
-	};
-	if (doc.readyState === 'complete') { fn.call(win, 'lazy'); }
-	else {
-		if (!modern && root.doScroll) {
-			try { top = !win.frameElement; } catch(e) { }
-			if (top) { poll(); }
-		}
-		doc[add](pre + 'DOMContentLoaded', init, false);
-		doc[add](pre + 'readystatechange', init, false);
-		win[add](pre + 'load', init, false);
-	}
-}
-
-// ========== HELPER FUNCTIONS ==========
-function toCamelCase(str) {
-	return str.replace(/-([a-z])/ig, function( all, letter ) {
-		return letter.toUpperCase();
-	});
-}
-
-var getStyle = (function() {
-	if (typeof getComputedStyle !== "undefined") {
-		return function(el, cssProp) {
-			return window.getComputedStyle(el, null).getPropertyValue(cssProp);
-		};
-	} else {
-		return function(el, cssProp) {
-			return el.currentStyle[toCamelCase(cssProp)];
-		};
-	}
-}());
-
-// ========== LANGUAGE EXTENSIONS ==========
-if (typeof String.prototype.trim === "undefined") {
-	String.prototype.trim = function() {
-		return this.replace( /^\s+/, "" ).replace( /\s+$/, "" );
-	};
-}
-
-if (typeof Array.prototype.indexOf !== 'function') {
-	Array.prototype.indexOf = function (item) {
-		for(var i = 0; i < this.length; i++) {
-			if (this[i] === item) {
-				return i;
-			}
-		}
-		return -1;
-	}; 
-}
 
 // ========== KIT START ==========
 // (function (window, undefined) {
