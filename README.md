@@ -993,3 +993,16 @@ document.onload = function  () {
 animate(el, attr, from, to, duration);
 animate(k('.target'), 'left', 0, 20, 400);
 ````
+
+#### equalizer
+```` javascript
+equalizer('.item1', '.item2');
+equalizer('.gallery li');
+````
+
+#### sticky
+```` javascript
+sticky(sticky, sticky_container, distance_to_window_top);
+sticky('.sticky', '.wrapper', '.header');
+sticky('.sticky', '.wrapper', 20);
+````

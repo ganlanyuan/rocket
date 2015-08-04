@@ -11,44 +11,4 @@ body {
   margin: 0;
   padding: 0;
 }
-%common {
-  background-color: #dbdbdb;
-  margin-bottom: 20px;
-}
-
-.header, .footer {
-  margin-bottom: 10px;
-  height: 100px;
-  background-color: #ccc;
-}
 .container { @include container(1000px 20px); }
-.wrapper {
-  @include clearfix();
-  padding: 0 10px;
-  margin-bottom: 10px;
-  background: #0080FF;
-}
-.main {
-  @include span(8);
-  height: 1000px;
-  box-sizing: border-box;
-  background-color: #fff;
-}
-.aside {
-  @include span(4 last);
-  border: 1px solid  #ccc;
-  box-sizing: border-box;
-}
-.box {
-  margin: 10px;
-  height: 100px;
-  background-color: #ccc;
-}
-.sticky {
-  height: 600px;
-  margin: em(10);
-  background-color: #FF0080;
-}
-.footer {
-  height: 900px;
-}

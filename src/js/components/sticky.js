@@ -1,38 +1,11 @@
-// get px value
-function getPxValue (val) {
-	var unit = val.match(/\D+$/),
-			valPx;
-	if (unit === 'em') {
-		valPx = Math.round(val.replace(/[A-Za-z]+/, '') * 16);
-	} else {
-		valPx = val.replace(/[A-Za-z]+/, '');
-	}
-
-	return Number(valPx);
-}
-
-// bind window scroll
-function winScroll (fn) {
-	if (typeof addEventListener !== "undefined") {
-		window.addEventListener('scroll', fn, false);
-	} else if (typeof attachEvent !== "undefined") {
-		window.attachEvent('onscroll', fn);
-	}
-}
-
-// bind window load
-function winLoad (fn) {
-	if (typeof addEventListener !== "undefined") {
-		window.addEventListener('load', fn, false);
-	} else if (typeof attachEvent !== "undefined") {
-		window.attachEvent('onload', fn);
-	}
-}
+// sticky('.sticky', '.wrapper', '.header');
+// sticky('.sticky', '.wrapper', 20);
 
 (function (window, undefined) {
   sticky = function(sticky, stickyP, stkT) {
+  	var STKMB = getPxValue(k(sticky).getCurrentStyle('marginBottom'));
 
-  	winLoad(function () {
+  	var stickyCore = function () {
 			var stk = k(sticky),
 			    parent = k(stickyP),
 					T1,
@@ -53,6 +26,7 @@ function winLoad (fn) {
 
 				var winST = k.win.ST();
 
+				// window shorter than sticky
 				if ((stkH + stkT) > winH) {
 					T1 = B1 = winST + winH;
 					T2 = stkOT + stkH;
@@ -69,7 +43,7 @@ function winLoad (fn) {
 						parent.css('position', 'relative');
 						stk.css({
 							'position': 'absolute',
-							'margin-bottom': stkMB + 'px',
+							'margin-bottom': STKMB + 'px',
 						});
 					} else {
 						parent.css('position', 'static');
@@ -77,8 +51,10 @@ function winLoad (fn) {
 							'position': 'static',
 							'bottom': 'auto',
 							'width': 'auto',
+							'margin-bottom': STKMB + 'px',
 						});
 					}
+				// window higher than sticky
 				} else {
 					T1 = winST + stkT + stkMT;
 					T2 = stkOT;
@@ -107,29 +83,13 @@ function winLoad (fn) {
 					}
 				}
 			});
+  	};
+
+  	winLoad(function () {
+  		stickyCore();
+  	});
+  	winResize(function () {
+  		stickyCore();
   	});
   };
 })(window);
-
-
-ready(function () {
-	var header = k('.header');
-	sticky('.sticky', '.wrapper', '.header');
-	window.onscroll = function() {
-		if (k.win.ST() > 10) {
-			header.css({
-				'position': 'fixed',
-				'width': '1000px',
-				'top': '0',
-				'z-index': '2',
-			});
-			k('body').css('padding-top', '110px');
-		} else{
-			header.css({
-				'position': 'static',
-				'width': 'auto',
-			});
-			k('body').css('padding-top', '0');
-		}
-	};
-});

@@ -8,19 +8,6 @@
 </head>
 <body>
 <div class="container">
-  <div class="header"></div>
-  <div class="wrapper">
-    <div class="main"></div>
-    <div class="aside">
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box sticky">
-      </div>
-    </div>
-  </div>
-  <div class="footer"></div>
 </div>
-  
-<div class="output" style="position: fixed; bottom:0; left: 10px; background-color: #fff"></div>
 </body>
 </html>

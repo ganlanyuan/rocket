@@ -28,12 +28,6 @@ body {
   padding: 0;
 }
 
-.header, .footer {
-  margin-bottom: 10px;
-  height: 100px;
-  background-color: #ccc;
-}
-
 .container {
   max-width: 1000px;
   margin-left: auto;
@@ -47,51 +41,5 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-}
-
-.wrapper {
-  padding: 0 10px;
-  margin-bottom: 10px;
-  background: #0080FF;
-}
-
-.wrapper:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.main {
-  float: left;
-  width: 66%;
-  margin-right: 2%;
-  left: 0;
-  height: 1000px;
-  box-sizing: border-box;
-  background-color: #fff;
-}
-
-.aside {
-  float: left;
-  width: 32%;
-  left: 0;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.box {
-  margin: 10px;
-  height: 100px;
-  background-color: #ccc;
-}
-
-.sticky {
-  height: 600px;
-  margin: 0.625em;
-  background-color: #FF0080;
-}
-
-.footer {
-  height: 900px;
 }
 /*# sourceMappingURL=test.css.map */
