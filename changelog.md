@@ -1,7 +1,7 @@
 # Changelog
 
 ### v2.4.0
-+ Add mixin `slider-carousel`, `slider-gallery`
++ Re-add mixin `slider-carousel`, `slider-gallery`
 + Add js function `equalizer`, `sticky`
 
 ### v2.3.0

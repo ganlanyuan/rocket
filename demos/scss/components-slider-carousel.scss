@@ -26,7 +26,7 @@
   %label-active {background-color: $active;}
   @at-root {
     @each $item in slider-gallery, gallery-lg, gallery-md, gallery-sm, gallery-auto-play, gallery-customise, slider-carousel, carousel-lg, carousel-md, carousel-sm, slide-by-page, slider-center, carousel-auto-play, carousel-auto-height {
-      [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
+      [id="#{$item}"]:checked ~ .slider-labels [for="#{$item}"] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
       margin-left: auto; 
@@ -37,12 +37,6 @@
       @extend %ro-global-transition; 
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
-    }
-    @include breakpoint('max' em(1178)){
-      .controls {
-        .prev { margin-left: 10px !important; }
-        .next { margin-right: 10px !important; }
-      }
     }
 
     // carousel
@@ -58,7 +52,7 @@
     .carousel-c { @include slider-carousel(5 by 1 default); }
     .carousel-d { @include slider-carousel(5 by 2 bypage default); }
     .carousel-e { @include slider-carousel(5 by 2 center default); }
-    .carousel-f { @include slider-carousel(5 by 2 autoplay default); }
+    .carousel-f { @include slider-carousel(5 by 2 autoplay hoverpause default); }
     .carousel-g { @include slider-carousel(5 by 1 default); }
     @include breakpoint('min' em(700)) {
       .carousel-a { @include slider-carousel(5 by 2); }

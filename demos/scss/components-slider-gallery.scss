@@ -47,7 +47,7 @@
     .gallery-a, 
     .gallery-b,
     .gallery-c { display: none; }
-    .gallery-a { @include slider-gallery(5 autoplay default); }
+    .gallery-a { @include slider-gallery(5 autoplay hoverpause default); }
     .gallery-b { @include slider-gallery(5 default); }
     .gallery-c { @include slider-gallery(5 default); }
     [id="gallery-auto-play"]:checked ~ .gallery-a, 

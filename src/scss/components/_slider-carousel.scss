@@ -1,28 +1,71 @@
-// *** slider-carousel *** //
+/// First, set a specific class (or ID) for each slider.   
+/// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
+/// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+/// 
+/// $key: `($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay default`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example markup - Markup
+/// <div class="banner">
+///   <input type="radio" name="banner" id="banner-1" checked="">
+///   <input type="radio" name="banner" id="banner-2">
+///   <input type="radio" name="banner" id="banner-3">
+///   <input type="radio" name="banner" id="banner-4">
+///   <input type="radio" name="banner" id="banner-5">
+///   <input type="checkbox" name="banner-autoplay" id="banner-autoplay" checked="">
+///   <div class="outer">
+///     <ul class="inner">
+///       <li> slider01 </li>
+///       <li> slider02 </li>
+///       <li> slider03 </li>
+///       <li> slider04 </li>
+///       <li> slider05 </li>
+///     </ul>
+///   </div>
+///   <div class="controls">
+///     <label for="banner-1"><span class="prev"></span><span class="next"></span></label>
+///     <label for="banner-2"><span class="prev"></span><span class="next"></span></label>
+///     <label for="banner-3"><span class="prev"></span><span class="next"></span></label>
+///     <label for="banner-4"><span class="prev"></span><span class="next"></span></label>
+///     <label for="banner-5"><span class="prev"></span><span class="next"></span></label>
+///   </div>
+///   <div class="dots">
+///     <label for="banner-1"><span class="normal"></span><span class="active"></span></label>
+///     <label for="banner-2"><span class="normal"></span><span class="active"></span></label>
+///     <label for="banner-3"><span class="normal"></span><span class="active"></span></label>
+///     <label for="banner-4"><span class="normal"></span><span class="active"></span></label>
+///     <label for="banner-5"><span class="normal"></span><span class="active"></span></label>
+///   </div>
+///   <div class="autoplay"><label for="banner-autoplay"><span></span></label></div>
+/// </div>
+/// @example scss - Usage
+/// .slider { @include slider-carousel(5 by 2 bypage default); }
+/// // items: 5;
+/// // perpage: 2;
+/// // gutter: 10px; (default)
+/// // bypage: true;
+/// // default: true; (default styles for controls and dots)
+///
+/// @link http://creatiointl.org/gallery/william/rocket/components-slider-carousel.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
 @mixin slider-carousel($key){
   $items: 1;
   $perpage: 1;
   $gutter: 10px;
-  $slide-by-page: false;
-  $center: false;
-  $autoplay: false;
-  $default: false;
+  $bypage: ro-get($key, 'bypage');
+  $center: ro-get($key, 'center');
+  $autoplay: ro-get($key, 'autoplay');
+  $hoverpause: ro-get($key, 'hoverpause');
+  $default: ro-get($key, 'default');
+  $speed: ro-get-next($key, 'speed', 1s);
+  $timeout: ro-get-next($key, 'timeout', 3s);
+  $time-per-item: ($speed + $timeout);
 
   @if type-of($key) == 'number' {
-    $item: $key;
+    $items: $key;
   } @else if type-of($key) == list {
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if $val == 'bypage' {
-        $slide-by-page: true;
-      } @else if $val == center {
-        $center: true;
-      } @else if $val == 'autoplay' {
-        $autoplay: true;
-      } @else if $val == default {
-        $default: true;
-      }
+    @each $val in $key {
 
       @if index($key, by) {
         $items: ro-get-prev($key, by);
@@ -46,31 +89,7 @@
   }
 
   @at-root (without: media) { 
-    // set basic inner, controls, dots styles
-    position: relative;
-    img { width: 100%; }
-    & > input { position: absolute; left: -9999px; }
-    .outer {
-      overflow: hidden;
-      li {
-        display: inline-block;
-        vertical-align: top;
-        width: 100%;
-        font-size: 16px;
-        box-sizing: border-box;
-      }
-    }
-    .inner {
-      @include clearfix();
-      position: relative;
-      font-size: 0;
-      white-space: nowrap;
-      transition: left 1s ease 0s;
-    }
-    [autoheight-carousel] {
-      transition: height 0.3s ease 0s;
-    }
-
+    @extend %slider-carousel-base;
     @at-root {
       // active dots
       @for $i from 1 through $items {
@@ -83,75 +102,9 @@
 
     // set default controls, dots and autoplay styles
     @if $default {
-      .controls, .dots, .autoplay { 
-        position: absolute; 
-        z-index: nth($ro-slider-z-index, 1);
-      }
-      .controls {
-        margin-top: -23px;
-        top: 50%;
-        width: 100%;
-        box-sizing: border-box;
-        span {
-          position: absolute;
-          width: 40px;
-          height: 46px;
-          opacity: 0.4;
-          transition: all 1s ease 0s;
-          display: none;
-          &:before { font-size: 40px; }
-          &:hover { opacity: 0.8; }
-        }
-        .prev {
-          left: 0;
-          margin-left: -60px;
-          &:before { content: '〈'; }
-        }
-        .next {
-          right: 0;
-          margin-right: -60px;
-          &:before { content: '〉'; }
-        }
-      }
-      .dots {
-        width: 100%;
-        text-align: center;
-        label, span {
-          display: inline-block;
-          vertical-align: top;
-        }
-        label {
-          padding: 12px 3px 0px;
-          &:hover .normal { background-color: #5a5a5a; }
-        }
-        span {
-          width: 9px;
-          height: 9px;
-          background-color: #d3d3d3;
-          border-radius: 50%;
-          transition: all 1s ease 0s;
-        }
-        .active { background-color: #5a5a5a; display: none; }
-      }
+      @extend %slider-carousel-default-cont-dot;
       @if $autoplay {
-        .autoplay {
-          opacity: 0;
-          transition: opacity 1s ease 0s;
-          .no-opacity & { display: none; }
-          .no-cssanimations & { display: none !important; }
-          label:before {
-            display: inline-block;
-            content: '▶';
-            font-size: 24px;
-            width: 24px;
-            height: 30px;
-            line-height: 30px;
-          }
-        }
-        &:hover .autoplay { 
-          opacity: 0.8; 
-          .no-opacity & { display: block; } 
-        }
+        @extend %slider-carousel-default-autoplay;
         // hide dots when autoplay
         #{$id}-autoplay:checked ~ .dots { 
           display: none; 
@@ -187,7 +140,7 @@
   }
 
   // hide extra dots
-  @if not $slide-by-page {
+  @if not $bypage {
     @if $center {
       .dots label:nth-child(n + #{$pages}) { display: none; }
     } @else {
@@ -197,40 +150,63 @@
 
   // set autoplay animation
   @if $autoplay {
-    @if $default { #{$id}-autoplay:checked ~ .autoplay label:before { content: '▉'; } }
+    @if $default { 
+      #{$id}-autoplay:checked ~ .autoplay {
+        span, label:after {
+          display: inline-block;
+          border-width: 0;
+          width: 5px;
+          height: 13px;
+          background-color: #fff;
+        }
+        span { margin: 7px 4px 0 0; }
+        label:after {
+          content: '';
+        }
+      }
+    }
 
     $left-val: 0;
     $frames: 1;
-    @if $slide-by-page == true { $frames: ceil($items/$perpage); }
+    @if $bypage == true { $frames: ceil($items/$perpage); }
     @else { $frames: $items + 1 - $perpage; }
-    $unit: (100/($ro-slider-peritem * $frames));
+    $unit: (100/($time-per-item * $frames));
 
     @include keyframes(#{$prefix}-inner) {
       @for $i from 1 through $frames {
-        @if $slide-by-page == true {
+        @if $bypage == true {
           @if (- ($i - 1) * 100%) < percentage(1 - $items / $perpage) {
             $left-val: percentage(1 - $items / $perpage);
+          } @else { 
+            $left-val: (- ($i - 1) * 100%);
           }
-          @else { $left-val: (- ($i - 1) * 100%);}
 
-          #{percentage((($i - 1) * $ro-slider-peritem) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $ro-slider-peritem - $ro-slider-play) * $unit / 100)} { left: $left-val; }
+          #{percentage((($i - 1) * $time-per-item) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $time-per-item - $speed) * $unit / 100)} { left: $left-val; }
         }
         @else { 
           $left-val: percentage(- ($i - 1) / $perpage);
 
-          #{percentage((($i - 1) * $ro-slider-peritem) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $ro-slider-peritem - $ro-slider-play) * $unit / 100)} { left: $left-val; }
+          #{percentage((($i - 1) * $time-per-item) * $unit / 100)} { left: $left-val; }
+          #{percentage(($i * $time-per-item - $speed) * $unit / 100)} { left: $left-val; }
         }
       }
       100% { left: 0; }
     }
     @at-root {
       #{$id}-autoplay:checked ~ {
-        .outer .inner { @include animation(#{$prefix}-inner $ro-slider-peritem * $frames ease infinite); }
+        .outer > .inner { @include animation(#{$prefix}-inner $time-per-item * $frames ease infinite); }
         .controls { 
           display: none !important; 
           .no-cssanimations & { display: block !important; }
+        }
+      }
+    }
+    // pause on hover
+    @if $hoverpause {
+      &:hover {
+        #{$id}-autoplay ~ .outer > .inner { 
+          @include animation-play-state(paused); 
         }
       }
     }
@@ -243,7 +219,7 @@
     @for $i from 1 through $items {
       #{$id}-#{$i}:checked ~ {
         .controls label:nth-child(n+1) { display: none; }
-        @if $slide-by-page == true {
+        @if $bypage == true {
           // prev
           @if $i == 1 {
             .controls label:nth-child(#{$items - $perpage + 1}),
@@ -314,5 +290,101 @@
       }
     }
   }
+}
 
+%slider-carousel-base {
+  position: relative;
+  img { width: 100%; }
+  & > input { position: absolute; left: -9999px; }
+  .outer {
+    overflow: hidden;
+    li {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+  }
+  .inner {
+    @include clearfix();
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    transition: left 1s ease 0s;
+  }
+  [autoheight-carousel] {
+    transition: height 0.3s ease 0s;
+  }
+}
+%slider-carousel-default-cont-dot {
+  .controls {
+    @include clearfix();
+    max-width: 7.5em;
+    margin: 10px auto;
+    span {
+      font-size: 13px;
+      padding: 5px 8px;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+      display: none;
+      color: #fff;
+      background-color: #15A9DC;
+      &:hover { background-color: #7D9DAC; }
+    }
+    .prev { float: left; }
+    .next { float: right; }
+  }
+  .dots {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0; // remove extra space from the blank between tags
+    label, span {
+      display: inline-block;
+      vertical-align: top;
+    }
+    label {
+      padding: 0 3px;
+      &:hover .normal { background-color: #5a5a5a; }
+    }
+    span {
+      width: 9px;
+      height: 9px;
+      background-color: #d3d3d3;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+    .active { background-color: #5a5a5a; display: none; }
+  }
+}
+%slider-carousel-default-autoplay {
+  .autoplay {
+    opacity: 0;
+    text-align: center;
+    transition: opacity 1s;
+    margin: 10px 0;
+    .no-opacity & { display: none; }
+    .no-cssanimations & { display: none !important; }
+    > label {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      background-color: #333;
+      border-radius: 50%;
+    }
+    span {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-color: transparent transparent transparent #fff;
+      border-style: solid;
+      border-width: 7px 0px 7px 13px;
+      margin: 7px 0 0 3px;
+    }
+  }
+  &:hover .autoplay { 
+    opacity: 1; 
+    .no-opacity & { display: block; } 
+  }
 }

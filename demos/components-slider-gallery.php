@@ -55,19 +55,19 @@
                   </li>
                 </ul>
               </div>
-              <div class="controls">
-                <label for="gallery-a-1"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-a-2"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-a-3"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-a-4"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-a-5"><span class="prev"></span><span class="next"></span></label>
-              </div>
               <div class="dots">
                 <label for="gallery-a-1"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-a-2"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-a-3"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-a-4"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-a-5"><span class="normal"></span><span class="active"></span></label>
+              </div>
+              <div class="controls">
+                <label for="gallery-a-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-a-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-a-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
               <div class="autoplay"><label for="gallery-a-autoplay"><span></span></label></div>
             </div>
@@ -107,19 +107,19 @@
                   </li>
                 </ul>
               </div>
-              <div class="controls">
-                <label for="gallery-b-1"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-b-2"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-b-3"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-b-4"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-b-5"><span class="prev"></span><span class="next"></span></label>
-              </div>
               <div class="dots">
                 <label for="gallery-b-1"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-b-2"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-b-3"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-b-4"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-b-5"><span class="normal"></span><span class="active"></span></label>
+              </div>
+              <div class="controls">
+                <label for="gallery-b-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-b-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-b-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
               <div class="autoplay"><label for="gallery-b-autoplay"><span></span></label>
             </div>
@@ -160,19 +160,19 @@
                   </li>
                 </ul>
               </div>
-              <div class="controls">
-                <label for="gallery-c-1"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-c-2"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-c-3"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-c-4"><span class="prev"></span><span class="next"></span></label>
-                <label for="gallery-c-5"><span class="prev"></span><span class="next"></span></label>
-              </div>
               <div class="dots">
                 <label for="gallery-c-1"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-c-2"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-c-3"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-c-4"><span class="normal"></span><span class="active"></span></label>
                 <label for="gallery-c-5"><span class="normal"></span><span class="active"></span></label>
+              </div>
+              <div class="controls">
+                <label for="gallery-c-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-c-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-c-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="gallery-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
               <div class="autoplay"><label for="gallery-c-autoplay"><span></span></label>
             </div>

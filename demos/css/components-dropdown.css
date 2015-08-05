@@ -1,13 +1,3 @@
-.dropdown-1 > [type='checkbox'], .dropdown-1 .sub > [type='checkbox'], .dropdown-2 > [type='checkbox'], .dropdown-2 .sub-2 > [type='checkbox'] {
-  position: absolute;
-  left: -9999px;
-}
-
-.dropdown-1 > ul, .dropdown-1 > ul li, .dropdown-1 .sub > ul, .dropdown-1 .sub > ul li, .dropdown-2 > ul, .dropdown-2 > ul li, .dropdown-2 .sub-2 > ul, .dropdown-2 .sub-2 > ul li {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
 /* Android 2.3 :checked fix */
 @-webkit-keyframes fake {
   from {
@@ -327,7 +317,14 @@ pre[class*="language-"] {
   cursor: pointer;
 }
 
+.dropdown-1 > input {
+  position: absolute;
+  left: -9999px;
+}
+
 .dropdown-1 > ul {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: absolute;
   display: none;
   background-color: #fff;
@@ -338,6 +335,11 @@ pre[class*="language-"] {
 
 .dropdown-1 > ul .current > a, .dropdown-1 > ul li:hover > a {
   background-color: #e6e6e6;
+}
+
+.dropdown-1 > ul li {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .dropdown-1 > ul li:first-child > a {
@@ -367,6 +369,11 @@ pre[class*="language-"] {
   cursor: pointer;
 }
 
+.dropdown-1 .sub > input {
+  position: absolute;
+  left: -9999px;
+}
+
 .dropdown-1 .sub:before,
 .dropdown-1 .sub:after {
   content: '';
@@ -387,6 +394,8 @@ pre[class*="language-"] {
 }
 
 .dropdown-1 .sub > ul {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: absolute;
   top: 0;
   left: 100%;
@@ -399,6 +408,11 @@ pre[class*="language-"] {
 
 .dropdown-1 .sub > ul .current > a, .dropdown-1 .sub > ul li:hover > a {
   background-color: #e6e6e6;
+}
+
+.dropdown-1 .sub > ul li {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .dropdown-1 .sub > ul li:first-child > a {
@@ -431,7 +445,14 @@ pre[class*="language-"] {
   position: relative;
 }
 
+.dropdown-2 > input {
+  position: absolute;
+  left: -9999px;
+}
+
 .dropdown-2 > ul {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: absolute;
   -ms-transform: scaleY(0);
   -webkit-transform: scaleY(0);
@@ -451,6 +472,11 @@ pre[class*="language-"] {
 
 .dropdown-2 > ul .current > a, .dropdown-2 > ul li:hover > a {
   background-color: #e6e6e6;
+}
+
+.dropdown-2 > ul li {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .dropdown-2 > ul li:first-child > a {
@@ -485,7 +511,14 @@ pre[class*="language-"] {
   position: relative;
 }
 
+.dropdown-2 .sub-2 > input {
+  position: absolute;
+  left: -9999px;
+}
+
 .dropdown-2 .sub-2 > ul {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: absolute;
   top: 0;
   right: 100%;
@@ -507,6 +540,11 @@ pre[class*="language-"] {
 
 .dropdown-2 .sub-2 > ul .current > a, .dropdown-2 .sub-2 > ul li:hover > a {
   background-color: #e6e6e6;
+}
+
+.dropdown-2 .sub-2 > ul li {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .dropdown-2 .sub-2 > ul li:first-child > a {

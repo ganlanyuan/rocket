@@ -63,19 +63,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-a-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-a-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-a-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-a-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-a-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-a-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-a-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-a-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-a-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-a-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-a-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-a-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-a-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-a-autoplay"><span></span></label></div>
         </div>
@@ -115,19 +115,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-b-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-b-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-b-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-b-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-b-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-b-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-b-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-b-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-b-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-b-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-b-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-b-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-b-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-b-autoplay"><span></span></label></div>
         </div>
@@ -167,19 +167,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-c-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-c-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-c-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-c-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-c-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-c-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-c-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-c-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-c-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-c-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-c-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-c-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-c-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-c-autoplay"><span></span></label></div>
         </div>
@@ -219,19 +219,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-d-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-d-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-d-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-d-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-d-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-d-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-d-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-d-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-d-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-d-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-d-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-d-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-d-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-d-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-d-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-d-autoplay"><span></span></label></div>
         </div>
@@ -271,19 +271,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-e-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-e-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-e-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-e-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-e-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-e-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-e-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-e-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-e-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-e-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-e-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-e-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-e-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-e-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-e-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-e-autoplay"><span></span></label></div>
         </div>
@@ -323,19 +323,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-f-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-f-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-f-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-f-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-f-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-f-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-f-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-f-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-f-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-f-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-f-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-f-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-f-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-f-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-f-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-f-autoplay"><span></span></label></div>
         </div>
@@ -375,19 +375,19 @@
               </li>
             </ul>
           </div>
-          <div class="controls">
-            <label for="carousel-g-1"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-g-2"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-g-3"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-g-4"><span class="prev"></span><span class="next"></span></label>
-            <label for="carousel-g-5"><span class="prev"></span><span class="next"></span></label>
-          </div>
           <div class="dots">
             <label for="carousel-g-1"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-g-2"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-g-3"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-g-4"><span class="normal"></span><span class="active"></span></label>
             <label for="carousel-g-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-g-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-g-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-g-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-g-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-g-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay"><label for="carousel-g-autoplay"><span></span></label></div>
         </div>

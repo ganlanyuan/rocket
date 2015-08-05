@@ -650,12 +650,12 @@ In the example shows on the left, I used banner as my specific class.
 // basic
 @include slider-gallery($key);
 // pattern
-$key: $items $time (ratio $ratio) autoplay default;
+$key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay default
 
-.slider { @include slider-gallery(5 3s autoplay default); }
+.slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay default); }
 // items: 5;
-// time: 3s;
-// ratio: 9/16; (default) 
+// speed: 0.5s; (default 1s)
+// timeout: 4s; (default 3s)
 // autoplay: true;
 // default: true; (default styles for controls and dots)
 
@@ -667,15 +667,30 @@ $key: $items $time (ratio $ratio) autoplay default;
 
 // customise items
 .slider {
+  // setting item
   .outer { overflow: visible; }
-  li { @include transform(scale(1.1)); }
+  li { 
+    @include transform(scale(1.1)); 
+    transition: all 1s ease 0s;
+  }
   @for $i from 1 through 5 {
-    #gallery-b-#{$i}:checked ~ .slider-container li:nth-child(#{$i}) { @include transform(scale(1)); }
+    #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
+  }
+  // setting .info
+  .info { opacity: 0; margin-left: 0;
+    -webkit-transition: all 1s $ro-global-bezier 0.5s;
+    transition: all 1s $ro-global-bezier 0.5s;
+   }
+  @for $i from 1 through 5 {
+    #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
+      opacity: 1;
+      margin-left: 20px;
+    }
   }
 }
 ````
 *Autoheight*
-Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 ```` html
 <!-- include kit.js -->
 <script src="path/to/kit.min.js"></script>
@@ -690,13 +705,13 @@ Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the 
 // basic
 @mixin slider-carousel($key);
 // pattern
-$key: ($items by $perpage) $gutter bypage center autoplay default;
+$key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay default;
 
 .slider { @include slider-carousel(5 by 2 bypage default); }
 // items: 5;
 // perpage: 2;
 // gutter: 10px; (default)
-// slide-by-page: true;
+// bypage: true;
 // default: true; (default styles for controls and dots)
 ````
 
