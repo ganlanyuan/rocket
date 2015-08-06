@@ -87,6 +87,7 @@
   $hoverpause: ro-get($key, 'hoverpause');
   $speed: ro-get-next($key, 'speed', 1s);
   $timeout: ro-get-next($key, 'timeout', 3s);
+  $time-per-item: ($speed + $timeout);
 
   @if type-of($key) == number {
     $items: $key;
@@ -112,7 +113,7 @@
   .inner { 
     position: relative; 
     > li {
-      @include item-normal; 
+      @include item-hide; 
       box-sizing: border-box;
       transition: opacity $speed ease 0s;
     }
@@ -126,7 +127,7 @@
     @at-root { 
       #{$id}-#{$i}:checked ~ {
         .outer li:nth-child(#{$i}) { 
-          @include item-active; 
+          @include item-show; 
         }
       }
     }
@@ -175,6 +176,7 @@
       .active { background-color: #5a5a5a; display: none; }
     }
   }
+  
   // show and hide
   @for $i from 1 through $items {
     @at-root { 
@@ -254,19 +256,55 @@
     }
     // animation
     @include keyframes(#{$prefix}) {
-      0% { @include item-normal; }
-      #{percentage($speed / ($timeout * $items))} { @include item-active; }
-      #{percentage($timeout / ($timeout * $items))} { @include item-active; }
-      #{percentage(($speed + $timeout) / ($timeout * $items))} { @include item-normal; }
+      0% { @include item-hide; }
+      #{percentage($speed / ($time-per-item * $items))} { @include item-show; }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show; }
+      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { @include item-hide; }
+    }
+    @include keyframes(#{$prefix}-show) {
+      0% { @include item-hide; }
+      #{percentage($speed / ($time-per-item * $items))} { @include item-show; }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-hide; }
+    }
+    @include keyframes(#{$prefix}-hide) {
+      0% { @include item-show; }
+      #{percentage($speed / ($time-per-item * $items))} { @include item-hide; }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show; }
     }
     @at-root { 
       #{$id}-autoplay:checked ~ {
         .controls, .dots { display: none !important; }
-        .outer li {
-          @include animation( #{$prefix} ($timeout * $items) ease infinite);
-          @for $i from 2 through $items {
-            &:nth-child(#{$i}) {
-              @include animation-delay(($timeout * ($i - 1)));
+        // animation
+        .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
+        // .controls .prev, 
+        // .controls .next, 
+        // .dots .active { @include animation( #{$prefix}-show ($time-per-item * $items) ease infinite); }
+        // .dots .normal { @include animation( #{$prefix}-hide ($time-per-item * $items) ease infinite); }
+
+        // delay
+        @if $items == 2 {
+          .outer li:nth-child(2), 
+          // .dots > label:nth-child(2) .normal, 
+          // .dots > label:nth-child(2) .active, 
+          // .controls > label:nth-child(1) .prev, 
+          // .controls > label:nth-child(1) .next,
+            { @include animation-delay($time-per-item); }
+        } @else {
+          @for $i from 1 to $items {
+            @if $i == ($items - 1) {
+              .outer li:nth-child(#{($i + 1)}), 
+              // .dots > label:nth-child(#{($i + 1)}) .normal, 
+              // .dots > label:nth-child(#{($i + 1)}) .active, 
+              // .controls > label:nth-child(#{$i}) .prev, 
+              // .controls > label:nth-child(1) .next,
+                { @include animation-delay(($time-per-item * $i)); }
+            } @else {
+              .outer li:nth-child(#{($i + 1)}), 
+              // .dots > label:nth-child(#{($i + 1)}) .normal, 
+              // .dots > label:nth-child(#{($i + 1)}) .active, 
+              // .controls > label:nth-child(#{$i}) .prev, 
+              // .controls > label:nth-child(#{($i + 2)}) .next,
+                { @include animation-delay(($time-per-item * $i)); }
             }
           }
         }
@@ -281,16 +319,16 @@
       }
     }
   }
+
 }
 
-@mixin item-normal {
+@mixin item-hide {
   @include opacity(0); 
   position: absolute;
   top: 0;
-  z-index: nth($ro-slider-z-index, 4); 
+  z-index: nth($ro-slider-z-index, 4);
 }
-@mixin item-active {
+@mixin item-show {
   @include opacity(1); 
   position: static;
-  z-index: nth($ro-slider-z-index, 3); 
 }
