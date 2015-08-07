@@ -38,6 +38,7 @@
 @import "addons/visible"; // @required [mixin] breakpoint
 @import "addons/hidden"; // @required [mixin] breakpoint
 @import "addons/type";
+@import "addons/font-size";
 
 // layout
 @import "layout/function/span";
@@ -57,6 +58,7 @@
 @import "components/dropdown";
 @import "components/tabs";
 @import "components/switch";
+@import "components/accordion";
 @import "components/push-toggle";
 @import "components/checkbox";
 @import "components/tooltip";

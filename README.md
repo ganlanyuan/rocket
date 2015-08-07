@@ -89,7 +89,7 @@ $key: ($container $gutter) $align
 #### wrap
 Grid wrapper, works with `span` when using a fixed value for `gutter`.
 ```` scss
-@mixin wrap($key);
+@mixin wrap($key)
 // pattern
 $key: $gutter
 
@@ -100,7 +100,7 @@ $key: $gutter
 #### span
 `span` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, or you can use `span-calc`.
 ```` scss
-@mixin span($key);
+@mixin span($key)
 // pattern
 $key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep
 
@@ -173,7 +173,7 @@ $parent-layout: (7 of 10 $gutter);
 #### span-calc
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
-@mixin span-calc($key);
+@mixin span-calc($key)
 // pattern
 $key: ($column of $columns) $gutter (move $move) (float $float) last
 
@@ -200,7 +200,7 @@ $key: ($column of $columns) $gutter (move $move) (float $float) last
 #### gallery
 `gallery` is for creating picture galleries.
 ```` scss
-@mixin gallery($key);
+@mixin gallery($key)
 //pattern
 $key: $per-row $gutter (child $child) $float $position keep
 
@@ -239,7 +239,7 @@ $key: (child $child)
 #### center
 `center` is for creating both horizontal and vertical center aligned layout.
 ```` scss
-@mixin center($key);
+@mixin center($key)
 // pattern
 $key: $child $align
 
@@ -265,7 +265,7 @@ $key: $child $align
 ````
 ```` scss
 // scss
-@mixin two-columns($key);
+@mixin two-columns($key)
 // pattern
 $key: $direction $aside-width (gutter $gutter)
 
@@ -280,7 +280,7 @@ $key: $direction $aside-width (gutter $gutter)
 #【 Components 】
 #### button
 ````scss
-@mixin button($key);
+@mixin button($key)
 // pattern
 $key: $font-size $padding $background-color radius round hover
 
@@ -296,7 +296,7 @@ $key: $font-size $padding $background-color radius round hover
 #### Media list
 `media` displays a media object (images, video, audio) to the left or right of a block.
 ```` scss
-@mixin media($key);
+@mixin media($key)
 // pattern
 $key: $role $gutter $direction
 
@@ -316,7 +316,7 @@ $key: $role $gutter $direction
 
 #### flex video
 ```` scss
-@mixin flex-video($key);
+@mixin flex-video($key)
 // pattern
 $key: $ratio $child
 
@@ -349,7 +349,7 @@ $key: $ratio $child
 </div>
 ````
 ```` scss
-@mixin dropdown($key);
+@mixin dropdown($key)
 // pattern
 $key: $child $show $style $direction default
 
@@ -394,9 +394,9 @@ Pure css tabs.
 </div>
 ````
 ```` scss
-@mixin tabs($key);
+@mixin tabs($key)
 // pattern
-$key: `$length $style`
+$key: $length $style
 
 .your-tab-class { @include tabs(3 'carousel'); }
 // length: 3; (3 tabs)
@@ -407,9 +407,9 @@ $key: `$length $style`
 #### tabs-active
 Set tabs' active styles.   
 ```` scss
-@mixin tabs-active($key);
+@mixin tabs-active($key)
 // pattern
-$key: `$length`
+$key: $length
 
 .your-tab-class { 
   @include tabs-active(3) {
@@ -423,9 +423,9 @@ $key: `$length`
 #### tabs-panel-active
 Set panels' active styles.   
 ```` scss
-@mixin tabs-panel-active($key);
+@mixin tabs-panel-active($key)
 // pattern
-$key: `$length`
+$key: $length
 
 .your-tab-class { 
   @include tabs-panel-active(3) {
@@ -445,9 +445,9 @@ Pure css switch.
 </div>
 ````
 ```` scss
-@mixin switch()
+@mixin switch($key)
 //pattern
-$key: `$size $active-color radius round`
+$key: $size $active-color radius round
 
 .switch { @include switch(30px #3DD754 round); }
 // $size: 30px (default 20px)
@@ -455,6 +455,29 @@ $key: `$size $active-color radius round`
 // $round: true (default false)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-switch.php)
+
+#### accordion
+Pure css accordion.   
+```` html
+<div class="accordion">
+  <input type="checkbox" name="" id="accordion-checkbox-1">
+  <label for="accordion-checkbox-1"><strong>About Us</strong></label>
+  <div>
+    <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+  </div>
+</div>
+````
+```` scss
+@mixin accordion($key)
+//pattern
+$key: $content $max-height $transition-duration
+
+.accordion { @include accordion(div 200px 0.4s); }
+// $content: div;
+// $max-height: 200px;
+// $transition-duration: 0.4s;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-accordion.php)
 
 #### push-toggle
 Pure css push toggle.   
@@ -532,7 +555,7 @@ Radios or checkboxes' active style.
 #### tooltip
 pure css `tooltip`
 ```` scss
-@mixin tooltip($key);
+@mixin tooltip($key)
 // pattern
 $key: $direction $color radius (width $width) (height $height)
 
@@ -579,7 +602,7 @@ $key: $direction $color radius (width $width) (height $height)
 ````
 ```` scss
 // *** offcanvas *** //
-@mixin offcanvas($key);
+@mixin offcanvas($key)
 // pattern
 $key: $style $direction animation $offcanvas-width $padding $background-color
 
@@ -592,7 +615,7 @@ $key: $style $direction animation $offcanvas-width $padding $background-color
 // animation: true;
 
 // *** page-container *** //
-@mixin page-container($key);
+@mixin page-container($key)
 // pattern
 $key: $style $direction $offcanvas-width $cover-bg
 
@@ -648,7 +671,7 @@ In the example shows on the left, I used banner as my specific class.
 #### slider-gallery
 ```` html
 // basic
-@include slider-gallery($key);
+@include slider-gallery($key)
 // pattern
 $key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay default
 
@@ -703,7 +726,7 @@ Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the 
 #### slider-carousel
 ```` scss
 // basic
-@mixin slider-carousel($key);
+@mixin slider-carousel($key)
 // pattern
 $key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay default;
 
@@ -730,7 +753,7 @@ Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the 
 #### type
 `type` is a shorthand mixin for type.
 ```` scss
-@mixin type($key);
+@mixin type($key)
 // pattern
 $key: $font-size $font-weight $font-style $line-height $font-family $text-align $text-transform 
 
@@ -753,10 +776,40 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
 
+#### font-size
+Responsive font-size and line-height.
+```` scss
+@mixin font-size($key)
+// pattern
+$key: $map, $breakpoints: $bp
+
+$bp: (
+  small : 480px,
+  medium: 700px,
+  large : 1024px
+);
+$p-font-sizes: (
+  null  : (15px, 1.3),
+  small : 16px,
+  medium: (17px, 1.4),
+  900px : 18px,
+  large : (19px, 1.45),
+  1440px: 20px,
+);
+$h3-font-sizes: (
+  null  : (18px, 1.3),
+  900px : 22px,
+  large : (30px, 1.2),
+);
+h3.example-font-size { @include font-size($h3-font-sizes, $bp); }
+p.example-font-size { @include font-size($p-font-sizes, $bp); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/addons-font-size.php) 
+
 #### opacity
 Use `opacity` to set `opacity` property for old IE and modern browsers.
 ```` scss
-@mixin opacity($key);
+@mixin opacity($key)
 // pattern
 $key: $opacity
 
@@ -766,7 +819,7 @@ $key: $opacity
 #### ie-rgba
 `ie-rgba` is for getting rgba property for IE8.
 ```` scss
-@mixin ie-rgba($key);
+@mixin ie-rgba($key)
 // pattern
 $key: $rgba
 
@@ -782,8 +835,8 @@ $key: $rgba
 #### breakpoint (bp)
 A shorthand @mixin for break point.
 ```` scss
-@mixin breakpoint($key);
-// or @mixin bp($key);
+@mixin breakpoint($key)
+// or @mixin bp($key)
 // pattern
 $key: $condition $media $breakpoints
 
@@ -799,7 +852,7 @@ $key: $condition $media $breakpoints
 #### visible
 A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
-@mixin visible($key);
+@mixin visible($key)
 // pattern
 $key: $media $breakpoints
 
@@ -811,7 +864,7 @@ $key: $media $breakpoints
 #### hidden
 A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
-@mixin hidden($key);
+@mixin hidden($key)
 // pattern
 $key: $media $breakpoints
 
@@ -827,7 +880,7 @@ Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [
 #### contrast
 Get a contrast `font-color` based on the `background-color`.
 ```` scss
-@mixin contrast($key);
+@mixin contrast($key)
 // pattern
 $key: $color (light $light) (dark $dark)
 
@@ -841,7 +894,7 @@ $key: $color (light $light) (dark $dark)
 #### adjacent
 `adjacent` is for creating adjacent colors.
 ```` scss
-@mixin adjacent($key);
+@mixin adjacent($key)
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
@@ -857,7 +910,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 #### complementary
 `complementary` is for getting a complementary color.
 ```` scss
-@mixin complementary($key);
+@mixin complementary($key)
 // pattern
 $key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
 
@@ -870,7 +923,7 @@ $key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
 #### split-complementary
 `split-complementary` is for getting split-complementary colors based on a given color.
 ```` scss
-@mixin split-complementary($key);
+@mixin split-complementary($key)
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
@@ -883,7 +936,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 #### triad
 `triad` is for getting triad colors based on a given color.
 ```` scss
-@mixin triad($key);
+@mixin triad($key)
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
@@ -896,7 +949,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 #### rectangle
 `rectangle` is for getting rectangle colors based on a given color.
 ```` scss
-@mixin rectangle($key);
+@mixin rectangle($key)
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
@@ -909,7 +962,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 #### square
 `square` is for getting square colors based on a given color.
 ```` scss
-@mixin square($key);
+@mixin square($key)
 // pattern
 $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 

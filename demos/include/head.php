@@ -64,6 +64,9 @@
 		if ($pagename == 'components-switch') {
 			echo 'components-switch';
 		} 
+		if ($pagename == 'components-accordion') {
+			echo 'components-accordion';
+		} 
 		if ($pagename == 'components-checkbox') {
 			echo 'components-checkbox';
 		} 
@@ -81,6 +84,9 @@
 		} 
 		if ($pagename == 'addons-type') {
 			echo 'addons-type';
+		} 
+		if ($pagename == 'addons-font-size') {
+			echo 'addons-font-size';
 		} 
 		if ($pagename == 'addons-visibility') {
 			echo 'addons-visibility';
@@ -173,6 +179,9 @@
 		if ($pagename == 'components-switch') {
 			echo 'href="css/components-switch.css"';
 		} 
+		if ($pagename == 'components-accordion') {
+			echo 'href="css/components-accordion.css"';
+		} 
 		if ($pagename == 'components-push-toggle') {
 			echo 'href="css/components-push-toggle.css"';
 		} 
@@ -193,6 +202,9 @@
 		} 
 		if ($pagename == 'addons-type') {
 			echo 'href="css/addons-type.css"';
+		} 
+		if ($pagename == 'addons-font-size') {
+			echo 'href="css/addons-font-size.css"';
 		} 
 		if ($pagename == 'addons-visibility') {
 			echo 'href="css/addons-visibility.css"';

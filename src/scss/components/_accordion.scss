@@ -1,0 +1,49 @@
+/// Pure css accordion.   
+/// $key: `$content $max-height $transition-duration`
+/// 
+/// @group components
+/// @example markup - Markup
+/// <div class="accordion">
+///   <input type="checkbox" name="" id="accordion-checkbox-1">
+///   <label for="accordion-checkbox-1"><strong>About Us</strong></label>
+///   <div>
+///     <p>Well, the way they make shows is, they make one show. That show's called a pilot. /// Then they show that show to the people who make shows, and on the strength of that one /// show they decide if they're going to make more shows.</p>
+///   </div>
+/// </div>
+/// @example scss - Usage
+/// .accordion { @include accordion(div 200px 0.4s); }
+/// // $content: div;
+/// // $max-height: 200px;
+/// // $transition-duration: 0.4s;
+///
+/// @link http://creatiointl.org/gallery/william/rocket/components-accordion.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin accordion($key){
+  $ac-content: ro-get-type($key, 'string');
+  $max-height: 1000px;
+  $duration: 0.3s;
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if unitless($item) {
+        $max-height: $item + 'px';
+      } @else if unit($item) == 's' {
+        $duration: $item;
+      } @else {
+        $max-height: $item;
+      }
+    }
+  }
+  > input {
+    position: absolute;
+    left: -9999px;
+    &:checked ~ #{$ac-content} {
+      max-height: $max-height;
+    }
+  }
+  > #{$ac-content} {
+    @include transition(max-height $duration);
+    max-height: 0;
+    overflow: hidden;
+  }
+}

@@ -16,6 +16,7 @@
     <a <?php if ($pagename == 'components-dropdown' ) { echo 'class="current"'; } ?> href="components-dropdown.php">dropdown</a>
     <a <?php if ($pagename == 'components-tabs' ) { echo 'class="current"'; } ?> href="components-tabs.php">tabs</a>
     <a <?php if ($pagename == 'components-switch' ) { echo 'class="current"'; } ?> href="components-switch.php">switch</a>
+    <a <?php if ($pagename == 'components-accordion' ) { echo 'class="current"'; } ?> href="components-accordion.php">accordion</a>
     <a <?php if ($pagename == 'components-push-toggle' ) { echo 'class="current"'; } ?> href="components-push-toggle.php">push-toggle</a>
     <a <?php if ($pagename == 'components-checkbox' ) { echo 'class="current"'; } ?> href="components-checkbox.php">checkbox</a>
     <a <?php if ($pagename == 'components-tooltip' ) { echo 'class="current"'; } ?> href="components-tooltip.php">tooltip</a>
@@ -26,6 +27,7 @@
   <h4>addons</h4>
   <nav class="demo-links">
     <a <?php if ($pagename == 'addons-type' ) { echo 'class="current"'; } ?> href="addons-type.php">type</a>
+    <a <?php if ($pagename == 'addons-font-size' ) { echo 'class="current"'; } ?> href="addons-font-size.php">font-size</a>
     <a <?php if ($pagename == 'addons-visibility' ) { echo 'class="current"'; } ?> href="addons-visibility.php">visibility</a>
     <a <?php if ($pagename == 'addons-breakpoint' ) { echo 'class="current"'; } ?> href="addons-breakpoint.php">breakpoint</a>
   </nav>

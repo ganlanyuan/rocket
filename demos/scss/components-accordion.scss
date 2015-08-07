@@ -1,0 +1,36 @@
+@import 'demo-base';
+
+// *** components: accordion *** //
+
+.example-accordion {
+  max-width: 700px;
+  margin: 50px auto;
+}
+.accordion {
+  @include accordion(div 200px 0.4s);
+  margin-bottom: -1px;
+  label {
+    display: block;
+    border: 1px solid #BABABA;
+    strong {
+      display: block;
+      font-size: 13px;
+      margin: 0;
+      padding: 10px;
+    }
+  }
+}
+.acc {
+  &-1 label {
+    background-color: #F8F0E2;
+    border-color: #E3D19D;
+  }
+  &-2 label {
+    background-color: #D7F2F8;
+    border-color: #AACED7;
+  }
+  &-3 label {
+    background-color: #EDE2F8;
+    border-color: #D6C7E6;
+  }
+}

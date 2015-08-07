@@ -157,13 +157,14 @@
       width: 100%;
       text-align: center;
       margin: 10px 0;
-      font-size: 0; // remove extra space from the blank between tags
+      letter-spacing: -0.34em; // remove white space between inline-block elements
       label, span {
         display: inline-block;
         vertical-align: top;
       }
       label {
         padding: 0 3px;
+        letter-spacing: 0; // restore letter-spacing
         &:hover .normal { background-color: #5a5a5a; }
       }
       span {

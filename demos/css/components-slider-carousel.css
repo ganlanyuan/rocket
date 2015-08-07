@@ -33,13 +33,13 @@
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  font-size: 16px;
+  letter-spacing: 0;
   box-sizing: border-box;
 }
 
 .carousel-a .inner, .carousel-b .inner, .carousel-c .inner, .carousel-d .inner, .carousel-e .inner, .carousel-f .inner, .carousel-g .inner {
   position: relative;
-  font-size: 0;
+  letter-spacing: -0.34em;
   white-space: nowrap;
   -webkit-transition: left 1s ease 0s;
           transition: left 1s ease 0s;
@@ -94,7 +94,7 @@
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  font-size: 0;
+  letter-spacing: -0.34em;
 }
 
 .carousel-a .dots label, .carousel-b .dots label, .carousel-c .dots label, .carousel-d .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-g .dots label, .carousel-a .dots span, .carousel-b .dots span, .carousel-c .dots span, .carousel-d .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-g .dots span {
@@ -103,6 +103,7 @@
 }
 
 .carousel-a .dots label, .carousel-b .dots label, .carousel-c .dots label, .carousel-d .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-g .dots label {
+  letter-spacing: 0;
   padding: 0 3px;
 }
 

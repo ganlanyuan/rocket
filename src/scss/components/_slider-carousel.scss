@@ -302,14 +302,14 @@
       display: inline-block;
       vertical-align: top;
       width: 100%;
-      font-size: 16px;
+      letter-spacing: 0; // restore letter-spacing
       box-sizing: border-box;
     }
   }
   .inner {
     @include clearfix();
     position: relative;
-    font-size: 0;
+    letter-spacing: -0.34em; // remove white space between inline-block elements
     white-space: nowrap;
     transition: left 1s ease 0s;
   }
@@ -339,12 +339,13 @@
     width: 100%;
     text-align: center;
     margin: 10px 0;
-    font-size: 0; // remove extra space from the blank between tags
+    letter-spacing: -0.34em; // remove white space between inline-block elements
     label, span {
       display: inline-block;
       vertical-align: top;
     }
     label {
+      letter-spacing: 0; // restore letter-spacing
       padding: 0 3px;
       &:hover .normal { background-color: #5a5a5a; }
     }

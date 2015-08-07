@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.5.0
++ Add responsive font-size `font-size`
++ Add pure css `accordion`
+
 ### v2.4.0
 + Re-add mixin `slider-carousel`, `slider-gallery`
 + Add js function `equalizer`, `sticky`

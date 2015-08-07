@@ -487,7 +487,7 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  font-size: 0;
+  letter-spacing: -0.34em;
 }
 
 .gallery-a .dots label, .gallery-a .dots span {
@@ -497,6 +497,7 @@ pre[class*="language-"] {
 
 .gallery-a .dots label {
   padding: 0 3px;
+  letter-spacing: 0;
 }
 
 .gallery-a .dots label:hover .normal {
@@ -910,7 +911,7 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  font-size: 0;
+  letter-spacing: -0.34em;
 }
 
 .gallery-b .dots label, .gallery-b .dots span {
@@ -920,6 +921,7 @@ pre[class*="language-"] {
 
 .gallery-b .dots label {
   padding: 0 3px;
+  letter-spacing: 0;
 }
 
 .gallery-b .dots label:hover .normal {
@@ -1103,7 +1105,7 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  font-size: 0;
+  letter-spacing: -0.34em;
 }
 
 .gallery-c .dots label, .gallery-c .dots span {
@@ -1113,6 +1115,7 @@ pre[class*="language-"] {
 
 .gallery-c .dots label {
   padding: 0 3px;
+  letter-spacing: 0;
 }
 
 .gallery-c .dots label:hover .normal {
