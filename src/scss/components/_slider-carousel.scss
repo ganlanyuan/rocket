@@ -102,9 +102,90 @@
 
     // set default controls, dots and autoplay styles
     @if $default {
-      @extend %slider-carousel-default-cont-dot;
+      .controls {
+        @include clearfix();
+        max-width: 7.5em;
+        margin: 10px auto;
+        span {
+          font-size: 13px;
+          padding: 5px 8px;
+          border-radius: 3px;
+          transition: background-color 0.3s;
+          display: none;
+          color: #fff;
+          background-color: #15A9DC;
+          &:hover { background-color: #7D9DAC; }
+        }
+        .prev { float: left; }
+        .next { float: right; }
+      }
+      .dots {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+        letter-spacing: -0.34em; // remove white space between inline-block elements
+        label, span {
+          display: inline-block;
+          vertical-align: top;
+        }
+        label {
+          letter-spacing: 0; // restore letter-spacing
+          padding: 0 3px;
+          &:hover .normal { background-color: #5a5a5a; }
+        }
+        span {
+          width: 9px;
+          height: 9px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          transition: background-color 0.3s;
+        }
+        .active { background-color: #5a5a5a; display: none; }
+      }
       @if $autoplay {
-        @extend %slider-carousel-default-autoplay;
+        .autoplay {
+          opacity: 0;
+          text-align: center;
+          transition: opacity 1s;
+          margin: 10px 0;
+          .no-opacity & { display: none; }
+          .no-cssanimations & { display: none !important; }
+          > label {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background-color: #333;
+            border-radius: 50%;
+          }
+          span {
+            display: inline-block;
+          }
+          .play {
+            width: 0;
+            height: 0;
+            border-color: transparent transparent transparent #fff;
+            border-style: solid;
+            border-width: 7px 0px 7px 13px;
+            margin: 7px 0 0 3px;
+          }
+          .pause {
+            display: none;
+            &:before, &:after {
+              content: '';
+              display: inline-block;
+              border-width: 0;
+              width: 5px;
+              height: 13px;
+              margin-top: 8px;
+              background-color: #fff;
+            }
+            &:before { margin-right: 4px; }
+          }
+        }
+        &:hover .autoplay { 
+          opacity: 1; 
+          .no-opacity & { display: block; } 
+        }
         // hide dots when autoplay
         #{$id}-autoplay:checked ~ .dots { 
           display: none; 
@@ -152,17 +233,8 @@
   @if $autoplay {
     @if $default { 
       #{$id}-autoplay:checked ~ .autoplay {
-        span, label:after {
-          display: inline-block;
-          border-width: 0;
-          width: 5px;
-          height: 13px;
-          background-color: #fff;
-        }
-        span { margin: 7px 4px 0 0; }
-        label:after {
-          content: '';
-        }
+        .play { display: none; }
+        .pause { display: block; }
       }
     }
 
@@ -315,77 +387,5 @@
   }
   [autoheight-carousel] {
     transition: height 0.3s ease 0s;
-  }
-}
-%slider-carousel-default-cont-dot {
-  .controls {
-    @include clearfix();
-    max-width: 7.5em;
-    margin: 10px auto;
-    span {
-      font-size: 13px;
-      padding: 5px 8px;
-      border-radius: 3px;
-      transition: background-color 0.3s;
-      display: none;
-      color: #fff;
-      background-color: #15A9DC;
-      &:hover { background-color: #7D9DAC; }
-    }
-    .prev { float: left; }
-    .next { float: right; }
-  }
-  .dots {
-    width: 100%;
-    text-align: center;
-    margin: 10px 0;
-    letter-spacing: -0.34em; // remove white space between inline-block elements
-    label, span {
-      display: inline-block;
-      vertical-align: top;
-    }
-    label {
-      letter-spacing: 0; // restore letter-spacing
-      padding: 0 3px;
-      &:hover .normal { background-color: #5a5a5a; }
-    }
-    span {
-      width: 9px;
-      height: 9px;
-      background-color: #d3d3d3;
-      border-radius: 50%;
-      transition: background-color 0.3s;
-    }
-    .active { background-color: #5a5a5a; display: none; }
-  }
-}
-%slider-carousel-default-autoplay {
-  .autoplay {
-    opacity: 0;
-    text-align: center;
-    transition: opacity 1s;
-    margin: 10px 0;
-    .no-opacity & { display: none; }
-    .no-cssanimations & { display: none !important; }
-    > label {
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-      background-color: #333;
-      border-radius: 50%;
-    }
-    span {
-      display: inline-block;
-      width: 0;
-      height: 0;
-      border-color: transparent transparent transparent #fff;
-      border-style: solid;
-      border-width: 7px 0px 7px 13px;
-      margin: 7px 0 0 3px;
-    }
-  }
-  &:hover .autoplay { 
-    opacity: 1; 
-    .no-opacity & { display: block; } 
   }
 }

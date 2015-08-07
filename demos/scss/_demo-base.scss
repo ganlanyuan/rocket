@@ -29,6 +29,7 @@ body { overflow-x: hidden; }
 [class^="icon-"]:before, 
 [class*=" icon-"]:before { display: none; } // reset chrome icon-font
 label { cursor: pointer; }
+img { max-width: 100%; height: auto; }
 img.full { width: 100%; display: block; }
 a {
   text-decoration: none;

@@ -56,117 +56,6 @@
           transition: height 0.3s ease 0s;
 }
 
-.carousel-a .controls, .carousel-b .controls, .carousel-c .controls, .carousel-d .controls, .carousel-e .controls, .carousel-f .controls, .carousel-g .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-a .controls:after, .carousel-b .controls:after, .carousel-c .controls:after, .carousel-d .controls:after, .carousel-e .controls:after, .carousel-f .controls:after, .carousel-g .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-a .controls span, .carousel-b .controls span, .carousel-c .controls span, .carousel-d .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-g .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  display: none;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-a .controls span:hover, .carousel-b .controls span:hover, .carousel-c .controls span:hover, .carousel-d .controls span:hover, .carousel-e .controls span:hover, .carousel-f .controls span:hover, .carousel-g .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-a .controls .prev, .carousel-b .controls .prev, .carousel-c .controls .prev, .carousel-d .controls .prev, .carousel-e .controls .prev, .carousel-f .controls .prev, .carousel-g .controls .prev {
-  float: left;
-}
-
-.carousel-a .controls .next, .carousel-b .controls .next, .carousel-c .controls .next, .carousel-d .controls .next, .carousel-e .controls .next, .carousel-f .controls .next, .carousel-g .controls .next {
-  float: right;
-}
-
-.carousel-a .dots, .carousel-b .dots, .carousel-c .dots, .carousel-d .dots, .carousel-e .dots, .carousel-f .dots, .carousel-g .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-  letter-spacing: -0.34em;
-}
-
-.carousel-a .dots label, .carousel-b .dots label, .carousel-c .dots label, .carousel-d .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-g .dots label, .carousel-a .dots span, .carousel-b .dots span, .carousel-c .dots span, .carousel-d .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-g .dots span {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.carousel-a .dots label, .carousel-b .dots label, .carousel-c .dots label, .carousel-d .dots label, .carousel-e .dots label, .carousel-f .dots label, .carousel-g .dots label {
-  letter-spacing: 0;
-  padding: 0 3px;
-}
-
-.carousel-a .dots label:hover .normal, .carousel-b .dots label:hover .normal, .carousel-c .dots label:hover .normal, .carousel-d .dots label:hover .normal, .carousel-e .dots label:hover .normal, .carousel-f .dots label:hover .normal, .carousel-g .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-a .dots span, .carousel-b .dots span, .carousel-c .dots span, .carousel-d .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-g .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-a .dots .active, .carousel-b .dots .active, .carousel-c .dots .active, .carousel-d .dots .active, .carousel-e .dots .active, .carousel-f .dots .active, .carousel-g .dots .active {
-  background-color: #5a5a5a;
-  display: none;
-}
-
-.carousel-f .autoplay {
-  opacity: 0;
-  text-align: center;
-  -webkit-transition: opacity 1s;
-          transition: opacity 1s;
-  margin: 10px 0;
-}
-
-.no-opacity .carousel-f .autoplay {
-  display: none;
-}
-
-.no-cssanimations .carousel-f .autoplay {
-  display: none !important;
-}
-
-.carousel-f .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.carousel-f .autoplay span {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.carousel-f:hover .autoplay {
-  opacity: 1;
-}
-
-.no-opacity .carousel-f:hover .autoplay {
-  display: block;
-}
-
 /* Android 2.3 :checked fix */
 @-webkit-keyframes fake {
   from {
@@ -583,6 +472,75 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-a .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-a .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-a .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-a .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-a .controls .prev {
+  float: left;
+}
+
+.carousel-a .controls .next {
+  float: right;
+}
+
+.carousel-a .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-a .dots label, .carousel-a .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-a .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-a .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-a .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-a .dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
 .carousel-a .outer {
   margin: 0 -10px;
 }
@@ -711,6 +669,75 @@ pre[class*="language-"] {
 }
 
 #carousel-b-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.carousel-b .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-b .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-b .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-b .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-b .controls .prev {
+  float: left;
+}
+
+.carousel-b .controls .next {
+  float: right;
+}
+
+.carousel-b .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-b .dots label, .carousel-b .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-b .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-b .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-b .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-b .dots .active {
+  background-color: #5a5a5a;
   display: none;
 }
 
@@ -845,6 +872,75 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-c .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-c .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-c .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-c .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-c .controls .prev {
+  float: left;
+}
+
+.carousel-c .controls .next {
+  float: right;
+}
+
+.carousel-c .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-c .dots label, .carousel-c .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-c .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-c .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-c .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-c .dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
 .carousel-c .outer {
   margin: 0 -10px;
 }
@@ -973,6 +1069,75 @@ pre[class*="language-"] {
 }
 
 #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.carousel-d .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-d .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-d .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-d .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-d .controls .prev {
+  float: left;
+}
+
+.carousel-d .controls .next {
+  float: right;
+}
+
+.carousel-d .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-d .dots label, .carousel-d .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-d .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-d .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-d .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-d .dots .active {
+  background-color: #5a5a5a;
   display: none;
 }
 
@@ -1122,6 +1287,75 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-e .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-e .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-e .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-e .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-e .controls .prev {
+  float: left;
+}
+
+.carousel-e .controls .next {
+  float: right;
+}
+
+.carousel-e .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-e .dots label, .carousel-e .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-e .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-e .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-e .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-e .dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
 .carousel-e .outer li {
   width: 50%;
 }
@@ -1253,6 +1487,138 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-f .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-f .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-f .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-f .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-f .controls .prev {
+  float: left;
+}
+
+.carousel-f .controls .next {
+  float: right;
+}
+
+.carousel-f .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-f .dots label, .carousel-f .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-f .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-f .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-f .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-f .dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+.carousel-f .autoplay {
+  opacity: 0;
+  text-align: center;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
+  margin: 10px 0;
+}
+
+.no-opacity .carousel-f .autoplay {
+  display: none;
+}
+
+.no-cssanimations .carousel-f .autoplay {
+  display: none !important;
+}
+
+.carousel-f .autoplay > label {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.carousel-f .autoplay span {
+  display: inline-block;
+}
+
+.carousel-f .autoplay .play {
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  border-width: 7px 0px 7px 13px;
+  margin: 7px 0 0 3px;
+}
+
+.carousel-f .autoplay .pause {
+  display: none;
+}
+
+.carousel-f .autoplay .pause:before, .carousel-f .autoplay .pause:after {
+  content: '';
+  display: inline-block;
+  border-width: 0;
+  width: 5px;
+  height: 13px;
+  margin-top: 8px;
+  background-color: #fff;
+}
+
+.carousel-f .autoplay .pause:before {
+  margin-right: 4px;
+}
+
+.carousel-f:hover .autoplay {
+  opacity: 1;
+}
+
+.no-opacity .carousel-f:hover .autoplay {
+  display: block;
+}
+
 .carousel-f #carousel-f-autoplay:checked ~ .dots {
   display: none;
 }
@@ -1297,20 +1663,12 @@ pre[class*="language-"] {
   display: none;
 }
 
-.carousel-f #carousel-f-autoplay:checked ~ .autoplay span, .carousel-f #carousel-f-autoplay:checked ~ .autoplay label:after {
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  background-color: #fff;
+.carousel-f #carousel-f-autoplay:checked ~ .autoplay .play {
+  display: none;
 }
 
-.carousel-f #carousel-f-autoplay:checked ~ .autoplay span {
-  margin: 7px 4px 0 0;
-}
-
-.carousel-f #carousel-f-autoplay:checked ~ .autoplay label:after {
-  content: '';
+.carousel-f #carousel-f-autoplay:checked ~ .autoplay .pause {
+  display: block;
 }
 
 @-webkit-keyframes carousel-f-inner {
@@ -1483,6 +1841,75 @@ pre[class*="language-"] {
 }
 
 #carousel-g-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.carousel-g .controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.carousel-g .controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-g .controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  display: none;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.carousel-g .controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.carousel-g .controls .prev {
+  float: left;
+}
+
+.carousel-g .controls .next {
+  float: right;
+}
+
+.carousel-g .dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -0.34em;
+}
+
+.carousel-g .dots label, .carousel-g .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-g .dots label {
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.carousel-g .dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.carousel-g .dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.carousel-g .dots .active {
+  background-color: #5a5a5a;
   display: none;
 }
 

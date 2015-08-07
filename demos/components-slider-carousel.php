@@ -77,7 +77,7 @@
             <label for="carousel-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-a-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-a-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
         <div class="carousel-b">
           <input type="radio" name="carousel-b" id="carousel-b-1" checked="">
@@ -129,7 +129,7 @@
             <label for="carousel-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-b-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-b-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
         <div class="carousel-c">
           <input type="radio" name="carousel-c" id="carousel-c-1" checked="">
@@ -181,7 +181,7 @@
             <label for="carousel-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-c-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-c-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
         <div class="carousel-d">
           <input type="radio" name="carousel-d" id="carousel-d-1" checked="">
@@ -233,7 +233,7 @@
             <label for="carousel-d-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-d-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-d-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-d-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
         <div class="carousel-e">
           <input type="radio" name="carousel-e" id="carousel-e-1" checked="">
@@ -285,7 +285,7 @@
             <label for="carousel-e-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-e-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-e-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-e-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
         <div class="carousel-f">
           <input type="radio" name="carousel-f" id="carousel-f-1" checked="">
@@ -337,7 +337,7 @@
             <label for="carousel-f-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-f-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-f-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-f-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
         <div class="carousel-g">
           <input type="radio" name="carousel-g" id="carousel-g-1" checked="">
@@ -389,7 +389,7 @@
             <label for="carousel-g-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-g-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-g-autoplay"><span></span></label></div>
+          <div class="autoplay"><label for="carousel-g-autoplay"><span class="play"></span><span class="pause"></span></label></div>
         </div>
       </div>
       <div>

@@ -113,11 +113,14 @@
   .inner { 
     position: relative; 
     > li {
-      @include item-hide; 
+      @include item-hide(); 
+      width: 100%;
       box-sizing: border-box;
       transition: opacity $speed ease 0s;
     }
   }
+  .controls,
+  .dots > label { position: relative; }
   [autoheight-gallery] {
     transition: height ($speed / 2) ease 0s;
   }
@@ -127,13 +130,12 @@
     @at-root { 
       #{$id}-#{$i}:checked ~ {
         .outer li:nth-child(#{$i}) { 
-          @include item-show; 
+          @include item-show(); 
         }
       }
     }
   }
 
-  // setting controls
   // default style
   @if $default {
     .controls {
@@ -141,17 +143,23 @@
       max-width: 7.5em;
       margin: 10px auto;
       span {
+        @include check-hide();
         font-size: 13px;
         padding: 5px 8px;
         border-radius: 3px;
         transition: background-color 0.3s;
-        display: none;
         color: #fff;
         background-color: #15A9DC;
         &:hover { background-color: #7D9DAC; }
       }
-      .prev { float: left; }
-      .next { float: right; }
+      .prev { 
+        float: left; 
+        left: 0;
+      }
+      .next { 
+        float: right; 
+        right: 0;
+      }
     }
     .dots {
       width: 100%;
@@ -163,36 +171,38 @@
         vertical-align: top;
       }
       label {
-        padding: 0 3px;
+        margin: 0 3px;
         letter-spacing: 0; // restore letter-spacing
         &:hover .normal { background-color: #5a5a5a; }
       }
       span {
+        left: 0;
         width: 9px;
         height: 9px;
         background-color: #d3d3d3;
         border-radius: 50%;
         transition: background-color 0.3s;
       }
-      .active { background-color: #5a5a5a; display: none; }
+      .normal { @include check-show(); }
+      .active { @include check-hide(); background-color: #5a5a5a; }
     }
   }
   
-  // show and hide
+  // setting controls
   @for $i from 1 through $items {
     @at-root { 
       #{$id}-#{$i}:checked ~ {
         @if $i == 1 {
           .controls label:nth-child(#{$items}) .prev, 
-          .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          .controls label:nth-child(#{$i + 1}) .next { @include check-show(); }
         }
         @else if $i == $items {
           .controls label:nth-child(#{$i - 1}) .prev, 
-          .controls label:nth-child(1) .next { display: block; }
+          .controls label:nth-child(1) .next { @include check-show(); }
         }
         @else {
           .controls label:nth-child(#{$i - 1}) .prev, 
-          .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          .controls label:nth-child(#{$i + 1}) .next { @include check-show(); }
         }
       }
     }
@@ -202,8 +212,8 @@
   @for $i from 1 through $items {
     @at-root { 
       #{$id}-#{$i}:checked ~ {
-      .dots label:nth-child(#{$i}) .active { display: block; }
-      .dots label:nth-child(#{$i}) .normal { display: none; }
+      .dots label:nth-child(#{$i}) .active { @include check-show(); }
+      .dots label:nth-child(#{$i}) .normal { @include check-hide(); }
       }
     }
   }
@@ -212,12 +222,8 @@
   @if $autoplay {
     @if $default {
       .autoplay {
-        opacity: 0;
         text-align: center;
-        transition: opacity 1s;
         margin: 10px 0;
-        .no-opacity & { display: none; }
-        .no-cssanimations & { display: none !important; }
         > label {
           width: 30px;
           height: 30px;
@@ -227,6 +233,8 @@
         }
         span {
           display: inline-block;
+        }
+        .play {
           width: 0;
           height: 0;
           border-color: transparent transparent transparent #fff;
@@ -234,77 +242,84 @@
           border-width: 7px 0px 7px 13px;
           margin: 7px 0 0 3px;
         }
-      }
-      &:hover .autoplay { 
-        opacity: 1; 
-        .no-opacity & { display: block; } 
-      }
-      @at-root { 
-        #{$id}-autoplay:checked ~ .autoplay { 
-          span, label:after {
+        .pause {
+          display: none;
+          &:before, &:after {
+            content: '';
             display: inline-block;
             border-width: 0;
             width: 5px;
             height: 13px;
+            margin-top: 8px;
             background-color: #fff;
           }
-          span { margin: 7px 4px 0 0; }
-          label:after {
-            content: '';
-          } 
+          &:before { margin-right: 4px; }
+        }
+      }
+      @at-root { 
+        #{$id}-autoplay:checked ~ .autoplay { 
+          .play { display: none; }
+          .pause { display: block; }
         }
       }
     }
+
     // animation
     @include keyframes(#{$prefix}) {
-      0% { @include item-hide; }
-      #{percentage($speed / ($time-per-item * $items))} { @include item-show; }
-      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show; }
-      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { @include item-hide; }
+      0% { @include item-hide(); }
+      #{percentage($speed / ($time-per-item * $items))} { @include item-show(); }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show(); }
+      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { @include item-hide(); }
+      100% { @include item-hide(); }
     }
     @include keyframes(#{$prefix}-show) {
-      0% { @include item-hide; }
-      #{percentage($speed / ($time-per-item * $items))} { @include item-show; }
-      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-hide; }
+      0% { @include auto-hide(); }
+      #{percentage($speed / ($time-per-item * $items) - 0.0001)} { @include auto-hide(); }
+      #{percentage($speed / ($time-per-item * $items))} { @include auto-show(); }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include auto-show(); }
+      #{percentage($time-per-item / ($time-per-item * $items) + 0.0001)} { @include auto-hide(); }
+      100% { @include auto-hide(); }
     }
     @include keyframes(#{$prefix}-hide) {
-      0% { @include item-show; }
-      #{percentage($speed / ($time-per-item * $items))} { @include item-hide; }
-      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show; }
+      0% { @include auto-show(); }
+      #{percentage($speed / ($time-per-item * $items) - 0.0001)} { @include auto-show(); }
+      #{percentage($speed / ($time-per-item * $items))} { @include auto-hide(); }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include auto-hide(); }
+      #{percentage($time-per-item / ($time-per-item * $items) + 0.0001)} { @include auto-show(); }
+      100% { @include auto-show(); }
     }
     @at-root { 
       #{$id}-autoplay:checked ~ {
-        .controls, .dots { display: none !important; }
         // animation
         .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
-        // .controls .prev, 
-        // .controls .next, 
-        // .dots .active { @include animation( #{$prefix}-show ($time-per-item * $items) ease infinite); }
-        // .dots .normal { @include animation( #{$prefix}-hide ($time-per-item * $items) ease infinite); }
+        .controls .prev, 
+        .controls .next, 
+        .dots .active { @include animation( #{$prefix}-show ($time-per-item * $items) ease infinite); }
+        .dots .normal { @include animation( #{$prefix}-hide ($time-per-item * $items) ease infinite); }
 
         // delay
         @if $items == 2 {
           .outer li:nth-child(2), 
-          // .dots > label:nth-child(2) .normal, 
-          // .dots > label:nth-child(2) .active, 
-          // .controls > label:nth-child(1) .prev, 
-          // .controls > label:nth-child(1) .next,
+          .dots > label:nth-child(2) .normal, 
+          .dots > label:nth-child(2) .active, 
+          .controls > label:nth-child(1) .prev, 
+          .controls > label:nth-child(1) .next,
             { @include animation-delay($time-per-item); }
         } @else {
           @for $i from 1 to $items {
             @if $i == ($items - 1) {
               .outer li:nth-child(#{($i + 1)}), 
-              // .dots > label:nth-child(#{($i + 1)}) .normal, 
-              // .dots > label:nth-child(#{($i + 1)}) .active, 
-              // .controls > label:nth-child(#{$i}) .prev, 
-              // .controls > label:nth-child(1) .next,
+              .dots > label:nth-child(#{($i + 1)}) .normal, 
+              .dots > label:nth-child(#{($i + 1)}) .active, 
+              .controls > label:nth-child(#{$i}) .prev, 
+              .controls > label:nth-child(1) .next,
                 { @include animation-delay(($time-per-item * $i)); }
             } @else {
               .outer li:nth-child(#{($i + 1)}), 
-              // .dots > label:nth-child(#{($i + 1)}) .normal, 
-              // .dots > label:nth-child(#{($i + 1)}) .active, 
-              // .controls > label:nth-child(#{$i}) .prev, 
-              // .controls > label:nth-child(#{($i + 2)}) .next,
+              .dots > label:nth-child(#{($i + 1)}) .normal, 
+              .dots > label:nth-child(#{($i + 1)}) .active, 
+              .controls > label:nth-child(#{$i}) .prev, 
+              .controls > label:nth-child(#{($i + 2)}) .next,
                 { @include animation-delay(($time-per-item * $i)); }
             }
           }
@@ -314,8 +329,14 @@
     // pause on hover
     @if $hoverpause {
       &:hover {
-        #{$id}-autoplay ~ .outer li { 
-          @include animation-play-state(paused); 
+        #{$id}-autoplay ~ {
+          .outer li,
+          .controls .prev, 
+          .controls .next, 
+          .dots .normal,
+          .dots .active { 
+            @include animation-play-state(paused); 
+          }
         }
       }
     }
@@ -323,13 +344,33 @@
 
 }
 
-@mixin item-hide {
+@mixin item-hide() {
   @include opacity(0); 
   position: absolute;
   top: 0;
   z-index: nth($ro-slider-z-index, 4);
 }
-@mixin item-show {
+@mixin item-show() {
   @include opacity(1); 
   position: static;
+}
+
+@mixin auto-hide() {
+  @include opacity(0);
+  position: absolute;
+}
+@mixin auto-show() {
+  @include opacity(1);
+  position: relative;
+  z-index: nth($ro-slider-z-index, 1);
+}
+
+@mixin check-hide() {
+  @include opacity(0);
+  position: absolute;
+}
+@mixin check-show() {
+  @include opacity(1);
+  position: relative;
+  z-index: nth($ro-slider-z-index, 3);
 }

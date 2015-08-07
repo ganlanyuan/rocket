@@ -69,7 +69,7 @@
                 <label for="gallery-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
                 <label for="gallery-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
-              <div class="autoplay"><label for="gallery-a-autoplay"><span></span></label></div>
+              <div class="autoplay"><label for="gallery-a-autoplay"><span class="play"></span><span class="pause"></span></label></div>
             </div>
             <div class="gallery-b">
               <input type="radio" name="gallery-b" id="gallery-b-1" checked="">
@@ -121,7 +121,7 @@
                 <label for="gallery-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
                 <label for="gallery-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
-              <div class="autoplay"><label for="gallery-b-autoplay"><span></span></label>
+              <div class="autoplay"><label for="gallery-b-autoplay"><span class="play"></span><span class="pause"></span></label>
             </div>
             </div>
             <div class="gallery-c">
@@ -174,7 +174,7 @@
                 <label for="gallery-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
                 <label for="gallery-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
-              <div class="autoplay"><label for="gallery-c-autoplay"><span></span></label>
+              <div class="autoplay"><label for="gallery-c-autoplay"><span class="play"></span><span class="pause"></span></label>
             </div>
           </div>
           </div>
