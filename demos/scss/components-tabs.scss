@@ -4,16 +4,20 @@
 
 .tabs {
   @include tabs-active(3) {
-    border-color: #FF0000;
+    background-color: #FB994C;
   }
   max-width: 800px;
   margin: 0 auto;
   > .ro-tabs { 
     margin-bottom: 10px; 
+    letter-spacing: -0.34em;
     > label {
       display: inline-block;
       padding: 8px 12px;
-      border: 1px solid #fff;
+      background-color: #408BE1;
+      letter-spacing: 0;
+      color: #fff;
+      text-transform: capitalize;
     }
   }
   > .ro-panels > div { 

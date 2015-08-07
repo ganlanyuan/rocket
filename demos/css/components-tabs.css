@@ -298,17 +298,21 @@ pre[class*="language-"] {
 }
 
 .tabs > input:nth-child(1):checked ~ .ro-tabs > label:nth-child(1), .tabs > input:nth-child(2):checked ~ .ro-tabs > label:nth-child(2), .tabs > input:nth-child(3):checked ~ .ro-tabs > label:nth-child(3) {
-  border-color: #FF0000;
+  background-color: #FB994C;
 }
 
 .tabs > .ro-tabs {
   margin-bottom: 10px;
+  letter-spacing: -0.34em;
 }
 
 .tabs > .ro-tabs > label {
   display: inline-block;
   padding: 8px 12px;
-  border: 1px solid #fff;
+  background-color: #408BE1;
+  letter-spacing: 0;
+  color: #fff;
+  text-transform: capitalize;
 }
 
 .tabs > .ro-panels > div {
