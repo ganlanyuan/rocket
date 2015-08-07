@@ -34,3 +34,33 @@
     border-color: #D6C7E6;
   }
 }
+.header {
+  padding: 15px;
+  color: #fff;
+  background-color: #E7435C;
+  .menu-icon {
+    display: block;
+    width: 21px;
+    &:before, &:after {
+      content: '';
+    }
+    span, &:before, &:after {
+      display: block;
+      height: 2px;
+      background-color: #fff;
+      margin-bottom: 5px;
+    }
+    &:after { margin-bottom: 0; }
+  }
+  .nav {
+    ul { padding: 10px 0; }
+    li {
+      font-size: 14px;
+      padding: 10px 0;
+    }
+  }
+  a { color: #fff; }
+}
+.nav-wrap {
+  @include accordion('.nav' 130px 0.3s);
+}

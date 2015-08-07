@@ -74,6 +74,21 @@
             <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
           </div>
         </div>
+        <br>
+        <h4>Menu</h4>
+        <div class="header">
+          <label for="menu" class="menu-icon"><span></span></label>
+          <div class="nav-wrap">
+            <input type="checkbox" name="menu" id="menu">
+            <nav class="nav">
+              <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="">How we work</a></li>
+                <li><a href="">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
       <pre><code class="language-scss">
 .accordion { @include accordion(div 200px 0.4s); }
