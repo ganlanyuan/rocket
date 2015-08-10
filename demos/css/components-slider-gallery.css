@@ -1376,46 +1376,46 @@ pre[class*="language-"] {
 }
 
 .gallery-c li {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(0) rotate(-270deg);
+  -ms-transform: scale(0) rotate(-270deg);
+  transform: scale(0) rotate(-270deg);
   -webkit-transition: all 1s !important;
           transition: all 1s !important;
 }
 
 .gallery-c #gallery-c-1:checked ~ .outer li:nth-child(1) {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .gallery-c #gallery-c-2:checked ~ .outer li:nth-child(2) {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .gallery-c #gallery-c-3:checked ~ .outer li:nth-child(3) {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .gallery-c #gallery-c-4:checked ~ .outer li:nth-child(4) {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .gallery-c #gallery-c-5:checked ~ .outer li:nth-child(5) {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .gallery-c .info {
   opacity: 0;
-  margin-left: 0;
+  margin-left: -10px;
   -webkit-transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
 }
