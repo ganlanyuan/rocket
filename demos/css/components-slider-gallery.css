@@ -118,7 +118,7 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: .5em 0;
+  margin: 0.5em 0;
 }
 
 h2 span {
@@ -359,7 +359,7 @@ pre[class*="language-"] {
   margin-bottom: 0;
 }
 
-.slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], .slider [id=gallery-auto-height]:checked ~ .slider-labels [for=gallery-auto-height], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise] {
+.slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], [id=gallery-auto-play]:checked ~ .slider-labels .slider [for=gallery-auto-play], .slider [id=gallery-auto-height]:checked ~ .slider-labels [for=gallery-auto-height], [id=gallery-auto-height]:checked ~ .slider-labels .slider [for=gallery-auto-height], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise], [id=gallery-customise]:checked ~ .slider-labels .slider [for=gallery-customise] {
   background-color: #FFBE39;
 }
 
@@ -413,7 +413,6 @@ pre[class*="language-"] {
   filter: alpha(opacity=0);
   position: absolute;
   top: 0;
-  z-index: 7;
   width: 100%;
   box-sizing: border-box;
   -webkit-transition: opacity 1s ease 0s;
@@ -428,36 +427,6 @@ pre[class*="language-"] {
 .gallery-a [autoheight-gallery] {
   -webkit-transition: height 0.5s ease 0s;
           transition: height 0.5s ease 0s;
-}
-
-.gallery-a #gallery-a-1:checked ~ .outer li:nth-child(1) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-a #gallery-a-2:checked ~ .outer li:nth-child(2) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-a #gallery-a-3:checked ~ .outer li:nth-child(3) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-a #gallery-a-4:checked ~ .outer li:nth-child(4) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-a #gallery-a-5:checked ~ .outer li:nth-child(5) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
 }
 
 .gallery-a .controls {
@@ -533,7 +502,7 @@ pre[class*="language-"] {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
 .gallery-a .dots .active {
@@ -543,114 +512,9 @@ pre[class*="language-"] {
   background-color: #5a5a5a;
 }
 
-.gallery-a #gallery-a-1:checked ~ .controls label:nth-child(5) .prev,
-.gallery-a #gallery-a-1:checked ~ .controls label:nth-child(2) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-2:checked ~ .controls label:nth-child(1) .prev,
-.gallery-a #gallery-a-2:checked ~ .controls label:nth-child(3) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-3:checked ~ .controls label:nth-child(2) .prev,
-.gallery-a #gallery-a-3:checked ~ .controls label:nth-child(4) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-4:checked ~ .controls label:nth-child(3) .prev,
-.gallery-a #gallery-a-4:checked ~ .controls label:nth-child(5) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-5:checked ~ .controls label:nth-child(4) .prev,
-.gallery-a #gallery-a-5:checked ~ .controls label:nth-child(1) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-1:checked ~ .dots label:nth-child(1) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-1:checked ~ .dots label:nth-child(1) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
-}
-
-.gallery-a #gallery-a-2:checked ~ .dots label:nth-child(2) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-2:checked ~ .dots label:nth-child(2) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
-}
-
-.gallery-a #gallery-a-3:checked ~ .dots label:nth-child(3) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-3:checked ~ .dots label:nth-child(3) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
-}
-
-.gallery-a #gallery-a-4:checked ~ .dots label:nth-child(4) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-4:checked ~ .dots label:nth-child(4) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
-}
-
-.gallery-a #gallery-a-5:checked ~ .dots label:nth-child(5) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-a #gallery-a-5:checked ~ .dots label:nth-child(5) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
-}
-
 .gallery-a .autoplay {
+  position: relative;
   text-align: center;
-  margin: 10px 0;
 }
 
 .gallery-a .autoplay > label {
@@ -692,12 +556,163 @@ pre[class*="language-"] {
   margin-right: 4px;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .autoplay .play {
+.gallery-a .autoplay-progress {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: 34px;
+  width: 0;
+  display: block;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#gallery-a-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .autoplay .pause {
+#gallery-a-autoplay:checked ~ .autoplay .pause {
   display: block;
+}
+
+#gallery-a-1:checked ~ .outer li:nth-child(1) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 7;
+}
+
+#gallery-a-2:checked ~ .outer li:nth-child(2) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 7;
+}
+
+#gallery-a-3:checked ~ .outer li:nth-child(3) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 7;
+}
+
+#gallery-a-4:checked ~ .outer li:nth-child(4) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 7;
+}
+
+#gallery-a-5:checked ~ .outer li:nth-child(5) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 7;
+}
+
+#gallery-a-1:checked ~ .controls label:nth-child(5) .prev,
+#gallery-a-1:checked ~ .controls label:nth-child(2) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-2:checked ~ .controls label:nth-child(1) .prev,
+#gallery-a-2:checked ~ .controls label:nth-child(3) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-3:checked ~ .controls label:nth-child(2) .prev,
+#gallery-a-3:checked ~ .controls label:nth-child(4) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-4:checked ~ .controls label:nth-child(3) .prev,
+#gallery-a-4:checked ~ .controls label:nth-child(5) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-5:checked ~ .controls label:nth-child(4) .prev,
+#gallery-a-5:checked ~ .controls label:nth-child(1) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-1:checked ~ .dots label:nth-child(1) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-1:checked ~ .dots label:nth-child(1) .normal {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+}
+
+#gallery-a-2:checked ~ .dots label:nth-child(2) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-2:checked ~ .dots label:nth-child(2) .normal {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+}
+
+#gallery-a-3:checked ~ .dots label:nth-child(3) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-3:checked ~ .dots label:nth-child(3) .normal {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+}
+
+#gallery-a-4:checked ~ .dots label:nth-child(4) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-4:checked ~ .dots label:nth-child(4) .normal {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+}
+
+#gallery-a-5:checked ~ .dots label:nth-child(5) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-a-5:checked ~ .dots label:nth-child(5) .normal {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
 }
 
 @-webkit-keyframes gallery-a {
@@ -706,31 +721,30 @@ pre[class*="language-"] {
     filter: alpha(opacity=0);
     position: absolute;
     top: 0;
-    z-index: 7;
   }
   5% {
     opacity: 1;
     filter: alpha(opacity=100);
-    position: static;
+    position: relative;
+    z-index: 7;
   }
   20% {
     opacity: 1;
     filter: alpha(opacity=100);
-    position: static;
+    position: relative;
+    z-index: 7;
   }
   25% {
     opacity: 0;
     filter: alpha(opacity=0);
     position: absolute;
     top: 0;
-    z-index: 7;
   }
   100% {
     opacity: 0;
     filter: alpha(opacity=0);
     position: absolute;
     top: 0;
-    z-index: 7;
   }
 }
 
@@ -740,206 +754,97 @@ pre[class*="language-"] {
     filter: alpha(opacity=0);
     position: absolute;
     top: 0;
-    z-index: 7;
   }
   5% {
     opacity: 1;
     filter: alpha(opacity=100);
-    position: static;
+    position: relative;
+    z-index: 7;
   }
   20% {
     opacity: 1;
     filter: alpha(opacity=100);
-    position: static;
+    position: relative;
+    z-index: 7;
   }
   25% {
     opacity: 0;
     filter: alpha(opacity=0);
     position: absolute;
     top: 0;
-    z-index: 7;
   }
   100% {
     opacity: 0;
     filter: alpha(opacity=0);
     position: absolute;
     top: 0;
-    z-index: 7;
   }
 }
 
-@-webkit-keyframes gallery-a-active {
+@-webkit-keyframes gallery-a-progress {
   0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
+    width: 0;
   }
-  5% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  20% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  20.01% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
+  25% {
+    width: 0;
   }
   100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
+    width: 100%;
   }
 }
 
-@keyframes gallery-a-active {
+@keyframes gallery-a-progress {
   0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
+    width: 0;
   }
-  5% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  20% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  20.01% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
+  25% {
+    width: 0;
   }
   100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
+    width: 100%;
   }
 }
 
-@-webkit-keyframes gallery-a-normal {
-  0% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  5% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-  }
-  20% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-  }
-  20.01% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-}
-
-@keyframes gallery-a-normal {
-  0% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  5% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-  }
-  20% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-  }
-  20.01% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-  100% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 10;
-  }
-}
-
-.gallery-a #gallery-a-autoplay:checked ~ .controls {
+#gallery-a-autoplay:checked ~ .controls, #gallery-a-autoplay:checked ~ .dots {
   display: none !important;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .outer li {
+#gallery-a-autoplay:checked ~ .outer li {
   -webkit-animation: gallery-a 20s ease infinite;
   animation: gallery-a 20s ease infinite;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .dots .active {
-  -webkit-animation: gallery-a-active 20s ease infinite;
-  animation: gallery-a-active 20s ease infinite;
+#gallery-a-autoplay:checked ~ .autoplay > .autoplay-progress {
+  -webkit-animation: gallery-a-progress 4s ease infinite;
+  animation: gallery-a-progress 4s ease infinite;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .dots .normal {
-  -webkit-animation: gallery-a-normal 20s ease infinite;
-  animation: gallery-a-normal 20s ease infinite;
-}
-
-.gallery-a #gallery-a-autoplay:checked ~ .outer li:nth-child(2),
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(2) .normal,
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(2) .active {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(2) {
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .outer li:nth-child(3),
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(3) .normal,
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(3) .active {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(3) {
   -webkit-animation-delay: 8s;
   animation-delay: 8s;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .outer li:nth-child(4),
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(4) .normal,
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(4) .active {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(4) {
   -webkit-animation-delay: 12s;
   animation-delay: 12s;
 }
 
-.gallery-a #gallery-a-autoplay:checked ~ .outer li:nth-child(5),
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(5) .normal,
-.gallery-a #gallery-a-autoplay:checked ~ .dots > label:nth-child(5) .active {
+#gallery-a-autoplay:checked ~ .outer li:nth-child(5) {
   -webkit-animation-delay: 16s;
   animation-delay: 16s;
 }
 
-.gallery-a:hover #gallery-a-autoplay ~ .outer li,
-.gallery-a:hover #gallery-a-autoplay ~ .dots .normal,
-.gallery-a:hover #gallery-a-autoplay ~ .dots .active {
+.gallery-a:hover #gallery-a-autoplay ~ .outer li {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.gallery-a:hover #gallery-a-autoplay ~ .autoplay > .autoplay-progress {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
@@ -963,7 +868,6 @@ pre[class*="language-"] {
   filter: alpha(opacity=0);
   position: absolute;
   top: 0;
-  z-index: 7;
   width: 100%;
   box-sizing: border-box;
   -webkit-transition: opacity 1s ease 0s;
@@ -978,36 +882,6 @@ pre[class*="language-"] {
 .gallery-b [autoheight-gallery] {
   -webkit-transition: height 0.5s ease 0s;
           transition: height 0.5s ease 0s;
-}
-
-.gallery-b #gallery-b-1:checked ~ .outer li:nth-child(1) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-b #gallery-b-2:checked ~ .outer li:nth-child(2) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-b #gallery-b-3:checked ~ .outer li:nth-child(3) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-b #gallery-b-4:checked ~ .outer li:nth-child(4) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-b #gallery-b-5:checked ~ .outer li:nth-child(5) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
 }
 
 .gallery-b .controls {
@@ -1083,7 +957,7 @@ pre[class*="language-"] {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
 .gallery-b .dots .active {
@@ -1093,106 +967,141 @@ pre[class*="language-"] {
   background-color: #5a5a5a;
 }
 
-.gallery-b #gallery-b-1:checked ~ .controls label:nth-child(5) .prev,
-.gallery-b #gallery-b-1:checked ~ .controls label:nth-child(2) .next {
+#gallery-b-1:checked ~ .outer li:nth-child(1) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-b #gallery-b-2:checked ~ .controls label:nth-child(1) .prev,
-.gallery-b #gallery-b-2:checked ~ .controls label:nth-child(3) .next {
+#gallery-b-2:checked ~ .outer li:nth-child(2) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-b #gallery-b-3:checked ~ .controls label:nth-child(2) .prev,
-.gallery-b #gallery-b-3:checked ~ .controls label:nth-child(4) .next {
+#gallery-b-3:checked ~ .outer li:nth-child(3) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-b #gallery-b-4:checked ~ .controls label:nth-child(3) .prev,
-.gallery-b #gallery-b-4:checked ~ .controls label:nth-child(5) .next {
+#gallery-b-4:checked ~ .outer li:nth-child(4) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-b #gallery-b-5:checked ~ .controls label:nth-child(4) .prev,
-.gallery-b #gallery-b-5:checked ~ .controls label:nth-child(1) .next {
+#gallery-b-5:checked ~ .outer li:nth-child(5) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-b #gallery-b-1:checked ~ .dots label:nth-child(1) .active {
+#gallery-b-1:checked ~ .controls label:nth-child(5) .prev,
+#gallery-b-1:checked ~ .controls label:nth-child(2) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-b #gallery-b-1:checked ~ .dots label:nth-child(1) .normal {
+#gallery-b-2:checked ~ .controls label:nth-child(1) .prev,
+#gallery-b-2:checked ~ .controls label:nth-child(3) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-b-3:checked ~ .controls label:nth-child(2) .prev,
+#gallery-b-3:checked ~ .controls label:nth-child(4) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-b-4:checked ~ .controls label:nth-child(3) .prev,
+#gallery-b-4:checked ~ .controls label:nth-child(5) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-b-5:checked ~ .controls label:nth-child(4) .prev,
+#gallery-b-5:checked ~ .controls label:nth-child(1) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-b-1:checked ~ .dots label:nth-child(1) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-b-1:checked ~ .dots label:nth-child(1) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-b #gallery-b-2:checked ~ .dots label:nth-child(2) .active {
+#gallery-b-2:checked ~ .dots label:nth-child(2) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-b #gallery-b-2:checked ~ .dots label:nth-child(2) .normal {
+#gallery-b-2:checked ~ .dots label:nth-child(2) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-b #gallery-b-3:checked ~ .dots label:nth-child(3) .active {
+#gallery-b-3:checked ~ .dots label:nth-child(3) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-b #gallery-b-3:checked ~ .dots label:nth-child(3) .normal {
+#gallery-b-3:checked ~ .dots label:nth-child(3) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-b #gallery-b-4:checked ~ .dots label:nth-child(4) .active {
+#gallery-b-4:checked ~ .dots label:nth-child(4) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-b #gallery-b-4:checked ~ .dots label:nth-child(4) .normal {
+#gallery-b-4:checked ~ .dots label:nth-child(4) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-b #gallery-b-5:checked ~ .dots label:nth-child(5) .active {
+#gallery-b-5:checked ~ .dots label:nth-child(5) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-b #gallery-b-5:checked ~ .dots label:nth-child(5) .normal {
+#gallery-b-5:checked ~ .dots label:nth-child(5) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
@@ -1217,7 +1126,6 @@ pre[class*="language-"] {
   filter: alpha(opacity=0);
   position: absolute;
   top: 0;
-  z-index: 7;
   width: 100%;
   box-sizing: border-box;
   -webkit-transition: opacity 1s ease 0s;
@@ -1232,36 +1140,6 @@ pre[class*="language-"] {
 .gallery-c [autoheight-gallery] {
   -webkit-transition: height 0.5s ease 0s;
           transition: height 0.5s ease 0s;
-}
-
-.gallery-c #gallery-c-1:checked ~ .outer li:nth-child(1) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-c #gallery-c-2:checked ~ .outer li:nth-child(2) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-c #gallery-c-3:checked ~ .outer li:nth-child(3) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-c #gallery-c-4:checked ~ .outer li:nth-child(4) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
-}
-
-.gallery-c #gallery-c-5:checked ~ .outer li:nth-child(5) {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: static;
 }
 
 .gallery-c .controls {
@@ -1337,7 +1215,7 @@ pre[class*="language-"] {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
 .gallery-c .dots .active {
@@ -1347,106 +1225,141 @@ pre[class*="language-"] {
   background-color: #5a5a5a;
 }
 
-.gallery-c #gallery-c-1:checked ~ .controls label:nth-child(5) .prev,
-.gallery-c #gallery-c-1:checked ~ .controls label:nth-child(2) .next {
+#gallery-c-1:checked ~ .outer li:nth-child(1) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-c #gallery-c-2:checked ~ .controls label:nth-child(1) .prev,
-.gallery-c #gallery-c-2:checked ~ .controls label:nth-child(3) .next {
+#gallery-c-2:checked ~ .outer li:nth-child(2) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-c #gallery-c-3:checked ~ .controls label:nth-child(2) .prev,
-.gallery-c #gallery-c-3:checked ~ .controls label:nth-child(4) .next {
+#gallery-c-3:checked ~ .outer li:nth-child(3) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-c #gallery-c-4:checked ~ .controls label:nth-child(3) .prev,
-.gallery-c #gallery-c-4:checked ~ .controls label:nth-child(5) .next {
+#gallery-c-4:checked ~ .outer li:nth-child(4) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-c #gallery-c-5:checked ~ .controls label:nth-child(4) .prev,
-.gallery-c #gallery-c-5:checked ~ .controls label:nth-child(1) .next {
+#gallery-c-5:checked ~ .outer li:nth-child(5) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 7;
 }
 
-.gallery-c #gallery-c-1:checked ~ .dots label:nth-child(1) .active {
+#gallery-c-1:checked ~ .controls label:nth-child(5) .prev,
+#gallery-c-1:checked ~ .controls label:nth-child(2) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-c #gallery-c-1:checked ~ .dots label:nth-child(1) .normal {
+#gallery-c-2:checked ~ .controls label:nth-child(1) .prev,
+#gallery-c-2:checked ~ .controls label:nth-child(3) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-c-3:checked ~ .controls label:nth-child(2) .prev,
+#gallery-c-3:checked ~ .controls label:nth-child(4) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-c-4:checked ~ .controls label:nth-child(3) .prev,
+#gallery-c-4:checked ~ .controls label:nth-child(5) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-c-5:checked ~ .controls label:nth-child(4) .prev,
+#gallery-c-5:checked ~ .controls label:nth-child(1) .next {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-c-1:checked ~ .dots label:nth-child(1) .active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  position: relative;
+  z-index: 9;
+}
+
+#gallery-c-1:checked ~ .dots label:nth-child(1) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-c #gallery-c-2:checked ~ .dots label:nth-child(2) .active {
+#gallery-c-2:checked ~ .dots label:nth-child(2) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-c #gallery-c-2:checked ~ .dots label:nth-child(2) .normal {
+#gallery-c-2:checked ~ .dots label:nth-child(2) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-c #gallery-c-3:checked ~ .dots label:nth-child(3) .active {
+#gallery-c-3:checked ~ .dots label:nth-child(3) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-c #gallery-c-3:checked ~ .dots label:nth-child(3) .normal {
+#gallery-c-3:checked ~ .dots label:nth-child(3) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-c #gallery-c-4:checked ~ .dots label:nth-child(4) .active {
+#gallery-c-4:checked ~ .dots label:nth-child(4) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-c #gallery-c-4:checked ~ .dots label:nth-child(4) .normal {
+#gallery-c-4:checked ~ .dots label:nth-child(4) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-.gallery-c #gallery-c-5:checked ~ .dots label:nth-child(5) .active {
+#gallery-c-5:checked ~ .dots label:nth-child(5) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
-  z-index: 10;
+  z-index: 9;
 }
 
-.gallery-c #gallery-c-5:checked ~ .dots label:nth-child(5) .normal {
+#gallery-c-5:checked ~ .dots label:nth-child(5) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;

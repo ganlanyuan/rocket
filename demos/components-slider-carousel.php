@@ -38,27 +38,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -77,7 +77,10 @@
             <label for="carousel-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-a-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-a-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
         <div class="carousel-b">
           <input type="radio" name="carousel-b" id="carousel-b-1" checked="">
@@ -90,27 +93,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -129,7 +132,10 @@
             <label for="carousel-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-b-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-b-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
         <div class="carousel-c">
           <input type="radio" name="carousel-c" id="carousel-c-1" checked="">
@@ -142,27 +148,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -181,7 +187,10 @@
             <label for="carousel-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-c-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-c-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
         <div class="carousel-d">
           <input type="radio" name="carousel-d" id="carousel-d-1" checked="">
@@ -194,27 +203,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -233,7 +242,10 @@
             <label for="carousel-d-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-d-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-d-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-d-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
         <div class="carousel-e">
           <input type="radio" name="carousel-e" id="carousel-e-1" checked="">
@@ -246,27 +258,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -285,7 +297,10 @@
             <label for="carousel-e-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-e-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-e-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-e-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
         <div class="carousel-f">
           <input type="radio" name="carousel-f" id="carousel-f-1" checked="">
@@ -298,27 +313,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -337,7 +352,10 @@
             <label for="carousel-f-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-f-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-f-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-f-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
         <div class="carousel-g">
           <input type="radio" name="carousel-g" id="carousel-g-1" checked="">
@@ -350,27 +368,27 @@
             <ul class="inner">
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x919/97cddd/97cddd"></a>
-                  <div class="info"><h3>Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x719/e3d189/e3d189"></a>
-                  <div class="info"><h3>Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x519/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
                 <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
             </ul>
@@ -389,7 +407,10 @@
             <label for="carousel-g-4"><span class="prev">Previous</span><span class="next">Next</span></label>
             <label for="carousel-g-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay"><label for="carousel-g-autoplay"><span class="play"></span><span class="pause"></span></label></div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-g-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
         </div>
       </div>
       <div>
@@ -400,7 +421,7 @@
 .carousel-c { @include slider-carousel(5 by 1 default); }
 .carousel-d { @include slider-carousel(5 by 2 bypage default); }
 .carousel-e { @include slider-carousel(5 by 2 center default); }
-.carousel-f { @include slider-carousel(5 by 2 autoplay default); }
+.carousel-f { @include slider-carousel(5 by 2 autoplay progress-bar bypage default); }
 .carousel-g { @include slider-carousel(5 by 1 default); }
 @include breakpoint-mi(em(700)) {
   .carousel-a { @include slider-carousel(5 by 2); }

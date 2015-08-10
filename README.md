@@ -664,7 +664,10 @@ In the example shows on the left, I used banner as my specific class.
     <label for="banner-4"><span class="normal"></span><span class="active"></span></label>
     <label for="banner-5"><span class="normal"></span><span class="active"></span></label>
   </div>
-  <div class="autoplay"><label for="banner-autoplay"><span></span></label></div>
+  <div class="autoplay">
+    <span class="autoplay-progress"></span>
+    <label for="gallery-a-autoplay"><span class="play"></span><span class="pause"></span></label>
+  </div>
 </div>
 ````
 
@@ -675,18 +678,19 @@ In the example shows on the left, I used banner as my specific class.
 // pattern
 $key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay default
 
-.slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay default); }
+.slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar default); }
 // items: 5;
 // speed: 0.5s; (default 1s)
 // timeout: 4s; (default 3s)
 // autoplay: true;
 // default: true; (default styles for controls and dots)
 
-// customise dots and controls
+// customise dots, controls and progress-bar
 .slider .dots .normal { ... }
 .slider .dots .active { ... }
 .slider .controls .prev { ... }
 .slider .controls .next { ... }
+.slider .autoplay-progress { ... }
 
 // customise items
 .slider {
@@ -728,7 +732,7 @@ Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the 
 // basic
 @mixin slider-carousel($key)
 // pattern
-$key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay default;
+$key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay progress-bar default;
 
 .slider { @include slider-carousel(5 by 2 bypage default); }
 // items: 5;
@@ -737,6 +741,13 @@ $key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter 
 // bypage: true;
 // default: true; (default styles for controls and dots)
 ````
+
+// customise dots, controls and progress-bar
+.slider .dots .normal { ... }
+.slider .dots .active { ... }
+.slider .controls .prev { ... }
+.slider .controls .next { ... }
+.slider .autoplay-progress { ... }
 
 *Autoheight*
 Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).

@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 /// 
-/// $key: `($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay default`
+/// $key: `($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay progress-bar default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
@@ -36,8 +36,12 @@
 ///     <label for="banner-4"><span class="normal"></span><span class="active"></span></label>
 ///     <label for="banner-5"><span class="normal"></span><span class="active"></span></label>
 ///   </div>
-///   <div class="autoplay"><label for="banner-autoplay"><span></span></label></div>
+///   <div class="autoplay">
+///     <span class="autoplay-progress"></span>
+///     <label for="gallery-a-autoplay"><span class="play"></span><span class="pause"></span></label>
+///   </div>
 /// </div>
+/// 
 /// @example scss - Usage
 /// .slider { @include slider-carousel(5 by 2 bypage default); }
 /// // items: 5;
@@ -46,6 +50,13 @@
 /// // bypage: true;
 /// // default: true; (default styles for controls and dots)
 ///
+/// // customise dots, controls and progress-bar
+/// .slider .dots .normal { ... }
+/// .slider .dots .active { ... }
+/// .slider .controls .prev { ... }
+/// .slider .controls .next { ... }
+/// .slider .autoplay-progress { ... }
+/// 
 /// @link http://creatiointl.org/gallery/william/rocket/components-slider-carousel.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
@@ -56,6 +67,7 @@
   $bypage: ro-get($key, 'bypage');
   $center: ro-get($key, 'center');
   $autoplay: ro-get($key, 'autoplay');
+  $progress-bar: ro-get($key, 'progress-bar');
   $hoverpause: ro-get($key, 'hoverpause');
   $default: ro-get($key, 'default');
   $speed: ro-get-next($key, 'speed', 1s);
@@ -144,10 +156,8 @@
       }
       @if $autoplay {
         .autoplay {
-          opacity: 0;
+          position: relative;
           text-align: center;
-          transition: opacity 1s;
-          margin: 10px 0;
           .no-opacity & { display: none; }
           .no-cssanimations & { display: none !important; }
           > label {
@@ -181,15 +191,30 @@
             }
             &:before { margin-right: 4px; }
           }
+          @if $progress-bar {
+            &-progress {
+              position: absolute;
+              z-index: nth($ro-slider-z-index, 1);
+              left: 0;
+              bottom: 34px;
+              width: 0;
+              display: block;
+              height: 3px;
+              background-color: rgba(0, 0, 0, 0.2);
+            }
+          }
         }
-        &:hover .autoplay { 
-          opacity: 1; 
-          .no-opacity & { display: block; } 
-        }
-        // hide dots when autoplay
-        #{$id}-autoplay:checked ~ .dots { 
-          display: none; 
-          .no-cssanimations & { display: block !important; }
+        #{$id}-autoplay:checked ~ {
+          // hide controls and dots
+          .controls,
+          .dots { 
+            display: none; 
+            .no-cssanimations & { display: block !important; }
+          }
+          .autoplay {
+            .play { display: none; }
+            .pause { display: block; }
+          }
         }
       }
     }
@@ -231,54 +256,61 @@
 
   // set autoplay animation
   @if $autoplay {
-    @if $default { 
-      #{$id}-autoplay:checked ~ .autoplay {
-        .play { display: none; }
-        .pause { display: block; }
-      }
-    }
-
     $left-val: 0;
     $frames: 1;
-    @if $bypage == true { $frames: ceil($items/$perpage); }
-    @else { $frames: $items + 1 - $perpage; }
-    $unit: (100/($time-per-item * $frames));
 
     @include keyframes(#{$prefix}-inner) {
-      @for $i from 1 through $frames {
-        @if $bypage == true {
-          @if (- ($i - 1) * 100%) < percentage(1 - $items / $perpage) {
-            $left-val: percentage(1 - $items / $perpage);
-          } @else { 
-            $left-val: (- ($i - 1) * 100%);
+      @if $bypage == true {
+        $frames: ceil($items/$perpage); 
+        
+        @for $i from 1 through $frames {
+          @if $i != $frames {
+            $left-val: percentage(- ($i - 1));
+
+            #{percentage(($time-per-item * ($i - 1)) / ($time-per-item * $frames))} { left: $left-val; }
+            #{percentage(($time-per-item * ($i - 1) + $timeout) / ($time-per-item * $frames))} { left: $left-val; }
+          } @else {
+            $left-val: percentage(- ($items - $perpage) / $perpage);
+
+            #{percentage(($time-per-item * ($i - 1)) / ($time-per-item * $frames))} { left: $left-val; }
+            #{percentage(($time-per-item * ($i - 1) + $timeout) / ($time-per-item * $frames))} { left: $left-val; }
           }
-
-          #{percentage((($i - 1) * $time-per-item) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $time-per-item - $speed) * $unit / 100)} { left: $left-val; }
         }
-        @else { 
-          $left-val: percentage(- ($i - 1) / $perpage);
+      } @else {
+        $frames: $items - $perpage + 1; 
 
-          #{percentage((($i - 1) * $time-per-item) * $unit / 100)} { left: $left-val; }
-          #{percentage(($i * $time-per-item - $speed) * $unit / 100)} { left: $left-val; }
+        0% { left: 0; }
+        @for $i from 1 through $frames {
+          #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { left: percentage(- ($i - 1) / $perpage); }
+          #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { left: percentage(- $i / $perpage); }
         }
       }
       100% { left: 0; }
     }
+    // progress-bar keyframes
+    @if $progress-bar {
+      @include keyframes(#{$prefix}-progress) {
+        0% { width: 0; }
+        #{percentage($timeout / $time-per-item)} { width: 100%; }
+        #{percentage($timeout / $time-per-item + 0.0001)} { width: 0; }
+        100% { width: 0; }
+      }
+    }
+
     @at-root {
       #{$id}-autoplay:checked ~ {
         .outer > .inner { @include animation(#{$prefix}-inner $time-per-item * $frames ease infinite); }
-        .controls { 
-          display: none !important; 
-          .no-cssanimations & { display: block !important; }
+        @if $progress-bar {
+          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
         }
       }
     }
     // pause on hover
     @if $hoverpause {
       &:hover {
-        #{$id}-autoplay ~ .outer > .inner { 
-          @include animation-play-state(paused); 
+        #{$id}-autoplay ~ .outer > .inner { @include animation-play-state(paused); }
+        @if $progress-bar {
+          .autoplay > .autoplay-progress { @include animation-play-state(paused); }
         }
       }
     }
@@ -383,9 +415,9 @@
     position: relative;
     letter-spacing: -0.34em; // remove white space between inline-block elements
     white-space: nowrap;
-    transition: left 1s ease 0s;
+    transition: left 1s;
   }
   [autoheight-carousel] {
-    transition: height 0.3s ease 0s;
+    transition: height 0.3s;
   }
 }

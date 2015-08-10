@@ -52,7 +52,7 @@
     .carousel-c { @include slider-carousel(5 by 1 default); }
     .carousel-d { @include slider-carousel(5 by 2 bypage default); }
     .carousel-e { @include slider-carousel(5 by 2 center default); }
-    .carousel-f { @include slider-carousel(5 by 2 autoplay hoverpause default); }
+    .carousel-f { @include slider-carousel(5 by 2 bypage progress-bar autoplay hoverpause default); }
     .carousel-g { @include slider-carousel(5 by 1 default); }
     @include breakpoint('min' em(700)) {
       .carousel-a { @include slider-carousel(5 by 2); }
