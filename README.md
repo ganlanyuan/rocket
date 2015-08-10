@@ -33,6 +33,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
         |center                     |tooltip
                                     |flex-video
                                     |switch
+                                    |accordion
                                                
                                                 
      == addons ==                == color functions ==
@@ -43,7 +44,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
         |visible                    |split-complementary
         |hidden                     |triad
         |type                       |rectangle
-                                    |square
+        |font-size                  |square
                                              
 ````
 
