@@ -13,6 +13,7 @@
     <a <?php if ($pagename == 'components-button' ) { echo 'class="current"'; } ?> href="components-button.php">button</a>
     <a <?php if ($pagename == 'components-media-list' ) { echo 'class="current"'; } ?> href="components-media-list.php">media-list</a>
     <a <?php if ($pagename == 'components-offcanvas' ) { echo 'class="current"'; } ?> href="components-offcanvas.php">offcanvas</a>
+    <a <?php if ($pagename == 'components-nav' ) { echo 'class="current"'; } ?> href="components-nav.php">nav</a>
     <a <?php if ($pagename == 'components-dropdown' ) { echo 'class="current"'; } ?> href="components-dropdown.php">dropdown</a>
     <a <?php if ($pagename == 'components-tabs' ) { echo 'class="current"'; } ?> href="components-tabs.php">tabs</a>
     <a <?php if ($pagename == 'components-switch' ) { echo 'class="current"'; } ?> href="components-switch.php">switch</a>

@@ -36,6 +36,14 @@ $ro-offcanvas-styles: 'move', 'translate', 'reveal' !default;
 $ro-offcanvas-direction: left, right !default;
 $ro-offcanvas-length: 12;
 
+// nav
+$ro-nav-direction: 'left', 'right', 'top', 'bottom' !default;
+$ro-nav-styles: 'move', 'translate', 'reveal', 'drawer' !default;
+$ro-nav-z-index: (
+  'nav': 200,
+  'page-overlay': 199,
+) !default;
+
 // button
 $ro-button-radius: 0.22em !default;
 $ro-button-round: 1000px !default;

@@ -52,6 +52,9 @@
 		if ($pagename == 'components-offcanvas') {
 			echo 'components-offcanvas';
 		} 
+		if ($pagename == 'components-nav') {
+			echo 'components-nav';
+		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'components-dropdown';
 		} 
@@ -169,6 +172,9 @@
 		} 
 		if ($pagename == 'components-offcanvas') {
 			echo 'href="css/components-offcanvas.css"';
+		} 
+		if ($pagename == 'components-nav') {
+			echo 'href="css/components-nav.css"';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'href="css/components-dropdown.css"';
