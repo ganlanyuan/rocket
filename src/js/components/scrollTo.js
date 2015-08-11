@@ -15,7 +15,7 @@ function scrollTo (to,duration) {
       bh = k('body').outerHeight(),
       total = to + wh,
       goal = bh - wh - 1;
-  if (total > bh) { to = goal; };
+  if (total > bh) { to = goal; }
   
   to = Math.round(to);
 

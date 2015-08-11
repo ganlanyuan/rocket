@@ -25,7 +25,7 @@
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in slider-gallery, gallery-lg, gallery-md, gallery-sm, gallery-auto-play, gallery-customise, slider-carousel, carousel-lg, carousel-md, carousel-sm, slide-by-page, slider-center, carousel-auto-play, carousel-auto-height {
+    @each $item in 'slider-gallery', 'gallery-normal', 'gallery-auto-play', 'gallery-customise', 'slider-carousel', 'carousel-lg', 'carousel-md', 'carousel-sm', 'slide-by-page', 'slider-center', 'carousel-autoplay-css', 'carousel-autoplay-js', 'carousel-autoheight' {
       [id="#{$item}"]:checked ~ .slider-labels [for="#{$item}"] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
@@ -41,35 +41,31 @@
 
     // carousel
     .carousel-a, 
-    .carousel-b, 
-    .carousel-c, 
     .carousel-d, 
     .carousel-e, 
     .carousel-f,
-    .carousel-g { display: none; }
+    .carousel-g,
+    .carousel-h { display: none; }
     .carousel-a { @include slider-carousel(5 by 1 default); }
-    .carousel-b { @include slider-carousel(5 by 1 default); }
-    .carousel-c { @include slider-carousel(5 by 1 default); }
     .carousel-d { @include slider-carousel(5 by 2 bypage default); }
     .carousel-e { @include slider-carousel(5 by 2 center default); }
     .carousel-f { @include slider-carousel(5 by 2 bypage progress-bar autoplay hoverpause default); }
-    .carousel-g { @include slider-carousel(5 by 1 default); }
+    .carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); }
+    .carousel-h { @include slider-carousel(5 by 1 default); }
     @include breakpoint('min' em(700)) {
       .carousel-a { @include slider-carousel(5 by 2); }
-      .carousel-b { @include slider-carousel(5 by 2); }
       .carousel-d { @include slider-carousel(5 by 3 bypage); }
-      .carousel-g { @include slider-carousel(5 by 2); }
+      .carousel-h { @include slider-carousel(5 by 2); }
     }
     @include breakpoint('min' em(1000)) {
       .carousel-a { @include slider-carousel(5 by 3); }
-      .carousel-g { @include slider-carousel(5 by 3); }
+      .carousel-h { @include slider-carousel(5 by 3); }
     }
-    [id="carousel-lg"]:checked ~ .carousel-a, 
-    [id="carousel-md"]:checked ~ .carousel-b, 
-    [id="carousel-sm"]:checked ~ .carousel-c, 
+    [id="carousel-normal"]:checked ~ .carousel-a, 
     [id="slide-by-page"]:checked ~ .carousel-d,
     [id="slider-center"]:checked ~ .carousel-e,
-    [id="carousel-auto-play"]:checked ~ .carousel-f,
-    [id="carousel-auto-height"]:checked ~ .carousel-g { display: block; }
+    [id="carousel-autoplay-css"]:checked ~ .carousel-f,
+    [id="carousel-autoplay-js"]:checked ~ .carousel-g,
+    [id="carousel-autoheight"]:checked ~ .carousel-h { display: block; }
   }
 }

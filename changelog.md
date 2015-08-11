@@ -4,6 +4,7 @@
 + Add responsive font-size `font-size`
 + Add pure css `accordion`
 + Add `progress-bar` to css sliders
++ Add `autoplay` js for sliders
 
 ### v2.4.0
 + Re-add mixin `slider-carousel`, `slider-gallery`

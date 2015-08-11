@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 /// 
-/// $key: `($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay progress-bar default`
+/// $key: `($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay autoplay-js progress-bar default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
@@ -67,6 +67,7 @@
   $bypage: ro-get($key, 'bypage');
   $center: ro-get($key, 'center');
   $autoplay: ro-get($key, 'autoplay');
+  $autoplay-js: ro-get($key, 'autoplay-js');
   $progress-bar: ro-get($key, 'progress-bar');
   $hoverpause: ro-get($key, 'hoverpause');
   $default: ro-get($key, 'default');
@@ -154,12 +155,13 @@
         }
         .active { background-color: #5a5a5a; display: none; }
       }
-      @if $autoplay {
+      @if $autoplay or $autoplay-js {
         .autoplay {
           position: relative;
           text-align: center;
-          .no-opacity & { display: none; }
-          .no-cssanimations & { display: none !important; }
+          @if $autoplay {
+            .no-cssanimations & { display: none !important; }
+          }
           > label {
             width: 30px;
             height: 30px;
@@ -204,17 +206,20 @@
             }
           }
         }
-        #{$id}-autoplay:checked ~ {
+      }
+    }
+    @at-root { 
+      #{$id}-autoplay:checked ~ {
+        @if $autoplay {
           // hide controls and dots
-          .controls,
-          .dots { 
+          .controls, .dots {
             display: none; 
             .no-cssanimations & { display: block !important; }
           }
-          .autoplay {
-            .play { display: none; }
-            .pause { display: block; }
-          }
+        }
+        .autoplay {
+          .play { display: none; }
+          .pause { display: block; }
         }
       }
     }
@@ -246,12 +251,10 @@
   }
 
   // hide extra dots
-  @if not $bypage {
-    @if $center {
-      .dots label:nth-child(n + #{$pages}) { display: none; }
-    } @else {
-      .dots label:nth-child(n + #{$pages + 1}) { display: none; }
-    }
+  @if $center {
+    .dots label:nth-child(n + #{$pages}) { display: none; }
+  } @else {
+    .dots label:nth-child(n + #{$pages + 1}) { display: none; }
   }
 
   // set autoplay animation
@@ -308,14 +311,14 @@
     // pause on hover
     @if $hoverpause {
       &:hover {
-        #{$id}-autoplay ~ .outer > .inner { @include animation-play-state(paused); }
-        @if $progress-bar {
-          .autoplay > .autoplay-progress { @include animation-play-state(paused); }
+        #{$id}-autoplay ~ {
+          .outer > .inner { @include animation-play-state(paused); }
+          @if $progress-bar {
+            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
+          }
         }
       }
     }
-  } @else { 
-    .autoplay { display: none !important; } 
   }
 
   // set controls

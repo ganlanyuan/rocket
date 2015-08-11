@@ -23,7 +23,7 @@
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in gallery-auto-play, gallery-auto-height, gallery-customise {
+    @each $item in 'gallery-auto-play-css', 'gallery-auto-play-js', 'gallery-auto-height', 'gallery-customise' {
       [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
@@ -40,14 +40,17 @@
     // gallery
     .gallery-a, 
     .gallery-b,
-    .gallery-c { display: none; }
-    .gallery-a { @include slider-gallery(5 hoverpause default); }
-    .gallery-b { @include slider-gallery(5 default); }
+    .gallery-c,
+    .gallery-d { display: none; }
+    .gallery-a { @include slider-gallery(5 autoplay progress-bar hoverpause default); }
+    .gallery-b { @include slider-gallery(5 autoplay-js default); }
     .gallery-c { @include slider-gallery(5 default); }
-    [id="gallery-auto-play"]:checked ~ .gallery-a, 
-    [id="gallery-auto-height"]:checked ~ .gallery-b,
-    [id="gallery-customise"]:checked ~ .gallery-c { display: block; }
-    .gallery-c {
+    .gallery-d { @include slider-gallery(5 default); }
+    [id="gallery-auto-play-css"]:checked ~ .gallery-a, 
+    [id="gallery-auto-play-js"]:checked ~ .gallery-b, 
+    [id="gallery-auto-height"]:checked ~ .gallery-c,
+    [id="gallery-customise"]:checked ~ .gallery-d { display: block; }
+    .gallery-d {
       // setting item
       .outer { overflow: visible; }
       li { 

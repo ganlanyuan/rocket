@@ -677,7 +677,7 @@ In the example shows on the left, I used banner as my specific class.
 // basic
 @include slider-gallery($key)
 // pattern
-$key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay default
+$key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js default
 
 .slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar default); }
 // items: 5;
@@ -717,7 +717,18 @@ $key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay default
   }
 }
 ````
-*Autoheight*
+*Autoplay*  
+You can set up autoplay by passing an `autoplay` parameter to the `slider-gallery` mixin (which is using css animation, therefore it's not clickable), or passing an `autoplay-js` parameter, and then add js code like below (this is clickable):  
+```` javascript
+<script>
+  ready(function () {
+    sliderAutoplay('.gallery-b', 2000);
+  });
+</script>
+
+````
+
+*Autoheight*   
 Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 ```` html
 <!-- include kit.js -->
@@ -733,7 +744,7 @@ Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the 
 // basic
 @mixin slider-carousel($key)
 // pattern
-$key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay progress-bar default;
+$key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay autoplay-js progress-bar default;
 
 .slider { @include slider-carousel(5 by 2 bypage default); }
 // items: 5;
@@ -741,7 +752,6 @@ $key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter 
 // gutter: 10px; (default)
 // bypage: true;
 // default: true; (default styles for controls and dots)
-````
 
 // customise dots, controls and progress-bar
 .slider .dots .normal { ... }
@@ -749,6 +759,10 @@ $key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter 
 .slider .controls .prev { ... }
 .slider .controls .next { ... }
 .slider .autoplay-progress { ... }
+````
+
+*Autoplay*  
+Same with `slider-gallery`.   
 
 *Autoheight*
 Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
@@ -1085,4 +1099,12 @@ equalizer('.gallery li');
 sticky(sticky, sticky_container, distance_to_window_top);
 sticky('.sticky', '.wrapper', '.header');
 sticky('.sticky', '.wrapper', 20);
+````
+
+#### sliderAutoplay
+```` javascript
+sliderAutoplay(selector, timeout, items, hoverPause);
+// items: set up how many dots are clickable when using 'bypage' in css
+sliderAutoplay('.gallery-b', 2000);
+sliderAutoplay('.carousel-g', 3000, 4);
 ````

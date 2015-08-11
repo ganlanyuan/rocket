@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 /// 
-/// $key: `$items $time (ratio $ratio) (speed $speed) (timeout $timeout) hoverpause autoplay progress-bar default`
+/// $key: `$items $time (ratio $ratio) (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js progress-bar default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
@@ -87,6 +87,7 @@
 @mixin slider-gallery($key){
   $items: 1;
   $autoplay: ro-get($key, 'autoplay');
+  $autoplay-js: ro-get($key, 'autoplay-js');
   $progress-bar: ro-get($key, 'progress-bar');
   $default: ro-get($key, 'default');
   $hoverpause: ro-get($key, 'hoverpause');
@@ -180,10 +181,14 @@
       .normal { @include auto-show(); }
       .active { @include auto-hide(); background-color: #5a5a5a; }
     }
-    @if $autoplay {
+    
+    @if $autoplay or $autoplay-js {
       .autoplay {
         position: relative;
         text-align: center;
+        @if $autoplay {
+          .no-cssanimations & { display: none !important; }
+        }
         > label {
           width: 30px;
           height: 30px;
@@ -228,14 +233,23 @@
           }
         }
       }
-      @at-root { @at-root (without: media) {
-        #{$id}-autoplay:checked ~ .autoplay { 
+    }
+  }
+  @at-root { @at-root (without: media) {
+    @if $autoplay {
+      #{$id}-autoplay:checked ~ {
+        // hide controls and dots
+        .controls, .dots {
+          display: none; 
+          .no-cssanimations & { display: block !important; }
+        }
+        .autoplay {
           .play { display: none; }
           .pause { display: block; }
         }
-      }}
+      }
     }
-  }
+  }}
   
   // setting items
   @for $i from 1 through $items {
@@ -297,7 +311,6 @@
 
     @at-root { @at-root (without: media) {
       #{$id}-autoplay:checked ~ {
-        .controls, .dots { display: none !important; }
         // animation
         .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
         @if $progress-bar {

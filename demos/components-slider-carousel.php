@@ -8,23 +8,21 @@
     </div>
     <div class="content">
       <div class="slider">
-        <input type="radio" name="option-carousel" id="carousel-lg" checked="">
-        <input type="radio" name="option-carousel" id="carousel-md">
-        <input type="radio" name="option-carousel" id="carousel-sm">
+        <input type="radio" name="option-carousel" id="carousel-normal" checked="">
         <input type="radio" name="option-carousel" id="slide-by-page">
         <input type="radio" name="option-carousel" id="slider-center">
-        <input type="radio" name="option-carousel" id="carousel-auto-play">
-        <input type="radio" name="option-carousel" id="carousel-auto-height">
+        <input type="radio" name="option-carousel" id="carousel-autoplay-css">
+        <input type="radio" name="option-carousel" id="carousel-autoplay-js">
+        <input type="radio" name="option-carousel" id="carousel-autoheight">
         <div class="slider-labels">
           <div>
             <div class="title">Options: </div>
-            <label for="carousel-lg">lg</label>
-            <label for="carousel-md">md</label>
-            <label for="carousel-sm">sm</label>
+            <label for="carousel-normal">normal</label>
             <label for="slide-by-page">slide-by-page</label>
             <label for="slider-center">center</label>
-            <label for="carousel-auto-play">auto-play</label>
-            <label for="carousel-auto-height">auto-height</label>
+            <label for="carousel-autoplay-css">autoplay (css)</label>
+            <label for="carousel-autoplay-js">autoplay (js)</label>
+            <label for="carousel-autoheight">autoheight</label>
           </div>
         </div>
         <div class="carousel-a">
@@ -80,116 +78,6 @@
           <div class="autoplay">
             <span class="autoplay-progress"></span>
             <label for="carousel-a-autoplay"><span class="play"></span><span class="pause"></span></label>
-          </div>
-        </div>
-        <div class="carousel-b">
-          <input type="radio" name="carousel-b" id="carousel-b-1" checked="">
-          <input type="radio" name="carousel-b" id="carousel-b-2">
-          <input type="radio" name="carousel-b" id="carousel-b-3">
-          <input type="radio" name="carousel-b" id="carousel-b-4">
-          <input type="radio" name="carousel-b" id="carousel-b-5">
-          <input type="checkbox" name="carousel-b-autoplay" id="carousel-b-autoplay">
-          <div class="outer">
-            <ul class="inner">
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="dots">
-            <label for="carousel-b-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-b-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-b-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-b-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-b-5"><span class="normal"></span><span class="active"></span></label>
-          </div>
-          <div class="controls">
-            <label for="carousel-b-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-b-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-b-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
-          </div>
-          <div class="autoplay">
-            <span class="autoplay-progress"></span>
-            <label for="carousel-b-autoplay"><span class="play"></span><span class="pause"></span></label>
-          </div>
-        </div>
-        <div class="carousel-c">
-          <input type="radio" name="carousel-c" id="carousel-c-1" checked="">
-          <input type="radio" name="carousel-c" id="carousel-c-2">
-          <input type="radio" name="carousel-c" id="carousel-c-3">
-          <input type="radio" name="carousel-c" id="carousel-c-4">
-          <input type="radio" name="carousel-c" id="carousel-c-5">
-          <input type="checkbox" name="carousel-c-autoplay" id="carousel-c-autoplay">
-          <div class="outer">
-            <ul class="inner">
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
-                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
-                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
-                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-              <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
-                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="dots">
-            <label for="carousel-c-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-c-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-c-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-c-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-c-5"><span class="normal"></span><span class="active"></span></label>
-          </div>
-          <div class="controls">
-            <label for="carousel-c-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-c-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-c-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
-          </div>
-          <div class="autoplay">
-            <span class="autoplay-progress"></span>
-            <label for="carousel-c-autoplay"><span class="play"></span><span class="pause"></span></label>
           </div>
         </div>
         <div class="carousel-d">
@@ -367,12 +255,12 @@
           <div class="outer" autoheight-carousel>
             <ul class="inner">
               <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x919/97cddd/97cddd"></a>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
                   <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
               <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x719/e3d189/e3d189"></a>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3d189/e3d189"></a>
                   <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
@@ -382,7 +270,7 @@
                 </div>
               </li>
               <li>
-                <div class="item"><a href=""><img src="http://placehold.it/1100x519/b6cc84/b6cc84"></a>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/b6cc84/b6cc84"></a>
                   <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
                 </div>
               </li>
@@ -412,27 +300,85 @@
             <label for="carousel-g-autoplay"><span class="play"></span><span class="pause"></span></label>
           </div>
         </div>
+        <div class="carousel-h">
+          <input type="radio" name="carousel-h" id="carousel-h-1" checked="">
+          <input type="radio" name="carousel-h" id="carousel-h-2">
+          <input type="radio" name="carousel-h" id="carousel-h-3">
+          <input type="radio" name="carousel-h" id="carousel-h-4">
+          <input type="radio" name="carousel-h" id="carousel-h-5">
+          <input type="checkbox" name="carousel-h-autoplay" id="carousel-h-autoplay" checked="">
+          <div class="outer" autoheight-carousel>
+            <ul class="inner">
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x919/97cddd/97cddd"></a>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x719/e3d189/e3d189"></a>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/97cddd/97cddd"></a>
+                  <div class="info"><h3>3 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x519/b6cc84/b6cc84"></a>
+                  <div class="info"><h3>4 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/eea7d4/eea7d4"></a>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="dots">
+            <label for="carousel-h-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-h-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-h-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-h-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="carousel-h-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="carousel-h-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-h-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-h-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-h-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="carousel-h-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+          </div>
+          <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="carousel-h-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div>
+        </div>
       </div>
       <div>
         <h4>SCSS</h4>
         <pre class="language-scss"><code>
-.carousel-a { @include slider-carousel(5 by 1 default); }
-.carousel-b { @include slider-carousel(5 by 1 default); }
-.carousel-c { @include slider-carousel(5 by 1 default); }
-.carousel-d { @include slider-carousel(5 by 2 bypage default); }
-.carousel-e { @include slider-carousel(5 by 2 center default); }
-.carousel-f { @include slider-carousel(5 by 2 autoplay progress-bar bypage default); }
-.carousel-g { @include slider-carousel(5 by 1 default); }
+.carousel-a { @include slider-carousel(5 by 1 default); } // normal
+.carousel-d { @include slider-carousel(5 by 2 bypage default); } // slide-by-page
+.carousel-e { @include slider-carousel(5 by 2 center default); } // center
+.carousel-f { @include slider-carousel(5 by 2 autoplay progress-bar bypage default); } // autoplay (css)
+.carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); } // autoplay (js)
+.carousel-h { @include slider-carousel(5 by 1 default); } // autoheight
 @include breakpoint-mi(em(700)) {
   .carousel-a { @include slider-carousel(5 by 2); }
-  .carousel-b { @include slider-carousel(5 by 2); }
   .carousel-d { @include slider-carousel(5 by 3 bypage); }
-  .carousel-g { @include slider-carousel(5 by 2); }
+  .carousel-h { @include slider-carousel(5 by 2); }
 }
 @include breakpoint-mi(em(1000)) {
   .carousel-a { @include slider-carousel(5 by 3); }
-  .carousel-g { @include slider-carousel(5 by 3); }
+  .carousel-h { @include slider-carousel(5 by 3); }
 }
+        </code></pre>
+        <pre class="language-javascript"><code>
+ready(function () {
+  sliderAutoplay('.carousel-g', 3000, 4);
+});
         </code></pre>
       </div>
     </div>

@@ -2,7 +2,7 @@
 // sticky('.sticky', '.wrapper', 20);
 
 (function (window, undefined) {
-  sticky = function(sticky, stickyP, stkT) {
+  var sticky = function(sticky, stickyP, stkT) {
   	var STKMB = getPxValue(k(sticky).getCurrentStyle('marginBottom'));
 
   	var stickyCore = function () {
