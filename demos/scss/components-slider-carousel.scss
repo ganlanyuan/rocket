@@ -25,7 +25,7 @@
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in 'slider-gallery', 'gallery-normal', 'gallery-auto-play', 'gallery-customise', 'slider-carousel', 'carousel-lg', 'carousel-md', 'carousel-sm', 'slide-by-page', 'slider-center', 'carousel-autoplay-css', 'carousel-autoplay-js', 'carousel-autoheight' {
+    @each $item in 'carousel-normal', 'slide-by-page', 'slider-center', 'carousel-autoplay-css', 'carousel-autoplay-js', 'carousel-autoheight' {
       [id="#{$item}"]:checked ~ .slider-labels [for="#{$item}"] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 

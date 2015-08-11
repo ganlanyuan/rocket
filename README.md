@@ -1,5 +1,7 @@
 # Rocket 2.0
-
+<p style="text-align: center">
+  <img src="https://img.shields.io/badge/SASS-3.4.0-%23C6538C.svg" alt="SASS-3.4.0">
+</p>
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.    
 [sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
 [demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)   
