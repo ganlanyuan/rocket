@@ -118,7 +118,7 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 
 h2 span {
@@ -359,7 +359,7 @@ pre[class*="language-"] {
   margin-bottom: 0;
 }
 
-.slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], [id=gallery-auto-play]:checked ~ .slider-labels .slider [for=gallery-auto-play], .slider [id=gallery-auto-height]:checked ~ .slider-labels [for=gallery-auto-height], [id=gallery-auto-height]:checked ~ .slider-labels .slider [for=gallery-auto-height], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise], [id=gallery-customise]:checked ~ .slider-labels .slider [for=gallery-customise] {
+.slider [id=gallery-auto-play]:checked ~ .slider-labels [for=gallery-auto-play], .slider [id=gallery-auto-height]:checked ~ .slider-labels [for=gallery-auto-height], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise] {
   background-color: #FFBE39;
 }
 
@@ -377,15 +377,6 @@ pre[class*="language-"] {
 
 [id*="-sm"]:checked ~ [class^="gallery-"], [id*="-sm"]:checked ~ [class^="carousel-"] {
   max-width: 400px;
-}
-
-@media (max-width: 73.625em) {
-  .controls .prev {
-    margin-left: 10px !important;
-  }
-  .controls .next {
-    margin-right: 10px !important;
-  }
 }
 
 .gallery-a,
@@ -512,341 +503,144 @@ pre[class*="language-"] {
   background-color: #5a5a5a;
 }
 
-.gallery-a .autoplay {
-  position: relative;
-  text-align: center;
-}
-
-.gallery-a .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.gallery-a .autoplay span {
-  display: inline-block;
-}
-
-.gallery-a .autoplay .play {
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.gallery-a .autoplay .pause {
-  display: none;
-}
-
-.gallery-a .autoplay .pause:before, .gallery-a .autoplay .pause:after {
-  content: '';
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  margin-top: 8px;
-  background-color: #fff;
-}
-
-.gallery-a .autoplay .pause:before {
-  margin-right: 4px;
-}
-
-.gallery-a .autoplay-progress {
-  position: absolute;
-  z-index: 10;
-  left: 0;
-  bottom: 34px;
-  width: 0;
-  display: block;
-  height: 3px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-#gallery-a-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-#gallery-a-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-#gallery-a-1:checked ~ .outer li:nth-child(1) {
+.gallery-a #gallery-a-1:checked ~ .outer li:nth-child(1) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-a-2:checked ~ .outer li:nth-child(2) {
+.gallery-a #gallery-a-2:checked ~ .outer li:nth-child(2) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-a-3:checked ~ .outer li:nth-child(3) {
+.gallery-a #gallery-a-3:checked ~ .outer li:nth-child(3) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-a-4:checked ~ .outer li:nth-child(4) {
+.gallery-a #gallery-a-4:checked ~ .outer li:nth-child(4) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-a-5:checked ~ .outer li:nth-child(5) {
+.gallery-a #gallery-a-5:checked ~ .outer li:nth-child(5) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-a-1:checked ~ .controls label:nth-child(5) .prev,
-#gallery-a-1:checked ~ .controls label:nth-child(2) .next {
+.gallery-a #gallery-a-1:checked ~ .controls label:nth-child(5) .prev,
+.gallery-a #gallery-a-1:checked ~ .controls label:nth-child(2) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-2:checked ~ .controls label:nth-child(1) .prev,
-#gallery-a-2:checked ~ .controls label:nth-child(3) .next {
+.gallery-a #gallery-a-2:checked ~ .controls label:nth-child(1) .prev,
+.gallery-a #gallery-a-2:checked ~ .controls label:nth-child(3) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-3:checked ~ .controls label:nth-child(2) .prev,
-#gallery-a-3:checked ~ .controls label:nth-child(4) .next {
+.gallery-a #gallery-a-3:checked ~ .controls label:nth-child(2) .prev,
+.gallery-a #gallery-a-3:checked ~ .controls label:nth-child(4) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-4:checked ~ .controls label:nth-child(3) .prev,
-#gallery-a-4:checked ~ .controls label:nth-child(5) .next {
+.gallery-a #gallery-a-4:checked ~ .controls label:nth-child(3) .prev,
+.gallery-a #gallery-a-4:checked ~ .controls label:nth-child(5) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-5:checked ~ .controls label:nth-child(4) .prev,
-#gallery-a-5:checked ~ .controls label:nth-child(1) .next {
+.gallery-a #gallery-a-5:checked ~ .controls label:nth-child(4) .prev,
+.gallery-a #gallery-a-5:checked ~ .controls label:nth-child(1) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-1:checked ~ .dots label:nth-child(1) .active {
+.gallery-a #gallery-a-1:checked ~ .dots label:nth-child(1) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-1:checked ~ .dots label:nth-child(1) .normal {
+.gallery-a #gallery-a-1:checked ~ .dots label:nth-child(1) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-a-2:checked ~ .dots label:nth-child(2) .active {
+.gallery-a #gallery-a-2:checked ~ .dots label:nth-child(2) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-2:checked ~ .dots label:nth-child(2) .normal {
+.gallery-a #gallery-a-2:checked ~ .dots label:nth-child(2) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-a-3:checked ~ .dots label:nth-child(3) .active {
+.gallery-a #gallery-a-3:checked ~ .dots label:nth-child(3) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-3:checked ~ .dots label:nth-child(3) .normal {
+.gallery-a #gallery-a-3:checked ~ .dots label:nth-child(3) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-a-4:checked ~ .dots label:nth-child(4) .active {
+.gallery-a #gallery-a-4:checked ~ .dots label:nth-child(4) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-4:checked ~ .dots label:nth-child(4) .normal {
+.gallery-a #gallery-a-4:checked ~ .dots label:nth-child(4) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-a-5:checked ~ .dots label:nth-child(5) .active {
+.gallery-a #gallery-a-5:checked ~ .dots label:nth-child(5) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-a-5:checked ~ .dots label:nth-child(5) .normal {
+.gallery-a #gallery-a-5:checked ~ .dots label:nth-child(5) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
-}
-
-@-webkit-keyframes gallery-a {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 0;
-  }
-  5% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 7;
-  }
-  20% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 7;
-  }
-  25% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 0;
-  }
-  100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 0;
-  }
-}
-
-@keyframes gallery-a {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 0;
-  }
-  5% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 7;
-  }
-  20% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    position: relative;
-    z-index: 7;
-  }
-  25% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 0;
-  }
-  100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 0;
-  }
-}
-
-@-webkit-keyframes gallery-a-progress {
-  0% {
-    width: 0;
-  }
-  25% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes gallery-a-progress {
-  0% {
-    width: 0;
-  }
-  25% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-#gallery-a-autoplay:checked ~ .controls, #gallery-a-autoplay:checked ~ .dots {
-  display: none !important;
-}
-
-#gallery-a-autoplay:checked ~ .outer li {
-  -webkit-animation: gallery-a 20s ease infinite;
-  animation: gallery-a 20s ease infinite;
-}
-
-#gallery-a-autoplay:checked ~ .autoplay > .autoplay-progress {
-  -webkit-animation: gallery-a-progress 4s ease infinite;
-  animation: gallery-a-progress 4s ease infinite;
-}
-
-#gallery-a-autoplay:checked ~ .outer li:nth-child(2) {
-  -webkit-animation-delay: 4s;
-  animation-delay: 4s;
-}
-
-#gallery-a-autoplay:checked ~ .outer li:nth-child(3) {
-  -webkit-animation-delay: 8s;
-  animation-delay: 8s;
-}
-
-#gallery-a-autoplay:checked ~ .outer li:nth-child(4) {
-  -webkit-animation-delay: 12s;
-  animation-delay: 12s;
-}
-
-#gallery-a-autoplay:checked ~ .outer li:nth-child(5) {
-  -webkit-animation-delay: 16s;
-  animation-delay: 16s;
-}
-
-.gallery-a:hover #gallery-a-autoplay ~ .outer li {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-}
-
-.gallery-a:hover #gallery-a-autoplay ~ .autoplay > .autoplay-progress {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
 }
 
 .gallery-b > input {
@@ -967,141 +761,141 @@ pre[class*="language-"] {
   background-color: #5a5a5a;
 }
 
-#gallery-b-1:checked ~ .outer li:nth-child(1) {
+.gallery-b #gallery-b-1:checked ~ .outer li:nth-child(1) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-b-2:checked ~ .outer li:nth-child(2) {
+.gallery-b #gallery-b-2:checked ~ .outer li:nth-child(2) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-b-3:checked ~ .outer li:nth-child(3) {
+.gallery-b #gallery-b-3:checked ~ .outer li:nth-child(3) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-b-4:checked ~ .outer li:nth-child(4) {
+.gallery-b #gallery-b-4:checked ~ .outer li:nth-child(4) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-b-5:checked ~ .outer li:nth-child(5) {
+.gallery-b #gallery-b-5:checked ~ .outer li:nth-child(5) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-b-1:checked ~ .controls label:nth-child(5) .prev,
-#gallery-b-1:checked ~ .controls label:nth-child(2) .next {
+.gallery-b #gallery-b-1:checked ~ .controls label:nth-child(5) .prev,
+.gallery-b #gallery-b-1:checked ~ .controls label:nth-child(2) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-2:checked ~ .controls label:nth-child(1) .prev,
-#gallery-b-2:checked ~ .controls label:nth-child(3) .next {
+.gallery-b #gallery-b-2:checked ~ .controls label:nth-child(1) .prev,
+.gallery-b #gallery-b-2:checked ~ .controls label:nth-child(3) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-3:checked ~ .controls label:nth-child(2) .prev,
-#gallery-b-3:checked ~ .controls label:nth-child(4) .next {
+.gallery-b #gallery-b-3:checked ~ .controls label:nth-child(2) .prev,
+.gallery-b #gallery-b-3:checked ~ .controls label:nth-child(4) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-4:checked ~ .controls label:nth-child(3) .prev,
-#gallery-b-4:checked ~ .controls label:nth-child(5) .next {
+.gallery-b #gallery-b-4:checked ~ .controls label:nth-child(3) .prev,
+.gallery-b #gallery-b-4:checked ~ .controls label:nth-child(5) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-5:checked ~ .controls label:nth-child(4) .prev,
-#gallery-b-5:checked ~ .controls label:nth-child(1) .next {
+.gallery-b #gallery-b-5:checked ~ .controls label:nth-child(4) .prev,
+.gallery-b #gallery-b-5:checked ~ .controls label:nth-child(1) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-1:checked ~ .dots label:nth-child(1) .active {
+.gallery-b #gallery-b-1:checked ~ .dots label:nth-child(1) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-1:checked ~ .dots label:nth-child(1) .normal {
+.gallery-b #gallery-b-1:checked ~ .dots label:nth-child(1) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-b-2:checked ~ .dots label:nth-child(2) .active {
+.gallery-b #gallery-b-2:checked ~ .dots label:nth-child(2) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-2:checked ~ .dots label:nth-child(2) .normal {
+.gallery-b #gallery-b-2:checked ~ .dots label:nth-child(2) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-b-3:checked ~ .dots label:nth-child(3) .active {
+.gallery-b #gallery-b-3:checked ~ .dots label:nth-child(3) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-3:checked ~ .dots label:nth-child(3) .normal {
+.gallery-b #gallery-b-3:checked ~ .dots label:nth-child(3) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-b-4:checked ~ .dots label:nth-child(4) .active {
+.gallery-b #gallery-b-4:checked ~ .dots label:nth-child(4) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-4:checked ~ .dots label:nth-child(4) .normal {
+.gallery-b #gallery-b-4:checked ~ .dots label:nth-child(4) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-b-5:checked ~ .dots label:nth-child(5) .active {
+.gallery-b #gallery-b-5:checked ~ .dots label:nth-child(5) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-b-5:checked ~ .dots label:nth-child(5) .normal {
+.gallery-b #gallery-b-5:checked ~ .dots label:nth-child(5) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
@@ -1225,141 +1019,141 @@ pre[class*="language-"] {
   background-color: #5a5a5a;
 }
 
-#gallery-c-1:checked ~ .outer li:nth-child(1) {
+.gallery-c #gallery-c-1:checked ~ .outer li:nth-child(1) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-c-2:checked ~ .outer li:nth-child(2) {
+.gallery-c #gallery-c-2:checked ~ .outer li:nth-child(2) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-c-3:checked ~ .outer li:nth-child(3) {
+.gallery-c #gallery-c-3:checked ~ .outer li:nth-child(3) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-c-4:checked ~ .outer li:nth-child(4) {
+.gallery-c #gallery-c-4:checked ~ .outer li:nth-child(4) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-c-5:checked ~ .outer li:nth-child(5) {
+.gallery-c #gallery-c-5:checked ~ .outer li:nth-child(5) {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 7;
 }
 
-#gallery-c-1:checked ~ .controls label:nth-child(5) .prev,
-#gallery-c-1:checked ~ .controls label:nth-child(2) .next {
+.gallery-c #gallery-c-1:checked ~ .controls label:nth-child(5) .prev,
+.gallery-c #gallery-c-1:checked ~ .controls label:nth-child(2) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-2:checked ~ .controls label:nth-child(1) .prev,
-#gallery-c-2:checked ~ .controls label:nth-child(3) .next {
+.gallery-c #gallery-c-2:checked ~ .controls label:nth-child(1) .prev,
+.gallery-c #gallery-c-2:checked ~ .controls label:nth-child(3) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-3:checked ~ .controls label:nth-child(2) .prev,
-#gallery-c-3:checked ~ .controls label:nth-child(4) .next {
+.gallery-c #gallery-c-3:checked ~ .controls label:nth-child(2) .prev,
+.gallery-c #gallery-c-3:checked ~ .controls label:nth-child(4) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-4:checked ~ .controls label:nth-child(3) .prev,
-#gallery-c-4:checked ~ .controls label:nth-child(5) .next {
+.gallery-c #gallery-c-4:checked ~ .controls label:nth-child(3) .prev,
+.gallery-c #gallery-c-4:checked ~ .controls label:nth-child(5) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-5:checked ~ .controls label:nth-child(4) .prev,
-#gallery-c-5:checked ~ .controls label:nth-child(1) .next {
+.gallery-c #gallery-c-5:checked ~ .controls label:nth-child(4) .prev,
+.gallery-c #gallery-c-5:checked ~ .controls label:nth-child(1) .next {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-1:checked ~ .dots label:nth-child(1) .active {
+.gallery-c #gallery-c-1:checked ~ .dots label:nth-child(1) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-1:checked ~ .dots label:nth-child(1) .normal {
+.gallery-c #gallery-c-1:checked ~ .dots label:nth-child(1) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-c-2:checked ~ .dots label:nth-child(2) .active {
+.gallery-c #gallery-c-2:checked ~ .dots label:nth-child(2) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-2:checked ~ .dots label:nth-child(2) .normal {
+.gallery-c #gallery-c-2:checked ~ .dots label:nth-child(2) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-c-3:checked ~ .dots label:nth-child(3) .active {
+.gallery-c #gallery-c-3:checked ~ .dots label:nth-child(3) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-3:checked ~ .dots label:nth-child(3) .normal {
+.gallery-c #gallery-c-3:checked ~ .dots label:nth-child(3) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-c-4:checked ~ .dots label:nth-child(4) .active {
+.gallery-c #gallery-c-4:checked ~ .dots label:nth-child(4) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-4:checked ~ .dots label:nth-child(4) .normal {
+.gallery-c #gallery-c-4:checked ~ .dots label:nth-child(4) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
 }
 
-#gallery-c-5:checked ~ .dots label:nth-child(5) .active {
+.gallery-c #gallery-c-5:checked ~ .dots label:nth-child(5) .active {
   opacity: 1;
   filter: alpha(opacity=100);
   position: relative;
   z-index: 9;
 }
 
-#gallery-c-5:checked ~ .dots label:nth-child(5) .normal {
+.gallery-c #gallery-c-5:checked ~ .dots label:nth-child(5) .normal {
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;

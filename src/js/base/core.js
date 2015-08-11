@@ -497,6 +497,18 @@ k.prototype.attr = function (attr, val) {
 	}
 };
 
+k.prototype.hasAttr = function (attr) {
+	return this.mapOne(function (el) {
+		return el.hasAttribute(attr);
+	});
+};
+
+k.prototype.removeAttr = function (attr) {
+	return this.forEach(function (el) {
+		el.removeAttribute(attr);
+	});
+};
+
 // ========== STYLE INSTANCE METHODS ==========
 k.css = function(el, css, value) {
 	var cssType = typeof css,

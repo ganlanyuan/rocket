@@ -36,18 +36,12 @@
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }
-    @include breakpoint('max' 1178){
-      .controls {
-        .prev { margin-left: 10px !important; }
-        .next { margin-right: 10px !important; }
-      }
-    }
 
     // gallery
     .gallery-a, 
     .gallery-b,
     .gallery-c { display: none; }
-    .gallery-a { @include slider-gallery(5 autoplay progress-bar hoverpause default); }
+    .gallery-a { @include slider-gallery(5 hoverpause default); }
     .gallery-b { @include slider-gallery(5 default); }
     .gallery-c { @include slider-gallery(5 default); }
     [id="gallery-auto-play"]:checked ~ .gallery-a, 
