@@ -1,6 +1,9 @@
 # Rocket 2.0
-<p style="text-align: center">
-  <img src="https://img.shields.io/badge/SASS-3.4.0-%23C6538C.svg" alt="SASS-3.4.0">
+<p>
+  <img src="https://img.shields.io/badge/sass-3.4.0-ff69b4.svg">
+  <img src="https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg">
+  <img src="https://img.shields.io/bower/v/bootstrap.svg">
+  <img src="https://img.shields.io/badge/Version-2.4.0-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.    
 [sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
@@ -17,10 +20,6 @@ Or install with [git](http://www.git-scm.com/):
 ```` bash
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
-# Requirements
-+ Sass > 3.4.0    
-+ LibSass > 3.2.0    
-
 # Structure
 【 Components 】
 ```` html      

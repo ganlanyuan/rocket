@@ -14,9 +14,7 @@
 // GET ELEMENT SIZE
 // GET WINDOW SIZE
 
-// ========== KIT START ==========
-// (function (window, undefined) {
-var dome = function (args, el) {
+dome = function (args, el) {
 	if ( args.length > 0 ) {
 		for (var i = 0; i < args.length; i++) {
 			el[i] = args[i];
@@ -25,6 +23,8 @@ var dome = function (args, el) {
 	}
 };
 
+// ========== KIT START ==========
+// (function (window, undefined) {
 var k = function (selector) {
 	if ( window === this ) {return new k(selector); }
 	var type = typeof selector;
