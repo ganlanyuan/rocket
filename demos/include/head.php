@@ -70,6 +70,15 @@
 		if ($pagename == 'components-nav-rotate-in-reverse') {
 			echo 'components-nav-rotate-in-reverse';
 		} 
+		if ($pagename == 'components-nav-scale-down') {
+			echo 'components-nav-scale-down';
+		} 
+		if ($pagename == 'components-nav-scale-up') {
+			echo 'components-nav-scale-up';
+		} 
+		if ($pagename == 'components-nav-open') {
+			echo 'components-nav-open';
+		} 
 		if ($pagename == 'components-nav-push') {
 			echo 'components-nav-push';
 		} 
@@ -214,6 +223,15 @@
 		} 
 		if ($pagename == 'components-nav-rotate-in-reverse') {
 			echo 'href="css/components-nav-rotate-in-reverse.css"';
+		} 
+		if ($pagename == 'components-nav-scale-down') {
+			echo 'href="css/components-nav-scale-down.css"';
+		} 
+		if ($pagename == 'components-nav-scale-up') {
+			echo 'href="css/components-nav-scale-up.css"';
+		} 
+		if ($pagename == 'components-nav-open') {
+			echo 'href="css/components-nav-open.css"';
 		} 
 		if ($pagename == 'components-nav-push') {
 			echo 'href="css/components-nav-push.css"';

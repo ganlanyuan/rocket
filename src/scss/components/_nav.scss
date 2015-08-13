@@ -1,48 +1,56 @@
-/// *offcanvas* and *page-container* are for creating the navigation of mobile site.
+/// Pure css off-canvas with multiple styles.
 ///
-/// $key: `$style $direction animation $offcanvas-width $padding $background-color`
+/// $key: `$style $direction $nav $nav-width $overlay-background-color $duration`
 /// @group components
 /// @param {list} $key - key 
 /// @example markup - markup
-/// <!-- include kit.js -->
-/// <script src="path/to/kit.min.js"></script>
-/// 
-/// <!-- offcanvas -->
+/// <!-- style: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
+/// <input type="checkbox" name="" id="nav-toggle">
+/// <div class="page">
+///   <header>
+///     <label for="nav-toggle">Menu</label>
+///     <label for="nav-toggle" class="page-overlay"></label>
+///     <nav class="nav">
+///       <ul>
+///         <li><a href="">How It Works</a></li>
+///         <li><a href="">Compare</a></li>
+///         <li><a href="">Technology</a></li>
+///         <li><a href="">Careers</a></li>
+///         <li><a href="">Help</a></li>
+///       </ul>
+///     </nav>
+///   </header>
+///   <div>Other content</div>
+/// </div>
+/// <!-- style: slide-along, slide-out, scale-down, scale-up, open, reveal -->
+/// <input type="checkbox" name="" id="nav-toggle">
 /// <nav class="nav">
 ///   <ul>
-///     <li><span data-offcanvas-close>close</span></li>
-///     <li><a href="">item01</a></li>
-///     <li><a href="">item02</a></li>
-///     <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">/// item03</a>
-///       <ul data-offcanvas-subnav>
-///         <li data-offcanvas-back>back</li>
-///         <li><a href="">sub item02</a></li>
-///         <li><a href="">sub item03</a></li>
-///         <li><a href="">sub item04</a></li>
-///       </ul>
-///     </li>
-///     <li><a href="">item04</a></li>
+///     <li><a href="">How It Works</a></li>
+///     <li><a href="">Compare</a></li>
+///     <li><a href="">Technology</a></li>
+///     <li><a href="">Careers</a></li>
+///     <li><a href="">Help</a></li>
 ///   </ul>
 /// </nav>
-/// 
-/// <!-- page -->
 /// <div class="page">
-///   <!-- page cover -->
-///   <div data-page-cover=""></div>
-/// 
-///   <!-- nav icon -->
-///   <div data-icon-nav></div>
+///   <header>
+///     <label for="nav-toggle">Menu</label>
+///     <label for="nav-toggle" class="page-overlay"></label>
+///   </header>
+///   <div>Other content</div>
 /// </div>
-/// @example scss - Usage
-/// .nav { @include offcanvas(translate 300px '1em' left #102244 animation); }
-/// // style: translate; (move | transition | reveal)
-/// // offcanvas-width: 300px;
-/// // nav-item-padding: 1em;
-/// // direction: left; (left | right)
-/// // offcanvas-background-color: #102244;
-/// // animation: true;
 /// 
-/// @link http://creatiointl.org/gallery/william/rocket/components-offcanvas.php demo
+/// @example scss - Usage
+/// .page { @include nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+/// // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open | push | reveal | drawer')
+/// // direction: left; (left | right | top | bottom)
+/// // nav: .nav;
+/// // nav-width(or height): 200px; (default 240px)
+/// // overlay-background-color: rgba(0, 0, 0, 0.1);
+/// // duration: 0.5s;
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/components-nav-slide-in.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin nav($key) {
@@ -80,26 +88,32 @@
   // define modules
   $page-push: false;
   $page-over-nav: false;
+  $page-transform: false;
   $nav-push: false;
   $nav-push-val: false;
   $nav-transform: false;
-  $overlay: false;
+  $nav-outside: false;
+  $overlay: true;
+  $overlay-push: false;
   $horizontal: false;
   $vertical: false;
   $rotate: false;
   $rotate-origin: false;
   $rotate-val: false;
 
-  @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse'), $style) {
+  @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $style) {
     $page-push: true;
   }
-  @if index(('reveal', 'slide-along', 'slide-out'), $style) {
+  @if index(('reveal', 'slide-along', 'slide-out', 'scale-up'), $style) {
     $page-over-nav: true;
   }
-  @if index(('slide-in', 'slide-along', 'slide-out', 'push', 'drawer', 'rotate-in', 'rotate-out', 'rotate-in-reverse'), $style) {
+  @if index(('scale-down', 'open'), $style) {
+    $page-transform: true;
+  }
+  @if index(('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'push', 'drawer'), $style) {
     $nav-push: true;
   }
-  @if index(('slide-in', 'push', 'drawer', 'rotate-in', 'rotate-out', 'rotate-in-reverse'), $style) {
+  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'push', 'drawer'), $style) {
     $nav-push-val: - $width;
   }
   @if index(('slide-along'), $style) {
@@ -108,11 +122,17 @@
   @if index(('slide-out'), $style) {
     $nav-push-val: ($width / 2);
   }
-  @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse'), $style) {
+  @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $style) {
     $nav-transform: true;
   }
-  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'push', 'drawer'), $style) {
+  @if $page-over-nav or index(('scale-down', 'open'), $style) {
+    $nav-outside: true;
+  }
+  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'scale-up', 'push', 'drawer'), $style) {
     $overlay: true;
+  }
+  @if index(('slide-along', 'slide-out', 'reveal', 'scale-up'), $style) {
+    $overlay-push: true;
   }
   @if index((left, right), $direction) {
     $horizontal: true;
@@ -145,6 +165,9 @@
   }
 
   // page
+  @if $page-transform {
+    @include transition(transform $duration);
+  }
   @if $page-push {
     @include transition($direction $duration);
     position: relative;
@@ -153,8 +176,23 @@
     @if $page-over-nav {
       z-index: map-get($ro-nav-z-index, 'page');
     }
+
     #nav-toggle:checked ~ & {
       #{$direction}: $width;
+    }
+  }
+  @if $style == 'scale-down' {
+    @include transform-style(preserve-3d);
+    @include transform(perspective(1000px) translate3d(0px, 0px, 0px));
+    #nav-toggle:checked ~ & {
+      @include transform(perspective(1000px) translate3d(0px, 0px, -250px));
+    }
+  } @else if $style == 'open' {
+    @include transform-origin(100% 50% 0px);
+    @include transform-style(preserve-3d);
+    @include transform(perspective(1000px) rotateY(0deg));
+    #nav-toggle:checked ~ & {
+      @include transform(perspective(1000px) rotateY(-7deg));
     }
   }
 
@@ -169,9 +207,12 @@
 
       @if $nav-push and $nav-transform {
         @include transition(transform $duration, margin-#{$direction} $duration);
-      } @else if $nav-push {
+      } @else if $nav-push and not $nav-transform {
         @include transition(margin-#{$direction} $duration);
+      } @else if $nav-transform and not $nav-push {
+        @include transition(transform $duration);
       }
+
       @if $nav-push-val {
         margin-#{$direction}: $nav-push-val;
       }
@@ -202,10 +243,18 @@
         @include transform($rotate-val);
       }
 
+      @if $style == 'scale-up' {
+        @include transform-origin(0% 50% 0px);
+        @include transform-style(preserve-3d);
+        @include transform(perspective(1000px) translate3d(0px, 0px, -300px));
+        #nav-toggle:checked ~ & {
+          @include transform(translate3d(0px, 0px, 0px));
+        }
+      }
     }
   }
   @if $nav-push {
-    @if $page-over-nav {
+    @if $nav-outside {
       @at-root {
         #nav-toggle:checked ~ #{$nav} {
           margin-#{$direction}: 0;
@@ -232,6 +281,7 @@
       bottom: 0;
       background-color: transparent;
       z-index: map-get($ro-nav-z-index, 'page-overlay');
+      @include transition(#{$direction} $duration);
       #nav-toggle:checked ~ & {
         background-color: $overlay-color;
         .lt-ie9 & {
@@ -242,6 +292,9 @@
           @include nav-map(top, $map, $breakpoint); // set top value
         } @else {
           top: 0;
+        }
+        @if $overlay-push {
+          #{$direction}: $width;
         }
       }
     }

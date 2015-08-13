@@ -627,6 +627,62 @@ $key: $style $direction $offcanvas-width $cover-bg
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-offcanvas.php)
 
+#### nav
+Pure css off-canvas with multiple styles.  
+```` html
+<!-- style: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
+<input type="checkbox" name="" id="nav-toggle">
+<div class="page">
+  <header>
+    <label for="nav-toggle">Menu</label>
+    <label for="nav-toggle" class="page-overlay"></label>
+    <nav class="nav">
+      <ul>
+        <li><a href="">How It Works</a></li>
+        <li><a href="">Compare</a></li>
+        <li><a href="">Technology</a></li>
+        <li><a href="">Careers</a></li>
+        <li><a href="">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div>Other content</div>
+</div>
+
+<!-- style: slide-along, slide-out, scale-down, scale-up, open, reveal -->
+<input type="checkbox" name="" id="nav-toggle">
+<nav class="nav">
+  <ul>
+    <li><a href="">How It Works</a></li>
+    <li><a href="">Compare</a></li>
+    <li><a href="">Technology</a></li>
+    <li><a href="">Careers</a></li>
+    <li><a href="">Help</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <header>
+    <label for="nav-toggle">Menu</label>
+    <label for="nav-toggle" class="page-overlay"></label>
+  </header>
+  <div>Other content</div>
+</div>
+````
+```` scss
+@mixin nav($key)
+// pattern
+$key: $style $direction $nav $nav-width $overlay-background-color $duration
+
+.page { @include nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+// style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open | push | reveal | drawer)
+// direction: left; (left | right | top | bottom)
+// nav: .nav;
+// nav-width(or height): 200px; (default 240px)
+// overlay-background-color: rgba(0, 0, 0, 0.1);
+// duration: 0.5s;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/components-nav-slide-in.php)
+
 ## Pure CSS Sliders
 A pure CSS responsive slider with previous/next buttons, nav dots, autoplay(IE8- are not supported), autoheight and more. It works well on modern browsers and IE8+, but it doesn't support loop and lazyload for now.
 #### markup

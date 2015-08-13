@@ -38,7 +38,7 @@ $ro-offcanvas-length: 12;
 
 // nav
 $ro-nav-direction: left, right, top, bottom !default;
-$ro-nav-styles: 'slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'push', 'reveal', 'drawer' !default;
+$ro-nav-styles: 'slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open', 'push', 'reveal', 'drawer' !default;
 $ro-nav-z-index: (
   'page': 201,
   'nav': 200,

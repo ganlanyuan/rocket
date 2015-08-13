@@ -363,9 +363,19 @@ pre[class*="language-"] {
   border-bottom-width: 0;
 }
 
+.page {
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+  position: relative;
+  left: 0;
+  z-index: 201;
+}
 #nav-toggle {
   position: absolute;
   left: -9999px;
+}
+#nav-toggle:checked ~ .page {
+  left: 200px;
 }
 .nav {
   position: fixed;
@@ -373,17 +383,28 @@ pre[class*="language-"] {
   z-index: 200;
   box-sizing: border-box;
   left: 0;
-  -webkit-transition: margin-left 0.5s;
-  transition: margin-left 0.5s;
-  margin-left: -200px;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
   top: 0;
+  -webkit-transform-origin: 0% 50% 0px;
+  -ms-transform-origin: 0% 50% 0px;
+  transform-origin: 0% 50% 0px;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: perspective(1000px) translate3d(0px, 0px, -300px);
+  -ms-transform: perspective(1000px) translate3d(0px, 0px, -300px);
+  transform: perspective(1000px) translate3d(0px, 0px, -300px);
 }
-#nav-toggle:checked ~ .page .nav {
-  margin-left: 0;
+#nav-toggle:checked ~ .nav {
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -ms-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 .page .page-overlay {
   -webkit-transition: background 0.5s;
@@ -401,6 +422,7 @@ pre[class*="language-"] {
 #nav-toggle:checked ~ .page .page-overlay {
   background-color: rgba(0, 0, 0, 0.1);
   top: 0;
+  left: 200px;
 }
 .lt-ie9 #nav-toggle:checked ~ .page .page-overlay {
   background-color: black;
@@ -408,4 +430,4 @@ pre[class*="language-"] {
   filter: alpha(opacity=10);
 }
 
-/*# sourceMappingURL=components-nav-slide-in.css.map */
+/*# sourceMappingURL=components-nav-scale-up.css.map */

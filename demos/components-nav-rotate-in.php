@@ -4,7 +4,7 @@
   $pagegroup = 'nav';
  ?>
 <?php include 'include/head.php'; ?>
-<body>
+<body class="has-bg">
 
 <input type="checkbox" name="" id="nav-toggle">
 <?php if ($navP == 'outside') {
@@ -45,14 +45,35 @@
       <p>Consectetur minus eius aut vero eveniet inventore sunt voluptas, accusantium. Nihil eos inventore modi facilis amet porro magnam, perferendis, quidem accusantium explicabo assumenda rem aliquam. Pariatur, temporibus nihil. Itaque, dignissimos.</p>
       <p>Nihil tempora iste, perspiciatis optio accusantium possimus adipisci harum dolorum soluta alias eaque hic magnam veritatis qui, earum consequuntur voluptatum quis perferendis voluptates facere nam! Placeat animi architecto magnam iste.</p>
 
+      <pre><code class="language-markup">
+&lt;input type="checkbox" name="" id="nav-toggle"&gt;
+&lt;div class="page"&gt;
+  &lt;header&gt;
+    &lt;label for="nav-toggle"&gt;Menu&lt;/label&gt;
+    &lt;label for="nav-toggle" class="page-overlay"&gt;&lt;/label&gt;
+    &lt;nav class="nav"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=""&gt;How It Works&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Compare&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Technology&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Careers&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Help&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;div&gt;Other content&lt;/div&gt;
+&lt;/div&gt;
+      </code></pre>
       <pre><code class="language-scss">
+.page {
+  @include nav('rotate-in' left '.nav' rgba(black, 0.1) 200px 0.5s);
+}
       </code></pre>
     </div>
     
     <?php include "include/more-demos.php" ?>
   </div>
   <?php include "include/site-footer.php"; ?>
-  <div data-page-cover=""></div>
 </div>
 </body>
 </html>

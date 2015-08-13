@@ -1,8 +1,10 @@
 // *** demo base *** //
 @charset "UTF-8";
 
+.has-bg { background-color: #03103A; }
 .nav-links {
-  margin: 50px 0 20px;
+  max-width: 800px;
+  margin: 50px auto 20px;
   text-align: center;
 }
 .btn {

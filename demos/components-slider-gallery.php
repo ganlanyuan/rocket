@@ -11,14 +11,14 @@
             <input type="radio" name="option-gallery" id="gallery-auto-play-css" checked="">
             <input type="radio" name="option-gallery" id="gallery-auto-play-js">
             <input type="radio" name="option-gallery" id="gallery-auto-height">
-            <input type="radio" name="option-gallery" id="gallery-dustomise">
+            <input type="radio" name="option-gallery" id="gallery-customise">
             <div class="slider-labels">
               <div>
                 <div class="title">Options: </div>
                 <label for="gallery-auto-play-css">auto-play (css)</label>
                 <label for="gallery-auto-play-js">auto-play (js)</label>
                 <label for="gallery-auto-height">auto-height</label>
-                <label for="gallery-dustomise">customise</label>
+                <label for="gallery-customise">customise</label>
               </div>
             </div>
             <div class="gallery-a">
