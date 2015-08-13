@@ -33,6 +33,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
                                     |flex-video
                                     |switch
                                     |accordion
+                                    |mobile-nav
                                                
                                                 
      == addons ==                == color functions ==
