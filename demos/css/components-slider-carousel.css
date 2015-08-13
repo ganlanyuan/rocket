@@ -162,7 +162,7 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 
 h2 span {
@@ -328,8 +328,9 @@ pre[class*="language-"] {
 
 .demo-links a {
   display: inline-block;
-  padding: 2em 3em;
-  margin-bottom: 4px;
+  padding: 1.5em 2.5em;
+  margin-right: 7px;
+  margin-bottom: 10px;
   border-radius: 0.3em;
   background-color: #f2f2f2;
   font-size: 14px;
@@ -436,43 +437,43 @@ pre[class*="language-"] {
   display: none;
 }
 
-#carousel-a-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-a-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-a-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-a-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-a-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -545,11 +546,11 @@ pre[class*="language-"] {
   display: none;
 }
 
-#carousel-a-autoplay:checked ~ .autoplay .play {
+.carousel-a #carousel-a-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-a-autoplay:checked ~ .autoplay .pause {
+.carousel-a #carousel-a-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -561,122 +562,122 @@ pre[class*="language-"] {
   margin: 0 10px;
 }
 
-#carousel-a-1:checked ~ .outer .inner {
+.carousel-a #carousel-a-1:checked ~ .outer .inner {
   left: 0%;
 }
 
-#carousel-a-2:checked ~ .outer .inner {
+.carousel-a #carousel-a-2:checked ~ .outer .inner {
   left: -100%;
 }
 
-#carousel-a-3:checked ~ .outer .inner {
+.carousel-a #carousel-a-3:checked ~ .outer .inner {
   left: -200%;
 }
 
-#carousel-a-4:checked ~ .outer .inner {
+.carousel-a #carousel-a-4:checked ~ .outer .inner {
   left: -300%;
 }
 
-#carousel-a-5:checked ~ .outer .inner {
+.carousel-a #carousel-a-5:checked ~ .outer .inner {
   left: -400%;
 }
 
-.carousel-a .dots label:nth-child(n+6) {
+.carousel-a .dots label:nth-child(n + 6) {
   display: none;
 }
 
-#carousel-a-1:checked ~ .controls label:nth-child(n+1) {
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-a-1:checked ~ .controls label:nth-child(5),
-#carousel-a-1:checked ~ .controls label:nth-child(2),
-#carousel-a-1:checked ~ .controls label:nth-child(5) .prev,
-#carousel-a-1:checked ~ .controls label:nth-child(2) .next {
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(5),
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(5) .prev,
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-#carousel-a-2:checked ~ .controls label:nth-child(n+1) {
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-a-2:checked ~ .controls label:nth-child(1),
-#carousel-a-2:checked ~ .controls label:nth-child(3),
-#carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-#carousel-a-2:checked ~ .controls label:nth-child(3) .next {
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3),
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-a-3:checked ~ .controls label:nth-child(n+1) {
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-a-3:checked ~ .controls label:nth-child(2),
-#carousel-a-3:checked ~ .controls label:nth-child(4),
-#carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-#carousel-a-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4),
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-a-4:checked ~ .controls label:nth-child(n+1) {
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-a-4:checked ~ .controls label:nth-child(3),
-#carousel-a-4:checked ~ .controls label:nth-child(5),
-#carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-#carousel-a-4:checked ~ .controls label:nth-child(5) .next {
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(5),
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(5) .next {
   display: block;
 }
 
-#carousel-a-5:checked ~ .controls label:nth-child(n+1) {
+.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-a-5:checked ~ .controls label:nth-child(4),
-#carousel-a-5:checked ~ .controls label:nth-child(1),
-#carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-#carousel-a-5:checked ~ .controls label:nth-child(1) .next {
+.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4),
+.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1),
+.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
+.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-d-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-d-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-d-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-d-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-d-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-d-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-d-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-d-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-d-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -749,11 +750,11 @@ pre[class*="language-"] {
   display: none;
 }
 
-#carousel-d-autoplay:checked ~ .autoplay .play {
+.carousel-d #carousel-d-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-d-autoplay:checked ~ .autoplay .pause {
+.carousel-d #carousel-d-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -769,137 +770,137 @@ pre[class*="language-"] {
   margin: 0 10px;
 }
 
-#carousel-d-1:checked ~ .outer .inner {
+.carousel-d #carousel-d-1:checked ~ .outer .inner {
   left: 0%;
 }
 
-#carousel-d-2:checked ~ .outer .inner {
+.carousel-d #carousel-d-2:checked ~ .outer .inner {
   left: -50%;
 }
 
-#carousel-d-3:checked ~ .outer .inner {
+.carousel-d #carousel-d-3:checked ~ .outer .inner {
   left: -100%;
 }
 
-#carousel-d-4:checked ~ .outer .inner {
+.carousel-d #carousel-d-4:checked ~ .outer .inner {
   left: -150%;
 }
 
-#carousel-d-5:checked ~ .outer .inner {
+.carousel-d #carousel-d-5:checked ~ .outer .inner {
   left: -150%;
 }
 
-.carousel-d .dots label:nth-child(n+5) {
+.carousel-d .dots label:nth-child(n + 5) {
   display: none;
 }
 
-#carousel-d-1:checked ~ .controls label:nth-child(n+1) {
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-d-1:checked ~ .controls label:nth-child(4),
-#carousel-d-1:checked ~ .controls label:nth-child(4) .prev {
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(4),
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(4) .prev {
   display: block;
 }
 
-#carousel-d-1:checked ~ .controls label:nth-child(3),
-#carousel-d-1:checked ~ .controls label:nth-child(3) .next {
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-d-2:checked ~ .controls label:nth-child(n+1) {
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-d-2:checked ~ .controls label:nth-child(1),
-#carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1),
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
-#carousel-d-2:checked ~ .controls label:nth-child(4),
-#carousel-d-2:checked ~ .controls label:nth-child(4) .next {
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(4),
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-d-3:checked ~ .controls label:nth-child(n+1) {
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-d-3:checked ~ .controls label:nth-child(1),
-#carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
-#carousel-d-3:checked ~ .controls label:nth-child(4),
-#carousel-d-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(4),
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-d-4:checked ~ .controls label:nth-child(n+1) {
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-d-4:checked ~ .controls label:nth-child(2),
-#carousel-d-4:checked ~ .controls label:nth-child(2) .prev {
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(2),
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(2) .prev {
   display: block;
 }
 
-#carousel-d-4:checked ~ .controls label:nth-child(1),
-#carousel-d-4:checked ~ .controls label:nth-child(1) .next {
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-d-5:checked ~ .controls label:nth-child(n+1) {
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-d-5:checked ~ .controls label:nth-child(3),
-#carousel-d-5:checked ~ .controls label:nth-child(3) .prev {
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(3),
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(3) .prev {
   display: block;
 }
 
-#carousel-d-5:checked ~ .controls label:nth-child(1),
-#carousel-d-5:checked ~ .controls label:nth-child(1) .next {
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1),
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-e-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-e #carousel-e-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-e-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-e #carousel-e-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-e-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-e #carousel-e-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-e-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-e #carousel-e-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-e-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-e #carousel-e-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-e-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-e #carousel-e-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-e-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-e #carousel-e-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-e-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-e #carousel-e-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-e-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-e #carousel-e-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-e-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-e #carousel-e-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -972,11 +973,11 @@ pre[class*="language-"] {
   display: none;
 }
 
-#carousel-e-autoplay:checked ~ .autoplay .play {
+.carousel-e #carousel-e-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-e-autoplay:checked ~ .autoplay .pause {
+.carousel-e #carousel-e-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -988,122 +989,122 @@ pre[class*="language-"] {
   margin: 0 10px;
 }
 
-#carousel-e-1:checked ~ .outer .inner {
+.carousel-e #carousel-e-1:checked ~ .outer .inner {
   left: -25%;
 }
 
-#carousel-e-2:checked ~ .outer .inner {
+.carousel-e #carousel-e-2:checked ~ .outer .inner {
   left: -75%;
 }
 
-#carousel-e-3:checked ~ .outer .inner {
+.carousel-e #carousel-e-3:checked ~ .outer .inner {
   left: -125%;
 }
 
-#carousel-e-4:checked ~ .outer .inner {
+.carousel-e #carousel-e-4:checked ~ .outer .inner {
   left: -125%;
 }
 
-#carousel-e-5:checked ~ .outer .inner {
+.carousel-e #carousel-e-5:checked ~ .outer .inner {
   left: -125%;
 }
 
-.carousel-e .dots label:nth-child(n+4) {
+.carousel-e .dots label:nth-child(n + 4) {
   display: none;
 }
 
-#carousel-e-1:checked ~ .controls label:nth-child(n+1) {
+.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-e-1:checked ~ .controls label:nth-child(4),
-#carousel-e-1:checked ~ .controls label:nth-child(2),
-#carousel-e-1:checked ~ .controls label:nth-child(4) .prev,
-#carousel-e-1:checked ~ .controls label:nth-child(2) .next {
+.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(4),
+.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(2),
+.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(4) .prev,
+.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-#carousel-e-2:checked ~ .controls label:nth-child(n+1) {
+.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-e-2:checked ~ .controls label:nth-child(1),
-#carousel-e-2:checked ~ .controls label:nth-child(3),
-#carousel-e-2:checked ~ .controls label:nth-child(1) .prev,
-#carousel-e-2:checked ~ .controls label:nth-child(3) .next {
+.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(1),
+.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(3),
+.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(1) .prev,
+.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-e-3:checked ~ .controls label:nth-child(n+1) {
+.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-e-3:checked ~ .controls label:nth-child(2),
-#carousel-e-3:checked ~ .controls label:nth-child(1),
-#carousel-e-3:checked ~ .controls label:nth-child(2) .prev,
-#carousel-e-3:checked ~ .controls label:nth-child(1) .next {
+.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(2),
+.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(1),
+.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(2) .prev,
+.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-e-4:checked ~ .controls label:nth-child(n+1) {
+.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-e-4:checked ~ .controls label:nth-child(3),
-#carousel-e-4:checked ~ .controls label:nth-child(1),
-#carousel-e-4:checked ~ .controls label:nth-child(3) .prev,
-#carousel-e-4:checked ~ .controls label:nth-child(1) .next {
+.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(3),
+.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(1),
+.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(3) .prev,
+.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-e-5:checked ~ .controls label:nth-child(n+1) {
+.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-e-5:checked ~ .controls label:nth-child(4),
-#carousel-e-5:checked ~ .controls label:nth-child(1),
-#carousel-e-5:checked ~ .controls label:nth-child(4) .prev,
-#carousel-e-5:checked ~ .controls label:nth-child(1) .next {
+.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(4),
+.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(1),
+.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(4) .prev,
+.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-f-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-f #carousel-f-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-f-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-f #carousel-f-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-f-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-f #carousel-f-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-f-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-f #carousel-f-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-f-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-f #carousel-f-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-f-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-f #carousel-f-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-f-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-f #carousel-f-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-f-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-f #carousel-f-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-f-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-f #carousel-f-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-f-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-f #carousel-f-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -1235,19 +1236,19 @@ pre[class*="language-"] {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#carousel-f-autoplay:checked ~ .controls, #carousel-f-autoplay:checked ~ .dots {
+.carousel-f #carousel-f-autoplay:checked ~ .controls, .carousel-f #carousel-f-autoplay:checked ~ .dots {
   display: none;
 }
 
-.no-cssanimations #carousel-f-autoplay:checked ~ .controls, .no-cssanimations #carousel-f-autoplay:checked ~ .dots {
+.no-cssanimations .carousel-f #carousel-f-autoplay:checked ~ .controls, .no-cssanimations .carousel-f #carousel-f-autoplay:checked ~ .dots {
   display: block !important;
 }
 
-#carousel-f-autoplay:checked ~ .autoplay .play {
+.carousel-f #carousel-f-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-f-autoplay:checked ~ .autoplay .pause {
+.carousel-f #carousel-f-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -1263,27 +1264,27 @@ pre[class*="language-"] {
   margin: 0 10px;
 }
 
-#carousel-f-1:checked ~ .outer .inner {
+.carousel-f #carousel-f-1:checked ~ .outer .inner {
   left: 0%;
 }
 
-#carousel-f-2:checked ~ .outer .inner {
+.carousel-f #carousel-f-2:checked ~ .outer .inner {
   left: -50%;
 }
 
-#carousel-f-3:checked ~ .outer .inner {
+.carousel-f #carousel-f-3:checked ~ .outer .inner {
   left: -100%;
 }
 
-#carousel-f-4:checked ~ .outer .inner {
+.carousel-f #carousel-f-4:checked ~ .outer .inner {
   left: -150%;
 }
 
-#carousel-f-5:checked ~ .outer .inner {
+.carousel-f #carousel-f-5:checked ~ .outer .inner {
   left: -150%;
 }
 
-.carousel-f .dots label:nth-child(n+5) {
+.carousel-f .dots label:nth-child(n + 5) {
   display: none;
 }
 
@@ -1365,12 +1366,12 @@ pre[class*="language-"] {
   }
 }
 
-#carousel-f-autoplay:checked ~ .outer > .inner {
+.carousel-f #carousel-f-autoplay:checked ~ .outer > .inner {
   -webkit-animation: carousel-f-inner 12s ease infinite;
   animation: carousel-f-inner 12s ease infinite;
 }
 
-#carousel-f-autoplay:checked ~ .autoplay > .autoplay-progress {
+.carousel-f #carousel-f-autoplay:checked ~ .autoplay > .autoplay-progress {
   -webkit-animation: carousel-f-progress 4s ease infinite;
   animation: carousel-f-progress 4s ease infinite;
 }
@@ -1385,113 +1386,113 @@ pre[class*="language-"] {
   animation-play-state: paused;
 }
 
-#carousel-f-1:checked ~ .controls label:nth-child(n+1) {
+.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-f-1:checked ~ .controls label:nth-child(4),
-#carousel-f-1:checked ~ .controls label:nth-child(4) .prev {
+.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(4),
+.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(4) .prev {
   display: block;
 }
 
-#carousel-f-1:checked ~ .controls label:nth-child(3),
-#carousel-f-1:checked ~ .controls label:nth-child(3) .next {
+.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(3),
+.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-f-2:checked ~ .controls label:nth-child(n+1) {
+.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-f-2:checked ~ .controls label:nth-child(1),
-#carousel-f-2:checked ~ .controls label:nth-child(1) .prev {
+.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(1),
+.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
-#carousel-f-2:checked ~ .controls label:nth-child(4),
-#carousel-f-2:checked ~ .controls label:nth-child(4) .next {
+.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(4),
+.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-f-3:checked ~ .controls label:nth-child(n+1) {
+.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-f-3:checked ~ .controls label:nth-child(1),
-#carousel-f-3:checked ~ .controls label:nth-child(1) .prev {
+.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(1),
+.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
-#carousel-f-3:checked ~ .controls label:nth-child(4),
-#carousel-f-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(4),
+.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-f-4:checked ~ .controls label:nth-child(n+1) {
+.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-f-4:checked ~ .controls label:nth-child(2),
-#carousel-f-4:checked ~ .controls label:nth-child(2) .prev {
+.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(2),
+.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(2) .prev {
   display: block;
 }
 
-#carousel-f-4:checked ~ .controls label:nth-child(1),
-#carousel-f-4:checked ~ .controls label:nth-child(1) .next {
+.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(1),
+.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-f-5:checked ~ .controls label:nth-child(n+1) {
+.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-f-5:checked ~ .controls label:nth-child(3),
-#carousel-f-5:checked ~ .controls label:nth-child(3) .prev {
+.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(3),
+.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(3) .prev {
   display: block;
 }
 
-#carousel-f-5:checked ~ .controls label:nth-child(1),
-#carousel-f-5:checked ~ .controls label:nth-child(1) .next {
+.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(1),
+.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-g-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-g #carousel-g-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-g-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-g #carousel-g-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-g-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-g #carousel-g-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-g-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-g #carousel-g-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-g-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-g #carousel-g-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-g-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-g #carousel-g-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-g-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-g #carousel-g-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-g-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-g #carousel-g-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-g-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-g #carousel-g-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-g-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-g #carousel-g-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -1608,11 +1609,11 @@ pre[class*="language-"] {
   margin-right: 4px;
 }
 
-#carousel-g-autoplay:checked ~ .autoplay .play {
+.carousel-g #carousel-g-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-g-autoplay:checked ~ .autoplay .pause {
+.carousel-g #carousel-g-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -1628,137 +1629,137 @@ pre[class*="language-"] {
   margin: 0 10px;
 }
 
-#carousel-g-1:checked ~ .outer .inner {
+.carousel-g #carousel-g-1:checked ~ .outer .inner {
   left: 0%;
 }
 
-#carousel-g-2:checked ~ .outer .inner {
+.carousel-g #carousel-g-2:checked ~ .outer .inner {
   left: -50%;
 }
 
-#carousel-g-3:checked ~ .outer .inner {
+.carousel-g #carousel-g-3:checked ~ .outer .inner {
   left: -100%;
 }
 
-#carousel-g-4:checked ~ .outer .inner {
+.carousel-g #carousel-g-4:checked ~ .outer .inner {
   left: -150%;
 }
 
-#carousel-g-5:checked ~ .outer .inner {
+.carousel-g #carousel-g-5:checked ~ .outer .inner {
   left: -150%;
 }
 
-.carousel-g .dots label:nth-child(n+5) {
+.carousel-g .dots label:nth-child(n + 5) {
   display: none;
 }
 
-#carousel-g-1:checked ~ .controls label:nth-child(n+1) {
+.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-g-1:checked ~ .controls label:nth-child(4),
-#carousel-g-1:checked ~ .controls label:nth-child(4) .prev {
+.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(4),
+.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(4) .prev {
   display: block;
 }
 
-#carousel-g-1:checked ~ .controls label:nth-child(3),
-#carousel-g-1:checked ~ .controls label:nth-child(3) .next {
+.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(3),
+.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-g-2:checked ~ .controls label:nth-child(n+1) {
+.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-g-2:checked ~ .controls label:nth-child(1),
-#carousel-g-2:checked ~ .controls label:nth-child(1) .prev {
+.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(1),
+.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
-#carousel-g-2:checked ~ .controls label:nth-child(4),
-#carousel-g-2:checked ~ .controls label:nth-child(4) .next {
+.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(4),
+.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-g-3:checked ~ .controls label:nth-child(n+1) {
+.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-g-3:checked ~ .controls label:nth-child(1),
-#carousel-g-3:checked ~ .controls label:nth-child(1) .prev {
+.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(1),
+.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
-#carousel-g-3:checked ~ .controls label:nth-child(4),
-#carousel-g-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(4),
+.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-g-4:checked ~ .controls label:nth-child(n+1) {
+.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-g-4:checked ~ .controls label:nth-child(2),
-#carousel-g-4:checked ~ .controls label:nth-child(2) .prev {
+.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(2),
+.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(2) .prev {
   display: block;
 }
 
-#carousel-g-4:checked ~ .controls label:nth-child(1),
-#carousel-g-4:checked ~ .controls label:nth-child(1) .next {
+.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(1),
+.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-g-5:checked ~ .controls label:nth-child(n+1) {
+.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-g-5:checked ~ .controls label:nth-child(3),
-#carousel-g-5:checked ~ .controls label:nth-child(3) .prev {
+.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(3),
+.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(3) .prev {
   display: block;
 }
 
-#carousel-g-5:checked ~ .controls label:nth-child(1),
-#carousel-g-5:checked ~ .controls label:nth-child(1) .next {
+.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(1),
+.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-h-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-h-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-h-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-h-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-h-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
@@ -1831,11 +1832,11 @@ pre[class*="language-"] {
   display: none;
 }
 
-#carousel-h-autoplay:checked ~ .autoplay .play {
+.carousel-h #carousel-h-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-h-autoplay:checked ~ .autoplay .pause {
+.carousel-h #carousel-h-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -1847,130 +1848,130 @@ pre[class*="language-"] {
   margin: 0 10px;
 }
 
-#carousel-h-1:checked ~ .outer .inner {
+.carousel-h #carousel-h-1:checked ~ .outer .inner {
   left: 0%;
 }
 
-#carousel-h-2:checked ~ .outer .inner {
+.carousel-h #carousel-h-2:checked ~ .outer .inner {
   left: -100%;
 }
 
-#carousel-h-3:checked ~ .outer .inner {
+.carousel-h #carousel-h-3:checked ~ .outer .inner {
   left: -200%;
 }
 
-#carousel-h-4:checked ~ .outer .inner {
+.carousel-h #carousel-h-4:checked ~ .outer .inner {
   left: -300%;
 }
 
-#carousel-h-5:checked ~ .outer .inner {
+.carousel-h #carousel-h-5:checked ~ .outer .inner {
   left: -400%;
 }
 
-.carousel-h .dots label:nth-child(n+6) {
+.carousel-h .dots label:nth-child(n + 6) {
   display: none;
 }
 
-#carousel-h-1:checked ~ .controls label:nth-child(n+1) {
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-h-1:checked ~ .controls label:nth-child(5),
-#carousel-h-1:checked ~ .controls label:nth-child(2),
-#carousel-h-1:checked ~ .controls label:nth-child(5) .prev,
-#carousel-h-1:checked ~ .controls label:nth-child(2) .next {
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(5),
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(5) .prev,
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-#carousel-h-2:checked ~ .controls label:nth-child(n+1) {
+.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-h-2:checked ~ .controls label:nth-child(1),
-#carousel-h-2:checked ~ .controls label:nth-child(3),
-#carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
-#carousel-h-2:checked ~ .controls label:nth-child(3) .next {
+.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1),
+.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3),
+.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
+.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-#carousel-h-3:checked ~ .controls label:nth-child(n+1) {
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-h-3:checked ~ .controls label:nth-child(2),
-#carousel-h-3:checked ~ .controls label:nth-child(4),
-#carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-#carousel-h-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4),
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-#carousel-h-4:checked ~ .controls label:nth-child(n+1) {
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-h-4:checked ~ .controls label:nth-child(3),
-#carousel-h-4:checked ~ .controls label:nth-child(5),
-#carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-#carousel-h-4:checked ~ .controls label:nth-child(5) .next {
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(5),
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(5) .next {
   display: block;
 }
 
-#carousel-h-5:checked ~ .controls label:nth-child(n+1) {
+.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-#carousel-h-5:checked ~ .controls label:nth-child(4),
-#carousel-h-5:checked ~ .controls label:nth-child(1),
-#carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
-#carousel-h-5:checked ~ .controls label:nth-child(1) .next {
+.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4),
+.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1),
+.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
+.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-#carousel-a-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-a-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-a-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-a-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-a-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-#carousel-a-autoplay:checked ~ .autoplay .play {
+.carousel-a #carousel-a-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-a-autoplay:checked ~ .autoplay .pause {
+.carousel-a #carousel-a-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -1984,116 +1985,116 @@ pre[class*="language-"] {
   .carousel-a .outer .item {
     margin: 0 10px;
   }
-  #carousel-a-1:checked ~ .outer .inner {
+  .carousel-a #carousel-a-1:checked ~ .outer .inner {
     left: 0%;
   }
-  #carousel-a-2:checked ~ .outer .inner {
+  .carousel-a #carousel-a-2:checked ~ .outer .inner {
     left: -50%;
   }
-  #carousel-a-3:checked ~ .outer .inner {
+  .carousel-a #carousel-a-3:checked ~ .outer .inner {
     left: -100%;
   }
-  #carousel-a-4:checked ~ .outer .inner {
+  .carousel-a #carousel-a-4:checked ~ .outer .inner {
     left: -150%;
   }
-  #carousel-a-5:checked ~ .outer .inner {
+  .carousel-a #carousel-a-5:checked ~ .outer .inner {
     left: -150%;
   }
-  .carousel-a .dots label:nth-child(n+5) {
+  .carousel-a .dots label:nth-child(n + 5) {
     display: none;
   }
-  #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-1:checked ~ .controls label:nth-child(4),
-  #carousel-a-1:checked ~ .controls label:nth-child(2),
-  #carousel-a-1:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(4),
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(4) .prev,
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
-  #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-2:checked ~ .controls label:nth-child(1),
-  #carousel-a-2:checked ~ .controls label:nth-child(3),
-  #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-  #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3),
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
-  #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-3:checked ~ .controls label:nth-child(2),
-  #carousel-a-3:checked ~ .controls label:nth-child(4),
-  #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-  #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4),
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
     display: block;
   }
-  #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-4:checked ~ .controls label:nth-child(3),
-  #carousel-a-4:checked ~ .controls label:nth-child(1),
-  #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-5:checked ~ .controls label:nth-child(4),
-  #carousel-a-5:checked ~ .controls label:nth-child(1),
-  #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4),
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 }
 
-#carousel-d-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-d-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-d-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-d-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-d-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-d-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-d-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-d-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-d-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-#carousel-d-autoplay:checked ~ .autoplay .play {
+.carousel-d #carousel-d-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-d-autoplay:checked ~ .autoplay .pause {
+.carousel-d #carousel-d-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -2107,126 +2108,126 @@ pre[class*="language-"] {
   .carousel-d .outer .item {
     margin: 0 10px;
   }
-  #carousel-d-1:checked ~ .outer .inner {
+  .carousel-d #carousel-d-1:checked ~ .outer .inner {
     left: 0%;
   }
-  #carousel-d-2:checked ~ .outer .inner {
+  .carousel-d #carousel-d-2:checked ~ .outer .inner {
     left: -33.3333333333%;
   }
-  #carousel-d-3:checked ~ .outer .inner {
+  .carousel-d #carousel-d-3:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  #carousel-d-4:checked ~ .outer .inner {
+  .carousel-d #carousel-d-4:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  #carousel-d-5:checked ~ .outer .inner {
+  .carousel-d #carousel-d-5:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  .carousel-d .dots label:nth-child(n+4) {
+  .carousel-d .dots label:nth-child(n + 4) {
     display: none;
   }
-  #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
+  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-d-1:checked ~ .controls label:nth-child(3),
-  #carousel-d-1:checked ~ .controls label:nth-child(3) .prev {
+  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
+  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .prev {
     display: block;
   }
-  #carousel-d-1:checked ~ .controls label:nth-child(3),
-  #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
+  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
+  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
-  #carousel-d-2:checked ~ .controls label:nth-child(n+1) {
+  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-d-2:checked ~ .controls label:nth-child(1),
-  #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
+  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1),
+  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
     display: block;
   }
-  #carousel-d-2:checked ~ .controls label:nth-child(3),
-  #carousel-d-2:checked ~ .controls label:nth-child(3) .next {
+  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3),
+  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
-  #carousel-d-3:checked ~ .controls label:nth-child(n+1) {
+  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-d-3:checked ~ .controls label:nth-child(1),
-  #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
+  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
+  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
     display: block;
   }
-  #carousel-d-3:checked ~ .controls label:nth-child(1),
-  #carousel-d-3:checked ~ .controls label:nth-child(1) .next {
+  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
+  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-d-4:checked ~ .controls label:nth-child(n+1) {
+  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-d-4:checked ~ .controls label:nth-child(1),
-  #carousel-d-4:checked ~ .controls label:nth-child(1) .prev {
+  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
+  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .prev {
     display: block;
   }
-  #carousel-d-4:checked ~ .controls label:nth-child(1),
-  #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
+  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
+  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-d-5:checked ~ .controls label:nth-child(n+1) {
+  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-d-5:checked ~ .controls label:nth-child(2),
-  #carousel-d-5:checked ~ .controls label:nth-child(2) .prev {
+  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2),
+  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2) .prev {
     display: block;
   }
-  #carousel-d-5:checked ~ .controls label:nth-child(1),
-  #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
+  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1),
+  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 }
 
-#carousel-h-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-h-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-h-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-h-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-h-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-#carousel-h-autoplay:checked ~ .autoplay .play {
+.carousel-h #carousel-h-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-h-autoplay:checked ~ .autoplay .pause {
+.carousel-h #carousel-h-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -2240,116 +2241,116 @@ pre[class*="language-"] {
   .carousel-h .outer .item {
     margin: 0 10px;
   }
-  #carousel-h-1:checked ~ .outer .inner {
+  .carousel-h #carousel-h-1:checked ~ .outer .inner {
     left: 0%;
   }
-  #carousel-h-2:checked ~ .outer .inner {
+  .carousel-h #carousel-h-2:checked ~ .outer .inner {
     left: -50%;
   }
-  #carousel-h-3:checked ~ .outer .inner {
+  .carousel-h #carousel-h-3:checked ~ .outer .inner {
     left: -100%;
   }
-  #carousel-h-4:checked ~ .outer .inner {
+  .carousel-h #carousel-h-4:checked ~ .outer .inner {
     left: -150%;
   }
-  #carousel-h-5:checked ~ .outer .inner {
+  .carousel-h #carousel-h-5:checked ~ .outer .inner {
     left: -150%;
   }
-  .carousel-h .dots label:nth-child(n+5) {
+  .carousel-h .dots label:nth-child(n + 5) {
     display: none;
   }
-  #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-1:checked ~ .controls label:nth-child(4),
-  #carousel-h-1:checked ~ .controls label:nth-child(2),
-  #carousel-h-1:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(4),
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(4) .prev,
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
-  #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-2:checked ~ .controls label:nth-child(1),
-  #carousel-h-2:checked ~ .controls label:nth-child(3),
-  #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
-  #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3),
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
-  #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-3:checked ~ .controls label:nth-child(2),
-  #carousel-h-3:checked ~ .controls label:nth-child(4),
-  #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-  #carousel-h-3:checked ~ .controls label:nth-child(4) .next {
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4),
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4) .next {
     display: block;
   }
-  #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-4:checked ~ .controls label:nth-child(3),
-  #carousel-h-4:checked ~ .controls label:nth-child(1),
-  #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-5:checked ~ .controls label:nth-child(4),
-  #carousel-h-5:checked ~ .controls label:nth-child(1),
-  #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4),
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 }
 
-#carousel-a-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-a-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-a-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-a-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-a-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-#carousel-a-autoplay:checked ~ .autoplay .play {
+.carousel-a #carousel-a-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-a-autoplay:checked ~ .autoplay .pause {
+.carousel-a #carousel-a-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -2363,116 +2364,116 @@ pre[class*="language-"] {
   .carousel-a .outer .item {
     margin: 0 10px;
   }
-  #carousel-a-1:checked ~ .outer .inner {
+  .carousel-a #carousel-a-1:checked ~ .outer .inner {
     left: 0%;
   }
-  #carousel-a-2:checked ~ .outer .inner {
+  .carousel-a #carousel-a-2:checked ~ .outer .inner {
     left: -33.3333333333%;
   }
-  #carousel-a-3:checked ~ .outer .inner {
+  .carousel-a #carousel-a-3:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  #carousel-a-4:checked ~ .outer .inner {
+  .carousel-a #carousel-a-4:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  #carousel-a-5:checked ~ .outer .inner {
+  .carousel-a #carousel-a-5:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  .carousel-a .dots label:nth-child(n+4) {
+  .carousel-a .dots label:nth-child(n + 4) {
     display: none;
   }
-  #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-1:checked ~ .controls label:nth-child(3),
-  #carousel-a-1:checked ~ .controls label:nth-child(2),
-  #carousel-a-1:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(3),
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(3) .prev,
+  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
-  #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-2:checked ~ .controls label:nth-child(1),
-  #carousel-a-2:checked ~ .controls label:nth-child(3),
-  #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-  #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3),
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
+  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
-  #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-3:checked ~ .controls label:nth-child(2),
-  #carousel-a-3:checked ~ .controls label:nth-child(1),
-  #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-  #carousel-a-3:checked ~ .controls label:nth-child(1) .next {
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
+  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-4:checked ~ .controls label:nth-child(3),
-  #carousel-a-4:checked ~ .controls label:nth-child(1),
-  #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
+  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-a-5:checked ~ .controls label:nth-child(4),
-  #carousel-a-5:checked ~ .controls label:nth-child(1),
-  #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4),
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1),
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
+  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 }
 
-#carousel-h-1:checked ~ .dots label:nth-child(1) .active {
+.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-#carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
+.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-#carousel-h-2:checked ~ .dots label:nth-child(2) .active {
+.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-#carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
+.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-#carousel-h-3:checked ~ .dots label:nth-child(3) .active {
+.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-#carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
+.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-#carousel-h-4:checked ~ .dots label:nth-child(4) .active {
+.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-#carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
+.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-#carousel-h-5:checked ~ .dots label:nth-child(5) .active {
+.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-#carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
+.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-#carousel-h-autoplay:checked ~ .autoplay .play {
+.carousel-h #carousel-h-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-#carousel-h-autoplay:checked ~ .autoplay .pause {
+.carousel-h #carousel-h-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
@@ -2486,67 +2487,67 @@ pre[class*="language-"] {
   .carousel-h .outer .item {
     margin: 0 10px;
   }
-  #carousel-h-1:checked ~ .outer .inner {
+  .carousel-h #carousel-h-1:checked ~ .outer .inner {
     left: 0%;
   }
-  #carousel-h-2:checked ~ .outer .inner {
+  .carousel-h #carousel-h-2:checked ~ .outer .inner {
     left: -33.3333333333%;
   }
-  #carousel-h-3:checked ~ .outer .inner {
+  .carousel-h #carousel-h-3:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  #carousel-h-4:checked ~ .outer .inner {
+  .carousel-h #carousel-h-4:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  #carousel-h-5:checked ~ .outer .inner {
+  .carousel-h #carousel-h-5:checked ~ .outer .inner {
     left: -66.6666666667%;
   }
-  .carousel-h .dots label:nth-child(n+4) {
+  .carousel-h .dots label:nth-child(n + 4) {
     display: none;
   }
-  #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-1:checked ~ .controls label:nth-child(3),
-  #carousel-h-1:checked ~ .controls label:nth-child(2),
-  #carousel-h-1:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3),
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3) .prev,
+  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
     display: block;
   }
-  #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-2:checked ~ .controls label:nth-child(1),
-  #carousel-h-2:checked ~ .controls label:nth-child(3),
-  #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
-  #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3),
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
+  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
     display: block;
   }
-  #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-3:checked ~ .controls label:nth-child(2),
-  #carousel-h-3:checked ~ .controls label:nth-child(1),
-  #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-  #carousel-h-3:checked ~ .controls label:nth-child(1) .next {
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
+  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-4:checked ~ .controls label:nth-child(3),
-  #carousel-h-4:checked ~ .controls label:nth-child(1),
-  #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-  #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
+  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-  #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
     display: none;
   }
-  #carousel-h-5:checked ~ .controls label:nth-child(4),
-  #carousel-h-5:checked ~ .controls label:nth-child(1),
-  #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
-  #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4),
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1),
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
+  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
 }

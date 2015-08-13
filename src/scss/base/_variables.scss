@@ -37,9 +37,10 @@ $ro-offcanvas-direction: left, right !default;
 $ro-offcanvas-length: 12;
 
 // nav
-$ro-nav-direction: 'left', 'right', 'top', 'bottom' !default;
-$ro-nav-styles: 'move', 'translate', 'reveal', 'drawer' !default;
+$ro-nav-direction: left, right, top, bottom !default;
+$ro-nav-styles: 'slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'push', 'reveal', 'drawer' !default;
 $ro-nav-z-index: (
+  'page': 201,
   'nav': 200,
   'page-overlay': 199,
 ) !default;

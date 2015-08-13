@@ -118,7 +118,7 @@ h2 {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 
 h2 span {
@@ -284,8 +284,9 @@ pre[class*="language-"] {
 
 .demo-links a {
   display: inline-block;
-  padding: 2em 3em;
-  margin-bottom: 4px;
+  padding: 1.5em 2.5em;
+  margin-right: 7px;
+  margin-bottom: 10px;
   border-radius: 0.3em;
   background-color: #f2f2f2;
   font-size: 14px;
@@ -339,7 +340,7 @@ pre[class*="language-"] {
   font-size: 16px;
   font-size: 1rem;
   padding: .5em 1em;
-  border: 1px solid #ddd;
+  border: 1px solid  #ddd;
 }
 
 .example-button .pagination a {

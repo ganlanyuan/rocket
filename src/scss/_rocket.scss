@@ -55,6 +55,7 @@
 @import "components/button"; // @require [function] contrast
 @import "components/media";
 @import "components/offcanvas";  // @require [mixin] transform, transition-delay and [function] contrast, analogous
+@import "components/nav";  // @require [mixin] transform, breakpoint
 @import "components/dropdown";
 @import "components/tabs";
 @import "components/switch";

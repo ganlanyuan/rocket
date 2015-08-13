@@ -52,8 +52,32 @@
 		if ($pagename == 'components-offcanvas') {
 			echo 'components-offcanvas';
 		} 
-		if ($pagename == 'components-nav') {
-			echo 'components-nav';
+		if ($pagename == 'components-nav-slide-in') {
+			echo 'components-nav-slide-in';
+		} 
+		if ($pagename == 'components-nav-slide-along') {
+			echo 'components-nav-slide-along';
+		} 
+		if ($pagename == 'components-nav-slide-out') {
+			echo 'components-nav-slide-out';
+		} 
+		if ($pagename == 'components-nav-rotate-in') {
+			echo 'components-nav-rotate-in';
+		} 
+		if ($pagename == 'components-nav-rotate-out') {
+			echo 'components-nav-rotate-out';
+		} 
+		if ($pagename == 'components-nav-rotate-in-reverse') {
+			echo 'components-nav-rotate-in-reverse';
+		} 
+		if ($pagename == 'components-nav-push') {
+			echo 'components-nav-push';
+		} 
+		if ($pagename == 'components-nav-reveal') {
+			echo 'components-nav-reveal';
+		} 
+		if ($pagename == 'components-nav-drawer') {
+			echo 'components-nav-drawer';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'components-dropdown';
@@ -173,8 +197,32 @@
 		if ($pagename == 'components-offcanvas') {
 			echo 'href="css/components-offcanvas.css"';
 		} 
-		if ($pagename == 'components-nav') {
-			echo 'href="css/components-nav.css"';
+		if ($pagename == 'components-nav-slide-in') {
+			echo 'href="css/components-nav-slide-in.css"';
+		} 
+		if ($pagename == 'components-nav-slide-along') {
+			echo 'href="css/components-nav-slide-along.css"';
+		} 
+		if ($pagename == 'components-nav-slide-out') {
+			echo 'href="css/components-nav-slide-out.css"';
+		} 
+		if ($pagename == 'components-nav-rotate-in') {
+			echo 'href="css/components-nav-rotate-in.css"';
+		} 
+		if ($pagename == 'components-nav-rotate-out') {
+			echo 'href="css/components-nav-rotate-out.css"';
+		} 
+		if ($pagename == 'components-nav-rotate-in-reverse') {
+			echo 'href="css/components-nav-rotate-in-reverse.css"';
+		} 
+		if ($pagename == 'components-nav-push') {
+			echo 'href="css/components-nav-push.css"';
+		} 
+		if ($pagename == 'components-nav-reveal') {
+			echo 'href="css/components-nav-reveal.css"';
+		} 
+		if ($pagename == 'components-nav-drawer') {
+			echo 'href="css/components-nav-drawer.css"';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'href="css/components-dropdown.css"';
