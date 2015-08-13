@@ -1,7 +1,7 @@
 <?php 
   $navP = 'inside';
   $navN = 'push';
-  $pagegroup = 'nav';
+  $pagegroup = 'mobile-nav';
  ?>
 <?php include 'include/head.php'; ?>
 <body>
@@ -23,7 +23,7 @@
 <div class="page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>nav<span>(<?php echo $navN; ?>)</span></h2>
+      <h2 id=""><span>components: </span>Mobile-nav<span>(<?php echo $navN; ?>)</span></h2>
       <?php include 'include/nav-links.php'; ?>
       
       <label for="nav-toggle" class="menu-icon"><span></span></label>

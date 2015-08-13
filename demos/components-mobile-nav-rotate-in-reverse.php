@@ -1,10 +1,10 @@
 <?php 
   $navP = 'inside';
-  $navN = 'slide-in';
-  $pagegroup = 'nav';
+  $navN = 'rotate-in-reverse';
+  $pagegroup = 'mobile-nav';
  ?>
 <?php include 'include/head.php'; ?>
-<body>
+<body class="has-bg">
 
 <input type="checkbox" name="" id="nav-toggle">
 <?php if ($navP == 'outside') {
@@ -23,7 +23,7 @@
 <div class="page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>nav<span>(<?php echo $navN; ?>)</span></h2>
+      <h2 id=""><span>components: </span>Mobile-nav<span>(<?php echo $navN; ?>)</span></h2>
       <?php include 'include/nav-links.php'; ?>
       
       <label for="nav-toggle" class="menu-icon"><span></span></label>
@@ -66,7 +66,7 @@
       </code></pre>
       <pre><code class="language-scss">
 .page {
-  @include mobile-nav('slide-in' left '.nav' rgba(black, 0.1) 200px 0.5s);
+  @include mobile-nav('rotate-in-reverse' left '.nav' rgba(black, 0.1) 200px 0.5s);
 }
       </code></pre>
     </div>

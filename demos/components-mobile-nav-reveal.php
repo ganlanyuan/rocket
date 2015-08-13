@@ -1,7 +1,7 @@
 <?php 
-  $navP = 'inside';
-  $navN = 'drawer';
-  $pagegroup = 'nav';
+  $navP = 'outside';
+  $navN = 'reveal';
+  $pagegroup = 'mobile-nav';
  ?>
 <?php include 'include/head.php'; ?>
 <body>
@@ -23,7 +23,7 @@
 <div class="page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>nav<span>(<?php echo $navN; ?>)</span></h2>
+      <h2 id=""><span>components: </span>Mobile-nav<span>(<?php echo $navN; ?>)</span></h2>
       <?php include 'include/nav-links.php'; ?>
       
       <label for="nav-toggle" class="menu-icon"><span></span></label>
@@ -47,37 +47,26 @@
 
       <pre><code class="language-markup">
 &lt;input type="checkbox" name="" id="nav-toggle"&gt;
+&lt;nav class="nav"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=""&gt;How It Works&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Compare&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Technology&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Careers&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Help&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;div class="page"&gt;
   &lt;header&gt;
     &lt;label for="nav-toggle"&gt;Menu&lt;/label&gt;
     &lt;label for="nav-toggle" class="page-overlay"&gt;&lt;/label&gt;
-    &lt;nav class="nav"&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href=""&gt;How It Works&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=""&gt;Compare&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=""&gt;Technology&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=""&gt;Careers&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=""&gt;Help&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/nav&gt;
   &lt;/header&gt;
   &lt;div&gt;Other content&lt;/div&gt;
 &lt;/div&gt;
       </code></pre>
       <pre><code class="language-scss">
-$bp: (
-  small: 600px,
-  medium: 1000px,
-);
-$map: (
-  500px: 20px, 
-  small: 30px, 
-  medium: 40px, 
-  null: 50px
-);
-
 .page {
-  @include mobile-nav('drawer' $map $bp left '.nav' rgba(black, 0.1) 200px 0.5s);
+  @include mobile-nav('reveal' right '.nav' rgba(black, 0.1) 200px 0.5s);
 }
       </code></pre>
     </div>

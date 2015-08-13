@@ -1,10 +1,10 @@
 <?php 
   $navP = 'outside';
-  $navN = 'scale-down';
-  $pagegroup = 'nav';
+  $navN = 'slide-along';
+  $pagegroup = 'mobile-nav';
  ?>
 <?php include 'include/head.php'; ?>
-<body class="has-bg">
+<body>
 
 <input type="checkbox" name="" id="nav-toggle">
 <?php if ($navP == 'outside') {
@@ -23,7 +23,7 @@
 <div class="page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>nav<span>(<?php echo $navN; ?>)</span></h2>
+      <h2 id=""><span>components: </span>Mobile-nav<span>(<?php echo $navN; ?>)</span></h2>
       <?php include 'include/nav-links.php'; ?>
       
       <label for="nav-toggle" class="menu-icon"><span></span></label>
@@ -44,7 +44,7 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda quo, quibusdam voluptatibus porro repudiandae sunt, laudantium deserunt pariatur, aperiam itaque ipsum iusto ratione, dolorem sit. Ea necessitatibus quaerat id!</p>
       <p>Consectetur minus eius aut vero eveniet inventore sunt voluptas, accusantium. Nihil eos inventore modi facilis amet porro magnam, perferendis, quidem accusantium explicabo assumenda rem aliquam. Pariatur, temporibus nihil. Itaque, dignissimos.</p>
       <p>Nihil tempora iste, perspiciatis optio accusantium possimus adipisci harum dolorum soluta alias eaque hic magnam veritatis qui, earum consequuntur voluptatum quis perferendis voluptates facere nam! Placeat animi architecto magnam iste.</p>
-
+      
       <pre><code class="language-markup">
 &lt;input type="checkbox" name="" id="nav-toggle"&gt;
 &lt;nav class="nav"&gt;
@@ -66,7 +66,7 @@
       </code></pre>
       <pre><code class="language-scss">
 .page {
-  @include mobile-nav('scale-down' left '.nav' rgba(black, 0.1) 200px 0.5s);
+  @include mobile-nav('slide-along' left '.nav' rgba(black, 0.1) 200px 0.5s);
 }
       </code></pre>
     </div>

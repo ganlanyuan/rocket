@@ -52,41 +52,41 @@
 		if ($pagename == 'components-offcanvas') {
 			echo 'components-offcanvas';
 		} 
-		if ($pagename == 'components-nav-slide-in') {
-			echo 'components-nav-slide-in';
+		if ($pagename == 'components-mobile-nav-slide-in') {
+			echo 'components-mobile-nav-slide-in';
 		} 
-		if ($pagename == 'components-nav-slide-along') {
-			echo 'components-nav-slide-along';
+		if ($pagename == 'components-mobile-nav-slide-along') {
+			echo 'components-mobile-nav-slide-along';
 		} 
-		if ($pagename == 'components-nav-slide-out') {
-			echo 'components-nav-slide-out';
+		if ($pagename == 'components-mobile-nav-slide-out') {
+			echo 'components-mobile-nav-slide-out';
 		} 
-		if ($pagename == 'components-nav-rotate-in') {
-			echo 'components-nav-rotate-in';
+		if ($pagename == 'components-mobile-nav-rotate-in') {
+			echo 'components-mobile-nav-rotate-in';
 		} 
-		if ($pagename == 'components-nav-rotate-out') {
-			echo 'components-nav-rotate-out';
+		if ($pagename == 'components-mobile-nav-rotate-out') {
+			echo 'components-mobile-nav-rotate-out';
 		} 
-		if ($pagename == 'components-nav-rotate-in-reverse') {
-			echo 'components-nav-rotate-in-reverse';
+		if ($pagename == 'components-mobile-nav-rotate-in-reverse') {
+			echo 'components-mobile-nav-rotate-in-reverse';
 		} 
-		if ($pagename == 'components-nav-scale-down') {
-			echo 'components-nav-scale-down';
+		if ($pagename == 'components-mobile-nav-scale-down') {
+			echo 'components-mobile-nav-scale-down';
 		} 
-		if ($pagename == 'components-nav-scale-up') {
-			echo 'components-nav-scale-up';
+		if ($pagename == 'components-mobile-nav-scale-up') {
+			echo 'components-mobile-nav-scale-up';
 		} 
-		if ($pagename == 'components-nav-open') {
-			echo 'components-nav-open';
+		if ($pagename == 'components-mobile-nav-open') {
+			echo 'components-mobile-nav-open';
 		} 
-		if ($pagename == 'components-nav-push') {
-			echo 'components-nav-push';
+		if ($pagename == 'components-mobile-nav-push') {
+			echo 'components-mobile-nav-push';
 		} 
-		if ($pagename == 'components-nav-reveal') {
-			echo 'components-nav-reveal';
+		if ($pagename == 'components-mobile-nav-reveal') {
+			echo 'components-mobile-nav-reveal';
 		} 
-		if ($pagename == 'components-nav-drawer') {
-			echo 'components-nav-drawer';
+		if ($pagename == 'components-mobile-nav-drawer') {
+			echo 'components-mobile-nav-drawer';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'components-dropdown';
@@ -206,41 +206,41 @@
 		if ($pagename == 'components-offcanvas') {
 			echo 'href="css/components-offcanvas.css"';
 		} 
-		if ($pagename == 'components-nav-slide-in') {
-			echo 'href="css/components-nav-slide-in.css"';
+		if ($pagename == 'components-mobile-nav-slide-in') {
+			echo 'href="css/components-mobile-nav-slide-in.css"';
 		} 
-		if ($pagename == 'components-nav-slide-along') {
-			echo 'href="css/components-nav-slide-along.css"';
+		if ($pagename == 'components-mobile-nav-slide-along') {
+			echo 'href="css/components-mobile-nav-slide-along.css"';
 		} 
-		if ($pagename == 'components-nav-slide-out') {
-			echo 'href="css/components-nav-slide-out.css"';
+		if ($pagename == 'components-mobile-nav-slide-out') {
+			echo 'href="css/components-mobile-nav-slide-out.css"';
 		} 
-		if ($pagename == 'components-nav-rotate-in') {
-			echo 'href="css/components-nav-rotate-in.css"';
+		if ($pagename == 'components-mobile-nav-rotate-in') {
+			echo 'href="css/components-mobile-nav-rotate-in.css"';
 		} 
-		if ($pagename == 'components-nav-rotate-out') {
-			echo 'href="css/components-nav-rotate-out.css"';
+		if ($pagename == 'components-mobile-nav-rotate-out') {
+			echo 'href="css/components-mobile-nav-rotate-out.css"';
 		} 
-		if ($pagename == 'components-nav-rotate-in-reverse') {
-			echo 'href="css/components-nav-rotate-in-reverse.css"';
+		if ($pagename == 'components-mobile-nav-rotate-in-reverse') {
+			echo 'href="css/components-mobile-nav-rotate-in-reverse.css"';
 		} 
-		if ($pagename == 'components-nav-scale-down') {
-			echo 'href="css/components-nav-scale-down.css"';
+		if ($pagename == 'components-mobile-nav-scale-down') {
+			echo 'href="css/components-mobile-nav-scale-down.css"';
 		} 
-		if ($pagename == 'components-nav-scale-up') {
-			echo 'href="css/components-nav-scale-up.css"';
+		if ($pagename == 'components-mobile-nav-scale-up') {
+			echo 'href="css/components-mobile-nav-scale-up.css"';
 		} 
-		if ($pagename == 'components-nav-open') {
-			echo 'href="css/components-nav-open.css"';
+		if ($pagename == 'components-mobile-nav-open') {
+			echo 'href="css/components-mobile-nav-open.css"';
 		} 
-		if ($pagename == 'components-nav-push') {
-			echo 'href="css/components-nav-push.css"';
+		if ($pagename == 'components-mobile-nav-push') {
+			echo 'href="css/components-mobile-nav-push.css"';
 		} 
-		if ($pagename == 'components-nav-reveal') {
-			echo 'href="css/components-nav-reveal.css"';
+		if ($pagename == 'components-mobile-nav-reveal') {
+			echo 'href="css/components-mobile-nav-reveal.css"';
 		} 
-		if ($pagename == 'components-nav-drawer') {
-			echo 'href="css/components-nav-drawer.css"';
+		if ($pagename == 'components-mobile-nav-drawer') {
+			echo 'href="css/components-mobile-nav-drawer.css"';
 		} 
 		if ($pagename == 'components-dropdown') {
 			echo 'href="css/components-dropdown.css"';

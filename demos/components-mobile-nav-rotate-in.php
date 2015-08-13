@@ -1,7 +1,7 @@
 <?php 
   $navP = 'inside';
-  $navN = 'rotate-in-reverse';
-  $pagegroup = 'nav';
+  $navN = 'rotate-in';
+  $pagegroup = 'mobile-nav';
  ?>
 <?php include 'include/head.php'; ?>
 <body class="has-bg">
@@ -23,7 +23,7 @@
 <div class="page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>nav<span>(<?php echo $navN; ?>)</span></h2>
+      <h2 id=""><span>components: </span>Mobile-nav<span>(<?php echo $navN; ?>)</span></h2>
       <?php include 'include/nav-links.php'; ?>
       
       <label for="nav-toggle" class="menu-icon"><span></span></label>
@@ -66,7 +66,7 @@
       </code></pre>
       <pre><code class="language-scss">
 .page {
-  @include mobile-nav('rotate-in-reverse' left '.nav' rgba(black, 0.1) 200px 0.5s);
+  @include mobile-nav('rotate-in' left '.nav' rgba(black, 0.1) 200px 0.5s);
 }
       </code></pre>
     </div>
