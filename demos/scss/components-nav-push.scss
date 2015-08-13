@@ -8,5 +8,5 @@
   a { border-width: 0; }
 }
 .page {
-  @include nav('push' top '.nav' rgba(black, 0.1) 70px 0.5s);
+  @include mobile-nav('push' top '.nav' rgba(black, 0.1) 70px 0.5s);
 }

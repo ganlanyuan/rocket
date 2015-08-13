@@ -627,7 +627,7 @@ $key: $style $direction $offcanvas-width $cover-bg
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-offcanvas.php)
 
-#### nav
+#### mobile-nav
 Pure css off-canvas with multiple styles.  
 ```` html
 <!-- styles: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
@@ -670,11 +670,11 @@ Pure css off-canvas with multiple styles.
 </div>
 ````
 ```` scss
-@mixin nav($key)
+@mixin mobile-nav($key)
 // pattern
 $key: $style $direction $nav $nav-width $overlay-background-color $duration
 
-.page { @include nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+.page { @include mobile-nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open | push | reveal | drawer)
 // direction: left; (left | right | top | bottom)
 // nav: .nav;

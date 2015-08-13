@@ -22,7 +22,9 @@
 ///   </header>
 ///   <div>Other content</div>
 /// </div>
+/// 
 /// <!-- style: slide-along, slide-out, scale-down, scale-up, open, reveal -->
+/// <!-- If you using these styles, make sure to compile it with Ruby Sass, not Libsass. Current Libsass doesn't fully support @at-root. -->
 /// <input type="checkbox" name="" id="nav-toggle">
 /// <nav class="nav">
 ///   <ul>
@@ -42,7 +44,7 @@
 /// </div>
 /// 
 /// @example scss - Usage
-/// .page { @include nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+/// .page { @include mobile-nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 /// // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open | push | reveal | drawer')
 /// // direction: left; (left | right | top | bottom)
 /// // nav: .nav;
@@ -53,7 +55,7 @@
 /// @link http://creatiointl.org/gallery/william/rocket/components-nav-slide-in.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin nav($key) {
+@mixin mobile-nav($key) {
   $check: join($ro-nav-direction, $ro-nav-styles);
   // initalize $map-list, $map, $breakpoint
   $map-list: ();

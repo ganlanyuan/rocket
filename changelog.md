@@ -3,7 +3,7 @@
 ### v2.5.0
 + Add responsive font-size `font-size`
 + Add pure css `accordion`
-+ Add pure css off-canvas `nav`
++ Add pure css `mobile-nav`
 + Add `progress-bar` to css sliders
 + Add `autoplay` js for sliders
 

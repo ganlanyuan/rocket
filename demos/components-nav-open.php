@@ -66,7 +66,7 @@
       </code></pre>
       <pre><code class="language-scss">
 .page {
-  @include nav('open' left '.nav' rgba(black, 0.1) 200px 0.5s);
+  @include mobile-nav('open' left '.nav' rgba(black, 0.1) 200px 0.5s);
 }
       </code></pre>
     </div>

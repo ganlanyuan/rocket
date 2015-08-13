@@ -77,7 +77,7 @@ $map: (
 );
 
 .page {
-  @include nav('drawer' $map $bp left '.nav' rgba(black, 0.1) 200px 0.5s);
+  @include mobile-nav('drawer' $map $bp left '.nav' rgba(black, 0.1) 200px 0.5s);
 }
       </code></pre>
     </div>
