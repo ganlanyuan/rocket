@@ -20,7 +20,6 @@ Or install with [git](http://www.git-scm.com/):
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
 # Structure
-【 Components 】
 ```` html      
      == layout ==                == components ==
         |container                  |button
