@@ -51,12 +51,6 @@ $ git clone https://github.com/ganlanyuan/rocket.git
 #【 Layout 】
 #### layout setting
 ```` scss
-// default setting
-// items: 5;
-// perpage: 2;
-// gutter: 10px; (default)
-// slide-by-page: true;
-// default: true; (default styles for controls and dots)
 $ro-layout: (
   container: 1024px,
   columns: 12,
@@ -730,7 +724,7 @@ In the example shows on the left, I used banner as my specific class.
 ````
 
 #### slider-gallery
-```` html
+```` scss
 // basic
 @include slider-gallery($key)
 // pattern
