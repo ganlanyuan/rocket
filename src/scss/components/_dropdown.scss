@@ -10,7 +10,7 @@
 /// <div class="dropdown">
 ///   <span>dropdown</span>
 ///   <input type="checkbox" name="" id="dropdown">
-///   <label for="dropdown"></label>
+///   <label for="dropdown"><img src="images/arrow-right.png" alt=""></label>
 ///   <ul>
 ///     <li><a href="">item01</a></li>
 ///     <li><a href="">item02</a></li>
@@ -28,10 +28,7 @@
 /// @link http://creatiointl.org/gallery/william/rocket/components-dropdown.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin dropdown(
-  $key:
-    'ul'
-){
+@mixin dropdown($key: 'ul'){
   $check: append(
       join(
         join($ro-dropdown-show, $ro-dropdown-style, comma), 

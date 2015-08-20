@@ -23,9 +23,9 @@
 /// @link http://creatiointl.org/gallery/william/rocket/layout-two-columns.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin two-columns($key: left 300px gutter 20px) {
+@mixin two-columns($key) {
   $direction: ro-get($key, left right, left);
-  $gutter: ro-get-next($key, 'gutter', '20px');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $aside-width: 300px; 
 
   // set up aside width

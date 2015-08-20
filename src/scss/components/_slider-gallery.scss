@@ -236,16 +236,19 @@
     }
   }
   @at-root { @at-root (without: media) {
-    @if $autoplay {
-      #{$id}-autoplay:checked ~ {
-        // hide controls and dots
-        .controls, .dots {
-          display: none; 
-          .no-cssanimations & { display: block !important; }
-        }
+
+    #{$id}-autoplay:checked ~ {
+      @if $autoplay or $autoplay-js {
         .autoplay {
           .play { display: none; }
           .pause { display: block; }
+        }
+        @if $autoplay {
+          // hide controls and dots
+          .controls, .dots {
+            display: none; 
+            .no-cssanimations & { display: block !important; }
+          }
         }
       }
     }

@@ -1,43 +1,48 @@
 # Changelog
 
+### v2.5.1
++ Fixed: *Error: Invalid US-ASCII character "\xE2"* when compile with [Koala](http://koala-app.com/).
++ Fixed: `two-columns` parameter issue when there is not `gutter` value passed in.
++ Fixed: `play/pause` button don't switch when clicked in `slider-gallery`.
+
 ### v2.5.0
-+ Add responsive font-size `font-size`
-+ Add pure css `accordion`
-+ Add pure css `mobile-nav`
-+ Add `progress-bar` to css sliders
-+ Add `autoplay` js for sliders
++ Added: responsive font-size `font-size`
++ Added: pure css `accordion`
++ Added: pure css `mobile-nav`
++ Added: `progress-bar` to css sliders
++ Added: `autoplay` js for sliders
 
 ### v2.4.0
-+ Re-add mixin `slider-carousel`, `slider-gallery`
-+ Add js function `equalizer`, `sticky`
++ Added: mixin `slider-carousel`, `slider-gallery`.
++ Added: js function `equalizer`, `sticky`.
 
 ### v2.3.0
-+ Add mixin `tabs`, `tabs-active`, `tabs-panel-active`.
-+ Add mixin `checkbox`, `checkbox-active`.
-+ Add mixin `switch`.
-+ Add mixin `push-toggle`.
-+ Add `$direction` to mixin `dropdown`.
-+ Add `text-align` to mixin `type`.
-+ Add mixin `bp` which is the same with mixin `breakpoint`.
-+ Fix some issues on `button`, `span`, `span-calc`.
++ Added: mixin `tabs`, `tabs-active`, `tabs-panel-active`.
++ Added: mixin `checkbox`, `checkbox-active`.
++ Added: mixin `switch`.
++ Added: mixin `push-toggle`.
++ Added: `$direction` to mixin `dropdown`.
++ Added: `text-align` to mixin `type`.
++ Added: mixin `bp` which is the same with mixin `breakpoint`.
++ Fixed: Fix some issues on `button`, `span`, `span-calc`.
 
 ### v2.2.1
-+ Update `two-columns`, now flexible gutter (e.g. 2%) is acceptable.
-+ Fix an issue on `span` and `span-calc` when `gutter: 0`.
-+ Remove `keep` argument from `span-calc`.
++ Improved: Update `two-columns`, now flexible gutter (e.g. 2%) is acceptable.
++ Fixed: Fix an issue on `span` and `span-calc` when `gutter: 0`.
++ Removed: Remove `keep` argument from `span-calc`.
 
 ### v2.2.0
-+ Simplify all mixins.
-+ Fix a width issue on `tooltip`.
-+ Fix a string issue on `span-calc`.
++ Improved: Simplify all mixins.
++ Fixed: Fix a width issue on `tooltip`.
++ Fixed: Fix a string issue on `span-calc`.
 
 ### v2.1.2
-+ Fix an image issue (which cause the images '0px-width' on webkit browsers) on `media` by setting `max-width: none;`.
++ Fixed: Fix an image issue (which cause the images '0px-width' on webkit browsers) on `media` by setting `max-width: none;`.
 
 ### v2.1.1
-+ Fix an issue on `media`.
-+ Add '!important' to `visible` and `hidden`.
-+ Modify `offcanvas` hover-background.
++ Fixed: Fix an issue on `media`.
++ Added: '!important' to `visible` and `hidden`.
++ Improved: Modify `offcanvas` hover-background.
 
 ### v2.1.0
 + Add [sassdoc](http://creatiointl.org/gallery/william/sassdoc/).   

@@ -676,7 +676,7 @@ $key: $style $direction $nav $nav-width $overlay-background-color $duration
 // overlay-background-color: rgba(0, 0, 0, 0.1);
 // duration: 0.5s;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/components-nav-slide-in.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-mobile-nav-slide-in.php)
 
 ## Pure CSS Sliders
 A pure CSS responsive slider with previous/next buttons, nav dots, autoplay(IE8- are not supported), autoheight and more. It works well on modern browsers and IE8+, but it doesn't support loop and lazyload for now.

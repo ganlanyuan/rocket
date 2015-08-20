@@ -3,9 +3,9 @@
 // *** layout: two-columns *** //
 
 .example-two-columns { 
-  @include two-columns(right 200px gutter 2%); 
+  @include two-columns(right 200px); 
   @include breakpoint('min' 800) {
-    @include two-columns(left 300px gutter 2%);
+    @include two-columns(300px);
   }
 }
 
