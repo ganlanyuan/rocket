@@ -133,7 +133,7 @@
   @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'scale-up', 'push', 'drawer'), $style) {
     $overlay: true;
   }
-  @if index(('slide-along', 'slide-out', 'reveal', 'scale-up'), $style) {
+  @if index(('slide-along', 'slide-out', 'rotate-in', 'reveal', 'scale-up'), $style) {
     $overlay-push: true;
   }
   @if index((left, right), $direction) {
@@ -280,23 +280,27 @@
       display: block;
       left: 0;
       right: 0;
+      top: 0;
       bottom: 0;
+      #{opposite($direction)}: auto;
       background-color: transparent;
       z-index: map-get($ro-nav-z-index, 'page-overlay');
       @include transition(#{$direction} $duration);
       #nav-toggle:checked ~ & {
+        // background-color
         background-color: $overlay-color;
         .lt-ie9 & {
           background-color: opacify($overlay-color, 1);
           @include opacity(opacity($overlay-color));
         }
+        // drawer top
         @if $style == 'drawer' {
           @include nav-map(top, $map, $breakpoint); // set top value
-        } @else {
-          top: 0;
-        }
+        } 
+        // push
         @if $overlay-push {
           #{$direction}: $width;
+          #{opposite($direction)}: 0;
         }
       }
     }

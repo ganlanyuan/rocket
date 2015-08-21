@@ -334,7 +334,6 @@ pre[class*="language-"] {
 .no-flexbox .example-justify {
   text-align: justify;
   line-height: 0;
-  margin-bottom: -5px;
 }
 
 .no-flexbox .example-justify:after {
@@ -348,12 +347,16 @@ pre[class*="language-"] {
   display: inline-block;
 }
 
+.example-justify li {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
 .example-justify a {
   display: block;
 }
 
 .example-justify a:hover {
-  padding: 0 20px;
   text-decoration: none;
 }
 

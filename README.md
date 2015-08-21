@@ -222,7 +222,7 @@ $key: (child $child)
 
 .example {
   @include justify-flex();
-  .no-flexbox {
+  .no-flexbox & {
     @include justify(div);
     // for old browsers
     // child: div

@@ -5,11 +5,14 @@
 .example-justify {
   @include justify-flex();
   .no-flexbox & { @include justify(li); }
+  li {
+    font-size: 13px;
+    text-transform: uppercase;
+  }
   a {
     display: block;
     @extend %ro-global-transition;
     &:hover { 
-      padding: 0 20px; 
       text-decoration: none;
     }
   }
