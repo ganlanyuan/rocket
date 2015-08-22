@@ -13,23 +13,16 @@
 /// @link http://creatiointl.org/gallery/william/rocket/components-switch.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin switch(
-  $key:
-    20px
-){
+@mixin switch($key: 20px){
   $radius: ro-get($key, 'radius');
   $round: ro-get($key, 'round');
   $size: ro-get-type($key, 'number', false, 20px);
   $active-color: ro-get-type($key, 'color', false, #3DD754);
   
   // change em, rem to px
-  @if $size {
-    @if unitless($size) {
-      $size: ($size * 1px);
-    } @else if unit($size) and unit($size) != 'px' {
-      $size: strip-unit($size) * 16 * 1px;
-    }
-  }
+  $size: em($size);
+  $border: ($size / 8);
+  $radius-val: ($size / 6);
 
   > input {
     position: absolute; 
@@ -41,13 +34,13 @@
     // normal style
     + label {
       display: inline-block;
-      padding: 0.3em ($size + 10px) 0.3em 0.3em;
+      padding: $border ($size * 0.85) $border $border;
       height: $size;
       line-height: $size;
       background-color: #ddd;
       transition: padding 0.3s ease 0s, background-color 0.3s ease 0s;
       @if $radius {
-        border-radius: $ro-button-radius;
+        border-radius: $radius-val;
       } @else if $round {
         border-radius: $ro-button-round;
       }
@@ -58,8 +51,9 @@
         width: $size;
         height: $size;
         background-color: #fff;
+        box-shadow: 0 ($border / 1) $border 0 rgba(0, 0, 0, 0.2);
         @if $radius {
-          border-radius: $ro-button-radius;
+          border-radius: $radius-val;
         } @else if $round {
           border-radius: $ro-button-round;
         }
@@ -69,7 +63,7 @@
     // active style
     &:checked + label {
       background-color: $active-color;
-      padding: 0.3em 0.3em 0.3em ($size + 10px);
+      padding: $border $border $border ($size * 0.85);
     }
   }
 }

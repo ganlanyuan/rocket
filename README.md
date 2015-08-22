@@ -728,7 +728,7 @@ In the example shows on the left, I used banner as my specific class.
 // basic
 @include slider-gallery($key)
 // pattern
-$key: $items $time (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js default
+$key: $items (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js default
 
 .slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar default); }
 // items: 5;

@@ -1,5 +1,8 @@
 # Changelog
 
+### v2.5.2
++ Improved: now `switch` button has a box-shadow, and also has a flexible border and border-radius.
+
 ### v2.5.1
 + Fixed: *Error: Invalid US-ASCII character "\xE2"* when compile with [Koala](http://koala-app.com/).
 + Fixed: `two-columns` parameter issue when there is not `gutter` value passed in.

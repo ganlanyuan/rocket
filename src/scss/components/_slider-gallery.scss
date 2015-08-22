@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 /// 
-/// $key: `$items $time (ratio $ratio) (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js progress-bar default`
+/// $key: `$items (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js progress-bar default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
