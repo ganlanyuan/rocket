@@ -101,7 +101,8 @@
   $vertical: false;
   $rotate: false;
   $rotate-origin: false;
-  $rotate-val: false;
+  $rotate-normal: false;
+  $rotate-active: false;
 
   @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $style) {
     $page-push: true;
@@ -133,7 +134,7 @@
   @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'scale-up', 'push', 'drawer'), $style) {
     $overlay: true;
   }
-  @if index(('slide-along', 'slide-out', 'rotate-in', 'reveal', 'scale-up'), $style) {
+  @if index(('slide-along', 'slide-out', 'rotate-in', 'rotate-in-reverse', 'rotate-out', 'reveal', 'scale-up'), $style) {
     $overlay-push: true;
   }
   @if index((left, right), $direction) {
@@ -144,18 +145,55 @@
   }
   @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse'), $style) {
     $rotate: true;
+    @if $horizontal {
+      $rotate-active: rotateY(0);
+    } @else {
+      $rotate-active: rotateX(0);
+    }
   }
   @if index(('rotate-in', 'rotate-out'), $style) {
-    $rotate-origin: 100% 50% 0px;
+    @if $direction == left {
+      $rotate-origin: 100% 50% 0px;
+    } @else if $direction == right {
+      $rotate-origin: 0 50% 0px;
+    } @else if $direction == top {
+      $rotate-origin: 50% 100% 0px;
+    } @else if $direction == bottom {
+      $rotate-origin: 50% 0 0px;
+    }
   }
   @if index(('rotate-in-reverse'), $style) {
-    $rotate-origin: 0% 50% 0px;
+    @if $direction == left {
+      $rotate-origin: 0 50% 0px;
+    } @else if $direction == right {
+      $rotate-origin: 100% 50% 0px;
+    } @else if $direction == top {
+      $rotate-origin: 50% 0 0px;
+    } @else if $direction == bottom {
+      $rotate-origin: 50% 100% 0px;
+    }
   }
   @if index(('rotate-in'), $style) {
-    $rotate-val: perspective(#{$width}) rotateY(-90deg);
+    @if $direction == left {
+      $rotate-normal: perspective(#{$width}) rotateY(-90deg);
+    } @else if $direction == right {
+      $rotate-normal: perspective(#{$width}) rotateY(90deg);
+    } @else if $direction == top {
+      $rotate-normal: perspective(#{$width}) rotateX(90deg);
+    } @else if $direction == bottom {
+      $rotate-normal: perspective(#{$width}) rotateX(-90deg);
+    }
   }
   @if index(('rotate-out', 'rotate-in-reverse'), $style) {
-    $rotate-val: perspective(#{$width}) rotateY(90deg);
+    @if $direction == left {
+      $rotate-normal: perspective(#{$width}) rotateY(90deg);
+    } @else if $direction == right {
+      $rotate-normal: perspective(#{$width}) rotateY(-90deg);
+    } @else if $direction == top {
+      $rotate-normal: perspective(#{$width}) rotateX(-90deg);
+    } @else if $direction == bottom {
+      $rotate-normal: perspective(#{$width}) rotateX(90deg);
+    }
   }
 
   // *** output *** //
@@ -241,8 +279,8 @@
         @include transform-origin($rotate-origin);
         @include transform-style(preserve-3d);
       }
-      @if $rotate-val {
-        @include transform($rotate-val);
+      @if $rotate-normal {
+        @include transform($rotate-normal);
       }
 
       @if $style == 'scale-up' {
@@ -266,7 +304,7 @@
       #nav-toggle:checked ~ & #{$nav} {
         margin-#{$direction}: 0;
         @if $rotate {
-          @include transform(rotateY(0deg));
+          @include transform($rotate-active);
         }
       }
     }
