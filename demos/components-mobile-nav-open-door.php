@@ -1,6 +1,6 @@
 <?php 
   $navP = 'outside';
-  $navN = 'open';
+  $navN = 'open-door';
   $pagegroup = 'mobile-nav';
  ?>
 <?php include 'include/head.php'; ?>

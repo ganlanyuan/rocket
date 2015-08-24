@@ -643,7 +643,7 @@ Pure css off-canvas with multiple styles.
   <div>Other content</div>
 </div>
 
-<!-- styles: slide-along, slide-out, scale-down, scale-up, open, reveal -->
+<!-- styles: slide-along, slide-out, scale-down, scale-up, open-door, reveal -->
 <!-- If you using these styles, make sure to compile it with Ruby Sass, not Libsass. Current Libsass doesn't fully support @at-root. -->
 <input type="checkbox" name="" id="nav-toggle">
 <nav class="nav">
@@ -669,7 +669,7 @@ Pure css off-canvas with multiple styles.
 $key: $style $direction $nav $nav-width $overlay-background-color $duration
 
 .page { @include mobile-nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
-// style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open | push | reveal | drawer)
+// style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
 // direction: left; (left | right | top | bottom)
 // nav: .nav;
 // nav-width(or height): 200px; (default 240px)

@@ -23,7 +23,7 @@
 ///   <div>Other content</div>
 /// </div>
 /// 
-/// <!-- style: slide-along, slide-out, scale-down, scale-up, open, reveal -->
+/// <!-- style: slide-along, slide-out, scale-down, scale-up, open-door, reveal -->
 /// <!-- If you using these styles, make sure to compile it with Ruby Sass, not Libsass. Current Libsass doesn't fully support @at-root. -->
 /// <input type="checkbox" name="" id="nav-toggle">
 /// <nav class="nav">
@@ -45,7 +45,7 @@
 /// 
 /// @example scss - Usage
 /// .page { @include mobile-nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
-/// // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open | push | reveal | drawer')
+/// // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer')
 /// // direction: left; (left | right | top | bottom)
 /// // nav: .nav;
 /// // nav-width(or height): 200px; (default 240px)
@@ -91,18 +91,24 @@
   $page-push: false;
   $page-over-nav: false;
   $page-transform: false;
+
   $nav-push: false;
   $nav-push-val: false;
   $nav-transform: false;
   $nav-outside: false;
+
   $overlay: true;
   $overlay-push: false;
+
   $horizontal: false;
   $vertical: false;
+
+  $transform-origin: false;
   $rotate: false;
-  $rotate-origin: false;
-  $rotate-normal: false;
+  $rotate-default: false;
   $rotate-active: false;
+  $scale-default: translate3d(0px, 0px, 0px);
+  $scale-active: perspective(1000px) translate3d(0px, 0px, -300px);
 
   @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $style) {
     $page-push: true;
@@ -110,39 +116,40 @@
   @if index(('reveal', 'slide-along', 'slide-out', 'scale-up'), $style) {
     $page-over-nav: true;
   }
-  @if index(('scale-down', 'open'), $style) {
+  @if index(('scale-down', 'open-door'), $style) {
     $page-transform: true;
   }
-  @if index(('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'push', 'drawer'), $style) {
+
+  @if index(('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $style) {
     $nav-push: true;
   }
-  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'push', 'drawer'), $style) {
+  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $style) {
     $nav-push-val: - $width;
-  }
-  @if index(('slide-along'), $style) {
+  } @else if index(('slide-along'), $style) {
     $nav-push-val: - ($width / 2);
-  }
-  @if index(('slide-out'), $style) {
+  } @else if index(('slide-out'), $style) {
     $nav-push-val: ($width / 2);
   }
   @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $style) {
     $nav-transform: true;
   }
-  @if $page-over-nav or index(('scale-down', 'open'), $style) {
+  @if $page-over-nav or index(('scale-down', 'open-door'), $style) {
     $nav-outside: true;
   }
-  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open', 'scale-up', 'push', 'drawer'), $style) {
+
+  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'scale-up', 'push', 'drawer'), $style) {
     $overlay: true;
   }
   @if index(('slide-along', 'slide-out', 'rotate-in', 'rotate-in-reverse', 'rotate-out', 'reveal', 'scale-up'), $style) {
     $overlay-push: true;
   }
+
   @if index((left, right), $direction) {
     $horizontal: true;
-  }
-  @if index((top, bottom), $direction) {
+  } @else if index((top, bottom), $direction) {
     $vertical: true;
   }
+
   @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse'), $style) {
     $rotate: true;
     @if $horizontal {
@@ -151,48 +158,48 @@
       $rotate-active: rotateX(0);
     }
   }
-  @if index(('rotate-in', 'rotate-out'), $style) {
+  @if index(('rotate-in', 'rotate-out', 'open-door'), $style) {
     @if $direction == left {
-      $rotate-origin: 100% 50% 0px;
+      $transform-origin: 100% 50% 0px;
     } @else if $direction == right {
-      $rotate-origin: 0 50% 0px;
+      $transform-origin: 0 50% 0px;
     } @else if $direction == top {
-      $rotate-origin: 50% 100% 0px;
+      $transform-origin: 50% 100% 0px;
     } @else if $direction == bottom {
-      $rotate-origin: 50% 0 0px;
+      $transform-origin: 50% 0 0px;
     }
   }
-  @if index(('rotate-in-reverse'), $style) {
+  @if index(('rotate-in-reverse', 'scale-up'), $style) {
     @if $direction == left {
-      $rotate-origin: 0 50% 0px;
+      $transform-origin: 0 50% 0px;
     } @else if $direction == right {
-      $rotate-origin: 100% 50% 0px;
+      $transform-origin: 100% 50% 0px;
     } @else if $direction == top {
-      $rotate-origin: 50% 0 0px;
+      $transform-origin: 50% 0 0px;
     } @else if $direction == bottom {
-      $rotate-origin: 50% 100% 0px;
+      $transform-origin: 50% 100% 0px;
     }
   }
   @if index(('rotate-in'), $style) {
     @if $direction == left {
-      $rotate-normal: perspective(#{$width}) rotateY(-90deg);
+      $rotate-default: perspective(#{$width}) rotateY(-90deg);
     } @else if $direction == right {
-      $rotate-normal: perspective(#{$width}) rotateY(90deg);
+      $rotate-default: perspective(#{$width}) rotateY(90deg);
     } @else if $direction == top {
-      $rotate-normal: perspective(#{$width}) rotateX(90deg);
+      $rotate-default: perspective(#{$width}) rotateX(90deg);
     } @else if $direction == bottom {
-      $rotate-normal: perspective(#{$width}) rotateX(-90deg);
+      $rotate-default: perspective(#{$width}) rotateX(-90deg);
     }
   }
   @if index(('rotate-out', 'rotate-in-reverse'), $style) {
     @if $direction == left {
-      $rotate-normal: perspective(#{$width}) rotateY(90deg);
+      $rotate-default: perspective(#{$width}) rotateY(90deg);
     } @else if $direction == right {
-      $rotate-normal: perspective(#{$width}) rotateY(-90deg);
+      $rotate-default: perspective(#{$width}) rotateY(-90deg);
     } @else if $direction == top {
-      $rotate-normal: perspective(#{$width}) rotateX(-90deg);
+      $rotate-default: perspective(#{$width}) rotateX(-90deg);
     } @else if $direction == bottom {
-      $rotate-normal: perspective(#{$width}) rotateX(90deg);
+      $rotate-default: perspective(#{$width}) rotateX(90deg);
     }
   }
 
@@ -221,18 +228,28 @@
       #{$direction}: $width;
     }
   }
+  @if $transform-origin and $page-transform {
+    @include transform-origin($transform-origin);
+    @include transform-style(preserve-3d);
+  }
   @if $style == 'scale-down' {
     @include transform-style(preserve-3d);
-    @include transform(perspective(1000px) translate3d(0px, 0px, 0px));
+    @include transform($scale-default);
     #nav-toggle:checked ~ & {
-      @include transform(perspective(1000px) translate3d(0px, 0px, -250px));
+      @include transform($scale-active);
     }
-  } @else if $style == 'open' {
-    @include transform-origin(100% 50% 0px);
-    @include transform-style(preserve-3d);
+  } @else if $style == 'open-door' {
     @include transform(perspective(1000px) rotateY(0deg));
     #nav-toggle:checked ~ & {
-      @include transform(perspective(1000px) rotateY(-7deg));
+      @if $direction == left {
+        @include transform(perspective(1000px) rotateY(-7deg));
+      } @else if $direction == right {
+        @include transform(perspective(1000px) rotateY(7deg));
+      } @else if $direction == top {
+        @include transform(perspective(1000px) rotateX(7deg));
+      } @else if $direction == bottom {
+        @include transform(perspective(1000px) rotateX(-7deg));
+      }
     }
   }
 
@@ -275,20 +292,18 @@
         overflow-y: hidden;
       }
 
-      @if $rotate-origin {
-        @include transform-origin($rotate-origin);
+      @if $transform-origin and $nav-transform {
+        @include transform-origin($transform-origin);
         @include transform-style(preserve-3d);
       }
-      @if $rotate-normal {
-        @include transform($rotate-normal);
+      @if $rotate {
+        @include transform($rotate-default);
       }
 
       @if $style == 'scale-up' {
-        @include transform-origin(0% 50% 0px);
-        @include transform-style(preserve-3d);
-        @include transform(perspective(1000px) translate3d(0px, 0px, -300px));
+        @include transform($scale-active);
         #nav-toggle:checked ~ & {
-          @include transform(translate3d(0px, 0px, 0px));
+          @include transform($scale-default);
         }
       }
     }
@@ -336,14 +351,15 @@
           @include nav-map(top, $map, $breakpoint); // set top value
         } 
         // push
+        #{opposite($direction)}: 0;
         @if $overlay-push {
           #{$direction}: $width;
-          #{opposite($direction)}: 0;
+        } @else {
+          #{$direction}: 0;
         }
       }
     }
   }
-
 }
 
 @mixin nav-map($prop, $map, $breakpoint) {

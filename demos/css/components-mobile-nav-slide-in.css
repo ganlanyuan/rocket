@@ -401,6 +401,8 @@ pre[class*="language-"] {
 }
 #nav-toggle:checked ~ .page .page-overlay {
   background-color: rgba(0, 0, 0, 0.1);
+  right: 0;
+  left: 0;
 }
 .lt-ie9 #nav-toggle:checked ~ .page .page-overlay {
   background-color: black;

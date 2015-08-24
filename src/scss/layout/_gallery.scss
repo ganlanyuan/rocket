@@ -45,9 +45,7 @@
   
   // set up gallery container
   @if not $keep {
-    @if $gutter and $gutter != 0 {
-      @include wrap($gutter);
-    }
+    @include wrap($gutter);
   }
 
   // set up gallery items
@@ -64,12 +62,10 @@
     @if not $keep {
       float: $float;
       box-sizing: border-box;
-      @if $gutter and $gutter != 0{
-        @if $position == bottom { 
-          padding: 0 ($gutter / 2) $gutter; 
-        } @else { 
-          padding: ($gutter / 2); 
-        }
+      @if $position == bottom { 
+        padding: 0 ($gutter / 2) $gutter; 
+      } @else { 
+        padding: ($gutter / 2); 
       }
     }
   }

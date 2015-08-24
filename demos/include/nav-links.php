@@ -1,14 +1,15 @@
 <div class="nav-links">
-  <a href="components-mobile-nav-slide-in.php" class="btn <?php if ($pagename == 'components-mobile-nav-slide-in') { echo 'active'; } ?>">slide-in</a>
-  <a href="components-mobile-nav-slide-along.php" class="btn <?php if ($pagename == 'components-mobile-nav-slide-along') { echo 'active'; } ?>">slide-along</a>
-  <a href="components-mobile-nav-slide-out.php" class="btn <?php if ($pagename == 'components-mobile-nav-slide-out') { echo 'active'; } ?>">slide-out</a>
-  <a href="components-mobile-nav-rotate-in.php" class="btn <?php if ($pagename == 'components-mobile-nav-rotate-in') { echo 'active'; } ?>">rotate-in</a>
-  <a href="components-mobile-nav-rotate-out.php" class="btn <?php if ($pagename == 'components-mobile-nav-rotate-out') { echo 'active'; } ?>">rotate-out</a>
-  <a href="components-mobile-nav-rotate-in-reverse.php" class="btn <?php if ($pagename == 'components-mobile-nav-rotate-in-reverse') { echo 'active'; } ?>">rotate-in-reverse</a>
-  <a href="components-mobile-nav-scale-down.php" class="btn <?php if ($pagename == 'components-mobile-nav-scale-down') { echo 'active'; } ?>">scale-down</a>
-  <a href="components-mobile-nav-scale-up.php" class="btn <?php if ($pagename == 'components-mobile-nav-scale-up') { echo 'active'; } ?>">scale-up</a>
-  <a href="components-mobile-nav-open.php" class="btn <?php if ($pagename == 'components-mobile-nav-open') { echo 'active'; } ?>">open</a>
-  <a href="components-mobile-nav-push.php" class="btn <?php if ($pagename == 'components-mobile-nav-push') { echo 'active'; } ?>">push</a>
-  <a href="components-mobile-nav-reveal.php" class="btn <?php if ($pagename == 'components-mobile-nav-reveal') { echo 'active'; } ?>">reveal</a>
-  <a href="components-mobile-nav-drawer.php" class="btn <?php if ($pagename == 'components-mobile-nav-drawer') { echo 'active'; } ?>">drawer</a>
+  <?php 
+    $navs = array('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'push', 'reveal', 'drawer');
+    $className = '';
+    foreach ($navs as $nav) {
+      if ($pagename == 'components-mobile-nav-' . $nav) {
+        $className = ' active';
+      } else {
+        $className = '';
+      }
+      
+      echo '<a href="components-mobile-nav-' . $nav . '.php" class="btn' . $className . '">' . $nav . '</a>';
+    }
+  ?>
 </div>

@@ -2,6 +2,9 @@
 
 ### v2.5.2
 + Improved: now `switch` button has a box-shadow, and also has a flexible border and border-radius.
++ Improved: controls, dots, autoplay are easier to customize in `slider-gallery` and `slider-carousel`.
++ Improved: now `left, right, top, bottom` are all available for all `mobile-nav` styles except `drawer`.
++ Fixed: an unit error in `gallery`.
 
 ### v2.5.1
 + Fixed: *Error: Invalid US-ASCII character "\xE2"* when compile with [Koala](http://koala-app.com/).
@@ -27,23 +30,23 @@
 + Added: `$direction` to mixin `dropdown`.
 + Added: `text-align` to mixin `type`.
 + Added: mixin `bp` which is the same with mixin `breakpoint`.
-+ Fixed: Fix some issues on `button`, `span`, `span-calc`.
++ Fixed: Fix some issues in `button`, `span`, `span-calc`.
 
 ### v2.2.1
 + Improved: Update `two-columns`, now flexible gutter (e.g. 2%) is acceptable.
-+ Fixed: Fix an issue on `span` and `span-calc` when `gutter: 0`.
++ Fixed: Fix an issue in `span` and `span-calc` when `gutter: 0`.
 + Removed: Remove `keep` argument from `span-calc`.
 
 ### v2.2.0
 + Improved: Simplify all mixins.
-+ Fixed: Fix a width issue on `tooltip`.
-+ Fixed: Fix a string issue on `span-calc`.
++ Fixed: Fix a width issue in `tooltip`.
++ Fixed: Fix a string issue in `span-calc`.
 
 ### v2.1.2
-+ Fixed: Fix an image issue (which cause the images '0px-width' on webkit browsers) on `media` by setting `max-width: none;`.
++ Fixed: Fix an image issue (which cause the images '0px-width' in webkit browsers) in `media` by setting `max-width: none;`.
 
 ### v2.1.1
-+ Fixed: Fix an issue on `media`.
++ Fixed: Fix an issue in `media`.
 + Added: '!important' to `visible` and `hidden`.
 + Improved: Modify `offcanvas` hover-background.
 
@@ -56,13 +59,13 @@ $base-layout: (8 of 12);
 .example { @include span($base-layout 2% last); }
 ````
 + Simplify `media`.
-+ Fix a 1px issue on `visible`.
++ Fix a 1px issue in `visible`.
 + Remove `slider` mixins.
 
 ### v2.0.1
 + Add prefix 'ro-' to all variables and placeholder selectors to prevent attach with other frameworks.
 + Change layout `gallery` from `inline-block` to `float`.
-+ Fix `font-family` string issue on `type'.
++ Fix `font-family` string issue in `type'.
 
 ### v2.0.0
 + All mixins now require only one parameter(list). The advantage is that you don't need to remeber the order of parameters any more, you just need to remember which element you want to use. For example, `button(16px '.5em 1em' radius)` and ` button(radius '.5em 1em' 16px)` are the same.
@@ -95,7 +98,7 @@ Things we are working on:
 ### v1.1.9
 + `type`, `button`: add "px" value to "rem-non-support" browser.
 + Simplify `wrap`. now argument `$columns` is not required.
-+ Fix an issue on `span` and `span-clac`.
++ Fix an issue in `span` and `span-clac`.
 + Update demos.
 
 ### v1.1.8
@@ -116,16 +119,16 @@ Things we are working on:
 + Hide *controls* when sliders are set to autoplay.
 
 ### v1.1.4
-+ Fix an issue on `color` mixin.
-+ Fix an `page cover stopped` issue on `offcanvas` mixin.
++ Fix an issue in `color` mixin.
++ Fix an `page cover stopped` issue in `offcanvas` mixin.
 + Update Readme.
 
 ### v1.1.3
-+ Fix an arg issue on `gallery`.
++ Fix an arg issue in `gallery`.
 + Simplify `type` and `button` mixins.
 
 ### v1.1.2
-+ Fix an issue on `contianer`.
++ Fix an issue in `contianer`.
 + Simplify `slider-gallery`, `container`, `wrap` and `breakpoint`.
 
 ### v1.1.1
