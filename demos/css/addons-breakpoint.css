@@ -182,7 +182,7 @@ pre[class*="language-"] {
 }
 
 .topic {
-  margin: 4em 0;
+  padding: 4em 0;
 }
 
 .topic > section {

@@ -191,7 +191,7 @@ pre[class*="language-"] {
 }
 
 .topic {
-  margin: 4em 0;
+  padding: 4em 0;
 }
 
 .topic > section {
@@ -422,6 +422,47 @@ pre[class*="language-"] {
           transition: height 0.5s ease 0s;
 }
 
+.gallery-a .controls span {
+  display: none;
+}
+
+.gallery-a .controls .prev {
+  float: left;
+}
+
+.gallery-a .controls .next {
+  float: right;
+}
+
+.gallery-a .dots {
+  letter-spacing: -0.34em;
+}
+
+.gallery-a .dots > label {
+  letter-spacing: 0;
+}
+
+.gallery-a .dots > label, .gallery-a .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.gallery-a .dots .normal {
+  display: block;
+}
+
+.gallery-a .dots .active {
+  display: none;
+}
+
+.no-cssanimations .gallery-a .autoplay {
+  display: none !important;
+}
+
+.gallery-a .autoplay .pause {
+  display: none;
+}
+
 .gallery-a .controls {
   max-width: 7.5em;
   margin: 10px auto;
@@ -434,9 +475,6 @@ pre[class*="language-"] {
 }
 
 .gallery-a .controls span {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   font-size: 13px;
   padding: 5px 8px;
   border-radius: 3px;
@@ -464,7 +502,6 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  letter-spacing: -0.34em;
 }
 
 .gallery-a .dots label, .gallery-a .dots span {
@@ -474,7 +511,6 @@ pre[class*="language-"] {
 
 .gallery-a .dots label {
   margin: 0 3px;
-  letter-spacing: 0;
 }
 
 .gallery-a .dots label:hover .normal {
@@ -491,27 +527,13 @@ pre[class*="language-"] {
           transition: background-color 0.3s;
 }
 
-.gallery-a .dots .normal {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
-}
-
 .gallery-a .dots .active {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   background-color: #5a5a5a;
 }
 
 .gallery-a .autoplay {
   position: relative;
   text-align: center;
-}
-
-.no-cssanimations .gallery-a .autoplay {
-  display: none !important;
 }
 
 .gallery-a .autoplay > label {
@@ -617,107 +639,67 @@ pre[class*="language-"] {
 
 .gallery-a #gallery-a-1:checked ~ .controls label:nth-child(5) .prev,
 .gallery-a #gallery-a-1:checked ~ .controls label:nth-child(2) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-2:checked ~ .controls label:nth-child(1) .prev,
 .gallery-a #gallery-a-2:checked ~ .controls label:nth-child(3) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-3:checked ~ .controls label:nth-child(2) .prev,
 .gallery-a #gallery-a-3:checked ~ .controls label:nth-child(4) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-4:checked ~ .controls label:nth-child(3) .prev,
 .gallery-a #gallery-a-4:checked ~ .controls label:nth-child(5) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-5:checked ~ .controls label:nth-child(4) .prev,
 .gallery-a #gallery-a-5:checked ~ .controls label:nth-child(1) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-1:checked ~ .dots label:nth-child(1) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-1:checked ~ .dots label:nth-child(1) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-a #gallery-a-2:checked ~ .dots label:nth-child(2) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-2:checked ~ .dots label:nth-child(2) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-a #gallery-a-3:checked ~ .dots label:nth-child(3) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-3:checked ~ .dots label:nth-child(3) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-a #gallery-a-4:checked ~ .dots label:nth-child(4) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-4:checked ~ .dots label:nth-child(4) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-a #gallery-a-5:checked ~ .dots label:nth-child(5) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-a #gallery-a-5:checked ~ .dots label:nth-child(5) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 @-webkit-keyframes gallery-a {
@@ -885,6 +867,43 @@ pre[class*="language-"] {
           transition: height 0.5s ease 0s;
 }
 
+.gallery-b .controls span {
+  display: none;
+}
+
+.gallery-b .controls .prev {
+  float: left;
+}
+
+.gallery-b .controls .next {
+  float: right;
+}
+
+.gallery-b .dots {
+  letter-spacing: -0.34em;
+}
+
+.gallery-b .dots > label {
+  letter-spacing: 0;
+}
+
+.gallery-b .dots > label, .gallery-b .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.gallery-b .dots .normal {
+  display: block;
+}
+
+.gallery-b .dots .active {
+  display: none;
+}
+
+.gallery-b .autoplay .pause {
+  display: none;
+}
+
 .gallery-b .controls {
   max-width: 7.5em;
   margin: 10px auto;
@@ -897,9 +916,6 @@ pre[class*="language-"] {
 }
 
 .gallery-b .controls span {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   font-size: 13px;
   padding: 5px 8px;
   border-radius: 3px;
@@ -927,7 +943,6 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  letter-spacing: -0.34em;
 }
 
 .gallery-b .dots label, .gallery-b .dots span {
@@ -937,7 +952,6 @@ pre[class*="language-"] {
 
 .gallery-b .dots label {
   margin: 0 3px;
-  letter-spacing: 0;
 }
 
 .gallery-b .dots label:hover .normal {
@@ -954,17 +968,7 @@ pre[class*="language-"] {
           transition: background-color 0.3s;
 }
 
-.gallery-b .dots .normal {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
-}
-
 .gallery-b .dots .active {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   background-color: #5a5a5a;
 }
 
@@ -1057,107 +1061,67 @@ pre[class*="language-"] {
 
 .gallery-b #gallery-b-1:checked ~ .controls label:nth-child(5) .prev,
 .gallery-b #gallery-b-1:checked ~ .controls label:nth-child(2) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-2:checked ~ .controls label:nth-child(1) .prev,
 .gallery-b #gallery-b-2:checked ~ .controls label:nth-child(3) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-3:checked ~ .controls label:nth-child(2) .prev,
 .gallery-b #gallery-b-3:checked ~ .controls label:nth-child(4) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-4:checked ~ .controls label:nth-child(3) .prev,
 .gallery-b #gallery-b-4:checked ~ .controls label:nth-child(5) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-5:checked ~ .controls label:nth-child(4) .prev,
 .gallery-b #gallery-b-5:checked ~ .controls label:nth-child(1) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-1:checked ~ .dots label:nth-child(1) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-1:checked ~ .dots label:nth-child(1) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-b #gallery-b-2:checked ~ .dots label:nth-child(2) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-2:checked ~ .dots label:nth-child(2) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-b #gallery-b-3:checked ~ .dots label:nth-child(3) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-3:checked ~ .dots label:nth-child(3) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-b #gallery-b-4:checked ~ .dots label:nth-child(4) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-4:checked ~ .dots label:nth-child(4) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-b #gallery-b-5:checked ~ .dots label:nth-child(5) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-b #gallery-b-5:checked ~ .dots label:nth-child(5) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-c > input {
@@ -1195,6 +1159,43 @@ pre[class*="language-"] {
           transition: height 0.5s ease 0s;
 }
 
+.gallery-c .controls span {
+  display: none;
+}
+
+.gallery-c .controls .prev {
+  float: left;
+}
+
+.gallery-c .controls .next {
+  float: right;
+}
+
+.gallery-c .dots {
+  letter-spacing: -0.34em;
+}
+
+.gallery-c .dots > label {
+  letter-spacing: 0;
+}
+
+.gallery-c .dots > label, .gallery-c .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.gallery-c .dots .normal {
+  display: block;
+}
+
+.gallery-c .dots .active {
+  display: none;
+}
+
+.gallery-c .autoplay .pause {
+  display: none;
+}
+
 .gallery-c .controls {
   max-width: 7.5em;
   margin: 10px auto;
@@ -1207,9 +1208,6 @@ pre[class*="language-"] {
 }
 
 .gallery-c .controls span {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   font-size: 13px;
   padding: 5px 8px;
   border-radius: 3px;
@@ -1237,7 +1235,6 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  letter-spacing: -0.34em;
 }
 
 .gallery-c .dots label, .gallery-c .dots span {
@@ -1247,7 +1244,6 @@ pre[class*="language-"] {
 
 .gallery-c .dots label {
   margin: 0 3px;
-  letter-spacing: 0;
 }
 
 .gallery-c .dots label:hover .normal {
@@ -1264,17 +1260,7 @@ pre[class*="language-"] {
           transition: background-color 0.3s;
 }
 
-.gallery-c .dots .normal {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
-}
-
 .gallery-c .dots .active {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   background-color: #5a5a5a;
 }
 
@@ -1315,107 +1301,67 @@ pre[class*="language-"] {
 
 .gallery-c #gallery-c-1:checked ~ .controls label:nth-child(5) .prev,
 .gallery-c #gallery-c-1:checked ~ .controls label:nth-child(2) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-2:checked ~ .controls label:nth-child(1) .prev,
 .gallery-c #gallery-c-2:checked ~ .controls label:nth-child(3) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-3:checked ~ .controls label:nth-child(2) .prev,
 .gallery-c #gallery-c-3:checked ~ .controls label:nth-child(4) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-4:checked ~ .controls label:nth-child(3) .prev,
 .gallery-c #gallery-c-4:checked ~ .controls label:nth-child(5) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-5:checked ~ .controls label:nth-child(4) .prev,
 .gallery-c #gallery-c-5:checked ~ .controls label:nth-child(1) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-1:checked ~ .dots label:nth-child(1) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-1:checked ~ .dots label:nth-child(1) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-c #gallery-c-2:checked ~ .dots label:nth-child(2) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-2:checked ~ .dots label:nth-child(2) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-c #gallery-c-3:checked ~ .dots label:nth-child(3) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-3:checked ~ .dots label:nth-child(3) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-c #gallery-c-4:checked ~ .dots label:nth-child(4) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-4:checked ~ .dots label:nth-child(4) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-c #gallery-c-5:checked ~ .dots label:nth-child(5) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-c #gallery-c-5:checked ~ .dots label:nth-child(5) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-d > input {
@@ -1453,6 +1399,43 @@ pre[class*="language-"] {
           transition: height 0.5s ease 0s;
 }
 
+.gallery-d .controls span {
+  display: none;
+}
+
+.gallery-d .controls .prev {
+  float: left;
+}
+
+.gallery-d .controls .next {
+  float: right;
+}
+
+.gallery-d .dots {
+  letter-spacing: -0.34em;
+}
+
+.gallery-d .dots > label {
+  letter-spacing: 0;
+}
+
+.gallery-d .dots > label, .gallery-d .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.gallery-d .dots .normal {
+  display: block;
+}
+
+.gallery-d .dots .active {
+  display: none;
+}
+
+.gallery-d .autoplay .pause {
+  display: none;
+}
+
 .gallery-d .controls {
   max-width: 7.5em;
   margin: 10px auto;
@@ -1465,9 +1448,6 @@ pre[class*="language-"] {
 }
 
 .gallery-d .controls span {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   font-size: 13px;
   padding: 5px 8px;
   border-radius: 3px;
@@ -1495,7 +1475,6 @@ pre[class*="language-"] {
   width: 100%;
   text-align: center;
   margin: 10px 0;
-  letter-spacing: -0.34em;
 }
 
 .gallery-d .dots label, .gallery-d .dots span {
@@ -1505,7 +1484,6 @@ pre[class*="language-"] {
 
 .gallery-d .dots label {
   margin: 0 3px;
-  letter-spacing: 0;
 }
 
 .gallery-d .dots label:hover .normal {
@@ -1522,17 +1500,7 @@ pre[class*="language-"] {
           transition: background-color 0.3s;
 }
 
-.gallery-d .dots .normal {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
-}
-
 .gallery-d .dots .active {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
   background-color: #5a5a5a;
 }
 
@@ -1573,107 +1541,67 @@ pre[class*="language-"] {
 
 .gallery-d #gallery-d-1:checked ~ .controls label:nth-child(5) .prev,
 .gallery-d #gallery-d-1:checked ~ .controls label:nth-child(2) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-2:checked ~ .controls label:nth-child(1) .prev,
 .gallery-d #gallery-d-2:checked ~ .controls label:nth-child(3) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-3:checked ~ .controls label:nth-child(2) .prev,
 .gallery-d #gallery-d-3:checked ~ .controls label:nth-child(4) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-4:checked ~ .controls label:nth-child(3) .prev,
 .gallery-d #gallery-d-4:checked ~ .controls label:nth-child(5) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-5:checked ~ .controls label:nth-child(4) .prev,
 .gallery-d #gallery-d-5:checked ~ .controls label:nth-child(1) .next {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-1:checked ~ .dots label:nth-child(1) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-1:checked ~ .dots label:nth-child(1) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-d #gallery-d-2:checked ~ .dots label:nth-child(2) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-2:checked ~ .dots label:nth-child(2) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-d #gallery-d-3:checked ~ .dots label:nth-child(3) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-3:checked ~ .dots label:nth-child(3) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-d #gallery-d-4:checked ~ .dots label:nth-child(4) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-4:checked ~ .dots label:nth-child(4) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 .gallery-d #gallery-d-5:checked ~ .dots label:nth-child(5) .active {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  position: relative;
-  z-index: 9;
+  display: block;
 }
 
 .gallery-d #gallery-d-5:checked ~ .dots label:nth-child(5) .normal {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  position: absolute;
+  display: none;
 }
 
 [id="gallery-auto-play-css"]:checked ~ .gallery-a,

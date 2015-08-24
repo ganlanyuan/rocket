@@ -717,8 +717,8 @@ In the example shows on the left, I used banner as my specific class.
     <label for="banner-5"><span class="normal"></span><span class="active"></span></label>
   </div>
   <div class="autoplay">
-    <span class="autoplay-progress"></span>
-    <label for="gallery-a-autoplay"><span class="play"></span><span class="pause"></span></label>
+    <div class="autoplay-progress"></div>
+    <label for="banner-autoplay"><span class="play"></span><span class="pause"></span></label>
   </div>
 </div>
 ````
@@ -728,7 +728,7 @@ In the example shows on the left, I used banner as my specific class.
 // basic
 @include slider-gallery($key)
 // pattern
-$key: $items (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js default
+$key: $items autoplay autoplay-js (speed $speed) (timeout $timeout) hoverpause progress-bar default
 
 .slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar default); }
 // items: 5;
@@ -795,7 +795,7 @@ Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the 
 // basic
 @mixin slider-carousel($key)
 // pattern
-$key: ($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay autoplay-js progress-bar default;
+$key: ($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar default;
 
 .slider { @include slider-carousel(5 by 2 bypage default); }
 // items: 5;

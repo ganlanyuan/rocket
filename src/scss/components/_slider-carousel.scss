@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
 /// 
-/// $key: `($items by $perpage) (speed $speed) (timeout $timeout) hoverpause $gutter bypage center autoplay autoplay-js progress-bar default`
+/// $key: `($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
@@ -37,8 +37,8 @@
 ///     <label for="banner-5"><span class="normal"></span><span class="active"></span></label>
 ///   </div>
 ///   <div class="autoplay">
-///     <span class="autoplay-progress"></span>
-///     <label for="gallery-a-autoplay"><span class="play"></span><span class="pause"></span></label>
+///     <div class="autoplay-progress"></div>
+///     <label for="banner-autoplay"><span class="play"></span><span class="pause"></span></label>
 ///   </div>
 /// </div>
 /// 
@@ -63,17 +63,17 @@
 @mixin slider-carousel($key){
   $items: 1;
   $perpage: 1;
-  $gutter: 10px;
-  $bypage: ro-get($key, 'bypage');
+  $gutter: ro-get-next($key, 'gutter', 10px);
   $center: ro-get($key, 'center');
+  $bypage: ro-get($key, 'bypage');
   $autoplay: ro-get($key, 'autoplay');
   $autoplay-js: ro-get($key, 'autoplay-js');
   $progress-bar: ro-get($key, 'progress-bar');
   $hoverpause: ro-get($key, 'hoverpause');
-  $default: ro-get($key, 'default');
   $speed: ro-get-next($key, 'speed', 1s);
   $timeout: ro-get-next($key, 'timeout', 3s);
   $time-per-item: ($speed + $timeout);
+  $default: ro-get($key, 'default');
 
   @if type-of($key) == 'number' {
     $items: $key;
@@ -83,12 +83,8 @@
       @if index($key, by) {
         $items: ro-get-prev($key, by);
         $perpage: ro-get-next($key, by);
-      } @else if type-of($val) == 'number' {
-        @if unitless($val) {
-          $items: $val;
-        } @else {
-          $gutter: $val;
-        }
+      } @else if type-of($val) == 'number' and unitless($val) {
+        $items: $val;
       }
     }
   }
@@ -113,6 +109,26 @@
       }
     }
 
+    .controls {
+      span { display: none; }
+      .prev { float: left; }
+      .next { float: right; }
+    }
+    .dots {
+      letter-spacing: -0.34em; // remove white space between inline-block elements
+      > label { letter-spacing: 0; } // restore letter-spacing
+      > label, span {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .normal { display: block; }
+      .active { display: none; }
+    }
+    .autoplay {
+      @if $autoplay { .no-cssanimations & { display: none !important; } }
+      .pause {display: none; }
+    }
+
     // set default controls, dots and autoplay styles
     @if $default {
       .controls {
@@ -124,25 +140,16 @@
           padding: 5px 8px;
           border-radius: 3px;
           transition: background-color 0.3s;
-          display: none;
           color: #fff;
           background-color: #15A9DC;
           &:hover { background-color: #7D9DAC; }
         }
-        .prev { float: left; }
-        .next { float: right; }
       }
       .dots {
         width: 100%;
         text-align: center;
         margin: 10px 0;
-        letter-spacing: -0.34em; // remove white space between inline-block elements
-        label, span {
-          display: inline-block;
-          vertical-align: top;
-        }
         label {
-          letter-spacing: 0; // restore letter-spacing
           padding: 0 3px;
           &:hover .normal { background-color: #5a5a5a; }
         }
@@ -229,8 +236,8 @@
   .outer {
     @if $perpage != 1 { li { width: percentage(1/$perpage) } }
     @if $gutter and $gutter != 0 {
-      @if not $center { margin: 0 (- $gutter); }
-      .item { margin: 0 $gutter; }
+      @if not $center { margin: 0 (- $gutter / 2); }
+      li { padding: 0 ($gutter / 2); }
     }
   }
   // set inner
