@@ -127,6 +127,9 @@
   }
   .controls,
   .dots > label { position: relative; }
+  .controls, .dots, .autoplay {
+    span { z-index: nth($ro-slider-z-index, 2); }
+  }
   [autoheight-gallery] { transition: height ($speed / 2) ease 0s; }
 
   .controls {
@@ -369,5 +372,5 @@
 @mixin item-show() {
   @include opacity(1); 
   position: relative;
-  z-index: nth($ro-slider-z-index, 4);
+  z-index: nth($ro-slider-z-index, 1);
 }

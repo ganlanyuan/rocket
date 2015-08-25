@@ -14,7 +14,7 @@
 // GET ELEMENT SIZE
 // GET WINDOW SIZE
 
-dome = function (args, el) {
+var dome = function (args, el) {
 	if ( args.length > 0 ) {
 		for (var i = 0; i < args.length; i++) {
 			el[i] = args[i];

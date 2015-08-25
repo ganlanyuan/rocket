@@ -108,7 +108,10 @@
         }
       }
     }
-
+    
+    .controls, .dots, .autoplay {
+      span { z-index: nth($ro-slider-z-index, 2); }
+    }
     .controls {
       span { display: none; }
       .prev { float: left; }

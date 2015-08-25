@@ -477,6 +477,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-a .controls span, .carousel-a .dots span, .carousel-a .autoplay span {
+  z-index: 2;
+}
+
 .carousel-a .controls span {
   display: none;
 }
@@ -700,6 +704,10 @@ pre[class*="language-"] {
 
 .carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
+}
+
+.carousel-d .controls span, .carousel-d .dots span, .carousel-d .autoplay span {
+  z-index: 2;
 }
 
 .carousel-d .controls span {
@@ -946,6 +954,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-e .controls span, .carousel-e .dots span, .carousel-e .autoplay span {
+  z-index: 2;
+}
+
 .carousel-e .controls span {
   display: none;
 }
@@ -1171,6 +1183,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-f .controls span, .carousel-f .dots span, .carousel-f .autoplay span {
+  z-index: 2;
+}
+
 .carousel-f .controls span {
   display: none;
 }
@@ -1315,7 +1331,7 @@ pre[class*="language-"] {
 
 .carousel-f .autoplay-progress {
   position: absolute;
-  z-index: 10;
+  z-index: 1;
   left: 0;
   bottom: 34px;
   width: 0;
@@ -1582,6 +1598,10 @@ pre[class*="language-"] {
 
 .carousel-g #carousel-g-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
+}
+
+.carousel-g .controls span, .carousel-g .dots span, .carousel-g .autoplay span {
+  z-index: 2;
 }
 
 .carousel-g .controls span {
@@ -1872,6 +1892,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-h .controls span, .carousel-h .dots span, .carousel-h .autoplay span {
+  z-index: 2;
+}
+
 .carousel-h .controls span {
   display: none;
 }
@@ -2097,6 +2121,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-a .controls span, .carousel-a .dots span, .carousel-a .autoplay span {
+  z-index: 2;
+}
+
 .carousel-a .controls span {
   display: none;
 }
@@ -2255,6 +2283,10 @@ pre[class*="language-"] {
 
 .carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
+}
+
+.carousel-d .controls span, .carousel-d .dots span, .carousel-d .autoplay span {
+  z-index: 2;
 }
 
 .carousel-d .controls span {
@@ -2427,6 +2459,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-h .controls span, .carousel-h .dots span, .carousel-h .autoplay span {
+  z-index: 2;
+}
+
 .carousel-h .controls span {
   display: none;
 }
@@ -2587,6 +2623,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-a .controls span, .carousel-a .dots span, .carousel-a .autoplay span {
+  z-index: 2;
+}
+
 .carousel-a .controls span {
   display: none;
 }
@@ -2745,6 +2785,10 @@ pre[class*="language-"] {
 
 .carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
+}
+
+.carousel-h .controls span, .carousel-h .dots span, .carousel-h .autoplay span {
+  z-index: 2;
 }
 
 .carousel-h .controls span {
