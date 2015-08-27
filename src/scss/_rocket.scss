@@ -43,9 +43,9 @@
 // layout
 @import "layout/function/span";
 @import "layout/container"; // @required [mixin] breakpoint
-@import "layout/wrap";
-@import "layout/span";
-@import "layout/span-calc";
+@import "layout/row";
+@import "layout/col";
+@import "layout/col-calc";
 @import "layout/two-columns";
 @import "layout/gallery"; // @require [mixin] wrap
 @import "layout/justify"; // @required [mixin] display, justify-content, align-items

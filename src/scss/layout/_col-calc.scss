@@ -4,17 +4,17 @@
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
-/// .nav { @include span-calc(3); }
+/// .nav { @include col-calc(3); }
 /// // column: 3;
 /// // columns: 12; (default)
 /// // columns: 20px; (default)
 /// 
-/// .nav { @include span-calc(11 of 16 30px); }
+/// .nav { @include col-calc(11 of 16 30px); }
 /// // column: 3;
 /// // columns: 12;
 /// // gutter: 2%;
 /// 
-/// .nav { @include span(last right 11 of 16 30px move -5); }
+/// .nav { @include col(last right 11 of 16 30px move -5); }
 /// // last: true; (The last column)
 /// // float: right;
 /// // move: -5; (move left 5 columns)

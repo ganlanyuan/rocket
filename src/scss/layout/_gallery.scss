@@ -45,7 +45,7 @@
   
   // set up gallery container
   @if not $keep {
-    @include wrap($gutter);
+    @include row($gutter);
   }
 
   // set up gallery items

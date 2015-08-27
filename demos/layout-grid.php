@@ -20,11 +20,11 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.span-1 { @include span(5 of 10 2%); }
-.span-2 { @include span(5 of 10 2% last); }
+.span-1 { @include col(5 of 10 2%); }
+.span-2 { @include col(5 of 10 2% last); }
 @include breakpoint('min' 800) {
-  .span-1 { @include span(9 of 11 move 2 keep); }
-  .span-2 { @include span(2 of 11 move -9 keep last); }
+  .span-1 { @include col(9 of 11 move 2 keep); }
+  .span-2 { @include col(2 of 11 move -9 keep last); }
 }
       </code></pre>
       <br />
@@ -47,9 +47,9 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.span-isolate-1 { @include span(2 at 9 of 10 2%); }
-.span-isolate-2 { @include span(5 at 1 of 10 2%); }
-.span-isolate-3 { @include span(3 at 6 of 10 2%); }
+.span-isolate-1 { @include col(2 at 9 of 10 2%); }
+.span-isolate-2 { @include col(5 at 1 of 10 2%); }
+.span-isolate-3 { @include col(3 at 6 of 10 2%); }
       </code></pre>
       <br />
       Nested grid
@@ -78,11 +78,11 @@ $gutter: 2%;
 $layout-main: (8 of 12);
 .span-nested {
   &-main {
-    @include span($layout-main $gutter);
-    &-left { @include span(2 of 5 ($gutter / span($layout-main)))};
-    &-right { @include span(3 of 5 ($gutter / span($layout-main)) last)};
+    @include col($layout-main $gutter);
+    &-left { @include col(2 of 5 ($gutter / span($layout-main)))};
+    &-right { @include col(3 of 5 ($gutter / span($layout-main)) last)};
   }
-  &-aside { @include span(4 of 12 $gutter last); }
+  &-aside { @include col(4 of 12 $gutter last); }
 }
       </code></pre>
       <h4>span-calc</h4>
@@ -99,11 +99,11 @@ $layout-main: (8 of 12);
         </div>
       </div>
       <pre><code class="language-scss">
-.span-calc-1 { @include span-calc(5 of 11 move 6 20px); }
-.span-calc-2 { @include span-calc(6 of 11 move -5 20px last); }
+.span-calc-1 { @include col-calc(5 of 11 move 6 20px); }
+.span-calc-2 { @include col-calc(6 of 11 move -5 20px last); }
 @include breakpoint('min' 800) {
-  .span-calc-1 { @include span-calc(8 of 11 30px); }
-  .span-calc-2 { @include span-calc(3 of 11 30px last); }
+  .span-calc-1 { @include col-calc(8 of 11 30px); }
+  .span-calc-2 { @include col-calc(3 of 11 30px last); }
 }
       </code></pre>
     </div>

@@ -88,7 +88,7 @@ Grid wrapper, works with `span` when using a fixed value for `gutter`.
 // pattern
 $key: $gutter
 
-.wrapper { @include wrap(20px); }
+.wrapper { @include row(20px); }
 // gutter: 20px;
 ````
 
@@ -99,36 +99,36 @@ $key: $gutter
 // pattern
 $key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep
 
-.nav { @include span(3); }
+.nav { @include col(3); }
 // column: 3;
 // columns: 12; (default)
 // columns: 2%; (default)
 
-.nav { @include span(11 of 16 2%); }
+.nav { @include col(11 of 16 2%); }
 // column: 3;
 // columns: 12;
 // gutter: 2%;
 
-.nav { @include span(11 at 5 of 16 2%); }
+.nav { @include col(11 at 5 of 16 2%); }
 // location: 5; (isolate mode)
 
-.nav { @include span(11 of 16 2% right move -5 last); }
+.nav { @include col(11 of 16 2% right move -5 last); }
 // last: true; (The last column)
 // float: right;
 // move: -5; (move left 5 columns)
 ````
 *Isolate mode*: read [this article](http://www.palantir.net/blog/responsive-design-s-dirty-little-secret) for more detail. If you want to use isolate mode on one column, other siblings columns also need use isolate mode: 
 ````scss
-.col-1 { @include span(.. at ..); } 
-.col-2 { @include span(.. at ..); } 
+.col-1 { @include col(.. at ..); } 
+.col-2 { @include col(.. at ..); } 
 ````
 *Keep*: you may want keep some parts(float, gutter) constant when doing media query, then you can use `keep`;
 ````scss
 // scss
-.nav { @include span(7 of 11 2%); }
+.nav { @include col(7 of 11 2%); }
 
 @media screen and (min-width: 800px) {
-  .nav { @include span(4 of 11 keep); }
+  .nav { @include col(4 of 11 keep); }
 }
 ````
 ````css
@@ -157,12 +157,12 @@ $gutter: 2%;
 $parent-layout: (7 of 10 $gutter); 
 
 .parent {
-  @include span($parent-layout);
-  .child-1 { @include span(9 of 16 ($gutter / span($parent-layout))); }
-  .child-2 { @include span(7 of 16 ($gutter / span($parent-layout))); }
-  // or .child-2 { @include span(7 of 16 ($gutter / 69.9%)); }
+  @include col($parent-layout);
+  .child-1 { @include col(9 of 16 ($gutter / span($parent-layout))); }
+  .child-2 { @include col(7 of 16 ($gutter / span($parent-layout))); }
+  // or .child-2 { @include col(7 of 16 ($gutter / 69.9%)); }
 }
-.aside { @include span(3 of 10 $gutter); }
+.aside { @include col(3 of 10 $gutter); }
 ````
 
 #### span-calc
@@ -172,17 +172,17 @@ $parent-layout: (7 of 10 $gutter);
 // pattern
 $key: ($column of $columns) $gutter (move $move) (float $float) last
 
-.nav { @include span-calc(3); }
+.nav { @include col-calc(3); }
 // column: 3;
 // columns: 12; (default)
 // columns: 20px; (default)
 
-.nav { @include span-calc(11 of 16 30px); }
+.nav { @include col-calc(11 of 16 30px); }
 // column: 3;
 // columns: 12;
 // gutter: 2%;
 
-.nav { @include span(last right 11 of 16 30px move -5); }
+.nav { @include col(last right 11 of 16 30px move -5); }
 // last: true; (The last column)
 // float: right;
 // move: -5; (move left 5 columns)

@@ -1,0 +1,103 @@
+/// Grid wrapper, works with span when using a fixed value for gutter.
+/// 
+/// $key: `$gutter`
+/// @group layout
+/// @param {number} $key - key 
+/// @example scss - Usage
+/// .wrapper { @include row(20px); }
+/// // gutter: 20px;
+/// 
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin row($key){
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $float: ro-get($key, left right, left);
+
+  // get map
+  $map: false;
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else {
+    $map: ro-get-type($key, 'map');
+  }
+  
+  $half-gutter: ($gutter / 2);
+  $keys: map-keys($map);
+  $values: map-values($map);
+
+  // get full width
+  $full-width: 0;
+  @for $i from 1 through length($keys) {
+    $full-width: $full-width + nth($keys, $i);
+  }
+  
+  // get order
+  $order: ();
+  $u-values: ();
+
+  $flex-reorder: false;
+  @each $item in $values {
+    @if $item != 0 {
+      $flex-reorder: true;
+    }
+  }
+
+  $u-values: list-ascend(remove-dup($values));
+  @each $u-val in $u-values {
+    @for $i from 1 through length($values) {
+      @if nth($values, $i) == $u-val {
+        $order: append($order, $i);
+      }
+    }
+  }
+  &:before { content: '#{$order}'; }
+
+  margin-left: $half-gutter;
+  margin-right: $half-gutter;
+
+  @include display(flex);
+  @include flex-wrap(wrap);
+
+  > div {
+    padding-left: $half-gutter;
+    padding-right: $half-gutter;
+    box-sizing: border-box;
+
+    // set col width
+    @for $i from 1 through length($keys) {
+      &:nth-child(#{$i}) {
+        @include flex(1 1 percentage(nth($keys, $i) / $full-width));
+        @if $flex-reorder {
+          @include order(nth($values, $i));
+        }
+      }
+    }
+
+  }
+
+  // non-flex
+  .lt-ie10 & {
+    @include clearfix();
+    > div {
+      float: $float;
+      margin-#{opposite($float)}: -100%;
+
+      // set col width
+      @for $i from 1 through length($keys) {
+        &:nth-child(#{$i}) {
+          width: percentage(nth($keys, $i) / $full-width);
+
+          $location: index($order, $i);
+          $location-val: 0;
+          @if $location != 1 {
+            @while $i < $location {
+              $location-val: ($location-val + nth($keys, $i));
+            }
+            margin-#{$float}: percentage($location-val / $full-width);
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -6,30 +6,30 @@
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
-/// .nav { @include span(3); }
+/// .nav { @include col(3); }
 /// // column: 3;
 /// // columns: 12; (default)
 /// // columns: 2%; (default)
 /// 
-/// .nav { @include span(11 of 16 2%); }
+/// .nav { @include col(11 of 16 2%); }
 /// // column: 3;
 /// // columns: 12;
 /// // gutter: 2%;
 /// 
-/// .nav { @include span(11 at 5 of 16 2%); }
+/// .nav { @include col(11 at 5 of 16 2%); }
 /// // location: 5; (isolate mode)
 /// 
-/// .nav { @include span(11 of 16 2% right move -5 last); }
+/// .nav { @include col(11 of 16 2% right move -5 last); }
 /// // last: true; (The last column)
 /// // float: right;
 /// // move: -5; (move left 5 columns)
 ///
-/// .nav { @include span(11 of 16 keep); }
+/// .nav { @include col(11 of 16 keep); }
 ///
 /// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin span($key){
+@mixin col($key){
 	// merge list items
 	@each $item in $key {
 		@if type-of($item) == 'list' {

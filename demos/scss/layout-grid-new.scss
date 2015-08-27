@@ -1,17 +1,5 @@
-@charset "UTF-8";
-$font-path:"../../src/icon-font";
-@import "../../src/scss/rocket"; 
-ul, ol { margin: 0; padding: 0; }
-li { list-style: none; }
-img {
-  max-width: 100%;
-  height: auto;
-}
-body {
-  margin: 0;
-  padding: 0;
-}
-.container { @include container(1000px 20px); }
+@import 'demo-base';
+// *** layout: grid new *** //
 
 
 // base
@@ -21,9 +9,9 @@ body {
   background-color: #f2f2f2;
 }
 $layout: (
-  2:0,
-  3:0,
-  7:0,
+  2:4,
+  3:-1,
+  7:1,
   1:0,
 );
 .row {

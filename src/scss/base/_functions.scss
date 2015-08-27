@@ -40,21 +40,47 @@
   }
 }
 
+@function remove-dup($list) {
+  $result: ();
+
+  @each $item in $list {
+    @if not index($result, $item) {
+      $result: append($result, $item);
+    }
+  }
+
+  @return $result;
+}
+
 // reject
 @function reject($list, $val){
-  $_return: ();
+  $result: ();
 
   @if type-of($list) == 'list' {
-    @for $i from 1 through length($list) {
-      @if nth($list, $i) != $val {
-        $_return: append($_return, nth($list, $i));
+    @each $item in $list {
+      @if $item != $val {
+        $result: append($result, $item);
       }
     }
   } @else {
-    $_return: $list;
+    $result: $list;
   }
 
-  @return $_return;
+  @return $result;
+}
+
+// list-ascend
+@function list-ascend($list) {
+  $list-old: $list;
+  $list-new: ();
+  
+  @while length($list-old) > 1 {
+    $list-new: append($list-new, min($list-old...));
+    $list-old: reject($list-old, min($list-old...));
+  }
+  $list-new: append($list-new, nth($list-old, 1));
+  
+  @return $list-new;
 }
 
 // list-descend
@@ -73,40 +99,40 @@
 
 // ro-get
 @function ro-get($key, $arg, $def:false){
-  $_return: $def;
+  $result: $def;
 
   @if type-of($arg) == 'string' {
     @if index($key, $arg) {
-      $_return: true;
+      $result: true;
     } 
   } @else if type-of($arg) == 'list' {
     @each $item in $arg {
       @if index($key, $item) {
-        $_return: $item;
+        $result: $item;
       } 
     }
   }
 
-  @return $_return;
+  @return $result;
 }
 
 // ro-get-type
 @function ro-get-type($key, $arg, $check:false, $def:false) {
-  $_return: $def;
+  $result: $def;
 
   @each $item in $key {
     @if type-of($item) == $arg {
       @if $check {
         @if not index($check, $item) {
-          $_return: $item;
+          $result: $item;
         }
       } @else {
-        $_return: $item;
+        $result: $item;
       }
     }
   }
 
-  @return $_return;
+  @return $result;
 }
 
 // ro-get-prev
@@ -202,12 +228,12 @@
 
 // span-calc
 @function span-calc ($col, $cols, $gutter){
-  $_return: '';
+  $result: '';
 
   $col-percentage: percentage($col / $cols);
   $col-gutter: ($gutter * $col / $cols);
-  $_return: '#{$col-percentage}' + ' + ' + '#{$col-gutter}';
-  @return $_return;
+  $result: '#{$col-percentage}' + ' + ' + '#{$col-gutter}';
+  @return $result;
 }
 
 // get-slider-selector
