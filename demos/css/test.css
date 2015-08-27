@@ -67,6 +67,10 @@ body {
   flex-wrap: wrap;
 }
 
+.row:before {
+  content: "1 2 3 4";
+}
+
 .row > div {
   padding-left: 1%;
   padding-right: 1%;
@@ -121,22 +125,39 @@ body {
 
 .lt-ie10 .row > div {
   float: left;
+  margin-right: -100%;
 }
 
 .lt-ie10 .row > div:nth-child(1) {
   width: 15.3846153846%;
 }
 
+.lt-ie10 .row > div:nth-child(1):before {
+  content: "1";
+}
+
 .lt-ie10 .row > div:nth-child(2) {
   width: 23.0769230769%;
+}
+
+.lt-ie10 .row > div:nth-child(2):before {
+  content: "2";
 }
 
 .lt-ie10 .row > div:nth-child(3) {
   width: 53.8461538462%;
 }
 
+.lt-ie10 .row > div:nth-child(3):before {
+  content: "3";
+}
+
 .lt-ie10 .row > div:nth-child(4) {
   width: 7.6923076923%;
+}
+
+.lt-ie10 .row > div:nth-child(4):before {
+  content: "4";
 }
 
 .col1, .col2, .col3, .col4 {
