@@ -33,18 +33,20 @@ var sliderAutoplay = function (selector, timeout, items, hoverPause) {
     }
   }
 
-  // setInterval
-  var autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
+  if (k(selector).length > 0) {
+    // setInterval
+    var autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
 
-  if (hoverPause) {
-    // clearInterval
-    k(selector).mouseover(function() {
-      clearInterval(autoPlayer);
-    });
-    k(selector).mouseout(function() {
-      autoPlayer = 0;
-      autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
-    });
+    if (hoverPause) {
+      // clearInterval
+      k(selector).mouseover(function() {
+        clearInterval(autoPlayer);
+      });
+      k(selector).mouseout(function() {
+        autoPlayer = 0;
+        autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
+      });
+    }
   }
 };
 

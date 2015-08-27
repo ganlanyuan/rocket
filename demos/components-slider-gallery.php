@@ -267,9 +267,11 @@
 }
           </code></pre>
           <pre class="language-javascript"><code>
-// autoplay -- js
 ready(function () {
+  // autoplay 
   sliderAutoplay('.gallery-b', 2000);
+  // autoheight 
+  autoheightGallery('.gallery-c'); 
 });
           </code></pre>
         </div>

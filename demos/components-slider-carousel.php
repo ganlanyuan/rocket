@@ -378,6 +378,7 @@
         <pre class="language-javascript"><code>
 ready(function () {
   sliderAutoplay('.carousel-g', 3000, 4);
+  autoheightCarousel('.carousel-h'); 
 });
         </code></pre>
       </div>

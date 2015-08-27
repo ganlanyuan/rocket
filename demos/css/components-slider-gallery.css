@@ -393,8 +393,9 @@ pre[class*="language-"] {
 }
 
 .gallery-a .outer {
-  position: relative;
   overflow: hidden;
+  -webkit-transition: height 0.5s;
+          transition: height 0.5s;
 }
 
 .gallery-a .inner {
@@ -408,22 +409,12 @@ pre[class*="language-"] {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  -webkit-transition: opacity 1s ease 0s;
-          transition: opacity 1s ease 0s;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
 }
 
-.gallery-a .controls,
-.gallery-a .dots > label {
-  position: relative;
-}
-
-.gallery-a .controls span, .gallery-a .dots span, .gallery-a .autoplay span {
+.gallery-a .controls, .gallery-a .dots, .gallery-a .autoplay {
   z-index: 2;
-}
-
-.gallery-a [autoheight-gallery] {
-  -webkit-transition: height 0.5s ease 0s;
-          transition: height 0.5s ease 0s;
 }
 
 .gallery-a .controls span {
@@ -581,7 +572,6 @@ pre[class*="language-"] {
 
 .gallery-a .autoplay-progress {
   position: absolute;
-  z-index: 1;
   left: 0;
   bottom: 34px;
   width: 0;
@@ -842,8 +832,9 @@ pre[class*="language-"] {
 }
 
 .gallery-b .outer {
-  position: relative;
   overflow: hidden;
+  -webkit-transition: height 0.5s;
+          transition: height 0.5s;
 }
 
 .gallery-b .inner {
@@ -857,22 +848,12 @@ pre[class*="language-"] {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  -webkit-transition: opacity 1s ease 0s;
-          transition: opacity 1s ease 0s;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
 }
 
-.gallery-b .controls,
-.gallery-b .dots > label {
-  position: relative;
-}
-
-.gallery-b .controls span, .gallery-b .dots span, .gallery-b .autoplay span {
+.gallery-b .controls, .gallery-b .dots, .gallery-b .autoplay {
   z-index: 2;
-}
-
-.gallery-b [autoheight-gallery] {
-  -webkit-transition: height 0.5s ease 0s;
-          transition: height 0.5s ease 0s;
 }
 
 .gallery-b .controls span {
@@ -1138,8 +1119,9 @@ pre[class*="language-"] {
 }
 
 .gallery-c .outer {
-  position: relative;
   overflow: hidden;
+  -webkit-transition: height 0.5s;
+          transition: height 0.5s;
 }
 
 .gallery-c .inner {
@@ -1153,22 +1135,12 @@ pre[class*="language-"] {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  -webkit-transition: opacity 1s ease 0s;
-          transition: opacity 1s ease 0s;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
 }
 
-.gallery-c .controls,
-.gallery-c .dots > label {
-  position: relative;
-}
-
-.gallery-c .controls span, .gallery-c .dots span, .gallery-c .autoplay span {
+.gallery-c .controls, .gallery-c .dots, .gallery-c .autoplay {
   z-index: 2;
-}
-
-.gallery-c [autoheight-gallery] {
-  -webkit-transition: height 0.5s ease 0s;
-          transition: height 0.5s ease 0s;
 }
 
 .gallery-c .controls span {
@@ -1382,8 +1354,9 @@ pre[class*="language-"] {
 }
 
 .gallery-d .outer {
-  position: relative;
   overflow: hidden;
+  -webkit-transition: height 0.5s;
+          transition: height 0.5s;
 }
 
 .gallery-d .inner {
@@ -1397,22 +1370,12 @@ pre[class*="language-"] {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  -webkit-transition: opacity 1s ease 0s;
-          transition: opacity 1s ease 0s;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
 }
 
-.gallery-d .controls,
-.gallery-d .dots > label {
-  position: relative;
-}
-
-.gallery-d .controls span, .gallery-d .dots span, .gallery-d .autoplay span {
+.gallery-d .controls, .gallery-d .dots, .gallery-d .autoplay {
   z-index: 2;
-}
-
-.gallery-d [autoheight-gallery] {
-  -webkit-transition: height 0.5s ease 0s;
-          transition: height 0.5s ease 0s;
 }
 
 .gallery-d .controls span {

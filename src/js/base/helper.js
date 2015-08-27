@@ -30,15 +30,6 @@ function getPxValue (val) {
   return Number(valPx);
 }
 
-// bind window scroll
-function winScroll (fn) {
-  if (typeof addEventListener !== "undefined") {
-    window.addEventListener('scroll', fn, false);
-  } else if (typeof attachEvent !== "undefined") {
-    window.attachEvent('onscroll', fn);
-  }
-}
-
 // bind window load
 function winLoad (fn) {
   if (typeof addEventListener !== "undefined") {
@@ -56,3 +47,36 @@ function winResize (fn) {
     window.attachEvent('onresize', fn);
   }
 }
+
+// bind window scroll
+function winScroll (fn) {
+  if (typeof addEventListener !== "undefined") {
+    window.addEventListener('scroll', fn, false);
+  } else if (typeof attachEvent !== "undefined") {
+    window.attachEvent('onscroll', fn);
+  }
+}
+
+// bind keydown
+function keyDown (fn) {
+  if (typeof addEventListener !== "undefined") {
+    document.addEventListener('keydown', fn, false);
+  } else if (typeof attachEvent !== "undefined") {
+    document.attachEvent('onkeydown', fn);
+  }
+}
+
+// check keydown
+function checkKeyDown (code, callback) {
+  function checkKey(e) {
+      e = e || window.event;
+      if (e.keyCode == code) {
+        callback();
+      }
+  }
+  keyDown(checkKey);
+}
+// checkKeyDown(37, alertThis);
+// function alertThis () {
+//   alert('left arrow');
+// }

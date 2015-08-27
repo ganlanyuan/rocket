@@ -780,13 +780,15 @@ You can set up autoplay by passing an `autoplay` parameter to the `slider-galler
 ````
 
 *Autoheight*   
-Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
 ```` html
 <!-- include kit.js -->
 <script src="path/to/kit.min.js"></script>
-
-<!-- add "autoheight-gallery" attribute -->
-<div class="outer" autoheight-gallery></div>
+<script>
+  ready(function () {
+    autoheightGallery('.gallery-c'); 
+  });
+</script>
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-slider-gallery.php)
 
@@ -815,14 +817,16 @@ $key: ($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (
 *Autoplay*  
 Same with `slider-gallery`.   
 
-*Autoheight*
-Add `kit.min.js` to `head`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+*Autoheight*   
+Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
 ```` html
 <!-- include kit.js -->
 <script src="path/to/kit.min.js"></script>
-
-<!-- add "autoheight-carousel" attribute -->
-<div class="outer" autoheight-carousel></div>
+<script>
+  ready(function () {
+    autoheightCarousel('.carousel-h'); 
+  });
+</script>
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-slider-carousel.php)
 

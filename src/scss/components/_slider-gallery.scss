@@ -1,6 +1,6 @@
 /// First, set a specific class (or ID) for each slider.   
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
-/// **Autoheight**: Add `kit.min.js` to `html`, and then put `autoheight-carousel` attribute to the slideshow container (.outer).
+/// **Autoheight**: Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
 /// 
 /// $key: `$items $time (ratio $ratio) (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js progress-bar default`
 /// @group components
@@ -63,7 +63,7 @@
 ///   .outer { overflow: visible; }
 ///   li { 
 ///     @include transform(scale(1.1)); 
-///     transition: all 1s ease 0s;
+///     transition: all 1s;
 ///   }
 ///   @for $i from 1 through 5 {
 ///     #gallery-c-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
@@ -112,9 +112,9 @@
   // *** output *** //
   // base
   & > input { position: absolute; left: -9999px; }
-  .outer {
-    position: relative;
+  .outer { 
     overflow: hidden;
+    transition: height ($speed / 2); 
   }
   .inner { 
     position: relative; 
@@ -122,16 +122,10 @@
       @include item-hide(); 
       width: 100%;
       box-sizing: border-box;
-      transition: opacity $speed ease 0s;
+      transition: opacity $speed;
     }
   }
-  .controls,
-  .dots > label { position: relative; }
-  .controls, .dots, .autoplay {
-    span { z-index: nth($ro-slider-z-index, 2); }
-  }
-  [autoheight-gallery] { transition: height ($speed / 2) ease 0s; }
-
+  .controls, .dots, .autoplay { z-index: 2; }
   .controls {
     span { display: none; }
     .prev { float: left; }
@@ -139,9 +133,7 @@
   }
   .dots {
     letter-spacing: -0.34em; // remove white space between inline-block elements
-    > label {
-      letter-spacing: 0; // restore letter-spacing
-    }
+    > label { letter-spacing: 0; } // restore letter-spacing 
     > label, span {
       display: inline-block;
       vertical-align: top;
@@ -239,7 +231,6 @@
         @if $progress-bar {
           &-progress {
             position: absolute;
-            z-index: nth($ro-slider-z-index, 1);
             left: 0;
             bottom: 34px;
             width: 0;
@@ -372,5 +363,5 @@
 @mixin item-show() {
   @include opacity(1); 
   position: relative;
-  z-index: nth($ro-slider-z-index, 1);
+  z-index: 1;
 }

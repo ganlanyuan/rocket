@@ -1,21 +1,23 @@
 // AUTO HEIGHT GALLERY
-ready(function () {
+function autoheightGallery (selector) {
+  if (k(selector).length > 0) {
+    var outer = k(selector).find('.outer'),
+        inner = k(selector).find('.inner');
 
-  k('[autoheight-gallery]').css('height', k('[autoheight-gallery] > .inner').outerHeight() + 'px');
-  // autoheight-gallery
-  function autoHeightGallery() {
-    var container = k('[autoheight-gallery]'),
-        containerH = k('[autoheight-gallery]').outerHeight(),
-        containerIH = k('[autoheight-gallery] > .inner').outerHeight();
-    if (containerH === containerIH) {
-      return;
-    } else{
-      container.css('height', containerIH + 'px');
+
+    // autoheight-gallery-core
+    function autoHeightGalleryCore() {
+      var outerH = outer.outerHeight(),
+          innerH = inner.outerHeight();
+      if (outerH === innerH) {
+        return;
+      } else{
+        outer.css('height', innerH + 'px');
+      }
     }
+    // if (outer.length > 0) {
+      outer.css('height', inner.outerHeight() + 'px');
+      setInterval(autoHeightGalleryCore, 200);
+    // }
   }
-  if (k('[autoheight-gallery]').length > 0) {
-    setInterval(autoHeightGallery, 200);
-  }
-
-});
-
+}

@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.5.3
++ Fixed: some syntax issue of `autoplay` and `autoheight` for sliders.
++ Add: `ie-placeholder` for IE8, 9 to support `placeholder`.
++ Add: helper function `checkKeyDown`.
+
 ### v2.5.2
 + Improved: now `switch` button has a box-shadow, and also has a flexible border and border-radius.
 + Improved: controls, dots, autoplay are easier to customize in `slider-gallery` and `slider-carousel`.
