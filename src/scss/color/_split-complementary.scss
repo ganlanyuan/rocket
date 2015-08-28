@@ -15,9 +15,9 @@
   $key-new: ();
 
   @if type-of($key) == 'list' {
-    $key-new: append($key, split-complementary);
+    $key-new: append($key, 'split-complementary');
   } @else {
-    $key-new: ($key split-complementary);
+    $key-new: append(append($key-new, $key), 'split-complementary');
   }
 
   @return color($key-new);
