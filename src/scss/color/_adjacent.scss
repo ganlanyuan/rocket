@@ -18,9 +18,9 @@
   $key-new: ();
 
   @if type-of($key) == 'list' {
-    $key-new: append($key, adjacent);
+    $key-new: append($key, 'adjacent');
   } @else {
-    $key-new: ($key adjacent);
+    $key-new: append(append($key-new, $key), 'adjacent');
   }
 
   @return color($key-new);

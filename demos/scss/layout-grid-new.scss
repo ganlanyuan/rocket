@@ -1,36 +1,40 @@
 @import 'demo-base';
 // *** layout: grid new *** //
 
+$ro-layout: (
+  'container': 1024px,
+  'columns': 12,
+  'gutter': 20px,
+);
+
 
 // base
 .box {
   // min-width: 100px;
-  padding: 50px 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: #f2f2f2;
 }
 $layout: (
   2:0,
-  3:1,
   7:0,
-  1:0,
+  3:0,
 );
 .row {
   @include row($layout);
-  // @include display(flex);
-  // @include flex-wrap(wrap);
 }
 .col {
-  &1, &2, &3, &4 {
-    // min-width: 300px;
+  &1, &2, &3 {
     font-size: 24px;
     text-align: center;
   }
   &1 {
-    // @include flex(1 0 80%);
-    // @include order(1);
+    // min-width: 200px;
   }
   &2 {
-    // @include flex(1 0 40%);
-    // @include order(0);
+    // min-width: 400px;
+  }
+  &3 {
+    // min-width: 300px;
   }
 }

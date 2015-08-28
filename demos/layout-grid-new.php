@@ -16,9 +16,6 @@
           <div class="col3">
             <div class="box">3</div>
           </div>
-          <div class="col4">
-            <div class="box">4</div>
-          </div>
         </div>
       </div>
       <!-- <pre><code class="language-scss">
