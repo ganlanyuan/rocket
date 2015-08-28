@@ -7,7 +7,7 @@ $ro-layout: (
   'gutter': 20px,
 );
 
-
+.container { @include container(gutter 10px); }
 // base
 .box {
   // min-width: 100px;

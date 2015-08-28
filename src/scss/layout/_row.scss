@@ -63,6 +63,7 @@
   @include flex-wrap(wrap);
 
   > #{$child} {
+    @include flex(1 1);
     padding-left: $half-gutter;
     padding-right: $half-gutter;
     box-sizing: border-box;
@@ -70,7 +71,12 @@
     // set col width
     @for $i from 1 through length($keys) {
       &:nth-child(#{$i}) {
-        @include flex(1 1 percentage(nth($keys, $i) / $full-width));
+        @include flex-basis(percentage(nth($keys, $i) / $full-width));
+        // fix IE10 & 11: horizental padding break layout
+        .flexboxtweener & {
+          max-width: percentage(nth($keys, $i) / $full-width);
+        }
+
         @if $flex-reorder {
           @include order(nth($values, $i));
         }
@@ -78,8 +84,8 @@
     }
   }
 
-  // non-flex
-  .lt-ie10 & {
+  // no-flexbox
+  .no-flexbox.no-flexboxtweener & {
     @include clearfix();
     > #{$child} {
       float: $float;

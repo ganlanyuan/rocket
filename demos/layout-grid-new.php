@@ -22,9 +22,9 @@
       </code></pre> -->
     </div>
     
-    <?php // include "include/more-demos.php" ?>
+    <?php include "include/more-demos.php" ?>
   </div>
-  <?php // include "include/site-footer.php" ?>
+  <?php include "include/site-footer.php" ?>
 </div>
 </body>
 </html>
