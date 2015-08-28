@@ -6,7 +6,7 @@
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.   
 [sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
-[demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)   
+[demos](http://creatiointl.org/gallery/william/v3/demos/layout-grid-new.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
 
 ##### REQUESTS 
