@@ -19,6 +19,7 @@ $ro-global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $ro-vertical-align: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
 
 // breakpoint
+$breakpoint-fix: true !default;
 $ro-media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
 
 // type

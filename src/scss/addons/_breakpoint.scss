@@ -24,7 +24,7 @@
     @if type-of($item) == 'number' {
       @if strip-unit($item) == 0 {
         $item: 0;
-      } @else if unitless($item) or unit($item) == 'px' {
+      } @else {
         $item: em($item);
       }
 
@@ -32,33 +32,48 @@
     }
   }
 
-  $single: false;
+  $only: false;
   $min-1: false;
   $max-1: false;
   $min-2: false;
   $max-2: false;
   $min-3: false;
   $max-3: false;
-
   $length: length($key-em);
   @if $length == 1 {
-    $single: nth($key-em, 1);
+    $only: nth($key-em, 1);
+    // breakpoint-fix
+    @if $condition == 'max' and $breakpoint-fix {
+      $only: ($only - em(1));
+    }
   } 
   @if $length >= 2 {
     $min-1: nth($key-em, 1);
     $max-1: nth($key-em, 2);
+    // breakpoint-fix
+    @if $breakpoint-fix {
+      $max-1: (nth($key-em, 2) - em(1));
+    }
   } 
   @if $length >= 3 {
     $min-2: nth($key-em, 3);
   } 
   @if $length >= 4 {
     $max-2: nth($key-em, 4);
+    // breakpoint-fix
+    @if $breakpoint-fix {
+      $max-2: (nth($key-em, 4) - em(1));
+    }
   } 
   @if $length >= 5 {
     $min-3: nth($key-em, 5);
   } 
   @if $length >= 6 {
     $max-3: nth($key-em, 6);
+    // breakpoint-fix
+    @if $breakpoint-fix {
+      $max-3: (nth($key-em, 6) - em(1));
+    }
   }
   @if $length > 6 {
     @warn 'You are passing more than 6 breakpoints, they are too many for me ^^';
@@ -67,7 +82,7 @@
   // *** output *** //
   @if $media {
     @if $length == 1 {
-      @media #{$media} and (#{$condition}-width: $single) {
+      @media #{$media} and (#{$condition}-width: $only) {
         @content;
       }
     } 
@@ -104,7 +119,7 @@
     }
   } @else {
     @if $length == 1 {
-      @media (#{$condition}-width: $single) {
+      @media (#{$condition}-width: $only) {
         @content;
       }
     } 

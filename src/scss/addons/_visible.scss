@@ -12,37 +12,22 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin visible($key){
-  $empty: ();
+  $new-key: ();
+
   @if type-of($key) == 'number' {
-    $key: minus-one($key);
-    
-    // *** output *** //
     @include breakpoint('max' $key) { display: none !important; }
   } @else if type-of($key) == list {
     @if nth($key, 1) == 0 {
       $key: reject($key, 0);
     } @else {
-      // append 0 to $empty
-      $empty: append($empty, 0);
-
-      // append $key to $empty 
-      @for $i from 1 through length($key) {
-        $item: nth($key, $i);
-
-        @if index($ro-odd, $i) {
-          $item: minus-one($item);
-        } @else if index($ro-even, $i) {
-          $item: plus-one($item);
-        }
-
-        $empty: append($empty, $item);
-      }
-
-      // give the value of $empty to $key
-      $key: $empty;
+      $new-key: append($new-key, 0);
     }
 
-    // *** output *** //
-    @include breakpoint($key) { display: none !important; }
+    // append $key to $new-key 
+    @each $item in $key {
+      $new-key: append($new-key, $item);
+    }
+
+    @include breakpoint($new-key) { display: none !important; }
   }
 }

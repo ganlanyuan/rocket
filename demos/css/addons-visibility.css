@@ -298,14 +298,26 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
+.visibility-wrap {
+  padding: 50px 0;
+  text-align: center;
+}
+
 .visible-1,
 .visible-2,
 .visible-3,
 .hidden-1,
 .hidden-2,
 .hidden-3 {
-  margin: 1em 0;
-  font-size: 14px;
+  margin: 0.2em;
+  font-size: 24px;
+  padding: 20px;
+  color: #fff;
+  display: inline-block;
+}
+
+.visible-1 {
+  background-color: #6666FF;
 }
 
 @media (max-width: 56.1875em) {
@@ -314,16 +326,28 @@ pre[class*="language-"] {
   }
 }
 
-@media screen and (min-width: 0) and (max-width: 56.1875em), screen and (min-width: 62.5625em) {
+.visible-2 {
+  background-color: #FF6FCF;
+}
+
+@media screen and (min-width: 0) and (max-width: 56.1875em), screen and (min-width: 62.5em) {
   .visible-2 {
     display: none !important;
   }
 }
 
-@media (min-width: 0) and (max-width: 43.6875em), (min-width: 56.3125em) and (max-width: 74.9375em) {
+.visible-3 {
+  background-color: #FF8000;
+}
+
+@media (min-width: 0) and (max-width: 43.6875em), (min-width: 56.25em) and (max-width: 74.9375em) {
   .visible-3 {
     display: none !important;
   }
+}
+
+.hidden-1 {
+  background-color: #008040;
 }
 
 @media (min-width: 56.25em) {
@@ -332,13 +356,21 @@ pre[class*="language-"] {
   }
 }
 
-@media (min-width: 56.25em) and (max-width: 62.5em) {
+.hidden-2 {
+  background-color: #804000;
+}
+
+@media (min-width: 56.25em) and (max-width: 62.4375em) {
   .hidden-2 {
     display: none !important;
   }
 }
 
-@media (min-width: 43.75em) and (max-width: 56.25em), (min-width: 75em) {
+.hidden-3 {
+  background-color: #808000;
+}
+
+@media (min-width: 43.75em) and (max-width: 56.1875em), (min-width: 75em) {
   .hidden-3 {
     display: none !important;
   }

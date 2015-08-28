@@ -27,14 +27,14 @@ $layout: (
   1:0,
 );
 .row {
-  @include row($layout);
+  // @include row($layout);
   // @include display(flex);
   // @include flex-wrap(wrap);
 }
 .col {
   &1, &2, &3, &4 {
     // min-width: 300px;
-    font-size: 24px;
+    font-size: rem(36);
     text-align: center;
   }
   &1 {

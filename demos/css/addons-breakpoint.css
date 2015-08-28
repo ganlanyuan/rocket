@@ -304,47 +304,53 @@ pre[class*="language-"] {
 }
 
 .box {
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   margin: 80px auto;
-  background-color: #000;
+  text-align: center;
+  background-color: #FF00FF;
 }
 
-@media (min-width: 56.25em) {
+.box:before {
+  color: #fff;
+  font-size: 40px;
+  display: block;
+  padding: 20px;
+}
+
+@media (max-width: 37.4375em) {
   .box:before {
-    content: "min 900px";
-    color: #fff;
-    font-size: 40px;
+    content: "< 600";
   }
 }
 
-@media (max-width: 43.75em) {
+@media (min-width: 37.5em) and (max-width: 49.9375em) {
   .box:before {
-    content: "max 700px";
-    color: #fff;
-    font-size: 40px;
+    content: "600 ~ 800";
   }
 }
 
-@media (min-width: 37.5em) and (max-width: 50em), (min-width: 62.5em) and (max-width: 75em) {
-  .box {
-    background-color: #FF00FF;
-    width: 300px;
-    height: 150px;
-    -webkit-transform: rotate(30deg);
-        -ms-transform: rotate(30deg);
-            transform: rotate(30deg);
+@media (min-width: 50em) and (max-width: 62.4375em) {
+  .box:before {
+    content: "800 ~ 1000";
   }
 }
 
-@media (min-width: 50.0625em) and (max-width: 62.4375em), (min-width: 75.0625em) {
+@media (min-width: 62.5em) and (max-width: 74.9375em) {
+  .box:before {
+    content: "1000 ~ 1200";
+  }
+}
+
+@media (min-width: 75em) {
+  .box:before {
+    content: "> 1200";
+  }
+}
+
+@media (min-width: 37.5em) and (max-width: 49.9375em), (min-width: 62.5em) and (max-width: 74.9375em) {
   .box {
     background-color: #0080FF;
-    width: 200px;
-    height: 200px;
-    -webkit-transform: rotate(240deg);
-        -ms-transform: rotate(240deg);
-            transform: rotate(240deg);
   }
 }
 /*# sourceMappingURL=addons-breakpoint.css.map */

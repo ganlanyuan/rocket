@@ -1,23 +1,25 @@
 // *** function *** //
 
-// em
-@function em($pxval, $base: $ro-em-base) {
-  @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
-  @else {
+
+// pxto
+@function pxto($result-unit, $pxval, $base: $ro-em-base) {
+  @if unit($pxval) == 'em' or unit($pxval) == 'rem' { 
+    @return $pxval; 
+  } @else {
     @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }
     @if unit($base) == 'px' or unitless($base) { $base: strip-unit($base); }
-    @return ($pxval / $base) * 1em;
+    @return ($pxval / $base) * $result-unit;
   } 
 }
 
+// em
+@function em($pxval, $base: $ro-em-base) {
+  @return pxto(1em, $pxval, $base: $ro-em-base);
+}
+
 // rem
-@function rem($pxval, $base: $ro-rem-base) {
-  @if unit($pxval) == 'rem' or unit($pxval) == 'em' { @return $pxval; }
-  @else {
-    @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }
-    @if unit($base) == 'px' or unitless($base) { $base: strip-unit($base); }
-    @return ($pxval / $base) * 1rem;
-  } 
+@function rem($pxval, $base: $ro-em-base) {
+  @return pxto(1rem, $pxval, $base: $ro-em-base);
 }
 
 // strip-unit

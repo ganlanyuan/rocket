@@ -4,35 +4,44 @@
 
 .box { 
   @extend %ro-global-transition;
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   margin: 80px auto;
-  background-color: #000;
-  @include bp('min' 900) {
+  text-align: center;
+  background-color: #FF00FF;
+  &:before {
+    color: #fff;
+    font-size: 40px;
+    display: block;
+    padding: 20px;
+  }
+  @include bp('max' 600) {
     &:before {
-      content: "min 900px";
-      color: #fff;
-      font-size: 40px;
+      content: "< 600";
     }
   }
-  @include bp('max' 700) {
+  @include bp(600 800) {
     &:before {
-      content: "max 700px";
-      color: #fff;
-      font-size: 40px;
+      content: "600 ~ 800";
+    }
+  }
+  @include bp(800 1000) {
+    &:before {
+      content: "800 ~ 1000";
+    }
+  }
+  @include bp(1000 1200) {
+    &:before {
+      content: "1000 ~ 1200";
+    }
+  }
+  @include bp('min' 1200) {
+    &:before {
+      content: "> 1200";
     }
   }
   @include bp(600 800 1000 1200) {
-    background-color: #FF00FF;
-    width: 300px;
-    height: 150px;
-    transform: rotate(30deg);
-  }
-  @include bp(801 999 1201) {
     background-color: #0080FF;
-    width: 200px;
-    height: 200px;
-    transform: rotate(240deg);
   }
 }
 
