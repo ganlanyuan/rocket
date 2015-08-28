@@ -6,7 +6,7 @@
   $color: ro-get-type($key, 'color');
   $saturation: ro-get-next($key, 'saturation', 0%);
   $lightness: ro-get-next($key, 'lightness', 0%);
-  $dist: ro-get($key, 'dist', $ro-color-dist);
+  $dist: ro-get-next($key, 'dist', $ro-color-dist);
 
   $key: reject($key, $saturation);
   $key: reject($key, $lightness);
