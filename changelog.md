@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.5.4
++ Fixed: a syntax issue in color `core` mixin.
++ Improved: `font-size` now accept more parameters than *font-size* and *line-height*, more detail please refer to `type`. `font-size` will be renamed in next version.
+
 ### v2.5.3
 + Fixed: some syntax issue of `autoplay` and `autoheight` for sliders.
 + Add: `ie-placeholder` for IE8, 9 to support `placeholder`.
