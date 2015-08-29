@@ -28,7 +28,7 @@ $layout: (
 );
 .row {
   // @include row($layout);
-  // @include display(flex);
+  // @include flexbox;
   // @include flex-wrap(wrap);
 }
 .col {

@@ -56,10 +56,10 @@
     $u-keys: append($u-keys, nth($keys, $or));
   }
 
-  margin-left: -$half-gutter;
-  margin-right: -$half-gutter;
+  margin-left: - $half-gutter;
+  margin-right: - $half-gutter;
 
-  @include display(flex);
+  @include flexbox;
   @include flex-wrap(wrap);
 
   > #{$child} {

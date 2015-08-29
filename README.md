@@ -170,10 +170,10 @@ $parent-layout: (7 of 10 $gutter);
 .aside { @include col(3 of 10 $gutter); }
 ````
 
-#### span-calc
+#### col-calc
 `span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
 ```` scss
-@mixin span-calc($key)
+@mixin col-calc($key)
 // pattern
 $key: ($column of $columns) $gutter (move $move) (float $float) last
 

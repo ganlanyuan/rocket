@@ -89,12 +89,12 @@ $layout-main: (8 of 12);
       <div class="example" data-margin>
         <div class="span-calc-1 cell" data-content="">
           <div class="example-content">
-            span-calc-1
+            col-calc-1
           </div>
         </div>
         <div class="span-calc-2 cell" data-content="">
           <div class="example-content">
-            span-calc-2
+            col-calc-2
           </div>
         </div>
       </div>

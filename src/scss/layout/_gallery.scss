@@ -20,7 +20,6 @@
 @mixin gallery($key){
   $per-row: 1;
   $gutter: map-get($ro-layout, gutter);
-  $half-gutter: ($gutter / 2);
   $child: ro-get-next($key, 'child', 'li');
   $float: ro-get($key, left right, left);
   $position: ro-get($key, 'middle' 'bottom', 'bottom');
@@ -40,6 +39,7 @@
       }
     }
   }
+  $half-gutter: ($gutter / 2);
 
   // *** output *** //
   @include flexbox;
@@ -58,7 +58,16 @@
       box-sizing: border-box;
       padding-left: $half-gutter; 
       padding-right: $half-gutter; 
-      margin-bottom: $gutter;
+      @if unit($gutter) == '%' {
+        // fix firefox treat percentage gutter as 0
+        &:after {
+          content: '';
+          display: block;
+          padding-bottom: ($gutter * $per-row);
+        }
+      } @else {
+        padding-bottom: $gutter;
+      }
     }
 
     // set col width

@@ -22,7 +22,7 @@
 	$align: ro-get($key, (left right center), center);
 
   // *** output *** //
-	@include display(flex);
+	@include flexbox;
 	@include justify-content(center);
 	@include align-items(center);
 	.no-flexbox & { 

@@ -3,7 +3,10 @@
 // *** layout: gallery *** //
 
 .example-gallery { 
-  @include gallery(4);
+  @include gallery(3 2% child li); 
+  @include breakpoint('min' 800) {
+    @include gallery(4 child li keep);
+  }
   span {
     display: block;
     min-height: 120px;

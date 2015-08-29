@@ -24,7 +24,7 @@
 /// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin span-calc($key){
+@mixin col-calc($key){
   $column: 0;
   $columns: ro-get-next($key, 'of', map-get($ro-layout, 'columns'));
   $gutter: 20px;
@@ -90,14 +90,14 @@
   
   // fixed gutter
   } @else if unit($gutter) and unit($gutter) != '%' {
-    $column-width: span-calc($column, $columns, $gutter);
+    $column-width: col-calc($column, $columns, $gutter);
     width: calc( #{$column-width} - #{$gutter} );
     @if not $last { 
       margin-#{opposite($float)}: $gutter; 
     }
     // move
     @if $move and $move != 0 { 
-      $move-cols: span-calc($move, $columns, $gutter);
+      $move-cols: col-calc($move, $columns, $gutter);
       left: calc( #{$move-cols} ); 
     } @else {
       left: 0;

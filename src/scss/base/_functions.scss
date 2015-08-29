@@ -228,8 +228,8 @@
   @return $final-string;
 }
 
-// span-calc
-@function span-calc ($col, $cols, $gutter){
+// col-calc
+@function col-calc ($col, $cols, $gutter){
   $result: '';
 
   $col-percentage: percentage($col / $cols);
