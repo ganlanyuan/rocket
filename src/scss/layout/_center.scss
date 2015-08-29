@@ -12,9 +12,7 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin center(
-	$key:
-		child '*'
-		center
+	$key: child '*' center
 ){
   $check: (left right center 'child');
 
@@ -25,7 +23,9 @@
 	@include flexbox;
 	@include justify-content(center);
 	@include align-items(center);
-	.no-flexbox & { 
+
+	// for non-flex browsers
+	.no-flexbox.no-flexboxtweener & {
 		text-align: center; 
 		&:before {
 			content: '';
@@ -34,9 +34,7 @@
 			vertical-align: middle;
 			margin-right: -.25em; // adjusts for spacing
 		}
-	}
-	> #{$child} {
-		.no-flexbox & {
+		> #{$child} {
 			display: inline-block;
 			vertical-align: middle;
 			@if $align != center { text-align: $align; }

@@ -16,8 +16,7 @@
       </ul>
       <pre><code class="language-scss">
 .example-justify {
-  @include justify-flex();
-  .no-flexbox & { @include justify(li); }
+  @include justify(li);
 }
       </code></pre>
     </div>

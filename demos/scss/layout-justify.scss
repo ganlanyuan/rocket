@@ -3,8 +3,7 @@
 // *** layout: justify *** //
 
 .example-justify {
-  @include justify-flex();
-  .no-flexbox & { @include justify(li); }
+  @include justify(li);
   li {
     font-size: 13px;
     text-transform: uppercase;

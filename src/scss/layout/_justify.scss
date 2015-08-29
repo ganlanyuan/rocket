@@ -1,47 +1,31 @@
-/// *justify-flex* is for creating justify list.
-/// @group layout
-/// @example scss - Usage
-/// nav {
-///   @include justify-flex();
-/// }
-/// 
-/// @link https://github.com/ganlanyuan/rocket full document
-
-@mixin justify-flex(){
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(center);
-}
-
 /// *justify* is for creating justify list.  
 ///
 /// $key: `(child $child)`
 /// @group layout
 /// @example scss - Usage
-/// nav {
-///   .no-flexbox {
-///     @include justify(div);
-///     // for old browsers
-///     // child: div
-///   } 
-/// }
+/// nav { @include justify(div); }
 /// 
 /// @link http://creatiointl.org/gallery/william/rocket/layout-justify.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin justify($key){
-  $child: ro-get-next($key, 'child', '*');
+  $child: ro-get-next($key, 'child', 'li');
   @if type-of($key) == 'string' { $child: $key; }
 
   // *** output *** //
-  text-align: justify;
-  line-height: 0;
-  &:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
-  }
-  @if $child {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+
+  // for non-flex browsers
+  .no-flexbox.no-flexboxtweener & {
+    text-align: justify;
+    line-height: 0;
+    &:after {
+      content: "";
+      width: 100%;
+      display: inline-block;
+    }
     > #{$child} {
       line-height: 1;
       display: inline-block;
