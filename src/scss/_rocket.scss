@@ -4,6 +4,12 @@
 // Licensed under MIT Open Source
 // =============================================
 
+// base
+@import "base/variables";
+@import "base/functions";
+@import "base/mixins";
+@import "base/placeholders";
+        
 // vendors
 @import "vendors/prefixer";
 @import "vendors/keyframes";
@@ -11,7 +17,7 @@
 @import "vendors/transform";
 @import "vendors/transition";
 @import "vendors/triangle";
-@import "vendors/flex-box";
+@import "vendors/flexbox";
 
 // color functions
 @import "color/core"; 
@@ -24,12 +30,6 @@
 @import "color/rectangle"; 
 @import "color/square"; 
 
-// base
-@import "base/variables";
-@import "base/functions";
-@import "base/mixins";
-@import "base/placeholders";
-        
 // addons
 @import "addons/opacity";
 @import "addons/ie-rgba";

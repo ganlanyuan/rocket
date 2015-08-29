@@ -20,7 +20,8 @@
 @mixin gallery($key){
   $per-row: 1;
   $gutter: map-get($ro-layout, gutter);
-  $child: ro-get-next($key, 'child', '*');
+  $half-gutter: ($gutter / 2);
+  $child: ro-get-next($key, 'child', 'li');
   $float: ro-get($key, left right, left);
   $position: ro-get($key, 'middle' 'bottom', 'bottom');
   $keep: ro-get($key, 'keep');
@@ -41,31 +42,46 @@
   }
 
   // *** output *** //
-  @include clearfix();
-  
-  // set up gallery container
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include align-content(stretch);
+
+  // fix left and right edge padding
   @if not $keep {
-    @include row($gutter);
+    margin-left: - $half-gutter;
+    margin-right: - $half-gutter;
   }
 
-  // set up gallery items
   > #{$child} {
-    width: percentage(1 / $per-row);
-    &:nth-child(#{$per-row}n+1) { clear: both; }
-    @for $i from 2 through $per-row {
-      &:nth-child(#{$per-row}n+#{$i}) {
-        clear: none;
-      }
+    @if not $keep {
+      @include flex(1 1);
+      box-sizing: border-box;
+      padding-left: $half-gutter; 
+      padding-right: $half-gutter; 
+      margin-bottom: $gutter;
     }
 
-    // set up gallery gutter
-    @if not $keep {
-      float: $float;
-      box-sizing: border-box;
-      @if $position == bottom { 
-        padding: 0 ($gutter / 2) $gutter; 
-      } @else { 
-        padding: ($gutter / 2); 
+    // set col width
+    @include flex-basis(percentage(1 / $per-row));
+    // fix IE10 & 11: horizental padding break layout
+    .flexboxtweener & {
+      max-width: percentage(1 / $per-row);
+    }
+  }
+
+  // for non-flex, non-flexwrap browsers
+  .no-flexwrap & { display: block; }
+  .no-flexbox.no-flexboxtweener &,
+  .no-flexwrap & {
+    @if not $keep { @include clearfix(); }
+  
+    > #{$child} {
+      @if not $keep { float: $float; }
+
+      width: percentage(1 / $per-row);
+      &:nth-child(#{$per-row}n+1) { clear: both; }
+      @for $i from 2 through $per-row {
+        &:nth-child(#{$per-row}n+#{$i}) { clear: none; }
       }
     }
   }
