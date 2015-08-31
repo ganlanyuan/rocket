@@ -53,13 +53,13 @@
     .carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); }
     .carousel-h { @include slider-carousel(5 by 1 default); }
     @include breakpoint('min' em(700)) {
-      .carousel-a { @include slider-carousel(5 by 2); }
-      .carousel-d { @include slider-carousel(5 by 3 bypage); }
-      .carousel-h { @include slider-carousel(5 by 2); }
+      .carousel-a { @include slider-carousel(5 by 2 keep); }
+      .carousel-d { @include slider-carousel(5 by 3 bypage keep); }
+      .carousel-h { @include slider-carousel(5 by 2 keep); }
     }
     @include breakpoint('min' em(1000)) {
-      .carousel-a { @include slider-carousel(5 by 3); }
-      .carousel-h { @include slider-carousel(5 by 3); }
+      .carousel-a { @include slider-carousel(5 by 3 keep); }
+      .carousel-h { @include slider-carousel(5 by 3 keep); }
     }
     [id="carousel-normal"]:checked ~ .carousel-a, 
     [id="slide-by-page"]:checked ~ .carousel-d,

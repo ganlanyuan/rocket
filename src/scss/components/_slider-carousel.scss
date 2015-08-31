@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
 /// 
-/// $key: `($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar default`
+/// $key: `($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar keep default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
@@ -73,6 +73,7 @@
   $speed: ro-get-next($key, 'speed', 1s);
   $timeout: ro-get-next($key, 'timeout', 3s);
   $time-per-item: ($speed + $timeout);
+  $keep: ro-get($key, 'keep');
   $default: ro-get($key, 'default');
 
   @if type-of($key) == 'number' {
@@ -97,16 +98,51 @@
     $half: (1 / ($perpage * 2)); 
   }
 
-  @at-root (without: media) { 
-    @extend %slider-carousel-base;
-    .outer { transition: height ($speed / 3); }
-    .inner { transition: left $speed; }
-    @if $autoplay { 
-      .autoplay {
-        .no-cssanimations & { display: none !important; } 
+  @if not $keep {
+    position: relative;
+    > input { position: absolute; left: -9999px; }
+    .outer { overflow: hidden; }
+    .inner {
+      @include clearfix();
+      position: relative;
+      letter-spacing: -0.34em; // remove white space between inline-block elements
+      white-space: nowrap;
+      li {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        letter-spacing: 0; // restore letter-spacing
+        box-sizing: border-box;
       }
     }
+    .controls, .dots, .autoplay { z-index: 2; }
+    .controls {
+      span { display: none; }
+      .prev { float: left; }
+      .next { float: right; }
+    }
+    .dots {
+      letter-spacing: -0.34em; // remove white space between inline-block elements
+      > label { letter-spacing: 0; } // restore letter-spacing
+      > label, span {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .normal { display: block; }
+      .active { display: none; }
+    }
+    .autoplay {
+      @if $autoplay { 
+        .no-cssanimations & { display: none !important; } 
+      }
+      .pause {display: none; }
+    }
+  }
+  
+  .outer { transition: height ($speed / 3); }
+  .inner { transition: left $speed; }
 
+  @at-root (without: media) { 
     @at-root {
       // active dots
       @for $i from 1 through $items {
@@ -114,95 +150,8 @@
             .dots label:nth-child(#{$i}) .active { display: block; }
             .dots label:nth-child(#{$i}) .normal { display: none; }
         }
-      }
-    }
 
-    // set default controls, dots and autoplay styles
-    @if $default {
-      .controls {
-        @include clearfix();
-        max-width: 7.5em;
-        margin: 10px auto;
-        span {
-          font-size: 13px;
-          padding: 5px 8px;
-          border-radius: 3px;
-          transition: background-color 0.3s;
-          color: #fff;
-          background-color: #15A9DC;
-          &:hover { background-color: #7D9DAC; }
-        }
       }
-      .dots {
-        width: 100%;
-        text-align: center;
-        margin: 10px 0;
-        label {
-          padding: 0 3px;
-          &:hover .normal { background-color: #5a5a5a; }
-        }
-        span {
-          width: 9px;
-          height: 9px;
-          background-color: #d3d3d3;
-          border-radius: 50%;
-          transition: background-color 0.3s;
-        }
-        .active { background-color: #5a5a5a; display: none; }
-      }
-      @if $autoplay or $autoplay-js {
-        .autoplay {
-          position: relative;
-          text-align: center;
-          @if $autoplay {
-            .no-cssanimations & { display: none !important; }
-          }
-          > label {
-            width: 30px;
-            height: 30px;
-            display: inline-block;
-            background-color: #333;
-            border-radius: 50%;
-          }
-          span {
-            display: inline-block;
-          }
-          .play {
-            width: 0;
-            height: 0;
-            border-color: transparent transparent transparent #fff;
-            border-style: solid;
-            border-width: 7px 0px 7px 13px;
-            margin: 7px 0 0 3px;
-          }
-          .pause {
-            display: none;
-            &:before, &:after {
-              content: '';
-              display: inline-block;
-              border-width: 0;
-              width: 5px;
-              height: 13px;
-              margin-top: 8px;
-              background-color: #fff;
-            }
-            &:before { margin-right: 4px; }
-          }
-          @if $progress-bar {
-            &-progress {
-              position: absolute;
-              left: 0;
-              bottom: 34px;
-              width: 0;
-              display: block;
-              height: 3px;
-              background-color: rgba(0, 0, 0, 0.2);
-            }
-          }
-        }
-      }
-    }
-    @at-root { 
       #{$id}-autoplay:checked ~ {
         @if $autoplay {
           // hide controls and dots
@@ -391,43 +340,92 @@
       }
     }
   }
-}
 
-%slider-carousel-base {
-  position: relative;
-  img { width: 100%; }
-  & > input { position: absolute; left: -9999px; }
-  .outer { 
-    overflow: hidden; 
-  }
-  .inner {
-    @include clearfix();
-    position: relative;
-    letter-spacing: -0.34em; // remove white space between inline-block elements
-    white-space: nowrap;
-    li {
-      display: inline-block;
-      vertical-align: top;
-      width: 100%;
-      letter-spacing: 0; // restore letter-spacing
-      box-sizing: border-box;
+  @at-root (without: media) { 
+    // set default controls, dots and autoplay styles
+    @if $default {
+      .controls {
+        @include clearfix();
+        max-width: 7.5em;
+        margin: 10px auto;
+        span {
+          font-size: 13px;
+          padding: 5px 8px;
+          border-radius: 3px;
+          transition: background-color 0.3s;
+          color: #fff;
+          background-color: #15A9DC;
+          &:hover { background-color: #7D9DAC; }
+        }
+      }
+      .dots {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+        label {
+          padding: 0 3px;
+          &:hover .normal { background-color: #5a5a5a; }
+        }
+        span {
+          width: 9px;
+          height: 9px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          transition: background-color 0.3s;
+        }
+        .active { background-color: #5a5a5a; display: none; }
+      }
+      @if $autoplay or $autoplay-js {
+        .autoplay {
+          position: relative;
+          text-align: center;
+          @if $autoplay {
+            .no-cssanimations & { display: none !important; }
+          }
+          > label {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background-color: #333;
+            border-radius: 50%;
+          }
+          span {
+            display: inline-block;
+          }
+          .play {
+            width: 0;
+            height: 0;
+            border-color: transparent transparent transparent #fff;
+            border-style: solid;
+            border-width: 7px 0px 7px 13px;
+            margin: 7px 0 0 3px;
+          }
+          .pause {
+            display: none;
+            &:before, &:after {
+              content: '';
+              display: inline-block;
+              border-width: 0;
+              width: 5px;
+              height: 13px;
+              margin-top: 8px;
+              background-color: #fff;
+            }
+            &:before { margin-right: 4px; }
+          }
+          @if $progress-bar {
+            &-progress {
+              position: absolute;
+              left: 0;
+              bottom: 34px;
+              width: 0;
+              display: block;
+              height: 3px;
+              background-color: rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
     }
   }
-  .controls, .dots, .autoplay { z-index: 2; }
-  .controls {
-    span { display: none; }
-    .prev { float: left; }
-    .next { float: right; }
-  }
-  .dots {
-    letter-spacing: -0.34em; // remove white space between inline-block elements
-    > label { letter-spacing: 0; } // restore letter-spacing
-    > label, span {
-      display: inline-block;
-      vertical-align: top;
-    }
-    .normal { display: block; }
-    .active { display: none; }
-  }
-  .autoplay .pause {display: none; }
 }

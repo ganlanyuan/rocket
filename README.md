@@ -733,7 +733,7 @@ In the example shows on the left, I used banner as my specific class.
 // basic
 @include slider-gallery($key)
 // pattern
-$key: $items autoplay autoplay-js (speed $speed) (timeout $timeout) hoverpause progress-bar default
+$key: $items autoplay autoplay-js (speed $speed) (timeout $timeout) hoverpause progress-bar keep default
 
 .slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar default); }
 // items: 5;
@@ -802,7 +802,7 @@ Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
 // basic
 @mixin slider-carousel($key)
 // pattern
-$key: ($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar default;
+$key: ($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar keep default;
 
 .slider { @include slider-carousel(5 by 2 bypage default); }
 // items: 5;

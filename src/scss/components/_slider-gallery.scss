@@ -2,7 +2,7 @@
 /// Then, use this class (or id) to set up the radio names and IDs as well as labels.   
 /// **Autoheight**: Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
 /// 
-/// $key: `$items $time (ratio $ratio) (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js progress-bar default`
+/// $key: `$items $time (ratio $ratio) (speed $speed) (timeout $timeout) hoverpause autoplay autoplay-js progress-bar keep default`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example markup - Markup
@@ -89,11 +89,12 @@
   $autoplay: ro-get($key, 'autoplay');
   $autoplay-js: ro-get($key, 'autoplay-js');
   $progress-bar: ro-get($key, 'progress-bar');
-  $default: ro-get($key, 'default');
   $hoverpause: ro-get($key, 'hoverpause');
   $speed: ro-get-next($key, 'speed', 1s);
   $timeout: ro-get-next($key, 'timeout', 3s);
   $time-per-item: ($speed + $timeout);
+  $keep: ro-get($key, 'keep');
+  $default: ro-get($key, 'default');
 
   @if type-of($key) == number {
     $items: $key;
@@ -111,39 +112,141 @@
 
   // *** output *** //
   // base
-  & > input { position: absolute; left: -9999px; }
-  .outer { 
-    overflow: hidden;
-    transition: height ($speed / 2); 
-  }
-  .inner { 
-    position: relative; 
-    > li {
-      @include item-hide(); 
-      width: 100%;
-      box-sizing: border-box;
-      transition: opacity $speed;
+  @if not $keep {
+    > input { position: absolute; left: -9999px; }
+    .outer { overflow: hidden; }
+    .inner { 
+      position: relative; 
+      > li {
+        @include item-hide(); 
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+    .controls, .dots, .autoplay { z-index: 2; }
+    .controls {
+      span { display: none; }
+      .prev { float: left; }
+      .next { float: right; }
+    }
+    .dots {
+      letter-spacing: -0.34em; // remove white space between inline-block elements
+      > label { letter-spacing: 0; } // restore letter-spacing 
+      > label, span {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .normal { display: block; }
+      .active { display: none; }
+    }
+    .autoplay {
+      @if $autoplay { .no-cssanimations & { display: none !important; } }
+      .pause {display: none; }
     }
   }
-  .controls, .dots, .autoplay { z-index: 2; }
-  .controls {
-    span { display: none; }
-    .prev { float: left; }
-    .next { float: right; }
-  }
-  .dots {
-    letter-spacing: -0.34em; // remove white space between inline-block elements
-    > label { letter-spacing: 0; } // restore letter-spacing 
-    > label, span {
-      display: inline-block;
-      vertical-align: top;
+
+  .outer { transition: height ($speed / 2); }
+  .inner > li { transition: opacity $speed; }
+
+  @at-root { @at-root (without: media) {
+    #{$id}-autoplay:checked ~ {
+      @if $autoplay or $autoplay-js {
+        .autoplay {
+          .play { display: none; }
+          .pause { display: block; }
+        }
+        @if $autoplay {
+          // hide controls and dots
+          .controls, .dots {
+            display: none; 
+            .no-cssanimations & { display: block !important; }
+          }
+        }
+      }
     }
-    .normal { display: block; }
-    .active { display: none; }
-  }
-  .autoplay {
-    @if $autoplay { .no-cssanimations & { display: none !important; } }
-    .pause {display: none; }
+
+    @for $i from 1 through $items {
+      // setting items
+      #{$id}-#{$i}:checked ~ {
+        .outer li:nth-child(#{$i}) { 
+          @include item-show(); 
+        }
+      }
+
+      // setting controls
+      #{$id}-#{$i}:checked ~ {
+        @if $i == 1 {
+          .controls label:nth-child(#{$items}) .prev, 
+          .controls label:nth-child(#{$i + 1}) .next { display: block; }
+        } @else if $i == $items {
+          .controls label:nth-child(#{$i - 1}) .prev, 
+          .controls label:nth-child(1) .next { display: block; }
+        } @else {
+          .controls label:nth-child(#{$i - 1}) .prev, 
+          .controls label:nth-child(#{$i + 1}) .next { display: block; }
+        }
+      }
+
+      // setting dots
+      #{$id}-#{$i}:checked ~ {
+      .dots label:nth-child(#{$i}) .active { display: block; }
+      .dots label:nth-child(#{$i}) .normal { display: none; }
+      }
+    }
+  }}
+  
+  // setting autoplay
+  @if $autoplay {
+    // animation
+    @include keyframes(#{$prefix}) {
+      0% { @include item-hide(); }
+      #{percentage($speed / ($time-per-item * $items))} { @include item-show(); }
+      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show(); }
+      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { @include item-hide(); }
+      100% { @include item-hide(); }
+    }
+    // progress-bar keyframes
+    @if $progress-bar {
+      @include keyframes(#{$prefix}-progress) {
+        0% { width: 0; }
+        #{percentage($speed / $time-per-item)} { width: 0; }
+        100% { width: 100%; }
+      }
+    }
+
+    @at-root { @at-root (without: media) {
+      #{$id}-autoplay:checked ~ {
+        // animation
+        .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
+        @if $progress-bar {
+          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
+        }
+
+        // delay
+        @if $items == 2 {
+          .outer li:nth-child(2) { @include animation-delay($time-per-item); }
+        } @else {
+          @for $i from 1 to $items {
+            @if $i == ($items - 1) {
+              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
+            } @else {
+              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
+            }
+          }
+        }
+      }
+    }}
+    // pause on hover
+    @if $hoverpause {
+      &:hover {
+        #{$id}-autoplay ~ {
+          .outer li { @include animation-play-state(paused); }
+          @if $progress-bar {
+            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
+          }
+        }
+      }
+    }
   }
 
   // default style
@@ -242,117 +345,6 @@
       }
     }
   }
-  @at-root { @at-root (without: media) {
-    #{$id}-autoplay:checked ~ {
-      @if $autoplay or $autoplay-js {
-        .autoplay {
-          .play { display: none; }
-          .pause { display: block; }
-        }
-        @if $autoplay {
-          // hide controls and dots
-          .controls, .dots {
-            display: none; 
-            .no-cssanimations & { display: block !important; }
-          }
-        }
-      }
-    }
-  }}
-  
-  // setting items
-  @for $i from 1 through $items {
-    @at-root { @at-root (without: media) { 
-      #{$id}-#{$i}:checked ~ {
-        .outer li:nth-child(#{$i}) { 
-          @include item-show(); 
-        }
-      }
-    }}
-  }
-
-  // setting controls
-  @for $i from 1 through $items {
-    @at-root { @at-root (without: media) { 
-      #{$id}-#{$i}:checked ~ {
-        @if $i == 1 {
-          .controls label:nth-child(#{$items}) .prev, 
-          .controls label:nth-child(#{$i + 1}) .next { display: block; }
-        } @else if $i == $items {
-          .controls label:nth-child(#{$i - 1}) .prev, 
-          .controls label:nth-child(1) .next { display: block; }
-        } @else {
-          .controls label:nth-child(#{$i - 1}) .prev, 
-          .controls label:nth-child(#{$i + 1}) .next { display: block; }
-        }
-      }
-    }}
-  }
-
-  // setting dots
-  @for $i from 1 through $items {
-    @at-root { @at-root (without: media) { 
-      #{$id}-#{$i}:checked ~ {
-      .dots label:nth-child(#{$i}) .active { display: block; }
-      .dots label:nth-child(#{$i}) .normal { display: none; }
-      }
-    }}
-  }
-
-  // setting autoplay
-  @if $autoplay {
-    // animation
-    @include keyframes(#{$prefix}) {
-      0% { @include item-hide(); }
-      #{percentage($speed / ($time-per-item * $items))} { @include item-show(); }
-      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show(); }
-      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { @include item-hide(); }
-      100% { @include item-hide(); }
-    }
-    // progress-bar keyframes
-    @if $progress-bar {
-      @include keyframes(#{$prefix}-progress) {
-        0% { width: 0; }
-        #{percentage($speed / $time-per-item)} { width: 0; }
-        100% { width: 100%; }
-      }
-    }
-
-    @at-root { @at-root (without: media) {
-      #{$id}-autoplay:checked ~ {
-        // animation
-        .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
-        @if $progress-bar {
-          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
-        }
-
-        // delay
-        @if $items == 2 {
-          .outer li:nth-child(2) { @include animation-delay($time-per-item); }
-        } @else {
-          @for $i from 1 to $items {
-            @if $i == ($items - 1) {
-              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
-            } @else {
-              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
-            }
-          }
-        }
-      }
-    }}
-    // pause on hover
-    @if $hoverpause {
-      &:hover {
-        #{$id}-autoplay ~ {
-          .outer li { @include animation-play-state(paused); }
-          @if $progress-bar {
-            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
-          }
-        }
-      }
-    }
-  }
-
 }
 
 @mixin item-hide() {

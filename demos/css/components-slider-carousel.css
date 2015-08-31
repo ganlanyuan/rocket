@@ -12,84 +12,6 @@
   text-decoration: none;
 }
 
-.carousel-a, .carousel-d, .carousel-e, .carousel-f, .carousel-g, .carousel-h {
-  position: relative;
-}
-
-.carousel-a img, .carousel-d img, .carousel-e img, .carousel-f img, .carousel-g img, .carousel-h img {
-  width: 100%;
-}
-
-.carousel-a > input, .carousel-d > input, .carousel-e > input, .carousel-f > input, .carousel-g > input, .carousel-h > input {
-  position: absolute;
-  left: -9999px;
-}
-
-.carousel-a .outer, .carousel-d .outer, .carousel-e .outer, .carousel-f .outer, .carousel-g .outer, .carousel-h .outer {
-  overflow: hidden;
-}
-
-.carousel-a .inner, .carousel-d .inner, .carousel-e .inner, .carousel-f .inner, .carousel-g .inner, .carousel-h .inner {
-  position: relative;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-}
-
-.carousel-a .inner:after, .carousel-d .inner:after, .carousel-e .inner:after, .carousel-f .inner:after, .carousel-g .inner:after, .carousel-h .inner:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-a .inner li, .carousel-d .inner li, .carousel-e .inner li, .carousel-f .inner li, .carousel-g .inner li, .carousel-h .inner li {
-  display: inline-block;
-  vertical-align: top;
-  width: 100%;
-  letter-spacing: 0;
-  box-sizing: border-box;
-}
-
-.carousel-a .controls, .carousel-d .controls, .carousel-e .controls, .carousel-f .controls, .carousel-g .controls, .carousel-h .controls, .carousel-a .dots, .carousel-d .dots, .carousel-e .dots, .carousel-f .dots, .carousel-g .dots, .carousel-h .dots, .carousel-a .autoplay, .carousel-d .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-g .autoplay, .carousel-h .autoplay {
-  z-index: 2;
-}
-
-.carousel-a .controls span, .carousel-d .controls span, .carousel-e .controls span, .carousel-f .controls span, .carousel-g .controls span, .carousel-h .controls span {
-  display: none;
-}
-
-.carousel-a .controls .prev, .carousel-d .controls .prev, .carousel-e .controls .prev, .carousel-f .controls .prev, .carousel-g .controls .prev, .carousel-h .controls .prev {
-  float: left;
-}
-
-.carousel-a .controls .next, .carousel-d .controls .next, .carousel-e .controls .next, .carousel-f .controls .next, .carousel-g .controls .next, .carousel-h .controls .next {
-  float: right;
-}
-
-.carousel-a .dots, .carousel-d .dots, .carousel-e .dots, .carousel-f .dots, .carousel-g .dots, .carousel-h .dots {
-  letter-spacing: -0.34em;
-}
-
-.carousel-a .dots > label, .carousel-d .dots > label, .carousel-e .dots > label, .carousel-f .dots > label, .carousel-g .dots > label, .carousel-h .dots > label {
-  letter-spacing: 0;
-}
-
-.carousel-a .dots > label, .carousel-d .dots > label, .carousel-e .dots > label, .carousel-f .dots > label, .carousel-g .dots > label, .carousel-h .dots > label, .carousel-a .dots span, .carousel-d .dots span, .carousel-e .dots span, .carousel-f .dots span, .carousel-g .dots span, .carousel-h .dots span {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.carousel-a .dots .normal, .carousel-d .dots .normal, .carousel-e .dots .normal, .carousel-f .dots .normal, .carousel-g .dots .normal, .carousel-h .dots .normal {
-  display: block;
-}
-
-.carousel-a .dots .active, .carousel-d .dots .active, .carousel-e .dots .active, .carousel-f .dots .active, .carousel-g .dots .active, .carousel-h .dots .active {
-  display: none;
-}
-
-.carousel-a .autoplay .pause, .carousel-d .autoplay .pause, .carousel-e .autoplay .pause, .carousel-f .autoplay .pause, .carousel-g .autoplay .pause, .carousel-h .autoplay .pause {
-  display: none;
-}
-
 /* Android 2.3 :checked fix */
 @-webkit-keyframes fake {
   from {
@@ -471,12 +393,86 @@ pre[class*="language-"] {
   display: none;
 }
 
-.outer {
+.carousel-a {
+  position: relative;
+}
+
+.carousel-a > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.carousel-a .outer {
+  overflow: hidden;
+}
+
+.carousel-a .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+
+.carousel-a .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-a .inner li {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.carousel-a .controls, .carousel-a .dots, .carousel-a .autoplay {
+  z-index: 2;
+}
+
+.carousel-a .controls span {
+  display: none;
+}
+
+.carousel-a .controls .prev {
+  float: left;
+}
+
+.carousel-a .controls .next {
+  float: right;
+}
+
+.carousel-a .dots {
+  letter-spacing: -0.34em;
+}
+
+.carousel-a .dots > label {
+  letter-spacing: 0;
+}
+
+.carousel-a .dots > label, .carousel-a .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-a .dots .normal {
+  display: block;
+}
+
+.carousel-a .dots .active {
+  display: none;
+}
+
+.carousel-a .autoplay .pause {
+  display: none;
+}
+
+.carousel-a .outer {
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
 }
 
-.inner {
+.carousel-a .inner {
   -webkit-transition: left 1s;
           transition: left 1s;
 }
@@ -518,59 +514,6 @@ pre[class*="language-"] {
 }
 
 .carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-a .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-a .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-a .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-a .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-a .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-a .dots label {
-  padding: 0 3px;
-}
-
-.carousel-a .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-a .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-a .dots .active {
-  background-color: #5a5a5a;
   display: none;
 }
 
@@ -669,12 +612,139 @@ pre[class*="language-"] {
   display: block;
 }
 
-.outer {
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+.carousel-d {
+  position: relative;
+}
+
+.carousel-d > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.carousel-d .outer {
+  overflow: hidden;
+}
+
+.carousel-d .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+
+.carousel-d .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-d .inner li {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.carousel-d .controls, .carousel-d .dots, .carousel-d .autoplay {
+  z-index: 2;
+}
+
+.carousel-d .controls span {
+  display: none;
+}
+
+.carousel-d .controls .prev {
+  float: left;
+}
+
+.carousel-d .controls .next {
+  float: right;
+}
+
+.carousel-d .dots {
+  letter-spacing: -0.34em;
+}
+
+.carousel-d .dots > label {
+  letter-spacing: 0;
+}
+
+.carousel-d .dots > label, .carousel-d .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-d .dots .normal {
+  display: block;
+}
+
+.carousel-d .dots .active {
+  display: none;
+}
+
+.carousel-d .autoplay .pause {
+  display: none;
+}
+
+.carousel-d .outer {
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
 }
 
-.inner {
+.carousel-d .inner {
   -webkit-transition: left 1s;
           transition: left 1s;
 }
@@ -716,59 +786,6 @@ pre[class*="language-"] {
 }
 
 .carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-d .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-d .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-d .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-d .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-d .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-d .dots label {
-  padding: 0 3px;
-}
-
-.carousel-d .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-d .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-d .dots .active {
-  background-color: #5a5a5a;
   display: none;
 }
 
@@ -886,12 +903,139 @@ pre[class*="language-"] {
   display: block;
 }
 
-.outer {
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+.carousel-e {
+  position: relative;
+}
+
+.carousel-e > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.carousel-e .outer {
+  overflow: hidden;
+}
+
+.carousel-e .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+
+.carousel-e .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-e .inner li {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.carousel-e .controls, .carousel-e .dots, .carousel-e .autoplay {
+  z-index: 2;
+}
+
+.carousel-e .controls span {
+  display: none;
+}
+
+.carousel-e .controls .prev {
+  float: left;
+}
+
+.carousel-e .controls .next {
+  float: right;
+}
+
+.carousel-e .dots {
+  letter-spacing: -0.34em;
+}
+
+.carousel-e .dots > label {
+  letter-spacing: 0;
+}
+
+.carousel-e .dots > label, .carousel-e .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-e .dots .normal {
+  display: block;
+}
+
+.carousel-e .dots .active {
+  display: none;
+}
+
+.carousel-e .autoplay .pause {
+  display: none;
+}
+
+.carousel-e .outer {
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
 }
 
-.inner {
+.carousel-e .inner {
   -webkit-transition: left 1s;
           transition: left 1s;
 }
@@ -933,59 +1077,6 @@ pre[class*="language-"] {
 }
 
 .carousel-e #carousel-e-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-e .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-e .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-e .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-e .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-e .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-e .dots label {
-  padding: 0 3px;
-}
-
-.carousel-e .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-e .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-e .dots .active {
-  background-color: #5a5a5a;
   display: none;
 }
 
@@ -1084,18 +1175,145 @@ pre[class*="language-"] {
   display: block;
 }
 
-.outer {
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+.carousel-f {
+  position: relative;
+}
+
+.carousel-f > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.carousel-f .outer {
+  overflow: hidden;
+}
+
+.carousel-f .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+
+.carousel-f .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-f .inner li {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.carousel-f .controls, .carousel-f .dots, .carousel-f .autoplay {
+  z-index: 2;
+}
+
+.carousel-f .controls span {
+  display: none;
+}
+
+.carousel-f .controls .prev {
+  float: left;
+}
+
+.carousel-f .controls .next {
+  float: right;
+}
+
+.carousel-f .dots {
+  letter-spacing: -0.34em;
+}
+
+.carousel-f .dots > label {
+  letter-spacing: 0;
+}
+
+.carousel-f .dots > label, .carousel-f .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-f .dots .normal {
+  display: block;
+}
+
+.carousel-f .dots .active {
+  display: none;
+}
+
+.no-cssanimations .carousel-f .autoplay {
+  display: none !important;
+}
+
+.carousel-f .autoplay .pause {
+  display: none;
+}
+
+.carousel-f .outer {
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
 }
 
-.inner {
+.carousel-f .inner {
   -webkit-transition: left 1s;
           transition: left 1s;
-}
-
-.no-cssanimations .autoplay {
-  display: none !important;
 }
 
 .carousel-f #carousel-f-1:checked ~ .dots label:nth-child(1) .active {
@@ -1136,117 +1354,6 @@ pre[class*="language-"] {
 
 .carousel-f #carousel-f-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
-}
-
-.carousel-f .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-f .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-f .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-f .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-f .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-f .dots label {
-  padding: 0 3px;
-}
-
-.carousel-f .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-f .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-f .dots .active {
-  background-color: #5a5a5a;
-  display: none;
-}
-
-.carousel-f .autoplay {
-  position: relative;
-  text-align: center;
-}
-
-.no-cssanimations .carousel-f .autoplay {
-  display: none !important;
-}
-
-.carousel-f .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.carousel-f .autoplay span {
-  display: inline-block;
-}
-
-.carousel-f .autoplay .play {
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.carousel-f .autoplay .pause {
-  display: none;
-}
-
-.carousel-f .autoplay .pause:before, .carousel-f .autoplay .pause:after {
-  content: '';
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  margin-top: 8px;
-  background-color: #fff;
-}
-
-.carousel-f .autoplay .pause:before {
-  margin-right: 4px;
-}
-
-.carousel-f .autoplay-progress {
-  position: absolute;
-  left: 0;
-  bottom: 34px;
-  width: 0;
-  display: block;
-  height: 3px;
-  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .carousel-f #carousel-f-autoplay:checked ~ .controls, .carousel-f #carousel-f-autoplay:checked ~ .dots {
@@ -1469,12 +1576,197 @@ pre[class*="language-"] {
   display: block;
 }
 
-.outer {
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+.autoplay {
+  position: relative;
+  text-align: center;
+}
+
+.no-cssanimations .autoplay {
+  display: none !important;
+}
+
+.autoplay > label {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.autoplay span {
+  display: inline-block;
+}
+
+.autoplay .play {
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  border-width: 7px 0px 7px 13px;
+  margin: 7px 0 0 3px;
+}
+
+.autoplay .pause {
+  display: none;
+}
+
+.autoplay .pause:before, .autoplay .pause:after {
+  content: '';
+  display: inline-block;
+  border-width: 0;
+  width: 5px;
+  height: 13px;
+  margin-top: 8px;
+  background-color: #fff;
+}
+
+.autoplay .pause:before {
+  margin-right: 4px;
+}
+
+.autoplay-progress {
+  position: absolute;
+  left: 0;
+  bottom: 34px;
+  width: 0;
+  display: block;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-g {
+  position: relative;
+}
+
+.carousel-g > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.carousel-g .outer {
+  overflow: hidden;
+}
+
+.carousel-g .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+
+.carousel-g .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-g .inner li {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.carousel-g .controls, .carousel-g .dots, .carousel-g .autoplay {
+  z-index: 2;
+}
+
+.carousel-g .controls span {
+  display: none;
+}
+
+.carousel-g .controls .prev {
+  float: left;
+}
+
+.carousel-g .controls .next {
+  float: right;
+}
+
+.carousel-g .dots {
+  letter-spacing: -0.34em;
+}
+
+.carousel-g .dots > label {
+  letter-spacing: 0;
+}
+
+.carousel-g .dots > label, .carousel-g .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-g .dots .normal {
+  display: block;
+}
+
+.carousel-g .dots .active {
+  display: none;
+}
+
+.carousel-g .autoplay .pause {
+  display: none;
+}
+
+.carousel-g .outer {
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
 }
 
-.inner {
+.carousel-g .inner {
   -webkit-transition: left 1s;
           transition: left 1s;
 }
@@ -1517,103 +1809,6 @@ pre[class*="language-"] {
 
 .carousel-g #carousel-g-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
-}
-
-.carousel-g .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-g .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-g .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-g .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-g .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-g .dots label {
-  padding: 0 3px;
-}
-
-.carousel-g .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-g .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-g .dots .active {
-  background-color: #5a5a5a;
-  display: none;
-}
-
-.carousel-g .autoplay {
-  position: relative;
-  text-align: center;
-}
-
-.carousel-g .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.carousel-g .autoplay span {
-  display: inline-block;
-}
-
-.carousel-g .autoplay .play {
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.carousel-g .autoplay .pause {
-  display: none;
-}
-
-.carousel-g .autoplay .pause:before, .carousel-g .autoplay .pause:after {
-  content: '';
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  margin-top: 8px;
-  background-color: #fff;
-}
-
-.carousel-g .autoplay .pause:before {
-  margin-right: 4px;
 }
 
 .carousel-g #carousel-g-autoplay:checked ~ .autoplay .play {
@@ -1730,12 +1925,183 @@ pre[class*="language-"] {
   display: block;
 }
 
-.outer {
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+.autoplay {
+  position: relative;
+  text-align: center;
+}
+
+.autoplay > label {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.autoplay span {
+  display: inline-block;
+}
+
+.autoplay .play {
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  border-width: 7px 0px 7px 13px;
+  margin: 7px 0 0 3px;
+}
+
+.autoplay .pause {
+  display: none;
+}
+
+.autoplay .pause:before, .autoplay .pause:after {
+  content: '';
+  display: inline-block;
+  border-width: 0;
+  width: 5px;
+  height: 13px;
+  margin-top: 8px;
+  background-color: #fff;
+}
+
+.autoplay .pause:before {
+  margin-right: 4px;
+}
+
+.carousel-h {
+  position: relative;
+}
+
+.carousel-h > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.carousel-h .outer {
+  overflow: hidden;
+}
+
+.carousel-h .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+}
+
+.carousel-h .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-h .inner li {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.carousel-h .controls, .carousel-h .dots, .carousel-h .autoplay {
+  z-index: 2;
+}
+
+.carousel-h .controls span {
+  display: none;
+}
+
+.carousel-h .controls .prev {
+  float: left;
+}
+
+.carousel-h .controls .next {
+  float: right;
+}
+
+.carousel-h .dots {
+  letter-spacing: -0.34em;
+}
+
+.carousel-h .dots > label {
+  letter-spacing: 0;
+}
+
+.carousel-h .dots > label, .carousel-h .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.carousel-h .dots .normal {
+  display: block;
+}
+
+.carousel-h .dots .active {
+  display: none;
+}
+
+.carousel-h .autoplay .pause {
+  display: none;
+}
+
+.carousel-h .outer {
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
 }
 
-.inner {
+.carousel-h .inner {
   -webkit-transition: left 1s;
           transition: left 1s;
 }
@@ -1777,59 +2143,6 @@ pre[class*="language-"] {
 }
 
 .carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-h .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-h .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-h .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-h .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-h .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-h .dots label {
-  padding: 0 3px;
-}
-
-.carousel-h .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-h .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-h .dots .active {
-  background-color: #5a5a5a;
   display: none;
 }
 
@@ -1928,14 +2241,68 @@ pre[class*="language-"] {
   display: block;
 }
 
-.outer {
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
 }
 
-.inner {
-  -webkit-transition: left 1s;
-          transition: left 1s;
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
+  display: none;
+}
+
+@media (min-width: 43.75em) {
+  .carousel-a .outer {
+    -webkit-transition: height 0.3333333333s;
+            transition: height 0.3333333333s;
+  }
+  .carousel-a .inner {
+    -webkit-transition: left 1s;
+            transition: left 1s;
+  }
 }
 
 .carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
@@ -2059,16 +2426,6 @@ pre[class*="language-"] {
   .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-}
-
-.outer {
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-}
-
-.inner {
-  -webkit-transition: left 1s;
-          transition: left 1s;
 }
 
 .carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .active {
@@ -2204,16 +2561,6 @@ pre[class*="language-"] {
   }
 }
 
-.outer {
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-}
-
-.inner {
-  -webkit-transition: left 1s;
-          transition: left 1s;
-}
-
 .carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
@@ -2337,14 +2684,15 @@ pre[class*="language-"] {
   }
 }
 
-.outer {
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-}
-
-.inner {
-  -webkit-transition: left 1s;
-          transition: left 1s;
+@media (min-width: 62.5em) {
+  .carousel-a .outer {
+    -webkit-transition: height 0.3333333333s;
+            transition: height 0.3333333333s;
+  }
+  .carousel-a .inner {
+    -webkit-transition: left 1s;
+            transition: left 1s;
+  }
 }
 
 .carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
@@ -2468,16 +2816,6 @@ pre[class*="language-"] {
   .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
     display: block;
   }
-}
-
-.outer {
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-}
-
-.inner {
-  -webkit-transition: left 1s;
-          transition: left 1s;
 }
 
 .carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
