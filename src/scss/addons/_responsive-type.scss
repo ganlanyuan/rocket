@@ -25,7 +25,7 @@
 /// h3.example-font-size { @include font-size($h3-font-sizes $bp); }
 /// p.example-font-size { @include font-size($p-font-sizes $bp); }
 /// 
-/// @link http://creatiointl.org/gallery/william/rocket/addons-font-size.php demo
+/// @link http://creatiointl.org/gallery/william/rocket/addons-responsive-type.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin responsive-type($key) {
@@ -59,6 +59,6 @@
 }
 
 
-@mixin font-size($key) {
+@mixin rp-type($key) {
   @include responsive-type($key);
 }

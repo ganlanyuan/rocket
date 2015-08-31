@@ -19,10 +19,10 @@ $h3-font-sizes: (
   900px : 22px,
   large : (30px 1.2 left 300),
 );
-h3.example-font-size { @include font-size($h3-font-sizes $bp); margin-bottom: 10px; }
-p.example-font-size { @include font-size($p-font-sizes $bp); margin-bottom: 10px; }
+h3.example-responsive-type { @include rp-type($h3-font-sizes $bp); margin-bottom: 10px; }
+p.example-responsive-type { @include rp-type($p-font-sizes $bp); margin-bottom: 10px; }
 
-.example-font-size {
+.example-responsive-type {
   text-transform: none;
   max-width: none !important;
 }

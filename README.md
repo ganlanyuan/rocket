@@ -49,7 +49,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
         |visible                    |split-complementary
         |hidden                     |triad
         |type                       |rectangle
-        |font-size                  |square
+        |responsive-type            |square
                                              
 ````
 
@@ -862,8 +862,8 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/addons-type.php)
 
-#### font-size
-Responsive font-size and line-height.
+#### responsive-type
+Responsive type.
 ```` scss
 @mixin font-size($key)
 // pattern
@@ -887,8 +887,8 @@ $h3-font-sizes: (
   900px : 22px,
   large : (30px, 1.2),
 );
-h3.example-font-size { @include font-size($h3-font-sizes, $bp); }
-p.example-font-size { @include font-size($p-font-sizes, $bp); }
+h3.example-font-size { @include responsive-type($h3-font-sizes, $bp); }
+p.example-font-size { @include responsive-type($p-font-sizes, $bp); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/addons-font-size.php) 
 
