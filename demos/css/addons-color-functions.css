@@ -319,4 +319,75 @@ pre[class*="language-"] {
 .color-box {
   margin: 0 20px 20px 0;
 }
-/*# sourceMappingURL=color-contrast.css.map */
+
+.color-box-adjacent-1 {
+  background-color: #d9268b;
+  color: #fff;
+}
+
+.color-box-adjacent-2 {
+  background-color: #d97726;
+  color: #fff;
+}
+
+.example-adjacent:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.color-box-complementary {
+  background-color: #26d926;
+  color: #000;
+}
+
+.color-box-split-complementary-1 {
+  background-color: #9dd926;
+  color: #000;
+}
+
+.color-box-split-complementary-2 {
+  background-color: #26d9d9;
+  color: #000;
+}
+
+.color-box-triad-1 {
+  background-color: #e6e619;
+  color: #000;
+}
+
+.color-box-triad-2 {
+  background-color: #265cd9;
+  color: #fff;
+}
+
+.color-box-rectangle-1 {
+  background-color: #d97726;
+  color: #fff;
+}
+
+.color-box-rectangle-2 {
+  background-color: #26d926;
+  color: #000;
+}
+
+.color-box-rectangle-3 {
+  background-color: #26d9d9;
+  color: #000;
+}
+
+.color-box-square-1 {
+  background-color: #d9bb26;
+  color: #000;
+}
+
+.color-box-square-2 {
+  background-color: #26d926;
+  color: #000;
+}
+
+.color-box-square-3 {
+  background-color: #5026d9;
+  color: #fff;
+}
+/*# sourceMappingURL=addons-color-functions.css.map */

@@ -37,7 +37,7 @@
   <h4>addons</h4>
   <nav class="demo-links">
     <?php 
-      $addons = array('type', 'font-size', 'visibility', 'breakpoint'); 
+      $addons = array('type', 'font-size', 'visibility', 'breakpoint', 'color-functions'); 
       $cur = '';
 
       foreach ($addons as $addon) {
@@ -48,23 +48,6 @@
         }
         
         echo '<a href="addons-' . $addon . '.php"' . $cur . '>' . $addon . '</a>';
-      }
-    ?>
-  </nav>
-  <h4>color functions</h4>
-  <nav class="demo-links">
-      <?php 
-      $colors = array('contrast', 'adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square'); 
-      $cur = '';
-
-      foreach ($colors as $color) {
-        if ($pagename == 'color-' . $color) {
-          $cur = 'class="current"';
-        } else {
-          $cur = '';
-        }
-        
-        echo '<a href="color-' . $color . '.php"' . $cur . '>' . $color . '</a>';
       }
     ?>
   </nav>
