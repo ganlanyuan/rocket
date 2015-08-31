@@ -56,17 +56,19 @@
     @if not $keep {
       @include flex(1 1);
       box-sizing: border-box;
-      padding-left: $half-gutter; 
-      padding-right: $half-gutter; 
-      @if unit($gutter) == '%' {
-        // fix firefox treat percentage gutter as 0
-        &:after {
-          content: '';
-          display: block;
-          padding-bottom: ($gutter * $per-row);
-        }
+      @if unit($gutter) != '%' {
+        padding: 0 $half-gutter $gutter; 
       } @else {
-        padding-bottom: $gutter;
+        padding-left: $half-gutter;
+        padding-right: $half-gutter;
+      }
+    }
+    @if unit($gutter) == '%' {
+      // fix firefox treat percentage gutter as 0
+      &:after {
+        content: '';
+        display: block;
+        padding-bottom: ($gutter * $per-row);
       }
     }
 

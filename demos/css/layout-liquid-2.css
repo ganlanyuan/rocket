@@ -1,15 +1,3 @@
-.flex-video {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-}
-
-.flex-video > iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
 /* Android 2.3 :checked fix */
 @-webkit-keyframes fake {
   from {
@@ -310,7 +298,153 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.flex-video {
-  padding-bottom: 56.25%;
+.example-liquid-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  align-items: stretch;
 }
-/*# sourceMappingURL=components-flex-video.css.map */
+
+.example-liquid-2 > [data-main] {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.example-liquid-2 > [data-aside] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 200px;
+  -moz-flex: 0 0 200px;
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+  -moz-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  margin-left: 2%;
+  margin-right: 0;
+}
+
+.no-flexbox.no-flexboxtweener .example-liquid-2:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.no-flexbox.no-flexboxtweener .example-liquid-2 > [data-main] {
+  float: left;
+  width: calc(100% - 200px - 2%);
+}
+
+.no-flexbox.no-flexboxtweener .example-liquid-2 > [data-aside] {
+  float: right;
+  width: 200px;
+}
+
+.no-flexbox.no-flexboxtweener.no-csscalc .example-liquid-2 {
+  padding-left: 0;
+  padding-right: 200px;
+}
+
+.no-flexbox.no-flexboxtweener.no-csscalc .example-liquid-2 > [data-main] {
+  width: 100%;
+}
+
+.no-flexbox.no-flexboxtweener.no-csscalc .example-liquid-2 > [data-aside] {
+  margin-left: 0;
+  margin-right: -200px;
+  padding-right: 0;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 50em) {
+  .example-liquid-2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
+    align-items: stretch;
+  }
+  .example-liquid-2 > [data-main] {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+  .example-liquid-2 > [data-aside] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 300px;
+    -moz-flex: 0 0 300px;
+    -ms-flex: 0 0 300px;
+    flex: 0 0 300px;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -moz-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+    margin-right: 2%;
+    margin-left: 0;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-2:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-2 > [data-main] {
+    float: right;
+    width: calc(100% - 300px - 2%);
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-2 > [data-aside] {
+    float: left;
+    width: 300px;
+  }
+  .no-flexbox.no-flexboxtweener.no-csscalc .example-liquid-2 {
+    padding-right: 0;
+    padding-left: 300px;
+  }
+  .no-flexbox.no-flexboxtweener.no-csscalc .example-liquid-2 > [data-main] {
+    width: 100%;
+  }
+  .no-flexbox.no-flexboxtweener.no-csscalc .example-liquid-2 > [data-aside] {
+    margin-right: 0;
+    margin-left: -300px;
+    padding-left: 0;
+    padding-right: 2%;
+    box-sizing: border-box;
+  }
+}
+
+.example-liquid-2 .hide {
+  display: none;
+}
+
+.flexbox .example-liquid-2 > [data-main],
+.flexboxtweener .example-liquid-2 > [data-main],
+.flexbox .example-liquid-2 > [data-aside],
+.flexboxtweener .example-liquid-2 > [data-aside] {
+  background-color: #cdeeff;
+}
+
+.flexbox .example-liquid-2 > [data-main] .hide,
+.flexboxtweener .example-liquid-2 > [data-main] .hide,
+.flexbox .example-liquid-2 > [data-aside] .hide,
+.flexboxtweener .example-liquid-2 > [data-aside] .hide {
+  display: block;
+}
+/*# sourceMappingURL=layout-liquid-2.css.map */

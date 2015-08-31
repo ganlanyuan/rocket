@@ -323,9 +323,9 @@ pre[class*="language-"] {
   box-sizing: border-box;
   padding-left: 1%;
   padding-right: 1%;
-  -webkit-flex-basis: 33.33333%;
-  -ms-flex-preferred-size: 33.33333%;
-  flex-basis: 33.33333%;
+  -webkit-flex-basis: 33.3333333333%;
+  -ms-flex-preferred-size: 33.3333333333%;
+  flex-basis: 33.3333333333%;
 }
 
 .example-gallery > li:after {
@@ -335,7 +335,7 @@ pre[class*="language-"] {
 }
 
 .flexboxtweener .example-gallery > li {
-  max-width: 33.33333%;
+  max-width: 33.3333333333%;
 }
 
 .no-flexwrap .example-gallery {
@@ -352,7 +352,7 @@ pre[class*="language-"] {
 .no-flexbox.no-flexboxtweener .example-gallery > li,
 .no-flexwrap .example-gallery > li {
   float: left;
-  width: 33.33333%;
+  width: 33.3333333333%;
 }
 
 .no-flexbox.no-flexboxtweener .example-gallery > li:nth-child(3n+1),
@@ -388,6 +388,11 @@ pre[class*="language-"] {
     -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
+  }
+  .example-gallery > li:after {
+    content: '';
+    display: block;
+    padding-bottom: 8%;
   }
   .flexboxtweener .example-gallery > li {
     max-width: 25%;

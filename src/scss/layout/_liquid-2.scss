@@ -1,0 +1,86 @@
+/// *liquid-2* is for making a Layout With a Fluid and a Fixed-size Columns.
+/// 
+/// $key: `$direction $aside-width (gutter $gutter) (order $aside-order)`
+/// @group layout
+/// @param {list} $key - key 
+/// @example markup - markup
+/// <!-- Add "data-main", "data-aside" attributes to your markup. -->
+/// 
+/// <div class="wrapper">
+/// 
+///   <!-- main -->
+///   <div data-main=""></div>
+/// 
+///   <!-- aside -->
+///   <div data-aside=""></div>
+/// </div>
+/// @example scss - Usage
+/// .wrapper { @include liquid-2(left 300px gutter 30px); }
+/// // direction: left; (aside is on the left)
+/// // aside-width: 300px;
+/// // gutter: 30px;
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/layout-liquid-2.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin liquid-2($key) {
+  $direction: ro-get($key, left right, left);
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $aside-order: ro-get-next($key, 'order', 0);
+
+  // set up aside width
+  $key: reject($key, $gutter);
+  $key: reject($key, $aside-order);
+  $aside-width: ro-get-type($key, 'number', false, 300px);
+  
+  // set up aside-full
+  $aside-full: 0;
+  $aside-full-no-csscalc: 0;
+  @if unit($aside-width) == unit($gutter) {
+    $aside-full: ($aside-width + $gutter);
+    $aside-full-no-csscalc: $aside-full;
+  } @else {
+    $aside-full: '#{$aside-width}' + ' - ' + '#{$gutter}';
+    $aside-full-no-csscalc: $aside-width;
+  }
+
+  // *** output *** //
+  @include flexbox();
+  @include align-items(stretch);
+  > [data-main] { @include flex(1 1 auto); }
+  > [data-aside] { 
+    @include flex(0 0 $aside-width); 
+    @include order($aside-order);
+    margin-#{opposite($direction)}: $gutter;
+    margin-#{$direction}: 0;
+  }
+
+  .no-flexbox.no-flexboxtweener & {
+    @include clearfix; 
+    > [data-main] {
+      float: opposite($direction);
+      width: calc(100% - #{$aside-full});
+    }
+    > [data-aside] {
+      float: $direction;
+      width: $aside-width;
+    }
+  }
+  .no-flexbox.no-flexboxtweener.no-csscalc & {
+    padding-#{opposite($direction)}: 0;
+    padding-#{$direction}: $aside-full-no-csscalc;
+
+    > [data-main] {
+      width: 100%;
+    }
+
+    > [data-aside] {
+      margin-#{opposite($direction)}: 0;
+      margin-#{$direction}: - $aside-full-no-csscalc;
+      
+      padding-#{$direction}: 0;
+      padding-#{opposite($direction)}: $gutter;
+      box-sizing: border-box;
+    }
+  }
+}

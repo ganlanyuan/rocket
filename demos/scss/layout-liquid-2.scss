@@ -1,0 +1,24 @@
+@import 'demo-base';
+
+// *** layout: liquid-2 *** //
+
+.example-liquid-2 { 
+  @include liquid-2(right 200px); 
+  @include breakpoint('min' 800) {
+    @include liquid-2(300px order -1);
+  }
+  .hide {
+    display: none;
+  }
+  > [data-main],
+  > [data-aside] {
+    .flexbox &,
+    .flexboxtweener & {
+      background-color: #cdeeff;
+      .hide {
+        display: block;
+      }
+    }
+  }
+}
+

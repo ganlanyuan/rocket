@@ -11,8 +11,10 @@
 
 @mixin row($key){
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $half-gutter: ($gutter / 2);
   $child: ro-get-next($key, 'child', 'div');
   $float: ro-get($key, left right, left);
+  $keep: ro-get($key, 'keep', false);
 
   // get map
   $map: false;
@@ -22,63 +24,71 @@
     $map: ro-get-type($key, 'map');
   }
   
-  $half-gutter: ($gutter / 2);
-  $keys: map-keys($map);
-  $values: map-values($map);
+  @if $map {
+    $keys: map-keys($map);
+    $values: map-values($map);
 
-  // get full width
-  $full-width: 0;
-  @for $i from 1 through length($keys) {
-    $full-width: $full-width + nth($keys, $i);
-  }
-  
-  // get order
-  $order: ();
-  $u-keys: (); // reordered keys
-  $u-values: (); // reordered values
-
-  $flex-reorder: false;
-  @each $item in $values {
-    @if $item != 0 {
-      $flex-reorder: true;
+    // get full width
+    $full-width: 0;
+    @for $i from 1 through length($keys) {
+      $full-width: $full-width + nth($keys, $i);
     }
-  }
+    
+    // get order
+    $order: ();
+    $u-keys: (); // reordered keys
+    $u-values: (); // reordered values
 
-  $u-values: list-ascend(remove-dup($values));
-  @each $u-val in $u-values {
-    @for $i from 1 through length($values) {
-      @if nth($values, $i) == $u-val {
-        $order: append($order, $i);
+    $flex-reorder: false;
+    @each $item in $values {
+      @if $item != 0 {
+        $flex-reorder: true;
       }
     }
-  }
-  @each $or in $order {
-    $u-keys: append($u-keys, nth($keys, $or));
-  }
 
-  margin-left: - $half-gutter;
-  margin-right: - $half-gutter;
-
-  @include flexbox;
-  @include flex-wrap(wrap);
-
-  > #{$child} {
-    @include flex(1 1);
-    padding-left: $half-gutter;
-    padding-right: $half-gutter;
-    box-sizing: border-box;
-
-    // set col width
-    @for $i from 1 through length($keys) {
-      &:nth-child(#{$i}) {
-        @include flex-basis(percentage(nth($keys, $i) / $full-width));
-        // fix IE10 & 11: horizental padding break layout
-        .flexboxtweener & {
-          max-width: percentage(nth($keys, $i) / $full-width);
+    $u-values: list-ascend(remove-dup($values));
+    @each $u-val in $u-values {
+      @for $i from 1 through length($values) {
+        @if nth($values, $i) == $u-val {
+          $order: append($order, $i);
         }
+      }
+    }
+    @each $or in $order {
+      $u-keys: append($u-keys, nth($keys, $or));
+    }
+  }
+  
+  // *** output *** //
+  @if not $keep {
+    margin-left: - $half-gutter;
+    margin-right: - $half-gutter;
 
-        @if $flex-reorder {
-          @include order(nth($values, $i));
+    @include flexbox;
+    @include flex-wrap(wrap);
+  }
+
+  @if $map {
+    > #{$child} {
+      @if not $keep {
+        @include flex(1 1);
+        padding-left: $half-gutter;
+        padding-right: $half-gutter;
+        box-sizing: border-box;
+      }
+
+      // set col width
+      @for $i from 1 through length($keys) {
+        &:nth-child(#{$i}) {
+          @include flex-basis(percentage(nth($keys, $i) / $full-width));
+          // fix IE10 & 11: horizental padding break layout
+          .flexboxtweener & {
+            max-width: percentage(nth($keys, $i) / $full-width);
+          }
+
+          @if $flex-reorder {
+            @include order(nth($values, $i));
+          }
         }
       }
     }
@@ -87,25 +97,30 @@
   // no-flexbox
   .no-flexbox.no-flexboxtweener & {
     @include clearfix();
-    > #{$child} {
-      float: $float;
-      margin-#{opposite($float)}: -100%;
 
-      @for $i from 1 through length($keys) {
-        &:nth-child(#{$i}) {
-          // set col width
-          width: percentage(nth($keys, $i) / $full-width);
+    @if $map {
+      > #{$child} {
+        @if not $keep {
+          float: $float;
+          margin-#{opposite($float)}: -100%;
+        }
 
-          // set col order
-          $location: index($order, $i);
-          $location-val: 0;
-          @if $location != 1 {
-            @for $j from 1 to $location {
-              $location-val: ($location-val + nth($u-keys, $j));
+        @for $i from 1 through length($keys) {
+          &:nth-child(#{$i}) {
+            // set col width
+            width: percentage(nth($keys, $i) / $full-width);
+
+            // set col order
+            $location: index($order, $i);
+            $location-val: 0;
+            @if $location != 1 {
+              @for $j from 1 to $location {
+                $location-val: ($location-val + nth($u-keys, $j));
+              }
+              margin-#{$float}: percentage($location-val / $full-width);
+            } @else {
+              margin-#{$float}: 0;
             }
-            margin-#{$float}: percentage($location-val / $full-width);
-          } @else {
-            margin-#{$float}: 0;
           }
         }
       }

@@ -31,7 +31,7 @@ $ git clone https://github.com/ganlanyuan/rocket.git
         |wrap                       |media
         |span                       |offcanvas
         |span-calc                  |dropdown
-        |two-columns                |tabs
+        |liquid-2                |tabs
         |gallery                    |push-toggle
         |justify                    |checkbox
         |center                     |tooltip
@@ -249,32 +249,32 @@ $key: $child $align
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/layout-center.php)
 
-#### two-columns
-`two-columns` is for creating a two columns layout. One of them has a fixed width.
+#### liquid-2
+`liquid-2` is for creating a two columns layout. One of them has a fixed width.
 ````html
-<!-- Add "data-col-main", "data-col-aside" attributes to your markup. -->
+<!-- Add "data-main", "data-aside" attributes to your markup. -->
 
 <div class="wrapper">
 
   <!-- main -->
-  <div data-col-main=""></div>
+  <div data-main=""></div>
 
   <!-- aside -->
-  <div data-col-aside=""></div>
+  <div data-aside=""></div>
 </div>
 ````
 ```` scss
 // scss
-@mixin two-columns($key)
+@mixin liquid-2($key)
 // pattern
-$key: $direction $aside-width (gutter $gutter)
+$key: $direction $aside-width (gutter $gutter) (order $aside-order)
 
-.wrapper { @include two-columns(left 300px gutter 30px); }
+.wrapper { @include liquid-2(left 300px gutter 30px); }
 // direction: left; (aside is on the left)
 // aside-width: 300px;
 // gutter: 30px;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/layout-two-columns.php)
+[demo](http://creatiointl.org/gallery/william/rocket/layout-liquid-2.php)
 
 
 #【 Components 】

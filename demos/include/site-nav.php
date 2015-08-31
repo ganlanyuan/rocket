@@ -10,7 +10,7 @@
         <li><a href="#gallery">gallery</a></li>
         <li><a href="#justify">justify</a></li>
         <li><a href="#center">center</a></li>
-        <li><a href="#two-columns">two-columns</a></li>
+        <li><a href="#liquid-2">liquid-2</a></li>
         <li><a href="#debug">debug</a></li>
       </ul>
     </li>
