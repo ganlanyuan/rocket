@@ -25,32 +25,65 @@ Install with [git](http://www.git-scm.com/):
 $ git clone https://github.com/ganlanyuan/rocket.git
 ````
 # Structure
-```` html      
-     == layout ==                == components ==
-        |container                  |button
-        |wrap                       |media
-        |span                       |offcanvas
-        |span-calc                  |dropdown
-        |liquid-2                |tabs
-        |gallery                    |push-toggle
-        |justify                    |checkbox
-        |center                     |tooltip
-                                    |flex-video
-                                    |switch
-                                    |accordion
-                                    |mobile-nav
-                                               
-                                                
-     == addons ==                == color functions ==
-        |opacity                    |analogous
-        |ie-rgba                    |contrast
-        |rems                       |adjacent
-        |breakpoint (bp)            |complementary
-        |visible                    |split-complementary
-        |hidden                     |triad
-        |type                       |rectangle
-        |responsive-type            |square
-                                             
+```` html 
+Rocket/ 
+|── scss/   
+|   |── layout              
+|   |   |── container             
+|   |   |── row                  
+|   |   |── col                  
+|   |   |── col-calc             
+|   |   |── gallery               
+|   |   |── liquid-2              
+|   |   |── justify               
+|   |   |── center   
+|   |                                          
+|   |── components 
+|   |   |── button
+|   |   |── media
+|   |   |── offcanvas
+|   |   |── mobile-nav
+|   |   |── dropdown
+|   |   |── tabs
+|   |   |── push-toggle
+|   |   |── checkbox
+|   |   |── tooltip
+|   |   |── flex-video
+|   |   |── switch
+|   |   |── accordion
+|   |
+|   |── addons              
+|       |── opacity               
+|       |── ie-rgba               
+|       |── rems                  
+|       |── breakpoint (bp)       
+|       |── visible               
+|       |── hidden                
+|       |── type                  
+|       |── responsive-type  
+|       |── color functions  
+|           |── analogous
+|           |── contrast
+|           |── adjacent
+|           |── complementary
+|           |── split-complementary
+|           |── triad
+|           |── rectangle
+|           |── square                              
+|── js/ 
+    |── base                                           
+    |── components
+        |── animate                                        
+        |── autoheight-carousel                                        
+        |── autoheight-gallery                                        
+        |── autoplay                                        
+        |── equalizer                                        
+        |── ie-placeholder                                        
+        |── numIncrease                                        
+        |── offcanvas                                        
+        |── reach                                        
+        |── scrollTo                                        
+        |── sticky                                        
 ````
 
 #【 Layout 】
