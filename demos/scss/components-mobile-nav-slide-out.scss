@@ -1,8 +1,0 @@
-@import 'demo-base';
-@import 'nav-base';
-
-// *** addons: nav *** //
-
-.page {
-  @include mobile-nav('slide-out' left '.nav' rgba(black, 0.1) 200px 0.5s);
-}

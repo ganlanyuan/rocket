@@ -20,9 +20,8 @@
   <h4>components</h4>
   <nav class="demo-links">
     <?php 
-      $components = array('button', 'media-list', 'offcanvas', 'mobile-nav-slide-in', 'dropdown', 'tabs', 'switch', 'accordion', 'push-toggle', 'checkbox', 'tooltip', 'flex-video', 'slider-carousel', 'slider-gallery'); 
+      $components = array('button', 'media-list', 'offcanvas', 'mobile-nav', 'dropdown', 'tabs', 'switch', 'accordion', 'push-toggle', 'checkbox', 'tooltip', 'flex-video', 'slider-carousel', 'slider-gallery'); 
       $cur = '';
-      $componentName = '';
 
       foreach ($components as $component) {
         if ($pagename == 'components-' . $component) {
@@ -31,13 +30,7 @@
           $cur = '';
         }
 
-        if ($component == 'mobile-nav-slide-in') {
-          $componentName = 'mobile-nav';
-        } else {
-          $componentName = $component;
-        }
-        
-        echo '<a href="components-' . $component . '.php"' . $cur . '>' . $componentName . '</a>';
+        echo '<a href="components-' . $component . '.php"' . $cur . '>' . $component . '</a>';
       }
     ?>
   </nav>
