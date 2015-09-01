@@ -301,11 +301,12 @@ pre[class*="language-"] {
 .box {
   padding-top: 50px;
   padding-bottom: 50px;
+  text-align: center;
 }
 
 .row {
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: -1%;
+  margin-right: -1%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -322,8 +323,8 @@ pre[class*="language-"] {
   -moz-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 1%;
+  padding-right: 1%;
   box-sizing: border-box;
 }
 
@@ -398,7 +399,44 @@ pre[class*="language-"] {
   margin-left: 58.3333333333%;
 }
 
-.col1, .col2, .col3 {
-  text-align: center;
+.row-2 {
+  margin-left: -1%;
+  margin-right: -1%;
+}
+
+.no-flexbox.no-flexboxtweener .row-2:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.row-2 .col1 {
+  position: relative;
+  width: 16.6666666667%;
+  float: left;
+  box-sizing: border-box;
+  padding-left: 1%;
+  padding-right: 1%;
+  left: 83.3333333333%;
+}
+
+.row-2 .col2 {
+  position: relative;
+  width: 58.3333333333%;
+  float: left;
+  box-sizing: border-box;
+  padding-left: 1%;
+  padding-right: 1%;
+  left: -16.6666666667%;
+}
+
+.row-2 .col3 {
+  position: relative;
+  width: 25%;
+  float: left;
+  box-sizing: border-box;
+  padding-left: 1%;
+  padding-right: 1%;
+  left: -16.6666666667%;
 }
 /*# sourceMappingURL=layout-grid.css.map */

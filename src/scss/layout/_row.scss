@@ -9,7 +9,7 @@
 /// 
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin row($key){
+@mixin row($key:false){
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $half-gutter: ($gutter / 2);
   $child: ro-get-next($key, 'child', 'div');
@@ -64,8 +64,10 @@
     margin-left: - $half-gutter;
     margin-right: - $half-gutter;
 
-    @include flexbox;
-    @include flex-wrap(wrap);
+    @if $map {
+      @include flexbox;
+      @include flex-wrap(wrap);
+    }
   }
 
   @if $map {

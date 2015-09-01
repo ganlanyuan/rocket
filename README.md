@@ -32,7 +32,6 @@ Rocket/
 |   |   |── container             
 |   |   |── row                  
 |   |   |── col                  
-|   |   |── col-calc             
 |   |   |── gallery               
 |   |   |── liquid-2              
 |   |   |── justify               
@@ -202,33 +201,6 @@ $parent-layout: (7 of 10 $gutter);
 }
 .aside { @include col(3 of 10 $gutter); }
 ````
-
-#### col-calc
-`span-calc` is using `css-calc` to create columns, old browser (e.g. IE8) will not be supported.
-```` scss
-@mixin col-calc($key)
-// pattern
-$key: ($column of $columns) $gutter (move $move) (float $float) last
-
-.nav { @include col-calc(3); }
-// column: 3;
-// columns: 12; (default)
-// columns: 20px; (default)
-
-.nav { @include col-calc(11 of 16 30px); }
-// column: 3;
-// columns: 12;
-// gutter: 2%;
-
-.nav { @include col(last right 11 of 16 30px move -5); }
-// last: true; (The last column)
-// float: right;
-// move: -5; (move left 5 columns)
-
-// Tips: gutter must be a fixed value(px, em, rem).
-````
-
-[Grid demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)
 
 #### gallery
 `gallery` is for creating picture galleries.

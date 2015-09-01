@@ -2,7 +2,7 @@
 /// *Isolate mode*: read [this article](http://www.palantir.net/blog/responsive-design-s-dirty-little-secret) for more detail. If you want to use isolate mode on one column, other siblings columns also need use isolate mode:   
 /// *Nested grid*: use function `span` to calculate child element's gutter.   
 /// 
-/// $key: `($column at $location of $columns) $gutter (move $move) (float $float) last keep`
+/// $key: `($column at $location of $columns) $gutter (move $move) (float $float) keep`
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -19,8 +19,7 @@
 /// .nav { @include col(11 at 5 of 16 2%); }
 /// // location: 5; (isolate mode)
 /// 
-/// .nav { @include col(11 of 16 2% right move -5 last); }
-/// // last: true; (The last column)
+/// .nav { @include col(11 of 16 2% right move -5); }
 /// // float: right;
 /// // move: -5; (move left 5 columns)
 ///
@@ -40,7 +39,6 @@
 	$columns: ro-get-next($key, 'of', map-get($ro-layout, columns));
 	$gutter: map-get($ro-layout, gutter);
 	$float: ro-get($key, left right, left);
-	$last: ro-get($key, 'last');
 	$keep: ro-get($key, 'keep');
 	$move: ro-get-next($key, move);
 
@@ -81,74 +79,29 @@
 	
 
 	// *** output *** //
-  // float
-  @if not $keep { float: $float; }
-
-	// move
 	@if $move { position: relative; }
-
-	// isolate
 	@if $isolate { margin-right: -100%; }
 	
-	// no gutter
-	@if not $gutter or $gutter == 0 {
-	  width: percentage($column / $columns);
-	  margin-#{opposite($float)}: 0; 
-
-	  // move
-	  @if $move and $move != 0 { 
-	  	left: percentage($move / $columns); 
-	  } @else {
-	  	left: 0;
-	  }
-
-	  // location
-	  @if $location and $location != 0 { 
-	  	margin-#{$float}: percentage($location / $columns); 
-	  }
-
-	// flexible gutter
-	} @else if unit($gutter) == '%' {
-		$column-width: ((100% - ($columns - 1) * $gutter) / $columns);
-		width: $column-width * $column + $gutter * ($column - 1);
-
-		@if not $keep and not $last and not $isolate {
-				margin-#{opposite($float)}: $gutter; 
-		}
-
-		// move
-		@if $move and $move != 0 { 
-			left: ($column-width + $gutter) * $move; 
-		} @else {
-			left: 0;
-		}
-
-		// location
-		@if $location and $location != 0 { 
-			margin-#{$float}: ($column-width + $gutter) * $location; 
-		}
-
-	// fixed gutter
-	} @else {
-		width: percentage($column / $columns);
-
-		@if not $keep {
-	    box-sizing: border-box;
+	width: percentage($column / $columns);
+	@if not $keep {
+	  float: $float; 
+    box-sizing: border-box;
+    @if $gutter != 0 {
 			padding-left: ($gutter / 2);
 			padding-right: ($gutter / 2);
-		}
+    }
+	}
 
-		// move
-		@if $move and $move != 0 { 
-			left: percentage($move / $columns); 
-		} @else {
-			left: 0;
-		}
+	// move
+	@if $move and $move != 0 { 
+		left: percentage($move / $columns); 
+	} @else {
+		left: 0;
+	}
 
-		// location
-		@if $location and $location != 0 { 
-			margin-#{$float}: percentage($location / $columns); 
-		}
+	// location
+	@if $location and $location != 0 { 
+		margin-#{$float}: percentage($location / $columns); 
 	}
 }
 

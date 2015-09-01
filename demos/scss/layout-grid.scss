@@ -1,37 +1,22 @@
 @import 'demo-base';
-// *** layout: grid new *** //
-
-$ro-layout: (
-  'container': 1024px,
-  'columns': 12,
-  'gutter': 20px,
-);
+// *** layout: grid *** //
 
 // base
 .box {
-  // min-width: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
+  text-align: center; 
 }
 $layout: (
   2:1,
   7:0,
   3:0,
 );
-.row {
-  @include row($layout);
-}
-.col {
-  &1, &2, &3 {
-    text-align: center;
-  }
-  &1 {
-    // min-width: 200px;
-  }
-  &2 {
-    // min-width: 400px;
-  }
-  &3 {
-    // min-width: 300px;
-  }
+
+.row { @include row($layout); }
+.row-2 {
+  @include row();
+  .col1 { @include col(2 of 12 move 10); }
+  .col2 { @include col(7 of 12 move -2); }
+  .col3 { @include col(3 of 12 move -2); }
 }

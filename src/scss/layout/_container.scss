@@ -21,9 +21,7 @@
 /// 
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin container(
-  $key: (map-get($ro-layout, container) map-get($ro-layout, gutter) center)
-){
+@mixin container($key: false){
   $container: false;
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $align: ro-get($key, (left right center), center);
