@@ -381,22 +381,24 @@ pre[class*="language-"] {
 
 .no-flexbox.no-flexboxtweener .row > div {
   float: left;
-  margin-right: -100%;
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(1) {
   width: 16.6666666667%;
-  margin-left: 83.3333333333%;
+  position: relative;
+  left: 83.3333333333%;
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(2) {
   width: 58.3333333333%;
-  margin-left: 0;
+  position: relative;
+  left: -16.6666666667%;
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(3) {
   width: 25%;
-  margin-left: 58.3333333333%;
+  position: relative;
+  left: -16.6666666667%;
 }
 
 .row-2 {

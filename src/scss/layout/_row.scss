@@ -1,18 +1,24 @@
 /// Grid wrapper, works with span when using a fixed value for gutter.
 /// 
-/// $key: `$gutter`
+/// $key: `$map $mode (child $child) (gutter $gutter) (float $float) keep`
 /// @group layout
-/// @param {number} $key - key 
+/// @param {number | list} $key - key 
 /// @example scss - Usage
-/// .wrapper { @include row(20px); }
-/// // gutter: 20px;
-/// 
+/// $layout: (
+///   2:1,
+///   7:0,
+///   3:0,
+/// );
+/// .row { @include row($layout); }
+///
+/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin row($key:false){
+  $mode: ro-get($key, ('isolate' 'fluid'), 'fluid');
+  $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $half-gutter: ($gutter / 2);
-  $child: ro-get-next($key, 'child', 'div');
   $float: ro-get($key, left right, left);
   $keep: ro-get($key, 'keep', false);
 
@@ -104,7 +110,9 @@
       > #{$child} {
         @if not $keep {
           float: $float;
-          margin-#{opposite($float)}: -100%;
+          @if $mode == 'isolate' {
+            margin-#{opposite($float)}: -100%;
+          } 
         }
 
         @for $i from 1 through length($keys) {
@@ -115,13 +123,40 @@
             // set col order
             $location: index($order, $i);
             $location-val: 0;
-            @if $location != 1 {
-              @for $j from 1 to $location {
-                $location-val: ($location-val + nth($u-keys, $j));
+            @if $mode == 'isolate' {
+              @if $location != 1 {
+                @for $j from 1 to $location {
+                  $location-val: ($location-val + nth($u-keys, $j));
+                }
+                margin-#{$float}: percentage($location-val / $full-width);
+              } @else {
+                margin-#{$float}: 0;
               }
-              margin-#{$float}: percentage($location-val / $full-width);
-            } @else {
-              margin-#{$float}: 0;
+            } @else if $mode == 'fluid' {
+              $origin: $i;
+              $origin-val: 0;
+              $move-val: 0;
+              // get origin-val
+              @if $origin != 1 {
+                @for $h from 1 to $origin {
+                  $origin-val: ($origin-val + nth($keys, $h));
+                }
+              }
+              // get location-val
+              @if $location != 1 {
+                @for $q from 1 to $location {
+                  $location-val: ($location-val + nth($u-keys, $q));
+                }
+              } @else {
+                $location-val: 0;
+              }
+              // get move-val
+              $move-val: ($location-val - $origin-val);
+
+              @if $move-val != 0 {
+                position: relative;
+                left: percentage($move-val / $full-width);
+              }
             }
           }
         }
