@@ -1,3 +1,6 @@
+// *** vendors ***
+// @codekit-prepend "vendors/H5F.js"
+
 // *** base ***
 // @codekit-prepend "base/ready.js"
 // @codekit-prepend "base/helper.js"

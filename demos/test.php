@@ -27,21 +27,39 @@
 <body>
   <div class="container">
 
-    <div class="row">
-      <div class="col1">
-        <div class="box">1</div>
-      </div>
-      <div class="col2">
-        <div class="box">2</div>
-      </div>
-      <div class="col3">
-        <div class="box">3</div>
-      </div>
-      <div class="col4">
-        <div class="box">4</div>
-      </div>
-    </div>
+    <form action="" id="myform">
+      <ol>
+        <li>
+          <label for="name">Name</label>
+          <input type="text" id="name" pattern="[a-zA-Z]{6}" required>
+          <div data-info="valid">User name is valid.</div>
+          <div data-info="required">Valid user name required.</div>
+          <div data-info="error">User name must be at least 6 characters.</div>
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+          <div data-info="valid">Email address is valid.</div>
+          <div data-info="required">Valid email address required.</div>
+          <div data-info="error">Please enter a valid email.</div>
+        </li>
+        <li>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" pattern="^\d{4}-\d{3}-\d{4}$" required>
+          <div data-info="required">Phone number required.</div>
+          <div data-info="error">Phone number format must be xxxx-xxx-xxxx.</div>
+        </li>
+        <li>
+          <input type="submit" value="Submit">
+        </li>
+      </ol>
+    </form>
     
   </div>
+  <script>
+    window.onload = function () {
+      H5F.setup(document.querySelector("#myform"));
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+@import 'demo-base';
+
+// *** addons: validation *** //
+
+#myform {
+  @include validation(slide-in default);
+  margin-top: 50px;
+  li {
+    margin: 10px 0;
+  }
+  [data-info] {
+    font-family: arial, sans-serif;
+    z-index: 9999;
+  }
+}

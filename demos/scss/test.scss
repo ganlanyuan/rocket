@@ -13,36 +13,13 @@ body {
 }
 .container { @include container(1000px 20px); }
 
-
-// base
-.box {
-  // min-width: 100px;
-  padding: 50px 10px;
-  background-color: #f2f2f2;
-}
-$layout: (
-  2:0,
-  3:0,
-  7:0,
-  1:0,
-);
-.row {
-  // @include row($layout);
-  // @include flexbox;
-  // @include flex-wrap(wrap);
-}
-.col {
-  &1, &2, &3, &4 {
-    // min-width: 300px;
-    font-size: rem(36);
-    text-align: center;
+#myform {
+  @include validation(slide-in default);
+  margin-top: 50px;
+  li {
+    margin: 10px 0;
   }
-  &1 {
-    // @include flex(1 0 80%);
-    // @include order(1);
-  }
-  &2 {
-    // @include flex(1 0 40%);
-    // @include order(0);
+  [data-info] {
+    font-family: arial, sans-serif;
   }
 }

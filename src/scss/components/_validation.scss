@@ -1,0 +1,123 @@
+/// pure css *tooltip*.
+/// 
+/// $key: `$direction $color radius (width $width) (height $height)`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example scss - Usage
+/// .tooltip { @include tooltip(radius right #b02df3 width 300px); }
+/// // radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
+/// // direction: right;
+/// // background-color: #b02df3;
+/// // width: 300px; (for old browsers)
+/// 
+/// // it's better don't set tooltip element as a inline-block element 
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/components-tooltip.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin validation($key:false){
+  $style: ro-get($key, $validation-style, 'normal');
+  $direction: ro-get($key, $validation-direction, right);
+  $duration: 0.3s;
+  $default: ro-get($key, 'default');
+
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' and unit($item) == 's' {
+        $duration: $item;
+      }
+    }
+  } 
+
+  $horizontal: false;
+  $vertical: false;
+  @if index((left, right), $direction) {
+    $horizontal: true;
+  } @else if index((top, bottom), $direction) {
+    $vertical: true;
+  }
+
+  // *** output *** //
+  [data-info] {
+    @if $style == 'normal' {
+      display: none;
+    } @else if $style == 'slide-in' {
+      position: fixed;
+      display: inline-block;
+      #{$direction}: 0;
+      @include transition(transform $duration);
+      @if $direction == left {
+        @include transform(translateX(-120%));
+      } @else if $direction == right {
+        @include transform(translateX(120%));
+      } @else if $direction == top {
+        @include transform(translateY(-120%));
+      } @else if $direction == bottom {
+        @include transform(translateY(120%));
+      }
+      // non-transform
+      .no-csstransforms & { margin-#{$direction}: -100%; }
+    } @else if $style == 'fade-in' {
+      @include opacity(0);
+      @include transition(opacity $duration);
+      position: absolute;
+      display: inline-block;
+      margin-left: 10px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: -10px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px;
+        border-color: transparent;
+      }
+    }
+  }
+  .valid [data-info="valid"],
+  .required [data-info="required"],
+  .error [data-info="error"] {
+    @if $style == 'normal' {
+      display: block;
+    } @else if $style == 'slide-in' {
+      @if $horizontal {
+        @include transform(translateX(0));
+      } @else if $vertical {
+        @include transform(translateY(0));
+      }
+      // non-transform
+      .no-csstransforms & { margin-#{$direction}: 0; }
+    } @else if $style == 'fade-in' {
+      @include opacity(1);
+    }
+  }
+  @if $default {
+    [data-info] {
+      @if $style == 'slide-in' {
+        @include type(18px 1.3);
+      } @else {
+        @include type(14px 1.3);
+      }
+
+      margin-top: 0.3em;
+      padding: 0.5em 0.8em;
+      border-radius: 0.15em;
+      color: #fff;
+    }
+    @each $key, $value in $validation-background-color {
+      [data-info="#{$key}"] {
+        background-color: $value;
+        background-color: rgba($value, 0.9);
+        @if $style == 'fade-in' {
+          &:before { 
+            border-right-color: $value; 
+            border-right-color: rgba($value, 0.9); 
+          }
+        }
+      }
+    }
+  }
+}
