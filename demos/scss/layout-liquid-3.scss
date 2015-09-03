@@ -1,0 +1,196 @@
+@import 'demo-base';
+
+// *** layout: liquid-2 *** //
+
+@mixin liquid-3($key:false){
+  $mode: ro-get($key, ('isolate' 'fluid'), 'fluid');
+  $child: ro-get-next($key, 'child', 'div');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $half-gutter: ($gutter / 2);
+  $float: ro-get($key, left right, left);
+  $keep: ro-get($key, 'keep', false);
+
+  // get map
+  $map: false;
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else {
+    $map: ro-get-type($key, 'map');
+  }
+  
+  @if $map {
+    $keys: map-keys($map);
+    $values: map-values($map);
+
+    // get full width
+    $full-width: 0;
+    @for $i from 1 through length($keys) {
+      @if nth($keys, $i) != null {
+        $full-width: $full-width + nth($keys, $i);
+      }
+    }
+    
+    // get order
+    $order: ();
+    $u-keys: (); // reordered keys
+    $u-values: (); // reordered values
+
+    $flex-reorder: false;
+    @each $item in $values {
+      @if $item != 0 {
+        $flex-reorder: true;
+      }
+    }
+
+    $u-values: list-ascend(remove-dup($values));
+    @each $u-val in $u-values {
+      @for $i from 1 through length($values) {
+        @if nth($values, $i) == $u-val {
+          $order: append($order, $i);
+        }
+      }
+    }
+    @each $or in $order {
+      $u-keys: append($u-keys, nth($keys, $or));
+    }
+  }
+  
+  // *** output *** //
+  @if not $keep {
+    @if $map {
+      @include flexbox;
+      @include flex-wrap(wrap);
+    }
+  }
+
+  @if $map {
+    > #{$child} {
+      @for $i from 1 through length($keys) {
+        // set width
+        $thisWidth: nth($keys, $i);
+        &:nth-child(#{$i}) {
+          @if $thisWidth == null {
+            @include flex(1 1);
+          } @else {
+            @include flex-basis($thisWidth);
+            // fix IE10 & 11: horizental padding break layout
+            .flexboxtweener & {
+              max-width: $thisWidth;
+            }
+          }
+
+          // set margin to middle column
+          @if nth($order, $i) == 2 {
+            margin-left: $gutter;
+            margin-right: $gutter;
+          }
+
+          // set order
+          @if $flex-reorder {
+            @include order(nth($values, $i));
+          }
+        }
+      }
+    }
+  }
+
+  // no-flexbox
+  .no-flexbox.no-flexboxtweener & {
+    @include clearfix();
+
+    @if unit($gutter) == '%' {
+      $gutter: 20px;
+    }
+
+    $left-width: 0;
+    $right-width: 0;
+    $full-width: 0;
+    $new-keys: ();
+    $new-order: ();
+    $main-layout: null;
+    @for $i from 1 through 3 {
+      @if nth($keys, $i) == null {
+        @if nth($order, $i) == 1 {
+          $main-layout: 'left';
+        } @else if nth($order, $i) == 2 {
+          $main-layout: 'center';
+        } @else if nth($order, $i) == 3 {
+          $main-layout: 'right';
+        }
+        $new-keys: reject($keys, null);
+        $new-order: reject($order, $i);
+      }
+    }
+    @if nth($new-order, 1) > nth($new-order, 2) {
+      $left-width: nth($new-keys, 2);
+      $right-width: nth($new-keys, 1);
+    } @else {
+      $left-width: (nth($new-keys, 1) + $gutter);
+      $right-width: (nth($new-keys, 2) + $gutter);
+    }
+    $full-width: ($left-width + $right-width);
+    
+    @if $map {
+      > #{$child} {
+        @if not $keep {
+          // @if $mode == 'isolate' {
+            // margin-#{opposite($float)}: -100%;
+          // } 
+        }
+
+        $item-location: 0;
+        @for $i from 1 through length($keys) {
+          $item-width: nth($keys, $i);
+          $item-location: nth($order, $i);
+          &:nth-child(#{$i}) {
+            &:before { content: '#{$order} ';}
+            // set col width
+            @if $item-width == null {
+              width: 100%;
+              padding-right: $full-width;
+              box-sizing: border-box;
+              @if $item-location == 2 {
+                float: left;
+                margin-right: -100%;
+                padding-left: $left-width;
+                padding-right: $right-width;
+              } @else if $item-location == 1 {
+                padding-right: $full-width;
+              } @else {
+                padding-left: $full-width;
+              }
+            } @else {
+              width: $item-width;
+              @if $item-location == 2 {
+                @if $main-layout == 'left' {
+                  float: right;
+                  margin-left: -100%;
+                  margin-right: $right-width;
+                } @else {
+                  float: left;
+                  margin-right: -100%;
+                  margin-left: $left-width;
+                }
+              }
+            }
+
+            @if $item-location == 1 {
+              float: left;
+              margin-right: -100%;
+            } @else if $item-location == 3 {
+              float: right;
+              margin-left: -100%;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.example-liquid-3 { 
+  @include liquid-3((null:1, 150px:0, 200px:0)); 
+}
+

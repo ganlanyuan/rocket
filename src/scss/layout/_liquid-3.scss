@@ -1,0 +1,167 @@
+/// Grid wrapper, works with span when using a fixed value for gutter.
+/// 
+/// $key: `$map $mode (child $child) (gutter $gutter) (float $float) keep`
+/// @group layout
+/// @param {number | list} $key - key 
+/// @example scss - Usage
+/// $layout: (
+///   2:1,
+///   7:0,
+///   3:0,
+/// );
+/// .row { @include row($layout); }
+///
+/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin row($key:false){
+  $mode: ro-get($key, ('isolate' 'fluid'), 'fluid');
+  $child: ro-get-next($key, 'child', 'div');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $half-gutter: ($gutter / 2);
+  $float: ro-get($key, left right, left);
+  $keep: ro-get($key, 'keep', false);
+
+  // get map
+  $map: false;
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else {
+    $map: ro-get-type($key, 'map');
+  }
+  
+  @if $map {
+    $keys: map-keys($map);
+    $values: map-values($map);
+
+    // get full width
+    $full-width: 0;
+    @for $i from 1 through length($keys) {
+      $full-width: $full-width + nth($keys, $i);
+    }
+    
+    // get order
+    $order: ();
+    $u-keys: (); // reordered keys
+    $u-values: (); // reordered values
+
+    $flex-reorder: false;
+    @each $item in $values {
+      @if $item != 0 {
+        $flex-reorder: true;
+      }
+    }
+
+    $u-values: list-ascend(remove-dup($values));
+    @each $u-val in $u-values {
+      @for $i from 1 through length($values) {
+        @if nth($values, $i) == $u-val {
+          $order: append($order, $i);
+        }
+      }
+    }
+    @each $or in $order {
+      $u-keys: append($u-keys, nth($keys, $or));
+    }
+  }
+  
+  // *** output *** //
+  @if not $keep {
+    margin-left: - $half-gutter;
+    margin-right: - $half-gutter;
+
+    @if $map {
+      @include flexbox;
+      @include flex-wrap(wrap);
+    }
+  }
+
+  @if $map {
+    > #{$child} {
+      @if not $keep {
+        @include flex(1 1);
+        padding-left: $half-gutter;
+        padding-right: $half-gutter;
+        box-sizing: border-box;
+      }
+
+      // set col width
+      @for $i from 1 through length($keys) {
+        &:nth-child(#{$i}) {
+          @include flex-basis(percentage(nth($keys, $i) / $full-width));
+          // fix IE10 & 11: horizental padding break layout
+          .flexboxtweener & {
+            max-width: percentage(nth($keys, $i) / $full-width);
+          }
+
+          @if $flex-reorder {
+            @include order(nth($values, $i));
+          }
+        }
+      }
+    }
+  }
+
+  // no-flexbox
+  .no-flexbox.no-flexboxtweener & {
+    @include clearfix();
+
+    @if $map {
+      > #{$child} {
+        @if not $keep {
+          float: $float;
+          @if $mode == 'isolate' {
+            margin-#{opposite($float)}: -100%;
+          } 
+        }
+
+        @for $i from 1 through length($keys) {
+          &:nth-child(#{$i}) {
+            // set col width
+            width: percentage(nth($keys, $i) / $full-width);
+
+            // set col order
+            $location: index($order, $i);
+            $location-val: 0;
+            @if $mode == 'isolate' {
+              @if $location != 1 {
+                @for $j from 1 to $location {
+                  $location-val: ($location-val + nth($u-keys, $j));
+                }
+                margin-#{$float}: percentage($location-val / $full-width);
+              } @else {
+                margin-#{$float}: 0;
+              }
+            } @else if $mode == 'fluid' {
+              $origin: $i;
+              $origin-val: 0;
+              $move-val: 0;
+              // get origin-val
+              @if $origin != 1 {
+                @for $h from 1 to $origin {
+                  $origin-val: ($origin-val + nth($keys, $h));
+                }
+              }
+              // get location-val
+              @if $location != 1 {
+                @for $q from 1 to $location {
+                  $location-val: ($location-val + nth($u-keys, $q));
+                }
+              } @else {
+                $location-val: 0;
+              }
+              // get move-val
+              $move-val: ($location-val - $origin-val);
+
+              @if $move-val != 0 {
+                position: relative;
+                left: percentage($move-val / $full-width);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
