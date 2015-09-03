@@ -218,15 +218,12 @@ pre[class*="language-"] {
 }
 .example-complementary .color-box {
   width: 47%;
-  margin-right: 3%;
 }
 .example-adjacent .color-box, .example-split-complementary .color-box, .example-triad .color-box {
   width: 30%;
-  margin-right: 3%;
 }
 .example-rectangle .color-box, .example-square .color-box {
   width: 22%;
-  margin-right: 3%;
 }
 
 .color-pattern {

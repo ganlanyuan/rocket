@@ -125,23 +125,12 @@ pre[class*="language-"] { padding: 0 1em; }
   color: #fff;
   max-width: 200px;
   text-transform: capitalize;
-  .example-complementary &
-   {
-    width: 47%;
-    margin-right: 3%;
-  }
+  .example-complementary & { width: 47%; }
   .example-adjacent &,
   .example-split-complementary &,
-  .example-triad &
-   {
-    width: 30%;
-    margin-right: 3%;
-  }
+  .example-triad & { width: 30%; }
   .example-rectangle &,
-  .example-square & {
-    width: 22%;
-    margin-right: 3%;
-  }
+  .example-square & { width: 22%; }
 }
 .color-pattern {
   clear: both;

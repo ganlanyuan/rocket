@@ -214,20 +214,17 @@ pre[class*="language-"] {
 
 .example-complementary .color-box {
   width: 47%;
-  margin-right: 3%;
 }
 
 .example-adjacent .color-box,
 .example-split-complementary .color-box,
 .example-triad .color-box {
   width: 30%;
-  margin-right: 3%;
 }
 
 .example-rectangle .color-box,
 .example-square .color-box {
   width: 22%;
-  margin-right: 3%;
 }
 
 .color-pattern {
@@ -314,10 +311,6 @@ pre[class*="language-"] {
   background-color: #cb7d26;
   color: #eee;
   width: 30%;
-}
-
-.color-box {
-  margin: 0 20px 20px 0;
 }
 
 .color-box-adjacent-1 {
