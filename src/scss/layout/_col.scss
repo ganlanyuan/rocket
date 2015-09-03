@@ -46,6 +46,7 @@
 	$column: 0;
 	$location: false;
 	$isolate: false;
+	$key: reject($key, $move); // hide $move value from list
 	@if type-of($key) == 'number' {
 		$column: $key;
 	} @else if type-of($key) == 'list' {
