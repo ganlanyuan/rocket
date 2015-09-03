@@ -55,33 +55,48 @@
       } @else if $direction == bottom {
         @include transform(translateY(120%));
       }
+      @if $horizontal {
+        bottom: 20px;
+      }
       // non-transform
       .no-csstransforms & { margin-#{$direction}: -100%; }
     } @else if $style == 'fade-in' {
       @include opacity(0);
       @include transition(opacity $duration);
       position: absolute;
-      display: inline-block;
-      margin-left: 10px;
+      @if $direction == right {
+        margin-left: 10px;
+        display: inline-block;
+      } @else if $direction == bottom {
+        display: block;
+        margin-top: 0 !important;
+      }
       &:before {
         content: '';
         position: absolute;
-        top: 5px;
-        left: -10px;
-        display: block;
-        width: 0;
-        height: 0;
         border-style: solid;
         border-width: 5px;
         border-color: transparent;
+        @if $direction == right {
+          top: 5px;
+          left: -10px;
+        } @else if $direction == bottom {
+          top: -10px;
+          left: 50%;
+          margin-left: -5px;
+        }
       }
     }
   }
+  .valid, 
+  .required, 
+  .error { position: relative; }
+
   .valid [data-info="valid"],
   .required [data-info="required"],
   .error [data-info="error"] {
     @if $style == 'normal' {
-      display: block;
+      display: inline-block;
     } @else if $style == 'slide-in' {
       @if $horizontal {
         @include transform(translateX(0));
@@ -113,8 +128,8 @@
         background-color: rgba($value, 0.9);
         @if $style == 'fade-in' {
           &:before { 
-            border-right-color: $value; 
-            border-right-color: rgba($value, 0.9); 
+            border-#{$direction}-color: $value; 
+            border-#{$direction}-color: rgba($value, 0.9); 
           }
         }
       }

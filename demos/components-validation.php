@@ -5,34 +5,37 @@
 
     <div class="topic">
       <h2 id=""><span>components: </span>validation</h2>
-      <form action="" id="myform">
-        <ol>
-          <li>
-            <label for="name">Name</label>
-            <input type="text" id="name" pattern="[a-zA-Z]{6}" required>
-            <div data-info="valid">User name is valid.</div>
-            <div data-info="required">Valid user name required.</div>
-            <div data-info="error">User name must be at least 6 characters.</div>
-          </li>
-          <li>
-            <label for="email">Email</label>
-            <input type="email" id="email" required>
-            <div data-info="valid">Email address is valid.</div>
-            <div data-info="required">Valid email address required.</div>
-            <div data-info="error">Please enter a valid email.</div>
-          </li>
-          <li>
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" pattern="^\d{3}-\d{3}-\d{4}$" required>
-            <div data-info="required">Phone number required.</div>
-            <div data-info="error">Phone number format must be xxx-xxx-xxxx.</div>
-          </li>
-          <li>
-            <input type="submit" value="Submit">
-          </li>
-        </ol>
-      </form>
+      <ul class="validation-wrap">
+        <li>
+          <form action="" class="myform" id="form1">
+            <h4>Form 1: normal</h4>
+            <?php include 'include/form-validation.php'; ?>
+          </form>
+        </li>
+        <li>
+          <form action="" class="myform" id="form2">
+            <h4>Form 2: fade-in right</h4>
+            <?php include 'include/form-validation.php'; ?>
+          </form>
+        </li>
+        <li>
+          <form action="" class="myform" id="form3">
+            <h4>Form 3: fade-in bottom</h4>
+            <?php include 'include/form-validation.php'; ?>
+          </form>
+        </li>
+        <li>
+          <form action="" class="myform" id="form4">
+            <h4>Form 4: slide-in right</h4>
+            <?php include 'include/form-validation.php'; ?>
+          </form>
+        </li>
+      </ul>
       <pre><code class="language-scss">
+#form1 { @include validation(default); }
+#form2 { @include validation(fade-in right default); }
+#form3 { @include validation(fade-in bottom default); }
+#form4 { @include validation(slide-in right default); }
       </code></pre>
     </div>
     
@@ -41,7 +44,7 @@
   <?php include "include/site-footer.php" ?>
   <script>
     window.onload = function () {
-      H5F.setup(document.querySelector("#myform"));
+      H5F.setup(document.querySelectorAll(".myform"));
     }
   </script>
 </div>
