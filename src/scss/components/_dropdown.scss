@@ -29,29 +29,20 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin dropdown($key: 'ul'){
-  $check: append(
-      join(
-        join($ro-dropdown-show, $ro-dropdown-style, comma), 
-        $ro-dropdown-direction, 
-        comma
-      ), 
-      'default', 
-      comma
-    );
+  $check: append(join(join($ro-dropdown-show, $ro-dropdown-style), $ro-dropdown-direction), 'default');
 
   $child: ro-get-type($key, 'string', $check, 'ul');
   $show: ro-get($key, $ro-dropdown-show, 'hover');
   $style: ro-get($key, $ro-dropdown-style, 'display');
   $direction: ro-get($key, $ro-dropdown-direction);
+  $duration: ro-get-type($key, 'number', false, 0.3s);
   $default: ro-get($key, 'default');
   $path: false;
 
   
   // *** output *** //
   position: relative;
-  @if $show == 'hover' {
-    cursor: pointer;
-  }
+  @if $show == 'hover' { cursor: pointer; }
   // hide checkbox. 
   > input { 
     position: absolute;
@@ -79,9 +70,9 @@
   }
 
   > #{$child} {
-    transition: all 0.4s $ro-global-bezier;
     // basic menu style
     position: absolute;
+    transition: transform $duration, opacity ($duration / 2);
     
     // direction
     @if $direction {
@@ -90,17 +81,20 @@
     }
 
     // hide menu
+    .no-csstransforms & { display: none; }
     @if $style == 'display' {
       display: none;
     } @else if $style == 'scale' {
-      -ms-transform: scaleY(0);
-      -webkit-transform: scaleY(0);
-      transform: scaleY(0);
-      -ms-transform-origin: top;
-      -webkit-transform-origin: top;
-      transform-origin: top;
-      .no-csstransforms & { display: none; }
-    } 
+      @include transform-origin(50% 0% 0px);
+      @include transform-style(preserve-3d);
+      @include transform(scaleY(0.4));
+      @include opacity(0);
+    } @else if $style == 'rotate' {
+      @include transform-style(preserve-3d);
+      @include transform-origin(50% 0% 0px);
+      @include transform(rotateX(-30deg));
+      @include opacity(0);
+    }
 
     // default menu style
     @if $default {
@@ -116,7 +110,7 @@
       @if $shadow { box-shadow: $shadow; }
       .current > a, li:hover > a { background-color: analogous($bgc 10%);}
       li { 
-        transition: all 0.4s $ro-global-bezier;
+        transition: all $duration;
         &:first-child > a { padding-top: nth($padding, 1) * 2;}
         &:last-child > a { padding-bottom: nth($padding, 1) * 2;}
       }
@@ -138,13 +132,15 @@
 
   // show
   #{$path} #{$child} {
+    .no-csstransforms & { display: block; }
     @if $style == 'display' {
       display: block;
     } @else if $style == 'scale' {
-      -ms-transform: scaleY(1);
-      -webkit-transform: scaleY(1);
-      transform: scaleY(1);
-      .no-csstransforms & { display: block; }
-    } 
+      @include transform(scaleY(1));
+      @include opacity(1);
+    } @else if $style == 'rotate' {
+      @include transform(rotateX(0));
+      @include opacity(1);
+    }
   }
 }

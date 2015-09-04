@@ -2,13 +2,17 @@
 
 // *** addons: dropdown *** //
 
+.example { 
+  margin: 50px 0;
+  text-align: center; 
+}
 .dropdown-1,
 .dropdown-2 { 
-  padding: 10px 0; 
+  text-align: left;
+  padding: 10px 0 0; 
   margin-right: 30px; 
   display: inline-block; 
   > ul { 
-    margin-top: 10px; 
     z-index: 1;
   }
   small {
@@ -18,16 +22,24 @@
   }
 } 
 .dropdown-1 { 
-  @include dropdown(default); 
+  > span {
+    display: inline-block;
+    padding: 10px 0;
+  }
+  @include dropdown(rotate default); 
   .sub { 
-    @include dropdown(default right hover); 
+    @include dropdown(default rotate right hover); 
     li { white-space: nowrap; }
   }
 }
 .dropdown-2 { 
-  @include dropdown(default scale click); 
+  > label {
+    display: inline-block;
+    padding: 10px 0;
+  }
+  @include dropdown(default rotate click); 
   .sub-2 {
-    @include dropdown(default left scale click);
+    @include dropdown(default left rotate click);
     > label { float: right; }
     li { white-space: nowrap; }
     > input:checked ~ a { background-color: #dfdfdf; }
