@@ -257,6 +257,10 @@ pre[class*="language-"] {
   letter-spacing: normal;
 }
 
+.example-content strong {
+  font-size: 20px;
+}
+
 .more-demos {
   border-top: 1px solid #dbdbdb;
 }
@@ -375,11 +379,6 @@ pre[class*="language-"] {
     -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
-  }
-  .example-gallery > li:after {
-    content: '';
-    display: block;
-    padding-bottom: 8%;
   }
   .flexboxtweener .example-gallery > li {
     max-width: 25%;

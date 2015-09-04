@@ -1,6 +1,6 @@
 /// Grid wrapper, works with span when using a fixed value for gutter.
 /// 
-/// $key: `$map $mode (child $child) (gutter $gutter) (float $float) keep`
+/// $key: `$map $mode (child $child) (gutter $gutter) keep`
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -19,14 +19,32 @@
   $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $half-gutter: ($gutter / 2);
-  $float: ro-get($key, left right, left);
   $keep: ro-get($key, 'keep', false);
 
   // get map
   $map: false;
+  $keys: false;
+  $values: false;
+  $order: ();
   @if type-of($key) == 'map' {
     $map: $key;
-  } @else {
+  } @else if type-of($key) == 'list' {
+    // check if $key is the data list
+    @each $item in $key {
+      @if $item != null and type-of($item) != 'number' {
+        $keys: false;
+      } @else {
+        $keys: true;
+      }
+    }
+
+    // get $keys
+    @if $keys {
+      $keys: $key;
+    } @else {
+      $keys: ro-get-type($key, 'list');
+    }
+    // get map
     $map: ro-get-type($key, 'map');
   }
   
@@ -34,25 +52,8 @@
     $keys: map-keys($map);
     $values: map-values($map);
 
-    // get full width
-    $full-width: 0;
-    @for $i from 1 through length($keys) {
-      $full-width: $full-width + nth($keys, $i);
-    }
-    
     // get order
-    $order: ();
-    $u-keys: (); // reordered keys
-    $u-values: (); // reordered values
-
-    $flex-reorder: false;
-    @each $item in $values {
-      @if $item != 0 {
-        $flex-reorder: true;
-      }
-    }
-
-    $u-values: list-ascend(remove-dup($values));
+    $u-values: list-ascend(remove-dup($values)); // reordered values
     @each $u-val in $u-values {
       @for $i from 1 through length($values) {
         @if nth($values, $i) == $u-val {
@@ -60,23 +61,30 @@
         }
       }
     }
-    @each $or in $order {
-      $u-keys: append($u-keys, nth($keys, $or));
-    }
+  } @else {
+    $values: (0, 0, 0);
+    $order: (1, 2, 3);
+  }
+
+  // get full width
+  $full-width: 0;
+  @each $item in $keys {
+    $full-width: $full-width + $item;
   }
   
   // *** output *** //
   @if not $keep {
+    @include clearfix();
     margin-left: - $half-gutter;
     margin-right: - $half-gutter;
 
-    @if $map {
+    @if $keys {
       @include flexbox;
       @include flex-wrap(wrap);
     }
   }
 
-  @if $map {
+  @if $keys {
     > #{$child} {
       @if not $keep {
         @include flex(1 1);
@@ -89,14 +97,9 @@
       @for $i from 1 through length($keys) {
         &:nth-child(#{$i}) {
           @include flex-basis(percentage(nth($keys, $i) / $full-width));
+          @include order(nth($values, $i));
           // fix IE10 & 11: horizental padding break layout
-          .flexboxtweener & {
-            max-width: percentage(nth($keys, $i) / $full-width);
-          }
-
-          @if $flex-reorder {
-            @include order(nth($values, $i));
-          }
+          .flexboxtweener & { max-width: percentage(nth($keys, $i) / $full-width); }
         }
       }
     }
@@ -104,16 +107,15 @@
 
   // no-flexbox
   .no-flexbox.no-flexboxtweener & {
-    @include clearfix();
-
-    @if $map {
+    @if $keys {
       > #{$child} {
         @if not $keep {
-          float: $float;
-          @if $mode == 'isolate' {
-            margin-#{opposite($float)}: -100%;
-          } 
+          float: left;
+          @if $mode == 'isolate' { margin-right: -100%; }
         }
+        
+        // reset left value
+        &:nth-child(n+1) { left: 0; }
 
         @for $i from 1 through length($keys) {
           &:nth-child(#{$i}) {
@@ -126,26 +128,27 @@
             @if $mode == 'isolate' {
               @if $location != 1 {
                 @for $j from 1 to $location {
-                  $location-val: ($location-val + nth($u-keys, $j));
+                  $location-val: ($location-val + nth($keys, nth($order, $j)));
                 }
-                margin-#{$float}: percentage($location-val / $full-width);
+                margin-left: percentage($location-val / $full-width);
               } @else {
-                margin-#{$float}: 0;
+                margin-left: 0;
               }
             } @else if $mode == 'fluid' {
-              $origin: $i;
               $origin-val: 0;
               $move-val: 0;
               // get origin-val
-              @if $origin != 1 {
-                @for $h from 1 to $origin {
+              @if $i != 1 {
+                @for $h from 1 to $i {
                   $origin-val: ($origin-val + nth($keys, $h));
                 }
+              } @else {
+                $origin-val: 0;
               }
               // get location-val
               @if $location != 1 {
                 @for $q from 1 to $location {
-                  $location-val: ($location-val + nth($u-keys, $q));
+                  $location-val: ($location-val + nth($keys, nth($order, $q)));
                 }
               } @else {
                 $location-val: 0;
@@ -164,4 +167,3 @@
     }
   }
 }
-

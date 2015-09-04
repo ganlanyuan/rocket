@@ -23,64 +23,157 @@
 /// @link http://creatiointl.org/gallery/william/rocket/layout-liquid-2.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin liquid-2($key) {
-  $direction: ro-get($key, left right, left);
+@mixin liquid-2($key){
+  $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $aside-order: ro-get-next($key, 'order', 0);
+  $keep: ro-get($key, 'keep', false);
 
-  // set up aside width
-  $key: reject($key, $gutter);
-  $key: reject($key, $aside-order);
-  $aside-width: ro-get-type($key, 'number', false, 300px);
+  // get map
+  $map: false;
+  $keys: false;
+  $values: false;
+  $order: ();
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    // check if $key is the data list
+    @each $item in $key {
+      @if $item != null and type-of($item) != 'number' {
+        $keys: false;
+      } @else {
+        $keys: true;
+      }
+    }
+
+    // get $keys
+    @if $keys {
+      $keys: $key;
+    } @else {
+      $keys: ro-get-type($key, 'list');
+    }
+    // get map
+    $map: ro-get-type($key, 'map');
+  }
   
-  // set up aside-full
-  $aside-full: 0;
-  $aside-full-no-csscalc: 0;
-  @if unit($aside-width) == unit($gutter) {
-    $aside-full: ($aside-width + $gutter);
-    $aside-full-no-csscalc: $aside-full;
+  @if $map {
+    $keys: map-keys($map);
+    $values: map-values($map);
+    
+    // get order
+    $u-values: list-ascend(remove-dup($values)); // reordered values
+    @each $u-val in $u-values {
+      @for $i from 1 through length($values) {
+        @if nth($values, $i) == $u-val {
+          $order: append($order, $i);
+        }
+      }
+    }
   } @else {
-    $aside-full: '#{$aside-width}' + ' - ' + '#{$gutter}';
-    $aside-full-no-csscalc: $aside-width;
+    $values: (0, 0);
+    $order: (1, 2);
   }
-
+  
   // *** output *** //
-  @include flexbox();
-  @include align-items(stretch);
-  > [data-main] { @include flex(1 1 auto); }
-  > [data-aside] { 
-    @include flex(0 0 $aside-width); 
-    @include order($aside-order);
-    margin-#{opposite($direction)}: $gutter;
-    margin-#{$direction}: 0;
+  // &:before { content: '#{$order}'; position: absolute; margin-top: -20px; }
+  @if not $keep {
+    @if $keys {
+      @include flexbox;
+      @include flex-wrap(wrap);
+      @include align-content(stretch);
+    }
   }
 
+  @if $keys {
+    > #{$child} {
+      @if not $keep { @include align-content(stretch); }
+
+      @for $i from 1 through length($keys) {
+        // set width
+        $thisWidth: nth($keys, $i);
+        &:nth-child(#{$i}) {
+          @if $thisWidth == null {
+            @include flex(1 1 0%);
+            // clear max-width
+            .flexboxtweener & { max-width: auto; }
+          } @else {
+            @include flex(0 0 $thisWidth);
+            // fix IE10 & 11: horizental padding break layout
+            .flexboxtweener & { max-width: $thisWidth; }
+          }
+
+          // set order
+          @include order(nth($values, $i));
+        }
+      }
+
+      // set margin to the first column
+      .flexbox &:nth-child(#{nth($order, 1)}), 
+      .flexboxtweener &:nth-child(#{nth($order, 1)}) { margin-right: $gutter; }
+      // clear margin
+      .flexbox &:nth-child(#{nth($order, 2)}), 
+      .flexboxtweener &:nth-child(#{nth($order, 2)}) { margin-right: 0; }
+    }
+  }
+
+  // no-flexbox
   .no-flexbox.no-flexboxtweener & {
-    @include clearfix; 
-    > [data-main] {
-      float: opposite($direction);
-      width: calc(100% - #{$aside-full});
+    // get main-layout
+    $main-layout: null;
+    @if nth($keys, nth($order, 1)) == null {
+      $main-layout: 'left';
+    } @else if nth($keys, nth($order, 2)) == null {
+      $main-layout: 'right';
     }
-    > [data-aside] {
-      float: $direction;
-      width: $aside-width;
-    }
-  }
-  .no-flexbox.no-flexboxtweener.no-csscalc & {
-    padding-#{opposite($direction)}: 0;
-    padding-#{$direction}: $aside-full-no-csscalc;
+    // &:before { content: '#{$main-layout}';  position: absolute; margin-top: -20px; }
 
-    > [data-main] {
-      width: 100%;
+    // check gutter 
+    @if unit($gutter) == '%' { $gutter: 0; }
+    $full-width: 0;
+    @each $item in $keys {
+      @if $item != null {
+        @if unitless($item) { $item: ($item * 1px); }
+        $full-width: ($item + $gutter);
+      }
     }
 
-    > [data-aside] {
-      margin-#{opposite($direction)}: 0;
-      margin-#{$direction}: - $aside-full-no-csscalc;
-      
-      padding-#{$direction}: 0;
-      padding-#{opposite($direction)}: $gutter;
-      box-sizing: border-box;
+    @if not $keep { @include clearfix(); }
+    @if $keys {
+      > #{$child} {
+        @if not $keep { box-sizing: border-box; }
+
+        // reset padding, margin
+        &:nth-child(n+1) {
+          padding: 0;
+          margin: 0;
+        }
+
+        @if $main-layout == 'left' {
+          &:nth-child(#{nth($order, 1)}) {
+            width: 100%;
+            padding-right: $full-width;
+            float: left;
+            margin-right: -100%;
+          } 
+          &:nth-child(#{nth($order, 2)}) {
+            width: nth($keys, nth($order, 2));
+            float: right;
+            margin-left: -100%;
+          }
+        } @else if $main-layout == 'right' {
+          &:nth-child(#{nth($order, 1)}) {
+            width: nth($keys, nth($order, 1));
+            float: left;
+            margin-right: -100%;
+          }
+          &:nth-child(#{nth($order, 2)}) {
+            width: 100%;
+            padding-left: $full-width;
+            float: right;
+            margin-left: -100%;
+          } 
+        }
+
+      }
     }
   }
 }

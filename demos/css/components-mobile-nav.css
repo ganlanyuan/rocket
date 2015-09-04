@@ -254,6 +254,9 @@ pre[class*="language-"] {
   line-height: 1.4;
   letter-spacing: normal;
 }
+.example-content strong {
+  font-size: 20px;
+}
 
 .more-demos {
   border-top: 1px solid #dbdbdb;

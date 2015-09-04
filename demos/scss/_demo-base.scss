@@ -156,6 +156,11 @@ pre[class*="language-"] { padding: 0 1em; }
   font-size: 13px;
   line-height: 1.4; 
   letter-spacing: normal;
+  strong { 
+    display: block;
+    margin-bottom: 10px;
+    font-size: 24px; 
+  }
 }
 
 // more demos

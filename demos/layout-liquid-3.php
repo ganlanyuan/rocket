@@ -7,18 +7,24 @@
       <h2 id=""><span>layout: </span>liquid-3</h2>
       <div class="example example-liquid-3" data-margin>
         <div>
-          <div class="example-content cell" data-content>flexible</div>
+          <div class="example-content cell" data-content><strong>A</strong>flexible</div>
         </div>
         <div>
-          <div class="example-content cell" data-content>150px</div>
+          <div class="example-content cell" data-content><strong>B</strong>150px</div>
         </div>
         <div>
-          <div class="example-content cell" data-content>200px</div>
+          <div class="example-content cell" data-content><strong>C</strong>200px</div>
         </div>
       </div>
       <pre><code class="language-scss">
+$layout: (
+  null: 1, 
+  150px: 0, 
+  200px: 0,
+);
+
 .example-liquid-3 { 
-  @include liquid-3((null:2, 150px:1, 200px:0) 'gutter' 20px); 
+  @include liquid-3($layout); 
 }
       </code></pre>
     </div>

@@ -2,18 +2,15 @@
 // *** layout: grid *** //
 
 // base
-.box {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center; 
-}
 $layout: (
   2:1,
   7:0,
   3:0,
 );
 
-.row { @include row($layout); }
+.row { 
+  @include row($layout); 
+}
 .row-2 {
   @include row();
   .col1 { @include col(2 move 10); }

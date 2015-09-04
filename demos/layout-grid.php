@@ -6,15 +6,15 @@
     <div class="topic">
       <h2 id=""><span>layout: </span>grid</h2>
       <div class="example">
-        <div class="row">
+        <div class="row" data-margin>
           <div class="col1">
-            <div class="example-content cell" data-content>1</div>
+            <div class="example-content cell" data-content><strong>A</strong></div>
           </div>
           <div class="col2">
-            <div class="example-content cell" data-content>2</div>
+            <div class="example-content cell" data-content><strong>B</strong></div>
           </div>
           <div class="col3">
-            <div class="example-content cell" data-content>3</div>
+            <div class="example-content cell" data-content><strong>C</strong></div>
           </div>
         </div>
       </div>
@@ -28,15 +28,15 @@ $layout: (
 .row { @include row($layout); }
       </code></pre>
       <div class="example">
-        <div class="row-2">
+        <div class="row-2" data-margin>
           <div class="col1">
-            <div class="example-content cell" data-content>1</div>
+            <div class="example-content cell" data-content><strong>A</strong></div>
           </div>
           <div class="col2">
-            <div class="example-content cell" data-content>2</div>
+            <div class="example-content cell" data-content><strong>B</strong></div>
           </div>
           <div class="col3">
-            <div class="example-content cell" data-content>3</div>
+            <div class="example-content cell" data-content><strong>C</strong></div>
           </div>
         </div>
       </div>

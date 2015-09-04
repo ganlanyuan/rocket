@@ -257,6 +257,12 @@ pre[class*="language-"] {
   letter-spacing: normal;
 }
 
+.example-content strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
 .more-demos {
   border-top: 1px solid #dbdbdb;
 }
@@ -295,15 +301,9 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.box {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center;
-}
-
 .row {
-  margin-left: -1%;
-  margin-right: -1%;
+  margin-left: -10px;
+  margin-right: -10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -314,14 +314,20 @@ pre[class*="language-"] {
   flex-wrap: wrap;
 }
 
+.row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 .row > div {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1;
   -moz-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 10px;
+  padding-right: 10px;
   box-sizing: border-box;
 }
 
@@ -370,14 +376,12 @@ pre[class*="language-"] {
   max-width: 25%;
 }
 
-.no-flexbox.no-flexboxtweener .row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
 .no-flexbox.no-flexboxtweener .row > div {
   float: left;
+}
+
+.no-flexbox.no-flexboxtweener .row > div:nth-child(n+1) {
+  left: 0;
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(1) {
@@ -399,11 +403,11 @@ pre[class*="language-"] {
 }
 
 .row-2 {
-  margin-left: -1%;
-  margin-right: -1%;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
-.no-flexbox.no-flexboxtweener .row-2:after {
+.row-2:after {
   clear: both;
   content: "";
   display: table;
@@ -414,8 +418,8 @@ pre[class*="language-"] {
   width: 16.6666666667%;
   float: left;
   box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 10px;
+  padding-right: 10px;
   left: 83.3333333333%;
 }
 
@@ -424,8 +428,8 @@ pre[class*="language-"] {
   width: 58.3333333333%;
   float: left;
   box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 10px;
+  padding-right: 10px;
   left: -16.6666666667%;
 }
 
@@ -434,8 +438,8 @@ pre[class*="language-"] {
   width: 25%;
   float: left;
   box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 10px;
+  padding-right: 10px;
   left: -16.6666666667%;
 }
 /*# sourceMappingURL=layout-grid.css.map */

@@ -269,6 +269,10 @@ pre[class*="language-"] {
   letter-spacing: normal;
 }
 
+.example-content strong {
+  font-size: 20px;
+}
+
 .more-demos {
   border-top: 1px solid #dbdbdb;
 }

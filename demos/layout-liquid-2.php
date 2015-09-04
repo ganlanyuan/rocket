@@ -6,29 +6,21 @@
     <div class="topic">
       <h2 id=""><span>layout: </span>liquid-2</h2>
       <div class="example example-liquid-2" data-margin>
-        <div data-main>
-          <div class="example-content cell" data-content>
-            <strong>main</strong> <br>
-            <div class="hide">
-              More content <br>
-              &nbsp; <br>
-              &nbsp; <br>
-              &nbsp;
-            </div>
-          </div>
+        <div>
+          <div class="example-content cell" data-content><strong>A</strong>flexible</div>
         </div>
-        <div data-aside>
-          <div class="example-content cell" data-content>
-            <strong>aside</strong>
-          </div>
+        <div>
+          <div class="example-content cell" data-content><strong>B</strong>200px</div>
         </div>
       </div>
       <pre><code class="language-scss">
+$layout: (
+  null: 1,
+  200px: 0,
+);
+
 .example-liquid-2 { 
-  @include liquid-2(right 200px); 
-  @media (min-width: 800px) {
-    @include liquid-2(300px order -1);
-  }
+  @include liquid-2($layout); 
 }
       </code></pre>
     </div>
