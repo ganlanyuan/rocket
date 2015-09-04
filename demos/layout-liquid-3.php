@@ -6,17 +6,20 @@
     <div class="topic">
       <h2 id=""><span>layout: </span>liquid-3</h2>
       <div class="example example-liquid-3" data-margin>
-        <div data-main>
-          <div class="example-content" data-content>flexible</div>
+        <div>
+          <div class="example-content cell" data-content>flexible</div>
         </div>
-        <div data-aside>
-          <div class="example-content" data-content>150px</div>
+        <div>
+          <div class="example-content cell" data-content>150px</div>
         </div>
-        <div data-aside>
-          <div class="example-content" data-content>200px</div>
+        <div>
+          <div class="example-content cell" data-content>200px</div>
         </div>
       </div>
       <pre><code class="language-scss">
+.example-liquid-3 { 
+  @include liquid-3((null:2, 150px:1, 200px:0) 'gutter' 20px); 
+}
       </code></pre>
     </div>
     

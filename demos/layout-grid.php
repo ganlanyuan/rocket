@@ -8,13 +8,13 @@
       <div class="example">
         <div class="row">
           <div class="col1">
-            <div class="box" data-content>1</div>
+            <div class="example-content cell" data-content>1</div>
           </div>
           <div class="col2">
-            <div class="box" data-content>2</div>
+            <div class="example-content cell" data-content>2</div>
           </div>
           <div class="col3">
-            <div class="box" data-content>3</div>
+            <div class="example-content cell" data-content>3</div>
           </div>
         </div>
       </div>
@@ -30,13 +30,13 @@ $layout: (
       <div class="example">
         <div class="row-2">
           <div class="col1">
-            <div class="box" data-content>1</div>
+            <div class="example-content cell" data-content>1</div>
           </div>
           <div class="col2">
-            <div class="box" data-content>2</div>
+            <div class="example-content cell" data-content>2</div>
           </div>
           <div class="col3">
-            <div class="box" data-content>3</div>
+            <div class="example-content cell" data-content>3</div>
           </div>
         </div>
       </div>

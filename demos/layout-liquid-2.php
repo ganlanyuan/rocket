@@ -7,7 +7,7 @@
       <h2 id=""><span>layout: </span>liquid-2</h2>
       <div class="example example-liquid-2" data-margin>
         <div data-main>
-          <div class="example-content" data-content>
+          <div class="example-content cell" data-content>
             <strong>main</strong> <br>
             <div class="hide">
               More content <br>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div data-aside>
-          <div class="example-content" data-content>
+          <div class="example-content cell" data-content>
             <strong>aside</strong>
           </div>
         </div>

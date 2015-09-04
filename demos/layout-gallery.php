@@ -6,14 +6,14 @@
     <div class="topic">
       <h2 id=""><span>layout: </span>gallery</h2>
       <ul class="example-gallery">
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
-        <li><span data-content></span></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
+        <li><div class="cell" data-content></div></li>
       </ul>
       <pre><code class="language-scss">
 .example-gallery {

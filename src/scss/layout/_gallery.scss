@@ -42,12 +42,12 @@
   $half-gutter: ($gutter / 2);
 
   // *** output *** //
-  @include flexbox;
-  @include flex-wrap(wrap);
-  @include align-content(stretch);
-
-  // fix left and right edge padding
   @if not $keep {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include align-content(stretch);
+
+    // fix left and right edge padding
     margin-left: - $half-gutter;
     margin-right: - $half-gutter;
   }
@@ -55,6 +55,7 @@
   > #{$child} {
     @if not $keep {
       @include flex(1 1);
+      @include align-self(stretch);
       box-sizing: border-box;
       @if unit($gutter) != '%' {
         padding: 0 $half-gutter $gutter; 
