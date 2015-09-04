@@ -258,7 +258,9 @@ pre[class*="language-"] {
 }
 
 .example-content strong {
-  font-size: 20px;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .more-demos {
@@ -315,7 +317,7 @@ pre[class*="language-"] {
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
-  height: 200px;
+  height: 500px;
 }
 
 .no-flexbox.no-flexboxtweener .example-center {

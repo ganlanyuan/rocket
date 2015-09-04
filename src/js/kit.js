@@ -16,6 +16,5 @@
 // @codekit-prepend "components/autoheight-carousel.js"
 // @codekit-prepend "components/autoheight-gallery.js"
 // @codekit-prepend "components/autoplay.js"
-// @codekit-prepend "components/offcanvas.js"
 // @codekit-prepend "components/sticky.js"
 // @codekit-prepend "components/equalizer.js"

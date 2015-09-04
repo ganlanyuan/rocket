@@ -53,8 +53,7 @@
 // components
 @import "components/button"; // @require [function] contrast
 @import "components/media";
-@import "components/offcanvas";  // @require [mixin] transform, transition-delay and [function] contrast, analogous
-@import "components/mobile-nav";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
+@import "components/off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
 @import "components/dropdown";
 @import "components/tabs";
 @import "components/switch";

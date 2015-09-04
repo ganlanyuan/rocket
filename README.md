@@ -40,8 +40,7 @@ Rocket/
 |   |── components 
 |   |   |── button
 |   |   |── media
-|   |   |── offcanvas
-|   |   |── mobile-nav
+|   |   |── off-canvas
 |   |   |── dropdown
 |   |   |── tabs
 |   |   |── push-toggle
@@ -79,7 +78,6 @@ Rocket/
         |── equalizer                                        
         |── ie-placeholder                                        
         |── numIncrease                                        
-        |── offcanvas                                        
         |── reach                                        
         |── scrollTo                                        
         |── sticky                                        
@@ -572,66 +570,7 @@ $key: $direction $color radius (width $width) (height $height)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/components-tooltip.php)
 
-#### offcanvas
-`offcanvas` is for creating the navigation of mobile site.
-````html
-<!-- include kit.js -->
-<script src="path/to/kit.min.js"></script>
-
-<!-- page -->
-<div class="page">
-  <!-- nav icon -->
-  <div data-icon-nav></div>
-
-  <!-- offcanvas -->
-  <nav class="nav">
-    <ul>
-      <li><span data-offcanvas-close>close</span></li>
-      <li><a href="">item01</a></li>
-      <li><a href="">item02</a></li>
-      <li><span data-icon-haschild><span class="ic-angle-right"></span></span><a href="">item03</a>
-        <ul data-offcanvas-subnav>
-          <li data-offcanvas-back>back</li>
-          <li><a href="">sub item02</a></li>
-          <li><a href="">sub item03</a></li>
-          <li><a href="">sub item04</a></li>
-        </ul>
-      </li>
-      <li><a href="">item04</a></li>
-    </ul>
-  </nav>
-
-  <!-- page cover -->
-  <div data-page-cover=""></div>
-</div>
-````
-```` scss
-// *** offcanvas *** //
-@mixin offcanvas($key)
-// pattern
-$key: $style $direction animation $offcanvas-width $padding $background-color
-
-.nav { @include offcanvas(translate 300px '1em' left #102244 animation); }
-// style: translate; (move | transition | reveal)
-// offcanvas-width: 300px;
-// nav-item-padding: 1em;
-// direction: left; (left | right)
-// offcanvas-background-color: #102244;
-// animation: true;
-
-// *** page-container *** //
-@mixin page-container($key)
-// pattern
-$key: $style $direction $offcanvas-width $cover-bg
-
-.page { @include page-container(translate left 300px); }
-// style: translate;
-// offcanvas-width: 300px;
-// direction: left;
-````
-[demo](http://creatiointl.org/gallery/william/rocket/components-offcanvas.php)
-
-#### mobile-nav
+#### off-canvas
 Pure css off-canvas with multiple styles.  
 ```` html
 <!-- styles: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
@@ -674,11 +613,11 @@ Pure css off-canvas with multiple styles.
 </div>
 ````
 ```` scss
-@mixin mobile-nav($key)
+@mixin off-canvas($key)
 // pattern
 $key: $style $direction $nav $nav-width $overlay-background-color $duration
 
-.page { @include mobile-nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+.page { @include off-canvas('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
 // direction: left; (left | right | top | bottom)
 // nav: .nav;
@@ -686,7 +625,7 @@ $key: $style $direction $nav $nav-width $overlay-background-color $duration
 // overlay-background-color: rgba(0, 0, 0, 0.1);
 // duration: 0.5s;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/components-mobile-nav-slide-in.php)
+[demo](http://creatiointl.org/gallery/william/rocket/components-off-canvas.php)
 
 ## Pure CSS Sliders
 A pure CSS responsive slider with previous/next buttons, nav dots, autoplay(IE8- are not supported), autoheight and more. It works well on modern browsers and IE8+, but it doesn't support loop and lazyload for now.

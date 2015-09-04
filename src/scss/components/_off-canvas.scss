@@ -44,7 +44,7 @@
 /// </div>
 /// 
 /// @example scss - Usage
-/// .page { @include mobile-nav('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+/// .page { @include off-canvas('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 /// // style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer')
 /// // direction: left; (left | right | top | bottom)
 /// // nav: .nav;
@@ -55,8 +55,8 @@
 /// @link http://creatiointl.org/gallery/william/rocket/components-nav-slide-in.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin mobile-nav($key) {
-  $check: append(join($ro-nav-direction, $ro-nav-modes), 'submenu');
+@mixin off-canvas($key) {
+  $check: append(join($ro-off-canvas-direction, $ro-off-canvas-modes), 'submenu');
   // initalize $map-list, $map, $breakpoint
   $map-list: ();
   $map: ();
@@ -64,8 +64,8 @@
   $duration: 0.3s;
   $width: 240px;
 
-  $direction: ro-get($key, $ro-nav-direction, 'left');
-  $mode: ro-get($key, $ro-nav-modes, 'slide-in');
+  $direction: ro-get($key, $ro-off-canvas-direction, 'left');
+  $mode: ro-get($key, $ro-off-canvas-modes, 'slide-in');
   $nav: ro-get-type($key, 'string', $check);
   $submenu: ro-get($key, 'submenu');
   $overlay-color: ro-get-type($key, 'color', false, rgba(0, 0, 0, 0.2));
@@ -222,7 +222,7 @@
     #{$direction}: 0;
 
     @if $page-over-nav {
-      z-index: map-get($ro-nav-z-index, 'page');
+      z-index: map-get($ro-off-canvas-z-index, 'page');
     }
 
     input:checked ~ & {
@@ -259,7 +259,7 @@
     #{$nav} {
       position: fixed;
       display: block;
-      z-index: map-get($ro-nav-z-index, 'nav');
+      z-index: map-get($ro-off-canvas-z-index, 'nav');
       box-sizing: border-box;
       #{$direction}: 0;
 
@@ -371,7 +371,7 @@
       bottom: 0;
       #{opposite($direction)}: auto;
       background-color: transparent;
-      z-index: map-get($ro-nav-z-index, 'page-overlay');
+      z-index: map-get($ro-off-canvas-z-index, 'page-overlay');
       @include transition(#{$direction} $duration);
       input:checked ~ & {
         // background-color

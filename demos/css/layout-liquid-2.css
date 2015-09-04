@@ -334,6 +334,10 @@ pre[class*="language-"] {
   order: 1;
 }
 
+.flexboxtweener .example-liquid-2 > div:nth-child(1) {
+  max-width: auto;
+}
+
 .example-liquid-2 > div:nth-child(2) {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 200px;

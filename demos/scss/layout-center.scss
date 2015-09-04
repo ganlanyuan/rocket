@@ -4,6 +4,6 @@
 
 .example-center { 
   @include center(div left);
-  height: 200px;
+  height: 500px;
   > div { padding: 10px; }
 }

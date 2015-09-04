@@ -5,10 +5,10 @@
 
     <div class="topic">
       <h2 id=""><span>layout: </span>center</h2>
-      <div class="example example-center cell" data-margin>
+      <div class="example example-center" data-margin>
         <div data-content>
         <div class="example-content">
-          center align content <br>
+          <strong>Center align content</strong>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus doloribus dicta voluptate quaerat vero!
         </div>
         </div>

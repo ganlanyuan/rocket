@@ -113,7 +113,7 @@ $map: (
   } 
 
   .page-#{$mode} {
-    @include mobile-nav($mode $direction '.nav-#{$mode}' $mode-map $mode-bp rgba(black, 0.2) 200px 0.5s submenu);
+    @include off-canvas($mode $direction '.nav-#{$mode}' $mode-map $mode-bp rgba(black, 0.2) 200px 0.5s submenu);
   }
 }
 input:checked ~ {

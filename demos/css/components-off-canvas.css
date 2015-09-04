@@ -255,9 +255,7 @@ pre[class*="language-"] {
   letter-spacing: normal;
 }
 .example-content strong {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .more-demos {
@@ -1519,4 +1517,4 @@ input:checked ~ .page-push .nav-push {
   margin-top: -200px;
 }
 
-/*# sourceMappingURL=components-mobile-nav.css.map */
+/*# sourceMappingURL=components-off-canvas.css.map */

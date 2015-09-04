@@ -1,18 +1,18 @@
 <?php 
   $navP = 'inside';
   $navN = 'slide-in';
-  $pagegroup = 'mobile-nav';
+  $pagegroup = 'off-canvas';
  ?>
 <?php include 'include/head.php'; ?>
 <body>
 
 <?php if ($navP == 'outside') {
-  include 'include/mobile-nav.php';
+  include 'include/off-canvas.php';
 } ?>
 <div class="page page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>Mobile-nav<span></span></h2>
+      <h2 id=""><span>components: </span>off-canvas<span></span></h2>
       <?php include 'include/nav-links.php'; ?>
 
       <?php 
@@ -82,7 +82,7 @@
       <div class="mode-code mode-' . $nav . '">
         <pre><code class="language-scss">
 .page {
-  @include mobile-nav("' . $nav .'" '. $dir . ' ".nav-'. $nav . '" rgba(0, 0, 0, 0.1) 200px 0.5s);
+  @include off-canvas("' . $nav .'" '. $dir . ' ".nav-'. $nav . '" rgba(0, 0, 0, 0.1) 200px 0.5s);
 }
         </code></pre>
       </div>
@@ -153,7 +153,7 @@
       <div class="mode-code mode-' . $nav2 . '">
         <pre><code class="language-scss">
 .page {
-  @include mobile-nav("' . $nav2 . '" ' . $dir . ' ".nav-'. $nav2 . '" rgba(0, 0, 0, 0.1) 200px 0.5s);
+  @include off-canvas("' . $nav2 . '" ' . $dir . ' ".nav-'. $nav2 . '" rgba(0, 0, 0, 0.1) 200px 0.5s);
 }
         </code></pre>
       </div>
