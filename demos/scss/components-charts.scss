@@ -1,0 +1,14 @@
+@import 'demo-base';
+
+// *** components: charts *** //
+
+$data1: (
+  Copper: 8.9 5 10.7,
+  Silver: 10.5 10 12,
+  Gold: 19.3 16 12,
+  Platinum: 21.45 22 18,
+);
+.charts {
+  margin: 50px 0;
+  @include charts($data1 'column' color (#66CCFF #FF6FCF #333333));
+}

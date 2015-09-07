@@ -1,6 +1,6 @@
 @import 'demo-base';
 
-// *** addons: validation *** //
+// *** validation: validation *** //
 
 #form1 { @include validation(default); }
 #form2 { @include validation(fade-in right default); }

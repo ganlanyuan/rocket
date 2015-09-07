@@ -1,0 +1,146 @@
+/// pure css *tooltip*.
+/// 
+/// $key: `$direction $color radius (width $width) (height $height)`
+/// @group components
+/// @param {number | list} $key - key 
+/// @example scss - Usage
+/// .tooltip { @include tooltip(radius right #b02df3 width 300px); }
+/// // radius: 0.22em; (This can be custmized by changing "$tooltip-radius: 0.22em !default;")
+/// // direction: right;
+/// // background-color: #b02df3;
+/// // width: 300px; (for old browsers)
+/// 
+/// // it's better don't set tooltip element as a inline-block element 
+/// 
+/// @link http://creatiointl.org/gallery/william/rocket/components-tooltip.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin charts($key) {
+  $size: ro-get-next($key, 'size', 40px);
+  $chart-type: ro-get($key, $ro-charts-type, 'bar');
+  $unit: ro-get-next($key, 'unit', 0.1);
+  $child: ro-get-next($key, 'child', 'dd');
+  $color: ro-get-next($key, 'color');
+  $gutter: false;
+
+  // set unit
+  @if unitless($unit) {
+    @if $unit < 1 {
+      $unit: percentage($unit);
+    } @else {
+      $unit: percentage($unit / 100);
+    }
+  }
+  // set grow, direction
+  $grow: false;
+  $direction: false;
+  @if $chart-type == 'bar' {
+    $grow: width;
+    $direction: right;
+  } @else if $chart-type == 'column' {
+    $grow: height;
+    $direction: top;
+  }
+
+  // get data
+  $data: false;
+  @if type-of($key) == 'map' {
+    $data: $key;
+  } @else if type-of($key) == 'list' {
+    // get data
+    $data: ro-get-type($key, 'map');
+  }
+  $keys: map-keys($data);
+  $values: map-values($data);
+
+  // set line-color
+  $line-color: #ddd;
+  @if length($color) == (length(nth($values, 1)) + 1) {
+    $line-color: nth($color, length($color));
+  }
+
+
+  // *** output *** //
+  @if $chart-type == 'bar' or $chart-type == 'column' {
+    #{$child} {
+      position: relative;
+      background: repeating-linear-gradient(to #{$direction}, #{$line-color}, #{$line-color} 1px, #fff 1px, #fff $unit);
+      &:before {
+        position: absolute;
+      }
+      > span {
+        display: block;
+        color: #fff;
+        &:before { display: block; }
+        @for $i from 1 through length(nth($values, 1)) {
+          &:nth-child(#{$i}) { background-color: nth($color, $i); }
+        }
+      }
+    }
+    @for $i from 1 through length($keys) {
+      .item-#{$i} {
+        &:before { content: '#{nth($keys, $i)}'; }
+        > span {
+          @for $j from 1 through length(nth($values, $i)) {
+            &:nth-child(#{$j}) {
+              #{$grow}: percentage(nth(nth($values, $i), $j) / 30);
+              &:before { content: '#{nth(nth($values, $i), $j)}'; }
+            }
+          }
+        }
+      }
+    }
+  }
+  @if $chart-type == 'bar' {
+    $gutter: 10px;
+
+    margin-left: 7em;
+    #{$child} {
+      padding: $gutter 0;
+      &:before {
+        top: 0;
+        width: 6em;
+        left: -7em;
+        line-height: ($size * 2);
+        text-align: right;
+      }
+      span {
+        height: $size;
+        line-height: $size;
+        margin-bottom: 1px;
+        text-align: right;
+        &:before { margin-right: 0.5em; }
+      }
+    }
+  } @else if $chart-type == 'column' {
+    $gutter: 0.2;
+    $column-width: percentage((1 - $gutter) / length(nth($values, 1)));
+
+    @include clearfix();
+    dd {
+      float: left;
+      padding-top: 50%;
+      width: percentage(1 / length($keys));
+      &:before {
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: -2em;
+      }
+      > span {
+        position: absolute;
+        bottom: 0;
+        width: $column-width;
+        &:before { 
+          text-align: center;
+          margin-top: 0.5em; 
+        }
+        @for $i from 1 through length(nth($values, 1)) {
+          &:nth-child(#{$i}) {
+            left: (percentage($gutter / 2) + $column-width * ($i - 1));
+          }
+        }
+      }
+    }
+  }
+}
