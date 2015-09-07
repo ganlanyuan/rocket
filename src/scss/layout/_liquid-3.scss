@@ -69,7 +69,6 @@
   @if not $keep {
     @if $keys {
       @include flexbox;
-      @include flex-wrap(wrap);
       @include align-content(stretch);
     }
   }

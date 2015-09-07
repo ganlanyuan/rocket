@@ -78,10 +78,7 @@
     margin-left: - $half-gutter;
     margin-right: - $half-gutter;
 
-    @if $keys {
-      @include flexbox;
-      @include flex-wrap(wrap);
-    }
+    @if $keys { @include flexbox; }
   }
 
   @if $keys {
