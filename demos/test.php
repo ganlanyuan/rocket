@@ -23,43 +23,53 @@
   <!-- css -->
   <link rel="stylesheet" href="css/test.css">
   <script src="js/index.min.js"></script>
+  <script src="js/prefixfree.js"></script>
+  <script src="js/conic-gradient.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+
+
+    // Callback that creates and populates a data table, 
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'Slices');
+    data.addRows([
+      ['Mushrooms', 3],
+      ['Onions', 1],
+      ['Olives', 1],
+      ['Zucchini', 1],
+      ['Pepperoni', 2]
+    ]);
+
+    // Set chart options
+    var options = {'title':'How Much Pizza I Ate Last Night',
+                   'width':400,
+                   'height':300,
+                   colors: ['#0080FF', '#FF0080', '#CC66FF', '#FF8000', '#008040']
+                 };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+    }
+    </script>
 </head>
 <body>
   <div class="container">
+    <div class="box"></div>
 
-    <form action="" id="myform">
-      <ol>
-        <li>
-          <label for="name">Name</label>
-          <input type="text" id="name" pattern="[a-zA-Z]{6}" required>
-          <div data-info="valid">User name is valid.</div>
-          <div data-info="required">Valid user name required.</div>
-          <div data-info="error">User name must be at least 6 characters.</div>
-        </li>
-        <li>
-          <label for="email">Email</label>
-          <input type="email" id="email" required>
-          <div data-info="valid">Email address is valid.</div>
-          <div data-info="required">Valid email address required.</div>
-          <div data-info="error">Please enter a valid email.</div>
-        </li>
-        <li>
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" pattern="^\d{4}-\d{3}-\d{4}$" required>
-          <div data-info="required">Phone number required.</div>
-          <div data-info="error">Phone number format must be xxxx-xxx-xxxx.</div>
-        </li>
-        <li>
-          <input type="submit" value="Submit">
-        </li>
-      </ol>
-    </form>
-    
+    <div id="chart_div" style="width:400; height:300"></div>
   </div>
-  <script>
-    window.onload = function () {
-      H5F.setup(document.querySelector("#myform"));
-    }
-  </script>
 </body>
 </html>
