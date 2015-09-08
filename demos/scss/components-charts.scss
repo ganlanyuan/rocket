@@ -9,6 +9,15 @@ $data1: (
   Platinum: 21.45 22 18,
 );
 .charts {
-  margin: 50px 0;
   @include charts($data1 'column' color (#66CCFF #FF6FCF #333333));
+  margin: 50px 0;
+  li span { font-size: 14px; }
+  &-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    h4 {
+      font-size: 24px;
+      margin-left: em(96, 24);
+    }
+  }
 }

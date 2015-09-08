@@ -2,7 +2,7 @@
 
 
 // pxto
-@function pxto($result-unit, $pxval, $base: $ro-em-base) {
+@function pxto($result-unit, $pxval, $base) {
   @if unit($pxval) == 'em' or unit($pxval) == 'rem' { 
     @return $pxval; 
   } @else {
@@ -14,12 +14,12 @@
 
 // em
 @function em($pxval, $base: $ro-em-base) {
-  @return pxto(1em, $pxval, $base: $ro-em-base);
+  @return pxto(1em, $pxval, $base);
 }
 
 // rem
 @function rem($pxval, $base: $ro-em-base) {
-  @return pxto(1rem, $pxval, $base: $ro-em-base);
+  @return pxto(1rem, $pxval, $base);
 }
 
 // strip-unit

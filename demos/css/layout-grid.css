@@ -329,9 +329,9 @@ pre[class*="language-"] {
 }
 
 .row > div:nth-child(1) {
-  -webkit-flex-basis: 16.66667%;
-  -ms-flex-preferred-size: 16.66667%;
-  flex-basis: 16.66667%;
+  -webkit-flex-basis: 16.6666666667%;
+  -ms-flex-preferred-size: 16.6666666667%;
+  flex-basis: 16.6666666667%;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -moz-order: 1;
@@ -340,13 +340,13 @@ pre[class*="language-"] {
 }
 
 .flexboxtweener .row > div:nth-child(1) {
-  max-width: 16.66667%;
+  max-width: 16.6666666667%;
 }
 
 .row > div:nth-child(2) {
-  -webkit-flex-basis: 58.33333%;
-  -ms-flex-preferred-size: 58.33333%;
-  flex-basis: 58.33333%;
+  -webkit-flex-basis: 58.3333333333%;
+  -ms-flex-preferred-size: 58.3333333333%;
+  flex-basis: 58.3333333333%;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
   -moz-order: 0;
@@ -355,7 +355,7 @@ pre[class*="language-"] {
 }
 
 .flexboxtweener .row > div:nth-child(2) {
-  max-width: 58.33333%;
+  max-width: 58.3333333333%;
 }
 
 .row > div:nth-child(3) {
@@ -382,21 +382,21 @@ pre[class*="language-"] {
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(1) {
-  width: 16.66667%;
+  width: 16.6666666667%;
   position: relative;
-  left: 83.33333%;
+  left: 83.3333333333%;
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(2) {
-  width: 58.33333%;
+  width: 58.3333333333%;
   position: relative;
-  left: -16.66667%;
+  left: -16.6666666667%;
 }
 
 .no-flexbox.no-flexboxtweener .row > div:nth-child(3) {
   width: 25%;
   position: relative;
-  left: -16.66667%;
+  left: -16.6666666667%;
 }
 
 .row-2 {
@@ -412,22 +412,22 @@ pre[class*="language-"] {
 
 .row-2 .col1 {
   position: relative;
-  width: 16.66667%;
+  width: 16.6666666667%;
   float: left;
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
-  left: 83.33333%;
+  left: 83.3333333333%;
 }
 
 .row-2 .col2 {
   position: relative;
-  width: 58.33333%;
+  width: 58.3333333333%;
   float: left;
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
-  left: -16.66667%;
+  left: -16.6666666667%;
 }
 
 .row-2 .col3 {
@@ -437,6 +437,6 @@ pre[class*="language-"] {
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
-  left: -16.66667%;
+  left: -16.6666666667%;
 }
 /*# sourceMappingURL=layout-grid.css.map */
