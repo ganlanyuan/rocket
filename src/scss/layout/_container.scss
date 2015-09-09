@@ -40,6 +40,8 @@
         $container: map-get($ro-layout, container);
       }
     }
+  } @else {
+    $container: map-get($ro-layout, container);
   }
 
   // strip unit when gutter == 0
