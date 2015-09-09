@@ -47,6 +47,7 @@
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-a .controls, .carousel-d .controls, .carousel-e .controls, .carousel-f .controls, .carousel-g .controls, .carousel-h .controls, .carousel-a .dots, .carousel-d .dots, .carousel-e .dots, .carousel-f .dots, .carousel-g .dots, .carousel-h .dots, .carousel-a .autoplay, .carousel-d .autoplay, .carousel-e .autoplay, .carousel-f .autoplay, .carousel-g .autoplay, .carousel-h .autoplay {
