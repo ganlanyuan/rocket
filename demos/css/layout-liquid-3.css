@@ -15,6 +15,7 @@
     opacity: 1;
   }
 }
+
 body {
   -webkit-animation: fake 1s infinite;
           animation: fake 1s infinite;
@@ -61,6 +62,7 @@ a {
   text-decoration: none;
   color: #212121;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -104,6 +106,7 @@ h2 {
   font-weight: 700;
   margin: .5em 0;
 }
+
 h2 span {
   font-weight: 300;
   color: #999;
@@ -119,11 +122,12 @@ h5 {
 }
 
 p code {
-  padding: .2em .5em;
-  margin: 0 .3em 0 0;
+  padding: 0.2em 0.5em;
+  margin: 0 0.3em 0 0;
   background-color: #F5F2F0;
   border-radius: 2px;
 }
+
 .topic p {
   font-size: 14px;
   line-height: 1.6;
@@ -146,6 +150,7 @@ pre {
     margin: 0 auto;
   }
 }
+
 [data-margin] {
   background-color: #F0D7A9;
 }
@@ -174,6 +179,7 @@ pre[class*="language-"] {
 .topic {
   padding: 4em 0;
 }
+
 .topic > section {
   margin: 2em 0;
 }
@@ -182,7 +188,8 @@ pre[class*="language-"] {
   .topic > section {
     margin: 0 0 5em;
   }
-  .topic > h2:before, .topic > h2:after {
+  .topic > h2:before,
+  .topic > h2:after {
     display: inline-block;
     vertical-align: 7px;
     margin: 0 15px;
@@ -194,6 +201,7 @@ pre[class*="language-"] {
     content: url("../images/title-next.png");
   }
 }
+
 .color-box {
   float: left;
   text-align: center;
@@ -203,13 +211,19 @@ pre[class*="language-"] {
   max-width: 200px;
   text-transform: capitalize;
 }
+
 .example-complementary .color-box {
   width: 47%;
 }
-.example-adjacent .color-box, .example-split-complementary .color-box, .example-triad .color-box {
+
+.example-adjacent .color-box,
+.example-split-complementary .color-box,
+.example-triad .color-box {
   width: 30%;
 }
-.example-rectangle .color-box, .example-square .color-box {
+
+.example-rectangle .color-box,
+.example-square .color-box {
   width: 22%;
 }
 
@@ -220,6 +234,7 @@ pre[class*="language-"] {
   border-right: .33em;
   overflow: hidden;
 }
+
 .color-pattern img {
   max-width: 100%;
 }
@@ -241,6 +256,7 @@ pre[class*="language-"] {
   line-height: 1.4;
   letter-spacing: normal;
 }
+
 .example-content strong {
   display: block;
   margin-bottom: 10px;
@@ -254,6 +270,7 @@ pre[class*="language-"] {
 .demo-links {
   margin: 10px 0 30px;
 }
+
 .demo-links a {
   display: inline-block;
   padding: 1.5em 2.5em;
@@ -265,7 +282,9 @@ pre[class*="language-"] {
   -webkit-transition: 0.3s ease 0s;
   transition: 0.3s ease 0s;
 }
-.demo-links a.current, .demo-links a:hover {
+
+.demo-links a.current,
+.demo-links a:hover {
   text-decoration: none;
   background-color: #76abe9;
   color: #fff;
@@ -292,11 +311,13 @@ pre[class*="language-"] {
   -ms-flex-line-pack: stretch;
   align-content: stretch;
 }
+
 .example-liquid-3 > div {
   -webkit-align-content: stretch;
   -ms-flex-line-pack: stretch;
   align-content: stretch;
 }
+
 .example-liquid-3 > div:nth-child(1) {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1;
@@ -309,9 +330,11 @@ pre[class*="language-"] {
   -ms-flex-order: 1;
   order: 1;
 }
+
 .flexboxtweener .example-liquid-3 > div:nth-child(1) {
   max-width: auto;
 }
+
 .example-liquid-3 > div:nth-child(2) {
   -webkit-flex-basis: 150px;
   -ms-flex-preferred-size: 150px;
@@ -322,9 +345,11 @@ pre[class*="language-"] {
   -ms-flex-order: 0;
   order: 0;
 }
+
 .flexboxtweener .example-liquid-3 > div:nth-child(2) {
   max-width: 150px;
 }
+
 .example-liquid-3 > div:nth-child(3) {
   -webkit-flex-basis: 200px;
   -ms-flex-preferred-size: 200px;
@@ -335,44 +360,54 @@ pre[class*="language-"] {
   -ms-flex-order: 0;
   order: 0;
 }
+
 .flexboxtweener .example-liquid-3 > div:nth-child(3) {
   max-width: 200px;
 }
-.flexbox .example-liquid-3 > div:nth-child(n+1), .flexboxtweener .example-liquid-3 > div:nth-child(n+1) {
+
+.flexbox .example-liquid-3 > div:nth-child(n+1),
+.flexboxtweener .example-liquid-3 > div:nth-child(n+1) {
   margin: 0;
 }
-.flexbox .example-liquid-3 > div:nth-child(3), .flexboxtweener .example-liquid-3 > div:nth-child(3) {
+
+.flexbox .example-liquid-3 > div:nth-child(3),
+.flexboxtweener .example-liquid-3 > div:nth-child(3) {
   margin-left: 20px;
   margin-right: 20px;
 }
+
 .no-flexbox.no-flexboxtweener .example-liquid-3:after {
   clear: both;
   content: "";
   display: table;
 }
+
 .no-flexbox.no-flexboxtweener .example-liquid-3 > div {
   box-sizing: border-box;
 }
+
 .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(n+1) {
   padding: 0;
   margin: 0;
 }
+
 .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(2) {
   width: 150px;
   float: left;
   margin-right: -100%;
 }
+
 .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(3) {
   width: 200px;
   margin-left: 170px;
   float: left;
   margin-right: -100%;
 }
+
 .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(1) {
   width: 100%;
   padding-left: 390px;
   float: right;
   margin-left: -100%;
 }
-
 /*# sourceMappingURL=layout-liquid-3.css.map */

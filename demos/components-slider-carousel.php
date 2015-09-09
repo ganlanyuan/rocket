@@ -365,12 +365,12 @@
 .carousel-f { @include slider-carousel(5 by 2 autoplay progress-bar bypage default); } // autoplay (css)
 .carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); } // autoplay (js)
 .carousel-h { @include slider-carousel(5 by 1 default); } // autoheight
-@include breakpoint-mi(em(700)) {
+@include breakpoint('min' 700) {
   .carousel-a { @include slider-carousel(5 by 2); }
   .carousel-d { @include slider-carousel(5 by 3 bypage); }
   .carousel-h { @include slider-carousel(5 by 2); }
 }
-@include breakpoint-mi(em(1000)) {
+@include breakpoint('min' 1000) {
   .carousel-a { @include slider-carousel(5 by 3); }
   .carousel-h { @include slider-carousel(5 by 3); }
 }
