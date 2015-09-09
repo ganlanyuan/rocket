@@ -427,6 +427,7 @@ pre[class*="language-"] {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-a .controls, .carousel-a .dots, .carousel-a .autoplay {
@@ -699,6 +700,7 @@ pre[class*="language-"] {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-d .controls, .carousel-d .dots, .carousel-d .autoplay {
@@ -990,6 +992,7 @@ pre[class*="language-"] {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-e .controls, .carousel-e .dots, .carousel-e .autoplay {
@@ -1262,6 +1265,7 @@ pre[class*="language-"] {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-f .controls, .carousel-f .dots, .carousel-f .autoplay {
@@ -1721,6 +1725,7 @@ pre[class*="language-"] {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-g .controls, .carousel-g .dots, .carousel-g .autoplay {
@@ -2056,6 +2061,7 @@ pre[class*="language-"] {
   width: 100%;
   letter-spacing: 0;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 .carousel-h .controls, .carousel-h .dots, .carousel-h .autoplay {
