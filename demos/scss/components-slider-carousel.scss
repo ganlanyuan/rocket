@@ -21,11 +21,19 @@
     position: absolute;
     bottom: 20px;
     padding: 10px; 
-    h3 { margin-bottom: 0; }
+    width: 100%;
+    font-size: 13px;
+    text-align: center;
+    box-sizing: border-box;
+    h3 { 
+      color: #fff;
+      margin-bottom: 5px; 
+      font-size: 26px; 
+    }
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in 'carousel-normal', 'slide-by-page', 'slider-center', 'carousel-autoplay-css', 'carousel-autoplay-js', 'carousel-autoheight' {
+    @each $item in 'carousel-normal', 'slide-by-page', 'slider-center', 'carousel-autoplay-css', 'carousel-autoplay-js', 'carousel-autoheight', 'carousel-vertical' {
       [id="#{$item}"]:checked ~ .slider-labels [for="#{$item}"] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
@@ -45,13 +53,37 @@
     .carousel-e, 
     .carousel-f,
     .carousel-g,
-    .carousel-h { display: none; }
+    .carousel-h,
+    .carousel-i, 
+    { display: none; }
+    [id="carousel-normal"]:checked ~ .carousel-a, 
+    [id="slide-by-page"]:checked ~ .carousel-d,
+    [id="slider-center"]:checked ~ .carousel-e,
+    [id="carousel-autoplay-css"]:checked ~ .carousel-f,
+    [id="carousel-autoplay-js"]:checked ~ .carousel-g,
+    [id="carousel-autoheight"]:checked ~ .carousel-h,
+    [id="carousel-vertical"]:checked ~ .carousel-i,
+    { display: block; }
+
     .carousel-a { @include slider-carousel(5 by 1 default); }
     .carousel-d { @include slider-carousel(5 by 2 bypage default); }
     .carousel-e { @include slider-carousel(5 by 2 center default); }
     .carousel-f { @include slider-carousel(5 by 2 bypage progress-bar autoplay hoverpause default); }
     .carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); }
     .carousel-h { @include slider-carousel(5 by 1 default); }
+    .carousel-i { 
+      @include slider-carousel(5 by 1 vertical autoplay progress-bar default); 
+      max-width: 600px;
+      margin: 0 auto;
+      .inner > li { position: relative; }
+      .item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .autoplay-progress { bottom: auto; }
+      .autoplay > label { margin-top: 10px; }
+    }
     @include breakpoint('min' em(700)) {
       .carousel-a { @include slider-carousel(5 by 2 keep); }
       .carousel-d { @include slider-carousel(5 by 3 bypage keep); }
@@ -61,11 +93,5 @@
       .carousel-a { @include slider-carousel(5 by 3 keep); }
       .carousel-h { @include slider-carousel(5 by 3 keep); }
     }
-    [id="carousel-normal"]:checked ~ .carousel-a, 
-    [id="slide-by-page"]:checked ~ .carousel-d,
-    [id="slider-center"]:checked ~ .carousel-e,
-    [id="carousel-autoplay-css"]:checked ~ .carousel-f,
-    [id="carousel-autoplay-js"]:checked ~ .carousel-g,
-    [id="carousel-autoheight"]:checked ~ .carousel-h { display: block; }
   }
 }

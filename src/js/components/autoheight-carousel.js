@@ -4,7 +4,7 @@ function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
 
-function autoHeightCarousel(selector) {
+function autoheightCarousel(selector) {
   if (k(selector).length > 0) {
     var containers = k(selector).find('.outer');
 
@@ -21,7 +21,7 @@ function autoHeightCarousel(selector) {
     })
 
     // autoheight-carousel
-    function autoHeightCarouselCore() {
+    function autoheightCarouselCore() {
       containers.forEach(function(el) {
         var heights = [],
             containerH,
@@ -41,7 +41,7 @@ function autoHeightCarousel(selector) {
       });
     }
 
-    setInterval(autoHeightCarouselCore, 200);
+    setInterval(autoheightCarouselCore, 200);
   }
 };
 

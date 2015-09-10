@@ -6,7 +6,7 @@ function autoheightGallery (selector) {
 
 
     // autoheight-gallery-core
-    function autoHeightGalleryCore() {
+    function autoheightGalleryCore() {
       var outerH = outer.outerHeight(),
           innerH = inner.outerHeight();
       if (outerH === innerH) {
@@ -17,7 +17,7 @@ function autoheightGallery (selector) {
     }
     // if (outer.length > 0) {
       outer.css('height', inner.outerHeight() + 'px');
-      setInterval(autoHeightGalleryCore, 200);
+      setInterval(autoheightGalleryCore, 200);
     // }
   }
 }

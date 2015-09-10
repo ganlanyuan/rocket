@@ -17,9 +17,17 @@
   .info { 
     @include visible(800px);
     position: absolute;
+    bottom: 40px;
     padding: 10px; 
-    bottom: 20px;
-    h3 { margin-bottom: 0; }
+    width: 100%;
+    font-size: 13px;
+    text-align: center;
+    box-sizing: border-box;
+    h3 { 
+      color: #fff;
+      margin-bottom: 5px; 
+      font-size: 30px; 
+    }
   }
   %label-active {background-color: $active;}
   @at-root {

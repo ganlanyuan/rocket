@@ -66,6 +66,8 @@
   $gutter: ro-get-next($key, 'gutter', 10px);
   $center: ro-get($key, 'center');
   $bypage: ro-get($key, 'bypage');
+  $vertical: ro-get($key, 'vertical');
+  $ratio: ro-get-next($key, 'ratio', 9/16);
   $autoplay: ro-get($key, 'autoplay');
   $autoplay-js: ro-get($key, 'autoplay-js');
   $progress-bar: ro-get($key, 'progress-bar');
@@ -97,23 +99,54 @@
   @if $center and $perpage > 1 { 
     $half: (1 / ($perpage * 2)); 
   }
+  @if unit($ratio) != '%' {
+    $ratio: percentage($ratio);
+  }
 
   @if not $keep {
     position: relative;
     > input { position: absolute; left: -9999px; }
-    .outer { overflow: hidden; }
+    .outer { 
+      overflow: hidden; 
+      transition: height ($speed / 3); 
+      @if $vertical {
+        height: 0;
+        margin: 0;
+        padding-bottom: $ratio;
+      } @else {
+        @if $gutter and $gutter != 0 {
+          @if not $center { margin: 0 (- $gutter / 2); }
+        }
+      }
+    }
     .inner {
       @include clearfix();
-      position: relative;
-      letter-spacing: -0.34em; // remove white space between inline-block elements
-      white-space: nowrap;
-      li {
-        display: inline-block;
-        vertical-align: top;
-        width: 100%;
-        letter-spacing: 0; // restore letter-spacing
-        box-sizing: border-box;
+      @if $vertical {
+        position: static;
         white-space: normal;
+        transition: margin-top $speed; 
+      } @else {
+        position: relative;
+        letter-spacing: -0.34em; // remove white space between inline-block elements
+        white-space: nowrap;
+        transition: left $speed; 
+      }
+      > li {
+        box-sizing: border-box;
+        @if $vertical {
+          height: 0;
+          display: block;
+          padding: 0 0 $ratio;
+        } @else {
+          width: 100%;
+          display: inline-block;
+          vertical-align: top;
+          letter-spacing: 0; // restore letter-spacing
+          white-space: normal;
+          @if $gutter and $gutter != 0 {
+            padding: 0 ($gutter / 2); 
+          }
+        }
       }
     }
     .controls, .dots, .autoplay { z-index: 2; }
@@ -139,9 +172,34 @@
       .pause {display: none; }
     }
   }
+  @if $perpage != 1 { 
+    @if $vertical {
+      .outer { padding-bottom: ($ratio * $perpage); } 
+    } @else {
+      .inner > li { width: percentage(1/$perpage); } 
+    }
+  }
   
-  .outer { transition: height ($speed / 3); }
-  .inner { transition: left $speed; }
+  // set inner
+  @for $i from 1 through $items {
+    @at-root {
+      #{$id}-#{$i}:checked ~ {
+        .outer > .inner { 
+          @if $vertical {
+            margin-top: - ($ratio * ($i - 1));
+          } @else {
+            margin-top: 0;
+            @if ($i / $perpage) >= floor($items / $perpage) and 
+                ($i / $perpage) < ceil($items / $perpage) {
+              left: - percentage(($items / $perpage) - 1 - $half);
+            } @else {
+              left: - percentage(($i - 1) / $perpage + $half); 
+            }
+          }
+        }
+      }
+    }
+  }
 
   @at-root (without: media) { 
     @at-root {
@@ -151,7 +209,6 @@
             .dots label:nth-child(#{$i}) .active { display: block; }
             .dots label:nth-child(#{$i}) .normal { display: none; }
         }
-
       }
       #{$id}-autoplay:checked ~ {
         @if $autoplay {
@@ -168,32 +225,6 @@
       }
     }
   }
-
-  // container and items
-  .outer {
-    @if $perpage != 1 { li { width: percentage(1/$perpage) } }
-    @if $gutter and $gutter != 0 {
-      @if not $center { margin: 0 (- $gutter / 2); }
-      li { padding: 0 ($gutter / 2); }
-    }
-  }
-  // set inner
-  @for $i from 1 through $items {
-    @at-root {
-      #{$id}-#{$i}:checked ~ {
-        .outer .inner { 
-          @if ($i / $perpage) >= floor($items / $perpage) and 
-              ($i / $perpage) < ceil($items / $perpage) {
-            left: - percentage(($items / $perpage) - 1 - $half);
-          }
-          @else {
-            left: - percentage(($i - 1) / $perpage + $half); 
-          }
-        }
-      }
-    }
-  }
-
   // hide extra dots
   @if $center {
     .dots label:nth-child(n + #{$pages}) { display: none; }
@@ -207,33 +238,74 @@
     $frames: 1;
 
     @include keyframes(#{$prefix}-inner) {
-      @if $bypage == true {
-        $frames: ceil($items/$perpage); 
+      @if $bypage { $frames: ceil($items/$perpage); } 
+      @else { $frames: ($items - $perpage + 1); }
+      
+      // vertical
+      @if $vertical {
+        0% { margin-top: 0; }
         
-        @for $i from 1 through $frames {
-          @if $i != $frames {
-            $left-val: percentage(- ($i - 1));
-
-            #{percentage(($time-per-item * ($i - 1)) / ($time-per-item * $frames))} { left: $left-val; }
-            #{percentage(($time-per-item * ($i - 1) + $timeout) / ($time-per-item * $frames))} { left: $left-val; }
-          } @else {
-            $left-val: percentage(- ($items - $perpage) / $perpage);
-
-            #{percentage(($time-per-item * ($i - 1)) / ($time-per-item * $frames))} { left: $left-val; }
-            #{percentage(($time-per-item * ($i - 1) + $timeout) / ($time-per-item * $frames))} { left: $left-val; }
+        @if $bypage {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { 
+              @if ($perpage * ($i - 1)) > ($items - $perpage) {
+                margin-top: - ($ratio * ($items - $perpage)); 
+              } @else {
+                margin-top: - ($ratio * $perpage * ($i - 1)); 
+              }
+            }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { 
+              @if ($perpage * $i) > ($items - $perpage) {
+                margin-top: - ($ratio * ($items - $perpage)); 
+              } @else {
+                margin-top: - ($ratio * $perpage * $i); 
+              }
+            }
+          }
+        } @else {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { 
+              margin-top: - ($ratio * ($i - 1)); 
+            }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { 
+              margin-top: - ($ratio * $i); 
+            }
           }
         }
-      } @else {
-        $frames: $items - $perpage + 1; 
 
+        100% { margin-top: 0; }
+      // horizontal
+      } @else {
         0% { left: 0; }
-        @for $i from 1 through $frames {
-          #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { left: percentage(- ($i - 1) / $perpage); }
-          #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { left: percentage(- $i / $perpage); }
+
+        @if $bypage {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { 
+              @if (($i - 1) * $perpage) > ($items - $perpage) {
+                left: - percentage(($items / $perpage) - 1);
+              } @else {
+                left: - percentage(($i - 1)); 
+              }
+            }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { 
+              @if ($i * $perpage) > ($items - $perpage) {
+                left: - percentage(($items / $perpage) - 1);
+              } @else {
+                left: - percentage($i); 
+              }
+            }
+          }
+        } @else {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { left: - percentage(($i - 1) / $perpage); }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { left: - percentage($i / $perpage); }
+          }
         }
+
+        100% { left: 0; }
       }
-      100% { left: 0; }
     }
+    
     // progress-bar keyframes
     @if $progress-bar {
       @include keyframes(#{$prefix}-progress) {
@@ -342,88 +414,86 @@
     }
   }
 
-  @at-root (without: media) { 
-    // set default controls, dots and autoplay styles
-    @if $default {
-      .controls {
-        @include clearfix();
-        max-width: 7.5em;
-        margin: 10px auto;
-        span {
-          font-size: 13px;
-          padding: 5px 8px;
-          border-radius: 3px;
-          transition: background-color 0.3s;
-          color: #fff;
-          background-color: #15A9DC;
-          &:hover { background-color: #7D9DAC; }
-        }
+  // set default controls, dots and autoplay styles
+  @if $default and not $keep {
+    .controls {
+      @include clearfix();
+      max-width: 7.5em;
+      margin: 10px auto;
+      span {
+        font-size: 13px;
+        padding: 5px 8px;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+        color: #fff;
+        background-color: #15A9DC;
+        &:hover { background-color: #7D9DAC; }
       }
-      .dots {
-        width: 100%;
+    }
+    .dots {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      label {
+        padding: 0 3px;
+        &:hover .normal { background-color: #5a5a5a; }
+      }
+      span {
+        width: 9px;
+        height: 9px;
+        background-color: #d3d3d3;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+      }
+      .active { background-color: #5a5a5a; display: none; }
+    }
+    @if $autoplay or $autoplay-js {
+      .autoplay {
+        position: relative;
         text-align: center;
-        margin: 10px 0;
-        label {
-          padding: 0 3px;
-          &:hover .normal { background-color: #5a5a5a; }
+        @if $autoplay {
+          .no-cssanimations & { display: none !important; }
+        }
+        > label {
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          background-color: #333;
+          border-radius: 50%;
         }
         span {
-          width: 9px;
-          height: 9px;
-          background-color: #d3d3d3;
-          border-radius: 50%;
-          transition: background-color 0.3s;
+          display: inline-block;
         }
-        .active { background-color: #5a5a5a; display: none; }
-      }
-      @if $autoplay or $autoplay-js {
-        .autoplay {
-          position: relative;
-          text-align: center;
-          @if $autoplay {
-            .no-cssanimations & { display: none !important; }
-          }
-          > label {
-            width: 30px;
-            height: 30px;
+        .play {
+          width: 0;
+          height: 0;
+          border-color: transparent transparent transparent #fff;
+          border-style: solid;
+          border-width: 7px 0px 7px 13px;
+          margin: 7px 0 0 3px;
+        }
+        .pause {
+          display: none;
+          &:before, &:after {
+            content: '';
             display: inline-block;
-            background-color: #333;
-            border-radius: 50%;
+            border-width: 0;
+            width: 5px;
+            height: 13px;
+            margin-top: 8px;
+            background-color: #fff;
           }
-          span {
-            display: inline-block;
-          }
-          .play {
+          &:before { margin-right: 4px; }
+        }
+        @if $progress-bar {
+          &-progress {
+            position: absolute;
+            left: 0;
+            bottom: 34px;
             width: 0;
-            height: 0;
-            border-color: transparent transparent transparent #fff;
-            border-style: solid;
-            border-width: 7px 0px 7px 13px;
-            margin: 7px 0 0 3px;
-          }
-          .pause {
-            display: none;
-            &:before, &:after {
-              content: '';
-              display: inline-block;
-              border-width: 0;
-              width: 5px;
-              height: 13px;
-              margin-top: 8px;
-              background-color: #fff;
-            }
-            &:before { margin-right: 4px; }
-          }
-          @if $progress-bar {
-            &-progress {
-              position: absolute;
-              left: 0;
-              bottom: 34px;
-              width: 0;
-              display: block;
-              height: 3px;
-              background-color: rgba(0, 0, 0, 0.2);
-            }
+            display: block;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.2);
           }
         }
       }

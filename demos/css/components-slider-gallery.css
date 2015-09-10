@@ -349,8 +349,12 @@ pre[class*="language-"] {
 
 .slider .info {
   position: absolute;
+  bottom: 40px;
   padding: 10px;
-  bottom: 20px;
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 @media (max-width: 49.9375em) {
@@ -360,7 +364,9 @@ pre[class*="language-"] {
 }
 
 .slider .info h3 {
-  margin-bottom: 0;
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 30px;
 }
 
 .slider [id=gallery-auto-play-css]:checked ~ .slider-labels [for=gallery-auto-play-css], .slider [id=gallery-auto-play-js]:checked ~ .slider-labels [for=gallery-auto-play-js], .slider [id=gallery-auto-height]:checked ~ .slider-labels [for=gallery-auto-height], .slider [id=gallery-customise]:checked ~ .slider-labels [for=gallery-customise] {
