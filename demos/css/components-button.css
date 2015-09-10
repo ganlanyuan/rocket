@@ -379,9 +379,9 @@ pre[class*="language-"] {
   -webkit-transition: background-position 0.3s ease, color 0.3s ease;
           transition: background-position 0.3s ease, color 0.3s ease;
   background-size: 200% 200%;
-  background-image: -webkit-linear-gradient(top, #a256c2, #a256c2 50%, #823AA0 50%, #823AA0);
-  background-image: linear-gradient(to bottom, #a256c2, #a256c2 50%, #823AA0 50%, #823AA0);
-  background-position: 0 bottom;
+  background-image: -webkit-linear-gradient(left, #a256c2, #a256c2 50%, #823AA0 50%, #823AA0);
+  background-image: linear-gradient(to right, #a256c2, #a256c2 50%, #823AA0 50%, #823AA0);
+  background-position: right 0;
 }
 
 .example-button .slide-bg:hover {

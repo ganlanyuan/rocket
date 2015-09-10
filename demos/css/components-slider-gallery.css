@@ -1,4 +1,4 @@
-.slider .slider-labels label, [class^="gallery-"], [class^="carousel-"] {
+[class^="gallery-"], [class^="carousel-"] {
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
@@ -334,10 +334,11 @@ pre[class*="language-"] {
 }
 
 .slider .slider-labels label {
-  padding: radius;
-  border-radius: 13px;
+  padding: 12px 22px;
+  border-radius: 3px;
   background-color: #d2d2d2;
   color: #000;
+  font-size: 13px;
   margin: 0 10px 10px 0;
 }
 

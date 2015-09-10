@@ -13,6 +13,6 @@ $padding: '1em 2em';
   .round { @include button($padding #2C91FF round); }
   .highlight { @include button($padding $color 5px highlight); }
   .simple { @include button($padding $color 5px simple); }
-  .slide-bg { @include button($padding $color 5px slide-bg vertical); }
+  .slide-bg { @include button($padding $color 5px slide-bg); }
 }
 

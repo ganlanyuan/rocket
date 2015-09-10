@@ -13,7 +13,8 @@ $map: (
 );
 .has-bg { background-color: #03103A; }
 .btn {
-  @include button(14px '10px 15px' radius #0F2332 hover);
+  @include button(5px '10px 15px' #0F2332 highlight);
+  font-size: 14px;
   margin-right: 10px;
   margin-bottom: 10px;
   &.active { background-color: #ddd; color: #000; }

@@ -28,7 +28,7 @@
     margin-bottom: 3px;
   }
   input:not([type="submit"]) {
-    @include button(14px '0.5em 0.8em');
+    @include button('0.5em 0.8em');
     width: 100%;
     max-width: 500px;
     border: 1px solid #ccc;
@@ -38,7 +38,7 @@
     }
   }
   input[type="submit"] {
-    @include button('0.7em 1.2em' radius);
+    @include button('0.7em 1.2em' 0.3em);
     border-width: 0;
     color: #fff;
     background-color: #3277FF;
