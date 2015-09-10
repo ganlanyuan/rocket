@@ -1,21 +1,18 @@
 @import 'demo-base';
 
 // *** addons: button *** //
-
+$color: #823AA0;
+$padding: '1em 2em';
 .example-button {
-  margin-top: 20px;
-  > * { margin-bottom: 10px; }
-  button { @include button(14px '.5em .8em' #3255ff round hover); }
-  input {
-    display: block; 
-    @include button(16px '.5em 1em' radius); 
-    border: 1px solid  #ddd;
-  }
-  .pagination a { 
-    display: inline-block; 
-    @include button(13px '.5em .6em' #dbdbdb hover radius);
-    margin: 0 3px 3px 0;
-    span { font-size: 11px; }
-  }
+  margin: 50px 0;
+  font-size: 14px;
+  text-align: center;
+  > * { margin: 0 7px 14px; }
+  .normal { @include button($padding #46A736); }
+  .radius { @include button($padding #FF851B 0.4em); }
+  .round { @include button($padding #2C91FF round); }
+  .highlight { @include button($padding $color 5px highlight); }
+  .simple { @include button($padding $color 5px simple); }
+  .slide-bg { @include button($padding $color 5px slide-bg vertical); }
 }
 

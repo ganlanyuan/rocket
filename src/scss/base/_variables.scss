@@ -44,9 +44,10 @@ $ro-off-canvas-z-index: (
 ) !default;
 
 // button
-$ro-button-radius: 0.22em !default;
+$ro-button-hover: 'highlight', 'simple', 'slide-bg' !default;
 $ro-button-round: 1000px !default;
-$ro-button-hover-lightness: 10% !default;
+$ro-button-hover-lightness: 12% !default;
+$ro-timing-function: linear, ease, ease-in, ease-out, ease-in-out !default;
 
 // tooltip
 $ro-tooltip-direction: 'left', 'right', 'top', 'bottom' !default;

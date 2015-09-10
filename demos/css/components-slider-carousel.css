@@ -334,10 +334,8 @@ pre[class*="language-"] {
 }
 
 .slider .slider-labels label {
-  border-radius: 0.22em;
-  font-size: 13px;
-  font-size: 0.8125rem;
   padding: 12px 22px;
+  border-radius: 13px;
   background-color: #d2d2d2;
   color: #000;
   margin: 0 10px 10px 0;

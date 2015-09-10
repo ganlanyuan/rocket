@@ -1,14 +1,9 @@
-.example-button button, .example-button input, .example-button .pagination a {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
-.example-button button, .example-button input, .example-button .pagination a {
+.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide-bg {
   display: inline-block;
   box-sizing: border-box;
 }
 
-.example-button button:hover, .example-button input:hover, .example-button .pagination a:hover {
+.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide-bg:hover {
   text-decoration: none;
 }
 
@@ -316,53 +311,80 @@ pre[class*="language-"] {
 }
 
 .example-button {
-  margin-top: 20px;
+  margin: 50px 0;
+  font-size: 14px;
+  text-align: center;
 }
 
 .example-button > * {
-  margin-bottom: 10px;
+  margin: 0 7px 14px;
 }
 
-.example-button button {
+.example-button .normal {
+  padding: 1em 2em;
+  background-color: #46A736;
+  color: #fff;
+}
+
+.example-button .radius {
+  padding: 1em 2em;
+  border-radius: 0.4em;
+  background-color: #FF851B;
+  color: #000;
+}
+
+.example-button .round {
+  padding: 1em 2em;
   border-radius: 1000px;
-  font-size: 14px;
-  font-size: 0.875rem;
-  padding: .5em .8em;
-  background-color: #3255ff;
+  background-color: #2C91FF;
   color: #fff;
 }
 
-.example-button button:hover {
-  background-color: #002bfe;
+.example-button .highlight {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: #823AA0;
   color: #fff;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+          transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.example-button input {
-  display: block;
-  border-radius: 0.22em;
-  font-size: 16px;
-  font-size: 1rem;
-  padding: .5em 1em;
-  border: 1px solid  #ddd;
+.example-button .highlight:hover {
+  background-color: #a256c2;
 }
 
-.example-button .pagination a {
-  display: inline-block;
-  border-radius: 0.22em;
-  font-size: 13px;
-  font-size: 0.8125rem;
-  padding: .5em .6em;
-  background-color: #dbdbdb;
-  color: #000;
-  margin: 0 3px 3px 0;
+.example-button .simple {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: #823AA0;
+  color: #fff;
+  color: #823AA0;
+  border: 2px solid #823AA0;
+  background-color: transparent;
+  -webkit-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+          transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-.example-button .pagination a:hover {
-  background-color: #c2c2c2;
-  color: #000;
+.example-button .simple:hover {
+  color: #fff;
+  border: 2px solid #823AA0;
+  background-color: #823AA0;
 }
 
-.example-button .pagination a span {
-  font-size: 11px;
+.example-button .slide-bg {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: #823AA0;
+  color: #fff;
+  -webkit-transition: background-position 0.3s ease, color 0.3s ease;
+          transition: background-position 0.3s ease, color 0.3s ease;
+  background-size: 200% 200%;
+  background-image: -webkit-linear-gradient(top, #a256c2, #a256c2 50%, #823AA0 50%, #823AA0);
+  background-image: linear-gradient(to bottom, #a256c2, #a256c2 50%, #823AA0 50%, #823AA0);
+  background-position: 0 bottom;
+}
+
+.example-button .slide-bg:hover {
+  background-position: 0 0;
 }
 /*# sourceMappingURL=components-button.css.map */

@@ -7,29 +7,16 @@
       <h2 id=""><span>components: </span>buttons</h2>
       <div class="example">
         <div class="example-button">
-          <div class="pagination">
-            <a href=""><span class="ic-angle-left"></span></a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href=""><span class="ic-angle-right"></span></a>
-          </div>
-          <input type="search" name="" id="">
-          <button>Submit</button>
+          <span class="normal">normal button</span>
+          <a href="" class="radius">radius button</a>
+          <button class="round">round button</button> <br>
+          <button class="highlight">highlight</button>
+          <button class="simple">simple</button>
+          <button class="slide-bg">slide-bg</button>
         </div>
       </div>
       <pre><code class="language-scss">
 button { @include button(14px '.5em .8em' #3255ff round hover); }
-input {
-  display: block; 
-  @include button(16px '.5em 1em' radius); 
-  border: 1px solid  #ddd;
-}
-.pagination a { 
-  display: inline-block; 
-  @include button(13px '.5em .6em' #dbdbdb hover radius);
-}
       </code></pre>
     </div>
     

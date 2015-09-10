@@ -45,6 +45,5 @@
 %button-style {
   display: inline-block;
   box-sizing: border-box;
-  @extend %ro-global-transition;
   &:hover { text-decoration: none; }
 }
