@@ -1,6 +1,6 @@
 /// Short hands for creating button.
 /// 
-/// $key: `$font-size $padding $background-color radius round hover`
+/// $key: `$font-size $padding $color radius round hover`
 /// @group components
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -19,7 +19,7 @@
   $check: join($ro-button-hover, ('round' 'hover' 'horizontal' 'vertical'));
 
   $padding: '1em 1.5em';
-  $background-color: ro-get-type($key, 'color'); 
+  $color: ro-get-type($key, 'color'); 
   $round: ro-get($key, 'round');
   $radius: false;
   $horizontal: ro-get($key, 'horizontal');
@@ -55,43 +55,65 @@
   @if $round {
     border-radius: $ro-button-round;
   }
-  @if $background-color {
-    background-color: $background-color;
-    color: contrast($background-color);
+  @if $color {
+    background-color: $color;
+    color: contrast($color);
     @if $hover {
       @if $hover == 'slide-bg' {
         transition: background-position $duration $timing-function, color $duration $timing-function;
         background-size: 200% 200%;
         @if $vertical {
-          background-image: linear-gradient(to bottom, lighten($background-color, $ro-button-hover-lightness), lighten($background-color, $ro-button-hover-lightness) 50%, $background-color 50%, $background-color);
+          background-image: linear-gradient(to bottom, lighten($color, $ro-button-hover-lightness), lighten($color, $ro-button-hover-lightness) 50%, $color 50%, $color);
           background-position: 0 bottom;
         } @else {
-          background-image: linear-gradient(to right, lighten($background-color, $ro-button-hover-lightness), lighten($background-color, $ro-button-hover-lightness) 50%, $background-color 50%, $background-color);
+          background-image: linear-gradient(to right, lighten($color, $ro-button-hover-lightness), lighten($color, $ro-button-hover-lightness) 50%, $color 50%, $color);
           background-position: right 0;
         }
         &:hover { 
           background-position: 0 0; 
-          @if contrast($background-color) != contrast(lighten($background-color, $ro-button-hover-lightness)) {
-            color: contrast(lighten($background-color, $ro-button-hover-lightness));
+          @if contrast($color) != contrast(lighten($color, $ro-button-hover-lightness)) {
+            color: contrast(lighten($color, $ro-button-hover-lightness));
           }
         }
       } @else if $hover == 'highlight' {
         transition: background-color $duration $timing-function, color $duration $timing-function;
         &:hover {
-          background-color: analogous($background-color $ro-button-hover-lightness);
-          @if contrast($background-color) != contrast(analogous($background-color $ro-button-hover-lightness)) {
-            color: contrast(analogous($background-color $ro-button-hover-lightness));
+          background-color: analogous($color $ro-button-hover-lightness);
+          @if contrast($color) != contrast(analogous($color $ro-button-hover-lightness)) {
+            color: contrast(analogous($color $ro-button-hover-lightness));
           }
         }
       } @else if $hover == 'simple' {
-        color: $background-color;
-        border: 2px solid $background-color;
+        color: $color;
+        border: 2px solid $color;
         background-color: transparent;
         transition: background-color $duration $timing-function, border-color $duration $timing-function, color $duration $timing-function;
         &:hover {
-          color: contrast($background-color);
-          border: 2px solid $background-color;
-          background-color: $background-color;
+          color: contrast($color);
+          border: 2px solid $color;
+          background-color: $color;
+        }
+      } @else if $hover == 'water-drop' {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        &:before {
+          @include transform(scale(0));
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: -1;
+          width: 10em;
+          height: 10em;
+          margin-left: -5em;
+          margin-top: -5em;
+          border-radius: 50%;
+          background-color: analogous($color $ro-button-hover-lightness);
+          transition: transform $duration $timing-function;
+        }
+        &:hover:before {
+          @include transform(scale(1));
         }
       }
     } 

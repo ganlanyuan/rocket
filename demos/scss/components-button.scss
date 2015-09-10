@@ -14,5 +14,6 @@ $padding: '1em 2em';
   .highlight { @include button($padding $color 5px highlight); }
   .simple { @include button($padding $color 5px simple); }
   .slide-bg { @include button($padding $color 5px slide-bg); }
+  .water-drop { @include button($padding $color 5px water-drop); }
 }
 

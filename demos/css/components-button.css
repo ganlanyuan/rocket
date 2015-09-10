@@ -1,9 +1,9 @@
-.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide-bg {
+.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide-bg, .example-button .water-drop {
   display: inline-block;
   box-sizing: border-box;
 }
 
-.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide-bg:hover {
+.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide-bg:hover, .example-button .water-drop:hover {
   text-decoration: none;
 }
 
@@ -386,5 +386,40 @@ pre[class*="language-"] {
 
 .example-button .slide-bg:hover {
   background-position: 0 0;
+}
+
+.example-button .water-drop {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: #823AA0;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.example-button .water-drop:before {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: 10em;
+  height: 10em;
+  margin-left: -5em;
+  margin-top: -5em;
+  border-radius: 50%;
+  background-color: #a256c2;
+  -webkit-transition: -webkit-transform 0.3s ease;
+          transition: transform 0.3s ease;
+}
+
+.example-button .water-drop:hover:before {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 /*# sourceMappingURL=components-button.css.map */

@@ -13,6 +13,7 @@
           <button class="highlight">highlight</button>
           <button class="simple">simple</button>
           <button class="slide-bg">slide-bg</button>
+          <button class="water-drop">water-drop</button>
         </div>
       </div>
       <pre><code class="language-scss">
