@@ -22,17 +22,6 @@
   }
 } 
 .dropdown-1 { 
-  > span {
-    display: inline-block;
-    padding: 10px 0;
-  }
-  @include dropdown(rotate default); 
-  .sub { 
-    @include dropdown(default rotate right hover); 
-    li { white-space: nowrap; }
-  }
-}
-.dropdown-2 { 
   > label {
     display: inline-block;
     padding: 10px 0;
@@ -46,3 +35,14 @@
   }
 }
 
+.dropdown-2 { 
+  > span {
+    display: inline-block;
+    padding: 10px 0;
+  }
+  @include dropdown(scale default); 
+  .sub { 
+    @include dropdown(default scale right hover); 
+    li { white-space: nowrap; }
+  }
+}
