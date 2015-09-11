@@ -44,10 +44,11 @@ $ro-off-canvas-z-index: (
 ) !default;
 
 // button
-$ro-button-hover: 'highlight', 'simple', 'slide-bg', 'water-drop' !default;
+$ro-button-hover: 'highlight', 'simple', 'slide-bg', 'water-drop', 'ujarak', 'winona', 'wayra', 'moema', 'flash' !default;
 $ro-button-round: 1000px !default;
-$ro-button-hover-lightness: 12% !default;
+$ro-lightness: 12% !default; 
 $ro-timing-function: linear, ease, ease-in, ease-out, ease-in-out !default;
+$ro-unit: em, ex, %, px, cm, mm, pt, pc, ch, rem, vh, vw, vmin, vmax !default; // without in
 
 // tooltip
 $ro-tooltip-direction: 'left', 'right', 'top', 'bottom' !default;

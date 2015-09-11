@@ -16,14 +16,17 @@
 
 @mixin button ($key: '0.5em 0.8em' radius){
   $padding: false;
-  $check: join($ro-button-hover, ('round' 'hover' 'horizontal' 'vertical'));
+  $check: join($ro-button-hover, ('round' 'hover' 'horizontal' 'vertical' 'customize'));
 
-  $padding: '1em 1.5em';
   $color: ro-get-type($key, 'color'); 
   $round: ro-get($key, 'round');
   $radius: false;
+  $customize: ro-get($key, 'customize');
+
   $horizontal: ro-get($key, 'horizontal');
   $vertical: ro-get($key, 'vertical');
+  $direction: ro-get($key, (left right top bottom));
+
   $hover: ro-get($key, $ro-button-hover);
   $duration: 0.3s;
   $timing-function: ease;
@@ -39,7 +42,11 @@
       @if index($ro-timing-function, $item) or str-index($item, 'cubic-bezier') {
         $timing-function: unquote($item);
       } @else if not index($check, $item) {
-        $padding: unquote($item);
+        @each $u in $ro-unit {
+          @if str-index($item, $u) {
+            $padding: unquote($item);
+          }
+        }
       }
     }
   }
@@ -47,7 +54,9 @@
   // *** output *** //
   @extend %button-style;
   @if $padding {
-    padding: $padding;
+    @if not index(('winona'), $hover) {
+      padding: $padding;
+    }
   }
   @if $radius {
     border-radius: $radius;
@@ -56,31 +65,40 @@
     border-radius: $ro-button-round;
   }
   @if $color {
-    background-color: $color;
-    color: contrast($color);
+    @if not index(('simple' 'ujarak' 'flash'), $hover) {
+      background-color: $color;
+      color: contrast($color);
+    }
+
     @if $hover {
       @if $hover == 'slide-bg' {
-        transition: background-position $duration $timing-function, color $duration $timing-function;
-        background-size: 200% 200%;
-        @if $vertical {
-          background-image: linear-gradient(to bottom, lighten($color, $ro-button-hover-lightness), lighten($color, $ro-button-hover-lightness) 50%, $color 50%, $color);
-          background-position: 0 bottom;
-        } @else {
-          background-image: linear-gradient(to right, lighten($color, $ro-button-hover-lightness), lighten($color, $ro-button-hover-lightness) 50%, $color 50%, $color);
-          background-position: right 0;
-        }
-        &:hover { 
-          background-position: 0 0; 
-          @if contrast($color) != contrast(lighten($color, $ro-button-hover-lightness)) {
-            color: contrast(lighten($color, $ro-button-hover-lightness));
+        @include button-pos-r();
+        &:before {
+          @include button-pos-a();
+          width: 100%;
+          height: 100%;
+          @if not $direction { $direction: left; }
+          @if index((left right), $direction) {
+            top: 0;
+          } @else {
+            left: 0;
           }
+          #{$direction}: -100%;
+          background-color: lighten($color, $ro-lightness);
+          transition: #{$direction} $duration $timing-function;
+        }
+        &:hover {
+          @if contrast($color) != contrast(lighten($color, $ro-lightness)) {
+            color: contrast(lighten($color, $ro-lightness));
+          }
+          &:before { #{$direction}: 0; }
         }
       } @else if $hover == 'highlight' {
         transition: background-color $duration $timing-function, color $duration $timing-function;
         &:hover {
-          background-color: analogous($color $ro-button-hover-lightness);
-          @if contrast($color) != contrast(analogous($color $ro-button-hover-lightness)) {
-            color: contrast(analogous($color $ro-button-hover-lightness));
+          background-color: analogous($color $ro-lightness);
+          @if contrast($color) != contrast(analogous($color $ro-lightness)) {
+            color: contrast(analogous($color $ro-lightness));
           }
         }
       } @else if $hover == 'simple' {
@@ -94,11 +112,11 @@
           background-color: $color;
         }
       } @else if $hover == 'water-drop' {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
+        @include button-pos-r();
         &:before {
-          @include transform(scale(0));
+          @include button-pos-a();
+          @include transform(scale(0.1));
+          @include opacity(0);
           content: '';
           position: absolute;
           left: 50%;
@@ -109,13 +127,209 @@
           margin-left: -5em;
           margin-top: -5em;
           border-radius: 50%;
-          background-color: analogous($color $ro-button-hover-lightness);
-          transition: transform $duration $timing-function;
+          background-color: analogous($color $ro-lightness);
+          transition: transform $duration $timing-function, opacity $duration $timing-function;
+          .no-csstransforms & { display: none; }
         }
         &:hover:before {
+          @include opacity(1);
           @include transform(scale(1));
+          .no-csstransforms & { display: block; }
         }
+      } @else if $hover == 'ujarak' {
+        @include button-pos-r();
+        color: $color;
+        border: 2px solid $color;
+        background-color: transparent;
+        transition: background-color $duration $timing-function, color $duration $timing-function;
+        &:before {
+          @include button-pos-a();
+          @include opacity(0);
+          @if $vertical {
+            @include transform(scaleY(0.7));
+          } @else {
+            @include transform(scaleX(0.7));
+          }
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: $color;
+          transition: transform $duration $timing-function, opacity $duration $timing-function;
+          .no-csstransforms & { display: none; }
+        }
+        &:hover {
+          color: contrast($color);
+          &:before {
+            @include opacity(1);
+            @if $vertical {
+              @include transform(scaleY(1));
+            } @else {
+              @include transform(scaleX(1));
+            }
+            .no-csstransforms & { display: block; }
+          }
+        }
+      } @else if $hover == 'winona' {
+        @include button-pos-r();
+        span, &:before {
+          @if $padding {
+            padding: $padding;
+          }
+          transition: transform $duration $timing-function, opacity $duration $timing-function;
+        }
+        span {
+          @include opacity(1);
+          @include transform(translateY(0));
+          display: block;
+        }
+        &:before {
+          @include opacity(0);
+          @if $direction == bottom {
+            @include transform(translateY(-20%));
+          } @else if $direction == left {
+            @include transform(translateX(20%));
+          } @else if $direction == right {
+            @include transform(translateX(-20%));
+          } @else {
+            @include transform(translateY(20%));
+          }
+          @if $padding {
+            padding: $padding;
+          }
+          @if not $customize {
+            content: attr(data-text);
+          }
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          .no-csstransforms & { display: none; }
+        }
+        &:hover {
+          span {
+            @include opacity(0);
+            @if $direction == bottom {
+              @include transform(translateY(20%));
+            } @else if $direction == left {
+              @include transform(translateX(-20%));
+            } @else if $direction == right {
+              @include transform(translateX(20%));
+            } @else {
+              @include transform(translateY(-20%));
+            }
+          }
+          &:before {
+            @include opacity(1);
+            @include transform(translateY(0));
+            .no-csstransforms & { display: block; }
+          }
+        }
+      } @else if $hover == 'wayra' {
+        @include button-pos-r;
+        transition: color $duration $timing-function;
+        &:before {
+          @include button-pos-a;
+          @include transform(rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px));
+          @include transform-origin(0% 100% 0px);
+          left: 0;
+          top: 0;
+          width: 150%;
+          height: 100%;
+          background-color: analogous($color $ro-lightness);
+          transition: transform $duration $timing-function;
+          .no-csstransforms & { display: none; }
+        }
+        &:hover {
+          &:before {
+            @include transform(rotate3d(0, 0, 1, 0deg));
+            .no-csstransforms & { display: block; }
+          }
+        }
+      } @else if $hover == 'moema' {
+        @include button-pos-r();
+        @include transform(scale(1));
+        overflow: visible;
+        transition: transform $duration $timing-function;
+        &:before {
+          @include button-pos-a();
+          @include opacity(0);
+          @include transform(scale3d(0.8, 0.5, 1));
+          @if $radius {
+            border-radius: $radius;
+          }
+          left: -15px;
+          right: -15px;
+          top: -15px;
+          bottom: -15px;
+          border: 1px solid rgba($color, 0.4);
+          transition: transform $duration $timing-function, opacity $duration $timing-function;
+        }
+        &:hover {
+          @include transform(scale(0.9));
+          &:before {
+            @include opacity(1);
+            @include transform(scale3d(1, 1, 1));
+          }
+        }
+      } @else if $hover == 'flash' {
+        @include button-pos-r();
+        span {
+          position: absolute;
+          display: block;
+          box-sizing: border-box;
+          background-color: $color;
+          transition: width $duration $timing-function, height $duration $timing-function;
+          &:nth-child(1) {
+            left: 0;
+            top: 0;
+          }
+          &:nth-child(2) {
+            right: 0;
+            bottom: 0;
+          }
+          &:nth-child(3) {
+            top: 0;
+            right: 0;
+          }
+          &:nth-child(4) {
+            left: 0;
+            bottom: 0;
+          }
+          &:nth-child(1), 
+          &:nth-child(2) {
+            width: 0;
+            height: 1px;
+          }
+          &:nth-child(3), 
+          &:nth-child(4) {
+            width: 1px;
+            height: 0;
+          }
+        }
+        &:hover {
+          span {
+            &:nth-child(1),
+            &:nth-child(2) { width: 100%; }
+            &:nth-child(3),
+            &:nth-child(4) { height: 100%; }
+          }
+        }
+      } @else if $hover == 'new' {
       }
     } 
   }
+}
+
+@mixin button-pos-r (){
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+@mixin button-pos-a (){
+  content: '';
+  position: absolute;
+  z-index: -1;
 }

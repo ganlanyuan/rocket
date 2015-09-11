@@ -7,7 +7,11 @@ $padding: '1em 2em';
   margin: 50px 0;
   font-size: 14px;
   text-align: center;
-  > * { margin: 0 7px 14px; }
+  > * { 
+    margin: 0 7px 14px; 
+    vertical-align: top;
+    cursor: pointer;
+  }
   .normal { @include button($padding #46A736); }
   .radius { @include button($padding #FF851B 0.4em); }
   .round { @include button($padding #2C91FF round); }
@@ -15,5 +19,10 @@ $padding: '1em 2em';
   .simple { @include button($padding $color 5px simple); }
   .slide-bg { @include button($padding $color 5px slide-bg); }
   .water-drop { @include button($padding $color 5px water-drop); }
+  .ujarak { @include button($padding $color 5px ujarak); }
+  .wayra { @include button($padding $color 5px wayra); }
+  .winona { @include button($padding $color 5px winona customize); }
+  .moema { @include button($padding $color 5px moema); }
+  .flash { @include button($padding $color flash); }
 }
 
