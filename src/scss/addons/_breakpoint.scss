@@ -16,7 +16,7 @@
 
 @mixin breakpoint($key){
   $condition: ro-get($key, ('min' 'max'), 'min');
-  $media: ro-get($key, $ro-media-types);
+  $media: ro-get($key, $ro-media);
 
   // get breakpoints
   $key-em: ();

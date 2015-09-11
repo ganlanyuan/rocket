@@ -1,0 +1,52 @@
+@import 'demo-base';
+
+// *** layout: gallery *** //
+
+.example-gallery { 
+  @include gallery(2 2% child li); 
+}
+
+
+$w3: (
+  null: w3 1 1 1 of 3,
+);
+@mixin metro($key) {
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media: ro-get($key, $ro-media);
+  $ratio: ro-get-next($key, 'ratio', 1);
+
+  $is-map: true;
+  $map: false;
+  $breakpoints: false;
+  $data: false;
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      @if index(join($ro-media, ('min' 'max')), $item) {
+        $is-map: false;
+      }
+    }
+
+    @if $is-map {
+      $map: $key;
+    } @else {
+      $map: ro-get-type($key, 'list');
+    }
+  }
+
+  @if $map {
+    $breakpoints: map-keys($map);
+    $data: map-values($map);
+
+    @for $i from 1 through length($breakpoints) {
+      $this-bp: nth($breakpoints, $i);
+      $this-data: nth($data, $i);
+      @if $this-bp == null {
+        @for $j from 1 through length($this-data) {
+          > div {
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+}

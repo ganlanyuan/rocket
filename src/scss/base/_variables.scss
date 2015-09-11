@@ -22,7 +22,7 @@ $ro-global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $ro-vertical-align: baseline, sub, super, text-top, text-bottom, middle, top, bottom;
 
 // breakpoint
-$ro-media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$ro-media: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
 
 // type
 $ro-font-weights: thin, hairline, extra light, ultra light, lighter, light, normal, medium, semi bold, demi bold, bold, bolder, extra bold, black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
@@ -48,7 +48,7 @@ $ro-button-hover: 'highlight', 'simple', 'slide-bg', 'water-drop', 'ujarak', 'wi
 $ro-button-round: 1000px !default;
 $ro-lightness: 12% !default; 
 $ro-timing-function: linear, ease, ease-in, ease-out, ease-in-out !default;
-$ro-unit: em, ex, %, px, cm, mm, pt, pc, ch, rem, vh, vw, vmin, vmax !default; // without in
+$ro-unit: 'em', 'ex', '%', 'px', 'cm', 'mm', 'pt', 'pc', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax' !default; // without in
 
 // tooltip
 $ro-tooltip-direction: 'left', 'right', 'top', 'bottom' !default;
