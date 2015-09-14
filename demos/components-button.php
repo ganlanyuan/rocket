@@ -11,13 +11,14 @@
           <a href="" class="radius">radius button</a>
           <span class="round">round button</span> <br>
           <span class="highlight">highlight</span>
-          <span class="simple">simple</span>
           <span class="slide">slide</span>
-          <span class="spread">spread</span>
-          <span class="veil">veil</span>
+          <span class="ripple">ripple</span>
           <span class="cut">cut</span>
           <span class="push ic-star"><span>push</span></span>
           <span class="bubble">bubble</span>
+          <span class="shake">shake</span>
+          <span class="simple">simple</span>
+          <span class="veil">veil</span>
           <span class="line-drawing">line-drawing <span></span><span></span><span></span><span></span></span>
         </div>
       </div>
@@ -28,7 +29,7 @@
 .highlight { @include button('1em 2em' #823AA0 5px highlight); }
 .simple { @include button('1em 2em' #823AA0 5px simple); }
 .slide { @include button('1em 2em' #823AA0 5px slide); }
-.spread { @include button('1em 2em' #823AA0 5px spread); }
+.ripple { @include button('1em 2em' #823AA0 5px ripple); }
 .veil { @include button('1em 2em' #823AA0 5px veil); }
 .cut { @include button('1em 2em' #823AA0 5px cut); }
 .push { @include button('1em 2em' #823AA0 5px push customize); }

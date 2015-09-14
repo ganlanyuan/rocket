@@ -1,4 +1,5 @@
 /// Short hands for creating button.
+/// inspiration from http://tympanus.net/Development/ButtonStylesInspiration/
 /// 
 /// $key: `$font-size $padding $color radius round hover`
 /// @group components
@@ -111,12 +112,12 @@
           border: 2px solid $color;
           background-color: $color;
         }
-      } @else if $hover == 'spread' {
+      } @else if $hover == 'ripple' {
         @include button-pos-r();
         &:before {
           @include button-pos-a();
-          @include transform(scale(0.1));
-          @include opacity(0);
+          @include transform(scale(0));
+          opacity: 1;
           content: '';
           position: absolute;
           left: 50%;
@@ -128,12 +129,16 @@
           margin-top: -5em;
           border-radius: 50%;
           background-color: analogous($color $ro-lightness);
-          transition: transform $duration $timing-function, opacity $duration $timing-function;
+          @include keyframes(button-ripple) {
+            to {
+              @include transform(scale(1));
+              opacity: 0;
+            }
+          }
           .no-csstransforms & { display: none; }
         }
         &:hover:before {
-          @include opacity(1);
-          @include transform(scale(1));
+          @include animation(button-ripple 1s 1);
           .no-csstransforms & { display: block; }
         }
       } @else if $hover == 'veil' {
@@ -263,7 +268,7 @@
           opacity: 0;
           border: 1px solid rgba($color, 0.7);
           transition: transform $duration $timing-function, opacity $duration $timing-function;
-          @include keyframes(button-scale-in) {
+          @include keyframes(button-bubble) {
             60% {
               left: -0.7em;
               right: -0.7em;
@@ -282,7 +287,7 @@
         }
         &:hover {
           &:before {
-            @include animation(button-scale-in $duration 1);
+            @include animation(button-bubble 0.7s 1);
           }
         }
       } @else if $hover == 'line-drawing' {
@@ -331,6 +336,18 @@
       } @else if $hover == 'new' {
       }
     } 
+  }
+
+  @if $hover == 'shake' {
+    @include keyframes(button-shake) {
+      0%, 100% { transform: translateX(0);}
+      16.6% { transform: translateX(-12px);}
+      33.3% { transform: translateX(12px);}
+      50% { transform: translateX(-8px);}
+      66.6% { transform: translateX(8px);}
+      83.3% { transform: translateX(-4px);}
+    }
+    &:hover { @include animation(button-shake $duration 1); }
   }
 }
 

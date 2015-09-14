@@ -1,9 +1,9 @@
-.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide, .example-button .spread, .example-button .veil, .example-button .cut, .example-button .push, .example-button .bubble, .example-button .line-drawing {
+.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide, .example-button .ripple, .example-button .veil, .example-button .cut, .example-button .push, .example-button .bubble, .example-button .shake, .example-button .line-drawing {
   display: inline-block;
   box-sizing: border-box;
 }
 
-.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide:hover, .example-button .spread:hover, .example-button .veil:hover, .example-button .cut:hover, .example-button .push:hover, .example-button .bubble:hover, .example-button .line-drawing:hover {
+.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide:hover, .example-button .ripple:hover, .example-button .veil:hover, .example-button .cut:hover, .example-button .push:hover, .example-button .bubble:hover, .example-button .shake:hover, .example-button .line-drawing:hover {
   text-decoration: none;
 }
 
@@ -338,28 +338,28 @@ pre[class*="language-"] {
 .example-button .round {
   padding: 1em 2em;
   border-radius: 1000px;
-  background-color: #2C91FF;
+  background-color: #B61EFF;
   color: #fff;
 }
 
 .example-button .highlight {
   padding: 1em 2em;
   border-radius: 5px;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   color: #fff;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease;
           transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .example-button .highlight:hover {
-  background-color: #a256c2;
+  background-color: #52a1db;
 }
 
 .example-button .simple {
   padding: 1em 2em;
   border-radius: 5px;
-  color: #823AA0;
-  border: 2px solid #823AA0;
+  color: #2B8ACF;
+  border: 2px solid #2B8ACF;
   background-color: transparent;
   -webkit-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
           transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
@@ -367,14 +367,14 @@ pre[class*="language-"] {
 
 .example-button .simple:hover {
   color: #fff;
-  border: 2px solid #823AA0;
-  background-color: #823AA0;
+  border: 2px solid #2B8ACF;
+  background-color: #2B8ACF;
 }
 
 .example-button .slide {
   padding: 1em 2em;
   border-radius: 5px;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -389,7 +389,7 @@ pre[class*="language-"] {
   height: 100%;
   top: 0;
   left: -100%;
-  background-color: #a256c2;
+  background-color: #52a1db;
   -webkit-transition: left 0.3s ease;
           transition: left 0.3s ease;
 }
@@ -398,25 +398,24 @@ pre[class*="language-"] {
   left: 0;
 }
 
-.example-button .spread {
+.example-button .ripple {
   padding: 1em 2em;
   border-radius: 5px;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   color: #fff;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-.example-button .spread:before {
+.example-button .ripple:before {
   content: '';
   position: absolute;
   z-index: -1;
-  -webkit-transform: scale(0.1);
-  -ms-transform: scale(0.1);
-  transform: scale(0.1);
-  opacity: 0;
-  filter: alpha(opacity=0);
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 1;
   content: '';
   position: absolute;
   left: 50%;
@@ -427,24 +426,35 @@ pre[class*="language-"] {
   margin-left: -5em;
   margin-top: -5em;
   border-radius: 50%;
-  background-color: #a256c2;
-  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
-          transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: #52a1db;
 }
 
-.no-csstransforms .example-button .spread:before {
+@-webkit-keyframes button-ripple {
+  to {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes button-ripple {
+  to {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.no-csstransforms .example-button .ripple:before {
   display: none;
 }
 
-.example-button .spread:hover:before {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+.example-button .ripple:hover:before {
+  -webkit-animation: button-ripple 1s 1;
+  animation: button-ripple 1s 1;
 }
 
-.no-csstransforms .example-button .spread:hover:before {
+.no-csstransforms .example-button .ripple:hover:before {
   display: block;
 }
 
@@ -454,8 +464,8 @@ pre[class*="language-"] {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  color: #823AA0;
-  border: 2px solid #823AA0;
+  color: #2B8ACF;
+  border: 2px solid #2B8ACF;
   background-color: transparent;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease;
           transition: background-color 0.3s ease, color 0.3s ease;
@@ -474,7 +484,7 @@ pre[class*="language-"] {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
           transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -502,7 +512,7 @@ pre[class*="language-"] {
 .example-button .cut {
   padding: 1em 2em;
   border-radius: 5px;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -525,7 +535,7 @@ pre[class*="language-"] {
   top: 0;
   width: 150%;
   height: 100%;
-  background-color: #a256c2;
+  background-color: #52a1db;
   -webkit-transition: -webkit-transform 0.3s ease;
           transition: transform 0.3s ease;
 }
@@ -546,7 +556,7 @@ pre[class*="language-"] {
 
 .example-button .push {
   border-radius: 5px;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -610,7 +620,7 @@ pre[class*="language-"] {
 .example-button .bubble {
   padding: 1em 2em;
   border-radius: 5px;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -628,12 +638,12 @@ pre[class*="language-"] {
   top: 0;
   bottom: 0;
   opacity: 0;
-  border: 1px solid rgba(130, 58, 160, 0.7);
-  -webkit-transition: -webkit-transform 0.6s ease, opacity 0.6s ease;
-          transition: transform 0.6s ease, opacity 0.6s ease;
+  border: 1px solid rgba(43, 138, 207, 0.7);
+  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
+          transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-@-webkit-keyframes button-scale-in {
+@-webkit-keyframes button-bubble {
   60% {
     left: -0.7em;
     right: -0.7em;
@@ -650,7 +660,7 @@ pre[class*="language-"] {
   }
 }
 
-@keyframes button-scale-in {
+@keyframes button-bubble {
   60% {
     left: -0.7em;
     right: -0.7em;
@@ -668,8 +678,74 @@ pre[class*="language-"] {
 }
 
 .example-button .bubble:hover:before {
-  -webkit-animation: button-scale-in 0.6s 1;
-  animation: button-scale-in 0.6s 1;
+  -webkit-animation: button-bubble 0.7s 1;
+  animation: button-bubble 0.7s 1;
+}
+
+.example-button .shake {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: #2B8ACF;
+  color: #fff;
+}
+
+@-webkit-keyframes button-shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  16.6% {
+    -webkit-transform: translateX(-12px);
+            transform: translateX(-12px);
+  }
+  33.3% {
+    -webkit-transform: translateX(12px);
+            transform: translateX(12px);
+  }
+  50% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  66.6% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+  83.3% {
+    -webkit-transform: translateX(-4px);
+            transform: translateX(-4px);
+  }
+}
+
+@keyframes button-shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  16.6% {
+    -webkit-transform: translateX(-12px);
+            transform: translateX(-12px);
+  }
+  33.3% {
+    -webkit-transform: translateX(12px);
+            transform: translateX(12px);
+  }
+  50% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  66.6% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+  83.3% {
+    -webkit-transform: translateX(-4px);
+            transform: translateX(-4px);
+  }
+}
+
+.example-button .shake:hover {
+  -webkit-animation: button-shake 0.4s 1;
+  animation: button-shake 0.4s 1;
 }
 
 .example-button .line-drawing {
@@ -683,7 +759,7 @@ pre[class*="language-"] {
   position: absolute;
   display: block;
   box-sizing: border-box;
-  background-color: #823AA0;
+  background-color: #2B8ACF;
   -webkit-transition: width 0.3s ease, height 0.3s ease;
           transition: width 0.3s ease, height 0.3s ease;
 }

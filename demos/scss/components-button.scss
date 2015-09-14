@@ -1,7 +1,7 @@
 @import 'demo-base';
 
 // *** addons: button *** //
-$color: #823AA0;
+$color: #2B8ACF;
 $padding: '1em 2em';
 
 
@@ -16,15 +16,16 @@ $padding: '1em 2em';
   }
   .normal { @include button($padding #46A736); }
   .radius { @include button($padding #FF851B 0.4em); }
-  .round { @include button($padding #2C91FF round); }
+  .round { @include button($padding #B61EFF round); }
   .highlight { @include button($padding $color 5px highlight); }
   .simple { @include button($padding $color 5px simple); }
   .slide { @include button($padding $color 5px slide); }
-  .spread { @include button($padding $color 5px spread); }
+  .ripple { @include button($padding $color 5px ripple); }
   .veil { @include button($padding $color 5px veil); }
   .cut { @include button($padding $color 5px cut); }
   .push { @include button($padding $color 5px push customize); }
-  .bubble { @include button($padding $color 5px 0.6s bubble); }
+  .bubble { @include button($padding $color 5px bubble); }
+  .shake { @include button($padding $color 5px shake 0.4s); }
   .line-drawing { @include button($padding $color line-drawing); }
 }
 
