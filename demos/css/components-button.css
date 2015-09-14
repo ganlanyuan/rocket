@@ -1,9 +1,9 @@
-.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide-bg, .example-button .water-drop, .example-button .ujarak, .example-button .wayra, .example-button .winona, .example-button .moema, .example-button .flash {
+.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide, .example-button .spread, .example-button .veil, .example-button .cut, .example-button .push, .example-button .bubble, .example-button .line-drawing {
   display: inline-block;
   box-sizing: border-box;
 }
 
-.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide-bg:hover, .example-button .water-drop:hover, .example-button .ujarak:hover, .example-button .wayra:hover, .example-button .winona:hover, .example-button .moema:hover, .example-button .flash:hover {
+.example-button .normal:hover, .example-button .radius:hover, .example-button .round:hover, .example-button .highlight:hover, .example-button .simple:hover, .example-button .slide:hover, .example-button .spread:hover, .example-button .veil:hover, .example-button .cut:hover, .example-button .push:hover, .example-button .bubble:hover, .example-button .line-drawing:hover {
   text-decoration: none;
 }
 
@@ -371,7 +371,7 @@ pre[class*="language-"] {
   background-color: #823AA0;
 }
 
-.example-button .slide-bg {
+.example-button .slide {
   padding: 1em 2em;
   border-radius: 5px;
   background-color: #823AA0;
@@ -381,7 +381,7 @@ pre[class*="language-"] {
   z-index: 1;
 }
 
-.example-button .slide-bg:before {
+.example-button .slide:before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -394,11 +394,11 @@ pre[class*="language-"] {
           transition: left 0.3s ease;
 }
 
-.example-button .slide-bg:hover:before {
+.example-button .slide:hover:before {
   left: 0;
 }
 
-.example-button .water-drop {
+.example-button .spread {
   padding: 1em 2em;
   border-radius: 5px;
   background-color: #823AA0;
@@ -408,7 +408,7 @@ pre[class*="language-"] {
   z-index: 1;
 }
 
-.example-button .water-drop:before {
+.example-button .spread:before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -432,11 +432,11 @@ pre[class*="language-"] {
           transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.no-csstransforms .example-button .water-drop:before {
+.no-csstransforms .example-button .spread:before {
   display: none;
 }
 
-.example-button .water-drop:hover:before {
+.example-button .spread:hover:before {
   opacity: 1;
   filter: alpha(opacity=100);
   -webkit-transform: scale(1);
@@ -444,11 +444,11 @@ pre[class*="language-"] {
   transform: scale(1);
 }
 
-.no-csstransforms .example-button .water-drop:hover:before {
+.no-csstransforms .example-button .spread:hover:before {
   display: block;
 }
 
-.example-button .ujarak {
+.example-button .veil {
   padding: 1em 2em;
   border-radius: 5px;
   position: relative;
@@ -461,7 +461,7 @@ pre[class*="language-"] {
           transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.example-button .ujarak:before {
+.example-button .veil:before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -479,15 +479,15 @@ pre[class*="language-"] {
           transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.no-csstransforms .example-button .ujarak:before {
+.no-csstransforms .example-button .veil:before {
   display: none;
 }
 
-.example-button .ujarak:hover {
+.example-button .veil:hover {
   color: #fff;
 }
 
-.example-button .ujarak:hover:before {
+.example-button .veil:hover:before {
   opacity: 1;
   filter: alpha(opacity=100);
   -webkit-transform: scaleX(1);
@@ -495,11 +495,11 @@ pre[class*="language-"] {
   transform: scaleX(1);
 }
 
-.no-csstransforms .example-button .ujarak:hover:before {
+.no-csstransforms .example-button .veil:hover:before {
   display: block;
 }
 
-.example-button .wayra {
+.example-button .cut {
   padding: 1em 2em;
   border-radius: 5px;
   background-color: #823AA0;
@@ -511,7 +511,7 @@ pre[class*="language-"] {
           transition: color 0.3s ease;
 }
 
-.example-button .wayra:before {
+.example-button .cut:before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -530,21 +530,21 @@ pre[class*="language-"] {
           transition: transform 0.3s ease;
 }
 
-.no-csstransforms .example-button .wayra:before {
+.no-csstransforms .example-button .cut:before {
   display: none;
 }
 
-.example-button .wayra:hover:before {
+.example-button .cut:hover:before {
   -webkit-transform: rotate3d(0, 0, 1, 0deg);
   -ms-transform: rotate3d(0, 0, 1, 0deg);
   transform: rotate3d(0, 0, 1, 0deg);
 }
 
-.no-csstransforms .example-button .wayra:hover:before {
+.no-csstransforms .example-button .cut:hover:before {
   display: block;
 }
 
-.example-button .winona {
+.example-button .push {
   border-radius: 5px;
   background-color: #823AA0;
   color: #fff;
@@ -553,13 +553,13 @@ pre[class*="language-"] {
   z-index: 1;
 }
 
-.example-button .winona span, .example-button .winona:before {
+.example-button .push span, .example-button .push:before {
   padding: 1em 2em;
   -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
           transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.example-button .winona span {
+.example-button .push span {
   opacity: 1;
   filter: alpha(opacity=100);
   -webkit-transform: translateY(0);
@@ -568,7 +568,7 @@ pre[class*="language-"] {
   display: block;
 }
 
-.example-button .winona:before {
+.example-button .push:before {
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transform: translateY(20%);
@@ -583,11 +583,11 @@ pre[class*="language-"] {
   box-sizing: border-box;
 }
 
-.no-csstransforms .example-button .winona:before {
+.no-csstransforms .example-button .push:before {
   display: none;
 }
 
-.example-button .winona:hover span {
+.example-button .push:hover span {
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transform: translateY(-20%);
@@ -595,7 +595,7 @@ pre[class*="language-"] {
   transform: translateY(-20%);
 }
 
-.example-button .winona:hover:before {
+.example-button .push:hover:before {
   opacity: 1;
   filter: alpha(opacity=100);
   -webkit-transform: translateY(0);
@@ -603,11 +603,11 @@ pre[class*="language-"] {
   transform: translateY(0);
 }
 
-.no-csstransforms .example-button .winona:hover:before {
+.no-csstransforms .example-button .push:hover:before {
   display: block;
 }
 
-.example-button .moema {
+.example-button .bubble {
   padding: 1em 2em;
   border-radius: 5px;
   background-color: #823AA0;
@@ -615,55 +615,71 @@ pre[class*="language-"] {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
   overflow: visible;
-  -webkit-transition: -webkit-transform 0.3s ease;
-          transition: transform 0.3s ease;
 }
 
-.example-button .moema:before {
+.example-button .bubble:before {
   content: '';
   position: absolute;
   z-index: -1;
+  border-radius: 6.5px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   opacity: 0;
-  filter: alpha(opacity=0);
-  -webkit-transform: scale3d(0.8, 0.5, 1);
-  -ms-transform: scale3d(0.8, 0.5, 1);
-  transform: scale3d(0.8, 0.5, 1);
-  border-radius: 5px;
-  left: -15px;
-  right: -15px;
-  top: -15px;
-  bottom: -15px;
-  border: 1px solid rgba(130, 58, 160, 0.4);
-  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
-          transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 1px solid rgba(130, 58, 160, 0.7);
+  -webkit-transition: -webkit-transform 0.6s ease, opacity 0.6s ease;
+          transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.example-button .moema:hover {
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
+@-webkit-keyframes button-scale-in {
+  60% {
+    left: -0.7em;
+    right: -0.7em;
+    top: -0.7em;
+    bottom: -0.7em;
+    opacity: 0.8;
+  }
+  100% {
+    left: -1em;
+    right: -1em;
+    top: -1em;
+    bottom: -1em;
+    opacity: 0;
+  }
 }
 
-.example-button .moema:hover:before {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  -webkit-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+@keyframes button-scale-in {
+  60% {
+    left: -0.7em;
+    right: -0.7em;
+    top: -0.7em;
+    bottom: -0.7em;
+    opacity: 0.8;
+  }
+  100% {
+    left: -1em;
+    right: -1em;
+    top: -1em;
+    bottom: -1em;
+    opacity: 0;
+  }
 }
 
-.example-button .flash {
+.example-button .bubble:hover:before {
+  -webkit-animation: button-scale-in 0.6s 1;
+  animation: button-scale-in 0.6s 1;
+}
+
+.example-button .line-drawing {
   padding: 1em 2em;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-.example-button .flash span {
+.example-button .line-drawing span {
   position: absolute;
   display: block;
   box-sizing: border-box;
@@ -672,45 +688,45 @@ pre[class*="language-"] {
           transition: width 0.3s ease, height 0.3s ease;
 }
 
-.example-button .flash span:nth-child(1) {
+.example-button .line-drawing span:nth-child(1) {
   left: 0;
   top: 0;
 }
 
-.example-button .flash span:nth-child(2) {
+.example-button .line-drawing span:nth-child(2) {
   right: 0;
   bottom: 0;
 }
 
-.example-button .flash span:nth-child(3) {
+.example-button .line-drawing span:nth-child(3) {
   top: 0;
   right: 0;
 }
 
-.example-button .flash span:nth-child(4) {
+.example-button .line-drawing span:nth-child(4) {
   left: 0;
   bottom: 0;
 }
 
-.example-button .flash span:nth-child(1),
-.example-button .flash span:nth-child(2) {
+.example-button .line-drawing span:nth-child(1),
+.example-button .line-drawing span:nth-child(2) {
   width: 0;
   height: 1px;
 }
 
-.example-button .flash span:nth-child(3),
-.example-button .flash span:nth-child(4) {
+.example-button .line-drawing span:nth-child(3),
+.example-button .line-drawing span:nth-child(4) {
   width: 1px;
   height: 0;
 }
 
-.example-button .flash:hover span:nth-child(1),
-.example-button .flash:hover span:nth-child(2) {
+.example-button .line-drawing:hover span:nth-child(1),
+.example-button .line-drawing:hover span:nth-child(2) {
   width: 100%;
 }
 
-.example-button .flash:hover span:nth-child(3),
-.example-button .flash:hover span:nth-child(4) {
+.example-button .line-drawing:hover span:nth-child(3),
+.example-button .line-drawing:hover span:nth-child(4) {
   height: 100%;
 }
 /*# sourceMappingURL=components-button.css.map */

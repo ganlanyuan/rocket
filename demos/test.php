@@ -22,54 +22,45 @@
 
   <!-- css -->
   <link rel="stylesheet" href="css/test.css">
-  <script src="js/index.min.js"></script>
-  <script src="js/prefixfree.js"></script>
-  <script src="js/conic-gradient.js"></script>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <!-- <script src="js/index.min.js"></script> -->
+  <!-- <script src="js/prefixfree.js"></script> -->
+  <!-- <script src="js/conic-gradient.js"></script> -->
+  <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://raw.githubusercontent.com/IanLunn/jQuery-Parallax/master/scripts//jquery.parallax-1.1.3.js"></script>
+  <script type="text/javascript" src="https://raw.githubusercontent.com/IanLunn/jQuery-Parallax/master/scripts//jquery.localscroll-1.2.7-min.js"></script>
+  <script type="text/javascript" src="https://raw.githubusercontent.com/IanLunn/jQuery-Parallax/master/scripts//jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript">
-
-    // Load the Visualization API and the piechart package.
-    google.load('visualization', '1', {'packages':['corechart']});
-
-    // Set a callback to run when the Google Visualization API is loaded.
-    google.setOnLoadCallback(drawChart);
-
-
-    // Callback that creates and populates a data table, 
-    // instantiates the pie chart, passes in the data and
-    // draws it.
-    function drawChart() {
-
-    // Create the data table.
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Topping');
-    data.addColumn('number', 'Slices');
-    data.addRows([
-      ['Mushrooms', 3],
-      ['Onions', 1],
-      ['Olives', 1],
-      ['Zucchini', 1],
-      ['Pepperoni', 2]
-    ]);
-
-    // Set chart options
-    var options = {'title':'How Much Pizza I Ate Last Night',
-                   'width':400,
-                   'height':300,
-                   colors: ['#0080FF', '#FF0080', '#CC66FF', '#FF8000', '#008040']
-                 };
-
-    // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-    }
-    </script>
+  $(document).ready(function(){
+    $('.parallax__layer').parallax("50%", 0.4);
+  })
+  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="box"></div>
 
-    <div id="chart_div" style="width:400; height:300"></div>
+
+<div class="parallax">
+  <div class="parallax__layer parallax__layer--back">
+    back
   </div>
+  <!-- <div class="parallax__layer parallax__layer--base"> -->
+    base
+  </div>
+</div>
+
+
+  <!-- <div class="container">
+    <div class="box"></div>
+  
+    <div id="chart_div" style="width:400; height:300"></div>
+  
+  
+    
+  
+  
+    <div class="content">
+      <div class="deeper"></div>
+    </div>
+  </div> -->
 </body>
 </html>

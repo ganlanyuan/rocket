@@ -3,6 +3,8 @@
 // *** addons: button *** //
 $color: #823AA0;
 $padding: '1em 2em';
+
+
 .example-button {
   margin: 50px 0;
   font-size: 14px;
@@ -17,12 +19,12 @@ $padding: '1em 2em';
   .round { @include button($padding #2C91FF round); }
   .highlight { @include button($padding $color 5px highlight); }
   .simple { @include button($padding $color 5px simple); }
-  .slide-bg { @include button($padding $color 5px slide-bg); }
-  .water-drop { @include button($padding $color 5px water-drop); }
-  .ujarak { @include button($padding $color 5px ujarak); }
-  .wayra { @include button($padding $color 5px wayra); }
-  .winona { @include button($padding $color 5px winona customize); }
-  .moema { @include button($padding $color 5px moema); }
-  .flash { @include button($padding $color flash); }
+  .slide { @include button($padding $color 5px slide); }
+  .spread { @include button($padding $color 5px spread); }
+  .veil { @include button($padding $color 5px veil); }
+  .cut { @include button($padding $color 5px cut); }
+  .push { @include button($padding $color 5px push customize); }
+  .bubble { @include button($padding $color 5px 0.6s bubble); }
+  .line-drawing { @include button($padding $color line-drawing); }
 }
 
