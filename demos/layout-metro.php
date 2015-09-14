@@ -5,35 +5,37 @@
 
     <div class="topic">
       <h2 id=""><span>layout: </span>Metro</h2>
-      <ul class="w3">
-        <li>
-          <div class="metro-item">
-            <ul class="w3i">
-              <li>
-                <div class="metro-item" data-content="">1-1</div>
-              </li>
-              <li>
-                <div class="metro-item" data-content="">1-2</div>
-              </li>
-              <li>
-                <div class="metro-item" data-content="">1-3</div>
-              </li>
-              <li>
-                <div class="metro-item" data-content="">1-4</div>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="metro-item" data-content>2</div>
-        </li>
-        <li>
-          <div class="metro-item" data-content>3</div>
-        </li>
-        <li>
-          <div class="metro-item" data-content>4</div>
-        </li>
-      </ul>
+      <div class="ovh">
+        <ul class="w3" data-margin>
+          <li>
+            <div class="metro-item">
+              <ul class="w3i">
+                <li>
+                  <div class="metro-item" data-content="">1-1</div>
+                </li>
+                <li>
+                  <div class="metro-item" data-content="">1-2</div>
+                </li>
+                <li>
+                  <div class="metro-item" data-content="">1-3</div>
+                </li>
+                <li>
+                  <div class="metro-item" data-content="">1-4</div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="metro-item" data-content>2</div>
+          </li>
+          <li>
+            <div class="metro-item" data-content>3</div>
+          </li>
+          <li>
+            <div class="metro-item" data-content>4</div>
+          </li>
+        </ul>
+      </div>
       <pre><code class="language-scss">
 .example-gallery {
   @include gallery(3 2% child li); 

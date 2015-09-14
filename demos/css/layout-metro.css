@@ -86,6 +86,10 @@ button {
   display: none;
 }
 
+.ovh {
+  overflow: hidden;
+}
+
 h1, h2, h3, h4, h5, h6, strong {
   font-family: 'Roboto', sans-serif;
 }
@@ -147,7 +151,7 @@ pre {
   }
 }
 [data-margin] {
-  background-color: #F0D7A9;
+  background-color: #E698CC;
 }
 
 [data-padding] {
@@ -288,7 +292,7 @@ li {
 }
 
 .w3 {
-  margin: -5px;
+  margin: -10px;
 }
 .w3:after {
   clear: both;
@@ -306,7 +310,7 @@ li {
   right: 0;
   top: 0;
   bottom: 0;
-  margin: 5px;
+  margin: 10px;
 }
 .w3 > li:nth-child(1) {
   width: 50%;
@@ -358,7 +362,7 @@ li {
 }
 
 .w3i {
-  margin: -5px;
+  margin: -10px;
 }
 .w3i:after {
   clear: both;
@@ -376,7 +380,7 @@ li {
   right: 0;
   top: 0;
   bottom: 0;
-  margin: 5px;
+  margin: 10px;
 }
 .w3i > li:nth-child(1) {
   width: 50%;

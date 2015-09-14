@@ -106,5 +106,5 @@ $w3i: (
   }
 }
 
-.w3 { @include metro($w3 gutter 10px ratio (9/16) child li); }
-.w3i { @include metro($w3i gutter 10px ratio (9/16) child li); }
+.w3 { @include metro($w3 gutter 20px ratio (9/16) child li); }
+.w3i { @include metro($w3i gutter 20px ratio (9/16) child li); }

@@ -5,16 +5,18 @@
 
     <div class="topic">
       <h2 id=""><span>layout: </span>gallery</h2>
-      <ul class="example-gallery">
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-      </ul>
+      <div class="ovh">
+        <ul class="example-gallery" data-margin>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+          <li><div class="cell" data-content></div></li>
+        </ul>
+      </div>
       <pre><code class="language-scss">
 .example-gallery {
   @include gallery(3 2% child li); 

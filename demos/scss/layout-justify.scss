@@ -17,7 +17,7 @@
   }
   input {
     width: 150px;
-    @include button(14px '5px 10px');
+    @include button('5px 10px');
     @extend %ro-global-transition;
     &:focus { width: 250px; }
   }

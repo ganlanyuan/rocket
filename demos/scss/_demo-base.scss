@@ -45,6 +45,7 @@ select:focus,
 textarea:focus {outline: 0; }
 button { border: none; }
 .hidden { display:none; }
+.ovh { overflow: hidden; }
 
 h1,h2,h3,h4,h5,h6,strong { font-family: 'Roboto', sans-serif;}
 h2, h3, h4 { text-transform: capitalize; }
@@ -89,7 +90,7 @@ pre { clear: both; }
 @media screen and (min-width: 103.75em) {
   .container { margin: 0 auto; }
 }
-[data-margin] { background-color: #F0D7A9; }
+[data-margin] { background-color: #E698CC; }
 [data-padding] { background-color: #C2EBBA; }
 [data-content] { background-color: #CDEEFF; }
 .cell { min-height: 200px; }

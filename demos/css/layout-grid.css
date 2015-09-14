@@ -88,6 +88,10 @@ button {
   display: none;
 }
 
+.ovh {
+  overflow: hidden;
+}
+
 h1, h2, h3, h4, h5, h6, strong {
   font-family: 'Roboto', sans-serif;
 }
@@ -152,7 +156,7 @@ pre {
 }
 
 [data-margin] {
-  background-color: #F0D7A9;
+  background-color: #E698CC;
 }
 
 [data-padding] {

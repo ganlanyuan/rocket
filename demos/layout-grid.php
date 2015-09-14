@@ -5,7 +5,7 @@
 
     <div class="topic">
       <h2 id=""><span>layout: </span>grid</h2>
-      <div class="example">
+      <div class="example ovh">
         <div class="row" data-margin>
           <div class="col1">
             <div class="example-content cell" data-content><strong>A</strong></div>
@@ -27,7 +27,7 @@ $layout: (
 );
 .row { @include row($layout); }
       </code></pre>
-      <div class="example">
+      <div class="example ovh">
         <div class="row-2" data-margin>
           <div class="col1">
             <div class="example-content cell" data-content><strong>A</strong></div>
