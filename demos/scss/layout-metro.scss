@@ -1,52 +1,110 @@
 @import 'demo-base';
 
-// *** layout: gallery *** //
-
-.example-gallery { 
-  @include gallery(2 2% child li); 
-}
-
+// *** layout: metro *** //
+li { transition: width 0.3s, padding 0.3s; }
 
 $w3: (
-  null: w3 1 1 1 of 3,
+  null: 1 1 1 1 of 2,
+  1000: 42 1 1 21 of 4,
+);
+$w3i: (
+  null: 1 1 1 1 of 2,
+  1000: 2 21 1 1 of 4,
 );
 @mixin metro($key) {
   $condition: ro-get($key, ('min' 'max'), 'min');
   $media: ro-get($key, $ro-media);
   $ratio: ro-get-next($key, 'ratio', 1);
+  $gutter: ro-get-next($key, 'gutter');
+  $child: ro-get-next($key, 'child', '*');
 
-  $is-map: true;
+  // $is-map: true;
   $map: false;
   $breakpoints: false;
   $data: false;
-  @if type-of($key) == 'list' {
-    @each $item in $key {
-      @if index(join($ro-media, ('min' 'max')), $item) {
-        $is-map: false;
-      }
-    }
-
-    @if $is-map {
-      $map: $key;
-    } @else {
-      $map: ro-get-type($key, 'list');
-    }
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    $map: ro-get-type($key, 'map');
   }
 
   @if $map {
     $breakpoints: map-keys($map);
     $data: map-values($map);
+    
+    @include clearfix();
+    @if $gutter {
+      margin: - ($gutter / 2);
+    }
+    > #{$child} {
+      position: relative;
+      float: left;
+      height: 0;
+    }
+    .metro-item {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      @if $gutter {
+        margin: ($gutter / 2);
+      }
+    }
 
     @for $i from 1 through length($breakpoints) {
       $this-bp: nth($breakpoints, $i);
       $this-data: nth($data, $i);
-      @if $this-bp == null {
-        @for $j from 1 through length($this-data) {
-          > div {
-            height: 0;
+      $this-full: ro-get-next($this-data, 'of');
+      @for $j from 1 through (length($this-data) - 2) {
+        $width: percentage(1 / $this-full);
+        $height: percentage($ratio / $this-full);
+        $w-position: false;
+        $h-position: false;
+        $cell-data: to-string(nth($this-data, $j));
+        @if str-index($cell-data, w) {
+          $w-position: (str-index($cell-data, w) + 1);
+          $width: percentage(to-number(str-slice($cell-data, $w-position, $w-position)) / $this-full);
+        }
+        @if str-index($cell-data, h) {
+          $h-position: (str-index($cell-data, h) + 1);
+          $height: percentage($ratio * to-number(str-slice($cell-data, $h-position, $h-position)) / $this-full);
+        }
+        @if type-of(nth($this-data, $j)) == 'number' {
+          @if str-length($cell-data) == 2 {
+            $width: percentage(to-number(str-slice($cell-data, 1, 1)) / $this-full);
+            $height: percentage($ratio * to-number(str-slice($cell-data, 2, 2)) / $this-full);
+          } @else if str-length($cell-data) == 1 and nth($this-data, $j) > 1 {
+            $width: percentage(nth($this-data, $j) / $this-full);
+            $height: percentage($ratio * nth($this-data, $j) / $this-full);
           }
+        }
+        @if $this-bp == null {
+          > #{$child} {
+            &:nth-child(#{$j}) {
+              width: $width;
+              padding-bottom: $height;
+            }
+          }
+        } @else {
+          @include bp($condition $this-bp) {
+            > #{$child}:nth-child(#{$j}) {
+              width: $width;
+              padding-bottom: $height;
+            }
+          }
+        }
+      }
+      @if $this-bp == null {
+        > #{$child}:nth-child(n + #{(length($this-data) - 1)}) { display: none; }
+      } @else {
+        @include bp($condition $this-bp) {
+          > #{$child}:nth-child(n + #{(length($this-data) - 1)}) { display: none; }
         }
       }
     }
   }
 }
+
+.w3 { @include metro($w3 gutter 10px ratio (9/16) child li); }
+.w3i { @include metro($w3i gutter 10px ratio (9/16) child li); }

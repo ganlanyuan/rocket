@@ -1,25 +1,38 @@
 <?php include 'include/head.php'; ?>
-<?php include 'include/head.php'; ?>
 <body>
 <div class="page">
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>gallery</h2>
-      <ul class="example-gallery">
-        <li><div class="w3">
-          <div data-content></div>
-          <div data-content></div>
-          <div data-content></div>
-          <div data-content></div>
-        </div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
-        <li><div class="cell" data-content></div></li>
+      <h2 id=""><span>layout: </span>Metro</h2>
+      <ul class="w3">
+        <li>
+          <div class="metro-item">
+            <ul class="w3i">
+              <li>
+                <div class="metro-item" data-content="">1-1</div>
+              </li>
+              <li>
+                <div class="metro-item" data-content="">1-2</div>
+              </li>
+              <li>
+                <div class="metro-item" data-content="">1-3</div>
+              </li>
+              <li>
+                <div class="metro-item" data-content="">1-4</div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="metro-item" data-content>2</div>
+        </li>
+        <li>
+          <div class="metro-item" data-content>3</div>
+        </li>
+        <li>
+          <div class="metro-item" data-content>4</div>
+        </li>
       </ul>
       <pre><code class="language-scss">
 .example-gallery {
