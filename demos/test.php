@@ -22,45 +22,18 @@
 
   <!-- css -->
   <link rel="stylesheet" href="css/test.css">
-  <!-- <script src="js/index.min.js"></script> -->
-  <!-- <script src="js/prefixfree.js"></script> -->
-  <!-- <script src="js/conic-gradient.js"></script> -->
-  <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://raw.githubusercontent.com/IanLunn/jQuery-Parallax/master/scripts//jquery.parallax-1.1.3.js"></script>
-  <script type="text/javascript" src="https://raw.githubusercontent.com/IanLunn/jQuery-Parallax/master/scripts//jquery.localscroll-1.2.7-min.js"></script>
-  <script type="text/javascript" src="https://raw.githubusercontent.com/IanLunn/jQuery-Parallax/master/scripts//jquery.scrollTo-1.4.2-min.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('.parallax__layer').parallax("50%", 0.4);
-  })
-  </script>
+  <script src="js/index.min.js"></script>
+  <script src="js/prefixfree.js"></script>
+  <script src="js/conic-gradient.js"></script>
 </head>
 <body>
 
-
-<div class="parallax">
-  <div class="parallax__layer parallax__layer--back">
-    back
-  </div>
-  <!-- <div class="parallax__layer parallax__layer--base"> -->
-    base
-  </div>
-</div>
-
-
-  <!-- <div class="container">
+  <div class="container">
     <div class="box"></div>
-  
-    <div id="chart_div" style="width:400; height:300"></div>
-  
-  
-    
-  
-  
-    <div class="content">
-      <div class="deeper"></div>
+    <div class="card">
+      <div class="chart front">front</div>
+      <div class="chart back">back</div>
     </div>
-  </div> -->
+  </div>
 </body>
 </html>

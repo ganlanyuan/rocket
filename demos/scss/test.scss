@@ -10,41 +10,45 @@ img {
 body {
   margin: 0;
   padding: 0;
-  min-height: 2000px;
 }
 .container { @include container(1000px 20px); }
 
-.box {
-  width: 300px;
-  height: 300px;
-  background: conic-gradient(yellowgreen 40%, gold 0 70%, #f06 0);
-  border-radius: 50%;
-}
-
-// .parallax {
-//   perspective: 1px;
-//   height: 100vh;
-//   overflow-x: hidden;
-//   overflow-y: auto;
+// .box {
+//   width: 300px;
+//   height: 300px;
+//   background: conic-gradient(yellowgreen 40%, gold 0 70%, #f06 0);
+//   border-radius: 50%;
 // }
-.parallax__layer {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   padding: 100vh 0px;
-  height: 400px;
-  margin-top: 200px;
-//   overflow-x: hidden;
-//   overflow-y: auto;
+.container {
+  margin-top: 100px;
 }
-// .parallax__layer--base {
-//   transform: translateZ(0);
-// }
-.parallax__layer--back {
-//   transform: translateZ(-10px) scale(10);
-  background-image: url('http://www.trbimg.com/img-55f6f6b2/turbine/la-wildfires-burning-through-california-201509-018/');
-  background-repeat: no-repeat;
-  // background-size: cover;
+.card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  &:hover { 
+    .front { transform: perspective(400px) rotateY(179.9deg); }
+    .back { transform: perspective(400px) rotateY(0deg); }
+  }
+}
+.chart {
+  height: 200px;
+  background-color: #51B6FF;
+  text-align: center;
+  color: #fff;
+  transition: transform 1s;
+  transform-origin: center;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+.front { 
+  transform: perspective(400px) rotateY(0deg); 
+}
+.back { 
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: perspective(400px) rotateY(-179.9deg); 
 }
