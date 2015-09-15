@@ -1,0 +1,147 @@
+/// Grid wrapper, works with span when using a fixed value for gutter.
+/// 
+/// $key: `$map $mode (child $child) (gutter $gutter) keep`
+/// @group layout
+/// @param {number | list} $key - key 
+/// @example scss - Usage
+/// $layout: (
+///   2:1,
+///   7:0,
+///   3:0,
+/// );
+/// .row { @include row($layout); }
+///
+/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
+/// @link https://github.com/ganlanyuan/rocket full document
+
+@mixin metro($key) {
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media: ro-get($key, $ro-media);
+  $ratio: ro-get-next($key, 'ratio', map-get($ro-metro, 'ratio'));
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-metro, 'gutter'));
+  $child: ro-get-next($key, 'child', map-get($ro-metro, 'child'));
+
+  // $is-map: true;
+  $map: false;
+  $breakpoints: false;
+  $data: false;
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    $map: ro-get-type($key, 'map');
+  }
+
+  @if $map {
+    $breakpoints: map-keys($map);
+    $data: map-values($map);
+
+    // *** output *** // 
+    @include clearfix();
+    @if $gutter { margin: - ($gutter / 2); }
+    > #{$child} {
+      position: relative;
+      float: left;
+      height: 0;
+    }
+    .metro-item {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      @if $gutter { margin: ($gutter / 2); }
+    }
+
+    @for $i from 1 through length($breakpoints) {
+      $this-bp: nth($breakpoints, $i);
+      $this-data: nth($data, $i);
+      $this-full: ro-get-next($this-data, 'of');
+      @if $this-bp == null {
+        @for $j from 1 through (length($this-data) - 2) {
+          $width: percentage(1 / $this-full);
+          $height: percentage($ratio / $this-full);
+          $w-position: false;
+          $h-position: false;
+          $cell-num: nth($this-data, $j);
+          $cell-str: to-string($cell-num);
+          $cell-len: str-length($cell-str);
+          @if str-index($cell-str, 'w') and str-index($cell-str, 'h') {
+            $w-position: (str-index($cell-str, 'w') + 1);
+            $h-position: (str-index($cell-str, 'h') + 1);
+            @if $h-position > $w-position {
+              // format: w8h4
+              $width: percentage(to-number(str-slice($cell-str, $w-position, ($h-position - 2))) / $this-full);
+              $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
+            } @else {
+              // format: h4w8
+              $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
+              $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, ($w-position - 2))) / $this-full);
+            }
+          } @else if str-index($cell-str, 'w') {
+            // format: w8
+            $w-position: (str-index($cell-str, 'w') + 1);
+            $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
+          } @else if str-index($cell-str, 'h') {
+            // format: h4
+            $h-position: (str-index($cell-str, 'h') + 1);
+            $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
+          } @else if type-of($cell-num) == 'number' and $cell-num > 1 {
+            // format: 4
+            $width: percentage($cell-num / $this-full);
+            $height: percentage($ratio * $cell-num / $this-full);
+          }
+
+          > #{$child}:nth-child(#{$j}) {
+            width: $width;
+            padding-bottom: $height;
+          }
+        }
+      } @else {
+        @include bp($condition $this-bp) {
+          @for $j from 1 through (length($this-data) - 2) {
+            $width: percentage(1 / $this-full);
+            $height: percentage($ratio / $this-full);
+            $w-position: false;
+            $h-position: false;
+            $cell-num: nth($this-data, $j);
+            $cell-str: to-string($cell-num);
+            $cell-len: str-length($cell-str);
+            @if str-index($cell-str, 'w') and str-index($cell-str, 'h') {
+              $w-position: (str-index($cell-str, 'w') + 1);
+              $h-position: (str-index($cell-str, 'h') + 1);
+              @if $h-position > $w-position {
+                // format: w8h4
+                $width: percentage(to-number(str-slice($cell-str, $w-position, ($h-position - 2))) / $this-full);
+                $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
+              } @else {
+                // format: h4w8
+                $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
+                $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, ($w-position - 2))) / $this-full);
+              }
+            } @else if str-index($cell-str, 'w') {
+              // format: w8
+              $w-position: (str-index($cell-str, 'w') + 1);
+              $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
+            } @else if str-index($cell-str, 'h') {
+              // format: h4
+              $h-position: (str-index($cell-str, 'h') + 1);
+              $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
+            } @else if type-of($cell-num) == 'number' and $cell-num > 1 {
+              // format: 4
+              $width: percentage($cell-num / $this-full);
+              $height: percentage($ratio * $cell-num / $this-full);
+            }
+
+            > #{$child}:nth-child(#{$j}) {
+              width: $width;
+              padding-bottom: $height;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+

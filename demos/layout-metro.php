@@ -11,19 +11,19 @@
             <div class="metro-item">
               <ul class="g-1">
                 <li>
-                  <div class="metro-item" data-content="">1-1</div>
+                  <div class="metro-item" data-content=""><strong>A</strong><small>-1</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">1-2</div>
+                  <div class="metro-item" data-content=""><strong>A</strong><small>-2</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">1-3</div>
+                  <div class="metro-item" data-content=""><strong>A</strong><small>-3</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">1-4</div>
+                  <div class="metro-item" data-content=""><strong>A</strong><small>-4</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">1-5</div>
+                  <div class="metro-item" data-content=""><strong>A</strong><small>-5</small></div>
                 </li>
               </ul>
             </div>
@@ -32,10 +32,10 @@
             <div class="metro-item">
               <ul class="g-2">
                 <li>
-                  <div class="metro-item" data-content="">2-1</div>
+                  <div class="metro-item" data-content=""><strong>B</strong><small>-1</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">2-2</div>
+                  <div class="metro-item" data-content=""><strong>B</strong><small>-2</small></div>
                 </li>
               </ul>
             </div>
@@ -44,19 +44,19 @@
             <div class="metro-item">
               <ul class="g-3">
                 <li>
-                  <div class="metro-item" data-content="">3-1</div>
+                  <div class="metro-item" data-content=""><strong>C</strong><small>-1</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">3-2</div>
+                  <div class="metro-item" data-content=""><strong>C</strong><small>-2</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">3-3</div>
+                  <div class="metro-item" data-content=""><strong>C</strong><small>-3</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">3-4</div>
+                  <div class="metro-item" data-content=""><strong>C</strong><small>-4</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">3-5</div>
+                  <div class="metro-item" data-content=""><strong>C</strong><small>-5</small></div>
                 </li>
               </ul>
             </div>
@@ -65,19 +65,19 @@
             <div class="metro-item">
               <ul class="g-4">
                 <li>
-                  <div class="metro-item" data-content="">4-1</div>
+                  <div class="metro-item" data-content=""><strong>D</strong><small>-1</small></div>
                 </li>
                 <li>
-                  <div class="metro-item" data-content="">4-2</div>
+                  <div class="metro-item" data-content=""><strong>D</strong><small>-2</small></div>
                 </li>
               </ul>
             </div>
           </li>
           <li>
-            <div class="metro-item" data-content>5</div>
+            <div class="metro-item" data-content><strong>E</strong></div>
           </li>
           <li>
-            <div class="metro-item" data-content>6</div>
+            <div class="metro-item" data-content><strong>F</strong></div>
           </li>
         </ul>
       </div>

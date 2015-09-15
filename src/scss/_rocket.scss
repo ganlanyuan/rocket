@@ -47,6 +47,7 @@
 @import "layout/liquid-2";
 @import "layout/liquid-3";
 @import "layout/gallery"; // @require [mixin] wrap
+@import "layout/metro"; // @require [mixin] wrap
 @import "layout/justify"; // @required [mixin] display, justify-content, align-items
 @import "layout/center";
 
