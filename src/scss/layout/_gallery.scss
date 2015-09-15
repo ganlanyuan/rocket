@@ -57,11 +57,11 @@
       @include flex(1 1);
       @include align-self(stretch);
       box-sizing: border-box;
-      @if unit($gutter) != '%' {
-        padding: 0 $half-gutter $gutter; 
-      } @else {
+      @if unit($gutter) == '%' {
         padding-left: $half-gutter;
         padding-right: $half-gutter;
+      } @else {
+        padding: 0 $half-gutter $gutter; 
       }
     }
     @if unit($gutter) == '%' {

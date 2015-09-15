@@ -3,8 +3,8 @@
 // *** layout: gallery *** //
 
 .example-gallery { 
-  @include gallery(3 2% child li); 
+  @include gallery(3); 
   @include breakpoint('min' 800) {
-    @include gallery(4 child li keep);
+    @include gallery(4 keep);
   }
 }

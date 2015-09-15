@@ -18,10 +18,10 @@
         </ul>
       </div>
       <pre><code class="language-scss">
-.example-gallery {
-  @include gallery(3 2% child li); 
-  @include breakpoint('min' 800) {
-    @include gallery(4 child li keep);
+.example-gallery { 
+  @include gallery(3); 
+  @media (min-width: 800px) {
+    @include gallery(4 keep);
   }
 }
       </code></pre>

@@ -317,8 +317,8 @@ pre[class*="language-"] {
   -webkit-align-content: stretch;
   -ms-flex-line-pack: stretch;
   align-content: stretch;
-  margin-left: -1%;
-  margin-right: -1%;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .example-gallery > li {
@@ -331,17 +331,10 @@ pre[class*="language-"] {
   -ms-flex-item-align: stretch;
   align-self: stretch;
   box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding: 0 10px 20px;
   -webkit-flex-basis: 33.3333333333%;
   -ms-flex-preferred-size: 33.3333333333%;
   flex-basis: 33.3333333333%;
-}
-
-.example-gallery > li:after {
-  content: '';
-  display: block;
-  padding-bottom: 6%;
 }
 
 .flexboxtweener .example-gallery > li {
