@@ -8,6 +8,12 @@ $ro-layout: (
   'gutter': 20px,
 ) !default;
 
+$ro-metro: (
+  'gutter': 0,
+  'ratio': 1,
+  'child': '*',
+);
+
 // setting
 $breakpoint-fix: true !default;
 
