@@ -11,19 +11,19 @@
           <ul class="items">
             <li class="item-1">
               <strong>Copper</strong>
-              <span>8.9</span>
+              <span></span>
             </li>
             <li class="item-2">
               <strong>Silver</strong>
-              <span>10.5</span>
+              <span></span>
             </li>
             <li class="item-3">
               <strong>Gold</strong>
-              <span>19.3</span>
+              <span></span>
             </li>
             <li class="item-4">
               <strong>Platinum</strong>
-              <span>21.45</span>
+              <span></span>
             </li>
           </ul>
           <div class="ticks">
@@ -52,27 +52,27 @@
           <ul class="items">
             <li class="item-1">
               <strong>Copper</strong>
-              <span>8.9</span>
-              <span>5</span>
-              <span>10.7</span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
             <li class="item-2">
               <strong>Silver</strong>
-              <span>10.5</span>
-              <span>10</span>
-              <span>12</span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
             <li class="item-3">
               <strong>Gold</strong>
-              <span>19.3</span>
-              <span>16</span>
-              <span>12</span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
             <li class="item-4">
               <strong>Platinum</strong>
-              <span>21.45</span>
-              <span>22</span>
-              <span>18</span>
+              <span></span>
+              <span></span>
+              <span></span>
             </li>
           </ul>
           <div class="ticks">
@@ -98,6 +98,17 @@
         </div>
       </div>
       <pre><code class="language-scss">
+$data1: (
+  #5AB5E1: 8.9 10.5 19.3 21.45,
+);
+$data2: (
+  #E44B22: 8.9 10.5 19.3 21.45,
+  #E48A22: 5 10 16 22,
+  #22A1E4: 10.7 12 12 18,
+);
+
+.charts1 { @include charts($data1 'bar' 'steps' (2 22) animation (0.6s)); }
+.charts2 { @include charts($data2 'column' 'steps' (2 24) animation (0.6s)); }
       </code></pre>
     </div>
     

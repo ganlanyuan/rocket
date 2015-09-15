@@ -112,6 +112,7 @@
         @for $j from 1 through length($data) {
           > span:nth-of-type(#{$j}) {
             #{$grow}: percentage(nth(nth($data, $j), $i) / $full-width);
+            &:before { content: '#{nth(nth($data, $j), $i)}'; } // add content 
             // transition-delay: ($delay * ($i - 1 + length(nth($data, 1)) * ($j - 1)));
           }
         }
