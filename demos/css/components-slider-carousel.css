@@ -522,6 +522,71 @@ pre[class*="language-"] {
   left: -400%;
 }
 
+.carousel-a .inner > li {
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+}
+
+.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: perspective(600px) scale(0.75);
+  -ms-transform: perspective(600px) scale(0.75);
+  transform: perspective(600px) scale(0.75);
+}
+
+.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(1) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: perspective(600px) scale(0.75);
+  -ms-transform: perspective(600px) scale(0.75);
+  transform: perspective(600px) scale(0.75);
+}
+
+.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(2) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: perspective(600px) scale(0.75);
+  -ms-transform: perspective(600px) scale(0.75);
+  transform: perspective(600px) scale(0.75);
+}
+
+.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(3) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: perspective(600px) scale(0.75);
+  -ms-transform: perspective(600px) scale(0.75);
+  transform: perspective(600px) scale(0.75);
+}
+
+.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(4) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: perspective(600px) scale(0.75);
+  -ms-transform: perspective(600px) scale(0.75);
+  transform: perspective(600px) scale(0.75);
+}
+
+.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(5) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
 .carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
@@ -790,6 +855,36 @@ pre[class*="language-"] {
 .carousel-d #carousel-d-5:checked ~ .outer > .inner {
   margin-top: 0;
   left: -150%;
+}
+
+.carousel-d #carousel-d-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-d #carousel-d-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-d #carousel-d-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-d #carousel-d-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-d #carousel-d-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
 }
 
 .carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .active {
@@ -1076,6 +1171,36 @@ pre[class*="language-"] {
   left: -125%;
 }
 
+.carousel-e #carousel-e-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-e #carousel-e-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-e #carousel-e-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-e #carousel-e-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-e #carousel-e-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
 .carousel-e #carousel-e-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
@@ -1348,6 +1473,36 @@ pre[class*="language-"] {
 .carousel-f #carousel-f-5:checked ~ .outer > .inner {
   margin-top: 0;
   left: -150%;
+}
+
+.carousel-f #carousel-f-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-f #carousel-f-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-f #carousel-f-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-f #carousel-f-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-f #carousel-f-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
 }
 
 .carousel-f #carousel-f-1:checked ~ .dots label:nth-child(1) .active {
@@ -1805,6 +1960,36 @@ pre[class*="language-"] {
   left: -150%;
 }
 
+.carousel-g #carousel-g-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-g #carousel-g-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-g #carousel-g-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-g #carousel-g-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-g #carousel-g-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
 .carousel-g #carousel-g-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
@@ -2130,6 +2315,36 @@ pre[class*="language-"] {
   left: -400%;
 }
 
+.carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-h #carousel-h-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-h #carousel-h-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-h #carousel-h-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-h #carousel-h-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
 .carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
@@ -2393,6 +2608,36 @@ pre[class*="language-"] {
 
 .carousel-i #carousel-i-5:checked ~ .outer > .inner {
   margin-top: -225%;
+}
+
+.carousel-i #carousel-i-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-i #carousel-i-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-i #carousel-i-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-i #carousel-i-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.carousel-i #carousel-i-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
 }
 
 .carousel-i #carousel-i-1:checked ~ .dots label:nth-child(1) .active {
@@ -2781,6 +3026,31 @@ pre[class*="language-"] {
     margin-top: 0;
     left: -150%;
   }
+  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
 }
 
 .carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
@@ -2902,6 +3172,31 @@ pre[class*="language-"] {
   .carousel-d #carousel-d-5:checked ~ .outer > .inner {
     margin-top: 0;
     left: -66.6666666667%;
+  }
+  .carousel-d #carousel-d-1:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-d #carousel-d-2:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-d #carousel-d-3:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-d #carousel-d-4:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-d #carousel-d-5:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
   }
 }
 
@@ -3035,6 +3330,31 @@ pre[class*="language-"] {
     margin-top: 0;
     left: -150%;
   }
+  .carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-2:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-3:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-4:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-5:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
 }
 
 .carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
@@ -3160,6 +3480,85 @@ pre[class*="language-"] {
     margin-top: 0;
     left: -66.6666666667%;
   }
+  .carousel-a .inner > li {
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+  }
+  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(-n + 1) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  }
+  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n + 3) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    transform: perspective(600px) scale(0.75) rotateY(30deg);
+  }
+  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(2) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(-n + 2) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  }
+  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n + 4) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    transform: perspective(600px) scale(0.75) rotateY(30deg);
+  }
+  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(3) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(-n + 3) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  }
+  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n + 5) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    transform: perspective(600px) scale(0.75) rotateY(30deg);
+  }
+  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(4) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(-n + 4) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  }
+  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n + 6) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    transform: perspective(600px) scale(0.75) rotateY(30deg);
+  }
+  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(5) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(-n + 5) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+    transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  }
+  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n + 7) {
+    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+    transform: perspective(600px) scale(0.75) rotateY(30deg);
+  }
+  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(6) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
 }
 
 .carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
@@ -3281,6 +3680,31 @@ pre[class*="language-"] {
   .carousel-h #carousel-h-5:checked ~ .outer > .inner {
     margin-top: 0;
     left: -66.6666666667%;
+  }
+  .carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-2:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-3:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-4:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
+  }
+  .carousel-h #carousel-h-5:checked ~ .outer > .inner > li:nth-child(n) {
+    -webkit-transform: scale(1) rotateY(0deg);
+    -ms-transform: scale(1) rotateY(0deg);
+    transform: scale(1) rotateY(0deg);
   }
 }
 

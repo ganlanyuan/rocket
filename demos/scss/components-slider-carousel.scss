@@ -1,6 +1,524 @@
 @import 'demo-base';
 
 // // *** slider: carousel *** //
+@mixin slider-carousel($key){
+  $items: 1;
+  $perpage: 1;
+  $gutter: ro-get-next($key, 'gutter', 10px);
+  // options
+  $center: ro-get($key, 'center');
+  $bypage: ro-get($key, 'bypage');
+  $scale: ro-get($key, 'scale');
+  $rotate: ro-get($key, 'rotate');
+  $keep: ro-get($key, 'keep');
+  $default: ro-get($key, 'default');
+  // vertical
+  $vertical: ro-get($key, 'vertical');
+  $ratio: ro-get-next($key, 'ratio', 9/16);
+  // autoplay
+  $autoplay: ro-get($key, 'autoplay');
+  $autoplay-js: ro-get($key, 'autoplay-js');
+  $progress-bar: ro-get($key, 'progress-bar');
+  $hoverpause: ro-get($key, 'hoverpause');
+  $speed: ro-get-next($key, 'speed', 1s);
+  $timeout: ro-get-next($key, 'timeout', 3s);
+  $time-per-item: ($speed + $timeout);
+
+  @if type-of($key) == 'number' {
+    $items: $key;
+  } @else if type-of($key) == list {
+    @each $val in $key {
+
+      @if index($key, by) {
+        $items: ro-get-prev($key, by);
+        $perpage: ro-get-next($key, by);
+      } @else if type-of($val) == 'number' and unitless($val) {
+        $items: $val;
+      }
+    }
+  }
+
+  $half: 0;
+  $pages: $items - $perpage + 1;
+  $prefix: get-slider-selector(&);
+  $id: "#" + $prefix;
+  @if $center and $perpage > 1 { 
+    $half: (1 / ($perpage * 2)); 
+  }
+  @if unit($ratio) != '%' {
+    $ratio: percentage($ratio);
+  }
+
+  @if not $keep {
+    position: relative;
+    > input { position: absolute; left: -9999px; }
+    .outer { 
+      overflow: hidden;  
+      transition: height ($speed / 3); 
+      @if $vertical {
+        height: 0;
+        margin: 0;
+        padding-bottom: $ratio;
+      } @else {
+        @if $gutter and $gutter != 0 {
+          @if not $center { margin: 0 (- $gutter / 2); }
+        }
+      }
+    }
+    .inner {
+      @include clearfix();
+      @if $vertical {
+        position: static;
+        white-space: normal;
+        transition: margin-top $speed; 
+      } @else {
+        position: relative;
+        letter-spacing: -0.34em; // remove white space between inline-block elements
+        white-space: nowrap;
+        transition: left $speed; 
+      }
+      > li {
+        box-sizing: border-box;
+        @if $vertical {
+          height: 0;
+          display: block;
+          padding: 0 0 $ratio;
+        } @else {
+          width: 100%;
+          display: inline-block;
+          vertical-align: top;
+          letter-spacing: 0; // restore letter-spacing
+          white-space: normal;
+          @if $gutter and $gutter != 0 {
+            padding: 0 ($gutter / 2); 
+          }
+        }
+      }
+    }
+    .controls, .dots, .autoplay { z-index: 2; }
+    .controls {
+      span { display: none; }
+      .prev { float: left; }
+      .next { float: right; }
+    }
+    .dots {
+      letter-spacing: -0.34em; // remove white space between inline-block elements
+      > label { letter-spacing: 0; } // restore letter-spacing
+      > label, span {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .normal { display: block; }
+      .active { display: none; }
+    }
+    .autoplay {
+      @if $autoplay { 
+        .no-cssanimations & { display: none !important; } 
+      }
+      .pause {display: none; }
+    }
+  }
+
+  // per page
+  @if $perpage != 1 { 
+    @if $vertical {
+      .outer { padding-bottom: ($ratio * $perpage); } 
+    } @else {
+      .inner > li { width: percentage(1 / $perpage); } 
+    }
+  }
+  
+  // set inner
+  @for $i from 1 through $items {
+    @at-root {
+      #{$id}-#{$i}:checked ~ {
+        .outer > .inner { 
+          @if $vertical {
+            margin-top: - ($ratio * ($i - 1));
+          } @else {
+            margin-top: 0;
+            @if ($i / $perpage) >= floor($items / $perpage) and 
+                ($i / $perpage) < ceil($items / $perpage) {
+              left: - percentage(($items / $perpage) - 1 - $half);
+            } @else {
+              left: - percentage(($i - 1) / $perpage + $half); 
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // scale, rotate
+  $scale-val: '';
+  $rotate-val-left: '';
+  $rotate-val-right: '';
+  @if $scale {
+    $scale-val: scale(0.75);
+  } @else if $rotate {
+    $rotate-val-left: perspective(600px) scale(0.75) rotateY(-30deg);
+    $rotate-val-right: perspective(600px) scale(0.75) rotateY(30deg);
+  }
+  @if $scale or $rotate {
+    .inner > li { @include transition(transform $speed); }
+
+    @for $i from 1 through $items {
+      #{$id}-#{$i}:checked ~ {
+        .outer > .inner { 
+
+          @if $perpage > 1 {
+            $add: false;
+            @if ceil($perpage / 2) > ($perpage / 2) {
+              $add: (($perpage - 1) / 2);
+              // restore all items to scale(0.75)
+              @if $scale {
+                > li:nth-child(n) { @include transform(#{$scale-val}); }
+              } @else if $rotate {
+                > li:nth-child(-n + #{$i + $add - 1}) { @include transform(#{$rotate-val-left}); }
+                > li:nth-child(n + #{$i + $add + 1}) { @include transform(#{$rotate-val-right}); }
+              }
+
+              > li:nth-child(#{$i + $add}) {
+                @include transform(scale(1) rotateY(0deg));
+              }
+            } @else {
+              $add: (($perpage / 2) - 1);
+              // restore all items to scale(0.75)
+              @if $scale {
+                > li:nth-child(n) { @include transform(#{$scale-val}); }
+              } @else if $rotate {
+                > li:nth-child(-n + #{$i + $add - 1}) { @include transform(#{$scale-val} #{$rotate-val-left}); }
+                > li:nth-child(n + #{$i + $add + 2}) { @include transform(#{$scale-val} #{$rotate-val-right}); }
+              }
+
+              > li:nth-child(#{$i + $add}),
+              > li:nth-child(#{$i + $add + 1}) {
+                @include transform(scale(1) rotateY(0deg));
+              }
+            }
+          } @else {
+            // restore all items to scale(0.75)
+            @if $scale {
+              > li:nth-child(n) { @include transform(perspective(600px) #{$scale-val}); }
+            } @else if $rotate {
+              > li:nth-child(-n + #{$i - 1}) { @include transform(perspective(600px) #{$scale-val} #{$rotate-val-left}); }
+              > li:nth-child(n + #{$i + 1}) { @include transform(perspective(600px) #{$scale-val} #{$rotate-val-right}); }
+            }
+
+            > li:nth-child(#{$i}) {
+              @include transform(scale(1) rotateY(0deg));
+            }
+          }
+        }
+      }
+    }
+  } @else {
+    @for $i from 1 through $items {
+      #{$id}-#{$i}:checked ~ .outer > .inner > li:nth-child(n) {
+        @include transform(scale(1) rotateY(0deg));
+      }
+    }
+  }
+
+  @at-root (without: media) { 
+    @at-root {
+      // active dots
+      @for $i from 1 through $items {
+        #{$id}-#{$i}:checked ~ {
+            .dots label:nth-child(#{$i}) .active { display: block; }
+            .dots label:nth-child(#{$i}) .normal { display: none; }
+        }
+      }
+      #{$id}-autoplay:checked ~ {
+        @if $autoplay {
+          // hide controls and dots
+          .controls, .dots {
+            display: none; 
+            .no-cssanimations & { display: block !important; }
+          }
+        }
+        .autoplay {
+          .play { display: none; }
+          .pause { display: block; }
+        }
+      }
+    }
+  }
+  // hide extra dots
+  @if $center {
+    .dots label:nth-child(n + #{$pages}) { display: none; }
+  } @else {
+    .dots label:nth-child(n + #{$pages + 1}) { display: none; }
+  }
+
+  // set autoplay animation
+  @if $autoplay {
+    $left-val: 0;
+    $frames: 1;
+
+    @include keyframes(#{$prefix}-inner) {
+      @if $bypage { $frames: ceil($items/$perpage); } 
+      @else { $frames: ($items - $perpage + 1); }
+      
+      // vertical
+      @if $vertical {
+        0% { margin-top: 0; }
+        
+        @if $bypage {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { 
+              @if ($perpage * ($i - 1)) > ($items - $perpage) {
+                margin-top: - ($ratio * ($items - $perpage)); 
+              } @else {
+                margin-top: - ($ratio * $perpage * ($i - 1)); 
+              }
+            }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { 
+              @if ($perpage * $i) > ($items - $perpage) {
+                margin-top: - ($ratio * ($items - $perpage)); 
+              } @else {
+                margin-top: - ($ratio * $perpage * $i); 
+              }
+            }
+          }
+        } @else {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { 
+              margin-top: - ($ratio * ($i - 1)); 
+            }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { 
+              margin-top: - ($ratio * $i); 
+            }
+          }
+        }
+
+        100% { margin-top: 0; }
+      // horizontal
+      } @else {
+        0% { left: 0; }
+
+        @if $bypage {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { 
+              @if (($i - 1) * $perpage) > ($items - $perpage) {
+                left: - percentage(($items / $perpage) - 1);
+              } @else {
+                left: - percentage(($i - 1)); 
+              }
+            }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { 
+              @if ($i * $perpage) > ($items - $perpage) {
+                left: - percentage(($items / $perpage) - 1);
+              } @else {
+                left: - percentage($i); 
+              }
+            }
+          }
+        } @else {
+          @for $i from 1 through $frames {
+            #{percentage(($timeout + ($time-per-item * ($i - 1))) / ($time-per-item * $frames))} { left: - percentage(($i - 1) / $perpage); }
+            #{percentage(($time-per-item * $i) / ($time-per-item * $frames))} { left: - percentage($i / $perpage); }
+          }
+        }
+
+        100% { left: 0; }
+      }
+    }
+    
+    // progress-bar keyframes
+    @if $progress-bar {
+      @include keyframes(#{$prefix}-progress) {
+        0% { width: 0; }
+        #{percentage($timeout / $time-per-item)} { width: 100%; }
+        #{percentage($timeout / $time-per-item + 0.0001)} { width: 0; }
+        100% { width: 0; }
+      }
+    }
+
+    @at-root {
+      #{$id}-autoplay:checked ~ {
+        .outer > .inner { @include animation(#{$prefix}-inner $time-per-item * $frames ease infinite); }
+        @if $progress-bar {
+          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
+        }
+      }
+    }
+    // pause on hover
+    @if $hoverpause {
+      &:hover {
+        #{$id}-autoplay ~ {
+          .outer > .inner { @include animation-play-state(paused); }
+          @if $progress-bar {
+            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
+          }
+        }
+      }
+    }
+  }
+
+  // set controls
+  @at-root {
+    @for $i from 1 through $items {
+      #{$id}-#{$i}:checked ~ {
+        .controls label:nth-child(n+1) { display: none; }
+        @if $bypage == true {
+          // prev
+          @if $i == 1 {
+            .controls label:nth-child(#{$items - $perpage + 1}),
+            .controls label:nth-child(#{$items - $perpage + 1}) .prev { display: block; }
+          }
+          @else if $i > 1 and $i <= $perpage {
+            .controls label:nth-child(1),
+            .controls label:nth-child(1) .prev { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - $perpage}),
+            .controls label:nth-child(#{$i - $perpage}) .prev { display: block; }
+          }
+          // next
+          @if $i >= ($items - $perpage + 1) {
+            .controls label:nth-child(1),
+            .controls label:nth-child(1) .next { display: block; }
+          }
+          @else if $i > ($items - $perpage * 2 + 1) and $i < ($items - $perpage + 1) {
+            .controls label:nth-child(#{$items - $perpage + 1}),
+            .controls label:nth-child(#{$items - $perpage + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i + $perpage}),
+            .controls label:nth-child(#{$i + $perpage}) .next { display: block; }
+          }
+        }
+        @else if $center == true {
+          @if $i == 1 {
+            .controls label:nth-child(#{$pages}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$pages}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i < ($pages - 1 ) {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(1),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
+          }
+        }
+        @else {
+          @if $i == 1 {
+            .controls label:nth-child(#{$pages}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$pages}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else if $i < $pages {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(#{$i + 1}),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(#{$i + 1}) .next { display: block; }
+          }
+          @else {
+            .controls label:nth-child(#{$i - 1}), 
+            .controls label:nth-child(1),
+            .controls label:nth-child(#{$i - 1}) .prev, 
+            .controls label:nth-child(1) .next { display: block; }
+          }
+        }
+      }
+    }
+  }
+
+  // set default controls, dots and autoplay styles
+  @if $default and not $keep {
+    .controls {
+      @include clearfix();
+      max-width: 7.5em;
+      margin: 10px auto;
+      span {
+        font-size: 13px;
+        padding: 5px 8px;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+        color: #fff;
+        background-color: #15A9DC;
+        &:hover { background-color: #7D9DAC; }
+      }
+    }
+    .dots {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      label {
+        padding: 0 3px;
+        &:hover .normal { background-color: #5a5a5a; }
+      }
+      span {
+        width: 9px;
+        height: 9px;
+        background-color: #d3d3d3;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+      }
+      .active { background-color: #5a5a5a; display: none; }
+    }
+    @if $autoplay or $autoplay-js {
+      .autoplay {
+        position: relative;
+        text-align: center;
+        @if $autoplay {
+          .no-cssanimations & { display: none !important; }
+        }
+        > label {
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          background-color: #333;
+          border-radius: 50%;
+        }
+        span {
+          display: inline-block;
+        }
+        .play {
+          width: 0;
+          height: 0;
+          border-color: transparent transparent transparent #fff;
+          border-style: solid;
+          border-width: 7px 0px 7px 13px;
+          margin: 7px 0 0 3px;
+        }
+        .pause {
+          display: none;
+          &:before, &:after {
+            content: '';
+            display: inline-block;
+            border-width: 0;
+            width: 5px;
+            height: 13px;
+            margin-top: 8px;
+            background-color: #fff;
+          }
+          &:before { margin-right: 4px; }
+        }
+        @if $progress-bar {
+          &-progress {
+            position: absolute;
+            left: 0;
+            bottom: 34px;
+            width: 0;
+            display: block;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
 
 .slider {
   // common
@@ -66,7 +584,7 @@
     [id="carousel-vertical"]:checked ~ .carousel-i,
     { display: block; }
 
-    .carousel-a { @include slider-carousel(5 by 1 default); }
+    .carousel-a { @include slider-carousel(5 by 1 scale default); }
     .carousel-d { @include slider-carousel(5 by 2 bypage default); }
     .carousel-e { @include slider-carousel(5 by 2 center default); }
     .carousel-f { @include slider-carousel(5 by 2 bypage progress-bar autoplay hoverpause default); }
@@ -91,7 +609,7 @@
       .carousel-h { @include slider-carousel(5 by 2 keep); }
     }
     @include breakpoint('min' em(1000)) {
-      .carousel-a { @include slider-carousel(5 by 3 keep); }
+      .carousel-a { @include slider-carousel(5 by 3 rotate keep); }
       .carousel-h { @include slider-carousel(5 by 3 keep); }
     }
   }
