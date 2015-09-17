@@ -8,32 +8,36 @@
     </div>
     <div class="content">
       <div class="slider">
-        <input type="radio" name="option-carousel" id="carousel-normal" checked="">
-        <input type="radio" name="option-carousel" id="slide-by-page">
-        <input type="radio" name="option-carousel" id="slider-center">
-        <input type="radio" name="option-carousel" id="carousel-autoplay-css">
-        <input type="radio" name="option-carousel" id="carousel-autoplay-js">
-        <input type="radio" name="option-carousel" id="carousel-autoheight">
-        <input type="radio" name="option-carousel" id="carousel-vertical">
+        <input type="radio" name="option-carousel" id="sc-normal" checked="">
+        <input type="radio" name="option-carousel" id="sc-by-page">
+        <input type="radio" name="option-carousel" id="sc-center">
+        <input type="radio" name="option-carousel" id="sc-scale">
+        <input type="radio" name="option-carousel" id="sc-rotate">
+        <input type="radio" name="option-carousel" id="sc-autoplay-css">
+        <input type="radio" name="option-carousel" id="sc-autoplay-js">
+        <input type="radio" name="option-carousel" id="sc-autoheight">
+        <input type="radio" name="option-carousel" id="sc-vertical">
         <div class="slider-labels">
           <div>
             <div class="title">Options: </div>
-            <label for="carousel-normal">normal</label>
-            <label for="slide-by-page">slide-by-page</label>
-            <label for="slider-center">center</label>
-            <label for="carousel-autoplay-css">autoplay (css)</label>
-            <label for="carousel-autoplay-js">autoplay (js)</label>
-            <label for="carousel-autoheight">autoheight</label>
-            <label for="carousel-vertical">vertical</label>
+            <label for="sc-normal">normal</label>
+            <label for="sc-by-page">slide-by-page</label>
+            <label for="sc-center">center</label>
+            <label for="sc-scale"><strong>style:</strong> scale</label>
+            <label for="sc-rotate"><strong>style:</strong> rotate</label>
+            <label for="sc-autoplay-css"><strong>autoplay:</strong> css</label>
+            <label for="sc-autoplay-js"><strong>autoplay:</strong> js</label>
+            <label for="sc-autoheight">autoheight</label>
+            <label for="sc-vertical">vertical</label>
           </div>
         </div>
-        <div class="carousel-a">
-          <input type="radio" name="carousel-a" id="carousel-a-1" checked="">
-          <input type="radio" name="carousel-a" id="carousel-a-2">
-          <input type="radio" name="carousel-a" id="carousel-a-3">
-          <input type="radio" name="carousel-a" id="carousel-a-4">
-          <input type="radio" name="carousel-a" id="carousel-a-5">
-          <input type="checkbox" name="carousel-a-autoplay" id="carousel-a-autoplay" checked="">
+        <div class="sc-normal">
+          <input type="radio" name="sc-normal" id="sc-normal-1" checked="">
+          <input type="radio" name="sc-normal" id="sc-normal-2">
+          <input type="radio" name="sc-normal" id="sc-normal-3">
+          <input type="radio" name="sc-normal" id="sc-normal-4">
+          <input type="radio" name="sc-normal" id="sc-normal-5">
+          <input type="checkbox" name="sc-normal-autoplay" id="sc-normal-autoplay" checked="">
           <div class="outer">
             <ul class="inner">
               <li>
@@ -64,31 +68,31 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-a-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-a-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-a-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-a-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-a-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-normal-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-normal-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-normal-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-normal-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-normal-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-a-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-a-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-a-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-normal-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-normal-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-normal-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-normal-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-normal-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay">
+          <!-- <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-a-autoplay"><span class="play"></span><span class="pause"></span></label>
-          </div>
+            <label for="sc-normal-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div> -->
         </div>
-        <div class="carousel-d">
-          <input type="radio" name="carousel-d" id="carousel-d-1" checked="">
-          <input type="radio" name="carousel-d" id="carousel-d-2">
-          <input type="radio" name="carousel-d" id="carousel-d-3">
-          <input type="radio" name="carousel-d" id="carousel-d-4">
-          <input type="radio" name="carousel-d" id="carousel-d-5">
-          <input type="checkbox" name="carousel-d-autoplay" id="carousel-d-autoplay">
+        <div class="sc-bypage">
+          <input type="radio" name="sc-bypage" id="sc-bypage-1" checked="">
+          <input type="radio" name="sc-bypage" id="sc-bypage-2">
+          <input type="radio" name="sc-bypage" id="sc-bypage-3">
+          <input type="radio" name="sc-bypage" id="sc-bypage-4">
+          <input type="radio" name="sc-bypage" id="sc-bypage-5">
+          <input type="checkbox" name="sc-bypage-autoplay" id="sc-bypage-autoplay">
           <div class="outer">
             <ul class="inner">
               <li>
@@ -119,31 +123,31 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-d-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-d-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-d-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-d-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-d-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-bypage-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-bypage-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-bypage-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-bypage-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-bypage-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-d-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-d-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-d-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-d-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-d-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-bypage-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-bypage-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-bypage-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-bypage-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-bypage-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay">
+          <!-- <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-d-autoplay"><span class="play"></span><span class="pause"></span></label>
-          </div>
+            <label for="sc-bypage-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div> -->
         </div>
-        <div class="carousel-e">
-          <input type="radio" name="carousel-e" id="carousel-e-1" checked="">
-          <input type="radio" name="carousel-e" id="carousel-e-2">
-          <input type="radio" name="carousel-e" id="carousel-e-3">
-          <input type="radio" name="carousel-e" id="carousel-e-4">
-          <input type="radio" name="carousel-e" id="carousel-e-5">
-          <input type="checkbox" name="carousel-e-autoplay" id="carousel-e-autoplay">
+        <div class="sc-center">
+          <input type="radio" name="sc-center" id="sc-center-1" checked="">
+          <input type="radio" name="sc-center" id="sc-center-2">
+          <input type="radio" name="sc-center" id="sc-center-3">
+          <input type="radio" name="sc-center" id="sc-center-4">
+          <input type="radio" name="sc-center" id="sc-center-5">
+          <input type="checkbox" name="sc-center-autoplay" id="sc-center-autoplay">
           <div class="outer">
             <ul class="inner">
               <li>
@@ -174,31 +178,141 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-e-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-e-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-e-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-e-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-e-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-center-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-center-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-center-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-center-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-center-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-e-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-e-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-e-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-e-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-e-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-center-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-center-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-center-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-center-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-center-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay">
+          <!-- <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-e-autoplay"><span class="play"></span><span class="pause"></span></label>
-          </div>
+            <label for="sc-center-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div> -->
         </div>
-        <div class="carousel-f">
-          <input type="radio" name="carousel-f" id="carousel-f-1" checked="">
-          <input type="radio" name="carousel-f" id="carousel-f-2">
-          <input type="radio" name="carousel-f" id="carousel-f-3">
-          <input type="radio" name="carousel-f" id="carousel-f-4">
-          <input type="radio" name="carousel-f" id="carousel-f-5">
-          <input type="checkbox" name="carousel-f-autoplay" id="carousel-f-autoplay" checked="">
+        <div class="sc-scale">
+          <input type="radio" name="sc-scale" id="sc-scale-1" checked="">
+          <input type="radio" name="sc-scale" id="sc-scale-2">
+          <input type="radio" name="sc-scale" id="sc-scale-3">
+          <input type="radio" name="sc-scale" id="sc-scale-4">
+          <input type="radio" name="sc-scale" id="sc-scale-5">
+          <input type="checkbox" name="sc-scale-autoplay" id="sc-scale-autoplay">
+          <div class="outer">
+            <ul class="inner">
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/15a9dd/15a9dd"></a>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3b134/e3b134"></a>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/88cc0e/88cc0e"></a>
+                  <div class="info"><h3>3 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/15a9dd/15a9dd"></a>
+                  <div class="info"><h3>4 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/ee41a3/ee41a3"></a>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="dots">
+            <label for="sc-scale-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-scale-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-scale-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-scale-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-scale-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="sc-scale-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-scale-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-scale-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-scale-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-scale-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+          </div>
+          <!-- <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="sc-scale-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div> -->
+        </div>
+        <div class="sc-rotate">
+          <input type="radio" name="sc-rotate" id="sc-rotate-1" checked="">
+          <input type="radio" name="sc-rotate" id="sc-rotate-2">
+          <input type="radio" name="sc-rotate" id="sc-rotate-3">
+          <input type="radio" name="sc-rotate" id="sc-rotate-4">
+          <input type="radio" name="sc-rotate" id="sc-rotate-5">
+          <input type="checkbox" name="sc-rotate-autoplay" id="sc-rotate-autoplay">
+          <div class="outer">
+            <ul class="inner">
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/15a9dd/15a9dd"></a>
+                  <div class="info"><h3>1 Cloud Dragon</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/e3b134/e3b134"></a>
+                  <div class="info"><h3>2 Mountain Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/88cc0e/88cc0e"></a>
+                  <div class="info"><h3>3 Cliffs</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/15a9dd/15a9dd"></a>
+                  <div class="info"><h3>4 Mountain Outpost</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+              <li>
+                <div class="item"><a href=""><img src="http://placehold.it/1100x619/ee41a3/ee41a3"></a>
+                  <div class="info"><h3>5 Hill Fort</h3> by <a href="http://voyager3.tumblr.com">Brendan Zabarauskas</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="dots">
+            <label for="sc-rotate-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-rotate-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-rotate-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-rotate-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-rotate-5"><span class="normal"></span><span class="active"></span></label>
+          </div>
+          <div class="controls">
+            <label for="sc-rotate-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-rotate-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-rotate-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-rotate-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-rotate-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+          </div>
+          <!-- <div class="autoplay">
+            <span class="autoplay-progress"></span>
+            <label for="sc-rotate-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div> -->
+        </div>
+        <div class="sc-autoplay">
+          <input type="radio" name="sc-autoplay" id="sc-autoplay-1" checked="">
+          <input type="radio" name="sc-autoplay" id="sc-autoplay-2">
+          <input type="radio" name="sc-autoplay" id="sc-autoplay-3">
+          <input type="radio" name="sc-autoplay" id="sc-autoplay-4">
+          <input type="radio" name="sc-autoplay" id="sc-autoplay-5">
+          <input type="checkbox" name="sc-autoplay-autoplay" id="sc-autoplay-autoplay" checked="">
           <div class="outer">
             <ul class="inner">
               <li>
@@ -229,31 +343,31 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-f-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-f-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-f-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-f-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-f-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-f-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-f-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-f-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-f-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-f-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-f-autoplay"><span class="play"></span><span class="pause"></span></label>
+            <label for="sc-autoplay-autoplay"><span class="play"></span><span class="pause"></span></label>
           </div>
         </div>
-        <div class="carousel-g">
-          <input type="radio" name="carousel-g" id="carousel-g-1" checked="">
-          <input type="radio" name="carousel-g" id="carousel-g-2">
-          <input type="radio" name="carousel-g" id="carousel-g-3">
-          <input type="radio" name="carousel-g" id="carousel-g-4">
-          <input type="radio" name="carousel-g" id="carousel-g-5">
-          <input type="checkbox" name="carousel-g-autoplay" id="carousel-g-autoplay" checked="">
+        <div class="sc-autoplay-js">
+          <input type="radio" name="sc-autoplay-js" id="sc-autoplay-js-1" checked="">
+          <input type="radio" name="sc-autoplay-js" id="sc-autoplay-js-2">
+          <input type="radio" name="sc-autoplay-js" id="sc-autoplay-js-3">
+          <input type="radio" name="sc-autoplay-js" id="sc-autoplay-js-4">
+          <input type="radio" name="sc-autoplay-js" id="sc-autoplay-js-5">
+          <input type="checkbox" name="sc-autoplay-js-autoplay" id="sc-autoplay-js-autoplay" checked="">
           <div class="outer" autoheight-carousel>
             <ul class="inner">
               <li>
@@ -284,31 +398,31 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-g-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-g-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-g-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-g-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-g-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-js-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-js-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-js-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-js-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoplay-js-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-g-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-g-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-g-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-g-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-g-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-js-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-js-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-js-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-js-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoplay-js-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-g-autoplay"><span class="play"></span><span class="pause"></span></label>
+            <label for="sc-autoplay-js-autoplay"><span class="play"></span><span class="pause"></span></label>
           </div>
         </div>
-        <div class="carousel-h">
-          <input type="radio" name="carousel-h" id="carousel-h-1" checked="">
-          <input type="radio" name="carousel-h" id="carousel-h-2">
-          <input type="radio" name="carousel-h" id="carousel-h-3">
-          <input type="radio" name="carousel-h" id="carousel-h-4">
-          <input type="radio" name="carousel-h" id="carousel-h-5">
-          <input type="checkbox" name="carousel-h-autoplay" id="carousel-h-autoplay" checked="">
+        <div class="sc-autoheight">
+          <input type="radio" name="sc-autoheight" id="sc-autoheight-1" checked="">
+          <input type="radio" name="sc-autoheight" id="sc-autoheight-2">
+          <input type="radio" name="sc-autoheight" id="sc-autoheight-3">
+          <input type="radio" name="sc-autoheight" id="sc-autoheight-4">
+          <input type="radio" name="sc-autoheight" id="sc-autoheight-5">
+          <input type="checkbox" name="sc-autoheight-autoplay" id="sc-autoheight-autoplay" checked="">
           <div class="outer" autoheight-carousel>
             <ul class="inner">
               <li>
@@ -339,31 +453,31 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-h-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-h-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-h-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-h-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-h-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoheight-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoheight-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoheight-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoheight-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-autoheight-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-h-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-h-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-h-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-h-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-h-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoheight-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoheight-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoheight-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoheight-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-autoheight-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
-          <div class="autoplay">
+          <!-- <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-h-autoplay"><span class="play"></span><span class="pause"></span></label>
-          </div>
+            <label for="sc-autoheight-autoplay"><span class="play"></span><span class="pause"></span></label>
+          </div> -->
         </div>
-        <div class="carousel-i">
-          <input type="radio" name="carousel-i" id="carousel-i-1" checked="">
-          <input type="radio" name="carousel-i" id="carousel-i-2">
-          <input type="radio" name="carousel-i" id="carousel-i-3">
-          <input type="radio" name="carousel-i" id="carousel-i-4">
-          <input type="radio" name="carousel-i" id="carousel-i-5">
-          <input type="checkbox" name="carousel-i-autoplay" id="carousel-i-autoplay" checked="">
+        <div class="sc-vertical">
+          <input type="radio" name="sc-vertical" id="sc-vertical-1" checked="">
+          <input type="radio" name="sc-vertical" id="sc-vertical-2">
+          <input type="radio" name="sc-vertical" id="sc-vertical-3">
+          <input type="radio" name="sc-vertical" id="sc-vertical-4">
+          <input type="radio" name="sc-vertical" id="sc-vertical-5">
+          <input type="checkbox" name="sc-vertical-autoplay" id="sc-vertical-autoplay" checked="">
           <div class="outer" autoheight-carousel>
             <ul class="inner">
               <li>
@@ -394,22 +508,22 @@
             </ul>
           </div>
           <div class="dots">
-            <label for="carousel-i-1"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-i-2"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-i-3"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-i-4"><span class="normal"></span><span class="active"></span></label>
-            <label for="carousel-i-5"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-vertical-1"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-vertical-2"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-vertical-3"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-vertical-4"><span class="normal"></span><span class="active"></span></label>
+            <label for="sc-vertical-5"><span class="normal"></span><span class="active"></span></label>
           </div>
           <div class="controls">
-            <label for="carousel-i-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-i-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-i-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-i-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-            <label for="carousel-i-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-vertical-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-vertical-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-vertical-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-vertical-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+            <label for="sc-vertical-5"><span class="prev">Previous</span><span class="next">Next</span></label>
           </div>
           <div class="autoplay">
             <span class="autoplay-progress"></span>
-            <label for="carousel-i-autoplay"><span class="play"></span><span class="pause"></span></label>
+            <label for="sc-vertical-autoplay"><span class="play"></span><span class="pause"></span></label>
           </div>
         </div>
       </div>
@@ -417,26 +531,26 @@
         <h4>SCSS</h4>
         <pre class="language-scss"><code>
 .carousel-a { @include slider-carousel(5 by 1 default); } // normal
-.carousel-d { @include slider-carousel(5 by 2 bypage default); } // slide-by-page
-.carousel-e { @include slider-carousel(5 by 2 center default); } // center
-.carousel-f { @include slider-carousel(5 by 2 autoplay progress-bar bypage default); } // autoplay (css)
-.carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); } // autoplay (js)
-.carousel-h { @include slider-carousel(5 by 1 default); } // autoheight
-.carousel-i { @include slider-carousel(5 by 1 vertical autoplay progress-bar default); } // vertical
+.sc-bypage { @include slider-carousel(5 by 2 bypage default); } // slide-by-page
+.sc-center { @include slider-carousel(5 by 2 center default); } // center
+.sc-autoplay { @include slider-carousel(5 by 2 autoplay progress-bar bypage default); } // autoplay (css)
+.sc-autoplay-js { @include slider-carousel(5 by 2 bypage autoplay-js default); } // autoplay (js)
+.sc-autoheight { @include slider-carousel(5 by 1 default); } // autoheight
+.sc-vertical { @include slider-carousel(5 by 1 vertical autoplay progress-bar default); } // vertical
 @include breakpoint('min' 700) {
   .carousel-a { @include slider-carousel(5 by 2); }
-  .carousel-d { @include slider-carousel(5 by 3 bypage); }
-  .carousel-h { @include slider-carousel(5 by 2); }
+  .sc-bypage { @include slider-carousel(5 by 3 bypage); }
+  .sc-autoheight { @include slider-carousel(5 by 2); }
 }
 @include breakpoint('min' 1000) {
   .carousel-a { @include slider-carousel(5 by 3); }
-  .carousel-h { @include slider-carousel(5 by 3); }
+  .sc-autoheight { @include slider-carousel(5 by 3); }
 }
         </code></pre>
         <pre class="language-javascript"><code>
 ready(function () {
-  sliderAutoplay('.carousel-g', 3000, 4);
-  autoheightCarousel('.carousel-h'); 
+  sliderAutoplay('.sc-autoplay-js', 3000, 4);
+  autoheightCarousel('.sc-autoheight'); 
 });
         </code></pre>
       </div>
@@ -448,8 +562,8 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    sliderAutoplay('.carousel-g', 3000, 4);
-    autoheightCarousel('.carousel-h'); 
+    sliderAutoplay('.sc-autoplay-js', 3000, 3);
+    autoheightCarousel('.sc-autoheight'); 
   })
 </script>
 </body>

@@ -1,8 +1,3 @@
-[class^="gallery-"], [class^="carousel-"] {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
 .slider .slider-labels label {
   display: inline-block;
   box-sizing: border-box;
@@ -319,23 +314,23 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.carousel-a {
+.sc-normal {
   position: relative;
 }
 
-.carousel-a > input {
+.sc-normal > input {
   position: absolute;
   left: -9999px;
 }
 
-.carousel-a .outer {
+.sc-normal .outer {
   overflow: hidden;
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
   margin: 0 -5px;
 }
 
-.carousel-a .inner {
+.sc-normal .inner {
   position: relative;
   letter-spacing: -0.34em;
   white-space: nowrap;
@@ -343,13 +338,13 @@ pre[class*="language-"] {
           transition: left 1s;
 }
 
-.carousel-a .inner:after {
+.sc-normal .inner:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.carousel-a .inner > li {
+.sc-normal .inner > li {
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -359,556 +354,230 @@ pre[class*="language-"] {
   padding: 0 5px;
 }
 
-.carousel-a .controls, .carousel-a .dots, .carousel-a .autoplay {
+.sc-normal .controls, .sc-normal .dots, .sc-normal .autoplay {
   z-index: 2;
 }
 
-.carousel-a .controls span {
+.sc-normal .controls span {
   display: none;
 }
 
-.carousel-a .controls .prev {
+.sc-normal .controls .prev {
   float: left;
 }
 
-.carousel-a .controls .next {
+.sc-normal .controls .next {
   float: right;
 }
 
-.carousel-a .dots {
+.sc-normal .dots {
   letter-spacing: -0.34em;
 }
 
-.carousel-a .dots > label {
+.sc-normal .dots > label {
   letter-spacing: 0;
 }
 
-.carousel-a .dots > label, .carousel-a .dots span {
+.sc-normal .dots > label, .sc-normal .dots span {
   display: inline-block;
   vertical-align: top;
 }
 
-.carousel-a .dots .normal {
+.sc-normal .dots .normal {
   display: block;
 }
 
-.carousel-a .dots .active {
+.sc-normal .dots .active {
   display: none;
 }
 
-.carousel-a .autoplay .pause {
+.sc-normal .autoplay .pause {
   display: none;
 }
 
-.carousel-a .inner > li {
-  width: 20%;
-}
-
-.carousel-a #carousel-a-1:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: 0%;
-}
-
-.carousel-a #carousel-a-2:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -20%;
-}
-
-.carousel-a #carousel-a-3:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -40%;
-}
-
-.carousel-a #carousel-a-4:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -60%;
-}
-
-.carousel-a #carousel-a-5:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -80%;
-}
-
-.carousel-a .inner > li {
-  -webkit-transition: -webkit-transform 1s;
-  transition: transform 1s;
-}
-
-.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(-n + 2) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  transform: perspective(600px) scale(0.75) rotateY(-30deg);
-}
-
-.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n + 4) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  transform: perspective(600px) scale(0.75) rotateY(30deg);
-}
-
-.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(3) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(-n + 3) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  transform: perspective(600px) scale(0.75) rotateY(-30deg);
-}
-
-.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n + 5) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  transform: perspective(600px) scale(0.75) rotateY(30deg);
-}
-
-.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(4) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(-n + 4) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  transform: perspective(600px) scale(0.75) rotateY(-30deg);
-}
-
-.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n + 6) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  transform: perspective(600px) scale(0.75) rotateY(30deg);
-}
-
-.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(5) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(-n + 5) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  transform: perspective(600px) scale(0.75) rotateY(-30deg);
-}
-
-.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n + 7) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  transform: perspective(600px) scale(0.75) rotateY(30deg);
-}
-
-.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(6) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(-n + 6) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  transform: perspective(600px) scale(0.75) rotateY(-30deg);
-}
-
-.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n + 8) {
-  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-  transform: perspective(600px) scale(0.75) rotateY(30deg);
-}
-
-.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(7) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-a #carousel-a-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-.carousel-a .dots label:nth-child(n + 2) {
-  display: none;
-}
-
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(1) .prev,
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
-  display: block;
-}
-
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4),
-.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-.carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-d {
-  position: relative;
-}
-
-.carousel-d > input {
-  position: absolute;
-  left: -9999px;
-}
-
-.carousel-d .outer {
-  overflow: hidden;
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-  margin: 0 -5px;
-}
-
-.carousel-d .inner {
-  position: relative;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-  -webkit-transition: left 1s;
-          transition: left 1s;
-}
-
-.carousel-d .inner:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-d .inner > li {
-  box-sizing: border-box;
-  width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  letter-spacing: 0;
-  white-space: normal;
-  padding: 0 5px;
-}
-
-.carousel-d .controls, .carousel-d .dots, .carousel-d .autoplay {
-  z-index: 2;
-}
-
-.carousel-d .controls span {
-  display: none;
-}
-
-.carousel-d .controls .prev {
-  float: left;
-}
-
-.carousel-d .controls .next {
-  float: right;
-}
-
-.carousel-d .dots {
-  letter-spacing: -0.34em;
-}
-
-.carousel-d .dots > label {
-  letter-spacing: 0;
-}
-
-.carousel-d .dots > label, .carousel-d .dots span {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.carousel-d .dots .normal {
-  display: block;
-}
-
-.carousel-d .dots .active {
-  display: none;
-}
-
-.carousel-d .autoplay .pause {
-  display: none;
-}
-
-.carousel-d .inner > li {
+.sc-normal .inner > li {
   width: 33.3333333333%;
 }
 
-.carousel-d #carousel-d-1:checked ~ .outer > .inner {
+.sc-normal #sc-normal-1:checked ~ .outer > .inner {
   margin-top: 0;
   left: 0%;
 }
 
-.carousel-d #carousel-d-2:checked ~ .outer > .inner {
+.sc-normal #sc-normal-2:checked ~ .outer > .inner {
   margin-top: 0;
   left: -33.3333333333%;
 }
 
-.carousel-d #carousel-d-3:checked ~ .outer > .inner {
+.sc-normal #sc-normal-3:checked ~ .outer > .inner {
   margin-top: 0;
   left: -66.6666666667%;
 }
 
-.carousel-d #carousel-d-4:checked ~ .outer > .inner {
+.sc-normal #sc-normal-4:checked ~ .outer > .inner {
   margin-top: 0;
   left: -66.6666666667%;
 }
 
-.carousel-d #carousel-d-5:checked ~ .outer > .inner {
+.sc-normal #sc-normal-5:checked ~ .outer > .inner {
   margin-top: 0;
   left: -66.6666666667%;
 }
 
-.carousel-d #carousel-d-1:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-normal #sc-normal-1:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-d #carousel-d-2:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-normal #sc-normal-2:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-d #carousel-d-3:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-normal #sc-normal-3:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-d #carousel-d-4:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-normal #sc-normal-4:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-d #carousel-d-5:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-normal #sc-normal-5:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .active {
+.sc-normal #sc-normal-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .normal {
+.sc-normal #sc-normal-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .active {
+.sc-normal #sc-normal-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .normal {
+.sc-normal #sc-normal-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .active {
+.sc-normal #sc-normal-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .normal {
+.sc-normal #sc-normal-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .active {
+.sc-normal #sc-normal-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .normal {
+.sc-normal #sc-normal-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .active {
+.sc-normal #sc-normal-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
+.sc-normal #sc-normal-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-.carousel-d #carousel-d-autoplay:checked ~ .autoplay .play {
+.sc-normal #sc-normal-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-.carousel-d #carousel-d-autoplay:checked ~ .autoplay .pause {
+.sc-normal #sc-normal-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
-.carousel-d .dots label:nth-child(n + 4) {
+.sc-normal .dots label:nth-child(n + 4) {
   display: none;
 }
 
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
+.sc-normal #sc-normal-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .prev {
+.sc-normal #sc-normal-1:checked ~ .controls label:nth-child(3),
+.sc-normal #sc-normal-1:checked ~ .controls label:nth-child(2),
+.sc-normal #sc-normal-1:checked ~ .controls label:nth-child(3) .prev,
+.sc-normal #sc-normal-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
-  display: block;
-}
-
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(n+1) {
+.sc-normal #sc-normal-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1),
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
+.sc-normal #sc-normal-2:checked ~ .controls label:nth-child(1),
+.sc-normal #sc-normal-2:checked ~ .controls label:nth-child(3),
+.sc-normal #sc-normal-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-normal #sc-normal-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3),
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3) .next {
-  display: block;
-}
-
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(n+1) {
+.sc-normal #sc-normal-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
+.sc-normal #sc-normal-3:checked ~ .controls label:nth-child(2),
+.sc-normal #sc-normal-3:checked ~ .controls label:nth-child(1),
+.sc-normal #sc-normal-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-normal #sc-normal-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(n+1) {
+.sc-normal #sc-normal-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .prev {
+.sc-normal #sc-normal-4:checked ~ .controls label:nth-child(3),
+.sc-normal #sc-normal-4:checked ~ .controls label:nth-child(1),
+.sc-normal #sc-normal-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-normal #sc-normal-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(n+1) {
+.sc-normal #sc-normal-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2),
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2) .prev {
+.sc-normal #sc-normal-5:checked ~ .controls label:nth-child(4),
+.sc-normal #sc-normal-5:checked ~ .controls label:nth-child(1),
+.sc-normal #sc-normal-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-normal #sc-normal-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1),
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-e {
+.sc-bypage {
   position: relative;
 }
 
-.carousel-e > input {
+.sc-bypage > input {
   position: absolute;
   left: -9999px;
 }
 
-.carousel-e .outer {
+.sc-bypage .outer {
   overflow: hidden;
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
+  margin: 0 -5px;
 }
 
-.carousel-e .inner {
+.sc-bypage .inner {
   position: relative;
   letter-spacing: -0.34em;
   white-space: nowrap;
@@ -916,13 +585,13 @@ pre[class*="language-"] {
           transition: left 1s;
 }
 
-.carousel-e .inner:after {
+.sc-bypage .inner:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.carousel-e .inner > li {
+.sc-bypage .inner > li {
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -932,230 +601,491 @@ pre[class*="language-"] {
   padding: 0 5px;
 }
 
-.carousel-e .controls, .carousel-e .dots, .carousel-e .autoplay {
+.sc-bypage .controls, .sc-bypage .dots, .sc-bypage .autoplay {
   z-index: 2;
 }
 
-.carousel-e .controls span {
+.sc-bypage .controls span {
   display: none;
 }
 
-.carousel-e .controls .prev {
+.sc-bypage .controls .prev {
   float: left;
 }
 
-.carousel-e .controls .next {
+.sc-bypage .controls .next {
   float: right;
 }
 
-.carousel-e .dots {
+.sc-bypage .dots {
   letter-spacing: -0.34em;
 }
 
-.carousel-e .dots > label {
+.sc-bypage .dots > label {
   letter-spacing: 0;
 }
 
-.carousel-e .dots > label, .carousel-e .dots span {
+.sc-bypage .dots > label, .sc-bypage .dots span {
   display: inline-block;
   vertical-align: top;
 }
 
-.carousel-e .dots .normal {
+.sc-bypage .dots .normal {
   display: block;
 }
 
-.carousel-e .dots .active {
+.sc-bypage .dots .active {
   display: none;
 }
 
-.carousel-e .autoplay .pause {
+.sc-bypage .autoplay .pause {
   display: none;
 }
 
-.carousel-e .inner > li {
+.sc-bypage .inner > li {
+  width: 33.3333333333%;
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: 0%;
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -33.3333333333%;
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .dots label:nth-child(1) .active {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .dots label:nth-child(1) .normal {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .dots label:nth-child(2) .active {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .dots label:nth-child(2) .normal {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .dots label:nth-child(3) .active {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .dots label:nth-child(3) .normal {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .dots label:nth-child(4) .active {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .dots label:nth-child(4) .normal {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .dots label:nth-child(5) .active {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-autoplay:checked ~ .autoplay .play {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-autoplay:checked ~ .autoplay .pause {
+  display: block;
+}
+
+.sc-bypage .dots label:nth-child(n + 4) {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .controls label:nth-child(3),
+.sc-bypage #sc-bypage-1:checked ~ .controls label:nth-child(3) .prev {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-1:checked ~ .controls label:nth-child(3),
+.sc-bypage #sc-bypage-1:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .controls label:nth-child(1),
+.sc-bypage #sc-bypage-2:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-2:checked ~ .controls label:nth-child(3),
+.sc-bypage #sc-bypage-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .controls label:nth-child(1),
+.sc-bypage #sc-bypage-3:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-3:checked ~ .controls label:nth-child(1),
+.sc-bypage #sc-bypage-3:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .controls label:nth-child(1),
+.sc-bypage #sc-bypage-4:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-4:checked ~ .controls label:nth-child(1),
+.sc-bypage #sc-bypage-4:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .controls label:nth-child(2),
+.sc-bypage #sc-bypage-5:checked ~ .controls label:nth-child(2) .prev {
+  display: block;
+}
+
+.sc-bypage #sc-bypage-5:checked ~ .controls label:nth-child(1),
+.sc-bypage #sc-bypage-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-center {
+  position: relative;
+}
+
+.sc-center > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.sc-center .outer {
+  overflow: hidden;
+  -webkit-transition: height 0.3333333333s;
+          transition: height 0.3333333333s;
+}
+
+.sc-center .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+  -webkit-transition: left 1s;
+          transition: left 1s;
+}
+
+.sc-center .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.sc-center .inner > li {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+  white-space: normal;
+  padding: 0 5px;
+}
+
+.sc-center .controls, .sc-center .dots, .sc-center .autoplay {
+  z-index: 2;
+}
+
+.sc-center .controls span {
+  display: none;
+}
+
+.sc-center .controls .prev {
+  float: left;
+}
+
+.sc-center .controls .next {
+  float: right;
+}
+
+.sc-center .dots {
+  letter-spacing: -0.34em;
+}
+
+.sc-center .dots > label {
+  letter-spacing: 0;
+}
+
+.sc-center .dots > label, .sc-center .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sc-center .dots .normal {
+  display: block;
+}
+
+.sc-center .dots .active {
+  display: none;
+}
+
+.sc-center .autoplay .pause {
+  display: none;
+}
+
+.sc-center .inner > li {
   width: 50%;
 }
 
-.carousel-e #carousel-e-1:checked ~ .outer > .inner {
+.sc-center #sc-center-1:checked ~ .outer > .inner {
   margin-top: 0;
   left: -25%;
 }
 
-.carousel-e #carousel-e-2:checked ~ .outer > .inner {
+.sc-center #sc-center-2:checked ~ .outer > .inner {
   margin-top: 0;
   left: -75%;
 }
 
-.carousel-e #carousel-e-3:checked ~ .outer > .inner {
+.sc-center #sc-center-3:checked ~ .outer > .inner {
   margin-top: 0;
   left: -125%;
 }
 
-.carousel-e #carousel-e-4:checked ~ .outer > .inner {
+.sc-center #sc-center-4:checked ~ .outer > .inner {
   margin-top: 0;
   left: -125%;
 }
 
-.carousel-e #carousel-e-5:checked ~ .outer > .inner {
+.sc-center #sc-center-5:checked ~ .outer > .inner {
   margin-top: 0;
   left: -125%;
 }
 
-.carousel-e #carousel-e-1:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-center #sc-center-1:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-e #carousel-e-2:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-center #sc-center-2:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-e #carousel-e-3:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-center #sc-center-3:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-e #carousel-e-4:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-center #sc-center-4:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-e #carousel-e-5:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-center #sc-center-5:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-e #carousel-e-1:checked ~ .dots label:nth-child(1) .active {
+.sc-center #sc-center-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-.carousel-e #carousel-e-1:checked ~ .dots label:nth-child(1) .normal {
+.sc-center #sc-center-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-.carousel-e #carousel-e-2:checked ~ .dots label:nth-child(2) .active {
+.sc-center #sc-center-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-.carousel-e #carousel-e-2:checked ~ .dots label:nth-child(2) .normal {
+.sc-center #sc-center-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-.carousel-e #carousel-e-3:checked ~ .dots label:nth-child(3) .active {
+.sc-center #sc-center-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-.carousel-e #carousel-e-3:checked ~ .dots label:nth-child(3) .normal {
+.sc-center #sc-center-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-.carousel-e #carousel-e-4:checked ~ .dots label:nth-child(4) .active {
+.sc-center #sc-center-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-.carousel-e #carousel-e-4:checked ~ .dots label:nth-child(4) .normal {
+.sc-center #sc-center-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-.carousel-e #carousel-e-5:checked ~ .dots label:nth-child(5) .active {
+.sc-center #sc-center-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-.carousel-e #carousel-e-5:checked ~ .dots label:nth-child(5) .normal {
+.sc-center #sc-center-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-.carousel-e #carousel-e-autoplay:checked ~ .autoplay .play {
+.sc-center #sc-center-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-.carousel-e #carousel-e-autoplay:checked ~ .autoplay .pause {
+.sc-center #sc-center-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
-.carousel-e .dots label:nth-child(n + 4) {
+.sc-center .dots label:nth-child(n + 4) {
   display: none;
 }
 
-.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(n+1) {
+.sc-center #sc-center-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(4),
-.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(2),
-.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(4) .prev,
-.carousel-e #carousel-e-1:checked ~ .controls label:nth-child(2) .next {
+.sc-center #sc-center-1:checked ~ .controls label:nth-child(4),
+.sc-center #sc-center-1:checked ~ .controls label:nth-child(2),
+.sc-center #sc-center-1:checked ~ .controls label:nth-child(4) .prev,
+.sc-center #sc-center-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(n+1) {
+.sc-center #sc-center-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(1),
-.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(3),
-.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(1) .prev,
-.carousel-e #carousel-e-2:checked ~ .controls label:nth-child(3) .next {
+.sc-center #sc-center-2:checked ~ .controls label:nth-child(1),
+.sc-center #sc-center-2:checked ~ .controls label:nth-child(3),
+.sc-center #sc-center-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-center #sc-center-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(n+1) {
+.sc-center #sc-center-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(2),
-.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(1),
-.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(2) .prev,
-.carousel-e #carousel-e-3:checked ~ .controls label:nth-child(1) .next {
+.sc-center #sc-center-3:checked ~ .controls label:nth-child(2),
+.sc-center #sc-center-3:checked ~ .controls label:nth-child(1),
+.sc-center #sc-center-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-center #sc-center-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(n+1) {
+.sc-center #sc-center-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(3),
-.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(1),
-.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(3) .prev,
-.carousel-e #carousel-e-4:checked ~ .controls label:nth-child(1) .next {
+.sc-center #sc-center-4:checked ~ .controls label:nth-child(3),
+.sc-center #sc-center-4:checked ~ .controls label:nth-child(1),
+.sc-center #sc-center-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-center #sc-center-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(n+1) {
+.sc-center #sc-center-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(4),
-.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(1),
-.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(4) .prev,
-.carousel-e #carousel-e-5:checked ~ .controls label:nth-child(1) .next {
+.sc-center #sc-center-5:checked ~ .controls label:nth-child(4),
+.sc-center #sc-center-5:checked ~ .controls label:nth-child(1),
+.sc-center #sc-center-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-center #sc-center-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-f {
+.sc-scale {
   position: relative;
 }
 
-.carousel-f > input {
+.sc-scale > input {
   position: absolute;
   left: -9999px;
 }
 
-.carousel-f .outer {
+.sc-scale .outer {
   overflow: hidden;
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
   margin: 0 -5px;
 }
 
-.carousel-f .inner {
+.sc-scale .inner {
   position: relative;
   letter-spacing: -0.34em;
   white-space: nowrap;
@@ -1163,13 +1093,13 @@ pre[class*="language-"] {
           transition: left 1s;
 }
 
-.carousel-f .inner:after {
+.sc-scale .inner:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.carousel-f .inner > li {
+.sc-scale .inner > li {
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -1179,865 +1109,1432 @@ pre[class*="language-"] {
   padding: 0 5px;
 }
 
-.carousel-f .controls, .carousel-f .dots, .carousel-f .autoplay {
+.sc-scale .controls, .sc-scale .dots, .sc-scale .autoplay {
   z-index: 2;
 }
 
-.carousel-f .controls span {
+.sc-scale .controls span {
   display: none;
 }
 
-.carousel-f .controls .prev {
+.sc-scale .controls .prev {
   float: left;
 }
 
-.carousel-f .controls .next {
+.sc-scale .controls .next {
   float: right;
 }
 
-.carousel-f .dots {
+.sc-scale .dots {
   letter-spacing: -0.34em;
 }
 
-.carousel-f .dots > label {
+.sc-scale .dots > label {
   letter-spacing: 0;
 }
 
-.carousel-f .dots > label, .carousel-f .dots span {
+.sc-scale .dots > label, .sc-scale .dots span {
   display: inline-block;
   vertical-align: top;
 }
 
-.carousel-f .dots .normal {
+.sc-scale .dots .normal {
   display: block;
 }
 
-.carousel-f .dots .active {
+.sc-scale .dots .active {
   display: none;
 }
 
-.no-cssanimations .carousel-f .autoplay {
-  display: none !important;
-}
-
-.carousel-f .autoplay .pause {
+.sc-scale .autoplay .pause {
   display: none;
 }
 
-.carousel-f .inner > li {
-  width: 50%;
-}
-
-.carousel-f #carousel-f-1:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: 0%;
-}
-
-.carousel-f #carousel-f-2:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -50%;
-}
-
-.carousel-f #carousel-f-3:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -100%;
-}
-
-.carousel-f #carousel-f-4:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -150%;
-}
-
-.carousel-f #carousel-f-5:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -150%;
-}
-
-.carousel-f #carousel-f-1:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-f #carousel-f-2:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-f #carousel-f-3:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-f #carousel-f-4:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-f #carousel-f-5:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-f #carousel-f-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-f #carousel-f-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-f #carousel-f-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-f #carousel-f-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-f #carousel-f-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-f #carousel-f-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-f #carousel-f-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-f #carousel-f-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-f #carousel-f-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-f #carousel-f-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-f #carousel-f-autoplay:checked ~ .controls, .carousel-f #carousel-f-autoplay:checked ~ .dots {
-  display: none;
-}
-
-.no-cssanimations .carousel-f #carousel-f-autoplay:checked ~ .controls, .no-cssanimations .carousel-f #carousel-f-autoplay:checked ~ .dots {
-  display: block !important;
-}
-
-.carousel-f #carousel-f-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-f #carousel-f-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-.carousel-f .dots label:nth-child(n + 5) {
-  display: none;
-}
-
-@-webkit-keyframes carousel-f-inner {
-  0% {
-    left: 0;
-  }
-  25% {
-    left: 0%;
-  }
-  33.3333333333% {
-    left: -100%;
-  }
-  58.3333333333% {
-    left: -100%;
-  }
-  66.6666666667% {
-    left: -150%;
-  }
-  91.6666666667% {
-    left: -150%;
-  }
-  100% {
-    left: -150%;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes carousel-f-inner {
-  0% {
-    left: 0;
-  }
-  25% {
-    left: 0%;
-  }
-  33.3333333333% {
-    left: -100%;
-  }
-  58.3333333333% {
-    left: -100%;
-  }
-  66.6666666667% {
-    left: -150%;
-  }
-  91.6666666667% {
-    left: -150%;
-  }
-  100% {
-    left: -150%;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@-webkit-keyframes carousel-f-progress {
-  0% {
-    width: 0;
-  }
-  75% {
-    width: 100%;
-  }
-  75.01% {
-    width: 0;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-@keyframes carousel-f-progress {
-  0% {
-    width: 0;
-  }
-  75% {
-    width: 100%;
-  }
-  75.01% {
-    width: 0;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-.carousel-f #carousel-f-autoplay:checked ~ .outer > .inner {
-  -webkit-animation: carousel-f-inner 12s ease infinite;
-  animation: carousel-f-inner 12s ease infinite;
-}
-
-.carousel-f #carousel-f-autoplay:checked ~ .autoplay > .autoplay-progress {
-  -webkit-animation: carousel-f-progress 4s ease infinite;
-  animation: carousel-f-progress 4s ease infinite;
-}
-
-.carousel-f:hover #carousel-f-autoplay ~ .outer > .inner {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-}
-
-.carousel-f:hover #carousel-f-autoplay ~ .autoplay > .autoplay-progress {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-}
-
-.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(4),
-.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(4) .prev {
-  display: block;
-}
-
-.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(3),
-.carousel-f #carousel-f-1:checked ~ .controls label:nth-child(3) .next {
-  display: block;
-}
-
-.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(1),
-.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(1) .prev {
-  display: block;
-}
-
-.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(4),
-.carousel-f #carousel-f-2:checked ~ .controls label:nth-child(4) .next {
-  display: block;
-}
-
-.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(1),
-.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(1) .prev {
-  display: block;
-}
-
-.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(4),
-.carousel-f #carousel-f-3:checked ~ .controls label:nth-child(4) .next {
-  display: block;
-}
-
-.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(2),
-.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(2) .prev {
-  display: block;
-}
-
-.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(1),
-.carousel-f #carousel-f-4:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(3),
-.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(3) .prev {
-  display: block;
-}
-
-.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(1),
-.carousel-f #carousel-f-5:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-g {
-  position: relative;
-}
-
-.carousel-g > input {
-  position: absolute;
-  left: -9999px;
-}
-
-.carousel-g .outer {
-  overflow: hidden;
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-  margin: 0 -5px;
-}
-
-.carousel-g .inner {
-  position: relative;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-  -webkit-transition: left 1s;
-          transition: left 1s;
-}
-
-.carousel-g .inner:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-g .inner > li {
-  box-sizing: border-box;
-  width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  letter-spacing: 0;
-  white-space: normal;
-  padding: 0 5px;
-}
-
-.carousel-g .controls, .carousel-g .dots, .carousel-g .autoplay {
-  z-index: 2;
-}
-
-.carousel-g .controls span {
-  display: none;
-}
-
-.carousel-g .controls .prev {
-  float: left;
-}
-
-.carousel-g .controls .next {
-  float: right;
-}
-
-.carousel-g .dots {
-  letter-spacing: -0.34em;
-}
-
-.carousel-g .dots > label {
-  letter-spacing: 0;
-}
-
-.carousel-g .dots > label, .carousel-g .dots span {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.carousel-g .dots .normal {
-  display: block;
-}
-
-.carousel-g .dots .active {
-  display: none;
-}
-
-.carousel-g .autoplay .pause {
-  display: none;
-}
-
-.carousel-g .inner > li {
-  width: 50%;
-}
-
-.carousel-g #carousel-g-1:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: 0%;
-}
-
-.carousel-g #carousel-g-2:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -50%;
-}
-
-.carousel-g #carousel-g-3:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -100%;
-}
-
-.carousel-g #carousel-g-4:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -150%;
-}
-
-.carousel-g #carousel-g-5:checked ~ .outer > .inner {
-  margin-top: 0;
-  left: -150%;
-}
-
-.carousel-g #carousel-g-1:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-g #carousel-g-2:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-g #carousel-g-3:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-g #carousel-g-4:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-g #carousel-g-5:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: scale(1) rotateY(0deg);
-  -ms-transform: scale(1) rotateY(0deg);
-  transform: scale(1) rotateY(0deg);
-}
-
-.carousel-g #carousel-g-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-g #carousel-g-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-g #carousel-g-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-g #carousel-g-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-g #carousel-g-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-g #carousel-g-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-g #carousel-g-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-g #carousel-g-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-g #carousel-g-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-g #carousel-g-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-g #carousel-g-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-g #carousel-g-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-.carousel-g .dots label:nth-child(n + 5) {
-  display: none;
-}
-
-.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(4),
-.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(4) .prev {
-  display: block;
-}
-
-.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(3),
-.carousel-g #carousel-g-1:checked ~ .controls label:nth-child(3) .next {
-  display: block;
-}
-
-.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(1),
-.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(1) .prev {
-  display: block;
-}
-
-.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(4),
-.carousel-g #carousel-g-2:checked ~ .controls label:nth-child(4) .next {
-  display: block;
-}
-
-.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(1),
-.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(1) .prev {
-  display: block;
-}
-
-.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(4),
-.carousel-g #carousel-g-3:checked ~ .controls label:nth-child(4) .next {
-  display: block;
-}
-
-.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(2),
-.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(2) .prev {
-  display: block;
-}
-
-.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(1),
-.carousel-g #carousel-g-4:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(n+1) {
-  display: none;
-}
-
-.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(3),
-.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(3) .prev {
-  display: block;
-}
-
-.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(1),
-.carousel-g #carousel-g-5:checked ~ .controls label:nth-child(1) .next {
-  display: block;
-}
-
-.carousel-h {
-  position: relative;
-}
-
-.carousel-h > input {
-  position: absolute;
-  left: -9999px;
-}
-
-.carousel-h .outer {
-  overflow: hidden;
-  -webkit-transition: height 0.3333333333s;
-          transition: height 0.3333333333s;
-  margin: 0 -5px;
-}
-
-.carousel-h .inner {
-  position: relative;
-  letter-spacing: -0.34em;
-  white-space: nowrap;
-  -webkit-transition: left 1s;
-          transition: left 1s;
-}
-
-.carousel-h .inner:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-h .inner > li {
-  box-sizing: border-box;
-  width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  letter-spacing: 0;
-  white-space: normal;
-  padding: 0 5px;
-}
-
-.carousel-h .controls, .carousel-h .dots, .carousel-h .autoplay {
-  z-index: 2;
-}
-
-.carousel-h .controls span {
-  display: none;
-}
-
-.carousel-h .controls .prev {
-  float: left;
-}
-
-.carousel-h .controls .next {
-  float: right;
-}
-
-.carousel-h .dots {
-  letter-spacing: -0.34em;
-}
-
-.carousel-h .dots > label {
-  letter-spacing: 0;
-}
-
-.carousel-h .dots > label, .carousel-h .dots span {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.carousel-h .dots .normal {
-  display: block;
-}
-
-.carousel-h .dots .active {
-  display: none;
-}
-
-.carousel-h .autoplay .pause {
-  display: none;
-}
-
-.carousel-h .inner > li {
+.sc-scale .inner > li {
   width: 33.3333333333%;
 }
 
-.carousel-h #carousel-h-1:checked ~ .outer > .inner {
+.sc-scale #sc-scale-1:checked ~ .outer > .inner {
   margin-top: 0;
   left: 0%;
 }
 
-.carousel-h #carousel-h-2:checked ~ .outer > .inner {
+.sc-scale #sc-scale-2:checked ~ .outer > .inner {
   margin-top: 0;
   left: -33.3333333333%;
 }
 
-.carousel-h #carousel-h-3:checked ~ .outer > .inner {
+.sc-scale #sc-scale-3:checked ~ .outer > .inner {
   margin-top: 0;
   left: -66.6666666667%;
 }
 
-.carousel-h #carousel-h-4:checked ~ .outer > .inner {
+.sc-scale #sc-scale-4:checked ~ .outer > .inner {
   margin-top: 0;
   left: -66.6666666667%;
 }
 
-.carousel-h #carousel-h-5:checked ~ .outer > .inner {
+.sc-scale #sc-scale-5:checked ~ .outer > .inner {
   margin-top: 0;
   left: -66.6666666667%;
 }
 
-.carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-scale .inner > li {
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+}
+
+.sc-scale #sc-scale-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
+}
+
+.sc-scale #sc-scale-1:checked ~ .outer > .inner > li:nth-child(2) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-h #carousel-h-2:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-scale #sc-scale-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
+}
+
+.sc-scale #sc-scale-2:checked ~ .outer > .inner > li:nth-child(3) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-h #carousel-h-3:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-scale #sc-scale-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
+}
+
+.sc-scale #sc-scale-3:checked ~ .outer > .inner > li:nth-child(4) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-h #carousel-h-4:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-scale #sc-scale-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
+}
+
+.sc-scale #sc-scale-4:checked ~ .outer > .inner > li:nth-child(5) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-h #carousel-h-5:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-scale #sc-scale-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
+}
+
+.sc-scale #sc-scale-5:checked ~ .outer > .inner > li:nth-child(6) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
+.sc-scale #sc-scale-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
+.sc-scale #sc-scale-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .active {
+.sc-scale #sc-scale-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
+.sc-scale #sc-scale-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .active {
+.sc-scale #sc-scale-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
+.sc-scale #sc-scale-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .active {
+.sc-scale #sc-scale-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
+.sc-scale #sc-scale-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .active {
+.sc-scale #sc-scale-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
+.sc-scale #sc-scale-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-.carousel-h #carousel-h-autoplay:checked ~ .autoplay .play {
+.sc-scale #sc-scale-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-.carousel-h #carousel-h-autoplay:checked ~ .autoplay .pause {
+.sc-scale #sc-scale-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
-.carousel-h .dots label:nth-child(n + 4) {
+.sc-scale .dots label:nth-child(n + 4) {
   display: none;
 }
 
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
+.sc-scale #sc-scale-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3),
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3) .prev,
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
+.sc-scale #sc-scale-1:checked ~ .controls label:nth-child(3),
+.sc-scale #sc-scale-1:checked ~ .controls label:nth-child(2),
+.sc-scale #sc-scale-1:checked ~ .controls label:nth-child(3) .prev,
+.sc-scale #sc-scale-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
+.sc-scale #sc-scale-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1),
-.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3),
-.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
-.carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
+.sc-scale #sc-scale-2:checked ~ .controls label:nth-child(1),
+.sc-scale #sc-scale-2:checked ~ .controls label:nth-child(3),
+.sc-scale #sc-scale-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-scale #sc-scale-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
+.sc-scale #sc-scale-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1),
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1) .next {
+.sc-scale #sc-scale-3:checked ~ .controls label:nth-child(2),
+.sc-scale #sc-scale-3:checked ~ .controls label:nth-child(1),
+.sc-scale #sc-scale-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-scale #sc-scale-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
+.sc-scale #sc-scale-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1),
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
+.sc-scale #sc-scale-4:checked ~ .controls label:nth-child(3),
+.sc-scale #sc-scale-4:checked ~ .controls label:nth-child(1),
+.sc-scale #sc-scale-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-scale #sc-scale-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
+.sc-scale #sc-scale-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4),
-.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1),
-.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
-.carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
+.sc-scale #sc-scale-5:checked ~ .controls label:nth-child(4),
+.sc-scale #sc-scale-5:checked ~ .controls label:nth-child(1),
+.sc-scale #sc-scale-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-scale #sc-scale-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-i {
+.sc-rotate {
   position: relative;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
-.carousel-i > input {
+.sc-rotate > input {
   position: absolute;
   left: -9999px;
 }
 
-.carousel-i .outer {
+.sc-rotate .outer {
+  overflow: hidden;
+  -webkit-transition: height 0.3333333333s;
+          transition: height 0.3333333333s;
+  margin: 0 -5px;
+}
+
+.sc-rotate .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+  -webkit-transition: left 1s;
+          transition: left 1s;
+}
+
+.sc-rotate .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.sc-rotate .inner > li {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+  white-space: normal;
+  padding: 0 5px;
+}
+
+.sc-rotate .controls, .sc-rotate .dots, .sc-rotate .autoplay {
+  z-index: 2;
+}
+
+.sc-rotate .controls span {
+  display: none;
+}
+
+.sc-rotate .controls .prev {
+  float: left;
+}
+
+.sc-rotate .controls .next {
+  float: right;
+}
+
+.sc-rotate .dots {
+  letter-spacing: -0.34em;
+}
+
+.sc-rotate .dots > label {
+  letter-spacing: 0;
+}
+
+.sc-rotate .dots > label, .sc-rotate .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sc-rotate .dots .normal {
+  display: block;
+}
+
+.sc-rotate .dots .active {
+  display: none;
+}
+
+.sc-rotate .autoplay .pause {
+  display: none;
+}
+
+.sc-rotate .inner > li {
+  width: 33.3333333333%;
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: 0%;
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -33.3333333333%;
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-rotate .inner > li {
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .outer > .inner > li:nth-child(-n + 1) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  transform: perspective(600px) scale(0.85) rotateY(-20deg);
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .outer > .inner > li:nth-child(n + 3) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  transform: perspective(600px) scale(0.85) rotateY(20deg);
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .outer > .inner > li:nth-child(2) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .outer > .inner > li:nth-child(-n + 2) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  transform: perspective(600px) scale(0.85) rotateY(-20deg);
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .outer > .inner > li:nth-child(n + 4) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  transform: perspective(600px) scale(0.85) rotateY(20deg);
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .outer > .inner > li:nth-child(3) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .outer > .inner > li:nth-child(-n + 3) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  transform: perspective(600px) scale(0.85) rotateY(-20deg);
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .outer > .inner > li:nth-child(n + 5) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  transform: perspective(600px) scale(0.85) rotateY(20deg);
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .outer > .inner > li:nth-child(4) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .outer > .inner > li:nth-child(-n + 4) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  transform: perspective(600px) scale(0.85) rotateY(-20deg);
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .outer > .inner > li:nth-child(n + 6) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  transform: perspective(600px) scale(0.85) rotateY(20deg);
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .outer > .inner > li:nth-child(5) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .outer > .inner > li:nth-child(-n + 5) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(-20deg);
+  transform: perspective(600px) scale(0.85) rotateY(-20deg);
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .outer > .inner > li:nth-child(n + 7) {
+  -webkit-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  -ms-transform: perspective(600px) scale(0.85) rotateY(20deg);
+  transform: perspective(600px) scale(0.85) rotateY(20deg);
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .outer > .inner > li:nth-child(6) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .dots label:nth-child(1) .active {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .dots label:nth-child(1) .normal {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .dots label:nth-child(2) .active {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .dots label:nth-child(2) .normal {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .dots label:nth-child(3) .active {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .dots label:nth-child(3) .normal {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .dots label:nth-child(4) .active {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .dots label:nth-child(4) .normal {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .dots label:nth-child(5) .active {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-autoplay:checked ~ .autoplay .play {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-autoplay:checked ~ .autoplay .pause {
+  display: block;
+}
+
+.sc-rotate .dots label:nth-child(n + 4) {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-1:checked ~ .controls label:nth-child(3),
+.sc-rotate #sc-rotate-1:checked ~ .controls label:nth-child(2),
+.sc-rotate #sc-rotate-1:checked ~ .controls label:nth-child(3) .prev,
+.sc-rotate #sc-rotate-1:checked ~ .controls label:nth-child(2) .next {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-2:checked ~ .controls label:nth-child(1),
+.sc-rotate #sc-rotate-2:checked ~ .controls label:nth-child(3),
+.sc-rotate #sc-rotate-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-rotate #sc-rotate-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-3:checked ~ .controls label:nth-child(2),
+.sc-rotate #sc-rotate-3:checked ~ .controls label:nth-child(1),
+.sc-rotate #sc-rotate-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-rotate #sc-rotate-3:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-4:checked ~ .controls label:nth-child(3),
+.sc-rotate #sc-rotate-4:checked ~ .controls label:nth-child(1),
+.sc-rotate #sc-rotate-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-rotate #sc-rotate-4:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-rotate #sc-rotate-5:checked ~ .controls label:nth-child(4),
+.sc-rotate #sc-rotate-5:checked ~ .controls label:nth-child(1),
+.sc-rotate #sc-rotate-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-rotate #sc-rotate-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoplay {
+  position: relative;
+}
+
+.sc-autoplay > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.sc-autoplay .outer {
+  overflow: hidden;
+  -webkit-transition: height 0.3333333333s;
+          transition: height 0.3333333333s;
+  margin: 0 -5px;
+}
+
+.sc-autoplay .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+  -webkit-transition: left 1s;
+          transition: left 1s;
+}
+
+.sc-autoplay .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.sc-autoplay .inner > li {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+  white-space: normal;
+  padding: 0 5px;
+}
+
+.sc-autoplay .controls, .sc-autoplay .dots, .sc-autoplay .autoplay {
+  z-index: 2;
+}
+
+.sc-autoplay .controls span {
+  display: none;
+}
+
+.sc-autoplay .controls .prev {
+  float: left;
+}
+
+.sc-autoplay .controls .next {
+  float: right;
+}
+
+.sc-autoplay .dots {
+  letter-spacing: -0.34em;
+}
+
+.sc-autoplay .dots > label {
+  letter-spacing: 0;
+}
+
+.sc-autoplay .dots > label, .sc-autoplay .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sc-autoplay .dots .normal {
+  display: block;
+}
+
+.sc-autoplay .dots .active {
+  display: none;
+}
+
+.no-cssanimations .sc-autoplay .autoplay {
+  display: none !important;
+}
+
+.sc-autoplay .autoplay .pause {
+  display: none;
+}
+
+.sc-autoplay .inner > li {
+  width: 33.3333333333%;
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: 0%;
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -33.3333333333%;
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .dots label:nth-child(1) .active {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .dots label:nth-child(1) .normal {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .dots label:nth-child(2) .active {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .dots label:nth-child(2) .normal {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .dots label:nth-child(3) .active {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .dots label:nth-child(3) .normal {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .dots label:nth-child(4) .active {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .dots label:nth-child(4) .normal {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .dots label:nth-child(5) .active {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-autoplay:checked ~ .controls, .sc-autoplay #sc-autoplay-autoplay:checked ~ .dots {
+  display: none;
+}
+
+.no-cssanimations .sc-autoplay #sc-autoplay-autoplay:checked ~ .controls, .no-cssanimations .sc-autoplay #sc-autoplay-autoplay:checked ~ .dots {
+  display: block !important;
+}
+
+.sc-autoplay #sc-autoplay-autoplay:checked ~ .autoplay .play {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-autoplay:checked ~ .autoplay .pause {
+  display: block;
+}
+
+.sc-autoplay .dots label:nth-child(n + 4) {
+  display: none;
+}
+
+@-webkit-keyframes sc-autoplay-inner {
+  0% {
+    left: 0;
+  }
+  37.5% {
+    left: 0%;
+  }
+  50% {
+    left: -66.6666666667%;
+  }
+  87.5% {
+    left: -66.6666666667%;
+  }
+  100% {
+    left: -66.6666666667%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes sc-autoplay-inner {
+  0% {
+    left: 0;
+  }
+  37.5% {
+    left: 0%;
+  }
+  50% {
+    left: -66.6666666667%;
+  }
+  87.5% {
+    left: -66.6666666667%;
+  }
+  100% {
+    left: -66.6666666667%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes sc-autoplay-progress {
+  0% {
+    width: 0;
+  }
+  75% {
+    width: 100%;
+  }
+  75.01% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes sc-autoplay-progress {
+  0% {
+    width: 0;
+  }
+  75% {
+    width: 100%;
+  }
+  75.01% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.sc-autoplay #sc-autoplay-autoplay:checked ~ .outer > .inner {
+  -webkit-animation: sc-autoplay-inner 8s ease infinite;
+  animation: sc-autoplay-inner 8s ease infinite;
+}
+
+.sc-autoplay #sc-autoplay-autoplay:checked ~ .autoplay > .autoplay-progress {
+  -webkit-animation: sc-autoplay-progress 4s ease infinite;
+  animation: sc-autoplay-progress 4s ease infinite;
+}
+
+.sc-autoplay:hover #sc-autoplay-autoplay ~ .outer > .inner {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.sc-autoplay:hover #sc-autoplay-autoplay ~ .autoplay > .autoplay-progress {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .controls label:nth-child(3),
+.sc-autoplay #sc-autoplay-1:checked ~ .controls label:nth-child(3) .prev {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-1:checked ~ .controls label:nth-child(3),
+.sc-autoplay #sc-autoplay-1:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .controls label:nth-child(1),
+.sc-autoplay #sc-autoplay-2:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-2:checked ~ .controls label:nth-child(3),
+.sc-autoplay #sc-autoplay-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .controls label:nth-child(1),
+.sc-autoplay #sc-autoplay-3:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-3:checked ~ .controls label:nth-child(1),
+.sc-autoplay #sc-autoplay-3:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .controls label:nth-child(1),
+.sc-autoplay #sc-autoplay-4:checked ~ .controls label:nth-child(1) .prev {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-4:checked ~ .controls label:nth-child(1),
+.sc-autoplay #sc-autoplay-4:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .controls label:nth-child(2),
+.sc-autoplay #sc-autoplay-5:checked ~ .controls label:nth-child(2) .prev {
+  display: block;
+}
+
+.sc-autoplay #sc-autoplay-5:checked ~ .controls label:nth-child(1),
+.sc-autoplay #sc-autoplay-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoplay-js {
+  position: relative;
+}
+
+.sc-autoplay-js > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.sc-autoplay-js .outer {
+  overflow: hidden;
+  -webkit-transition: height 0.3333333333s;
+          transition: height 0.3333333333s;
+  margin: 0 -5px;
+}
+
+.sc-autoplay-js .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+  -webkit-transition: left 1s;
+          transition: left 1s;
+}
+
+.sc-autoplay-js .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.sc-autoplay-js .inner > li {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+  white-space: normal;
+  padding: 0 5px;
+}
+
+.sc-autoplay-js .controls, .sc-autoplay-js .dots, .sc-autoplay-js .autoplay {
+  z-index: 2;
+}
+
+.sc-autoplay-js .controls span {
+  display: none;
+}
+
+.sc-autoplay-js .controls .prev {
+  float: left;
+}
+
+.sc-autoplay-js .controls .next {
+  float: right;
+}
+
+.sc-autoplay-js .dots {
+  letter-spacing: -0.34em;
+}
+
+.sc-autoplay-js .dots > label {
+  letter-spacing: 0;
+}
+
+.sc-autoplay-js .dots > label, .sc-autoplay-js .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sc-autoplay-js .dots .normal {
+  display: block;
+}
+
+.sc-autoplay-js .dots .active {
+  display: none;
+}
+
+.sc-autoplay-js .autoplay .pause {
+  display: none;
+}
+
+.sc-autoplay-js .inner > li {
+  width: 33.3333333333%;
+}
+
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: 0%;
+}
+
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -33.3333333333%;
+}
+
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .dots label:nth-child(1) .active {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .dots label:nth-child(1) .normal {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .dots label:nth-child(2) .active {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .dots label:nth-child(2) .normal {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .dots label:nth-child(3) .active {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .dots label:nth-child(3) .normal {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .dots label:nth-child(4) .active {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .dots label:nth-child(4) .normal {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .dots label:nth-child(5) .active {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-autoplay:checked ~ .autoplay .play {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-autoplay:checked ~ .autoplay .pause {
+  display: block;
+}
+
+.sc-autoplay-js .dots label:nth-child(n + 4) {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .controls label:nth-child(3),
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .controls label:nth-child(2),
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .controls label:nth-child(3) .prev,
+.sc-autoplay-js #sc-autoplay-js-1:checked ~ .controls label:nth-child(2) .next {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .controls label:nth-child(1),
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .controls label:nth-child(3),
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-autoplay-js #sc-autoplay-js-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .controls label:nth-child(2),
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .controls label:nth-child(1),
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-autoplay-js #sc-autoplay-js-3:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .controls label:nth-child(3),
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .controls label:nth-child(1),
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-autoplay-js #sc-autoplay-js-4:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .controls label:nth-child(4),
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .controls label:nth-child(1),
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-autoplay-js #sc-autoplay-js-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoheight {
+  position: relative;
+}
+
+.sc-autoheight > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.sc-autoheight .outer {
+  overflow: hidden;
+  -webkit-transition: height 0.3333333333s;
+          transition: height 0.3333333333s;
+  margin: 0 -5px;
+}
+
+.sc-autoheight .inner {
+  position: relative;
+  letter-spacing: -0.34em;
+  white-space: nowrap;
+  -webkit-transition: left 1s;
+          transition: left 1s;
+}
+
+.sc-autoheight .inner:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.sc-autoheight .inner > li {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+  white-space: normal;
+  padding: 0 5px;
+}
+
+.sc-autoheight .controls, .sc-autoheight .dots, .sc-autoheight .autoplay {
+  z-index: 2;
+}
+
+.sc-autoheight .controls span {
+  display: none;
+}
+
+.sc-autoheight .controls .prev {
+  float: left;
+}
+
+.sc-autoheight .controls .next {
+  float: right;
+}
+
+.sc-autoheight .dots {
+  letter-spacing: -0.34em;
+}
+
+.sc-autoheight .dots > label {
+  letter-spacing: 0;
+}
+
+.sc-autoheight .dots > label, .sc-autoheight .dots span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sc-autoheight .dots .normal {
+  display: block;
+}
+
+.sc-autoheight .dots .active {
+  display: none;
+}
+
+.sc-autoheight .autoplay .pause {
+  display: none;
+}
+
+.sc-autoheight .inner > li {
+  width: 33.3333333333%;
+}
+
+.sc-autoheight #sc-autoheight-1:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: 0%;
+}
+
+.sc-autoheight #sc-autoheight-2:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -33.3333333333%;
+}
+
+.sc-autoheight #sc-autoheight-3:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoheight #sc-autoheight-4:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoheight #sc-autoheight-5:checked ~ .outer > .inner {
+  margin-top: 0;
+  left: -66.6666666667%;
+}
+
+.sc-autoheight #sc-autoheight-1:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoheight #sc-autoheight-2:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoheight #sc-autoheight-3:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoheight #sc-autoheight-4:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoheight #sc-autoheight-5:checked ~ .outer > .inner > li:nth-child(n) {
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+}
+
+.sc-autoheight #sc-autoheight-1:checked ~ .dots label:nth-child(1) .active {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-1:checked ~ .dots label:nth-child(1) .normal {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-2:checked ~ .dots label:nth-child(2) .active {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-2:checked ~ .dots label:nth-child(2) .normal {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-3:checked ~ .dots label:nth-child(3) .active {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-3:checked ~ .dots label:nth-child(3) .normal {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-4:checked ~ .dots label:nth-child(4) .active {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-4:checked ~ .dots label:nth-child(4) .normal {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-5:checked ~ .dots label:nth-child(5) .active {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-5:checked ~ .dots label:nth-child(5) .normal {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-autoplay:checked ~ .autoplay .play {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-autoplay:checked ~ .autoplay .pause {
+  display: block;
+}
+
+.sc-autoheight .dots label:nth-child(n + 4) {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-1:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-1:checked ~ .controls label:nth-child(3),
+.sc-autoheight #sc-autoheight-1:checked ~ .controls label:nth-child(2),
+.sc-autoheight #sc-autoheight-1:checked ~ .controls label:nth-child(3) .prev,
+.sc-autoheight #sc-autoheight-1:checked ~ .controls label:nth-child(2) .next {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-2:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-2:checked ~ .controls label:nth-child(1),
+.sc-autoheight #sc-autoheight-2:checked ~ .controls label:nth-child(3),
+.sc-autoheight #sc-autoheight-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-autoheight #sc-autoheight-2:checked ~ .controls label:nth-child(3) .next {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-3:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-3:checked ~ .controls label:nth-child(2),
+.sc-autoheight #sc-autoheight-3:checked ~ .controls label:nth-child(1),
+.sc-autoheight #sc-autoheight-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-autoheight #sc-autoheight-3:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-4:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-4:checked ~ .controls label:nth-child(3),
+.sc-autoheight #sc-autoheight-4:checked ~ .controls label:nth-child(1),
+.sc-autoheight #sc-autoheight-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-autoheight #sc-autoheight-4:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-autoheight #sc-autoheight-5:checked ~ .controls label:nth-child(n+1) {
+  display: none;
+}
+
+.sc-autoheight #sc-autoheight-5:checked ~ .controls label:nth-child(4),
+.sc-autoheight #sc-autoheight-5:checked ~ .controls label:nth-child(1),
+.sc-autoheight #sc-autoheight-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-autoheight #sc-autoheight-5:checked ~ .controls label:nth-child(1) .next {
+  display: block;
+}
+
+.sc-vertical {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sc-vertical > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.sc-vertical .outer {
   overflow: hidden;
   -webkit-transition: height 0.3333333333s;
           transition: height 0.3333333333s;
@@ -2046,182 +2543,182 @@ pre[class*="language-"] {
   padding-bottom: 56.25%;
 }
 
-.carousel-i .inner {
+.sc-vertical .inner {
   position: static;
   white-space: normal;
   -webkit-transition: margin-top 1s;
           transition: margin-top 1s;
 }
 
-.carousel-i .inner:after {
+.sc-vertical .inner:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.carousel-i .inner > li {
+.sc-vertical .inner > li {
   box-sizing: border-box;
   height: 0;
   display: block;
   padding: 0 0 56.25%;
 }
 
-.carousel-i .controls, .carousel-i .dots, .carousel-i .autoplay {
+.sc-vertical .controls, .sc-vertical .dots, .sc-vertical .autoplay {
   z-index: 2;
 }
 
-.carousel-i .controls span {
+.sc-vertical .controls span {
   display: none;
 }
 
-.carousel-i .controls .prev {
+.sc-vertical .controls .prev {
   float: left;
 }
 
-.carousel-i .controls .next {
+.sc-vertical .controls .next {
   float: right;
 }
 
-.carousel-i .dots {
+.sc-vertical .dots {
   letter-spacing: -0.34em;
 }
 
-.carousel-i .dots > label {
+.sc-vertical .dots > label {
   letter-spacing: 0;
 }
 
-.carousel-i .dots > label, .carousel-i .dots span {
+.sc-vertical .dots > label, .sc-vertical .dots span {
   display: inline-block;
   vertical-align: top;
 }
 
-.carousel-i .dots .normal {
+.sc-vertical .dots .normal {
   display: block;
 }
 
-.carousel-i .dots .active {
+.sc-vertical .dots .active {
   display: none;
 }
 
-.no-cssanimations .carousel-i .autoplay {
+.no-cssanimations .sc-vertical .autoplay {
   display: none !important;
 }
 
-.carousel-i .autoplay .pause {
+.sc-vertical .autoplay .pause {
   display: none;
 }
 
-.carousel-i #carousel-i-1:checked ~ .outer > .inner {
+.sc-vertical #sc-vertical-1:checked ~ .outer > .inner {
   margin-top: 0%;
 }
 
-.carousel-i #carousel-i-2:checked ~ .outer > .inner {
+.sc-vertical #sc-vertical-2:checked ~ .outer > .inner {
   margin-top: -56.25%;
 }
 
-.carousel-i #carousel-i-3:checked ~ .outer > .inner {
+.sc-vertical #sc-vertical-3:checked ~ .outer > .inner {
   margin-top: -112.5%;
 }
 
-.carousel-i #carousel-i-4:checked ~ .outer > .inner {
+.sc-vertical #sc-vertical-4:checked ~ .outer > .inner {
   margin-top: -168.75%;
 }
 
-.carousel-i #carousel-i-5:checked ~ .outer > .inner {
+.sc-vertical #sc-vertical-5:checked ~ .outer > .inner {
   margin-top: -225%;
 }
 
-.carousel-i #carousel-i-1:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-vertical #sc-vertical-1:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-i #carousel-i-2:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-vertical #sc-vertical-2:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-i #carousel-i-3:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-vertical #sc-vertical-3:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-i #carousel-i-4:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-vertical #sc-vertical-4:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-i #carousel-i-5:checked ~ .outer > .inner > li:nth-child(n) {
+.sc-vertical #sc-vertical-5:checked ~ .outer > .inner > li:nth-child(n) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-i #carousel-i-1:checked ~ .dots label:nth-child(1) .active {
+.sc-vertical #sc-vertical-1:checked ~ .dots label:nth-child(1) .active {
   display: block;
 }
 
-.carousel-i #carousel-i-1:checked ~ .dots label:nth-child(1) .normal {
+.sc-vertical #sc-vertical-1:checked ~ .dots label:nth-child(1) .normal {
   display: none;
 }
 
-.carousel-i #carousel-i-2:checked ~ .dots label:nth-child(2) .active {
+.sc-vertical #sc-vertical-2:checked ~ .dots label:nth-child(2) .active {
   display: block;
 }
 
-.carousel-i #carousel-i-2:checked ~ .dots label:nth-child(2) .normal {
+.sc-vertical #sc-vertical-2:checked ~ .dots label:nth-child(2) .normal {
   display: none;
 }
 
-.carousel-i #carousel-i-3:checked ~ .dots label:nth-child(3) .active {
+.sc-vertical #sc-vertical-3:checked ~ .dots label:nth-child(3) .active {
   display: block;
 }
 
-.carousel-i #carousel-i-3:checked ~ .dots label:nth-child(3) .normal {
+.sc-vertical #sc-vertical-3:checked ~ .dots label:nth-child(3) .normal {
   display: none;
 }
 
-.carousel-i #carousel-i-4:checked ~ .dots label:nth-child(4) .active {
+.sc-vertical #sc-vertical-4:checked ~ .dots label:nth-child(4) .active {
   display: block;
 }
 
-.carousel-i #carousel-i-4:checked ~ .dots label:nth-child(4) .normal {
+.sc-vertical #sc-vertical-4:checked ~ .dots label:nth-child(4) .normal {
   display: none;
 }
 
-.carousel-i #carousel-i-5:checked ~ .dots label:nth-child(5) .active {
+.sc-vertical #sc-vertical-5:checked ~ .dots label:nth-child(5) .active {
   display: block;
 }
 
-.carousel-i #carousel-i-5:checked ~ .dots label:nth-child(5) .normal {
+.sc-vertical #sc-vertical-5:checked ~ .dots label:nth-child(5) .normal {
   display: none;
 }
 
-.carousel-i #carousel-i-autoplay:checked ~ .controls, .carousel-i #carousel-i-autoplay:checked ~ .dots {
+.sc-vertical #sc-vertical-autoplay:checked ~ .controls, .sc-vertical #sc-vertical-autoplay:checked ~ .dots {
   display: none;
 }
 
-.no-cssanimations .carousel-i #carousel-i-autoplay:checked ~ .controls, .no-cssanimations .carousel-i #carousel-i-autoplay:checked ~ .dots {
+.no-cssanimations .sc-vertical #sc-vertical-autoplay:checked ~ .controls, .no-cssanimations .sc-vertical #sc-vertical-autoplay:checked ~ .dots {
   display: block !important;
 }
 
-.carousel-i #carousel-i-autoplay:checked ~ .autoplay .play {
+.sc-vertical #sc-vertical-autoplay:checked ~ .autoplay .play {
   display: none;
 }
 
-.carousel-i #carousel-i-autoplay:checked ~ .autoplay .pause {
+.sc-vertical #sc-vertical-autoplay:checked ~ .autoplay .pause {
   display: block;
 }
 
-.carousel-i .dots label:nth-child(n + 6) {
+.sc-vertical .dots label:nth-child(n + 6) {
   display: none;
 }
 
-@-webkit-keyframes carousel-i-inner {
+@-webkit-keyframes sc-vertical-inner {
   0% {
     margin-top: 0;
   }
@@ -2260,7 +2757,7 @@ pre[class*="language-"] {
   }
 }
 
-@keyframes carousel-i-inner {
+@keyframes sc-vertical-inner {
   0% {
     margin-top: 0;
   }
@@ -2299,7 +2796,7 @@ pre[class*="language-"] {
   }
 }
 
-@-webkit-keyframes carousel-i-progress {
+@-webkit-keyframes sc-vertical-progress {
   0% {
     width: 0;
   }
@@ -2314,7 +2811,7 @@ pre[class*="language-"] {
   }
 }
 
-@keyframes carousel-i-progress {
+@keyframes sc-vertical-progress {
   0% {
     width: 0;
   }
@@ -2329,86 +2826,86 @@ pre[class*="language-"] {
   }
 }
 
-.carousel-i #carousel-i-autoplay:checked ~ .outer > .inner {
-  -webkit-animation: carousel-i-inner 20s ease infinite;
-  animation: carousel-i-inner 20s ease infinite;
+.sc-vertical #sc-vertical-autoplay:checked ~ .outer > .inner {
+  -webkit-animation: sc-vertical-inner 20s ease infinite;
+  animation: sc-vertical-inner 20s ease infinite;
 }
 
-.carousel-i #carousel-i-autoplay:checked ~ .autoplay > .autoplay-progress {
-  -webkit-animation: carousel-i-progress 4s ease infinite;
-  animation: carousel-i-progress 4s ease infinite;
+.sc-vertical #sc-vertical-autoplay:checked ~ .autoplay > .autoplay-progress {
+  -webkit-animation: sc-vertical-progress 4s ease infinite;
+  animation: sc-vertical-progress 4s ease infinite;
 }
 
-.carousel-i #carousel-i-1:checked ~ .controls label:nth-child(n+1) {
+.sc-vertical #sc-vertical-1:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-i #carousel-i-1:checked ~ .controls label:nth-child(5),
-.carousel-i #carousel-i-1:checked ~ .controls label:nth-child(2),
-.carousel-i #carousel-i-1:checked ~ .controls label:nth-child(5) .prev,
-.carousel-i #carousel-i-1:checked ~ .controls label:nth-child(2) .next {
+.sc-vertical #sc-vertical-1:checked ~ .controls label:nth-child(5),
+.sc-vertical #sc-vertical-1:checked ~ .controls label:nth-child(2),
+.sc-vertical #sc-vertical-1:checked ~ .controls label:nth-child(5) .prev,
+.sc-vertical #sc-vertical-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
 
-.carousel-i #carousel-i-2:checked ~ .controls label:nth-child(n+1) {
+.sc-vertical #sc-vertical-2:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-i #carousel-i-2:checked ~ .controls label:nth-child(1),
-.carousel-i #carousel-i-2:checked ~ .controls label:nth-child(3),
-.carousel-i #carousel-i-2:checked ~ .controls label:nth-child(1) .prev,
-.carousel-i #carousel-i-2:checked ~ .controls label:nth-child(3) .next {
+.sc-vertical #sc-vertical-2:checked ~ .controls label:nth-child(1),
+.sc-vertical #sc-vertical-2:checked ~ .controls label:nth-child(3),
+.sc-vertical #sc-vertical-2:checked ~ .controls label:nth-child(1) .prev,
+.sc-vertical #sc-vertical-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
-.carousel-i #carousel-i-3:checked ~ .controls label:nth-child(n+1) {
+.sc-vertical #sc-vertical-3:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-i #carousel-i-3:checked ~ .controls label:nth-child(2),
-.carousel-i #carousel-i-3:checked ~ .controls label:nth-child(4),
-.carousel-i #carousel-i-3:checked ~ .controls label:nth-child(2) .prev,
-.carousel-i #carousel-i-3:checked ~ .controls label:nth-child(4) .next {
+.sc-vertical #sc-vertical-3:checked ~ .controls label:nth-child(2),
+.sc-vertical #sc-vertical-3:checked ~ .controls label:nth-child(4),
+.sc-vertical #sc-vertical-3:checked ~ .controls label:nth-child(2) .prev,
+.sc-vertical #sc-vertical-3:checked ~ .controls label:nth-child(4) .next {
   display: block;
 }
 
-.carousel-i #carousel-i-4:checked ~ .controls label:nth-child(n+1) {
+.sc-vertical #sc-vertical-4:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-i #carousel-i-4:checked ~ .controls label:nth-child(3),
-.carousel-i #carousel-i-4:checked ~ .controls label:nth-child(5),
-.carousel-i #carousel-i-4:checked ~ .controls label:nth-child(3) .prev,
-.carousel-i #carousel-i-4:checked ~ .controls label:nth-child(5) .next {
+.sc-vertical #sc-vertical-4:checked ~ .controls label:nth-child(3),
+.sc-vertical #sc-vertical-4:checked ~ .controls label:nth-child(5),
+.sc-vertical #sc-vertical-4:checked ~ .controls label:nth-child(3) .prev,
+.sc-vertical #sc-vertical-4:checked ~ .controls label:nth-child(5) .next {
   display: block;
 }
 
-.carousel-i #carousel-i-5:checked ~ .controls label:nth-child(n+1) {
+.sc-vertical #sc-vertical-5:checked ~ .controls label:nth-child(n+1) {
   display: none;
 }
 
-.carousel-i #carousel-i-5:checked ~ .controls label:nth-child(4),
-.carousel-i #carousel-i-5:checked ~ .controls label:nth-child(1),
-.carousel-i #carousel-i-5:checked ~ .controls label:nth-child(4) .prev,
-.carousel-i #carousel-i-5:checked ~ .controls label:nth-child(1) .next {
+.sc-vertical #sc-vertical-5:checked ~ .controls label:nth-child(4),
+.sc-vertical #sc-vertical-5:checked ~ .controls label:nth-child(1),
+.sc-vertical #sc-vertical-5:checked ~ .controls label:nth-child(4) .prev,
+.sc-vertical #sc-vertical-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
-.carousel-i .inner > li {
+.sc-vertical .inner > li {
   position: relative;
 }
 
-.carousel-i .item {
+.sc-vertical .item {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.carousel-i .autoplay-progress {
+.sc-vertical .autoplay-progress {
   bottom: auto;
 }
 
-.carousel-i .autoplay > label {
+.sc-vertical .autoplay > label {
   margin-top: 10px;
 }
 
@@ -2469,37 +2966,23 @@ pre[class*="language-"] {
   font-size: 26px;
 }
 
-.slider [id="carousel-normal"]:checked ~ .slider-labels [for="carousel-normal"], [id="carousel-normal"]:checked ~ .slider-labels .slider [for="carousel-normal"], .slider [id="slide-by-page"]:checked ~ .slider-labels [for="slide-by-page"], [id="slide-by-page"]:checked ~ .slider-labels .slider [for="slide-by-page"], .slider [id="slider-center"]:checked ~ .slider-labels [for="slider-center"], [id="slider-center"]:checked ~ .slider-labels .slider [for="slider-center"], .slider [id="carousel-autoplay-css"]:checked ~ .slider-labels [for="carousel-autoplay-css"], [id="carousel-autoplay-css"]:checked ~ .slider-labels .slider [for="carousel-autoplay-css"], .slider [id="carousel-autoplay-js"]:checked ~ .slider-labels [for="carousel-autoplay-js"], [id="carousel-autoplay-js"]:checked ~ .slider-labels .slider [for="carousel-autoplay-js"], .slider [id="carousel-autoheight"]:checked ~ .slider-labels [for="carousel-autoheight"], [id="carousel-autoheight"]:checked ~ .slider-labels .slider [for="carousel-autoheight"], .slider [id="carousel-vertical"]:checked ~ .slider-labels [for="carousel-vertical"], [id="carousel-vertical"]:checked ~ .slider-labels .slider [for="carousel-vertical"] {
+.slider [id="sc-normal"]:checked ~ .slider-labels [for="sc-normal"], [id="sc-normal"]:checked ~ .slider-labels .slider [for="sc-normal"], .slider [id="sc-by-page"]:checked ~ .slider-labels [for="sc-by-page"], [id="sc-by-page"]:checked ~ .slider-labels .slider [for="sc-by-page"], .slider [id="sc-center"]:checked ~ .slider-labels [for="sc-center"], [id="sc-center"]:checked ~ .slider-labels .slider [for="sc-center"], .slider [id="sc-scale"]:checked ~ .slider-labels [for="sc-scale"], [id="sc-scale"]:checked ~ .slider-labels .slider [for="sc-scale"], .slider [id="sc-rotate"]:checked ~ .slider-labels [for="sc-rotate"], [id="sc-rotate"]:checked ~ .slider-labels .slider [for="sc-rotate"], .slider [id="sc-autoplay-css"]:checked ~ .slider-labels [for="sc-autoplay-css"], [id="sc-autoplay-css"]:checked ~ .slider-labels .slider [for="sc-autoplay-css"], .slider [id="sc-autoplay-js"]:checked ~ .slider-labels [for="sc-autoplay-js"], [id="sc-autoplay-js"]:checked ~ .slider-labels .slider [for="sc-autoplay-js"], .slider [id="sc-autoheight"]:checked ~ .slider-labels [for="sc-autoheight"], [id="sc-autoheight"]:checked ~ .slider-labels .slider [for="sc-autoheight"], .slider [id="sc-vertical"]:checked ~ .slider-labels [for="sc-vertical"], [id="sc-vertical"]:checked ~ .slider-labels .slider [for="sc-vertical"] {
   background-color: #FFBE39;
 }
 
-[class^="gallery-"], [class^="carousel-"] {
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  max-width: 1000px;
-  margin-bottom: 40px;
-}
-
-[id*="-md"]:checked ~ [class^="gallery-"], [id*="-md"]:checked ~ [class^="carousel-"] {
-  max-width: 700px;
-}
-
-[id*="-sm"]:checked ~ [class^="gallery-"], [id*="-sm"]:checked ~ [class^="carousel-"] {
-  max-width: 400px;
-}
-
-.carousel-a, .carousel-d, .carousel-e, .carousel-f, .carousel-g, .carousel-h, .carousel-i {
+.sc-normal, .sc-bypage, .sc-center, .sc-scale, .sc-rotate, .sc-autoplay, .sc-autoplay-js, .sc-autoheight, .sc-vertical {
   display: none;
 }
 
-[id="carousel-normal"]:checked ~ .carousel-a,
-[id="slide-by-page"]:checked ~ .carousel-d,
-[id="slider-center"]:checked ~ .carousel-e,
-[id="carousel-autoplay-css"]:checked ~ .carousel-f,
-[id="carousel-autoplay-js"]:checked ~ .carousel-g,
-[id="carousel-autoheight"]:checked ~ .carousel-h,
-[id="carousel-vertical"]:checked ~ .carousel-i {
+[id="sc-normal"]:checked ~ .sc-normal,
+[id="sc-by-page"]:checked ~ .sc-bypage,
+[id="sc-center"]:checked ~ .sc-center,
+[id="sc-scale"]:checked ~ .sc-scale,
+[id="sc-rotate"]:checked ~ .sc-rotate,
+[id="sc-autoplay-css"]:checked ~ .sc-autoplay,
+[id="sc-autoplay-js"]:checked ~ .sc-autoplay-js,
+[id="sc-autoheight"]:checked ~ .sc-autoheight,
+[id="sc-vertical"]:checked ~ .sc-vertical {
   display: block;
 }
 
