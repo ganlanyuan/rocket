@@ -2,8 +2,13 @@
 
 // *** slider: gallery *** //
 
-.sg-autoplay { @include slider-gallery(5 autoplay rotate-out progress-bar left); }
+.sg-autoplay { @include slider-gallery(5 autoplay progress-bar left); }
 .sg-autoplay-js { @include slider-gallery(5 autoplay-js); }
+.sg-scale-in { @include slider-gallery(5 scale-in); }
+.sg-scale-out { @include slider-gallery(5 scale-out); }
+.sg-rotate-in { @include slider-gallery(5 rotate-in); }
+.sg-rotate-out { @include slider-gallery(5 rotate-out); }
+.sg-fall-down { @include slider-gallery(5 fall-down); }
 .sg-autoheight { @include slider-gallery(5); }
 .sg-customise { @include slider-gallery(5); }
 .sg-customise {
@@ -32,11 +37,24 @@
 }
 
 // slider basis
-.sg-autoplay, .sg-autoplay-js, .sg-autoheight, .sg-customise { display: none; }
-[id="gallery-auto-play-css"]:checked ~ .sg-autoplay, 
-[id="gallery-auto-play-js"]:checked ~ .sg-autoplay-js, 
-[id="gallery-auto-height"]:checked ~ .sg-autoheight,
-[id="gallery-customise"]:checked ~ .sg-customise { display: block; }
+.sg-autoplay, 
+.sg-autoplay-js, 
+.sg-scale-in, 
+.sg-scale-out, 
+.sg-rotate-in, 
+.sg-rotate-out, 
+.sg-fall-down, 
+.sg-autoheight, 
+.sg-customise { display: none; }
+[id="sg-auto-play-css"]:checked ~ .sg-autoplay, 
+[id="sg-auto-play-js"]:checked ~ .sg-autoplay-js, 
+[id="sg-auto-height"]:checked ~ .sg-autoheight,
+[id="sg-scale-in"]:checked ~ .sg-scale-in,
+[id="sg-scale-out"]:checked ~ .sg-scale-out,
+[id="sg-rotate-in"]:checked ~ .sg-rotate-in,
+[id="sg-rotate-out"]:checked ~ .sg-rotate-out,
+[id="sg-fall-down"]:checked ~ .sg-fall-down,
+[id="sg-customise"]:checked ~ .sg-customise { display: block; }
 .slider {
   max-width: 800px;
   margin: 0 auto;
@@ -69,7 +87,7 @@
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in 'gallery-auto-play-css', 'gallery-auto-play-js', 'gallery-auto-height', 'sg-autoheightustomise' {
+    @each $item in 'sg-auto-play-css', 'sg-auto-play-js', 'sg-scale-in', 'sg-scale-out', 'sg-rotate-in', 'sg-rotate-out', 'sg-fall-down', 'sg-auto-height', 'sg-customise' {
       [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 

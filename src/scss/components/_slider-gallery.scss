@@ -89,7 +89,7 @@
 
   // options
   $style: ro-get($key, $ro-slider-gallery-style);
-  $direction: ro-get($key, $ro-direction, top);
+  $direction: ro-get($key, $ro-direction, left);
   $angle: ro-get-next($key, 'angle', 60deg);
   $keep: ro-get($key, 'keep');
 
@@ -253,7 +253,7 @@
 
   // styles
   @if $style {
-    @include keyframes(style-in) {
+    @include keyframes(#{$prefix}-in) {
       0% {
         @include transform($perspective $transform-before);
       }
@@ -261,7 +261,7 @@
         @include transform($perspective $transform-current);
       }
     }
-    @include keyframes(style-out) {
+    @include keyframes(#{$prefix}-out) {
       0 {
         @include transform($perspective $transform-current);
       }
@@ -272,7 +272,7 @@
     @for $i from 1 through $items {
       #{$id}-autoplay:not(:checked) ~ #{$id}-#{$i}:checked ~ .outer li {
         &:nth-child(n) { 
-          @include animation(style-out $speed); 
+          @include animation(#{$prefix}-out $speed); 
           @if index(('rotate-in' 'rotate-out'), $style) {
             @include transform-origin(opposite($direction));
           } @else if $style == 'fall-down' {
@@ -284,7 +284,7 @@
           }
         }
         &:nth-child(#{$i}) { 
-          @include animation(style-in $speed); 
+          @include animation(#{$prefix}-in $speed); 
           @if index(('rotate-in' 'rotate-out'), $style) {
             @include transform-origin($direction);
           } @else if $style == 'fall-down' {
