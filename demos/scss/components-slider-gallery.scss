@@ -1,378 +1,45 @@
 @import 'demo-base';
 
 // *** slider: gallery *** //
-$ro-slider-style: 'scale', 'rotate-in', 'rotate-out' !default;
 
-@mixin slider-gallery($key){
-  $items: 1;
-
-  // options
-  $style: ro-get($key, $ro-slider-style);
-  $direction: ro-get($key, $ro-direction, 'left');
-  $angle: ro-get-next($key, 'angle', 60deg);
-  $keep: ro-get($key, 'keep');
-  $default: ro-get($key, 'default');
-
-  // autoplay
-  $autoplay: ro-get($key, 'autoplay');
-  $autoplay-js: ro-get($key, 'autoplay-js');
-  $progress-bar: ro-get($key, 'progress-bar');
-  $hoverpause: ro-get($key, 'hoverpause');
-  $speed: ro-get-next($key, 'speed', 1s);
-  $timeout: ro-get-next($key, 'timeout', 3s);
-  $time-per-item: ($speed + $timeout);
-
-  @if type-of($key) == number {
-    $items: $key;
-  } @else if type-of($key) == list {
-
-    @each $item in $key {
-      @if type-of($item) == number and unitless($item) {
-        $items: $item;
-      }
-    }
+.sg-autoplay { @include slider-gallery(5 autoplay rotate-out progress-bar left); }
+.sg-autoplay-js { @include slider-gallery(5 autoplay-js); }
+.sg-autoheight { @include slider-gallery(5); }
+.sg-customise { @include slider-gallery(5); }
+.sg-customise {
+  // setting item
+  .outer { overflow: visible; }
+  li { 
+    @include transform(scale(0) rotate(-140deg)); 
+    transition: all 1.6s !important;
   }
-
-  $prefix: get-slider-selector(&);
-  $id: "#" + $prefix;
-
-  // angle
-  @if $style == 'rotate-out' {
-    $angle: - $angle;
+  @for $i from 1 through 5 {
+    #sg-customise-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1) rotate(0deg)); }
   }
-
-  // transform values 
-  $transform-before: '';
-  $transform-current: '';
-  $transform-after: '';
-  @if $direction == top {
-    $transform-before: translateY(100%) rotateX(- $angle);
-    $transform-current: translateY(0) rotateX(0deg);
-    $transform-after: translateY(-100%) rotateX($angle);
-  } @else if $direction == bottom {
-    $transform-before: translateY(-100%) rotateX($angle);
-    $transform-current: translateY(0) rotateX(0deg);
-    $transform-after: translateY(100%) rotateX(- $angle);
-  } @else if $direction == left {
-    $transform-before: translateX(100%) rotateY($angle);
-    $transform-current: translateX(0) rotateY(0deg);
-    $transform-after: translateX(-100%) rotateY(- $angle);
-  } @else if $direction == right {
-    $transform-before: translateX(-100%) rotateY(- $angle);
-    $transform-current: translateX(0) rotateY(0deg);
-    $transform-after: translateX(100%) rotateY($angle);
-  }
-
-  // *** output *** //
-  // base
-  @if not $keep {
-    > input { position: absolute; left: -9999px; }
-    @if not $style {
-      .outer { overflow: hidden; }
-    }
-    .inner { 
-      position: relative; 
-      > li {
-        @include item-hide(); 
-        width: 100%;
-        box-sizing: border-box;
-      }
-    }
-    .controls, .dots, .autoplay { z-index: 2; }
-    .controls {
-      span { display: none; }
-      .prev { float: left; }
-      .next { float: right; }
-    }
-    .dots {
-      letter-spacing: -0.34em; // remove white space between inline-block elements
-      > label { letter-spacing: 0; } // restore letter-spacing 
-      > label, span {
-        display: inline-block;
-        vertical-align: top;
-      }
-      .normal { display: block; }
-      .active { display: none; }
-    }
-    .autoplay {
-      @if $autoplay { .no-cssanimations & { display: none !important; } }
-      .pause {display: none; }
-    }
-  }
-
-  .outer { transition: height ($speed / 2); }
-  .inner > li { transition: opacity $speed, transform $speed; }
-
-  @at-root { @at-root (without: media) {
-    #{$id}-autoplay:checked ~ {
-      @if $autoplay or $autoplay-js {
-        .autoplay {
-          .play { display: none; }
-          .pause { display: block; }
-        }
-        @if $autoplay {
-          // hide controls and dots
-          .controls, .dots {
-            display: none; 
-            .no-cssanimations & { display: block !important; }
-          }
-        }
-      }
-    }
-
-    @for $i from 1 through $items {
-      // setting items
-      #{$id}-#{$i}:checked ~ {
-        .outer li:nth-child(#{$i}) { 
-          @include item-show(); 
-        }
-      }
-
-      // setting controls
-      #{$id}-#{$i}:checked ~ {
-        @if $i == 1 {
-          .controls label:nth-child(#{$items}) .prev, 
-          .controls label:nth-child(#{$i + 1}) .next { display: block; }
-        } @else if $i == $items {
-          .controls label:nth-child(#{$i - 1}) .prev, 
-          .controls label:nth-child(1) .next { display: block; }
-        } @else {
-          .controls label:nth-child(#{$i - 1}) .prev, 
-          .controls label:nth-child(#{$i + 1}) .next { display: block; }
-        }
-      }
-
-      // setting dots
-      #{$id}-#{$i}:checked ~ {
-      .dots label:nth-child(#{$i}) .active { display: block; }
-      .dots label:nth-child(#{$i}) .normal { display: none; }
-      }
-    }
-  }}
-
-  // styles
-  @if $style and not $autoplay {
-    @include keyframes(style-in) {
-      0% {
-        @include transform(perspective(1000px) $transform-before);
-      }
-      100% {
-        @include transform(perspective(1000px) $transform-current);
-      }
-    }
-    @include keyframes(style-out) {
-      0 {
-        @include transform(perspective(1000px) $transform-current);
-      }
-      100% {
-        @include transform(perspective(1000px) $transform-after);
-      }
-    }
-    @for $i from 1 through $items {
-      #{$id}-#{$i}:checked ~ .outer li {
-        &:nth-child(n) { 
-          @include animation(style-out $speed); 
-          @include transform-origin(opposite($direction));
-        }
-        &:nth-child(#{$i}) { 
-          @include animation(style-in $speed); 
-          @include transform-origin($direction);
-        }
-      }
-    }
-  }
-  
-  // setting autoplay
-  @if $autoplay {
-    // animation
-    @include keyframes(#{$prefix}) {
-      0% { 
-        @include item-hide(); 
-        @if $style {
-          @include transform(perspective(1000px) $transform-before);
-          @include transform-origin($direction);
-        }
-      }
-      #{percentage($speed / ($time-per-item * $items))} { 
-        @include item-show(); 
-        @if $style {
-          @include transform(perspective(1000px) $transform-current);
-          @include transform-origin($direction);
-        }
-      }
-      #{percentage($time-per-item / ($time-per-item * $items))} { 
-        @include item-show(); 
-        @if $style {
-          @include transform(perspective(1000px) $transform-current);
-          @include transform-origin(opposite($direction));
-        }
-      }
-      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { 
-        @include item-hide(); 
-        @if $style {
-          @include transform(perspective(1000px) $transform-after);
-          @include transform-origin(opposite($direction));
-        }
-      }
-      100% { 
-        @include item-hide(); 
-      }
-    }
-    // progress-bar keyframes
-    @if $progress-bar {
-      @include keyframes(#{$prefix}-progress) {
-        0% { width: 0; }
-        #{percentage($speed / $time-per-item)} { width: 0; }
-        100% { width: 100%; }
-      }
-    }
-
-    @at-root { @at-root (without: media) {
-      #{$id}-autoplay:checked ~ {
-        // animation
-        .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
-        @if $progress-bar {
-          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
-        }
-
-        // delay
-        @if $items == 2 {
-          .outer li:nth-child(2) { @include animation-delay($time-per-item); }
-        } @else {
-          @for $i from 1 to $items {
-            @if $i == ($items - 1) {
-              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
-            } @else {
-              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
-            }
-          }
-        }
-      }
-    }}
-    // pause on hover
-    @if $hoverpause {
-      &:hover {
-        #{$id}-autoplay ~ {
-          .outer li { @include animation-play-state(paused); }
-          @if $progress-bar {
-            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
-          }
-        }
-      }
-    }
-  }
-
-  // default style
-  @if $default {
-    .controls {
-      @include clearfix();
-      max-width: 7.5em;
-      margin: 10px auto;
-      span {
-        font-size: 13px;
-        padding: 5px 8px;
-        border-radius: 3px;
-        transition: background-color 0.3s;
-        color: #fff;
-        background-color: #15A9DC;
-        &:hover { background-color: #7D9DAC; }
-      }
-      .prev { 
-        float: left; 
-        left: 0;
-      }
-      .next { 
-        float: right; 
-        right: 0;
-      }
-    }
-    .dots {
-      width: 100%;
-      text-align: center;
-      margin: 10px 0;
-      label, span {
-        display: inline-block;
-        vertical-align: top;
-      }
-      label {
-        margin: 0 3px;
-        &:hover .normal { background-color: #5a5a5a; }
-      }
-      span {
-        left: 0;
-        width: 9px;
-        height: 9px;
-        background-color: #d3d3d3;
-        border-radius: 50%;
-        transition: background-color 0.3s;
-      }
-      .active { background-color: #5a5a5a; }
-    }
-    
-    @if $autoplay or $autoplay-js {
-      .autoplay {
-        position: relative;
-        text-align: center;
-        > label {
-          width: 30px;
-          height: 30px;
-          display: inline-block;
-          background-color: #333;
-          border-radius: 50%;
-        }
-        span {
-          display: inline-block;
-        }
-        .play {
-          width: 0;
-          height: 0;
-          border-color: transparent transparent transparent #fff;
-          border-style: solid;
-          border-width: 7px 0px 7px 13px;
-          margin: 7px 0 0 3px;
-        }
-        .pause {
-          display: none;
-          &:before, &:after {
-            content: '';
-            display: inline-block;
-            border-width: 0;
-            width: 5px;
-            height: 13px;
-            margin-top: 8px;
-            background-color: #fff;
-          }
-          &:before { margin-right: 4px; }
-        }
-        @if $progress-bar {
-          &-progress {
-            position: absolute;
-            left: 0;
-            bottom: 34px;
-            width: 0;
-            display: block;
-            height: 3px;
-            background-color: rgba(0, 0, 0, 0.2);
-          }
-        }
-      }
+  // setting .info
+  .info { 
+    opacity: 0; 
+    margin-left: -10px;
+    -webkit-transition: all 0.8s $ro-global-bezier 1.2s;
+    transition: all 0.8s $ro-global-bezier 1.2s;
+   }
+  @for $i from 1 through 5 {
+    #sg-customise-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
+      opacity: 1;
+      margin-left: 20px;
     }
   }
 }
 
-@mixin item-hide() {
-  @include opacity(0); 
-  position: absolute;
-  top: 0;
-}
-@mixin item-show() {
-  @include opacity(1); 
-  position: relative;
-  z-index: 1;
-}
-
+// slider basis
+.sg-autoplay, .sg-autoplay-js, .sg-autoheight, .sg-customise { display: none; }
+[id="gallery-auto-play-css"]:checked ~ .sg-autoplay, 
+[id="gallery-auto-play-js"]:checked ~ .sg-autoplay-js, 
+[id="gallery-auto-height"]:checked ~ .sg-autoheight,
+[id="gallery-customise"]:checked ~ .sg-customise { display: block; }
 .slider {
-  // common
+  max-width: 800px;
+  margin: 0 auto;
   > input { position: absolute; left: -9999px; }
   .slider-labels {
     margin-bottom: 20px;
@@ -402,7 +69,7 @@ $ro-slider-style: 'scale', 'rotate-in', 'rotate-out' !default;
   }
   %label-active {background-color: $active;}
   @at-root {
-    @each $item in 'gallery-auto-play-css', 'gallery-auto-play-js', 'gallery-auto-height', 'gallery-customise' {
+    @each $item in 'gallery-auto-play-css', 'gallery-auto-play-js', 'gallery-auto-height', 'sg-autoheightustomise' {
       [id=#{$item}]:checked ~ .slider-labels [for=#{$item}] { @extend %label-active; }
     }
     [class^="gallery-"], [class^="carousel-"] { 
@@ -415,44 +82,99 @@ $ro-slider-style: 'scale', 'rotate-in', 'rotate-out' !default;
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }
+  }
+}
 
-    // gallery
-    .gallery-a, 
-    .gallery-b,
-    .gallery-c,
-    .gallery-d { display: none; }
-    .gallery-a { @include slider-gallery(5 rotate-in top default); }
-    // .gallery-a { @include slider-gallery(5 autoplay progress-bar hoverpause default); }
-    .gallery-b { @include slider-gallery(5 autoplay-js default); }
-    .gallery-c { @include slider-gallery(5 default); }
-    .gallery-d { @include slider-gallery(5 default); }
-    [id="gallery-auto-play-css"]:checked ~ .gallery-a, 
-    [id="gallery-auto-play-js"]:checked ~ .gallery-b, 
-    [id="gallery-auto-height"]:checked ~ .gallery-c,
-    [id="gallery-customise"]:checked ~ .gallery-d { display: block; }
-    .gallery-d {
-      // setting item
-      .outer { overflow: visible; }
-      li { 
-        @include transform(scale(0) rotate(-140deg)); 
-        transition: all 1.6s !important;
-      }
-      @for $i from 1 through 5 {
-        #gallery-d-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1) rotate(0deg)); }
-      }
-      // setting .info
-      .info { 
-        opacity: 0; 
-        margin-left: -10px;
-        -webkit-transition: all 0.8s $ro-global-bezier 1.2s;
-        transition: all 0.8s $ro-global-bezier 1.2s;
-       }
-      @for $i from 1 through 5 {
-        #gallery-d-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
-          opacity: 1;
-          margin-left: 20px;
-        }
-      }
+// slider ui
+.slider {
+  .controls {
+    @include clearfix();
+    max-width: 7.5em;
+    margin: 10px auto;
+    span {
+      font-size: 13px;
+      padding: 5px 8px;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+      color: #fff;
+      background-color: #15A9DC;
+      &:hover { background-color: #7D9DAC; }
     }
+    .prev { 
+      float: left; 
+      left: 0;
+    }
+    .next { 
+      float: right; 
+      right: 0;
+    }
+  }
+  .dots {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    label, span {
+      display: inline-block;
+      vertical-align: top;
+    }
+    label {
+      margin: 0 3px;
+      &:hover .normal { background-color: #5a5a5a; }
+    }
+    span {
+      left: 0;
+      width: 9px;
+      height: 9px;
+      background-color: #d3d3d3;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+    .active { background-color: #5a5a5a; }
+  }
+}
+.autoplay {
+  position: relative;
+  text-align: center;
+  .no-cssanimations & { display: none !important; }
+  > label {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  span {
+    display: inline-block;
+  }
+  .play {
+    width: 0;
+    height: 0;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    border-width: 7px 0px 7px 13px;
+    margin: 7px 0 0 3px;
+  }
+  .pause {
+    display: none;
+    &:before, &:after {
+      content: '';
+      display: inline-block;
+      border-width: 0;
+      width: 5px;
+      height: 13px;
+      margin-top: 8px;
+      background-color: #fff;
+    }
+    &:before { margin-right: 4px; }
+  }
+  &-progress {
+    position: absolute;
+    left: 0;
+    bottom: 44px;
+    width: 0;
+    display: block;
+    height: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
   }
 }

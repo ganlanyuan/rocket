@@ -319,103 +319,6 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.slider > input {
-  position: absolute;
-  left: -9999px;
-}
-
-.slider .slider-labels {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.slider .slider-labels .title {
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1.3;
-  font-weight: bold;
-  margin: 0 0 0.3em;
-}
-
-.slider .slider-labels label {
-  padding: 12px 22px;
-  border-radius: 3px;
-  background-color: #d2d2d2;
-  color: #000;
-  font-size: 13px;
-  margin: 0 10px 10px 0;
-}
-
-.slider .slider-labels label:hover {
-  background-color: #FFBE39;
-}
-
-.slider .item {
-  position: relative;
-}
-
-.slider .info {
-  position: absolute;
-  bottom: 20px;
-  padding: 10px;
-  width: 100%;
-  font-size: 13px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-@media (max-width: 49.9375em) {
-  .slider .info {
-    display: none !important;
-  }
-}
-
-.slider .info h3 {
-  color: #fff;
-  margin-bottom: 5px;
-  font-size: 26px;
-}
-
-.slider [id="carousel-normal"]:checked ~ .slider-labels [for="carousel-normal"], [id="carousel-normal"]:checked ~ .slider-labels .slider [for="carousel-normal"], .slider [id="slide-by-page"]:checked ~ .slider-labels [for="slide-by-page"], [id="slide-by-page"]:checked ~ .slider-labels .slider [for="slide-by-page"], .slider [id="slider-center"]:checked ~ .slider-labels [for="slider-center"], [id="slider-center"]:checked ~ .slider-labels .slider [for="slider-center"], .slider [id="carousel-autoplay-css"]:checked ~ .slider-labels [for="carousel-autoplay-css"], [id="carousel-autoplay-css"]:checked ~ .slider-labels .slider [for="carousel-autoplay-css"], .slider [id="carousel-autoplay-js"]:checked ~ .slider-labels [for="carousel-autoplay-js"], [id="carousel-autoplay-js"]:checked ~ .slider-labels .slider [for="carousel-autoplay-js"], .slider [id="carousel-autoheight"]:checked ~ .slider-labels [for="carousel-autoheight"], [id="carousel-autoheight"]:checked ~ .slider-labels .slider [for="carousel-autoheight"], .slider [id="carousel-vertical"]:checked ~ .slider-labels [for="carousel-vertical"], [id="carousel-vertical"]:checked ~ .slider-labels .slider [for="carousel-vertical"] {
-  background-color: #FFBE39;
-}
-
-[class^="gallery-"], [class^="carousel-"] {
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  max-width: 1000px;
-  margin-bottom: 40px;
-}
-
-[id*="-md"]:checked ~ [class^="gallery-"], [id*="-md"]:checked ~ [class^="carousel-"] {
-  max-width: 700px;
-}
-
-[id*="-sm"]:checked ~ [class^="gallery-"], [id*="-sm"]:checked ~ [class^="carousel-"] {
-  max-width: 400px;
-}
-
-.carousel-a,
-.carousel-d,
-.carousel-e,
-.carousel-f,
-.carousel-g,
-.carousel-h,
-.carousel-i {
-  display: none;
-}
-
-[id="carousel-normal"]:checked ~ .carousel-a,
-[id="slide-by-page"]:checked ~ .carousel-d,
-[id="slider-center"]:checked ~ .carousel-e,
-[id="carousel-autoplay-css"]:checked ~ .carousel-f,
-[id="carousel-autoplay-js"]:checked ~ .carousel-g,
-[id="carousel-autoheight"]:checked ~ .carousel-h,
-[id="carousel-vertical"]:checked ~ .carousel-i {
-  display: block;
-}
-
 .carousel-a {
   position: relative;
 }
@@ -497,6 +400,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-a .inner > li {
+  width: 20%;
+}
+
 .carousel-a #carousel-a-1:checked ~ .outer > .inner {
   margin-top: 0;
   left: 0%;
@@ -504,22 +411,22 @@ pre[class*="language-"] {
 
 .carousel-a #carousel-a-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -100%;
+  left: -20%;
 }
 
 .carousel-a #carousel-a-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -200%;
+  left: -40%;
 }
 
 .carousel-a #carousel-a-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -300%;
+  left: -60%;
 }
 
 .carousel-a #carousel-a-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -400%;
+  left: -80%;
 }
 
 .carousel-a .inner > li {
@@ -527,61 +434,91 @@ pre[class*="language-"] {
   transition: transform 1s;
 }
 
-.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: perspective(600px) scale(0.75);
-  -ms-transform: perspective(600px) scale(0.75);
-  transform: perspective(600px) scale(0.75);
+.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(-n + 2) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  transform: perspective(600px) scale(0.75) rotateY(-30deg);
 }
 
-.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(1) {
+.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n + 4) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  transform: perspective(600px) scale(0.75) rotateY(30deg);
+}
+
+.carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(3) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: perspective(600px) scale(0.75);
-  -ms-transform: perspective(600px) scale(0.75);
-  transform: perspective(600px) scale(0.75);
+.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(-n + 3) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  transform: perspective(600px) scale(0.75) rotateY(-30deg);
 }
 
-.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(2) {
+.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n + 5) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  transform: perspective(600px) scale(0.75) rotateY(30deg);
+}
+
+.carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(4) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: perspective(600px) scale(0.75);
-  -ms-transform: perspective(600px) scale(0.75);
-  transform: perspective(600px) scale(0.75);
+.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(-n + 4) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  transform: perspective(600px) scale(0.75) rotateY(-30deg);
 }
 
-.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(3) {
+.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n + 6) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  transform: perspective(600px) scale(0.75) rotateY(30deg);
+}
+
+.carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(5) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: perspective(600px) scale(0.75);
-  -ms-transform: perspective(600px) scale(0.75);
-  transform: perspective(600px) scale(0.75);
+.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(-n + 5) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  transform: perspective(600px) scale(0.75) rotateY(-30deg);
 }
 
-.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(4) {
+.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n + 7) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  transform: perspective(600px) scale(0.75) rotateY(30deg);
+}
+
+.carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(6) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
 }
 
-.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n) {
-  -webkit-transform: perspective(600px) scale(0.75);
-  -ms-transform: perspective(600px) scale(0.75);
-  transform: perspective(600px) scale(0.75);
+.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(-n + 6) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
+  transform: perspective(600px) scale(0.75) rotateY(-30deg);
 }
 
-.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(5) {
+.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n + 8) {
+  -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
+  transform: perspective(600px) scale(0.75) rotateY(30deg);
+}
+
+.carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(7) {
   -webkit-transform: scale(1) rotateY(0deg);
   -ms-transform: scale(1) rotateY(0deg);
   transform: scale(1) rotateY(0deg);
@@ -635,7 +572,7 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-a .dots label:nth-child(n + 6) {
+.carousel-a .dots label:nth-child(n + 2) {
   display: none;
 }
 
@@ -643,9 +580,9 @@ pre[class*="language-"] {
   display: none;
 }
 
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(5),
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(1),
 .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
-.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(5) .prev,
+.carousel-a #carousel-a-1:checked ~ .controls label:nth-child(1) .prev,
 .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
@@ -655,9 +592,9 @@ pre[class*="language-"] {
 }
 
 .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3),
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
 .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
+.carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -666,9 +603,9 @@ pre[class*="language-"] {
 }
 
 .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4),
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1),
 .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -677,9 +614,9 @@ pre[class*="language-"] {
 }
 
 .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(5),
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1),
 .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(5) .next {
+.carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -692,59 +629,6 @@ pre[class*="language-"] {
 .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
 .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
-}
-
-.carousel-a .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-a .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-a .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-a .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-a .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-a .dots label {
-  padding: 0 3px;
-}
-
-.carousel-a .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-a .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-a .dots .active {
-  background-color: #5a5a5a;
-  display: none;
 }
 
 .carousel-d {
@@ -829,7 +713,7 @@ pre[class*="language-"] {
 }
 
 .carousel-d .inner > li {
-  width: 50%;
+  width: 33.3333333333%;
 }
 
 .carousel-d #carousel-d-1:checked ~ .outer > .inner {
@@ -839,22 +723,22 @@ pre[class*="language-"] {
 
 .carousel-d #carousel-d-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -50%;
+  left: -33.3333333333%;
 }
 
 .carousel-d #carousel-d-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -100%;
+  left: -66.6666666667%;
 }
 
 .carousel-d #carousel-d-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -150%;
+  left: -66.6666666667%;
 }
 
 .carousel-d #carousel-d-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -150%;
+  left: -66.6666666667%;
 }
 
 .carousel-d #carousel-d-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -935,7 +819,7 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-d .dots label:nth-child(n + 5) {
+.carousel-d .dots label:nth-child(n + 4) {
   display: none;
 }
 
@@ -943,8 +827,8 @@ pre[class*="language-"] {
   display: none;
 }
 
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(4),
-.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(4) .prev {
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
+.carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .prev {
   display: block;
 }
 
@@ -962,8 +846,8 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(4),
-.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(4) .next {
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3),
+.carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3) .next {
   display: block;
 }
 
@@ -976,8 +860,8 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(4),
-.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
+.carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -985,8 +869,8 @@ pre[class*="language-"] {
   display: none;
 }
 
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(2),
-.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(2) .prev {
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
+.carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .prev {
   display: block;
 }
 
@@ -999,67 +883,14 @@ pre[class*="language-"] {
   display: none;
 }
 
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(3),
-.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(3) .prev {
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2),
+.carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2) .prev {
   display: block;
 }
 
 .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1),
 .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
-}
-
-.carousel-d .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-d .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-d .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-d .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-d .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-d .dots label {
-  padding: 0 3px;
-}
-
-.carousel-d .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-d .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-d .dots .active {
-  background-color: #5a5a5a;
-  display: none;
 }
 
 .carousel-e {
@@ -1306,59 +1137,6 @@ pre[class*="language-"] {
 .carousel-e #carousel-e-5:checked ~ .controls label:nth-child(4) .prev,
 .carousel-e #carousel-e-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
-}
-
-.carousel-e .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-e .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-e .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-e .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-e .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-e .dots label {
-  padding: 0 3px;
-}
-
-.carousel-e .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-e .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-e .dots .active {
-  background-color: #5a5a5a;
-  display: none;
 }
 
 .carousel-f {
@@ -1739,117 +1517,6 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-f .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-f .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-f .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-f .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-f .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-f .dots label {
-  padding: 0 3px;
-}
-
-.carousel-f .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-f .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-f .dots .active {
-  background-color: #5a5a5a;
-  display: none;
-}
-
-.carousel-f .autoplay {
-  position: relative;
-  text-align: center;
-}
-
-.no-cssanimations .carousel-f .autoplay {
-  display: none !important;
-}
-
-.carousel-f .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.carousel-f .autoplay span {
-  display: inline-block;
-}
-
-.carousel-f .autoplay .play {
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.carousel-f .autoplay .pause {
-  display: none;
-}
-
-.carousel-f .autoplay .pause:before, .carousel-f .autoplay .pause:after {
-  content: '';
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  margin-top: 8px;
-  background-color: #fff;
-}
-
-.carousel-f .autoplay .pause:before {
-  margin-right: 4px;
-}
-
-.carousel-f .autoplay-progress {
-  position: absolute;
-  left: 0;
-  bottom: 34px;
-  width: 0;
-  display: block;
-  height: 3px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 .carousel-g {
   position: relative;
 }
@@ -2112,103 +1779,6 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-g .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-g .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-g .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-g .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-g .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-g .dots label {
-  padding: 0 3px;
-}
-
-.carousel-g .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-g .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-g .dots .active {
-  background-color: #5a5a5a;
-  display: none;
-}
-
-.carousel-g .autoplay {
-  position: relative;
-  text-align: center;
-}
-
-.carousel-g .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.carousel-g .autoplay span {
-  display: inline-block;
-}
-
-.carousel-g .autoplay .play {
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.carousel-g .autoplay .pause {
-  display: none;
-}
-
-.carousel-g .autoplay .pause:before, .carousel-g .autoplay .pause:after {
-  content: '';
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  margin-top: 8px;
-  background-color: #fff;
-}
-
-.carousel-g .autoplay .pause:before {
-  margin-right: 4px;
-}
-
 .carousel-h {
   position: relative;
 }
@@ -2290,6 +1860,10 @@ pre[class*="language-"] {
   display: none;
 }
 
+.carousel-h .inner > li {
+  width: 33.3333333333%;
+}
+
 .carousel-h #carousel-h-1:checked ~ .outer > .inner {
   margin-top: 0;
   left: 0%;
@@ -2297,22 +1871,22 @@ pre[class*="language-"] {
 
 .carousel-h #carousel-h-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -100%;
+  left: -33.3333333333%;
 }
 
 .carousel-h #carousel-h-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -200%;
+  left: -66.6666666667%;
 }
 
 .carousel-h #carousel-h-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -300%;
+  left: -66.6666666667%;
 }
 
 .carousel-h #carousel-h-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -400%;
+  left: -66.6666666667%;
 }
 
 .carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -2393,7 +1967,7 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-h .dots label:nth-child(n + 6) {
+.carousel-h .dots label:nth-child(n + 4) {
   display: none;
 }
 
@@ -2401,9 +1975,9 @@ pre[class*="language-"] {
   display: none;
 }
 
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(5),
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3),
 .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
-.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(5) .prev,
+.carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3) .prev,
 .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
   display: block;
 }
@@ -2424,9 +1998,9 @@ pre[class*="language-"] {
 }
 
 .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4),
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1),
 .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4) .next {
+.carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -2435,9 +2009,9 @@ pre[class*="language-"] {
 }
 
 .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(5),
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1),
 .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(5) .next {
+.carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
   display: block;
 }
 
@@ -2450,59 +2024,6 @@ pre[class*="language-"] {
 .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
 .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
   display: block;
-}
-
-.carousel-h .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-h .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-h .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-h .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-h .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-h .dots label {
-  padding: 0 3px;
-}
-
-.carousel-h .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-h .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-h .dots .active {
-  background-color: #5a5a5a;
-  display: none;
 }
 
 .carousel-i {
@@ -2873,117 +2394,6 @@ pre[class*="language-"] {
   display: block;
 }
 
-.carousel-i .controls {
-  max-width: 7.5em;
-  margin: 10px auto;
-}
-
-.carousel-i .controls:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.carousel-i .controls span {
-  font-size: 13px;
-  padding: 5px 8px;
-  border-radius: 3px;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-  color: #fff;
-  background-color: #15A9DC;
-}
-
-.carousel-i .controls span:hover {
-  background-color: #7D9DAC;
-}
-
-.carousel-i .dots {
-  width: 100%;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.carousel-i .dots label {
-  padding: 0 3px;
-}
-
-.carousel-i .dots label:hover .normal {
-  background-color: #5a5a5a;
-}
-
-.carousel-i .dots span {
-  width: 9px;
-  height: 9px;
-  background-color: #d3d3d3;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s;
-          transition: background-color 0.3s;
-}
-
-.carousel-i .dots .active {
-  background-color: #5a5a5a;
-  display: none;
-}
-
-.carousel-i .autoplay {
-  position: relative;
-  text-align: center;
-}
-
-.no-cssanimations .carousel-i .autoplay {
-  display: none !important;
-}
-
-.carousel-i .autoplay > label {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  background-color: #333;
-  border-radius: 50%;
-}
-
-.carousel-i .autoplay span {
-  display: inline-block;
-}
-
-.carousel-i .autoplay .play {
-  width: 0;
-  height: 0;
-  border-color: transparent transparent transparent #fff;
-  border-style: solid;
-  border-width: 7px 0px 7px 13px;
-  margin: 7px 0 0 3px;
-}
-
-.carousel-i .autoplay .pause {
-  display: none;
-}
-
-.carousel-i .autoplay .pause:before, .carousel-i .autoplay .pause:after {
-  content: '';
-  display: inline-block;
-  border-width: 0;
-  width: 5px;
-  height: 13px;
-  margin-top: 8px;
-  background-color: #fff;
-}
-
-.carousel-i .autoplay .pause:before {
-  margin-right: 4px;
-}
-
-.carousel-i .autoplay-progress {
-  position: absolute;
-  left: 0;
-  bottom: 34px;
-  width: 0;
-  display: block;
-  height: 3px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 .carousel-i .inner > li {
   position: relative;
 }
@@ -3002,808 +2412,206 @@ pre[class*="language-"] {
   margin-top: 10px;
 }
 
-@media (min-width: 43.75em) {
-  .carousel-a .inner > li {
-    width: 50%;
-  }
-  .carousel-a #carousel-a-1:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: 0%;
-  }
-  .carousel-a #carousel-a-2:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -50%;
-  }
-  .carousel-a #carousel-a-3:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -100%;
-  }
-  .carousel-a #carousel-a-4:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -150%;
-  }
-  .carousel-a #carousel-a-5:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -150%;
-  }
-  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
+.slider > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.slider .slider-labels {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.slider .slider-labels .title {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  font-weight: bold;
+  margin: 0 0 0.3em;
+}
+
+.slider .slider-labels label {
+  padding: 12px 22px;
+  border-radius: 3px;
+  background-color: #d2d2d2;
+  color: #000;
+  font-size: 13px;
+  margin: 0 10px 10px 0;
+}
+
+.slider .slider-labels label:hover {
+  background-color: #FFBE39;
+}
+
+.slider .item {
+  position: relative;
+}
+
+.slider .info {
+  position: absolute;
+  bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 49.9375em) {
+  .slider .info {
+    display: none !important;
   }
 }
 
-.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
+.slider .info h3 {
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 26px;
 }
 
-.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
+.slider [id="carousel-normal"]:checked ~ .slider-labels [for="carousel-normal"], [id="carousel-normal"]:checked ~ .slider-labels .slider [for="carousel-normal"], .slider [id="slide-by-page"]:checked ~ .slider-labels [for="slide-by-page"], [id="slide-by-page"]:checked ~ .slider-labels .slider [for="slide-by-page"], .slider [id="slider-center"]:checked ~ .slider-labels [for="slider-center"], [id="slider-center"]:checked ~ .slider-labels .slider [for="slider-center"], .slider [id="carousel-autoplay-css"]:checked ~ .slider-labels [for="carousel-autoplay-css"], [id="carousel-autoplay-css"]:checked ~ .slider-labels .slider [for="carousel-autoplay-css"], .slider [id="carousel-autoplay-js"]:checked ~ .slider-labels [for="carousel-autoplay-js"], [id="carousel-autoplay-js"]:checked ~ .slider-labels .slider [for="carousel-autoplay-js"], .slider [id="carousel-autoheight"]:checked ~ .slider-labels [for="carousel-autoheight"], [id="carousel-autoheight"]:checked ~ .slider-labels .slider [for="carousel-autoheight"], .slider [id="carousel-vertical"]:checked ~ .slider-labels [for="carousel-vertical"], [id="carousel-vertical"]:checked ~ .slider-labels .slider [for="carousel-vertical"] {
+  background-color: #FFBE39;
+}
+
+[class^="gallery-"], [class^="carousel-"] {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 1000px;
+  margin-bottom: 40px;
+}
+
+[id*="-md"]:checked ~ [class^="gallery-"], [id*="-md"]:checked ~ [class^="carousel-"] {
+  max-width: 700px;
+}
+
+[id*="-sm"]:checked ~ [class^="gallery-"], [id*="-sm"]:checked ~ [class^="carousel-"] {
+  max-width: 400px;
+}
+
+.carousel-a, .carousel-d, .carousel-e, .carousel-f, .carousel-g, .carousel-h, .carousel-i {
   display: none;
 }
 
-.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .active {
+[id="carousel-normal"]:checked ~ .carousel-a,
+[id="slide-by-page"]:checked ~ .carousel-d,
+[id="slider-center"]:checked ~ .carousel-e,
+[id="carousel-autoplay-css"]:checked ~ .carousel-f,
+[id="carousel-autoplay-js"]:checked ~ .carousel-g,
+[id="carousel-autoheight"]:checked ~ .carousel-h,
+[id="carousel-vertical"]:checked ~ .carousel-i {
   display: block;
 }
 
-.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
+.controls {
+  max-width: 7.5em;
+  margin: 10px auto;
+}
+
+.controls:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.controls span {
+  font-size: 13px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+  color: #fff;
+  background-color: #15A9DC;
+}
+
+.controls span:hover {
+  background-color: #7D9DAC;
+}
+
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.dots label {
+  padding: 0 3px;
+}
+
+.dots label:hover .normal {
+  background-color: #5a5a5a;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+}
+
+.dots .active {
+  background-color: #5a5a5a;
   display: none;
 }
 
-.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .active {
+.autoplay {
+  position: relative;
+  text-align: center;
+}
+
+.no-cssanimations .autoplay {
+  display: none !important;
+}
+
+.autoplay > label {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.autoplay span {
+  display: inline-block;
+}
+
+.autoplay .play {
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  border-width: 7px 0px 7px 13px;
+  margin: 7px 0 0 3px;
+}
+
+.autoplay .pause {
+  display: none;
+}
+
+.autoplay .pause:before, .autoplay .pause:after {
+  content: '';
+  display: inline-block;
+  border-width: 0;
+  width: 5px;
+  height: 13px;
+  margin-top: 8px;
+  background-color: #fff;
+}
+
+.autoplay .pause:before {
+  margin-right: 4px;
+}
+
+.autoplay-progress {
+  position: absolute;
+  left: 0;
+  bottom: 44px;
+  width: 0;
   display: block;
-}
-
-.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-a #carousel-a-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-@media (min-width: 43.75em) {
-  .carousel-a .dots label:nth-child(n + 5) {
-    display: none;
-  }
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(4),
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(4) .prev,
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3),
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4),
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(4) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4),
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-d .inner > li {
-    width: 33.3333333333%;
-  }
-  .carousel-d #carousel-d-1:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: 0%;
-  }
-  .carousel-d #carousel-d-2:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -33.3333333333%;
-  }
-  .carousel-d #carousel-d-3:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-d #carousel-d-4:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-d #carousel-d-5:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-d #carousel-d-1:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-d #carousel-d-2:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-d #carousel-d-3:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-d #carousel-d-4:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-d #carousel-d-5:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-}
-
-.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-d #carousel-d-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-d #carousel-d-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-d #carousel-d-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-d #carousel-d-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-d #carousel-d-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-d #carousel-d-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-d #carousel-d-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-@media (min-width: 43.75em) {
-  .carousel-d .dots label:nth-child(n + 4) {
-    display: none;
-  }
-  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
-  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .prev {
-    display: block;
-  }
-  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3),
-  .carousel-d #carousel-d-1:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1),
-  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(1) .prev {
-    display: block;
-  }
-  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3),
-  .carousel-d #carousel-d-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
-  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .prev {
-    display: block;
-  }
-  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1),
-  .carousel-d #carousel-d-3:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
-  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .prev {
-    display: block;
-  }
-  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1),
-  .carousel-d #carousel-d-4:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2),
-  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(2) .prev {
-    display: block;
-  }
-  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1),
-  .carousel-d #carousel-d-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-h .inner > li {
-    width: 50%;
-  }
-  .carousel-h #carousel-h-1:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: 0%;
-  }
-  .carousel-h #carousel-h-2:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -50%;
-  }
-  .carousel-h #carousel-h-3:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -100%;
-  }
-  .carousel-h #carousel-h-4:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -150%;
-  }
-  .carousel-h #carousel-h-5:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -150%;
-  }
-  .carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-2:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-3:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-4:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-5:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-}
-
-.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-h #carousel-h-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-@media (min-width: 43.75em) {
-  .carousel-h .dots label:nth-child(n + 5) {
-    display: none;
-  }
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(4),
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(4) .prev,
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3),
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4),
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(4) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4),
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-}
-
-@media (min-width: 62.5em) {
-  .carousel-a .inner > li {
-    width: 33.3333333333%;
-  }
-  .carousel-a #carousel-a-1:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: 0%;
-  }
-  .carousel-a #carousel-a-2:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -33.3333333333%;
-  }
-  .carousel-a #carousel-a-3:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-a #carousel-a-4:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-a #carousel-a-5:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-a .inner > li {
-    -webkit-transition: -webkit-transform 1s;
-    transition: transform 1s;
-  }
-  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(-n + 1) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  }
-  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(n + 3) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    transform: perspective(600px) scale(0.75) rotateY(30deg);
-  }
-  .carousel-a #carousel-a-1:checked ~ .outer > .inner > li:nth-child(2) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(-n + 2) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  }
-  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(n + 4) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    transform: perspective(600px) scale(0.75) rotateY(30deg);
-  }
-  .carousel-a #carousel-a-2:checked ~ .outer > .inner > li:nth-child(3) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(-n + 3) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  }
-  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(n + 5) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    transform: perspective(600px) scale(0.75) rotateY(30deg);
-  }
-  .carousel-a #carousel-a-3:checked ~ .outer > .inner > li:nth-child(4) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(-n + 4) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  }
-  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(n + 6) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    transform: perspective(600px) scale(0.75) rotateY(30deg);
-  }
-  .carousel-a #carousel-a-4:checked ~ .outer > .inner > li:nth-child(5) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(-n + 5) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(-30deg);
-    transform: perspective(600px) scale(0.75) rotateY(-30deg);
-  }
-  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(n + 7) {
-    -webkit-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    -ms-transform: perspective(600px) scale(0.75) rotateY(30deg);
-    transform: perspective(600px) scale(0.75) rotateY(30deg);
-  }
-  .carousel-a #carousel-a-5:checked ~ .outer > .inner > li:nth-child(6) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-}
-
-.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-a #carousel-a-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-a #carousel-a-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-a #carousel-a-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-@media (min-width: 62.5em) {
-  .carousel-a .dots label:nth-child(n + 4) {
-    display: none;
-  }
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(3),
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2),
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(3) .prev,
-  .carousel-a #carousel-a-1:checked ~ .controls label:nth-child(2) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3),
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(1) .prev,
-  .carousel-a #carousel-a-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2),
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(2) .prev,
-  .carousel-a #carousel-a-3:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3),
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(3) .prev,
-  .carousel-a #carousel-a-4:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4),
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1),
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(4) .prev,
-  .carousel-a #carousel-a-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-h .inner > li {
-    width: 33.3333333333%;
-  }
-  .carousel-h #carousel-h-1:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: 0%;
-  }
-  .carousel-h #carousel-h-2:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -33.3333333333%;
-  }
-  .carousel-h #carousel-h-3:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-h #carousel-h-4:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-h #carousel-h-5:checked ~ .outer > .inner {
-    margin-top: 0;
-    left: -66.6666666667%;
-  }
-  .carousel-h #carousel-h-1:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-2:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-3:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-4:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-  .carousel-h #carousel-h-5:checked ~ .outer > .inner > li:nth-child(n) {
-    -webkit-transform: scale(1) rotateY(0deg);
-    -ms-transform: scale(1) rotateY(0deg);
-    transform: scale(1) rotateY(0deg);
-  }
-}
-
-.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-1:checked ~ .dots label:nth-child(1) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-2:checked ~ .dots label:nth-child(2) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-3:checked ~ .dots label:nth-child(3) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-4:checked ~ .dots label:nth-child(4) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .active {
-  display: block;
-}
-
-.carousel-h #carousel-h-5:checked ~ .dots label:nth-child(5) .normal {
-  display: none;
-}
-
-.carousel-h #carousel-h-autoplay:checked ~ .autoplay .play {
-  display: none;
-}
-
-.carousel-h #carousel-h-autoplay:checked ~ .autoplay .pause {
-  display: block;
-}
-
-@media (min-width: 62.5em) {
-  .carousel-h .dots label:nth-child(n + 4) {
-    display: none;
-  }
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3),
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2),
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(3) .prev,
-  .carousel-h #carousel-h-1:checked ~ .controls label:nth-child(2) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3),
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(1) .prev,
-  .carousel-h #carousel-h-2:checked ~ .controls label:nth-child(3) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2),
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(2) .prev,
-  .carousel-h #carousel-h-3:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3),
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(3) .prev,
-  .carousel-h #carousel-h-4:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(n+1) {
-    display: none;
-  }
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4),
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1),
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(4) .prev,
-  .carousel-h #carousel-h-5:checked ~ .controls label:nth-child(1) .next {
-    display: block;
-  }
+  height: 7px;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 /*# sourceMappingURL=components-slider-carousel.css.map */

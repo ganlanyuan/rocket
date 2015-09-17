@@ -89,3 +89,6 @@ $validation-background-color: (
 
 // charts
 $ro-charts-type: 'bar', 'column', 'pie' !default;
+
+// slider
+$ro-slider-gallery-style: 'scale-in', 'scale-out', 'rotate-in', 'rotate-out', 'fall-down' !default;

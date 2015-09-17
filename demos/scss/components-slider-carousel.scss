@@ -1,20 +1,22 @@
 @import 'demo-base';
 
 // // *** slider: carousel *** //
+$ro-slider-carousel-style: 'scale', 'rotate' !default;
 @mixin slider-carousel($key){
   $items: 1;
   $perpage: 1;
   $gutter: ro-get-next($key, 'gutter', 10px);
+  
   // options
   $center: ro-get($key, 'center');
   $bypage: ro-get($key, 'bypage');
-  $scale: ro-get($key, 'scale');
-  $rotate: ro-get($key, 'rotate');
+  $style: ro-get($key, $ro-slider-carousel-style);
   $keep: ro-get($key, 'keep');
-  $default: ro-get($key, 'default');
+
   // vertical
   $vertical: ro-get($key, 'vertical');
   $ratio: ro-get-next($key, 'ratio', 9/16);
+
   // autoplay
   $autoplay: ro-get($key, 'autoplay');
   $autoplay-js: ro-get($key, 'autoplay-js');
@@ -153,13 +155,13 @@
   $scale-val: '';
   $rotate-val-left: '';
   $rotate-val-right: '';
-  @if $scale {
+  @if $style == 'scale' {
     $scale-val: scale(0.75);
-  } @else if $rotate {
+  } @else if $style == 'rotate' {
     $rotate-val-left: perspective(600px) scale(0.75) rotateY(-30deg);
     $rotate-val-right: perspective(600px) scale(0.75) rotateY(30deg);
   }
-  @if $scale or $rotate {
+  @if index(('scale' 'rotate'), $style) {
     .inner > li { @include transition(transform $speed); }
 
     @for $i from 1 through $items {
@@ -171,9 +173,9 @@
             @if ceil($perpage / 2) > ($perpage / 2) {
               $add: (($perpage - 1) / 2);
               // restore all items to scale(0.75)
-              @if $scale {
+              @if $style == 'scale' {
                 > li:nth-child(n) { @include transform(#{$scale-val}); }
-              } @else if $rotate {
+              } @else if $style == 'rotate' {
                 > li:nth-child(-n + #{$i + $add - 1}) { @include transform(#{$rotate-val-left}); }
                 > li:nth-child(n + #{$i + $add + 1}) { @include transform(#{$rotate-val-right}); }
               }
@@ -184,9 +186,9 @@
             } @else {
               $add: (($perpage / 2) - 1);
               // restore all items to scale(0.75)
-              @if $scale {
+              @if $style == 'scale' {
                 > li:nth-child(n) { @include transform(#{$scale-val}); }
-              } @else if $rotate {
+              } @else if $style == 'rotate' {
                 > li:nth-child(-n + #{$i + $add - 1}) { @include transform(#{$scale-val} #{$rotate-val-left}); }
                 > li:nth-child(n + #{$i + $add + 2}) { @include transform(#{$scale-val} #{$rotate-val-right}); }
               }
@@ -198,9 +200,9 @@
             }
           } @else {
             // restore all items to scale(0.75)
-            @if $scale {
+            @if $style == 'scale' {
               > li:nth-child(n) { @include transform(perspective(600px) #{$scale-val}); }
-            } @else if $rotate {
+            } @else if $style == 'rotate' {
               > li:nth-child(-n + #{$i - 1}) { @include transform(perspective(600px) #{$scale-val} #{$rotate-val-left}); }
               > li:nth-child(n + #{$i + 1}) { @include transform(perspective(600px) #{$scale-val} #{$rotate-val-right}); }
             }
@@ -434,94 +436,30 @@
   }
 
   // set default controls, dots and autoplay styles
-  @if $default and not $keep {
-    .controls {
-      @include clearfix();
-      max-width: 7.5em;
-      margin: 10px auto;
-      span {
-        font-size: 13px;
-        padding: 5px 8px;
-        border-radius: 3px;
-        transition: background-color 0.3s;
-        color: #fff;
-        background-color: #15A9DC;
-        &:hover { background-color: #7D9DAC; }
-      }
-    }
-    .dots {
-      width: 100%;
-      text-align: center;
-      margin: 10px 0;
-      label {
-        padding: 0 3px;
-        &:hover .normal { background-color: #5a5a5a; }
-      }
-      span {
-        width: 9px;
-        height: 9px;
-        background-color: #d3d3d3;
-        border-radius: 50%;
-        transition: background-color 0.3s;
-      }
-      .active { background-color: #5a5a5a; display: none; }
-    }
-    @if $autoplay or $autoplay-js {
-      .autoplay {
-        position: relative;
-        text-align: center;
-        @if $autoplay {
-          .no-cssanimations & { display: none !important; }
-        }
-        > label {
-          width: 30px;
-          height: 30px;
-          display: inline-block;
-          background-color: #333;
-          border-radius: 50%;
-        }
-        span {
-          display: inline-block;
-        }
-        .play {
-          width: 0;
-          height: 0;
-          border-color: transparent transparent transparent #fff;
-          border-style: solid;
-          border-width: 7px 0px 7px 13px;
-          margin: 7px 0 0 3px;
-        }
-        .pause {
-          display: none;
-          &:before, &:after {
-            content: '';
-            display: inline-block;
-            border-width: 0;
-            width: 5px;
-            height: 13px;
-            margin-top: 8px;
-            background-color: #fff;
-          }
-          &:before { margin-right: 4px; }
-        }
-        @if $progress-bar {
-          &-progress {
-            position: absolute;
-            left: 0;
-            bottom: 34px;
-            width: 0;
-            display: block;
-            height: 3px;
-            background-color: rgba(0, 0, 0, 0.2);
-          }
-        }
-      }
-    }
-  }
 }
 
+.carousel-a { @include slider-carousel(5 by 5 rotate default); }
+.carousel-d { @include slider-carousel(5 by 3 bypage default); }
+.carousel-e { @include slider-carousel(5 by 2 center default); }
+.carousel-f { @include slider-carousel(5 by 2 bypage progress-bar autoplay hoverpause default); }
+.carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); }
+.carousel-h { @include slider-carousel(5 by 3 default); }
+.carousel-i { 
+  @include slider-carousel(5 by 1 vertical autoplay progress-bar default); 
+  max-width: 600px;
+  margin: 0 auto;
+  .inner > li { position: relative; }
+  .item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .autoplay-progress { bottom: auto; }
+  .autoplay > label { margin-top: 10px; }
+}
+
+// slider basis
 .slider {
-  // common
   > input { position: absolute; left: -9999px; }
   .slider-labels {
     margin-bottom: 20px;
@@ -566,15 +504,7 @@
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }
 
-    // carousel
-    .carousel-a, 
-    .carousel-d, 
-    .carousel-e, 
-    .carousel-f,
-    .carousel-g,
-    .carousel-h,
-    .carousel-i, 
-    { display: none; }
+    .carousel-a, .carousel-d, .carousel-e, .carousel-f, .carousel-g, .carousel-h, .carousel-i { display: none; }
     [id="carousel-normal"]:checked ~ .carousel-a, 
     [id="slide-by-page"]:checked ~ .carousel-d,
     [id="slider-center"]:checked ~ .carousel-e,
@@ -584,33 +514,84 @@
     [id="carousel-vertical"]:checked ~ .carousel-i,
     { display: block; }
 
-    .carousel-a { @include slider-carousel(5 by 1 scale default); }
-    .carousel-d { @include slider-carousel(5 by 2 bypage default); }
-    .carousel-e { @include slider-carousel(5 by 2 center default); }
-    .carousel-f { @include slider-carousel(5 by 2 bypage progress-bar autoplay hoverpause default); }
-    .carousel-g { @include slider-carousel(5 by 2 bypage autoplay-js default); }
-    .carousel-h { @include slider-carousel(5 by 1 default); }
-    .carousel-i { 
-      @include slider-carousel(5 by 1 vertical autoplay progress-bar default); 
-      max-width: 600px;
-      margin: 0 auto;
-      .inner > li { position: relative; }
-      .item {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-      .autoplay-progress { bottom: auto; }
-      .autoplay > label { margin-top: 10px; }
+  }
+}
+
+// slider ui
+.controls {
+  @include clearfix();
+  max-width: 7.5em;
+  margin: 10px auto;
+  span {
+    font-size: 13px;
+    padding: 5px 8px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    color: #fff;
+    background-color: #15A9DC;
+    &:hover { background-color: #7D9DAC; }
+  }
+}
+.dots {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  label {
+    padding: 0 3px;
+    &:hover .normal { background-color: #5a5a5a; }
+  }
+  span {
+    width: 9px;
+    height: 9px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  .active { background-color: #5a5a5a; display: none; }
+}
+.autoplay {
+  position: relative;
+  text-align: center;
+  .no-cssanimations & { display: none !important; }
+  > label {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  span {
+    display: inline-block;
+  }
+  .play {
+    width: 0;
+    height: 0;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    border-width: 7px 0px 7px 13px;
+    margin: 7px 0 0 3px;
+  }
+  .pause {
+    display: none;
+    &:before, &:after {
+      content: '';
+      display: inline-block;
+      border-width: 0;
+      width: 5px;
+      height: 13px;
+      margin-top: 8px;
+      background-color: #fff;
     }
-    @include breakpoint('min' em(700)) {
-      .carousel-a { @include slider-carousel(5 by 2 keep); }
-      .carousel-d { @include slider-carousel(5 by 3 bypage keep); }
-      .carousel-h { @include slider-carousel(5 by 2 keep); }
-    }
-    @include breakpoint('min' em(1000)) {
-      .carousel-a { @include slider-carousel(5 by 3 rotate keep); }
-      .carousel-h { @include slider-carousel(5 by 3 keep); }
-    }
+    &:before { margin-right: 4px; }
+  }
+  &-progress {
+    position: absolute;
+    left: 0;
+    bottom: 44px;
+    width: 0;
+    display: block;
+    height: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
   }
 }

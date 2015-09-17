@@ -7,12 +7,12 @@
 /// @param {number | list} $key - key 
 /// @example markup - Markup
 /// <div class="banner">
+///   <input type="checkbox" name="banner-autoplay" id="banner-autoplay" checked="">
 ///   <input type="radio" name="banner" id="banner-1" checked="">
 ///   <input type="radio" name="banner" id="banner-2">
 ///   <input type="radio" name="banner" id="banner-3">
 ///   <input type="radio" name="banner" id="banner-4">
 ///   <input type="radio" name="banner" id="banner-5">
-///   <input type="checkbox" name="banner-autoplay" id="banner-autoplay" checked="">
 ///   <div class="outer">
 ///     <ul class="inner">
 ///       <li> slider01 </li>
@@ -86,6 +86,14 @@
 
 @mixin slider-gallery($key){
   $items: 1;
+
+  // options
+  $style: ro-get($key, $ro-slider-gallery-style);
+  $direction: ro-get($key, $ro-direction, top);
+  $angle: ro-get-next($key, 'angle', 60deg);
+  $keep: ro-get($key, 'keep');
+
+  // autoplay
   $autoplay: ro-get($key, 'autoplay');
   $autoplay-js: ro-get($key, 'autoplay-js');
   $progress-bar: ro-get($key, 'progress-bar');
@@ -93,8 +101,6 @@
   $speed: ro-get-next($key, 'speed', 1s);
   $timeout: ro-get-next($key, 'timeout', 3s);
   $time-per-item: ($speed + $timeout);
-  $keep: ro-get($key, 'keep');
-  $default: ro-get($key, 'default');
 
   @if type-of($key) == number {
     $items: $key;
@@ -110,11 +116,61 @@
   $prefix: get-slider-selector(&);
   $id: "#" + $prefix;
 
+  // angle
+  @if $style == 'rotate-out' {
+    $angle: - $angle;
+  }
+
+  // transform values 
+  $transform-before: '';
+  $transform-current: '';
+  $transform-after: '';
+  $perspective: perspective(1000px);
+  @if index(('rotate-in' 'rotate-out'), $style) {
+    @if $direction == top {
+      $transform-before: translateY(100%) rotateX(- $angle);
+      $transform-current: translateY(0) rotateX(0deg);
+      $transform-after: translateY(-100%) rotateX($angle);
+    } @else if $direction == bottom {
+      $transform-before: translateY(-100%) rotateX($angle);
+      $transform-current: translateY(0) rotateX(0deg);
+      $transform-after: translateY(100%) rotateX(- $angle);
+    } @else if $direction == left {
+      $transform-before: translateX(100%) rotateY($angle);
+      $transform-current: translateX(0) rotateY(0deg);
+      $transform-after: translateX(-100%) rotateY(- $angle);
+    } @else if $direction == right {
+      $transform-before: translateX(-100%) rotateY(- $angle);
+      $transform-current: translateX(0) rotateY(0deg);
+      $transform-after: translateX(100%) rotateY($angle);
+    }
+  } @else if $style == 'scale-in' {
+    $transform-before: scale(0.8);
+    $transform-current: scale(1);
+    $transform-after: scale(1.2);
+  } @else if $style == 'scale-out' {
+    $transform-before: scale(1.2);
+    $transform-current: scale(1);
+    $transform-after: scale(0.8);
+  } @else if $style == 'fall-down' {
+    @if index((left top), $direction) {
+      $transform-before: scale(0.6) rotate(20deg) translate(80%, 80%);
+      $transform-current: scale(1) rotate(0) translate(0, 0);
+      $transform-after: scale(0.6) rotate(-20deg) translate(-80%, -80%);
+    } @else if index((right bottom), $direction) {
+      $transform-before: scale(0.6) rotate(-20deg) translate(-80%, -80%);
+      $transform-current: scale(1) rotate(0) translate(0, 0);
+      $transform-after: scale(0.6) rotate(20deg) translate(80%, 80%);
+    }
+  }
+
   // *** output *** //
   // base
   @if not $keep {
     > input { position: absolute; left: -9999px; }
-    .outer { overflow: hidden; }
+    @if not $style {
+      .outer { overflow: hidden; }
+    }
     .inner { 
       position: relative; 
       > li {
@@ -146,7 +202,7 @@
   }
 
   .outer { transition: height ($speed / 2); }
-  .inner > li { transition: opacity $speed; }
+  .inner > li { transition: opacity $speed, transform $speed; }
 
   @at-root { @at-root (without: media) {
     #{$id}-autoplay:checked ~ {
@@ -194,16 +250,104 @@
       }
     }
   }}
+
+  // styles
+  @if $style {
+    @include keyframes(style-in) {
+      0% {
+        @include transform($perspective $transform-before);
+      }
+      100% {
+        @include transform($perspective $transform-current);
+      }
+    }
+    @include keyframes(style-out) {
+      0 {
+        @include transform($perspective $transform-current);
+      }
+      100% {
+        @include transform($perspective $transform-after);
+      }
+    }
+    @for $i from 1 through $items {
+      #{$id}-autoplay:not(:checked) ~ #{$id}-#{$i}:checked ~ .outer li {
+        &:nth-child(n) { 
+          @include animation(style-out $speed); 
+          @if index(('rotate-in' 'rotate-out'), $style) {
+            @include transform-origin(opposite($direction));
+          } @else if $style == 'fall-down' {
+            @if index((left top), $direction) {
+              @include transform-origin(100% 100%);
+            } @else if index((right bottom), $direction) {
+              @include transform-origin(100% 0);
+            }
+          }
+        }
+        &:nth-child(#{$i}) { 
+          @include animation(style-in $speed); 
+          @if index(('rotate-in' 'rotate-out'), $style) {
+            @include transform-origin($direction);
+          } @else if $style == 'fall-down' {
+            @if index((left top), $direction) {
+              @include transform-origin(100% 0);
+            } @else if index((right bottom), $direction) {
+              @include transform-origin(100% 100%);
+            }
+          }
+        }
+      }
+    }
+  }
   
   // setting autoplay
   @if $autoplay {
     // animation
     @include keyframes(#{$prefix}) {
-      0% { @include item-hide(); }
-      #{percentage($speed / ($time-per-item * $items))} { @include item-show(); }
-      #{percentage($time-per-item / ($time-per-item * $items))} { @include item-show(); }
-      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { @include item-hide(); }
-      100% { @include item-hide(); }
+      0% { 
+        @include item-hide(); 
+        @if $style {
+          @include transform($perspective $transform-before);
+          @if index(('rotate-in' 'rotate-out'), $style) {
+            @include transform-origin($direction);
+          } @else if $style == 'fall-down' {
+            @if index((left top), $direction) {
+              @include transform-origin(100% 0);
+            } @else if index((right bottom), $direction) {
+              @include transform-origin(100% 100%);
+            }
+          }
+        }
+      }
+      #{percentage($speed / ($time-per-item * $items))} { 
+        @include item-show(); 
+        @if $style {
+          @include transform($perspective $transform-current);
+        }
+      }
+      #{percentage($time-per-item / ($time-per-item * $items))} { 
+        @include item-show(); 
+        @if $style {
+          @include transform($perspective $transform-current);
+        }
+      }
+      #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { 
+        @include item-hide(); 
+        @if $style {
+          @include transform($perspective $transform-after);
+          @if index(('rotate-in' 'rotate-out'), $style) {
+            @include transform-origin(opposite($direction));
+          } @else if $style == 'fall-down' {
+            @if index((left top), $direction) {
+              @include transform-origin(100% 100%);
+            } @else if index((right bottom), $direction) {
+              @include transform-origin(100% 0);
+            }
+          }
+        }
+      }
+      100% { 
+        @include item-hide(); 
+      }
     }
     // progress-bar keyframes
     @if $progress-bar {
@@ -248,105 +392,7 @@
       }
     }
   }
-
-  // default style
-  @if $default {
-    .controls {
-      @include clearfix();
-      max-width: 7.5em;
-      margin: 10px auto;
-      span {
-        font-size: 13px;
-        padding: 5px 8px;
-        border-radius: 3px;
-        transition: background-color 0.3s;
-        color: #fff;
-        background-color: #15A9DC;
-        &:hover { background-color: #7D9DAC; }
-      }
-      .prev { 
-        float: left; 
-        left: 0;
-      }
-      .next { 
-        float: right; 
-        right: 0;
-      }
-    }
-    .dots {
-      width: 100%;
-      text-align: center;
-      margin: 10px 0;
-      label, span {
-        display: inline-block;
-        vertical-align: top;
-      }
-      label {
-        margin: 0 3px;
-        &:hover .normal { background-color: #5a5a5a; }
-      }
-      span {
-        left: 0;
-        width: 9px;
-        height: 9px;
-        background-color: #d3d3d3;
-        border-radius: 50%;
-        transition: background-color 0.3s;
-      }
-      .active { background-color: #5a5a5a; }
-    }
-    
-    @if $autoplay or $autoplay-js {
-      .autoplay {
-        position: relative;
-        text-align: center;
-        > label {
-          width: 30px;
-          height: 30px;
-          display: inline-block;
-          background-color: #333;
-          border-radius: 50%;
-        }
-        span {
-          display: inline-block;
-        }
-        .play {
-          width: 0;
-          height: 0;
-          border-color: transparent transparent transparent #fff;
-          border-style: solid;
-          border-width: 7px 0px 7px 13px;
-          margin: 7px 0 0 3px;
-        }
-        .pause {
-          display: none;
-          &:before, &:after {
-            content: '';
-            display: inline-block;
-            border-width: 0;
-            width: 5px;
-            height: 13px;
-            margin-top: 8px;
-            background-color: #fff;
-          }
-          &:before { margin-right: 4px; }
-        }
-        @if $progress-bar {
-          &-progress {
-            position: absolute;
-            left: 0;
-            bottom: 34px;
-            width: 0;
-            display: block;
-            height: 3px;
-            background-color: rgba(0, 0, 0, 0.2);
-          }
-        }
-      }
-    }
-  }
 }
-
 @mixin item-hide() {
   @include opacity(0); 
   position: absolute;
@@ -357,3 +403,4 @@
   position: relative;
   z-index: 1;
 }
+

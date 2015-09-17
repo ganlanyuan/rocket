@@ -11,23 +11,23 @@
             <input type="radio" name="option-gallery" id="gallery-auto-play-css" checked="">
             <input type="radio" name="option-gallery" id="gallery-auto-play-js">
             <input type="radio" name="option-gallery" id="gallery-auto-height">
-            <input type="radio" name="option-gallery" id="gallery-customise">
+            <input type="radio" name="option-gallery" id="sg-autoheightustomise">
             <div class="slider-labels">
               <div>
                 <div class="title">Options: </div>
                 <label for="gallery-auto-play-css">auto-play (css)</label>
                 <label for="gallery-auto-play-js">auto-play (js)</label>
                 <label for="gallery-auto-height">auto-height</label>
-                <label for="gallery-customise">customise</label>
+                <label for="sg-autoheightustomise">customise</label>
               </div>
             </div>
-            <div class="gallery-a">
-              <input type="radio" name="gallery-a" id="gallery-a-1" checked="">
-              <input type="radio" name="gallery-a" id="gallery-a-2">
-              <input type="radio" name="gallery-a" id="gallery-a-3">
-              <input type="radio" name="gallery-a" id="gallery-a-4">
-              <input type="radio" name="gallery-a" id="gallery-a-5">
-              <input type="checkbox" name="gallery-a-autoplay" id="gallery-a-autoplay" checked="">
+            <div class="sg-autoplay">
+              <input type="checkbox" name="sg-autoplay-autoplay" id="sg-autoplay-autoplay" checked="">
+              <input type="radio" name="sg-autoplay" id="sg-autoplay-1" checked="">
+              <input type="radio" name="sg-autoplay" id="sg-autoplay-2">
+              <input type="radio" name="sg-autoplay" id="sg-autoplay-3">
+              <input type="radio" name="sg-autoplay" id="sg-autoplay-4">
+              <input type="radio" name="sg-autoplay" id="sg-autoplay-5">
               <div class="outer">
                 <ul class="inner">
                   <li>
@@ -58,31 +58,31 @@
                 </ul>
               </div>
               <div class="dots">
-                <label for="gallery-a-1"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-a-2"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-a-3"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-a-4"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-a-5"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-1"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-2"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-3"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-4"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-5"><span class="normal"></span><span class="active"></span></label>
               </div>
               <div class="controls">
-                <label for="gallery-a-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-a-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-a-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-a-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-a-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
               <div class="autoplay">
                 <span class="autoplay-progress"></span>
-                <label for="gallery-a-autoplay"><span class="play"></span><span class="pause"></span></label>
+                <label for="sg-autoplay-autoplay"><span class="play"></span><span class="pause"></span></label>
               </div>
             </div>
-            <div class="gallery-b">
-              <input type="radio" name="gallery-b" id="gallery-b-1" checked="">
-              <input type="radio" name="gallery-b" id="gallery-b-2">
-              <input type="radio" name="gallery-b" id="gallery-b-3">
-              <input type="radio" name="gallery-b" id="gallery-b-4">
-              <input type="radio" name="gallery-b" id="gallery-b-5">
-              <input type="checkbox" name="gallery-b-autoplay" id="gallery-b-autoplay" checked="">
+            <div class="sg-autoplay-js">
+              <input type="checkbox" name="sg-autoplay-js-autoplay" id="sg-autoplay-js-autoplay" checked="">
+              <input type="radio" name="sg-autoplay-js" id="sg-autoplay-js-1" checked="">
+              <input type="radio" name="sg-autoplay-js" id="sg-autoplay-js-2">
+              <input type="radio" name="sg-autoplay-js" id="sg-autoplay-js-3">
+              <input type="radio" name="sg-autoplay-js" id="sg-autoplay-js-4">
+              <input type="radio" name="sg-autoplay-js" id="sg-autoplay-js-5">
               <div class="outer">
                 <ul class="inner">
                   <li>
@@ -113,31 +113,31 @@
                 </ul>
               </div>
               <div class="dots">
-                <label for="gallery-b-1"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-b-2"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-b-3"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-b-4"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-b-5"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-js-1"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-js-2"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-js-3"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-js-4"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoplay-js-5"><span class="normal"></span><span class="active"></span></label>
               </div>
               <div class="controls">
-                <label for="gallery-b-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-b-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-b-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-b-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-b-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-js-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-js-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-js-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-js-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoplay-js-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
               <div class="autoplay">
                 <span class="autoplay-progress"></span>
-                <label for="gallery-b-autoplay"><span class="play"></span><span class="pause"></span></label>
+                <label for="sg-autoplay-js-autoplay"><span class="play"></span><span class="pause"></span></label>
               </div>
             </div>
-            <div class="gallery-c">
-              <input type="radio" name="gallery-c" id="gallery-c-1" checked="">
-              <input type="radio" name="gallery-c" id="gallery-c-2">
-              <input type="radio" name="gallery-c" id="gallery-c-3">
-              <input type="radio" name="gallery-c" id="gallery-c-4">
-              <input type="radio" name="gallery-c" id="gallery-c-5">
-              <input type="checkbox" name="gallery-c-autoplay" id="gallery-c-autoplay" checked="">
+            <div class="sg-autoheight">
+              <input type="checkbox" name="sg-autoheight-autoplay" id="sg-autoheight-autoplay" checked="">
+              <input type="radio" name="sg-autoheight" id="sg-autoheight-1" checked="">
+              <input type="radio" name="sg-autoheight" id="sg-autoheight-2">
+              <input type="radio" name="sg-autoheight" id="sg-autoheight-3">
+              <input type="radio" name="sg-autoheight" id="sg-autoheight-4">
+              <input type="radio" name="sg-autoheight" id="sg-autoheight-5">
               <div class="outer" autoheight-gallery>
                 <ul class="inner">
                   <li>
@@ -168,29 +168,29 @@
                 </ul>
               </div>
               <div class="dots">
-                <label for="gallery-c-1"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-c-2"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-c-3"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-c-4"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-c-5"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoheight-1"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoheight-2"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoheight-3"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoheight-4"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-autoheight-5"><span class="normal"></span><span class="active"></span></label>
               </div>
               <div class="controls">
-                <label for="gallery-c-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-c-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-c-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-c-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-c-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoheight-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoheight-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoheight-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoheight-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-autoheight-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
-              <div class="autoplay"><label for="gallery-c-autoplay"><span class="play"></span><span class="pause"></span></label>
+              <div class="autoplay"><label for="sg-autoheight-autoplay"><span class="play"></span><span class="pause"></span></label>
             </div>
             </div>
-            <div class="gallery-d">
-              <input type="radio" name="gallery-d" id="gallery-d-1" checked="">
-              <input type="radio" name="gallery-d" id="gallery-d-2">
-              <input type="radio" name="gallery-d" id="gallery-d-3">
-              <input type="radio" name="gallery-d" id="gallery-d-4">
-              <input type="radio" name="gallery-d" id="gallery-d-5">
-              <input type="checkbox" name="gallery-d-autoplay" id="gallery-d-autoplay" checked="">
+            <div class="sg-customise">
+              <input type="checkbox" name="sg-customise-autoplay" id="sg-customise-autoplay" checked="">
+              <input type="radio" name="sg-customise" id="sg-customise-1" checked="">
+              <input type="radio" name="sg-customise" id="sg-customise-2">
+              <input type="radio" name="sg-customise" id="sg-customise-3">
+              <input type="radio" name="sg-customise" id="sg-customise-4">
+              <input type="radio" name="sg-customise" id="sg-customise-5">
               <div class="outer">
                 <ul class="inner">
                   <li>
@@ -221,37 +221,37 @@
                 </ul>
               </div>
               <div class="dots">
-                <label for="gallery-d-1"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-d-2"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-d-3"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-d-4"><span class="normal"></span><span class="active"></span></label>
-                <label for="gallery-d-5"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-customise-1"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-customise-2"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-customise-3"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-customise-4"><span class="normal"></span><span class="active"></span></label>
+                <label for="sg-customise-5"><span class="normal"></span><span class="active"></span></label>
               </div>
               <div class="controls">
-                <label for="gallery-d-1"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-d-2"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-d-3"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-d-4"><span class="prev">Previous</span><span class="next">Next</span></label>
-                <label for="gallery-d-5"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-customise-1"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-customise-2"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-customise-3"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-customise-4"><span class="prev">Previous</span><span class="next">Next</span></label>
+                <label for="sg-customise-5"><span class="prev">Previous</span><span class="next">Next</span></label>
               </div>
-              <div class="autoplay"><label for="gallery-d-autoplay"><span class="play"></span><span class="pause"></span></label>
+              <div class="autoplay"><label for="sg-customise-autoplay"><span class="play"></span><span class="pause"></span></label>
             </div>
           </div>
           </div>
         </div>
         <div class="content-aside">
           <pre class="language-scss"><code>
-.gallery-a { @include slider-gallery(5 autoplay progress-bar hoverpause default); }
-.gallery-b { @include slider-gallery(5 default); }
-.gallery-c { @include slider-gallery(5 default); }
-.gallery-d { @include slider-gallery(5 default); }
+.sg-autoplay { @include slider-gallery(5 autoplay progress-bar hoverpause default); }
+.sg-autoplay-js { @include slider-gallery(5 default); }
+.sg-autoheight { @include slider-gallery(5 default); }
+.sg-customise { @include slider-gallery(5 default); }
 
-.gallery-d {
+.sg-customise {
   // setting item
   .outer { overflow: visible; }
   li { @include transform(scale(1.1)); }
   @for $i from 1 through 5 {
-    #gallery-d-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
+    #sg-customise-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1)); }
   }
   // setting .info
   .info { opacity: 0; margin-left: 0;
@@ -259,7 +259,7 @@
     transition: all 1s $global-bezier 0.5s;
    }
   @for $i from 1 through 5 {
-    #gallery-d-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
+    #sg-customise-#{$i}:checked ~ .outer li:nth-child(#{$i}) .info {
       opacity: 1;
       margin-left: 20px;
     }
@@ -269,9 +269,9 @@
           <pre class="language-javascript"><code>
 ready(function () {
   // autoplay 
-  sliderAutoplay('.gallery-b', 2000);
+  sliderAutoplay('.sg-autoplay-js', 2000);
   // autoheight 
-  autoheightGallery('.gallery-c'); 
+  autoheightGallery('.sg-autoheight'); 
 });
           </code></pre>
         </div>
@@ -284,8 +284,8 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    sliderAutoplay('.gallery-b', 2000);
-    autoheightGallery('.gallery-c'); 
+    sliderAutoplay('.sg-autoplay-js', 2000);
+    autoheightGallery('.sg-autoheight'); 
   });
 </script>
 </body>
