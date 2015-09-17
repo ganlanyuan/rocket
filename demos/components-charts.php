@@ -118,7 +118,7 @@ $data2: (
   <script>
   ready(function () {
     winLoad(function () {
-      var chart = k('.charts1, .charts2');
+      var chart = kit('.charts1, .charts2');
       chart.addClass('active');
     })
   });

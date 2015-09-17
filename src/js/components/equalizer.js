@@ -9,14 +9,14 @@ function equalizer(){
       len = arguments.length;
 
   if (len === 1) {
-    args = k(arguments[0]);
+    args = kit(arguments[0]);
     args.css('height', 'auto');
     heights.push(args.outerHeight());
   } else {
     args = arguments;
     for (var i = 0; i < args.length; i++) {
-      k(args[i]).css('height', 'auto');
-      heights.push(k(args[i]).outerHeight());
+      kit(args[i]).css('height', 'auto');
+      heights.push(kit(args[i]).outerHeight());
     }
   }
 
@@ -26,7 +26,7 @@ function equalizer(){
     args.css('height', value);
   } else{
     for (var j = 0; j < args.length; j++) {
-      k(args[j]).css('height', value);
+      kit(args[j]).css('height', value);
     }
   }
 }

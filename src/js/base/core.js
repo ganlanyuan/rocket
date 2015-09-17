@@ -25,8 +25,8 @@ var dome = function (args, el) {
 
 // ========== KIT START ==========
 // (function (window, undefined) {
-var k = function (selector) {
-	if ( window === this ) {return new k(selector); }
+var kit = function (selector) {
+	if ( window === this ) {return new kit(selector); }
 	var type = typeof selector;
 	if (type === 'string') {
 		var result = document.querySelectorAll(selector);
@@ -51,7 +51,7 @@ CLASS = new RegExp( "^\\.(" + characterEncoding + ")" ),
 TAG = new RegExp( "^(" + characterEncoding.replace( "w", "w*" ) + ")" ),
 ATTR = new RegExp( "^" + attributes );
 
-k.filter = function (selector, els) {
+kit.filter = function (selector, els) {
 	var match = [];
 	if (selector.match(TAG)) {
 		for (var i = 0; i < els.length; i++) {
@@ -82,7 +82,7 @@ k.filter = function (selector, els) {
 	return match;
 };
 
-k.prototype.map = function (callback) {
+kit.prototype.map = function (callback) {
 	var results = [];
 	for (var i = 0; i < this.length; i++) {
 		results.push(callback.call(this, this[i], i));
@@ -90,18 +90,18 @@ k.prototype.map = function (callback) {
 	return results;
 };
 
-k.prototype.mapOne = function (callback) {
+kit.prototype.mapOne = function (callback) {
 	var m = this.map(callback);
 	return m.length > 1 ? m : m[0];
 };
 
-k.prototype.forEach = function (callback) {
+kit.prototype.forEach = function (callback) {
 	this.map(callback);
 	return this; 
 };
 
-k.prototype.filter = function (selector) {
-	var results = k.filter(selector, this);
+kit.prototype.filter = function (selector) {
+	var results = kit.filter(selector, this);
 
 	if (results.length > 0) {
 		dome(results, this);
@@ -111,15 +111,15 @@ k.prototype.filter = function (selector) {
 
 // ========= EVENT STATIC METHODS =========
 if (typeof addEventListener !== "undefined") {
-	k.addEvent = function(obj, evt, fn) {
+	kit.addEvent = function(obj, evt, fn) {
 		obj.addEventListener(evt, fn, false);
 	};
 
-	k.removeEvent = function(obj, evt, fn) {
+	kit.removeEvent = function(obj, evt, fn) {
 		obj.removeEventListener(evt, fn, false);
 	};
 } else if (typeof attachEvent !== "undefined") {
-	k.addEvent = function(obj, evt, fn) {
+	kit.addEvent = function(obj, evt, fn) {
 		var fnHash = "e_" + evt + fn;
 
 		obj[fnHash] = function() {
@@ -147,7 +147,7 @@ if (typeof addEventListener !== "undefined") {
 		obj.attachEvent("on" + evt, obj[fnHash]);
 	};
 
-	k.removeEvent = function(obj, evt, fn) {
+	kit.removeEvent = function(obj, evt, fn) {
 		var fnHash = "e_" + evt + fn;
 
 		if (typeof obj[fnHash] !== "undefined") {
@@ -156,90 +156,90 @@ if (typeof addEventListener !== "undefined") {
 		}
 	};
 } else {
-	k.addEvent = function(obj, evt, fn) {
+	kit.addEvent = function(obj, evt, fn) {
 		obj["on" + evt] = fn;
 	};
 
-	k.removeEvent = function(obj, evt) {
+	kit.removeEvent = function(obj, evt) {
 		obj["on" + evt] = null;
 	};
 }
 
 // ========= EVENT INSTANCE METHODS =========
-k.prototype.on = function (evt, fn) {
+kit.prototype.on = function (evt, fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, evt, fn);
+		kit.addEvent(el, evt, fn);
 	});
 };
 
-k.prototype.off = function (evt, fn) {
+kit.prototype.off = function (evt, fn) {
 	return this.forEach(function (el) {
-		k.removeEvent(el, evt, fn);
+		kit.removeEvent(el, evt, fn);
 	});
 };
 
-k.prototype.click = function(fn) {
+kit.prototype.click = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'click', fn);
+		kit.addEvent(el, 'click', fn);
 	});
 };
 
-k.prototype.mouseover = function(fn) {
+kit.prototype.mouseover = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'mouseover', fn);
+		kit.addEvent(el, 'mouseover', fn);
 	});
 };
 
-k.prototype.mouseout = function(fn) {
+kit.prototype.mouseout = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'mouseout', fn);
+		kit.addEvent(el, 'mouseout', fn);
 	});
 };
 
-k.prototype.focus = function(fn) {
+kit.prototype.focus = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'focus', fn);
+		kit.addEvent(el, 'focus', fn);
 	});
 };
 
-k.prototype.blur = function(fn) {
+kit.prototype.blur = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'blur', fn);
+		kit.addEvent(el, 'blur', fn);
 	});
 };
 
-k.prototype.submit = function(fn) {
+kit.prototype.submit = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'submit', fn);
+		kit.addEvent(el, 'submit', fn);
 	});
 };
 
-k.prototype.keydown = function(fn) {
+kit.prototype.keydown = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'keydown', fn);
+		kit.addEvent(el, 'keydown', fn);
 	});
 };
 
-k.prototype.keyup = function(fn) {
+kit.prototype.keyup = function(fn) {
 	return this.forEach(function (el) {
-		k.addEvent(el, 'keyup', fn);
+		kit.addEvent(el, 'keyup', fn);
 	});
 };
 
 // ========== DOM MANIPULATION ==========
-k.prototype.hide = function() {
+kit.prototype.hide = function() {
 	return this.forEach(function (el) {
 		el.style.display = 'none';
 	});
 };
 
-k.prototype.show = function() {
+kit.prototype.show = function() {
 	return this.forEach(function (el) {
 		el.style.display = 'inherit';
 	});
 };
 
-k.prototype.fadeIn = function (time) {
+kit.prototype.fadeIn = function (time) {
 	return this.forEach(function (el) {
 		var opacity = 0;
 
@@ -263,7 +263,7 @@ k.prototype.fadeIn = function (time) {
 	});
 };
 
-k.prototype.find = function (selector) {
+kit.prototype.find = function (selector) {
 	var results = [];
 	if (typeof selector === 'string') {
 		this.forEach(function (el) {
@@ -279,25 +279,25 @@ k.prototype.find = function (selector) {
 	} else { return; }
 };
 
-k.eq = function( args, i ) {
+kit.eq = function( args, i ) {
 	if (args.length > i) {
-		return k(args[i]);
+		return kit(args[i]);
 	}
 };
 
-k.prototype.eq = function (i) {
-	return k.eq(this, i);
+kit.prototype.eq = function (i) {
+	return kit.eq(this, i);
 };
 
-k.prototype.first = function () {
-	return k.eq(this, 0);
+kit.prototype.first = function () {
+	return kit.eq(this, 0);
 };
 
-k.prototype.last = function () {
-	return k.eq(this, this.length-1);
+kit.prototype.last = function () {
+	return kit.eq(this, this.length-1);
 };
 
-k.prototype.parent = function () {
+kit.prototype.parent = function () {
 	var results = [];
 	this.forEach(function (el) {
 		results.push(el.parentNode);
@@ -309,7 +309,7 @@ k.prototype.parent = function () {
 	} else { return; }
 };
 
-k.prototype.prev = function () {
+kit.prototype.prev = function () {
 	var results = [];
 	this.forEach(function (el) {
 		do { el = el.previousSibling; } while ( el && el.nodeType !== 1 );
@@ -322,7 +322,7 @@ k.prototype.prev = function () {
 	} else { return; }
 };
 
-k.prototype.next = function () {
+kit.prototype.next = function () {
 	var results = [];
 	this.forEach(function (el) {
 		do { el = el.nextSibling; } while ( el && el.nodeType !== 1 );
@@ -335,7 +335,7 @@ k.prototype.next = function () {
 	} else { return; }
 };
 
-k.prototype.siblings = function (selector) {
+kit.prototype.siblings = function (selector) {
 	var results = [],
 			type = typeof selector;
 	this.forEach(function (el) {
@@ -347,7 +347,7 @@ k.prototype.siblings = function (selector) {
 		}
 	});
 	if (type === 'string') {
-		results = k.filter(selector, results);
+		results = kit.filter(selector, results);
 	}
 
 	if (results.length > 0) {
@@ -356,7 +356,7 @@ k.prototype.siblings = function (selector) {
 	} else { return; }
 };
 
-k.prototype.parents = function (selector) {
+kit.prototype.parents = function (selector) {
 	if (typeof selector !== 'string') {return;}
 	var results = [],
 			parent = [];
@@ -366,7 +366,7 @@ k.prototype.parents = function (selector) {
 			el = el.parentNode;
 		}
 	});
-	results = k.filter(selector, parent);
+	results = kit.filter(selector, parent);
 
 	if (results.length > 0) {
 		dome(results, this);
@@ -374,7 +374,7 @@ k.prototype.parents = function (selector) {
 	} else { return; }
 };
 
-k.prototype.children = function (selector) {
+kit.prototype.children = function (selector) {
 	var children = [],
 			type = typeof selector;
 	this.forEach(function (el) {
@@ -385,7 +385,7 @@ k.prototype.children = function (selector) {
 		}
 	});
 	if (type !== 'undefined' && type === 'string') {
-		children = k.filter(selector, children);
+		children = kit.filter(selector, children);
 	}
 
 	if (children.length > 0) {
@@ -394,7 +394,7 @@ k.prototype.children = function (selector) {
 	} else { return; }
 };
 
-k.prototype.firstChild = function (selector) {
+kit.prototype.firstChild = function (selector) {
 	var type = typeof selector;
 	if (type !== 'undefined' && type === 'string') {
 		return this.children(selector).eq(0);
@@ -403,7 +403,7 @@ k.prototype.firstChild = function (selector) {
 	}
 };
 
-k.prototype.lastChild = function (selector) {
+kit.prototype.lastChild = function (selector) {
 	var type = typeof selector;
 	if (type !== 'undefined' && type === 'string') {
 		return this.children(selector).last();
@@ -412,7 +412,7 @@ k.prototype.lastChild = function (selector) {
 	}
 };
 
-k.index = function(obj, current){
+kit.index = function(obj, current){
 	for (var i = 0;i < obj.length; i++) {
 		if (obj[i] === current) {
 			return i;
@@ -420,11 +420,11 @@ k.index = function(obj, current){
 	}
 };
 
-k.prototype.prevAll = function () {
+kit.prototype.prevAll = function () {
 	var results = [];
 	this.forEach(function (el) {
 		var siblings = el.parentNode.children,
-				index = k.index(siblings, el);
+				index = kit.index(siblings, el);
 		for (var i = 0; i < index; i++) {
 			results.push(siblings[i]);
 		}
@@ -436,11 +436,11 @@ k.prototype.prevAll = function () {
 	} else { return; }
 };
 
-k.prototype.nextAll = function () {
+kit.prototype.nextAll = function () {
 	var results = [];
 	this.forEach(function (el) {
 		var siblings = el.parentNode.children,
-				index = k.index(siblings, el);
+				index = kit.index(siblings, el);
 		for (var i = siblings.length-1; i > index; i--) {
 			results.push(siblings[i]);
 		}
@@ -453,7 +453,7 @@ k.prototype.nextAll = function () {
 };
 
 // ========== HANDLE ATTR ==========
-k.prototype.text = function (text) {
+kit.prototype.text = function (text) {
 	if (typeof text !== "undefined") {
 		return this.forEach(function (el) {
 			if (el.textContent) {
@@ -473,7 +473,7 @@ k.prototype.text = function (text) {
 	}
 };
 
-k.prototype.html = function (html) {
+kit.prototype.html = function (html) {
 	if (typeof html !== "undefined") {
 		return this.forEach(function (el) {
 			el.innerHTML = html;
@@ -485,7 +485,7 @@ k.prototype.html = function (html) {
 	}
 };
 
-k.prototype.attr = function (attr, val) {
+kit.prototype.attr = function (attr, val) {
 	if (typeof val !== 'undefined') {
 		return this.forEach(function(el) {
 			el.setAttribute(attr, val);
@@ -497,20 +497,20 @@ k.prototype.attr = function (attr, val) {
 	}
 };
 
-k.prototype.hasAttr = function (attr) {
+kit.prototype.hasAttr = function (attr) {
 	return this.mapOne(function (el) {
 		return el.hasAttribute(attr);
 	});
 };
 
-k.prototype.removeAttr = function (attr) {
+kit.prototype.removeAttr = function (attr) {
 	return this.forEach(function (el) {
 		el.removeAttribute(attr);
 	});
 };
 
 // ========== STYLE INSTANCE METHODS ==========
-k.css = function(el, css, value) {
+kit.css = function(el, css, value) {
 	var cssType = typeof css,
 		valueType = typeof value,
 		elStyle = el.style;
@@ -538,15 +538,15 @@ k.css = function(el, css, value) {
 	}
 };
 
-k.getCurrentStyle = function(el, css) {
+kit.getCurrentStyle = function(el, css) {
   return el.currentStyle ? el.currentStyle[css] : getComputedStyle(el, null)[css];
 };
 
-k.hasClass = function(el, value) {   
+kit.hasClass = function(el, value) {   
 	return (" " + el.className + " ").indexOf(" " + value + " ") > -1;
 };
 
-k.addClass = function(el, value) {
+kit.addClass = function(el, value) {
 	var className = el.className;
 	
 	if (!className) {
@@ -565,7 +565,7 @@ k.addClass = function(el, value) {
 	}
 };
 
-k.removeClass = function(el, value) {
+kit.removeClass = function(el, value) {
 	if (value) {
 		var classNames = value.split(/\s+/),
 			className = " " + el.className + " ",
@@ -582,7 +582,7 @@ k.removeClass = function(el, value) {
 	}
 };
 
-k.toggleClass = function(el, value) {
+kit.toggleClass = function(el, value) {
 	var classNames = value.split(/\s+/),
 		i = 0,
 		className;
@@ -593,44 +593,44 @@ k.toggleClass = function(el, value) {
 };
 
 // ========== STYLE INSTANCE METHODS ==========
-k.prototype.css = function(css, value) {
+kit.prototype.css = function(css, value) {
 	return this.forEach(function (el) {
-		return k.css(el, css, value);
+		return kit.css(el, css, value);
 	});
 };
 
-k.prototype.getCurrentStyle = function(css) {
+kit.prototype.getCurrentStyle = function(css) {
   return this.mapOne(function (el) {
-    return k.getCurrentStyle(el, css);
+    return kit.getCurrentStyle(el, css);
   });
 };
 
-k.prototype.addClass = function(value) {
+kit.prototype.addClass = function(value) {
 	return this.forEach(function (el) {
-		k.addClass(el, value);
+		kit.addClass(el, value);
 	});
 };
 
-k.prototype.removeClass = function(value) {
+kit.prototype.removeClass = function(value) {
 	return this.forEach(function (el) {
-		k.removeClass(el, value);
+		kit.removeClass(el, value);
 	});
 };
 
-k.prototype.toggleClass = function(value) {
+kit.prototype.toggleClass = function(value) {
 	return this.forEach(function (el) {
-		k.toggleClass(el, value);
+		kit.toggleClass(el, value);
 	});
 };
 
-k.prototype.hasClass = function(value) {
+kit.prototype.hasClass = function(value) {
 	return this.forEach(function (el) {
-		k.hasClass(el, value);
+		kit.hasClass(el, value);
 	});
 };
 
 // ========== HANDLE NODE ==========
-k.createElement = function(obj) {
+kit.createElement = function(obj) {
 	if (!obj || !obj.tagName) {
 		throw { message : "Invalid argument" };
 	}
@@ -662,7 +662,7 @@ k.createElement = function(obj) {
 
 	return el;
 };
-// var el = k.createElement({
+// var el = kit.createElement({
 // 	tagName: 'div',
 // 	id: 'foo',
 // 	className: 'foo',
@@ -675,19 +675,19 @@ k.createElement = function(obj) {
 // 	}]
 // });
 
-k.prototype.clone = function () {
+kit.prototype.clone = function () {
 	return this.forEach(function (el) {
 		el.cloneNode(true);
 	});
 };
 
-k.prototype.remove = function () {
+kit.prototype.remove = function () {
 	return this.forEach(function (el) {
 		return el.parentNode.removeChild(el);
 	});
 };
 
-k.prototype.append = function(data) {
+kit.prototype.append = function(data) {
 	if (typeof data.nodeType !== "undefined" && data.nodeType === 1) {
 		return this.forEach(function (el) {
 			el.appendChild(data);
@@ -705,7 +705,7 @@ k.prototype.append = function(data) {
 	}
 };
 
-k.prototype.prepend = function(data) {
+kit.prototype.prepend = function(data) {
 	if (typeof data.nodeType !== "undefined" && data.nodeType === 1) {
 		return this.forEach(function (el) {
 			el.insertBefore(data, el.firstChild);
@@ -718,20 +718,20 @@ k.prototype.prepend = function(data) {
 	}
 };
 
-k.prototype.before = function (htmlString) {
+kit.prototype.before = function (htmlString) {
 	return this.forEach(function (el) {
 		el.insertAdjacentHTML('beforebegin', htmlString);
 	});
 };
 
-k.prototype.after = function (htmlString) {
+kit.prototype.after = function (htmlString) {
 	return this.forEach(function (el) {
 		el.insertAdjacentHTML('afterend', htmlString);
 	});
 };
 
 // ========== GET ELEMENT SIZE ==========
-k.prototype.outerWidth = function () {
+kit.prototype.outerWidth = function () {
 	return this.mapOne(function (el) {
 		var box = el.getBoundingClientRect();
 		var ow = box.width || (box.right - box.left);
@@ -739,7 +739,7 @@ k.prototype.outerWidth = function () {
 	});
 };
 
-k.prototype.outerHeight = function () {
+kit.prototype.outerHeight = function () {
 	return this.mapOne(function (el) {
 		var box = el.getBoundingClientRect();
 		var oh = box.height || (box.bottom - box.top);
@@ -747,7 +747,7 @@ k.prototype.outerHeight = function () {
 	});
 };
 
-k.prototype.getTop = function () {
+kit.prototype.getTop = function () {
 	return this.mapOne(function (el) {
 		var actualTop = el.offsetTop, current = el.offsetParent;
 		while (current !== null){
@@ -758,7 +758,7 @@ k.prototype.getTop = function () {
 	});
 };
 
-k.prototype.getLeft = function () {
+kit.prototype.getLeft = function () {
 	return this.mapOne(function (el) {
 		var actualLeft = el.offsetLeft, current = el.offsetParent;
 		while (current !== null){
@@ -769,7 +769,7 @@ k.prototype.getLeft = function () {
 	});
 };
 
-k.prototype.offset = function () {
+kit.prototype.offset = function () {
 	return this.mapOne(function (el) {
 		var rect = el.getBoundingClientRect();
 		var offset = {
@@ -781,7 +781,7 @@ k.prototype.offset = function () {
 };
 
 // ========== GET WINDOW SIZE ==========
-k.win = {
+kit.win = {
 	W: function  () {
 		var d = document, w = window,
 		winW = w.innerWidth || d.documentElement.clientWidth || d.body.clientWidth;

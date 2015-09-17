@@ -1,8 +1,8 @@
 // AUTO HEIGHT GALLERY
 function autoheightGallery (selector) {
-  if (k(selector).length > 0) {
-    var outer = k(selector).find('.outer'),
-        inner = k(selector).find('.inner');
+  if (kit(selector).length > 0) {
+    var outer = kit(selector).find('.outer'),
+        inner = kit(selector).find('.inner');
 
 
     // autoheight-gallery-core

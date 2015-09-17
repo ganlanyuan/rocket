@@ -8,6 +8,7 @@
 // @codekit-prepend "base/core.js"
 
 // *** components ***
+// @codekit-prepend "components/scroll-direction.js"
 // @codekit-prepend "components/ie-placeholder.js"
 // @codekit-prepend "components/reach.js"
 // @codekit-prepend "components/scrollTo.js"

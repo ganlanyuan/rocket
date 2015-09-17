@@ -70,7 +70,7 @@ function keyDown (fn) {
 function checkKeyDown (code, callback) {
   function checkKey(e) {
       e = e || window.event;
-      if (e.keyCode == code) {
+      if (e.keyCode === code) {
         callback();
       }
   }
@@ -80,17 +80,3 @@ function checkKeyDown (code, callback) {
 // function alertThis () {
 //   alert('left arrow');
 // }
-
-var lastScrollTop = 0,
-    scrollDirection;
-winScroll(function() {
-  st = k.win.ST();
-  if(st < lastScrollTop) {
-    scrollDirection = 'up';
-  } else {
-    scrollDirection = 'down';
-  }
-  lastScrollTop = st;
-
-  return scrollDirection;
-});

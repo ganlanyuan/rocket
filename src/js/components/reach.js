@@ -1,7 +1,7 @@
-k.prototype.reach = function (edge,distance) {
-  var winH = k.win.H(),
+kit.prototype.reach = function (edge,distance) {
+  var winH = kit.win.H(),
         target,
-        elTop = k(this[0]).offset().top;
+        elTop = kit(this[0]).offset().top;
     switch (edge) {
       case 'top':
         target = distance;
@@ -35,11 +35,11 @@ k.prototype.reach = function (edge,distance) {
 // </ul>
 
 // window.onscroll = function () {
-//   k('.target li').forEach(function (el) {
-//     if (k(el).reach('middle',0)) {
-//       k('.content li').eq(k.index(k('.target li'), el)).css('color', 'red');
+//   kit('.target li').forEach(function (el) {
+//     if (kit(el).reach('middle',0)) {
+//       kit('.content li').eq(k.index(kit('.target li'), el)).css('color', 'red');
 //     } else {
-//       k('.content li').eq(k.index(k('.target li'), el)).css('color', 'black');
+//       kit('.content li').eq(k.index(kit('.target li'), el)).css('color', 'black');
 //     }
 //   })
 // };

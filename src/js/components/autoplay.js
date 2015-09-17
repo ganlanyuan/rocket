@@ -6,14 +6,14 @@ var sliderAutoplay = function (selector, timeout, items, hoverPause) {
   function sliderAutoplayTimer () {
     var radiosSelectors = selector + ' > [type="radio"]',
         checkboxSelector = selector + ' > [type="checkbox"]',
-        radios = k(radiosSelectors),
+        radios = kit(radiosSelectors),
         len = typeof items !== 'undefined' ? items : radios.length,
         checkedIndex;
 
     // check radios
     if (len > 0) {
       // autoplay input is checked
-      if (k(checkboxSelector)[0].checked) {
+      if (kit(checkboxSelector)[0].checked) {
         for (var i = 0; i < len; i++) {
           if (radios.eq(i)[0].checked) {
             checkedIndex = i;
@@ -33,16 +33,16 @@ var sliderAutoplay = function (selector, timeout, items, hoverPause) {
     }
   }
 
-  if (k(selector).length > 0) {
+  if (kit(selector).length > 0) {
     // setInterval
     var autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
 
     if (hoverPause) {
       // clearInterval
-      k(selector).mouseover(function() {
+      kit(selector).mouseover(function() {
         clearInterval(autoPlayer);
       });
-      k(selector).mouseout(function() {
+      kit(selector).mouseout(function() {
         autoPlayer = 0;
         autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
       });

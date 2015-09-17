@@ -32,7 +32,7 @@ function animate(el, attr, from, to, duration){
 // };
 
 // ready(function () {
-//   k('button').click(function() {
-//     animate(k('.target')[0], 'height', k('.target').outerHeight(), 50, 500);
+//   kit('button').click(function() {
+//     animate(kit('.target')[0], 'height', kit('.target').outerHeight(), 50, 500);
 //   });
 // })

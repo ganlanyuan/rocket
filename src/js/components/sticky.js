@@ -2,18 +2,18 @@
 // sticky('.sticky', '.wrapper', 20);
 
 var sticky = function(sticky, stickyP, stkT) {
-	var STKMB = getPxValue(k(sticky).getCurrentStyle('marginBottom'));
+	var STKMB = getPxValue(kit(sticky).getCurrentStyle('marginBottom'));
 
 	var stickyCore = function () {
-		var stk = k(sticky),
-		    parent = k(stickyP),
+		var stk = kit(sticky),
+		    parent = kit(stickyP),
 				T1,
 				T2,
 				B1,
 				B2;
 
 		stk.css('width', 'auto');
-		var winH = k.win.H(),
+		var winH = kit.win.H(),
 		    stkOT = stk.getTop(),
 				stkH = stk.outerHeight(),
 				stkW = stk.outerWidth(),
@@ -23,9 +23,9 @@ var sticky = function(sticky, stickyP, stkT) {
 				parentH = parent.outerHeight();
 
 		winScroll(function() {
-			(typeof stkT === 'number') ? stkT = stkT: stkT = k(stkT).outerHeight();
+			(typeof stkT === 'number') ? stkT = stkT: stkT = kit(stkT).outerHeight();
 
-			var winST = k.win.ST();
+			var winST = kit.win.ST();
 
 			// window shorter than sticky
 			if ((stkH + stkT) > winH) {

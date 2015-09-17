@@ -1,7 +1,7 @@
 // ie placeholder
 function iePlaceholder () {
-  k('.lt-ie10 [placeholder]').forEach(function (el) {
-    var input = k(el),
+  kit('.lt-ie10 [placeholder]').forEach(function (el) {
+    var input = kit(el),
         text = el.getAttribute('placeholder');
 
     if (text) { input.attr('value', text); }
