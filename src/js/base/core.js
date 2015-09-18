@@ -3,7 +3,7 @@
 // hide show fadeIn remove 
 // text html attr css addClass removeClass toggleClass hasClass 
 // outerWidth outerHeight getTop getLeft offset(left top)
-// before after append prepend
+// append prepend
 
 // KIT START
 // DOM MANIPULATION
@@ -690,17 +690,13 @@ kit.prototype.remove = function () {
 kit.prototype.append = function(data) {
 	if (typeof data.nodeType !== "undefined" && data.nodeType === 1) {
 		return this.forEach(function (el) {
+			var from = data.parentNode;
 			el.appendChild(data);
+			redrawElement(from); // fix IE8- overlapping when using insertBefore
 		});
-	// } else if (data instanceof k) {
-	// 	return this.forEach(function (el) {
-	// 		el.appendChild(data);
-	// 	});
-		// this.el.appendChild(data.el);
 	} else if (typeof data === "string") {
 		return this.forEach(function (el) {
-			var html = el.innerHTML;
-			el.innerHTML = html + data;
+			el.insertAdjacentHTML('afterend', data);
 		});
 	}
 };
@@ -708,26 +704,15 @@ kit.prototype.append = function(data) {
 kit.prototype.prepend = function(data) {
 	if (typeof data.nodeType !== "undefined" && data.nodeType === 1) {
 		return this.forEach(function (el) {
+			var from = data.parentNode;
 			el.insertBefore(data, el.firstChild);
+			redrawElement(from); // fix IE8- overlapping when using insertBefore
 		});
 	} else if (typeof data === "string") {
 		return this.forEach(function (el) {
-			var html = el.innerHTML;
-			el.innerHTML = data + html;
+			el.insertAdjacentHTML('beforebegin', data);
 		});
 	}
-};
-
-kit.prototype.before = function (htmlString) {
-	return this.forEach(function (el) {
-		el.insertAdjacentHTML('beforebegin', htmlString);
-	});
-};
-
-kit.prototype.after = function (htmlString) {
-	return this.forEach(function (el) {
-		el.insertAdjacentHTML('afterend', htmlString);
-	});
 };
 
 // ========== GET ELEMENT SIZE ==========

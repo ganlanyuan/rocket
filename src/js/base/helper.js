@@ -80,3 +80,10 @@ function checkKeyDown (code, callback) {
 // function alertThis () {
 //   alert('left arrow');
 // }
+
+// redrawElement: fix IE8- overlapping when using insertBefore
+function redrawElement(e) {
+  if (/MSIE (\d+\.\d+);/.test(navigator.userAgent) && new Number(RegExp.$1) <= 8) {
+    e.innerHTML = e.innerHTML;
+  }
+}

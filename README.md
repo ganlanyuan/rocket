@@ -1022,8 +1022,8 @@ ready(function () {
 
 #### Dom methods
 ```` javascript
-k('.header').parent().addClass('newclass');
-k('.button').siblings('p').css({
+kit('.header').parent().addClass('newclass');
+kit('.button').siblings('p').css({
   'color': 'red',
   'line-height': '1.5'
 });
@@ -1031,21 +1031,21 @@ k('.button').siblings('p').css({
 
 #### Event
 ```` javascript
-k('.icon-menu').click(function() {
-  k(this).parent().toggleClass('active');
+kit('.icon-menu').click(function() {
+  kit(this).parent().toggleClass('active');
 });
 
-k('.news').on('mouseover', function() {
-  k(this).css('background-color', 'blue');
+kit('.news').on('mouseover', function() {
+  kit(this).css('background-color', 'blue');
 });
 ````
 
 #### forEach
 ```` javascript
-k('.site-nav a').forEach(function (el) {
+kit('.site-nav a').forEach(function (el) {
   el.onclick = function () {
-    var targetId = k(this).attr('href');
-        targetPosition = k(targetId).getTop();
+    var targetId = kit(this).attr('href');
+        targetPosition = kit(targetId).getTop();
     scrollTo(targetPosition, 400);
     return false;
   }
@@ -1055,13 +1055,13 @@ k('.site-nav a').forEach(function (el) {
 #### Reach
 `reach` is a function to check if target element reach the edge of browser.  
 ```` javascript
-if (k(el).reach('middle',0)) {
+if (kit(el).reach('middle',0)) {
   // if target element reach the middle of the browser, do something
 }
-if (k(el).reach('top',20)) {
+if (kit(el).reach('top',20)) {
   // if target element reach the point which is under the top of the browser 20px, do something
 }
-if (k(el).reach('bottom',0)) {
+if (kit(el).reach('bottom',0)) {
   // if target element reach the bottom of the browser, do something
 }
 ````
@@ -1071,7 +1071,7 @@ Scroll to some point in a given period of time.
 ```` javascript
 scrollTo (to,duration);
 
-k('.icon-menu').click(function() {
+kit('.icon-menu').click(function() {
   scrollTo (0,200); // scroll to top in 200ms
 });
 ````
@@ -1082,14 +1082,14 @@ Increase numbers in given period of time.
 numIncrease(element, from, to, duration);
 
 document.onload = function  () {
-  numIncrease(k('.follows'), 0, 200000, 400);
+  numIncrease(kit('.follows'), 0, 200000, 400);
 };
 ````
 
 #### animate
 ```` javascript
 animate(el, attr, from, to, duration);
-animate(k('.target'), 'left', 0, 20, 400);
+animate(kit('.target'), 'left', 0, 20, 400);
 ````
 
 #### equalizer
