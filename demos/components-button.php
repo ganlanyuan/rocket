@@ -23,18 +23,22 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.normal { @include button('1em 2em' #46A736); }
-.radius { @include button('1em 2em' #FF851B 0.4em); }
-.round { @include button('1em 2em' #2C91FF round); }
-.highlight { @include button('1em 2em' #823AA0 5px highlight); }
-.simple { @include button('1em 2em' #823AA0 5px simple); }
-.slide { @include button('1em 2em' #823AA0 5px slide); }
-.ripple { @include button('1em 2em' #823AA0 5px ripple); }
-.veil { @include button('1em 2em' #823AA0 5px veil); }
-.cut { @include button('1em 2em' #823AA0 5px cut); }
-.push { @include button('1em 2em' #823AA0 5px push customize); }
-.bubble { @include button('1em 2em' #823AA0 5px 0.6s bubble); }
-.line-drawing { @include button('1em 2em' #823AA0 line-drawing); }
+ .normal { @include button($padding #46A736); }
+.radius { @include button($padding #FF851B 0.4em); }
+.round { @include button($padding #B61EFF round); }
+.highlight { @include button($padding $color 5px highlight); }
+.simple { @include button($padding $color 5px simple); }
+.slide { @include button($padding $color 5px slide); }
+.ripple { @include button($padding $color 5px ripple); }
+.veil { @include button($padding $color 5px veil); }
+.cut { @include button($padding $color 5px cut); }
+.push { @include button($padding $color 5px push customize); }
+.bubble { @include button($padding $color 5px bubble); }
+.shake { 
+  @include button($padding $color 5px 0.4s); 
+  &:hover { @include shake(); }
+}
+.line-drawing { @include button($padding $color line-drawing); }
       </code></pre>
     </div>
     

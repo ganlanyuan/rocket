@@ -337,15 +337,6 @@
       }
     } 
   }
-
-  @if $hover == 'shake' {
-    @include keyframes(button-shake) {
-      0%, 100% { transform: translateX(0);}
-      16.6%, 50%, 83.3% { transform: translateX(-0.6em);}
-      33.3%, 66.6% { transform: translateX(0.6em);}
-    }
-    &:hover { @include animation(button-shake $duration 1); }
-  }
 }
 
 @mixin button-pos-r (){
@@ -357,4 +348,17 @@
   content: '';
   position: absolute;
   z-index: -1;
+}
+
+@mixin shake($key: false){
+  $duration: 0.3s;
+  @if $key {
+    $duration: $key;
+  }
+  @include keyframes(button-shake) {
+    0%, 100% { transform: translateX(0);}
+    16.6%, 50%, 83.3% { transform: translateX(-0.6em);}
+    33.3%, 66.6% { transform: translateX(0.6em);}
+  }
+  @include animation(button-shake $duration 1); 
 }

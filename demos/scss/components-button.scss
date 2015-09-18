@@ -25,7 +25,10 @@ $padding: '1em 2em';
   .cut { @include button($padding $color 5px cut); }
   .push { @include button($padding $color 5px push customize); }
   .bubble { @include button($padding $color 5px bubble); }
-  .shake { @include button($padding $color 5px shake 0.4s); }
+  .shake { 
+    @include button($padding $color 5px 0.4s); 
+    &:hover { @include shake(); }
+  }
   .line-drawing { @include button($padding $color line-drawing); }
 }
 

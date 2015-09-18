@@ -693,6 +693,11 @@ pre[class*="language-"] {
   color: #fff;
 }
 
+.example-button .shake:hover {
+  -webkit-animation: button-shake 0.3s 1;
+  animation: button-shake 0.3s 1;
+}
+
 @-webkit-keyframes button-shake {
   0%, 100% {
     -webkit-transform: translateX(0);
@@ -721,11 +726,6 @@ pre[class*="language-"] {
     -webkit-transform: translateX(0.6em);
             transform: translateX(0.6em);
   }
-}
-
-.example-button .shake:hover {
-  -webkit-animation: button-shake 0.4s 1;
-  animation: button-shake 0.4s 1;
 }
 
 .example-button .line-drawing {
