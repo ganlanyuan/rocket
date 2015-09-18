@@ -1,11 +1,10 @@
 @import 'demo-base';
 
 // *** validation: validation *** //
-
-#form1 { @include validation(default); }
+#form1 { @include validation(shake default); }
 #form2 { @include validation(fade-in right default); }
 #form3 { @include validation(fade-in bottom default); }
-#form4 { @include validation(slide-in right default); }
+#form4 { @include validation(slide-in top default); }
 .validation-wrap {
   @include bp(min 600) {
     @include gallery(2);
@@ -44,7 +43,7 @@
     background-color: #3277FF;
   }
   .valid input:not([type="submit"]) { border-color: #5CC41B; }
-  .invalid input:not([type="submit"]) { border-color: #B50015; }
+  .error input:not([type="submit"]) { border-color: #B50015; }
   .required input:not([type="submit"]) { border-color: #B65C16; }
   .optional input:not([type="submit"]) { border-color: #1EA2B7; }
   [data-info] {
