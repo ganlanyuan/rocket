@@ -19,12 +19,13 @@
   <meta name="MobileOptimized" content="320">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- css -->
   <link rel="stylesheet" href="css/test.css">
-  <script src="js/index.min.js"></script>
-  <script src="js/prefixfree.js"></script>
-  <script src="js/conic-gradient.js"></script>
+  <script src="../dist/kit.min.js"></script>
+  <!-- <script src="js/prefixfree.js"></script> -->
+  <!-- <script src="js/conic-gradient.js"></script> -->
 </head>
 <body>
 
@@ -51,39 +52,8 @@
 </div>
 <script>
   ready(function () {
-    // Array.prototype.last = function() {
-    //   return this[this.length-1];
-    // }
-
-    var priorityNav = function (navClass, buttonText) {
-      var nav = kit(navClass);
-      nav.find('ul').addClass('visible-links');
-      nav.prepend('<button class="js-nav-toggle" data-count="">' + buttonText + '</button>').append('<ul class="hidden-links"><li>abc</li></ul>');
-
-      // alert(breakpoints[breakpoints.length-1])
-      var vlinks = kit(navClass + '> .visible-links > li');
-      var breakpoints = [kit(vlinks[0]).outerWidth()];
-      for (var i = 1; i < vlinks.length; i++) {
-        var itemWidth = breakpoints[breakpoints.length-1] + kit(vlinks[i]).outerWidth();
-        breakpoints.push(itemWidth);
-      };
-      console.log(breakpoints);
-
-      var checkSpace = function () {
-        var nav = kit(navClass);
-        var btn = kit(navClass + '> .js-nav-toggle');
-        var vlinks = kit(navClass + '> .visible-links');
-        var availableSpace = vlinks.outerWidth();
-        // var availableSpace = nav.outerWidth() - btn.outerWidth();
-        if (true) {};
-        // console.log(availableSpace);
-      };
-
-      winLoad(checkSpace());
-      winResize(checkSpace());
-    };
     priorityNav('.nav', 'more');
-  })
+  });
 </script>
 </body>
 </html>

@@ -20,3 +20,4 @@
 // @codekit-prepend "components/sticky.js"
 // @codekit-prepend "components/equalizer.js"
 // @codekit-prepend "components/validation-helper.js"
+// @codekit-prepend "components/priority-nav.js"

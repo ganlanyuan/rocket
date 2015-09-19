@@ -35,7 +35,7 @@ var sliderAutoplay = function (selector, timeout, items, hoverPause) {
 
   if (kit(selector).length > 0) {
     // setInterval
-    var autoPlayer = setInterval(function(){ sliderAutoplayTimer() }, timeout);
+    var autoPlayer = setInterval(function(){ sliderAutoplayTimer(); }, timeout);
 
     if (hoverPause) {
       // clearInterval
