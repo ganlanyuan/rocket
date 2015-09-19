@@ -55,56 +55,7 @@ var priorityNav = function (navClass, buttonText) {
     }
 
   }
-
-  // var vlink = kit(navClass + '> .visible-links > li');
-  // var breakpoints = [kit(vlink[0]).outerWidth()];
-  // for (var i = 1; i < vlink.length; i++) {
-  //   var itemWidth = breakpoints[breakpoints.length - 1] + kit(vlink[i]).outerWidth();
-  //   breakpoints.push(itemWidth);
-  // };
-
-  // function checkSpace() {
-  //   var nav = kit(navClass);
-  //   var btn = kit(navClass + '> .js-nav-toggle');
-  //   var vlink = kit(navClass + '> .visible-links');
-  //   var vlink = kit(navClass + '> .visible-links > li');
-  //   var hlink = kit(navClass + '> .hidden-links > li');
-  //   var hlink = kit(navClass + '> .hidden-links');
-
-    
-  //   var availableSpace = nav.outerWidth() - btn.outerWidth();
-  //   if (availableSpace > breakpoints[breakpoints.length - 1]) {
-  //     var a = 0;
-  //     var h = hlink.length;
-  //     while (a < h) {
-  //       vlink.append(hlink[a]);
-  //       a++;
-  //     }
-  //     btn.addClass('is-hidden');
-  //   } else {
-  //     var a;
-  //     for (var i = 0; i < breakpoints.length; i++) {
-  //       if (availableSpace > breakpoints[i] && availableSpace <= breakpoints[i + 1]) {
-  //         a = i + 1;
-  //       }
-  //     };
-  //     var b = kit(navClass + '> .visible-links > li').length;
-  //     if (b > a) {
-  //       while (b > a) {
-  //         hlink.prepend(vlink.eq(b - 1)[0]);
-  //         b--;
-  //       }
-  //     } else {
-  //       console.log(b + ' | ' + a);
-  //       while (b < a) {
-  //         vlink.append(hlink.first()[0]);
-  //         b++;
-  //       }
-  //     }
-  //     btn.removeClass('is-hidden');
-  //   }
-  // }
-
+  
   winLoad(function () {
     updateNav();
   });
