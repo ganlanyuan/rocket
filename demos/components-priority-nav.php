@@ -7,7 +7,7 @@
       <h2 id=""><span>components: </span>Priority-nav</h2>
       <div class="example">
         <nav class="nav">
-         <ul>
+         <ul class="links">
            <li>Entertainment</li>
            <li>Sports</li>
            <li>Business</li>
@@ -58,18 +58,12 @@
       background-color: #FFB822;
     }
   }
-  li {
-    padding: 10px 13px;
+  li { padding: 10px 13px; }
+  .links > li {
+    border-right: 1px solid #2563C5;
+    &:last-child { border-right-width: 0; }
   }
-  .links {
-    > li {
-      border-right: 1px solid #2563C5;
-      &:last-child { border-right-width: 0; }
-    }
-  }
-  .hidden-links {
-    background-color: #333;
-  }
+  .hidden-links { background-color: #333; }
 }
       </code></pre>
       <pre><code class="language-javascript">
