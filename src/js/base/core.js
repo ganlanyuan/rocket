@@ -624,8 +624,8 @@ kit.prototype.toggleClass = function(value) {
 };
 
 kit.prototype.hasClass = function(value) {
-	return this.forEach(function (el) {
-		kit.hasClass(el, value);
+	return this.mapOne(function (el) {
+		return kit.hasClass(el, value);
 	});
 };
 
@@ -690,9 +690,9 @@ kit.prototype.remove = function () {
 kit.prototype.append = function(data) {
 	if (typeof data.nodeType !== "undefined" && data.nodeType === 1) {
 		return this.forEach(function (el) {
-			var from = data.parentNode;
+			// var from = data.parentNode;
 			el.appendChild(data);
-			redrawElement(from); // fix IE8- overlapping when using insertBefore
+			// redrawElement(from); // fix IE8- overlapping when using insertBefore
 		});
 	} else if (typeof data === "string") {
 		return this.forEach(function (el) {
@@ -704,9 +704,9 @@ kit.prototype.append = function(data) {
 kit.prototype.prepend = function(data) {
 	if (typeof data.nodeType !== "undefined" && data.nodeType === 1) {
 		return this.forEach(function (el) {
-			var from = data.parentNode;
+			// var from = data.parentNode;
 			el.insertBefore(data, el.firstChild);
-			redrawElement(from); // fix IE8- overlapping when using insertBefore
+			// redrawElement(from); // fix IE8- overlapping when using insertBefore
 		});
 	} else if (typeof data === "string") {
 		return this.forEach(function (el) {

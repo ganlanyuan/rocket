@@ -32,6 +32,7 @@
   color: #fff;
   font-size: 14px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  li { padding: 10px 13px; }
   button {
     padding: 10px;
     border-width: 0;
@@ -58,17 +59,12 @@
       background-color: #FFB822;
     }
   }
-  li { padding: 10px 13px; }
-  .links > li {
-    border-right: 1px solid #2563C5;
-    &:last-child { border-right-width: 0; }
-  }
   .hidden-links { background-color: #333; }
 }
       </code></pre>
       <pre><code class="language-javascript">
 ready(function () {
-  priorityNav('.nav', 'more');
+  priorityNav('.nav', 'more', 600);
 });
       </code></pre>
     </div>
@@ -79,7 +75,7 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    priorityNav('.nav', 'more');
+    priorityNav('.nav', 'more', 600);
   });
 </script>
 </body>

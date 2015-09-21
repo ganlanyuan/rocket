@@ -1,6 +1,8 @@
 // priorityNav
-var priorityNav = function (navClass, buttonText) {
+var priorityNav = function (navClass, buttonText, restore) {
   var nav = kit(navClass);
+  var res = typeof restore !== 'undefined' ? restore : 0;
+  // var dis = typeof distory !== 'undefined' ? distory : 0;
   nav.find('ul').addClass('visible-links');
   nav.prepend('<button class="js-nav-toggle is-hidden" data-count="">' + buttonText + '</button>').append('<ul class="hidden-links is-hidden"></ul>');
 
@@ -12,7 +14,7 @@ var priorityNav = function (navClass, buttonText) {
   var breaks = [];
 
   function updateNav() {
-    var availableSpace = nav.outerWidth() - btn.outerWidth();
+    var availableSpace = btn.hasClass('is-hidden') ? nav.outerWidth() : nav.outerWidth() - btn.outerWidth();
 
     // The visible list is overflowing the nav
     if(vlink.outerWidth() > availableSpace) {
@@ -55,12 +57,45 @@ var priorityNav = function (navClass, buttonText) {
     }
 
   }
+
+  function checkBP() {
+    var ww = kit.win.W();
+    if (res > 0) {
+      if (ww >= res) {
+        updateNav();
+      } else {
+        var hlinks = kit(navClass + '> .hidden-links > li');
+        for (var i = 0; i < hlinks.length; i++) {
+          vlink.append(hlinks[i]);
+        };
+        breaks = [];
+        btn.addClass('is-hidden').attr("data-count", breaks.length);
+      }
+    // } else if (dis > 0) {
+    //   if (ww >= dis) {
+    //     updateNav();
+    //   } else {
+    //     var vlinks = kit(navClass + '> .visible-links > li');
+    //     var hlinks = kit(navClass + '> .hidden-links > li');
+    //     var a = vlinks.length;
+    //     while (a > 0) {
+    //       hlink.prepend(vlinks.last()[0]);
+    //       a--;
+    //     }
+    //     breaks = [];
+    //     btn.removeClass('is-hidden');
+    //     btn.attr("data-count", hlinks.length);
+    //   }
+    } else {
+      updateNav();
+    }
+  }
   
   winLoad(function () {
-    updateNav();
+    checkBP();
   });
   winResize(function () {
-    updateNav();
+    checkBP();
   });
 
   kit(navClass + '> .js-nav-toggle').click(function() {
