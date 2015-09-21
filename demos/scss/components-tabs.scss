@@ -4,7 +4,8 @@
 
 .tabs {
   @include tabs-active(3) {
-    background-color: #FB994C;
+    color: #000;
+    background-color: #e9e9e9;
   }
   max-width: 800px;
   margin: 0 auto;
@@ -14,7 +15,7 @@
     > label {
       display: inline-block;
       padding: 8px 12px;
-      background-color: #408BE1;
+      background-color: #2d2d2d;
       letter-spacing: 0;
       color: #fff;
       text-transform: capitalize;
