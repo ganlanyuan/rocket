@@ -23,7 +23,7 @@
          </ul>
         </nav>
       </div>
-      <pre><code class="language-scss">
+      <pre style="max-height: 300px; margin-top: 30px;"><code class="language-scss">
 .nav {
   @include priority-nav();
 

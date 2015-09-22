@@ -2,23 +2,25 @@
 
 // *** components: switch *** //
 
-
-.switch {
-  margin: 20px auto;
+.example-switch {
   text-align: center;
-  &.one {
-    @include switch(radius);
+  section {
+    margin: 50px 0;
   }
-  &.two {
-    @include switch(round 60px #C06EE1);
-  }
+}
+.switch {
+  margin: 15px auto;
+  text-align: center;
 
   &-group {
     margin-top: 50px;
     text-align: center;
     .switch-g {
       @include switch(radius 25px #CC412F);
-      margin: 20px auto;
     }
   }
 }
+.one { @include switch(radius); }
+.two { @include switch(round 50px #C06EE1); }
+.slider { @include switch(round slider 42px 27px #399DE1); }
+.text { @include switch(round text ("on" "off") 36px #399DE1); }

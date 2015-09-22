@@ -306,15 +306,28 @@ pre[class*="language-"] {
 }
 
 .push-toggle {
-  max-width: 400px;
-  margin: 10px auto;
+  max-width: 230px;
+  margin: 20px auto;
+  font-size: 14px;
 }
 
 .push-toggle label {
-  padding: 1em 1.5em;
-  background-image: -webkit-linear-gradient(top, #fff, #e1e1e1);
-  background-image: linear-gradient(to bottom, #fff, #e1e1e1);
+  padding: 0.9em 1.2em;
+  background-image: -webkit-linear-gradient(top, #fff, #F4F4F4 70%, #e1e1e1);
+  background-image: linear-gradient(to bottom, #fff, #F4F4F4 70%, #e1e1e1);
   border: 1px solid #ccc;
+  border-left-width: 0;
+}
+
+.push-toggle label:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-left-width: 1px;
+}
+
+.push-toggle label:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .lt-ie9 .push-toggle label {
@@ -340,8 +353,8 @@ pre[class*="language-"] {
 }
 
 .push-toggle input:checked + label {
-  background-image: -webkit-linear-gradient(top, #ebebeb, #fff);
-  background-image: linear-gradient(to bottom, #ebebeb, #fff);
+  background-image: -webkit-linear-gradient(top, #E8E8E8, #F1F1F1 20%, #fff);
+  background-image: linear-gradient(to bottom, #E8E8E8, #F1F1F1 20%, #fff);
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
 }
 
