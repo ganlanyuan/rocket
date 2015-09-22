@@ -36,14 +36,14 @@
               <ul>
                 <li><a href="">How It Works</a></li>
                 <li data-has-submenu>
-                  <label for="subnav' . $nav . '-1"><img src="images/arrow-right.png" alt=""></label>
+                  <label for="subnav' . $nav . '-1"><img src="images/arrow-r-w.png" alt=""></label>
                   <a href="">Compare</a>
                   <input type="checkbox" id="subnav' . $nav . '-1" class="hidden-checkbox">
                   <ul data-submenu>
                     <li><label for="subnav' . $nav . '-1" data-back>Back</label></li>
                     <li><a href="">compare mode 1</a></li>
                     <li data-has-submenu>
-                      <label for="subnav' . $nav . '-1-1"><img src="images/arrow-right.png" alt=""></label>
+                      <label for="subnav' . $nav . '-1-1"><img src="images/arrow-r-w.png" alt=""></label>
                       <a href="">compare mode 2</a>
                       <input type="checkbox" id="subnav' . $nav . '-1-1" class="hidden-checkbox">
                       <ul data-submenu>
@@ -58,7 +58,7 @@
                 </li>
                 <li><a href="">Technology</a></li>
                 <li data-has-submenu>
-                  <label for="subnav' . $nav . '-2"><img src="images/arrow-right.png" alt=""></label>
+                  <label for="subnav' . $nav . '-2"><img src="images/arrow-r-w.png" alt=""></label>
                   <a href="">Careers</a>
                   <input type="checkbox" id="subnav' . $nav . '-2" class="hidden-checkbox">
                   <ul data-submenu>
@@ -103,14 +103,14 @@
           <ul>
             <li><a href="">How It Works</a></li>
             <li data-has-submenu>
-              <label for="subnav' . $nav2 . '-1"><img src="images/arrow-right.png" alt=""></label>
+              <label for="subnav' . $nav2 . '-1"><img src="images/arrow-r-w.png" alt=""></label>
               <a href="">Compare</a>
               <input type="checkbox" id="subnav' . $nav2 . '-1" class="hidden-checkbox">
               <ul data-submenu>
                 <li><label for="subnav' . $nav2 . '-1" data-back>Back</label></li>
                 <li><a href="">compare mode 1</a></li>
                 <li data-has-submenu>
-                  <label for="subnav' . $nav2 . '-1-1"><img src="images/arrow-right.png" alt=""></label>
+                  <label for="subnav' . $nav2 . '-1-1"><img src="images/arrow-r-w.png" alt=""></label>
                   <a href="">compare mode 2</a>
                   <input type="checkbox" id="subnav' . $nav2 . '-1-1" class="hidden-checkbox">
                   <ul data-submenu>
@@ -125,7 +125,7 @@
             </li>
             <li><a href="">Technology</a></li>
             <li data-has-submenu>
-              <label for="subnav' . $nav2 . '-2"><img src="images/arrow-right.png" alt=""></label>
+              <label for="subnav' . $nav2 . '-2"><img src="images/arrow-r-w.png" alt=""></label>
               <a href="">Careers</a>
               <input type="checkbox" id="subnav' . $nav2 . '-2" class="hidden-checkbox">
               <ul data-submenu>

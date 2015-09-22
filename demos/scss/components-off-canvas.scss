@@ -11,7 +11,7 @@ $map: (
   medium: 40px, 
   null: 50px
 );
-.has-bg { background-color: #E97C06; }
+.has-bg { background-color: #000; }
 .btn {
   @include button(5px '10px 15px' #0F2332 highlight);
   font-size: 14px;
@@ -41,8 +41,7 @@ $map: (
   &:after { margin-bottom: 0; }
 }
 .nav {
-  padding: 15px 0;
-  background-color: #000;
+  background-color: #1975B8;
   a, label {
     font-size: 14px;
     padding: 12px 15px;
@@ -53,7 +52,7 @@ $map: (
   }
   a { color: #fff; }
   li:last-child > a { border-bottom-width: 0; }
-  [data-submenu] { background-color: #268BDB; }
+  [data-submenu] { background-color: #1975B8; }
 }
 .nav-mode {
   position: relative;
