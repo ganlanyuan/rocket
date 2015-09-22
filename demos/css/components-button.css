@@ -356,7 +356,8 @@ pre[class*="language-"] {
 }
 
 .example-button .highlight:hover {
-  background-color: #52a1db;
+  background-color: #52cfdb;
+  color: #000;
 }
 
 .example-button .simple {
@@ -393,9 +394,13 @@ pre[class*="language-"] {
   height: 100%;
   top: 0;
   left: -100%;
-  background-color: #52a1db;
+  background-color: #52cfdb;
   -webkit-transition: left 0.3s ease;
           transition: left 0.3s ease;
+}
+
+.example-button .slide:hover {
+  color: #000;
 }
 
 .example-button .slide:hover:before {
@@ -430,7 +435,7 @@ pre[class*="language-"] {
   margin-left: -5em;
   margin-top: -5em;
   border-radius: 50%;
-  background-color: #52a1db;
+  background-color: #52cfdb;
 }
 
 @-webkit-keyframes button-ripple {
@@ -539,7 +544,7 @@ pre[class*="language-"] {
   top: 0;
   width: 150%;
   height: 100%;
-  background-color: #52a1db;
+  background-color: #52cfdb;
   -webkit-transition: -webkit-transform 0.3s ease;
           transition: transform 0.3s ease;
 }
