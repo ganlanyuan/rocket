@@ -12,7 +12,6 @@ var sticky = function(sticky, stickyP, stkT) {
 				B1,
 				B2;
 
-		stk.css('width', 'auto');
 		var winH = kit.win.H(),
 		    stkOT = stk.getTop(),
 				stkH = stk.outerHeight(),
@@ -57,31 +56,31 @@ var sticky = function(sticky, stickyP, stkT) {
 				}
 			// window higher than sticky
 			} else {
-				T1 = winST + stkT + stkMT;
+				T1 = winST + stkT;
 				T2 = stkOT;
-				B1 = winST + stkT + stkH + stkMT + stkMB;
+				B1 = winST + stkT + stkMT + stkH + stkMB;
 				B2 = parentOT + parentH;
 				if (T1 > T2 && B1 <= B2 ) {
 					stk.css({
-						'position': 'fixed',
-						'top': stkT + 'px',
-						'bottom': 'auto',
-						'width': stkW + 'px',
+						'position': 'relative',
+						'top': T1 - T2 + 'px',
+						// 'bottom': 'auto',
+						// 'width': stkW + 'px',
 					});
 				} else if (B1 > B2){
-					parent.css('position', 'relative');
+					// parent.css('position', 'relative');
 					stk.css({
-						'position': 'absolute',
-						'top': 'auto',
-						'bottom': 0,
+						'position': 'relative',
+						'top': parentH - (stkMT + stkH + stkMB) - (stkOT - parentOT) + 'px',
+						// 'bottom': 0,
 					});
 				} else {
-					parent.css('position', 'static');
+					// parent.css('position', 'static');
 					stk.css({
 						'position': 'static',
 						'top': 'auto',
-						'bottom': 'auto',
-						'width': 'auto',
+						// 'bottom': 'auto',
+						// 'width': 'auto',
 					});
 				}
 			}

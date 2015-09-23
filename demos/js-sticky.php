@@ -31,7 +31,7 @@
             </div>
             <div>
               <div class="box"></div>
-              <div class="box three"></div>
+              <div class="box two"></div>
               <div class="sticky sticky-r1"></div>
               <!-- <div class="box"></div> -->
             </div>
@@ -70,11 +70,11 @@
 </div>
 <script>
   ready(function () {
-    sticky('.sticky-l1', '.parent-l1', 0);
-    sticky('.sticky-m1', '.parent-m1', 0);
-    sticky('.sticky-r1', '.parent-r1', 0);
-    sticky('.sticky-m2', '.parent-m2', 0);
-    sticky('.sticky-r2', '.parent-r2', 0);
+    sticky('.sticky-l1', '.parent-l1', 10);
+    sticky('.sticky-m1', '.parent-m1', 10);
+    sticky('.sticky-r1', '.parent-r1', 10);
+    sticky('.sticky-m2', '.parent-m2', 10);
+    sticky('.sticky-r2', '.parent-r2', 10);
   });
 </script>
 </body>
