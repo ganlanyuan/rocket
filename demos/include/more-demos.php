@@ -51,4 +51,21 @@
       }
     ?>
   </nav>
+  <h4>js</h4>
+  <nav class="demo-links">
+    <?php 
+      $addons = array('sticky'); 
+      $cur = '';
+
+      foreach ($addons as $addon) {
+        if ($pagename == 'js-' . $addon) {
+          $cur = 'class="current"';
+        } else {
+          $cur = '';
+        }
+        
+        echo '<a href="js-' . $addon . '.php"' . $cur . '>' . $addon . '</a>';
+      }
+    ?>
+  </nav>
 </div>
