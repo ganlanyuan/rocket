@@ -6,7 +6,7 @@
 .equalizer-2,
 {
   background-color: #f9f9f9;
-  // padding: 1%;
+  padding: 1%;
   outline: 1px dashed #f00;
 }
 
@@ -22,17 +22,18 @@
 // @include bp('min' 800) {
   .equalizer-1 {
     float: left;
-    width: 64%;
+    width: 62%;
     img {
       width: 100%;
     }
   }
   .equalizer-2 {
     float: right;
-    width: 34%;
+    width: 32%;
     li {
       @include clearfix();
       margin-bottom: 10px;
+      &:last-child { margin-bottom: 0; }
     }
     img {
       float: left;

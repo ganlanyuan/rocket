@@ -51,7 +51,7 @@
       }
     ?>
   </nav>
-  <h4>js</h4>
+  <h4>javascript</h4>
   <nav class="demo-links">
     <?php 
       $addons = array('sticky', 'equalizer'); 

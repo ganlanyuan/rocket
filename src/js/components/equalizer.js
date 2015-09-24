@@ -20,13 +20,22 @@ function equalizer(){
     }
   }
 
-  value = Math.max.apply(Math, heights) + 'px';
+  value = Math.max.apply(Math, heights);
 
   if (len === 1) {
     args.css('height', value);
   } else{
     for (var j = 0; j < args.length; j++) {
-      kit(args[j]).css('height', value);
+      var thisEle = kit(args[j]),
+          thisVal,
+          bt = getPxValue(thisEle.getCurrentStyle('borderTopWidth')),
+          bb = getPxValue(thisEle.getCurrentStyle('borderBottomWidth')),
+          pt = getPxValue(thisEle.getCurrentStyle('paddingTop')),
+          pb = getPxValue(thisEle.getCurrentStyle('paddingBottom'));
+          
+      thisVal = value - (bt + bb + pt + pb) + 'px';
+
+      thisEle.css('height', thisVal);
     }
   }
 }

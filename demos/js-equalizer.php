@@ -7,32 +7,28 @@
       <h2 id=""><span>js: </span>equalizer</h2>
       <div class="equalizer-grid">
         <div class="equalizer-1">
-          <div class="box">
-            <img src="http://placehold.it/500x300/aaa/aaa" alt="">
-            <p>Consectetur adipisicing elit. Saepe assumenda ipsa aperiam numquam facilis quod dolorum id illo temporibus eos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis architecto quia ipsam nam quo voluptas nostrum illo earum deserunt animi!</p>
-          </div>
+          <img src="http://placehold.it/500x300/aaa/aaa" alt="">
+          <p>Consectetur adipisicing elit. Saepe assumenda ipsa aperiam numquam facilis quod dolorum id illo temporibus eos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis architecto quia ipsam nam quo voluptas nostrum illo earum deserunt animi!</p>
         </div>
         <div class="equalizer-2">
-          <div class="box">
-            <ul>
-              <li>
-                <img src="http://placehold.it/100x70/aaa/aaa" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-              </li>
-              <li>
-                <img src="http://placehold.it/100x70/aaa/aaa" alt="">
-                <p>Excepturi, repellendus nobis praesentium quos perferendis inventore!</p>
-              </li>
-              <li>
-                <img src="http://placehold.it/100x70/aaa/aaa" alt="">
-                <p>Voluptatem quas nulla adipisci ullam cum modi.</p>
-              </li>
-              <li>
-                <img src="http://placehold.it/100x70/aaa/aaa" alt="">
-                <p>Fugiat, sit! Necessitatibus aperiam ipsam ratione fugiat.</p>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li>
+              <img src="http://placehold.it/100x70/aaa/aaa" alt="">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+            </li>
+            <li>
+              <img src="http://placehold.it/100x70/aaa/aaa" alt="">
+              <p>Excepturi, repellendus nobis praesentium quos perferendis inventore!</p>
+            </li>
+            <li>
+              <img src="http://placehold.it/100x70/aaa/aaa" alt="">
+              <p>Voluptatem quas nulla adipisci ullam cum modi.</p>
+            </li>
+            <li>
+              <img src="http://placehold.it/100x70/aaa/aaa" alt="">
+              <p>Fugiat, sit! Necessitatibus aperiam ipsam ratione fugiat.</p>
+            </li>
+          </ul>
         </div>
       </div>
       <pre><code class="language-javascript">
