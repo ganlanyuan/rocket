@@ -23,7 +23,7 @@
                 </div>
                 <div class="child">
                   <div class="sticky sticky-m1"></div>
-                  <!-- <div class="box"></div> -->
+                  <div class="box"></div>
                 </div>
               </div>
               <div class="box two"></div>
@@ -33,14 +33,14 @@
               <div class="box"></div>
               <div class="box two"></div>
               <div class="sticky sticky-r1"></div>
-              <!-- <div class="box"></div> -->
+              <div class="box"></div>
             </div>
           </div>
           <div class="inner-2 parent-m2">
             <div>
               <div class="box"></div>
               <div class="sticky sticky-m2"></div>
-              <!-- <div class="box two"></div> -->
+              <div class="box two"></div>
             </div>
             <div>
               <div class="box"></div>
@@ -52,7 +52,7 @@
                 <div class="child">
                   <div class="box"></div>
                   <div class="sticky sticky-r2"></div>
-                  <!-- <div class="box"></div> -->
+                  <div class="box"></div>
                 </div>
               </div>
               <div class="box two"></div>
