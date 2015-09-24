@@ -1,0 +1,42 @@
+@import 'demo-base';
+
+// *** js: equalizer *** //
+
+.equalizer-1,
+.equalizer-2,
+{
+  background-color: #f9f9f9;
+  // padding: 1%;
+  outline: 1px dashed #f00;
+}
+
+.equalizer-grid {
+  @include clearfix();
+  max-width: 900px;
+  margin: 30px auto;
+  p {
+    margin: 0;
+    color: #000;
+  }
+}
+// @include bp('min' 800) {
+  .equalizer-1 {
+    float: left;
+    width: 64%;
+    img {
+      width: 100%;
+    }
+  }
+  .equalizer-2 {
+    float: right;
+    width: 34%;
+    li {
+      @include clearfix();
+      margin-bottom: 10px;
+    }
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+// }
