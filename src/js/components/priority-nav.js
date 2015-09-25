@@ -1,5 +1,5 @@
 // priorityNav
-var priorityNav = function (navClass, buttonText, restore) {
+function priorityNav (navClass, buttonText, restore) {
   var nav = kit(navClass);
   var res = typeof restore !== 'undefined' ? restore : 0;
   // var dis = typeof distory !== 'undefined' ? distory : 0;

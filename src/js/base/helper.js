@@ -87,3 +87,34 @@ function redrawElement(e) {
     e.innerHTML = e.innerHTML;
   }
 }
+
+// extend
+function extend() {
+  var obj, name, copy,
+      target = arguments[0] || {},
+      i = 1,
+      length = arguments.length;
+
+  for (; i < length; i++) {
+    if ((obj = arguments[i]) != null) {
+      for (name in obj) {
+        copy = obj[name];
+
+        if (target === copy) { 
+          continue; 
+        } else if (copy !== undefined) {
+          target[name] = copy;
+        }
+      }
+    }
+  }
+
+  return target;
+}
+// function sticky (options) {
+//   options = extend({ 
+//     sticky: '.sticky',
+//     spacing: 0,
+//     stickTo: 'top',
+//   }, options || {});
+// }

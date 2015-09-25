@@ -74,31 +74,11 @@
       </div>
       <pre><code class="language-javascript">
 ready(function () {
-  sticky({
-    sticky: '.sticky-left-1', 
-    wrapper: '.wrapper-left-1', 
-    spacing: 10,
-  });
-  sticky({
-    sticky: '.sticky-middle-1', 
-    wrapper: '.wrapper-middle-1', 
-    spacing: 10,
-  });
-  sticky({
-    sticky: '.sticky-right-1', 
-    wrapper: '.wrapper-right-1', 
-    spacing: 10,
-  });
-  sticky({
-    sticky: '.sticky-middle-2', 
-    wrapper: '.wrapper-middle-2', 
-    spacing: 10,
-  });
-  sticky({
-    sticky: '.sticky-right-2', 
-    stickTo: 'bottom',
-    spacing: 10,
-  });
+  sticky('.sticky-left-1', '.wrapper-left-1', 10);
+  sticky('.sticky-middle-1', '.wrapper-middle-1', 10);
+  sticky('.sticky-right-1', '.wrapper-right-1', 10);
+  sticky('.sticky-middle-2', '.wrapper-middle-2', 10, 'bottom');
+  sticky('.sticky-right-2', false, 10, 'bottom');
 });
       </code></pre>
     </div>
@@ -109,32 +89,11 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    sticky({
-      sticky: '.sticky-left-1', 
-      wrapper: '.wrapper-left-1', 
-      spacing: 10,
-    });
-    sticky({
-      sticky: '.sticky-middle-1', 
-      wrapper: '.wrapper-middle-1', 
-      spacing: 10,
-    });
-    sticky({
-      sticky: '.sticky-right-1', 
-      wrapper: '.wrapper-right-1', 
-      spacing: 10,
-    });
-    sticky({
-      sticky: '.sticky-middle-2', 
-      wrapper: '.wrapper-middle-2', 
-      stickTo: 'bottom',
-      spacing: 10,
-    });
-    sticky({
-      sticky: '.sticky-right-2', 
-      stickTo: 'bottom',
-      spacing: 10,
-    });
+    sticky('.sticky-left-1', '.wrapper-left-1', 10);
+    sticky('.sticky-middle-1', '.wrapper-middle-1', 10);
+    sticky('.sticky-right-1', '.wrapper-right-1', 10);
+    sticky('.sticky-middle-2', '.wrapper-middle-2', 10, 'bottom');
+    sticky('.sticky-right-2', false, 10, 'bottom');
   });
 </script>
 </body>

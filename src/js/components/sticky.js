@@ -1,40 +1,11 @@
 // sticky('.sticky', '.wrapper', '.header');
 // sticky('.sticky', '.wrapper', 20);
 
-function extend() {
-  var obj, name, copy,
-      target = arguments[0] || {},
-      i = 1,
-      length = arguments.length;
+function sticky (sticky, stickyWrapper, stickyOffset, stickTo) {
 
-  for (; i < length; i++) {
-    if ((obj = arguments[i]) != null) {
-      for (name in obj) {
-        copy = obj[name];
-
-        if (target === copy) { 
-        	continue; 
-        } else if (copy !== undefined) {
-          target[name] = copy;
-        }
-      }
-    }
-  }
-
-  return target;
-}
-
-function sticky (options) {
-	options = extend({ 
-    sticky: '.sticky',
-    spacing: 0,
-    stickTo: 'top',
-  }, options || {});
-
-  var isolate = (options.wrapper) ? false : true,
-			stk = kit(options.sticky),
+  var isolate = (stickyWrapper) ? false : true,
+			stk = kit(sticky),
 			wrapper,
-	    spacing = options.spacing,
 			S1,
 			S2,
 			W1,
@@ -48,14 +19,13 @@ function sticky (options) {
 			wrapperPB,
 			wrapperBB;
 
-  if (!isolate) {
-    wrapper = kit(options.wrapper);
-  }
+  if (stickyWrapper) { wrapper = kit(stickyWrapper); }
+  if (!stickTo) { stickTo = 'top'; }
 
 	function getSizes () {
 		// isolate mode
 		if (isolate) {
-			if (options.stickTo === 'top') {
+			if (stickTo === 'top') {
 		    stkOT = stk.getTop();
 
 				return stkOT;
@@ -82,18 +52,19 @@ function sticky (options) {
 	};
 
 	function updateSticky() {
-		spacing = (typeof spacing === 'number') ? spacing: kit(spacing).outerHeight();
+		if (!stickyOffset) { stickyOffset = 0; }
+		offset = (typeof stickyOffset === 'number') ? stickyOffset : kit(stickyOffset).outerHeight();
 
 		var winST = kit.win.ST();
 
 		// isolate mode
 		if (isolate) {
-			if (options.stickTo === 'top') {
+			if (stickTo === 'top') {
 				S1 = winST;
-				S2 = stkOT - spacing;
+				S2 = stkOT - offset;
 			} else {
 				S1 = winST + winH;
-				S2 = stkOT + stkH + spacing;
+				S2 = stkOT + stkH + offset;
 			}
 
 			if (S1 > S2) {
@@ -110,20 +81,20 @@ function sticky (options) {
 		// inside wrapper
 		} else {
 			// higher sticky
-			if ((stkH + spacing) > winH) {
+			if ((stkH + offset) > winH) {
 				S1 = W1 = winST + winH;
-				S2 = stkOT + stkH + spacing;
-				W2 = wrapperOT + wrapperH - wrapperPB - wrapperBB + spacing;
+				S2 = stkOT + stkH + offset;
+				W2 = wrapperOT + wrapperH - wrapperPB - wrapperBB + offset;
 			} else {
-				if (options.stickTo === 'top') {
-					S1 = winST + spacing;
+				if (stickTo === 'top') {
+					S1 = winST + offset;
 					S2 = stkOT;
-					W1 = winST + spacing + stkH + wrapperPB + wrapperBB;
+					W1 = winST + offset + stkH + wrapperPB + wrapperBB;
 					W2 = wrapperOT + wrapperH;
 				} else {
-					S1 = winST + winH - spacing;
+					S1 = winST + winH - offset;
 					S2 = stkOT + stkH;
-					W1 = winST + winH - spacing;
+					W1 = winST + winH - offset;
 					W2 = wrapperOT + wrapperH;
 				}
 			}
