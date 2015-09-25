@@ -3,7 +3,7 @@
   <h4>layout</h4>
   <nav class="demo-links">
     <?php 
-      $layouts = array('grid', 'gallery', 'metro', 'liquid-2', 'liquid-3', 'center', 'justify');
+      $layouts = array('row', 'gallery', 'metro', 'liquid-2', 'liquid-3', 'center', 'justify');
       $cur = '';
 
       foreach ($layouts as $layout) {
@@ -20,7 +20,7 @@
   <h4>components</h4>
   <nav class="demo-links">
     <?php 
-      $components = array('button', 'charts', 'media-list', 'off-canvas', 'priority-nav', 'dropdown', 'tabs', 'switch', 'accordion', 'push-toggle', 'checkbox', 'tooltip', 'flex-video', 'validation', 'slider-carousel', 'slider-gallery'); 
+      $components = array('button', 'charts', 'media-list', 'off-canvas', 'priority-nav', 'dropdown', 'tabs', 'switch', 'accordion', 'push-toggle', 'checkbox', 'tooltip', 'flex-media', 'validation', 'slider-carousel', 'slider-gallery'); 
       $cur = '';
 
       foreach ($components as $component) {

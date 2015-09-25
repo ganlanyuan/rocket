@@ -1,64 +1,76 @@
 @charset "UTF-8";
-$font-path:"../../src/icon-font";
 @import "../../src/scss/rocket"; 
 ul, ol { margin: 0; padding: 0; }
 li { list-style: none; }
-img {
-  max-width: 100%;
-  height: auto;
-}
-body {
-  margin: 0;
-  padding: 0;
-}
+img { max-width: 100%; height: auto; }
+body { margin: 0; padding: 20px 0 0; }
 .container { @include container(1000px 20px); }
 
-// .box {
-//   width: 300px;
-//   height: 300px;
-//   background: conic-gradient(yellowgreen 40%, gold 0 70%, #f06 0);
-//   border-radius: 50%;
+
+.box {
+  min-height: 200px;
+  padding: 10px;
+  background-color: #eee;
+}
+
+.row {
+  @include row((2:2, 3:3, 5:1));
+  display: none;
+}
+
+.gallery {
+  @include gallery(3);
+  // @include bp('min' 800) { @include gallery(4); }
+  display: none;
+}
+
+.metro {
+  // @include metro();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .card {
+//   position: relative;
+//   width: 200px;
+//   height: 200px;
+//   &:hover { 
+//     .front { transform: perspective(400px) rotateY(180deg); }
+//     .back { transform: perspective(400px) rotateY(0deg); }
+//   }
 // }
-.container {
-  margin-top: 100px;
-}
-.card {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  &:hover { 
-    .front { transform: perspective(400px) rotateY(180deg); }
-    .back { transform: perspective(400px) rotateY(0deg); }
-  }
-}
-.chart {
-  height: 200px;
-  background-color: #51B6FF;
-  text-align: center;
-  color: #fff;
-  transition: transform 1s;
-  transform-origin: center;
-  backface-visibility: hidden;
-  border-radius: 5px;
-}
-.front { 
-  transform: perspective(400px) rotateY(0deg); 
-}
-.back { 
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  transform: perspective(400px) rotateY(-180deg); 
-}
-
-
-input {
-  width: 40px;
-  &:focus {
-    width: 200px;
-    box-shadow: none;
-    border-width: 0;
-  }
-}
+// .chart {
+//   height: 200px;
+//   background-color: #51B6FF;
+//   text-align: center;
+//   color: #fff;
+//   transition: transform 1s;
+//   transform-origin: center;
+//   backface-visibility: hidden;
+//   border-radius: 5px;
+// }
+// .front { 
+//   transform: perspective(400px) rotateY(0deg); 
+// }
+// .back { 
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   transform: perspective(400px) rotateY(-180deg); 
+// }

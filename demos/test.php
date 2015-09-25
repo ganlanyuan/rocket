@@ -20,9 +20,29 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+  
   <!-- css -->
+  <link href="https://fontastic.s3.amazonaws.com/MSJHPuJFXkve8cKEDAVMKT/icons.css" rel="stylesheet">
+  <link href="prism/prism.css" rel="stylesheet">
+  <link href="css/normalize.css" rel="stylesheet">
   <link rel="stylesheet" href="css/test.css">
+
+  <link <?php 
+    echo 'href="css/' . $pagename . '.css"';
+  ?> rel="stylesheet">
+
+  <!-- javascript -->
+  <!--[if (lt IE 9)]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="js/ie.min.js"></script>
+    
+    <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+    <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+    <script src="cross-domain/respond.proxy.js"></script> 
+  <![endif]-->
+
+  <script src="prism/prism.js"></script>
+  <script src="js/Modernizr.js"></script>
   <script src="../dist/kit.min.js"></script>
   <!-- <script src="js/prefixfree.js"></script> -->
   <!-- <script src="js/conic-gradient.js"></script> -->
@@ -30,12 +50,33 @@
 <body>
 
 <div class="container">
-  <input type="text" placeholder="test">
-  <!-- <div class="box"></div> -->
-  <!-- <div class="card">
-    <div class="chart front">front</div>
-    <div class="chart back">back</div>
-  </div> -->
+
+  <!-- row -->
+  <div class="row">
+    <div> <div class="box">1</div> </div>
+    <div> <div class="box">2</div> </div>
+    <div> <div class="box">3</div> </div>
+  </div>
+
+  <!-- gallery -->
+  <ul class="gallery">
+    <li> <div class="box">1</div> </li>
+    <li> <div class="box">2</div> </li>
+    <li> <div class="box">3</div> </li>
+    <li> <div class="box">4</div> </li>
+    <li> <div class="box">5</div> </li>
+    <li> <div class="box">6</div> </li>
+    <li> <div class="box">7</div> </li>
+    <li> <div class="box">8</div> </li>
+  </ul>
+
+  <!-- metro -->
 </div>
+
+
+<!-- <div class="card">
+  <div class="chart front">front</div>
+  <div class="chart back">back</div>
+</div> -->
 </body>
 </html>

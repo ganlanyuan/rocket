@@ -18,7 +18,7 @@ Rocket is a powerful SASS library to help web developers handle layout, color an
 
 Install with [Bower](http://bower.io/): 
 ```` bash
-$ bower install rocket
+$ bower install rocket#v3
 ````
 Install with [git](http://www.git-scm.com/):
 ```` bash
@@ -33,32 +33,41 @@ Rocket/
 |   |   |── row                  
 |   |   |── col                  
 |   |   |── gallery               
+|   |   |── metro               
 |   |   |── liquid-2              
-|   |   |── justify               
+|   |   |── liquid-3              
 |   |   |── center   
+|   |   |── justify               
 |   |                                          
 |   |── components 
 |   |   |── button
+|   |   |── charts
 |   |   |── media
 |   |   |── off-canvas
+|   |   |── priority-nav
 |   |   |── dropdown
 |   |   |── tabs
+|   |   |── switch
+|   |   |── accordion
 |   |   |── push-toggle
 |   |   |── checkbox
 |   |   |── tooltip
-|   |   |── flex-video
-|   |   |── switch
-|   |   |── accordion
+|   |   |── flex-media
+|   |   |── validation
+|   |   |── slider-carousel
+|   |   |── slider-gallery
 |   |
 |   |── addons              
-|       |── opacity               
-|       |── ie-rgba               
-|       |── rems                  
-|       |── breakpoint (bp)       
+|       |── type                  
+|       |── responsive-type (rp-type) 
 |       |── visible               
 |       |── hidden                
-|       |── type                  
-|       |── responsive-type  
+|       |── breakpoint (bp)       
+|       |── opacity               
+|       |── ie-rgba               
+|       |── em                  
+|       |── rem                  
+|       |── rems                  
 |       |── color functions  
 |           |── analogous
 |           |── contrast
@@ -71,25 +80,23 @@ Rocket/
 |── js/ 
     |── base                                           
     |── components
-        |── animate                                        
-        |── autoheight-carousel                                        
-        |── autoheight-gallery                                        
-        |── autoplay                                        
+        |── sticky                                        
         |── equalizer                                        
-        |── ie-placeholder                                        
-        |── numIncrease                                        
         |── reach                                        
         |── scrollTo                                        
-        |── sticky                                        
+        |── animate                                        
+        |── numIncrease                                        
+        |── ie-placeholder                                        
 ````
 
 #【 Layout 】
 #### layout setting
 ```` scss
+// default setting
 $ro-layout: (
   container: 1024px,
   columns: 12,
-  gutter: 2%,
+  gutter: 20px,
 );
 ````
 
@@ -98,39 +105,28 @@ The container of the main content. It can be center, left or right aligned.
 ```` scss
 @mixin container($key)
 // pattern
-$key: ($container $gutter) $align
+$key: $container (gutter $gutter) $align
 
-.wrapper { @include container(1200px); }
+.container { @include container(1200px); }
 // container: 1200px;
 // gutter: 2%; (default)
 // align: center; (default)
 
-.wrapper { @include container(1200px 20px left); }
+.container { @include container(1200px gutter 20px left); }
 // container: 1200px
 // gutter: 20px;
 // align: left;
 
-.wrapper { @include container(64em 2% center); }
+.container { @include container(64em gutter 2% right); }
 // container: 64em;
 // gutter: 2%;
-// align: center;
+// align: right;
 ````
 
-#### wrap
-Grid wrapper, works with `span` when using a fixed value for `gutter`.
+#### row
+`row` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, or you can use `row-calc`.
 ```` scss
-@mixin wrap($key)
-// pattern
-$key: $gutter
-
-.wrapper { @include row(20px); }
-// gutter: 20px;
-````
-
-#### span
-`span` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, or you can use `span-calc`.
-```` scss
-@mixin span($key)
+@mixin row($key)
 // pattern
 $key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep
 
@@ -178,7 +174,7 @@ $key: ($column at $location of $columns) $gutter (move $move) (float $float) las
   .nav { width: 35.0909090909%; }
 }
 ````
-*Nested grid*: use function `span` to calculate child element's gutter. 
+*Nested grid*: use function `row` to calculate child element's gutter. 
 ```` html
 <!-- nested grid -->
 <div class="parent">
@@ -193,8 +189,8 @@ $parent-layout: (7 of 10 $gutter);
 
 .parent {
   @include col($parent-layout);
-  .child-1 { @include col(9 of 16 ($gutter / span($parent-layout))); }
-  .child-2 { @include col(7 of 16 ($gutter / span($parent-layout))); }
+  .child-1 { @include col(9 of 16 ($gutter / row($parent-layout))); }
+  .child-2 { @include col(7 of 16 ($gutter / row($parent-layout))); }
   // or .child-2 { @include col(7 of 16 ($gutter / 69.9%)); }
 }
 .aside { @include col(3 of 10 $gutter); }

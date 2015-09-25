@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>grid</h2>
+      <h2 id=""><span>layout: </span>row</h2>
       <div class="example ovh">
         <div class="row" data-margin>
           <div class="col1">
@@ -26,6 +26,9 @@ $layout: (
   3:0,
 );
 .row { @include row($layout); }
+
+// or @include row((2:1, 7:0, 3:0));
+// if you don't need to change the orders, simply @include row((2 7 3));
       </code></pre>
       <div class="example ovh">
         <div class="row-2" data-margin>

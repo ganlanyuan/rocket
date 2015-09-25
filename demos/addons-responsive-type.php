@@ -30,8 +30,8 @@ $h3-font-sizes: (
   900px : 22px,
   large : (30px 1.2 left 300),
 );
-h3.example-responsive-type { @include responsive-type($h3-font-sizes, $bp); }
-p.example-responsive-type { @include responsive-type($p-font-sizes, $bp); }
+h3.example-responsive-type { @include rp-type($h3-font-sizes, $bp); }
+p.example-responsive-type { @include rp-type($p-font-sizes, $bp); }
 </code></pre>
     </div>
     
