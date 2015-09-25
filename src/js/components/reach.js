@@ -1,4 +1,10 @@
 kit.prototype.reach = function (edge,distance) {
+  if (!distance) {
+    distance = 0; 
+  } else {
+    distance = - distance;
+  }
+
   var winH = kit.win.H(),
         target,
         elTop = kit(this[0]).offset().top;

@@ -54,7 +54,7 @@
   <h4>javascript</h4>
   <nav class="demo-links">
     <?php 
-      $addons = array('sticky', 'equalizer'); 
+      $addons = array('sticky', 'equalizer', 'reach', 'scrollTo'); 
       $cur = '';
 
       foreach ($addons as $addon) {

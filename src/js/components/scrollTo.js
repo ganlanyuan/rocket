@@ -5,12 +5,12 @@ function scroll(element, to, duration) {
   var perTick = difference / duration * 10;
 
   setTimeout(function() {
-  element.scrollTop = element.scrollTop + perTick;
-  if (element.scrollTop === to) {return;}
-  scroll(element, to, duration - 10);
+    element.scrollTop = element.scrollTop + perTick;
+    if (element.scrollTop === to) {return;}
+    scroll(element, to, duration - 10);
   }, 10);
 }
-function scrollTo (to,duration) {
+function scrollTo (to, duration) {
   var wh = kit.win.H(),
       bh = kit('body').outerHeight(),
       total = to + wh,
