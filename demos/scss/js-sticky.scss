@@ -13,13 +13,22 @@
 .inner-2 {
   @include row((2 5));
 }
-.parent,
+.wrapper,
 .box,
 .sticky {
   width: 100%;
+  padding: 10px;
   min-height: 200px;
   margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
   border-radius: 10px;
+  box-sizing: border-box;
+  > strong {
+    display: block;
+    color: #000;
+  }
 }
 .box {
   background-color: #f2f2f2;
@@ -32,7 +41,7 @@
     height: 2000px;
   }
 }
-.parent {
+.wrapper {
   @include clearfix();
   border: 1px solid  #ccc;
   padding: 20px;
@@ -49,3 +58,4 @@
 }
 .two { min-height: 500px; }
 .three { min-height: 800px; }
+
