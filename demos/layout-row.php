@@ -28,7 +28,7 @@ $layout: (
 .row { @include row($layout); }
 
 // or @include row((2:1, 7:0, 3:0));
-// if you don't need to change the orders, simply @include row((2 7 3));
+// if you don't need to change the order, simply @include row((2 7 3));
       </code></pre>
       <div class="example ovh">
         <div class="row-2" data-margin>

@@ -20,7 +20,10 @@
           <h5>slider</h5>
           <div class="switch slider">
             <input type="checkbox" id="switch-slider" name="switch-slider">
-            <label for="switch-slider"></label>
+            <label for="switch-slider">
+              <span class="before"></span>
+              <span class="after"></span>
+            </label>
           </div>
         </section>
         <section>

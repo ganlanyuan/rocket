@@ -62,6 +62,7 @@ function priorityNav (navClass, buttonText, restore) {
     var ww = kit.win.W();
     if (res > 0) {
       if (ww >= res) {
+        btn.show();
         updateNav();
       } else {
         var hlinks = kit(navClass + '> .hidden-links > li');
@@ -69,7 +70,7 @@ function priorityNav (navClass, buttonText, restore) {
           vlink.append(hlinks[i]);
         };
         breaks = [];
-        btn.addClass('is-hidden').attr("data-count", breaks.length);
+        btn.hide().attr("data-count", breaks.length);
       }
     // } else if (dis > 0) {
     //   if (ww >= dis) {

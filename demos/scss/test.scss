@@ -13,24 +13,105 @@ body { margin: 0; padding: 20px 0 0; }
   background-color: #eee;
 }
 
+// row
 .row {
   @include row((2:2, 3:3, 5:1));
   display: none;
 }
 
+// gallery
 .gallery {
   @include gallery(3);
   // @include bp('min' 800) { @include gallery(4); }
   display: none;
 }
 
+// metro
+$ro-metro: (
+  'gutter': 20px,
+  'ratio': (3 / 4),
+  'child': 'li',
+);
 .metro {
-  // @include metro();
+  @include metro((null: 3 1 h2 1 w3 of 4));
+  .box { height: 1000px; }
+  display: none;
+}
+.metro-first { @include metro((null: 1 w2 2 1 1 of 3)); }
+
+// liquid
+.two { 
+  @include liquid-2((null 200px)); 
+  display: none;
+}
+.three { 
+  @include liquid-3((150px null 200px)); 
+  display: none;
 }
 
+// button
+.btn { 
+  @include button('0.8em 1.2em' #3095E6 3px); 
+  cursor: pointer;
+  display: none;
+}
 
+// charts
+.charts {
+  @include charts(bar (#3095E6: 8 10 16 14) steps (1 16));
+  display: none;
+}
 
-
+// off-canvas & priority-nav
+$nav-bp: 400;
+// @include bp('max' $nav-bp) {
+  .page {
+    @include off-canvas('slide-in' '.nav' 200px left);
+    display: none;
+  }
+  .nav {
+    background-color: #08274A;
+    li {
+      display: block;
+      padding: 10px;
+      color: #fff;
+    }
+  }
+// }
+// @include bp('min' $nav-bp) {
+//   .nav {
+//     @include priority-nav();
+//     margin-left: auto;
+//     li { padding: 10px 13px; }
+//     button {
+//       padding: 10px;
+//       border-width: 0;
+//       color: #fff;
+//       font-size: 11px;
+//       text-transform: uppercase;
+//       background-color: #333;
+//       position: relative;
+//       overflow: visible;
+//       &:before {
+//         content: attr(data-count);
+//         width: 23px;
+//         height: 23px;
+//         line-height: 23px;
+//         border-radius: 50%;
+//         font-size: 14px;
+//         text-align: center;
+//         position: absolute;
+//         left: 0;
+//         top: 50%;
+//         margin-left: -11px;
+//         margin-top: -11px;
+//         color: #412F08;
+//         background-color: #FFB822;
+//       }
+//     }
+//   }
+//   .icon-menu { display: none; }
+// }
 
 
 
