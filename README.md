@@ -5,9 +5,8 @@
   <img src="https://img.shields.io/badge/Version-3.0.0-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.   
-[sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/v3/demos/layout-grid-new.php)   
-[Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
+[Changelog](https://github.com/ganlanyuan/rocket/blob/v3/changelog.md)   
 
 ##### REQUESTS 
 + `Flexbox` 2009 syntax is not supported.    
