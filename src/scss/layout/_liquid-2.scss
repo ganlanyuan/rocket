@@ -37,19 +37,20 @@
     $map: $key;
   } @else if type-of($key) == 'list' {
     // check if $key is the data list
+    $is-keys: ();
     @each $item in $key {
       @if $item != null and type-of($item) != 'number' {
-        $keys: false;
+        $is-keys: append($is-keys, false);
       } @else {
-        $keys: true;
+        $is-keys: append($is-keys, true);
       }
     }
 
     // get $keys
-    @if $keys {
-      $keys: $key;
-    } @else {
+    @if index($is-keys, false) {
       $keys: ro-get-type($key, 'list');
+    } @else {
+      $keys: $key;
     }
     // get map
     $map: ro-get-type($key, 'map');
