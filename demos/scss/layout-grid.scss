@@ -1,0 +1,4 @@
+@import 'demo-base';
+// *** layout: grid *** //
+
+.row { @include grid((2:1, 7:0, 3:0)); }

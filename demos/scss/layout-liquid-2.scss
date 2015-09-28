@@ -2,12 +2,5 @@
 
 // *** layout: liquid-2 *** //
 
-$layout: (
-  null: 1,
-  200px: 0,
-);
-
-.example-liquid-2 { 
-  @include liquid-2($layout); 
-}
+.example-liquid-2 { @include liquid-2((null:1, 200px:0)); }
 

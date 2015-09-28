@@ -17,15 +17,8 @@
         </div>
       </div>
       <pre><code class="language-scss">
-$layout: (
-  null: 1, 
-  150px: 0, 
-  200px: 0,
-);
-
-.example-liquid-3 { 
-  @include liquid-3($layout); 
-}
+.example-liquid-3 { @include liquid-3((null: 1, 150px: 0, 200px: 0)); }
+// you could do @include liquid-2((null 150px 200px)) if you don't need to change the order
       </code></pre>
     </div>
     

@@ -16,9 +16,11 @@
     }
   }
   input {
-    width: 150px;
-    @include button('5px 10px');
     @extend %ro-global-transition;
+    @include button('0.6em 0.8em' #fff);
+    width: 150px;
+    font-size: 14px;
+    border: 1px solid #ddd;
     &:focus { width: 250px; }
   }
 }
