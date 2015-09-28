@@ -364,15 +364,18 @@ pre[class*="language-"] {
   padding: 1em 2em;
   border-radius: 5px;
   color: #2B8ACF;
-  border: 2px solid #2B8ACF;
+  border: 1px solid currentColor;
   background-color: transparent;
   -webkit-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
           transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
+.lt-ie9 .example-button .simple {
+  border: 1px solid #2B8ACF;
+}
+
 .example-button .simple:hover {
   color: #fff;
-  border: 2px solid #2B8ACF;
   background-color: #2B8ACF;
 }
 
@@ -474,10 +477,14 @@ pre[class*="language-"] {
   overflow: hidden;
   z-index: 1;
   color: #2B8ACF;
-  border: 2px solid #2B8ACF;
+  border: 1px solid currentColor;
   background-color: transparent;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease;
           transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lt-ie9 .example-button .veil {
+  border: 1px solid #2B8ACF;
 }
 
 .example-button .veil:before {
@@ -641,15 +648,15 @@ pre[class*="language-"] {
   content: '';
   position: absolute;
   z-index: -1;
-  border-radius: 6.5px;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   opacity: 0;
-  border: 1px solid rgba(43, 138, 207, 0.7);
+  border: 1px solid #2B8ACF;
   -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
           transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 6.5px;
 }
 
 @-webkit-keyframes button-bubble {
