@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>addons: </span>responsive type</h2>
+      <h2 class="main-heading"><span>addons: </span>responsive type</h2>
       <div class="example">
         <h3 class="example-responsive-type">This is a h3</h3>
         <p class="example-responsive-type">This is a paragraph.</p>

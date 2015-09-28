@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>dropdown</h2>
+      <h2 class="main-heading"><span>components: </span>dropdown</h2>
       <div class="example">
         <div class="dropdown-1">
           <label for="dropdown"><span>dropdown: </span><img src="images/arrow-down.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;</label>

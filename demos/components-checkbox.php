@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>Checkbox</h2>
+      <h2 class="main-heading"><span>components: </span>Checkbox</h2>
       <h4>Radio</h4>
       <div class="example">
         <div class="radio">

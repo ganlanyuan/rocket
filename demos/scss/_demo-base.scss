@@ -49,14 +49,15 @@ button { border: none; }
 
 h1,h2,h3,h4,h5,h6,strong { font-family: 'Roboto', sans-serif;}
 h2, h3, h4 { text-transform: capitalize; }
-h2, h3, h4 {
+h3, h4 {
   &[id] { text-align: center; }
 }
-h2 { 
+.main-heading { 
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
   margin: .5em 0; 
+  text-align: center;
   span {
     font-weight: 300;
     color: #999;
@@ -102,18 +103,18 @@ pre[class*="language-"] { padding: 0 1em; }
   > section { margin: 2em 0; }
 }
 @media screen and (min-width: 1024px) {
+  .main-heading {
+    &:before,
+    &:after {
+      display: inline-block;
+      vertical-align: 7px;
+      margin: 0 15px;
+    }
+    &:before { content: url('../images/title-prev.png'); }
+    &:after { content: url('../images/title-next.png'); }
+  }
   .topic {
     > section { margin: 0 0 5em; }
-    > h2 {
-      &:before,
-      &:after {
-        display: inline-block;
-        vertical-align: 7px;
-        margin: 0 15px;
-      }
-      &:before { content: url('../images/title-prev.png'); }
-      &:after { content: url('../images/title-next.png'); }
-    }
   }
 }
 // color-box

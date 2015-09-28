@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>addons: </span>color functions</h2>
+      <h2 class="main-heading"><span>addons: </span>color functions</h2>
       
       <h4>Contrast</h4>
       <div class="contrast">

@@ -1,6 +1,6 @@
 /// *gallery* is for creating picture galleries.
 /// 
-/// $key: `$per-row $gutter (child $child) $float $position keep`
+/// $key: `$per-row $gutter (child $child) $direction $position keep`
 /// @group layout
 /// @param {number | list} $key - key 
 /// @example scss - Usage
@@ -19,24 +19,14 @@
 
 @mixin gallery($key){
   $per-row: 1;
-  $gutter: map-get($ro-layout, gutter);
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, gutter));
   $child: ro-get-next($key, 'child', 'li');
-  $float: ro-get($key, left right, left);
-  $position: ro-get($key, 'middle' 'bottom', 'bottom');
+  $direction: ro-get($key, left right, right);
   $keep: ro-get($key, 'keep');
 
-  // set up per-row, gutter
-  @if type-of($key) == 'number' {
-    $per-row: $key;  
-  } @else if type-of($key) == list {
-    @each $item in $key {
-      @if type-of($item) == number {
-        @if unitless($item) {
-          $per-row: $item;
-        } @else {
-          $gutter: $item;
-        }
-      }
+  @each $item in $key {
+    @if type-of($item) == number and unitless($item) {
+      $per-row: $item;
     }
   }
   $half-gutter: ($gutter / 2);
@@ -46,6 +36,9 @@
     @include flexbox;
     @include flex-wrap(wrap);
     @include align-content(stretch);
+    @if $direction == left {
+      @include flex-direction(row-reverse);
+    }
 
     // fix left and right edge padding
     margin-left: - $half-gutter;
@@ -88,7 +81,7 @@
     @if not $keep { @include clearfix(); }
   
     > #{$child} {
-      @if not $keep { float: $float; }
+      @if not $keep { float: opposite($direction); }
 
       width: percentage(1 / $per-row);
       &:nth-child(#{$per-row}n+1) { clear: both; }

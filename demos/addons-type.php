@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>addons: </span>type</h2>
+      <h2 class="main-heading"><span>addons: </span>type</h2>
       <div class="example">
         <h1 class="example-type">This is h1</h1>
         <h2 class="example-type">This is h2</h2>

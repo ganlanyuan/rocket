@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>Switch</h2>
+      <h2 class="main-heading"><span>components: </span>Switch</h2>
       <div class="example example-switch">
         <section>
           <div class="switch one">

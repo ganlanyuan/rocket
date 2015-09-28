@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>addons: </span>breakpoint</h2>
+      <h2 class="main-heading"><span>addons: </span>breakpoint</h2>
       <div class="box"></div>
       <pre><code class="language-scss">
 .box {

@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>slider: </span>carousel</h2>
+      <h2 class="main-heading"><span>slider: </span>carousel</h2>
     </div>
     <div class="content">
       <div class="slider">

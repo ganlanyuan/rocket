@@ -3,7 +3,7 @@
 // *** layout: justify *** //
 
 .example-justify {
-  @include justify(li);
+  @include justify();
   li {
     font-size: 13px;
     text-transform: uppercase;

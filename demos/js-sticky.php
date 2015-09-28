@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>js: </span>sticky</h2>
+      <h2 class="main-heading"><span>js: </span>sticky</h2>
       <div class="sticky-grid wrapper-left-1">
         <div>
           <div class="box"></div>

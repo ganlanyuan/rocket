@@ -98,17 +98,18 @@ h2, h3, h4 {
   text-transform: capitalize;
 }
 
-h2[id], h3[id], h4[id] {
+h3[id], h4[id] {
   text-align: center;
 }
 
-h2 {
+.main-heading {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
   margin: .5em 0;
+  text-align: center;
 }
-h2 span {
+.main-heading span {
   font-weight: 300;
   color: #999;
 }
@@ -183,19 +184,20 @@ pre[class*="language-"] {
 }
 
 @media screen and (min-width: 1024px) {
-  .topic > section {
-    margin: 0 0 5em;
-  }
-  .topic > h2:before, .topic > h2:after {
+  .main-heading:before, .main-heading:after {
     display: inline-block;
     vertical-align: 7px;
     margin: 0 15px;
   }
-  .topic > h2:before {
+  .main-heading:before {
     content: url("../images/title-prev.png");
   }
-  .topic > h2:after {
+  .main-heading:after {
     content: url("../images/title-next.png");
+  }
+
+  .topic > section {
+    margin: 0 0 5em;
   }
 }
 .color-box {

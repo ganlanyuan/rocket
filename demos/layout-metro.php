@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>Metro</h2>
+      <h2 class="main-heading"><span>layout: </span>Metro</h2>
       <div class="ovh metro-wrapper">
         <ul class="outline" data-margin>
           <li>

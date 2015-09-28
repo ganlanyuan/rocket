@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>justify</h2>
+      <h2 class="main-heading"><span>layout: </span>justify</h2>
       <ul class="example-justify">
         <li><a href="">Features</a></li>
         <li><a href="">Pricing</a></li>
@@ -15,9 +15,7 @@
         <li><input type="search" placeholder="click me"></li>
       </ul>
       <pre><code class="language-scss">
-.example-justify {
-  @include justify(li);
-}
+.example-justify { @include justify(); }
       </code></pre>
     </div>
     

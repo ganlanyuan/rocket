@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>center</h2>
+      <h2 class="main-heading"><span>layout: </span>center</h2>
       <div class="example example-center" data-margin>
         <div data-content>
         <div class="example-content">

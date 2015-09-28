@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>gallery</h2>
+      <h2 class="main-heading"><span>layout: </span>gallery</h2>
       <div class="ovh">
         <ul class="example-gallery" data-margin>
           <li><div class="cell" data-content></div></li>
@@ -18,12 +18,7 @@
         </ul>
       </div>
       <pre><code class="language-scss">
-.example-gallery { 
-  @include gallery(3); 
-  @media (min-width: 800px) {
-    @include gallery(4 keep);
-  }
-}
+.example-gallery { @include gallery(3); }
       </code></pre>
     </div>
     

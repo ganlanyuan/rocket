@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>js: </span>scrollTo</h2>
+      <h2 class="main-heading"><span>js: </span>scrollTo</h2>
       <div class="scroll-to">
         <button class="btn btn-1">scroll to 100px</button> <br>
         <button class="btn btn-2">scroll to <strong>.box</strong></button> <br>

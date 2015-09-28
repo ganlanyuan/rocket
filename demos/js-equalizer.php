@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>js: </span>equalizer</h2>
+      <h2 class="main-heading"><span>js: </span>equalizer</h2>
       <div class="equalizer-grid">
         <div class="equalizer-1">
           <img src="http://placehold.it/500x300/aaa/aaa" alt="">

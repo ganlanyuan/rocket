@@ -12,7 +12,7 @@
 <div class="page page">
   <div class="container">
     <div class="topic">
-      <h2 id=""><span>components: </span>off-canvas<span></span></h2>
+      <h2 class="main-heading"><span>components: </span>off-canvas<span></span></h2>
       <?php include 'include/nav-links.php'; ?>
 
       <?php 

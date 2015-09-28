@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>Priority-nav</h2>
+      <h2 class="main-heading"><span>components: </span>Priority-nav</h2>
       <div class="example">
         <nav class="nav">
          <ul class="links">
@@ -23,44 +23,8 @@
          </ul>
         </nav>
       </div>
-      <pre style="max-height: 300px; margin-top: 30px;"><code class="language-scss">
-.nav {
-  @include priority-nav();
-
-  // your css
-  background-color: #2D79F1;
-  color: #fff;
-  font-size: 14px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  li { padding: 10px 13px; }
-  button {
-    padding: 10px;
-    border-width: 0;
-    color: #fff;
-    font-size: 11px;
-    text-transform: uppercase;
-    background-color: #333;
-    position: relative;
-    overflow: visible;
-    &:before {
-      content: attr(data-count);
-      width: 23px;
-      height: 23px;
-      line-height: 23px;
-      border-radius: 50%;
-      font-size: 14px;
-      text-align: center;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      margin-left: -11px;
-      margin-top: -11px;
-      color: #412F08;
-      background-color: #FFB822;
-    }
-  }
-  .hidden-links { background-color: #333; }
-}
+      <pre><code class="language-scss">
+.nav { @include priority-nav(); }
       </code></pre>
       <pre><code class="language-javascript">
 ready(function () {

@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>addons: </span>visibility</h2>
+      <h2 class="main-heading"><span>addons: </span>visibility</h2>
       <div class="visibility-wrap">
         <div class="visible-1">&gt; 900</div>
         <div class="visible-2">900 ~ 1000</strong></div>

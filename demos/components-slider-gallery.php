@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>slider: </span>gallery</h2>
+      <h2 class="main-heading"><span>slider: </span>gallery</h2>
       <div class="content">
         <div class="content-main">
           <div class="slider">

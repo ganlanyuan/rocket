@@ -12,7 +12,7 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin center(
-	$key: child '*' center
+	$key: child 'div' center
 ){
   $check: (left right center 'child');
 

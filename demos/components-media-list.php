@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>media list</h2>
+      <h2 class="main-heading"><span>components: </span>media list</h2>
       <div class="example-media">
         <ul class="news-left">
           <li>

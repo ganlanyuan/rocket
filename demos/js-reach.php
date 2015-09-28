@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>js: </span>reach</h2>
+      <h2 class="main-heading"><span>js: </span>reach</h2>
       <div class="reach">
         <div class="box box-1">box-1</div>
         <div class="box box-2">box-2</div>

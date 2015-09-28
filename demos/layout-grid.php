@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>grid</h2>
+      <h2 class="main-heading"><span>layout: </span>grid</h2>
       <div class="example ovh">
         <div class="row" data-margin>
           <div>

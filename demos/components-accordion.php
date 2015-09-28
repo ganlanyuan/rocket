@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>Accordion</h2>
+      <h2 class="main-heading"><span>components: </span>Accordion</h2>
       <div class="example example-accordion">
         <h4>Checkbox</h4>
         <div class="accordion accordion-checkbox acc-1">

@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>layout: </span>liquid-3</h2>
+      <h2 class="main-heading"><span>layout: </span>liquid-3</h2>
       <div class="example example-liquid-3" data-margin>
         <div>
           <div class="example-content cell" data-content><strong>A</strong>flexible</div>

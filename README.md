@@ -29,8 +29,7 @@ Rocket/
 |── scss/   
 |   |── layout              
 |   |   |── container             
-|   |   |── row                  
-|   |   |── col                  
+|   |   |── grid                  
 |   |   |── gallery               
 |   |   |── metro               
 |   |   |── liquid-2              
@@ -43,7 +42,6 @@ Rocket/
 |   |   |── charts
 |   |   |── media
 |   |   |── off-canvas
-|   |   |── priority-nav
 |   |   |── dropdown
 |   |   |── tabs
 |   |   |── switch
@@ -80,6 +78,7 @@ Rocket/
     |── base                                           
     |── components
         |── sticky                                        
+        |── priority-nav
         |── equalizer                                        
         |── reach                                        
         |── scrollTo                                        
@@ -101,164 +100,88 @@ $ro-layout: (
 
 #### container
 The container of the main content. It can be center, left or right aligned.
+````html
+<div class="container">
+  <!-- other elements -->
+</div>
+````
 ```` scss
 @mixin container($key)
 // pattern
 $key: $container (gutter $gutter) $align
 
-.container { @include container(1200px); }
-// container: 1200px;
-// gutter: 2%; (default)
+.container { @include container(); }
+// container: 1024px;
+// gutter: 20px; (default)
 // align: center; (default)
 
-.container { @include container(1200px gutter 20px left); }
+.container { @include container(1200px gutter 2% left); }
 // container: 1200px
-// gutter: 20px;
+// gutter: 2%;
 // align: left;
-
-.container { @include container(64em gutter 2% right); }
-// container: 64em;
-// gutter: 2%;
-// align: right;
 ````
 
-#### row
-`row` is used to create grid. You can use fixed gutter (px, em, rem) or flexible gutter (%). If you use fixed gutter, you need set the parent element as a `wrap`, or you can use `row-calc`.
-```` scss
-@mixin row($key)
-// pattern
-$key: ($column at $location of $columns) $gutter (move $move) (float $float) last keep
-
-.nav { @include col(3); }
-// column: 3;
-// columns: 12; (default)
-// columns: 2%; (default)
-
-.nav { @include col(11 of 16 2%); }
-// column: 3;
-// columns: 12;
-// gutter: 2%;
-
-.nav { @include col(11 at 5 of 16 2%); }
-// location: 5; (isolate mode)
-
-.nav { @include col(11 of 16 2% right move -5 last); }
-// last: true; (The last column)
-// float: right;
-// move: -5; (move left 5 columns)
-````
-*Isolate mode*: read [this article](http://www.palantir.net/blog/responsive-design-s-dirty-little-secret) for more detail. If you want to use isolate mode on one column, other siblings columns also need use isolate mode: 
-````scss
-.col-1 { @include col(.. at ..); } 
-.col-2 { @include col(.. at ..); } 
-````
-*Keep*: you may want keep some parts(float, gutter) constant when doing media query, then you can use `keep`;
-````scss
-// scss
-.nav { @include col(7 of 11 2%); }
-
-@media screen and (min-width: 800px) {
-  .nav { @include col(4 of 11 keep); }
-}
-````
-````css
-/* css */
-.nav {
-  float: left;
-  width: 62.9090909091%;
-  margin-right: 2%;
-}
-
-@media screen and (min-width: 800px) {
-  .nav { width: 35.0909090909%; }
-}
-````
-*Nested grid*: use function `row` to calculate child element's gutter. 
-```` html
-<!-- nested grid -->
-<div class="parent">
-  <div class="child-1"></div>
-  <div class="child-2"></div>
+#### grid
+Make a grid is supper easy. Just `@include grid()` at the wrapper element, then pass a list parameter with each column width to it. 
+````html
+<div class="row">
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
-<div class="aside"></div>
 ````
 ```` scss
-$gutter: 2%;
-$parent-layout: (7 of 10 $gutter); 
+@mixin grid($key)
+// pattern
+$key: ($list or $map) (gutter $gutter) keep
 
-.parent {
-  @include col($parent-layout);
-  .child-1 { @include col(9 of 16 ($gutter / row($parent-layout))); }
-  .child-2 { @include col(7 of 16 ($gutter / row($parent-layout))); }
-  // or .child-2 { @include col(7 of 16 ($gutter / 69.9%)); }
-}
-.aside { @include col(3 of 10 $gutter); }
+.row { @include grid( (3 7 4) ); }
+// 1st child: 3 columns;
+// 2nd child: 7 columns;
+// 3rd child: 4 columns;
+// total columns number is 3 + 7 + 4 = 14
+
+.row { @include grid( (3:1, 7:0, 4:0) ); }
+// children orders: 1 0 0; 
+// elements with smaller order will go to the front, elements with equal orders will go with the origin order in html.
+// this order is based on flex order, more detail please refer to http://the-echoplex.net/flexyboxes/?fixed-height=on&legacy=on&display=flex&flex-direction=row&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=stretch&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto
 ````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)
 
 #### gallery
 `gallery` is for creating picture galleries.
+````html
+<ul class="gallery">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+````
 ```` scss
 @mixin gallery($key)
 //pattern
-$key: $per-row $gutter (child $child) $float $position keep
+$key: $per-row (gutter $gutter) (child $child) $direction keep
 
-.pic { @include gallery(3 2% child li middle); }
+.gallery { @include gallery(3); }
 // per-row: 3;
-// gutter: 2%;
-// child: li;
-// float: left; (default)
-// position: middle; (same padding on the top and bottom for each item)
 
-@media screen and (min-width: 768px) {
-  .pic { @include gallery(4 child li keep); }
-}
-// Keep: similar with span(keep).
+.gallery { @include gallery(4 gutter 2% left); }
+// per-row: 4;
+// gutter: 2%;
+// direction: right -> left
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-gallery.php)
-
-#### justify
-`justify` is for creating `justify` list.
-```` scss
-@mixin justify-flex();
-@mixin justify();
-$key: (child $child)
-
-.example {
-  @include justify-flex();
-  .no-flexbox & {
-    @include justify(div);
-    // for old browsers
-    // child: div
-  }
-}
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-justify.php)
-
-#### center
-`center` is for creating both horizontal and vertical center aligned layout.
-```` scss
-@mixin center($key)
-// pattern
-$key: $child $align
-
-.banner { @include center(div left); }
-// child: div;
-// align: left; (left | right | center, for old browser)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-center.php)
 
 #### liquid-2
 `liquid-2` is for creating a two columns layout. One of them has a fixed width.
 ````html
-<!-- Add "data-main", "data-aside" attributes to your markup. -->
-
 <div class="wrapper">
-
-  <!-- main -->
-  <div data-main=""></div>
-
-  <!-- aside -->
-  <div data-aside=""></div>
+  <div></div>
+  <div></div>
 </div>
 ````
 ```` scss
@@ -273,6 +196,43 @@ $key: $direction $aside-width (gutter $gutter) (order $aside-order)
 // gutter: 30px;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
+
+#### center
+`center` is for creating both horizontal and vertical center aligned layout.
+````html
+<div class="popup">
+  <div></div>
+</div>
+````
+```` scss
+@mixin center($key)
+// pattern
+$key: (child $child) $align
+
+.popup { @include center(child div left); }
+// child: div;
+// align: left; (left | right | center, for old browser)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-center.php)
+
+#### justify
+`justify` is for creating `justify` layout.
+````html
+<ul class="justify">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+````
+```` scss
+@mixin justify($key);
+$key: (child $child)
+
+.justify { @include justify(); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-justify.php)
 
 
 #【 Components 】

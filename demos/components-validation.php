@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="topic">
-      <h2 id=""><span>components: </span>validation</h2>
+      <h2 class="main-heading"><span>components: </span>validation</h2>
       <ul class="validation-wrap">
         <li>
           <form action="" class="myform" id="form1">

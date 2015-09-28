@@ -1,5 +1,5 @@
 @import 'demo-base';
 
-// *** addons: flex video *** //
+// *** addons: flex media *** //
 
-.flex-video { @include flex-media(iframe 315/560); }
+.video { @include flex-media(iframe 315/560); }

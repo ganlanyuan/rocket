@@ -8,7 +8,7 @@
 /// @link http://creatiointl.org/gallery/william/rocket/layout-justify.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin justify($key){
+@mixin justify($key: li){
   $child: ro-get-next($key, 'child', 'li');
   @if type-of($key) == 'string' { $child: $key; }
 

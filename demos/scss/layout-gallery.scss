@@ -2,9 +2,4 @@
 
 // *** layout: gallery *** //
 
-.example-gallery { 
-  @include gallery(3); 
-  @include breakpoint('min' 800) {
-    @include gallery(4 keep);
-  }
-}
+.example-gallery { @include gallery(3); }
