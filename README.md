@@ -176,8 +176,50 @@ $key: $per-row (gutter $gutter) (child $child) $direction keep
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-gallery.php)
 
+#### metro
+`metro` is for creating block layout inspired by Windows 8. Use nested `metro` to make complex layout.
+````html
+<ul class="main">
+  <li>
+    <div class="metro-item"></div>
+  </li>
+  <li>
+    <div class="metro-item"></div>
+  </li>
+  <li>
+    <div class="metro-item"></div>
+  </li>
+  <li>
+    <div class="metro-item"></div>
+  </li>
+  <li>
+    <div class="metro-item"></div>
+  </li>
+</ul>
+````
+```` scss
+@mixin metro($key)
+//pattern
+$key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media
+
+.main { @include metro( (null: 3 1 h2 1 w3 of 3, 800: 3 1 h2 1 w3 of 4) ); }
+// null 800: media query, null -> default, 800 -> 800px and up;
+// 3: 1st child -> 3 blocks width x 3 blocks height
+// 1: 2nd child -> 1 blocks width x 1 blocks height
+// h2: 3rd child -> 1 blocks width x 2 blocks height
+// 1: 4th child -> 1 blocks width x 1 blocks height
+// w3: 5th child -> 3 blocks width x 1 blocks height
+// "of 3": totaly 3 blocks width;
+
+// condition: media query condition 'min' or 'max';
+// media: media type like 'screen', 'print'
+
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-metro.php)
+
 #### liquid-2
-`liquid-2` is for creating a two columns layout. One of them has a fixed width.
+`liquid-2` is for creating a two columns layout: One is fixed, another is flexible.     
+Similar with grid, you can use list or map as a parameter to set up the layout.
 ````html
 <div class="wrapper">
   <div></div>
@@ -188,12 +230,39 @@ $key: $per-row (gutter $gutter) (child $child) $direction keep
 // scss
 @mixin liquid-2($key)
 // pattern
-$key: $direction $aside-width (gutter $gutter) (order $aside-order)
+$key: ($list or $map) (gutter $gutter) (child $child) keep
 
-.wrapper { @include liquid-2(left 300px gutter 30px); }
-// direction: left; (aside is on the left)
-// aside-width: 300px;
-// gutter: 30px;
+.wrapper { @include liquid-2( (null 200px) ); }
+// 1st child width: flexible;
+// 2nd child width: 200px;
+
+.wrapper { @include liquid-2( (null:2, 200px:1) ); }
+// children orders: 2 1;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
+
+#### liquid-3
+`liquid-3` is for creating a three columns layout: one is flexible, another two are fixed.     
+Similar with grid, you can use list or map as a parameter to set up the layout.
+````html
+<div class="wrapper">
+  <div></div>
+  <div></div>
+</div>
+````
+```` scss
+// scss
+@mixin liquid-3($key)
+// pattern
+$key: ($list or $map) (gutter $gutter) (child $child) keep
+
+.wrapper { @include liquid-3( (150px null 200px) ); }
+// 1st child width: 150px;
+// 2nd child width: flexible;
+// 3rd child width: 200px;
+
+.wrapper { @include liquid-3( (150px:0, null:2, 200px:1) ); }
+// children orders: 0 2 1;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
 

@@ -2,6 +2,7 @@
 @import "../../src/scss/rocket"; 
 ul, ol { margin: 0; padding: 0; }
 li { list-style: none; }
+@media \0screen { img { width: auto; } }
 img { max-width: 100%; height: auto; }
 body { margin: 0; padding: 20px 0 0; }
 .container { @include container(1000px 20px); }
@@ -12,18 +13,18 @@ body { margin: 0; padding: 20px 0 0; }
   padding: 10px;
   background-color: #eee;
 }
-
 // row
 .row {
-  @include row((2:2, 3:3, 5:1));
-  display: none;
+  @include grid((2:2, 3:3, 5:1));
+  &-inner { @include grid((1 1)); }
+  // display: none;
 }
 
 // gallery
 .gallery {
   @include gallery(3);
   // @include bp('min' 800) { @include gallery(4); }
-  display: none;
+  display: none !important;
 }
 
 // metro
@@ -41,11 +42,11 @@ $ro-metro: (
 
 // liquid
 .two { 
-  @include liquid-2((null 200px)); 
+  @include liquid-2((null 200px) gutter 10%); 
   display: none;
 }
 .three { 
-  @include liquid-3((150px null 200px)); 
+  @include liquid-3((null:1, 150px:3, 200px: 2) gutter 50px); 
   display: none;
 }
 

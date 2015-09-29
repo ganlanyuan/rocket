@@ -49,21 +49,36 @@
 
   <!-- row -->
   <div class="row">
-    <div> <div class="box">1</div> </div>
-    <div> <div class="box">2</div> </div>
-    <div> <div class="box">3</div> </div>
+    <div>
+      <div class="row-inner">
+        <div><img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"></div>
+        <div><div class="box"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="row-inner">
+        <div><img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"></div>
+        <div><div class="box"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="row-inner">
+        <div><img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"></div>
+        <div><div class="box"></div></div>
+      </div>
+    </div>
   </div>
 
   <!-- gallery -->
   <ul class="gallery">
-    <li> <div class="box">1</div> </li>
-    <li> <div class="box">2</div> </li>
-    <li> <div class="box">3</div> </li>
-    <li> <div class="box">4</div> </li>
-    <li> <div class="box">5</div> </li>
-    <li> <div class="box">6</div> </li>
-    <li> <div class="box">7</div> </li>
-    <li> <div class="box">8</div> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
   </ul>
 
   <!-- metro -->
@@ -123,15 +138,15 @@
 
   <!-- liquid-2 -->
   <div class="two">
-    <div> <div class="box">1</div> </div>
-    <div> <div class="box">2</div> </div>
+    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
+    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
   </div>
 
   <!-- liquid-3 -->
   <div class="three">
-    <div> <div class="box">1</div> </div>
-    <div> <div class="box">2</div> </div>
-    <div> <div class="box">3</div> </div>
+    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
+    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
+    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
   </div>
   
   <!-- button -->

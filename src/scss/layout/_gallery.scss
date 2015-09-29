@@ -35,7 +35,6 @@
   @if not $keep {
     @include flexbox;
     @include flex-wrap(wrap);
-    @include align-content(stretch);
     @if $direction == left {
       @include flex-direction(row-reverse);
     }
@@ -47,8 +46,6 @@
 
   > #{$child} {
     @if not $keep {
-      @include flex(1 1);
-      @include align-self(stretch);
       box-sizing: border-box;
       @if unit($gutter) == '%' {
         padding-left: $half-gutter;
@@ -67,11 +64,7 @@
     }
 
     // set col width
-    @include flex-basis(percentage(1 / $per-row));
-    // fix IE10 & 11: horizental padding break layout
-    .flexboxtweener & {
-      max-width: percentage(1 / $per-row);
-    }
+    width: percentage(1 / $per-row);
   }
 
   // for non-flex, non-flexwrap browsers
@@ -83,7 +76,6 @@
     > #{$child} {
       @if not $keep { float: opposite($direction); }
 
-      width: percentage(1 / $per-row);
       &:nth-child(#{$per-row}n+1) { clear: both; }
       @for $i from 2 through $per-row {
         &:nth-child(#{$per-row}n+#{$i}) { clear: none; }

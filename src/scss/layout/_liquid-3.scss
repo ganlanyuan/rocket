@@ -81,15 +81,12 @@
       @for $i from 1 through length($keys) {
         // set width
         $thisWidth: nth($keys, $i);
+        $asides: reject($keys, null);
         &:nth-child(#{$i}) {
           @if $thisWidth == null {
-            @include flex(1 1);
-            // clear max-width
-            .flexboxtweener & { max-width: auto; }
+            width: calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter});
           } @else {
-            @include flex-basis($thisWidth);
-            // fix IE10 & 11: horizental padding break layout
-            .flexboxtweener & { max-width: $thisWidth; }
+            width: $thisWidth;
           }
 
           // set order
