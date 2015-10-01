@@ -47,7 +47,7 @@ function sticky (sticky, stickyWrapper, stickySpacing, stickTo) {
 	function updateSticky() { 
 		console.log(bp1, bp2);
 		var winST = kit.win.ST();
-		
+
 		// isolate mode
 		if (!stickyWrapper) {
 			if (winST > bp1) {
@@ -57,8 +57,8 @@ function sticky (sticky, stickyWrapper, stickySpacing, stickTo) {
 				});
 			} else {
 				stk.css({
-					'position': 'static',
-					'top': 'auto',
+					'position': '',
+					'top': '',
 				});
 			}
 		// inside wrapper
@@ -89,18 +89,8 @@ function sticky (sticky, stickyWrapper, stickySpacing, stickTo) {
 		
 	}
 
-	winLoad(function () {
-		getSizes();
-		// updateSticky();
-	});
+	winLoad(function () { getSizes(); });
+	winResize(function () { getSizes(); });
+	winScroll(function () { updateSticky(); });
 
-	winResize(function () {
-		getSizes();
-		// updateSticky();
-	});
-
-	winScroll(function () {
-		updateSticky();
-	});
-
-};
+}
