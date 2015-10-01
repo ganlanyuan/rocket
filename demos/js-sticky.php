@@ -1,6 +1,11 @@
 <?php include 'include/head.php'; ?>
 <body>
 <div class="page">
+<style>
+  .foo {
+    outline: 1px solid #f00;
+  }
+</style>
   <div class="container">
 
     <div class="topic">
@@ -89,11 +94,25 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    sticky('.sticky-left-1', '.wrapper-left-1', 10);
+    // sticky('.sticky-left-1', '.wrapper-left-1', 10);
     sticky('.sticky-middle-1', '.wrapper-middle-1', 10);
-    sticky('.sticky-right-1', '.wrapper-right-1', 10);
-    sticky('.sticky-middle-2', '.wrapper-middle-2', 10, 'bottom');
-    sticky('.sticky-right-2', false, 10, 'bottom');
+    // sticky('.sticky-right-1', '.wrapper-right-1', 10);
+    // sticky('.sticky-middle-2', '.wrapper-middle-2', 10, 'bottom');
+    // sticky('.sticky-right-2', false, 10, 'bottom');
+
+    // var el = kit.createElement({
+    //  tagName: 'div',
+    //  id: 'foo',
+    //  className: 'foo',
+    //  children: [{
+    //    tagName: 'div',
+    //    html: '<b>Hello, creatElement</b>',
+    //    attributes: {
+    //      'am-button': 'primary'
+    //    }
+    //  }]
+    // });
+    // kit('h2').wrap(el);
   });
 </script>
 </body>

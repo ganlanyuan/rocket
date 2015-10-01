@@ -1,76 +1,59 @@
 // sticky('.sticky', '.wrapper', '.header');
 // sticky('.sticky', '.wrapper', 20);
 
-function sticky (sticky, stickyWrapper, stickyOffset, stickTo) {
+function sticky (sticky, stickyWrapper, stickySpacing, stickTo) {
 
-  var isolate = (stickyWrapper) ? false : true,
-			stk = kit(sticky),
-			wrapper,
-			S1,
-			S2,
-			W1,
-			W2,
-			winH,
-	    stkOT,
-			stkH,
-			stkMB,
-			wrapperOT,
-			wrapperH,
-			wrapperPB,
-			wrapperBB;
-
+	kit(sticky).wrap(kit.createElement({tagName: 'div', className: 'stk-wrapper'}));
+	var parent = kit(sticky).parent(),
+		  stk = kit(sticky), wrapper;
   if (stickyWrapper) { wrapper = kit(stickyWrapper); }
   if (!stickTo) { stickTo = 'top'; }
 
+  // console.log(parent);
+  var bp1, bp2, winH, stkOT, stkH, stkMB, wrapperOT, wrapperH, wrapperPB, wrapperBB;
+
 	function getSizes () {
-		// isolate mode
-		if (isolate) {
-			if (stickTo === 'top') {
-		    stkOT = stk.getTop();
+		winH = kit.win.H();
+    stkOT = parent.getTop();
+		stkH = stk.outerHeight();
+		stkMB = getPxValue(stk.getCurrentStyle('marginBottom'));
+		wrapperOT = wrapper.getTop();
+		wrapperH = wrapper.outerHeight();
+		wrapperPB = getPxValue(wrapper.getCurrentStyle('paddingBottom'));
+		wrapperBB = getPxValue(wrapper.getCurrentStyle('borderBottomWidth'));
 
-				return stkOT;
-			} else {
-				winH = kit.win.H();
-		    stkOT = stk.getTop();
-				stkH = stk.outerHeight();
+		// return winH, stkOT, stkH, stkMB, wrapperOT, wrapperH, wrapperPB;
 
-				return winH, stkOT, stkH;
+		if (!stickySpacing) { stickySpacing = 0; }
+		spacing = (typeof stickySpacing === 'number') ? stickySpacing : kit(stickySpacing).outerHeight();
+
+		if (stickTo === 'bottom' || (stkH + spacing) > winH) {
+			bp1 = (stkOT + stkH + spacing) - winH;
+			if (stickyWrapper) {
+				bp2 = (wrapperOT + wrapperH + spacing) - winH;
 			}
-		// inside wrapper
 		} else {
-			winH = kit.win.H();
-	    stkOT = stk.getTop();
-			stkH = stk.outerHeight();
-			stkMB = getPxValue(stk.getCurrentStyle('marginBottom'));
-			wrapperOT = wrapper.getTop();
-			wrapperH = wrapper.outerHeight();
-			wrapperPB = getPxValue(wrapper.getCurrentStyle('paddingBottom'));
-			wrapperBB = getPxValue(wrapper.getCurrentStyle('borderBottomWidth'));
-
-			return winH, stkOT, stkH, stkMB, wrapperOT, wrapperH, wrapperPB;
-		}
-	};
-
-	function updateSticky() {
-		if (!stickyOffset) { stickyOffset = 0; }
-		offset = (typeof stickyOffset === 'number') ? stickyOffset : kit(stickyOffset).outerHeight();
-
-		var winST = kit.win.ST();
-
-		// isolate mode
-		if (isolate) {
-			if (stickTo === 'top') {
-				S1 = winST;
-				S2 = stkOT - offset;
-			} else {
-				S1 = winST + winH;
-				S2 = stkOT + stkH + offset;
+			bp1 = stkOT - spacing;
+			if (stickyWrapper) {
+				bp2 = (wrapperOT + wrapperH) - (stkH + spacing + wrapperPB);
 			}
+		}
 
-			if (S1 > S2) {
+
+		return bp1, bp2, winH, stkOT, stkH, stkMB, wrapperOT, wrapperH, wrapperPB;
+	}
+
+
+	function updateSticky() { 
+		console.log(bp1, bp2);
+		var winST = kit.win.ST();
+		
+		// isolate mode
+		if (!stickyWrapper) {
+			if (winST > bp1) {
 				stk.css({
 					'position': 'relative',
-					'top': S1 - S2 + 'px',
+					'top': winST - bp1 + 'px',
 				});
 			} else {
 				stk.css({
@@ -80,31 +63,12 @@ function sticky (sticky, stickyWrapper, stickyOffset, stickTo) {
 			}
 		// inside wrapper
 		} else {
-			// higher sticky
-			if ((stkH + offset) > winH) {
-				S1 = W1 = winST + winH;
-				S2 = stkOT + stkH + offset;
-				W2 = wrapperOT + wrapperH - wrapperPB - wrapperBB + offset;
-			} else {
-				if (stickTo === 'top') {
-					S1 = winST + offset;
-					S2 = stkOT;
-					W1 = winST + offset + stkH + wrapperPB + wrapperBB;
-					W2 = wrapperOT + wrapperH;
-				} else {
-					S1 = winST + winH - offset;
-					S2 = stkOT + stkH;
-					W1 = winST + winH - offset;
-					W2 = wrapperOT + wrapperH;
-				}
-			}
-
-			if (S1 > S2 && W1 <= W2 ) {
+			if (winST > bp1 && winST < bp2 ) {
 				stk.css({
 					'position': 'relative',
-					'top': S1 - S2 + 'px',
+					'top': winST - bp1 + 'px',
 				});
-			} else if (W1 > W2){
+			} else if (winST > bp2){
 				var topValue = wrapperH - (stkH + wrapperPB + wrapperBB) - (stkOT - wrapperOT) + 'px';
 
 				if (stk[0].style.top !== topValue) {
@@ -116,8 +80,8 @@ function sticky (sticky, stickyWrapper, stickyOffset, stickTo) {
 			} else {
 				if (stk[0].style.position !== 'static') {
 					stk.css({
-						'position': 'static',
-						'top': 'auto',
+						'position': '',
+						'top': '',
 					});
 				}
 			}
@@ -125,17 +89,17 @@ function sticky (sticky, stickyWrapper, stickyOffset, stickTo) {
 		
 	}
 
-	winScroll(function () {
-		updateSticky();
-	});
-
 	winLoad(function () {
 		getSizes();
-		updateSticky();
+		// updateSticky();
 	});
 
 	winResize(function () {
 		getSizes();
+		// updateSticky();
+	});
+
+	winScroll(function () {
 		updateSticky();
 	});
 

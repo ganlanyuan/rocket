@@ -715,6 +715,55 @@ kit.prototype.prepend = function(data) {
 	}
 };
 
+kit.prototype.wrap = function (obj) {
+	// Loops backwards to prevent having to clone the wrapper on the
+  // first element (see `child` below).
+  for (var i = this.length - 1; i >= 0; i--) {
+      var child = (i > 0) ? obj.cloneNode(true) : obj;
+      var el = this[i];
+
+      // Cache the current parent and sibling.
+      var parent = el.parentNode;
+      var sibling = el.nextSibling;
+
+      // Wrap the element (is automatically removed from its current parent).
+      child.appendChild(el);
+
+      // If the element had a sibling, insert the wrapper before
+      // the sibling to maintain the HTML structure; otherwise, just
+      // append it to the parent.
+      if (sibling) {
+          parent.insertBefore(child, sibling);
+      } else {
+          parent.appendChild(child);
+      }
+  }
+};
+
+kit.prototype.wrapAll = function (obj) {
+	var el = this.length ? this[0] : this;
+
+  // Cache the current parent and sibling of the first element.
+  var parent  = el.parentNode;
+  var sibling = el.nextSibling;
+
+  // Wrap all elements (if applicable). Each element is
+  // automatically removed from its current parent and from the elms
+  // array.
+  for (var i = 0; i < this.length; i++) {
+   	obj.appendChild(this[i]);
+	}
+	
+  // If the first element had a sibling, insert the wrapper before the
+  // sibling to maintain the HTML structure; otherwise, just append it
+  // to the parent.
+  if (sibling) {
+      parent.insertBefore(obj, sibling);
+  } else {
+      parent.appendChild(obj);
+  }
+};
+
 // ========== GET ELEMENT SIZE ==========
 kit.prototype.outerWidth = function () {
 	return this.mapOne(function (el) {
