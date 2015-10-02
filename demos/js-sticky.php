@@ -1,11 +1,6 @@
 <?php include 'include/head.php'; ?>
 <body>
 <div class="page">
-<style>
-  .foo {
-    outline: 1px solid #f00;
-  }
-</style>
   <div class="container">
 
     <div class="topic">
@@ -31,7 +26,8 @@
                 <div class="child">
                   <div class="sticky sticky-middle-1">
                     <strong>middle-1</strong>
-                    top
+                    top <br>
+                    sticks between 600 ~ 1000
                   </div>
                 </div>
               </div>
@@ -79,11 +75,33 @@
       </div>
       <pre><code class="language-javascript">
 ready(function () {
-  sticky('.sticky-left-1', '.wrapper-left-1', 10);
-  sticky('.sticky-middle-1', '.wrapper-middle-1', 10);
-  sticky('.sticky-right-1', '.wrapper-right-1', 10);
-  sticky('.sticky-middle-2', '.wrapper-middle-2', 10, 'bottom');
-  sticky('.sticky-right-2', false, 10, 'bottom');
+  sticky({
+    sticky: '.sticky-left-1', 
+    spacing: 10,
+    stickyWrapper: '.wrapper-left-1',
+  });
+  sticky({
+    sticky: '.sticky-middle-1', 
+    stickyWrapper: '.wrapper-middle-1', 
+    spacing: 30,
+    breakpoints: [600, 1000]
+  });
+  sticky({
+    sticky: '.sticky-right-1', 
+    stickyWrapper: '.wrapper-right-1',
+    spacing: 10,
+  });
+  sticky({
+    sticky: '.sticky-middle-2', 
+    stickyWrapper: '.wrapper-middle-2', 
+    stickTo: 'bottom',
+    spacing: 10,
+  });
+  sticky({
+    sticky: '.sticky-right-2',  
+    stickTo: 'bottom',
+    spacing: 10,
+  });
 });
       </code></pre>
     </div>
@@ -94,25 +112,33 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    // sticky('.sticky-left-1', '.wrapper-left-1', 10);
-    sticky('.sticky-middle-1', '.wrapper-middle-1', 10);
-    // sticky('.sticky-right-1', '.wrapper-right-1', 10);
-    // sticky('.sticky-middle-2', '.wrapper-middle-2', 10, 'bottom');
-    // sticky('.sticky-right-2', false, 10, 'bottom');
-
-    // var el = kit.createElement({
-    //  tagName: 'div',
-    //  id: 'foo',
-    //  className: 'foo',
-    //  children: [{
-    //    tagName: 'div',
-    //    html: '<b>Hello, creatElement</b>',
-    //    attributes: {
-    //      'am-button': 'primary'
-    //    }
-    //  }]
-    // });
-    // kit('h2').wrap(el);
+    sticky({
+      sticky: '.sticky-left-1', 
+      spacing: 10,
+      stickyWrapper: '.wrapper-left-1',
+    });
+    sticky({
+      sticky: '.sticky-middle-1', 
+      stickyWrapper: '.wrapper-middle-1', 
+      spacing: 30,
+      breakpoints: [600, 1000]
+    });
+    sticky({
+      sticky: '.sticky-right-1', 
+      stickyWrapper: '.wrapper-right-1',
+      spacing: 10,
+    });
+    sticky({
+      sticky: '.sticky-middle-2', 
+      stickyWrapper: '.wrapper-middle-2', 
+      stickTo: 'bottom',
+      spacing: 10,
+    });
+    sticky({
+      sticky: '.sticky-right-2',  
+      stickTo: 'bottom',
+      spacing: 10,
+    });
   });
 </script>
 </body>
