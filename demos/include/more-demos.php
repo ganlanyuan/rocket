@@ -20,7 +20,7 @@
   <h4>components</h4>
   <nav class="demo-links">
     <?php 
-      $components = array('button', 'charts', 'media-list', 'off-canvas', 'dropdown', 'tabs', 'switch', 'accordion', 'push-toggle', 'checkbox', 'tooltip', 'flex-media', 'validation', 'slider-carousel', 'slider-gallery'); 
+      $components = array('charts', 'off-canvas', 'slider-carousel', 'slider-gallery', 'validation', 'button', 'switch', 'push-toggle', 'checkbox', 'tabs', 'accordion', 'dropdown', 'tooltip', 'media-list', 'flex-media', ); 
       $cur = '';
 
       foreach ($components as $component) {

@@ -22,7 +22,7 @@ $padding: '1em 2em';
   .ripple { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px ripple); }
   .veil { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px veil); }
   .cut { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px cut); }
-  .push { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px push customize); }
+  .push { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px push); }
   .bubble { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px bubble); }
   .shake { 
     @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px 0.4s); 

@@ -4,7 +4,6 @@
 // layout
 $ro-layout: (
   'container': 1024px,
-  'columns': 12,
   'gutter': 20px,
 ) !default;
 
@@ -52,6 +51,7 @@ $ro-off-canvas-z-index: (
 
 // button
 $ro-button-hover: 'highlight', 'simple', 'slide', 'ripple', 'veil', 'push', 'cut', 'bubble', 'line-drawing' !default;
+$ro-button-direction: left, right, top, bottom, 'horizontal', 'vertical' !default;
 $ro-button-round: 1000px !default;
 $ro-lightness: 10% !default; 
 $ro-timing-function: linear, ease, ease-in, ease-out, ease-in-out !default;

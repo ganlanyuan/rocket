@@ -1,35 +1,13 @@
-/// Short hands for creating button.
-/// inspiration from http://tympanus.net/Development/ButtonStylesInspiration/
-/// 
-/// $key: `$font-size $padding $color radius round hover`
-/// @group components
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
-/// // font-size: 14px;
-/// // background-color: #00c8ff;
-/// // padding: 0.8em 1em; (Tips: padding must be quoted)
-/// // radius: 0.22em; (default, you can modify it by change the varible "$ro-button-radius: 0.22em;" )
-/// // hover: true; (change background-color when mouse over)
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/components-button.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin button ($key: '0.5em 0.8em'){
+  $check: append(join($ro-button-hover, $ro-button-direction), 'round');
+
   $padding: false;
-  $check: join($ro-button-hover, ('round' 'hover' 'horizontal' 'vertical' 'customize'));
-
   $round: ro-get($key, 'round');
-  $radius: false;
-  $customize: ro-get($key, 'customize');
+  $border-radius: false;
 
-  $horizontal: ro-get($key, 'horizontal');
-  $vertical: ro-get($key, 'vertical');
-  $direction: ro-get($key, (left right top bottom));
-
+  $direction: ro-get($key, $ro-button-direction);
   $hover: ro-get($key, $ro-button-hover);
-  $duration: 0.3s;
-  $timing-function: ease;
 
   $colors: ();
   $color-1: #f2f2f2;
@@ -48,12 +26,14 @@
     }
   }
 
+  $duration: 0.3s;
+  $timing-function: ease;
   @each $item in $key {
     @if type-of($item) == 'number' {
       @if unit($item) == 's' {
         $duration: $item;
       } @else if unit($item) == 'px' or unit($item) == 'em' or unit($item) == 'rem' or unit($item) == 'vw' {
-        $radius: $item;
+        $border-radius: $item;
       }
     } @else if type-of($item) == 'string' {
       @if index($ro-timing-function, $item) or str-index($item, 'cubic-bezier') {
@@ -75,8 +55,8 @@
       padding: $padding;
     }
   }
-  @if $radius {
-    border-radius: $radius;
+  @if $border-radius {
+    border-radius: $border-radius;
   }
   @if $round {
     border-radius: $ro-button-round;
@@ -166,7 +146,7 @@
         &:before {
           @include button-pos-a();
           @include opacity(0);
-          @if $vertical {
+          @if $direction == vertical {
             @include transform(scaleY(0.7));
           } @else {
             @include transform(scaleX(0.7));
@@ -183,7 +163,7 @@
           color: contrast($color-1);
           &:before {
             @include opacity(1);
-            @if $vertical {
+            @if $direction == vertical {
               @include transform(scaleY(1));
             } @else {
               @include transform(scaleX(1));
@@ -218,9 +198,7 @@
           @if $padding {
             padding: $padding;
           }
-          @if not $customize {
-            content: attr(data-text);
-          }
+          content: attr(data-text);
           position: absolute;
           left: 0;
           top: 0;
@@ -281,7 +259,7 @@
           opacity: 0;
           border: 1px solid $color-1;
           transition: transform $duration $timing-function, opacity $duration $timing-function;
-          @if $radius { border-radius: $radius * 1.3; }
+          @if $border-radius { border-radius: $border-radius * 1.3; }
           @include keyframes(button-bubble) {
             60% {
               left: -0.7em;

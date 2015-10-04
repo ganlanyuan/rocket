@@ -8,10 +8,13 @@ Rocket is a powerful SASS library to help web developers handle layout, color an
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/v3/changelog.md)   
 
-##### REQUESTS 
-+ `Flexbox` 2009 syntax is not supported.    
-+ Add [Modernizr](http://v3.modernizr.com/) to your project (make sure `flexbox`, `flexboxlegacy`, `flexboxtweener`, `flexwrap` are selected).    
-+ Add [Selectivizr](http://selectivizr.com/) to your project.    
+##### Requests 
++ [Modernizr](http://v3.modernizr.com/) (`csstransforms`, `cssanimations`, `flexbox`, `flexboxlegacy`, `flexboxtweener`, `flexwrap`)    
++ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)   
+
+#### Tips
++ `Flexbox` 2009 syntax is not supported.   
++ Improved `breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 # Install
 
@@ -38,21 +41,21 @@ Rocket/
 |   |   |── justify               
 |   |                                          
 |   |── components 
-|   |   |── button
 |   |   |── charts
-|   |   |── media
 |   |   |── off-canvas
-|   |   |── dropdown
-|   |   |── tabs
-|   |   |── switch
-|   |   |── accordion
-|   |   |── push-toggle
-|   |   |── checkbox
-|   |   |── tooltip
-|   |   |── flex-media
-|   |   |── validation
 |   |   |── slider-carousel
 |   |   |── slider-gallery
+|   |   |── validation
+|   |   |── button
+|   |   |── switch
+|   |   |── push-toggle
+|   |   |── checkbox
+|   |   |── tabs
+|   |   |── accordion
+|   |   |── dropdown
+|   |   |── tooltip
+|   |   |── media
+|   |   |── flex-media
 |   |
 |   |── addons              
 |       |── type                  
@@ -90,10 +93,9 @@ Rocket/
 #【 Layout 】
 #### layout setting
 ```` scss
-// default setting
+// global layout setting
 $ro-layout: (
   container: 1024px,
-  columns: 12,
   gutter: 20px,
 );
 ````
@@ -198,6 +200,13 @@ $key: $per-row (gutter $gutter) (child $child) $direction keep
 </ul>
 ````
 ```` scss
+// global metro setting
+$ro-metro: (
+  'gutter': 0,
+  'ratio': 1,
+  'child': '*',
+);
+
 @mixin metro($key)
 //pattern
 $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media
@@ -305,294 +314,75 @@ $key: (child $child)
 
 
 #【 Components 】
-#### button
-````scss
-@mixin button($key)
-// pattern
-$key: $font-size $padding $background-color radius round hover
-
-.button { @include button(14px #00c8ff '0.8em 1em' radius hover); }
-// font-size: 14px;
-// background-color: #00c8ff;
-// padding: 0.8em 1em; (Tips: padding must be quoted)
-// radius: 0.22em; (default, you can modify it by change the varible "$ro-button-radius: 0.22em;" )
-// hover: true; (change background-color when mouse over)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-button.php)
-
-#### Media list
-`media` displays a media object (images, video, audio) to the left or right of a block.
-```` scss
-@mixin media($key)
-// pattern
-$key: $role $gutter $direction
-
-.media { @include media(); } 
-// role: 'media'; (media:default | media-body)
-// gutter: 10px; (default)
-// direction: left; (default)
-
-.media { @include media('media' 15px right); }
-// role: 'media';
-// gutter: 15px;
-// direction: right;
-.media-body { @include media('media-body'); }
-// role: 'media-body'; 
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-media-list.php)
-
-#### flex video
-```` scss
-@mixin flex-video($key)
-// pattern
-$key: $ratio $child
-
-.flex-video { @include flex-video(3/4); }
-// ratio: 3/4;
-// child: iframe, object, embed; (default)
-
-.flex-video { @include flex-video(9/16 embed); }
-// ratio: 9/16;
-// child: embed; 
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-flex-video.php)
-
-#### dropdown
-```` html
-<!-- 
-  if you set $show: click, add these markup to your dropdown 
-  make sure the value of "for" match the checkbox id
-  -->
-
-<div class="dropdown">
-  <span>dropdown</span>
-  <input type="checkbox" name="" id="dropdown">
-  <label for="dropdown">▼</label>
-  <ul>
-    <li><a href="">item01</a></li>
-    <li><a href="">item02</a></li>
-    <li><a href="">item03</a></li>
+#### Charts
+Pure css responsive charts. Currently only include `bar` and `column`, more types will be added soon.
+````html
+<div class="charts">
+  <!-- items: charts body -->
+  <ul class="items">
+    <li class="item-1">
+      <strong>Copper</strong> <!-- title -->
+      <span></span> <!-- graphic -->
+    </li>
+    <li class="item-2">
+      <strong>Silver</strong>
+      <span></span>
+    </li>
+    <li class="item-3">
+      <strong>Gold</strong>
+      <span></span>
+    </li>
+    <li class="item-4">
+      <strong>Platinum</strong>
+      <span></span>
+    </li>
   </ul>
-</div>
-````
-```` scss
-@mixin dropdown($key)
-// pattern
-$key: $child $show $style $direction default
-
-.dropdown { @include dropdown(ul hover display right default); }
-// child: ul;
-// show: hover; (hover | click)
-// style: display; (scale | display)
-// direction: right; (left | right)
-// default: true; (use default dropdown menu style)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-dropdown.php)
-
-#### tabs
-Pure css tabs.   
-```` html
-<!-- 
-  .ro-tabs and .ro-panels are required
-  -->
-
-<div class="your-tab-class">
-  <input type="radio" name="your-radio-name" id="your-radio-id-1" checked>
-  <input type="radio" name="your-radio-name" id="your-radio-id-2">
-  <input type="radio" name="your-radio-name" id="your-radio-id-3">
-  <!-- ... -->
-  <div class="ro-tabs">
-    <label for="your-radio-id-1">tab 1</label>
-    <label for="your-radio-id-2">tab 2</label>
-    <label for="your-radio-id-3">tab 3</label>
-    <!-- ... -->
+  <!-- ticks: charts grid -->
+  <div class="ticks">
+    <div class="tick-1"><span></span></div>
+    <div class="tick-2"><span></span></div>
+    <div class="tick-3"><span></span></div>
+    <div class="tick-4"><span></span></div>
+    <div class="tick-5"><span></span></div>
+    <div class="tick-6"><span></span></div>
+    <div class="tick-7"><span></span></div>
+    <div class="tick-8"><span></span></div>
+    <div class="tick-9"><span></span></div>
+    <div class="tick-10"><span></span></div>
+    <div class="tick-11"><span></span></div>
+    <div class="tick-12"><span></span></div>
+    <div class="tick-13"><span></span></div>
   </div>
-  <div class="ro-panels">
-    <div>
-      <!-- Your tab-panels 1 -->
-    </div>
-    <div>
-      <!-- Your tab-panels 2 -->
-    </div>
-    <div>
-      <!-- Your tab-panels 3 -->
-    </div>
+  <!-- labels: charts label -->
+  <div class="labels">
+    <div class="label-1">sales</div>
   </div>
 </div>
 ````
-```` scss
-@mixin tabs($key)
+````scss
+@mixin charts($key)
 // pattern
-$key: $length $style
+$key: ($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide)
 
-.your-tab-class { @include tabs(3 'carousel'); }
-// length: 3; (3 tabs)
-// style: carousel; (normal | carousel | customize)
+$data1: (
+  #5AB5E1: 8.9 10.5 19.3 21.45,
+);
+.charts { @include charts($data1 'bar' 'steps' (2 22) animation (0.6s)); }
+// single factor bar charts
+// steps: unit 2, total 22
+// animation: 0.6s ease (add class '.active' to charts to show animation)
+
+$data2: (
+  #E44B22: 8.9 10.5 19.3 21.45,
+  #E48A22: 5 10 16 22,
+  #22A1E4: 10.7 12 12 18,
+);
+.charts { @include charts($data2 'column' 'steps' (2 24) 'hide' ('numbers' 'labels')); }
+// multiply factors column charts
+// steps: unit 2, total 24
+// hide: numbers and labels
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
-
-#### tabs-active
-Set tabs' active styles.   
-```` scss
-@mixin tabs-active($key)
-// pattern
-$key: $length
-
-.your-tab-class { 
-  @include tabs-active(3) {
-    // tab active style
-  } 
-}
-// length: 3; (3 tabs)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
-
-#### tabs-panel-active
-Set panels' active styles.   
-```` scss
-@mixin tabs-panel-active($key)
-// pattern
-$key: $length
-
-.your-tab-class { 
-  @include tabs-panel-active(3) {
-    // panel active style
-  } 
-}
-// length: 3; (3 tabs)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
-
-#### switch
-Pure css switch.   
-```` html
-<div class="switch">
-  <input type="checkbox" id="switch1" name="switch">
-  <label for="switch1"></label>
-</div>
-````
-```` scss
-@mixin switch($key)
-//pattern
-$key: $size $active-color radius round
-
-.switch { @include switch(30px #3DD754 round); }
-// $size: 30px (default 20px)
-// $active-color: #3DD754 (default #3DD754)
-// $round: true (default false)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-switch.php)
-
-#### accordion
-Pure css accordion.   
-```` html
-<div class="accordion">
-  <input type="checkbox" name="" id="accordion-checkbox-1">
-  <label for="accordion-checkbox-1"><strong>About Us</strong></label>
-  <div>
-    <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
-  </div>
-</div>
-````
-```` scss
-@mixin accordion($key)
-//pattern
-$key: $content $max-height $transition-duration
-
-.accordion { @include accordion(div 200px 0.4s); }
-// $content: div;
-// $max-height: 200px;
-// $transition-duration: 0.4s;
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-accordion.php)
-
-#### push-toggle
-Pure css push toggle.   
-```` html
-<div class="push-toggle">
-  <input type="radio" id="male" name="gender" checked="">
-  <label for="male">Male</label>
-  <input type="radio" id="female" name="gender">
-  <label for="female">Female</label>
-</div>
-````
-```` scss
-@mixin push-toggle()
-
-.your-tab-class { 
-
-  // default style
-  label {
-    padding: 1em 1.5em;
-    background-image: linear-gradient(to bottom, #fff, #e1e1e1);
-    border: 1px solid #ccc;
-  }
-
-  // active style
-  @include push-toggle(){
-    background-image: linear-gradient(to bottom, #ebebeb, #fff);
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
-  }
- }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-push-toggle.php)    
-
-#### checkbox
-Customize radios or checkboxes.
-```` html
-<!-- make sure label right after radio or checkbox -->
-<div class="radio">
-  <input type="radio" name="my-radio-name" id="my-radio-id-1" checked>
-  <label for="my-radio-id-1">item 1</label>
-  <br />
-  <input type="radio" name="my-radio-name" id="my-radio-id-2">
-  <label for="my-radio-id-2">item 2</label>
-  <br />
-  <input type="radio" name="my-radio-name" id="my-radio-id-3">
-  <label for="my-radio-id-3">item 3</label>
-  <br />
-</div>
-````
-```` scss
-@mixin checkbox()
-
-.radio {
-  @include checkbox() {
-    padding: 4px 0 4px 26px;
-    background: url('../images/radio.png') 0 50% no-repeat;
-  }
-}
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)   
-
-#### checkbox-active
-Radios or checkboxes' active style.   
-
-```` scss
-@mixin checkbox-active()
-
-.radio {
-  @include checkbox-active() {
-    background-image: url('../images/radio-active.png');
-  }
-}
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)    
-
-#### tooltip
-pure css `tooltip`
-```` scss
-@mixin tooltip($key)
-// pattern
-$key: $direction $color radius (width $width) (height $height)
-
-.tooltip { @include tooltip(radius right #b02df3 width 300px); }
-// radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
-// direction: right;
-// background-color: #b02df3;
-// width: 300px; (for old browsers)
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tooltip.php)
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-charts.php)
 
 #### off-canvas
 Pure css off-canvas with multiple styles.  
@@ -802,6 +592,331 @@ Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
 </script>
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-slider-carousel.php)
+
+#### validation
+````html
+````
+````scss
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-validation.php)
+
+#### button
+````html
+<!-- normal: you can use button on any tag -->
+<span class="button">button</span>
+<!-- push: inner span tag, data-text attribute -->
+<span class="push" data-text="star"><span>push</span></span>
+<!-- line-drawing: 4 empty span tags -->
+<span class="line-drawing">line-drawing
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</span>
+````
+````scss
+@mixin button($key)
+// pattern
+$key: $padding ($border-radius | round) ($background-color $active-color) $hover $direction $duration $timing-function;
+// hover: 'highlight', 'simple', 'slide', 'ripple', 'veil', 'push', 'cut', 'bubble', 'line-drawing'
+// direction: left, right, top, bottom, 'horizontal', 'vertical'
+
+.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble); }
+// padding: 1em 2em; (padding must be quoted)
+// background-color: #2B8ACF;
+// active-color: #52CFDB;
+// border-radius: 5px; 
+// hover: bubble;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-button.php)
+
+#### switch
+Pure css switch.   
+```` html
+<div class="switch">
+  <input type="checkbox" id="switch1" name="switch">
+  <label for="switch1"></label>
+</div>
+````
+```` scss
+@mixin switch($key)
+//pattern
+$key: $size $active-color radius round
+
+.switch { @include switch(30px #3DD754 round); }
+// $size: 30px (default 20px)
+// $active-color: #3DD754 (default #3DD754)
+// $round: true (default false)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-switch.php)
+
+#### push-toggle
+Pure css push toggle.   
+```` html
+<div class="push-toggle">
+  <input type="radio" id="male" name="gender" checked="">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender">
+  <label for="female">Female</label>
+</div>
+````
+```` scss
+@mixin push-toggle()
+
+.your-tab-class { 
+
+  // default style
+  label {
+    padding: 1em 1.5em;
+    background-image: linear-gradient(to bottom, #fff, #e1e1e1);
+    border: 1px solid #ccc;
+  }
+
+  // active style
+  @include push-toggle(){
+    background-image: linear-gradient(to bottom, #ebebeb, #fff);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
+  }
+ }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-push-toggle.php)    
+
+#### checkbox
+Customize radios or checkboxes.
+```` html
+<!-- make sure label right after radio or checkbox -->
+<div class="radio">
+  <input type="radio" name="my-radio-name" id="my-radio-id-1" checked>
+  <label for="my-radio-id-1">item 1</label>
+  <br />
+  <input type="radio" name="my-radio-name" id="my-radio-id-2">
+  <label for="my-radio-id-2">item 2</label>
+  <br />
+  <input type="radio" name="my-radio-name" id="my-radio-id-3">
+  <label for="my-radio-id-3">item 3</label>
+  <br />
+</div>
+````
+```` scss
+@mixin checkbox()
+
+.radio {
+  @include checkbox() {
+    padding: 4px 0 4px 26px;
+    background: url('../images/radio.png') 0 50% no-repeat;
+  }
+}
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)   
+
+#### checkbox-active
+Radios or checkboxes' active style.   
+
+```` scss
+@mixin checkbox-active()
+
+.radio {
+  @include checkbox-active() {
+    background-image: url('../images/radio-active.png');
+  }
+}
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)    
+
+#### tabs
+Pure css tabs.   
+```` html
+<!-- 
+  .ro-tabs and .ro-panels are required
+  -->
+<div class="your-tab-class">
+  <input type="radio" name="your-radio-name" id="your-radio-id-1" checked>
+  <input type="radio" name="your-radio-name" id="your-radio-id-2">
+  <input type="radio" name="your-radio-name" id="your-radio-id-3">
+  <!-- ... -->
+  <div class="ro-tabs">
+    <label for="your-radio-id-1">tab 1</label>
+    <label for="your-radio-id-2">tab 2</label>
+    <label for="your-radio-id-3">tab 3</label>
+    <!-- ... -->
+  </div>
+  <div class="ro-panels">
+    <div>
+      <!-- Your tab-panels 1 -->
+    </div>
+    <div>
+      <!-- Your tab-panels 2 -->
+    </div>
+    <div>
+      <!-- Your tab-panels 3 -->
+    </div>
+  </div>
+</div>
+````
+```` scss
+@mixin tabs($key)
+// pattern
+$key: $length $style
+
+.your-tab-class { @include tabs(3 'carousel'); }
+// length: 3; (3 tabs)
+// style: carousel; (normal | carousel | customize)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
+
+#### tabs-active
+Set tabs' active styles.   
+```` scss
+@mixin tabs-active($key)
+// pattern
+$key: $length
+
+.your-tab-class { 
+  @include tabs-active(3) {
+    // tab active style
+  } 
+}
+// length: 3; (3 tabs)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
+
+#### tabs-panel-active
+Set panels' active styles.   
+```` scss
+@mixin tabs-panel-active($key)
+// pattern
+$key: $length
+
+.your-tab-class { 
+  @include tabs-panel-active(3) {
+    // panel active style
+  } 
+}
+// length: 3; (3 tabs)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
+
+#### accordion
+Pure css accordion.   
+```` html
+<div class="accordion">
+  <input type="checkbox" name="" id="accordion-checkbox-1">
+  <label for="accordion-checkbox-1"><strong>About Us</strong></label>
+  <div>
+    <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+  </div>
+</div>
+````
+```` scss
+@mixin accordion($key)
+//pattern
+$key: $content $max-height $transition-duration
+
+.accordion { @include accordion(div 200px 0.4s); }
+// $content: div;
+// $max-height: 200px;
+// $transition-duration: 0.4s;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-accordion.php)
+
+#### dropdown
+```` html
+<!-- 
+  if you set $show: click, add these markup to your dropdown 
+  make sure the value of "for" match the checkbox id
+  -->
+<div class="dropdown">
+  <span>dropdown</span>
+  <input type="checkbox" name="" id="dropdown">
+  <label for="dropdown">▼</label>
+  <ul>
+    <li><a href="">item01</a></li>
+    <li><a href="">item02</a></li>
+    <li><a href="">item03</a></li>
+  </ul>
+</div>
+````
+```` scss
+@mixin dropdown($key)
+// pattern
+$key: $child $show $style $direction default
+
+.dropdown { @include dropdown(ul hover display right default); }
+// child: ul;
+// show: hover; (hover | click)
+// style: display; (scale | display)
+// direction: right; (left | right)
+// default: true; (use default dropdown menu style)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-dropdown.php)
+
+#### tooltip
+pure css `tooltip`
+```` scss
+@mixin tooltip($key)
+// pattern
+$key: $direction $color radius (width $width) (height $height)
+
+.tooltip { @include tooltip(radius right #b02df3 width 300px); }
+// radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
+// direction: right;
+// background-color: #b02df3;
+// width: 300px; (for old browsers)
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tooltip.php)
+
+#### Media list
+`media` displays a media object (images, video, audio) to the left or right of a block object.
+````html
+<ul class="news">
+  <li>
+    <figure class="media"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
+    <div class="media-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.</p>
+    </div>
+  </li>
+</ul>
+````
+```` scss
+@mixin media($key)
+// pattern
+$key: $role $gutter $direction
+
+.news .media { @include media(); } 
+// role: 'media'; (media:default | media-body)
+// gutter: 10px; (default)
+// direction: left; (default)
+
+.news .media { @include media('media' 15px right); }
+// role: 'media';
+// gutter: 15px;
+// direction: right;
+
+.news .media-body { @include media('media-body'); }
+// role: 'media-body'; 
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-media-list.php)
+
+#### flex media
+````html
+<div class="video">
+  <iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen></iframe>
+</div>
+````
+```` scss
+@mixin flex-media($key)
+// pattern
+$key: $ratio $child
+
+.video { @include flex-media(3/4); }
+// ratio: 3/4;
+// child: iframe, object, embed; (default)
+
+.svg-wrapper { @include flex-media(9/16 svg); }
+// ratio: 9/16;
+// child: svg; 
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-flex-media.php)
 
 #【 Addons 】
 #### type
