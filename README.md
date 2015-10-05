@@ -8,7 +8,7 @@ Rocket is a powerful SASS library to help web developers handle layout, color an
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/v3/changelog.md)   
 
-##### What's new in v3
+##### What's new in version 3
 Rewrite main layout mixins using `flex-box`. 
 Add many new sass mixins, components and javascript components.
 + Scss: `grid`, `metro` , `liquid-3` , `charts` , `validation` , `responsive-type`  
