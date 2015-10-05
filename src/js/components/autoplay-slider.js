@@ -1,5 +1,5 @@
 // AUTOPLAY
-var sliderAutoplay = function (selector, timeout, items, hoverPause) {
+var sliderAutoplay = function (selector, timeout, pages, hoverPause) {
   timeout = typeof timeout !== 'undefined' ? timeout : 3000;
   hoverPause = typeof hoverPause !== 'undefined' ? hoverPause : true;
 
@@ -7,7 +7,7 @@ var sliderAutoplay = function (selector, timeout, items, hoverPause) {
     var radiosSelectors = selector + ' > [type="radio"]',
         checkboxSelector = selector + ' > [type="checkbox"]',
         radios = kit(radiosSelectors),
-        len = typeof items !== 'undefined' ? items : radios.length,
+        len = typeof pages !== 'undefined' ? pages : radios.length,
         checkedIndex;
 
     // check radios

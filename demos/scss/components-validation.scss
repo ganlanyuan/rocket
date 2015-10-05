@@ -27,7 +27,7 @@
     margin-bottom: 3px;
   }
   input:not([type="submit"]) {
-    @include button('0.5em 0.8em');
+    padding: 0.5em 0.8em;
     width: 100%;
     max-width: 500px;
     border: 1px solid #ccc;

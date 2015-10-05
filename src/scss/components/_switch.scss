@@ -1,17 +1,3 @@
-/// Pure css switch.   
-/// $key: `$size $active-color radius round`
-/// 
-/// @group components
-/// @example markup - Markup
-/// <div class="switch">
-///   <input type="checkbox" id="switch1" name="switch">
-///   <label for="switch1"></label>
-/// </div>
-/// @example scss - Usage
-/// .switch { @include switch(30px #3DD754 round); }
-///
-/// @link http://creatiointl.org/gallery/william/rocket/components-switch.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin switch($key: 20px){
   $radius: ro-get($key, 'radius');

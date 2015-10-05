@@ -3,7 +3,7 @@
 // hide show fadeIn remove 
 // text html attr css addClass removeClass toggleClass hasClass 
 // outerWidth outerHeight getTop getLeft offset(left top)
-// append prepend
+// append prepend wrap wrapAll
 
 // KIT START
 // DOM MANIPULATION

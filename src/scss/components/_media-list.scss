@@ -19,7 +19,7 @@
 /// @link http://creatiointl.org/gallery/william/rocket/components-media-list.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin media($key){
+@mixin media-list($key){
 	$gutter: ro-get-type($key, 'number');
 	$role: ro-get($key, $ro-media-type, 'media');
 	$direction: ro-get($key, $ro-media-direction, left);

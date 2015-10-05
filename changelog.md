@@ -7,10 +7,10 @@ Rewrite main layout mixins using `flex-box`. Add many new layout mixins and comp
 + Added: `metro`
 + Added: `liquid-3`
 + Added: `charts`
-+ Added: `priority-nav`
 + Added: `validation`
 + Added: `responsive-type`
 + Added: `sticky`
++ Added: `priority-nav`
 + Added: `equalizer`
 + Added: `reach`
 + Added: `scrollTo`
@@ -28,6 +28,7 @@ Rewrite main layout mixins using `flex-box`. Add many new layout mixins and comp
 + Rename & improved: `two-columns` => `liquid-2`
 + Rename & improved: `mobile-nav` => `off-canvas(css)`    
 + ------------------------------------------------------
++ Renamed: `media` => `media-list`
 + Renamed: `flex-video` => `flex-media`
 + ------------------------------------------------------
 + Removed: `wrap`

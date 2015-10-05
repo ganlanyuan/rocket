@@ -8,13 +8,19 @@ Rocket is a powerful SASS library to help web developers handle layout, color an
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/v3/changelog.md)   
 
-##### Requests 
+##### What's new in v3
+Rewrite main layout mixins using `flex-box`. 
+Add many new sass mixins, components and javascript components.
++ Scss: `grid`, `metro` , `liquid-3` , `charts` , `validation` , `responsive-type`  
++ Javascript: `sticky` , `priority-nav` , `equalizer` , `reach` , `scrollTo`
++ Improved `breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
+
+##### Requests
 + [Modernizr](http://v3.modernizr.com/) (`csstransforms`, `cssanimations`, `flexbox`, `flexboxlegacy`, `flexboxtweener`, `flexwrap`)    
 + [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)   
 
 #### Tips
 + `Flexbox` 2009 syntax is not supported.   
-+ Improved `breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 # Install
 
@@ -54,7 +60,7 @@ Rocket/
 |   |   |── accordion
 |   |   |── dropdown
 |   |   |── tooltip
-|   |   |── media
+|   |   |── media-list
 |   |   |── flex-media
 |   |
 |   |── addons              
@@ -486,19 +492,65 @@ In the example shows on the left, I used banner as my specific class.
 </div>
 ````
 
+#### slider-carousel
+```` scss
+// basic
+@mixin slider-carousel($key)
+// pattern
+$key: ($items by $perpage) (gutter $gutter) $style center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar keep;
+
+.slider { @include slider-carousel(5 by 2 bypage); }
+// items: 5;
+// perpage: 2;
+// gutter: 10px; (default)
+// bypage: true;
+
+// customise dots, controls and progress-bar
+.slider .dots .normal { ... }
+.slider .dots .active { ... }
+.slider .controls .prev { ... }
+.slider .controls .next { ... }
+.slider .autoplay-progress { ... }
+````
+
+*Autoplay*  
+You can set up autoplay by passing an `autoplay` parameter to the `slider-gallery` mixin (which is using css animation, therefore it's not clickable), or passing an `autoplay-js` parameter, and then add js code like below (this is clickable):  
+```` javascript
+<script>
+  sliderAutoplay(selector, timeout, pages, hoverPause);
+  // pages: total slider pages
+
+  ready(function () {
+    sliderAutoplay('.gallery-b', 2000);
+  });
+</script>
+````
+
+*Autoheight*   
+Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
+```` html
+<!-- include kit.js -->
+<script src="path/to/kit.min.js"></script>
+<script>
+  ready(function () {
+    autoheightCarousel('.carousel-h'); 
+  });
+</script>
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-slider-carousel.php)
+
 #### slider-gallery
 ```` scss
 // basic
 @include slider-gallery($key)
 // pattern
-$key: $items autoplay autoplay-js (speed $speed) (timeout $timeout) hoverpause progress-bar keep default
+$key: $items $style $directon $angle autoplay autoplay-js (speed $speed) (timeout $timeout) hoverpause progress-bar keep
 
-.slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar default); }
+.slider { @include slider-gallery(5 speed 0.5s timeout 4s autoplay progress-bar); }
 // items: 5;
 // speed: 0.5s; (default 1s)
 // timeout: 4s; (default 3s)
 // autoplay: true;
-// default: true; (default styles for controls and dots)
 
 // customise dots, controls and progress-bar
 .slider .dots .normal { ... }
@@ -532,15 +584,7 @@ $key: $items autoplay autoplay-js (speed $speed) (timeout $timeout) hoverpause p
 }
 ````
 *Autoplay*  
-You can set up autoplay by passing an `autoplay` parameter to the `slider-gallery` mixin (which is using css animation, therefore it's not clickable), or passing an `autoplay-js` parameter, and then add js code like below (this is clickable):  
-```` javascript
-<script>
-  ready(function () {
-    sliderAutoplay('.gallery-b', 2000);
-  });
-</script>
-
-````
+Same with `slider-carousel`.   
 
 *Autoheight*   
 Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
@@ -555,48 +599,42 @@ Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-slider-gallery.php)
 
-#### slider-carousel
-```` scss
-// basic
-@mixin slider-carousel($key)
-// pattern
-$key: ($items by $perpage) (gutter $gutter) center bypage autoplay autoplay-js (timeout $timeout) (speed $speed) hoverpause progress-bar keep default;
-
-.slider { @include slider-carousel(5 by 2 bypage default); }
-// items: 5;
-// perpage: 2;
-// gutter: 10px; (default)
-// bypage: true;
-// default: true; (default styles for controls and dots)
-
-// customise dots, controls and progress-bar
-.slider .dots .normal { ... }
-.slider .dots .active { ... }
-.slider .controls .prev { ... }
-.slider .controls .next { ... }
-.slider .autoplay-progress { ... }
-````
-
-*Autoplay*  
-Same with `slider-gallery`.   
-
-*Autoheight*   
-Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
-```` html
-<!-- include kit.js -->
-<script src="path/to/kit.min.js"></script>
-<script>
-  ready(function () {
-    autoheightCarousel('.carousel-h'); 
-  });
-</script>
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-slider-carousel.php)
-
 #### validation
+Html5 form validation using [H5F](https://github.com/ryanseddon/H5F). We already include H5F in `kit.js` (with a little bit modification), so you don't need download it again.     
+Set your customized alerts information through `<div data-info=""></div>`.
 ````html
+<form action="" class="myform">
+  <ol>
+    <li>
+      <label for="name">Name</label>
+      <input type="text" id="name" pattern="[a-zA-Z]{6,}" required>
+
+      <!-- alerts -->
+      <div data-info="valid">User name is valid.</div>
+      <div data-info="required">Valid user name required.</div>
+      <div data-info="error">User name must be at least 6 characters.</div>
+    </li>
+    <li> … </li>
+    <li> … </li>
+    <li><input type="submit" value="Submit"></li>
+  </ol>
+</form>
+````
+````javascript
+// run form validation
+window.onload = function () {
+  H5F.setup(document.querySelectorAll(".myform"));
+}
 ````
 ````scss
+@mixin validation($key)
+// pattern
+$key: $style $direction $shake $speed $duration default;
+// style: 'normal' | 'fade-in' | 'slide-in'
+
+.myform { @include validation(slide-in right default); }
+// style: slide-in;
+// direction: right;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-validation.php)
 
@@ -618,7 +656,7 @@ Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
 @mixin button($key)
 // pattern
 $key: $padding ($border-radius | round) ($background-color $active-color) $hover $direction $duration $timing-function;
-// hover: 'highlight', 'simple', 'slide', 'ripple', 'veil', 'push', 'cut', 'bubble', 'line-drawing'
+// hover: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
 // direction: left, right, top, bottom, 'horizontal', 'vertical'
 
 .button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble); }
@@ -641,12 +679,15 @@ Pure css switch.
 ```` scss
 @mixin switch($key)
 //pattern
-$key: $size $active-color radius round
+$key: $style $size $active-color (text $text) (radius | round);
+// $style: 'toggle' | 'slider'
 
-.switch { @include switch(30px #3DD754 round); }
-// $size: 30px (default 20px)
-// $active-color: #3DD754 (default #3DD754)
-// $round: true (default false)
+.switch { @include switch(round text ("on" "off") 36px #399DE1); }
+// style: toggle; (default)
+// text: on off;
+// size: 36px;
+// active-color: #399DE1;
+// round: true;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-switch.php)
 
@@ -839,23 +880,28 @@ $key: $content $max-height $transition-duration
 ```` scss
 @mixin dropdown($key)
 // pattern
-$key: $child $show $style $direction default
+$key: $child $show $style $direction $duration default;
+// $show: 'hover' | 'click'
+// $style: 'display' | 'scale' | 'rotate'
 
 .dropdown { @include dropdown(ul hover display right default); }
 // child: ul;
-// show: hover; (hover | click)
-// style: display; (scale | display)
-// direction: right; (left | right)
+// show: hover;
+// style: display;
+// direction: right; 
 // default: true; (use default dropdown menu style)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-dropdown.php)
 
 #### tooltip
-pure css `tooltip`
+pure css `tooltip`.
+````html
+<p>Hic, deleniti itaque expedita placeat in veritatis <a href="" class="tooltip" data-tooltip="Tooltip content">consectetur</a> explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.</p>
+````
 ```` scss
 @mixin tooltip($key)
 // pattern
-$key: $direction $color radius (width $width) (height $height)
+$key: $direction $color (width $width) (height $height) radius
 
 .tooltip { @include tooltip(radius right #b02df3 width 300px); }
 // radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
@@ -865,8 +911,8 @@ $key: $direction $color radius (width $width) (height $height)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tooltip.php)
 
-#### Media list
-`media` displays a media object (images, video, audio) to the left or right of a block object.
+#### Media-list
+`media-list` displays a media object (images, video, audio) to the left or right of a block object.
 ````html
 <ul class="news">
   <li>
@@ -878,21 +924,21 @@ $key: $direction $color radius (width $width) (height $height)
 </ul>
 ````
 ```` scss
-@mixin media($key)
+@mixin media-list($key)
 // pattern
 $key: $role $gutter $direction
 
-.news .media { @include media(); } 
+.news .media { @include media-list(); } 
 // role: 'media'; (media:default | media-body)
 // gutter: 10px; (default)
 // direction: left; (default)
 
-.news .media { @include media('media' 15px right); }
+.news .media { @include media-list('media' 15px right); }
 // role: 'media';
 // gutter: 15px;
 // direction: right;
 
-.news .media-body { @include media('media-body'); }
+.news .media-body { @include media-list('media-body'); }
 // role: 'media-body'; 
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-media-list.php)
@@ -926,7 +972,7 @@ $key: $ratio $child
 // pattern
 $key: $font-size $font-weight $font-style $line-height $font-family $text-align $text-transform 
 
-h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic) }
+h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }
 // font-size: 20px;
 // font-weight: bold; 
 // font-style: italic; 
@@ -945,8 +991,9 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-type.php)
 
-#### responsive-type
-Responsive type.
+#### responsive-type (rp-type)
+Responsive type.     
+Everything you can do with `type` you can do with `responsive-type`.    
 ```` scss
 @mixin font-size($key)
 // pattern
@@ -958,20 +1005,21 @@ $bp: (
   large : 1024px
 );
 $p-font-sizes: (
-  null  : (15px, 1.3),
-  small : 16px,
-  medium: (17px, 1.4),
-  900px : 18px,
-  large : (19px, 1.45),
-  1440px: 20px,
+  null  : (15px 1.3 right uppercase),
+  small : 16px
+  medium: (17px 1.4),
+  900px : 18px
+  large : (19px 1.45),
+  1440px: 20px
 );
 $h3-font-sizes: (
-  null  : (18px, 1.3),
-  900px : 22px,
-  large : (30px, 1.2),
+  null  : (18px 1.3 weight-normal),
+  900px : 22px
+  large : (30px 1.2),
 );
-h3.example-font-size { @include responsive-type($h3-font-sizes, $bp); }
-p.example-font-size { @include responsive-type($p-font-sizes, $bp); }
+
+h3.example-font-size { @include rp-type($h3-font-sizes $bp); }
+p.example-font-size { @include rp-type($p-font-sizes $bp); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-font-size.php) 
 
@@ -1002,19 +1050,19 @@ $key: $rgba
 ````
 
 #### breakpoint (bp)
-A shorthand @mixin for break point.
+A shorthand @mixin for breakpoints.    
+Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). 
 ```` scss
 @mixin breakpoint($key)
-// or @mixin bp($key)
 // pattern
 $key: $condition $media $breakpoints
 
-@include breakpoint('min' 640) {};
+@include bp('min' 640) {};
 // output: @media (min-width: 40em) {};
-@include breakpoint('max' 640 screen) {};
+@include bp('max' 640 screen) {};
 // output: @media screen and (max-width: 40em) {};
-@include breakpoint(640 767) {};
-// output: @media (min-width: 40em) and (max-width: 47.94em) {};
+@include bp(400 767 1000 1200 1500) {};
+// output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-breakpoint.php)
 
@@ -1143,14 +1191,14 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 
 #【 kit.js 】
-Kit.js is small Javascript library similar with jQuery. Kit.js works well on IE8 and up, and on other morden browsers.   
+`Kit.js` is small Javascript library has similar functions with jQuery. `Kit.js` works well on IE8+ and morden browsers.   
 The follow metheds are available:   
 `on`, `off`, `click`, `mouseover`, `mouseout`, `focus`, `blur`, `submit`, `keydown`, `keyup`,   
 `find`, `eq`, `filter`, `first`, `last`, `parent`, `parents`, `children`, `firstChild`, `lastChild`, `siblings`, `prev`, `prevAll`, `next`, `nextAll`,   
 `hide`, `show`, `fadeIn`, `remove`,   
 `text`, `html`, `attr`, `css`, `addClass`, `removeClass`, `toggleClass`, `hasClass`,   
 `outerWidth`, `outerHeight`, `getTop`, `getLeft`, `offset(left top)`,   
-`before`, `after`, `append`, `prepend`  
+`append`, `prepend`, `wrap`, `wrapAll`  
 
 #### Ready
 ```` javascript
@@ -1191,19 +1239,62 @@ kit('.site-nav a').forEach(function (el) {
 });
 ````
 
-#### Reach
-`reach` is a function to check if target element reach the edge of browser.  
+#### sticky
+```` javascript
+// pattern
+sticky(options);
+default: { 
+  sticky: '.sticky',
+  stickyWrapper: false,
+  spacing: 0, // can be an element like '.header' which means element height
+  stickTo: 'top',
+  breakpoints: false,
+};
+
+sticky({
+  sticky: '.sticky', 
+  stickyWrapper: '.wrapper', 
+  spacing: 20
+});
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-sticky.php)
+
+#### priority-nav
+````javascript
+// pattern
+priorityNav (obj, buttonText, restore)
+// buttonText can be html code: <span class="icon-menu"></span>
+// restore: breakpoint to push back all hidden menus to their original status
+
+priorityNav('.nav', 'more', 600);
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-priority-nav.php)
+
+#### equalizer
+Create equal height boxes.
+```` javascript
+// pattern
+equalizer(obj1, obj2, obj3, ...);
+
+equalizer('.item1', '.item2');
+equalizer('.gallery li');
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-equalizer.php)
+
+#### reach
+`reach` is a function to check if target element reach the top, middle or bottom of the browser window.  
 ```` javascript
 if (kit(el).reach('middle',0)) {
   // if target element reach the middle of the browser, do something
 }
 if (kit(el).reach('top',20)) {
-  // if target element reach the point which is under the top of the browser 20px, do something
+  // if target element reach the point which is above the top of the browser 20px, do something
 }
 if (kit(el).reach('bottom',0)) {
   // if target element reach the bottom of the browser, do something
 }
 ````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-reach.php)
 
 #### scrollTo
 Scroll to some point in a given period of time.  
@@ -1214,6 +1305,7 @@ kit('.icon-menu').click(function() {
   scrollTo (0,200); // scroll to top in 200ms
 });
 ````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-scrollTo.php)
 
 #### numIncrease
 Increase numbers in given period of time.
@@ -1231,23 +1323,3 @@ animate(el, attr, from, to, duration);
 animate(kit('.target'), 'left', 0, 20, 400);
 ````
 
-#### equalizer
-```` javascript
-equalizer('.item1', '.item2');
-equalizer('.gallery li');
-````
-
-#### sticky
-```` javascript
-sticky(sticky, sticky_container, distance_to_window_top);
-sticky('.sticky', '.wrapper', '.header');
-sticky('.sticky', '.wrapper', 20);
-````
-
-#### sliderAutoplay
-```` javascript
-sliderAutoplay(selector, timeout, items, hoverPause);
-// items: set up how many dots are clickable when using 'bypage' in css
-sliderAutoplay('.gallery-b', 2000);
-sliderAutoplay('.carousel-g', 3000, 4);
-````
