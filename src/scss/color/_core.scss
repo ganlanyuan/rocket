@@ -1,5 +1,4 @@
 // *** color core *** //
-
 // color
 @function color($key){
   $method: ro-get($key, $ro-color-methods);

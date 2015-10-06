@@ -1,15 +1,4 @@
-/// A shorthand @mixin for hide elements on some parts of viewport.
-/// 
-/// $key: `$media $breakpoints`
-/// @group addons
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .example { @include hidden(screen 300 500 700); }
-/// // hidden between 300px and 500px, and 700px up on screen
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/addons-visibility.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** hidden *** //
 @mixin hidden($key){
   @if type-of($key) == 'number' {
     @include breakpoint('min' $key) { display: none !important; }

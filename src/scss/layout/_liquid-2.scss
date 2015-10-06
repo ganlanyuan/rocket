@@ -1,28 +1,4 @@
-/// *liquid-2* is for making a Layout With a Fluid and a Fixed-size Columns.
-/// 
-/// $key: `$direction $aside-width (gutter $gutter) (order $aside-order)`
-/// @group layout
-/// @param {list} $key - key 
-/// @example markup - markup
-/// <!-- Add "data-main", "data-aside" attributes to your markup. -->
-/// 
-/// <div class="wrapper">
-/// 
-///   <!-- main -->
-///   <div data-main=""></div>
-/// 
-///   <!-- aside -->
-///   <div data-aside=""></div>
-/// </div>
-/// @example scss - Usage
-/// .wrapper { @include liquid-2(left 300px gutter 30px); }
-/// // direction: left; (aside is on the left)
-/// // aside-width: 300px;
-/// // gutter: 30px;
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/layout-liquid-2.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** liquid-2 *** //
 @mixin liquid-2($key){
   $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));

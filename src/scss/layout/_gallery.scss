@@ -1,22 +1,4 @@
-/// *gallery* is for creating picture galleries.
-/// 
-/// $key: `$per-row $gutter (child $child) $direction $position keep`
-/// @group layout
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .pic { @include gallery(3 2% child li middle); }
-/// // per-row: 3;
-/// // gutter: 2%;
-/// // child: li;
-/// // float: left; (default)
-/// // position: middle; (same padding on the top and bottom for each item)
-/// 
-/// .pic { @include gallery(4 child li keep); }
-/// // Keep: similar with span(keep).
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/layout-gallery.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** gallery *** //
 @mixin gallery($key){
   $per-row: 1;
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, gutter));

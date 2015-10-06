@@ -1,16 +1,4 @@
-/// *square* is for getting square colors based on a given color.
-/// 
-/// $key: `$color $order (saturation $saturation) (lightness $lightness) (dist $dist)`
-/// @group color functions
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .main { color: square(#a6e36e, 3); }
-/// // color: #a6e36e;
-/// // order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/color-square.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** square *** //
 @function square($key){
   $key-new: ();
 

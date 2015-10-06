@@ -1,24 +1,4 @@
-/// *media* displays a media object (images, video, audio) to the left or right of a block.
-/// 
-/// $key: `$role $gutter $direction`
-/// @group components
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .media { @include media(); } 
-/// // role: 'media'; (media:default | media-body)
-/// // gutter: 10px; (default)
-/// // direction: left; (default)
-///
-/// .media { @include media('media' 15px right); }
-/// // role: 'media';
-/// // gutter: 15px;
-/// // direction: right;
-/// .media-body { @include media('media-body'); }
-/// // role: 'media-body'; 
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/components-media-list.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** media-list *** //
 @mixin media-list($key){
 	$gutter: ro-get-type($key, 'number');
 	$role: ro-get($key, $ro-media-type, 'media');

@@ -1,18 +1,4 @@
-/// *ie-rgba* is for getting rgba property for IE8.
-/// 
-/// $key: `$rgba`
-/// @group addons
-/// @param {number} $key - key 
-/// @example scss - Usage
-/// .lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }
-/// @example css - output
-/// .lt-ie9 .example {
-///   background: none;
-///   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000);
-///   zoom: 1;
-/// }
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** ie-rgba *** //
 @mixin ie-rgba($rgba) {
   background:none;
   // -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($rgba)},endColorstr=#{ie-hex-str($rgba)});

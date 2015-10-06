@@ -1,18 +1,4 @@
-/// $key: `$ratio $child`
-/// @group components
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .flex-video { @include flex-video(3/4); }
-/// // ratio: 3/4;
-/// // child: iframe, object, embed; (default)
-/// 
-/// .flex-video { @include flex-video(9/16 embed); }
-/// // ratio: 9/16;
-/// // child: embed; 
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/components-flex-video.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** flex-media *** //
 @mixin flex-media(
   $key:
     9/16

@@ -1,28 +1,4 @@
-/// *type* is a shorthand mixin for type.
-/// 
-/// $key: `$font-size $font-weight $font-style $text-align $line-height $font-family $text-transform`
-/// @group addons
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// h1 { @include type(20px 'Georgia, Helvetica, sans-serif' 1.4 bold italic) }
-/// // font-size: 20px;
-/// // font-weight: bold; 
-/// // font-style: italic; 
-/// // font-family: 'Georgia, Helvetica, sans-serif';
-/// // line-height: 1.4;
-/// 
-/// // Tips: to set 'font-weight', 'font-style', 'text-align' or 'text-transform' value 
-/// // to 'inherit' or 'normal', 
-/// // you need add prefix 'weight-', 'style-' or 'transform-'.
-/// 
-/// // $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
-/// // $ro-font-styles: italic, oblique, style-normal, style-inherit !default;
-/// // $ro-text-aligns: left, right, center, justify, align-inherit !default;
-/// // $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/addons-type.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** type *** //
 @mixin type($key){
   $check: join(join(join($ro-font-weights, $ro-font-styles), $ro-text-aligns), $ro-text-transforms);
 

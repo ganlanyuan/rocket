@@ -1,33 +1,4 @@
-/// Pure css push toggle.   
-/// 
-/// @group components
-/// @example markup - Markup
-/// <div class="push-toggle">
-///   <input type="radio" id="male" name="gender" checked="">
-///   <label for="male">Male</label>
-///   <input type="radio" id="female" name="gender">
-///   <label for="female">Female</label>
-/// </div>
-/// @example scss - Usage
-/// .your-tab-class { 
-/// 
-///   // default style
-///   label {
-///     padding: 1em 1.5em;
-///     background-image: linear-gradient(to bottom, #fff, #e1e1e1);
-///     border: 1px solid #ccc;
-///   }
-///
-///   // active style
-///   @include push-toggle(){
-///     background-image: linear-gradient(to bottom, #ebebeb, #fff);
-///     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
-///   }
-///  }
-///
-/// @link http://creatiointl.org/gallery/william/rocket/components-push-toggle.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** push-toggle *** //
 @mixin push-toggle() {
   // *** output *** //
   @include clearfix;

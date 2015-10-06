@@ -1,19 +1,4 @@
-/// A shorthand @mixin for *break point*. Accept maximumly 6 breakpoints. 
-/// 
-/// $key: `$condition $media $breakpoints`
-/// @group addons
-/// @param {list} $key - key 
-/// @example scss - Usage
-/// .bp { @include breakpoint('min' 640) {}; }
-/// // output: @media (min-width: 40em) {};
-/// .bp {@include breakpoint('max' 640 screen) {}; }
-/// // output: @media screen and (max-width: 40em) {};
-/// .bp {@include breakpoint(640 767) {}; }
-/// // output: @media (min-width: 40em) and (max-width: 47.94em) {};
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/addons-breakpoint.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** breakpoint *** //
 @mixin breakpoint($key){
   $condition: ro-get($key, ('min' 'max'), 'min');
   $media: ro-get($key, $ro-media);

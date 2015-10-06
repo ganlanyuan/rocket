@@ -1,26 +1,4 @@
-/// The *container* of the main content. It can be center, left or right aligned.
-/// 
-/// $key: `($container $gutter) $align`
-/// @group layout
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .wrapper { @include container(1200px); }
-/// // container: 1200px;
-/// // gutter: 2%; (default)
-/// // align: center; (default)
-/// 
-/// .wrapper { @include container(1200px 20px left); }
-/// // container: 1200px
-/// // gutter: 20px;
-/// // align: left;
-/// 
-/// .wrapper { @include container(64em 2% center); }
-/// // container: 64em;
-/// // gutter: 2%;
-/// // align: center;
-/// 
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** container *** //
 @mixin container($key: false){
   $container: false;
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));

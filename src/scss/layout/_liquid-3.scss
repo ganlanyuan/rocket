@@ -1,19 +1,4 @@
-/// 
-/// 
-/// $key: `$map $mode (child $child) (gutter $gutter) (float $float) keep`
-/// @group layout
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// $layout: (
-///   2:1,
-///   7:0,
-///   3:0,
-/// );
-/// .row { @include row($layout); }
-///
-/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** liquid-3 *** //
 @mixin liquid-3($key){
   $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));

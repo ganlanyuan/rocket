@@ -1,44 +1,4 @@
-/// Pure css tabs.   
-/// 
-/// $key: `$length $style`
-/// @group components
-/// @param {number | list} $key - key 
-/// @example markup - Markup
-/// <!-- 
-///   .ro-tabs and .ro-panels are required
-///   -->
-/// 
-/// <div class="your-tab-class">
-///   <input type="radio" name="your-radio-name" id="your-radio-id-1" checked>
-///   <input type="radio" name="your-radio-name" id="your-radio-id-2">
-///   <input type="radio" name="your-radio-name" id="your-radio-id-3">
-///   <!-- ... -->
-///   <div class="ro-tabs">
-///     <label for="your-radio-id-1">tab 1</label>
-///     <label for="your-radio-id-2">tab 2</label>
-///     <label for="your-radio-id-3">tab 3</label>
-///     <!-- ... -->
-///   </div>
-///   <div class="ro-panels">
-///     <div>
-///       <!-- Your tab-panels 1 -->
-///     </div>
-///     <div>
-///       <!-- Your tab-panels 2 -->
-///     </div>
-///     <div>
-///       <!-- Your tab-panels 3 -->
-///     </div>
-///   </div>
-/// </div>
-/// @example scss - Usage
-/// .your-tab-class { @include tabs(3 'carousel'); }
-/// // length: 3; (3 tabs)
-/// // style: carousel; (normal | carousel | customize)
-///
-/// @link http://creatiointl.org/gallery/william/rocket/components-tabs.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** tabs *** //
 @mixin tabs($key) {
   $length: ro-get-type($key, 'number', 0);
   $style: ro-get($key, $ro-tabs-style, 'normal');

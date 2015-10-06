@@ -1,16 +1,4 @@
-/// *triad* is for getting triad colors based on a given color.
-/// 
-/// $key: `$color $order (saturation $saturation) (lightness $lightness) (dist $dist)`
-/// @group color functions
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// .main { color: triad(#a6e36e, 2); }
-/// // color: #a6e36e;
-/// // order: 2; (-2 | -1 | 1 | 2)
-/// 
-/// @link http://creatiointl.org/gallery/william/rocket/color-triad.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** triad *** //
 @function triad($key){
   $key-new: ();
 

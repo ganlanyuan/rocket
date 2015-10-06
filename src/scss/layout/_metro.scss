@@ -1,19 +1,4 @@
-/// Grid wrapper, works with span when using a fixed value for gutter.
-/// 
-/// $key: `$map $mode (child $child) (gutter $gutter) keep`
-/// @group layout
-/// @param {number | list} $key - key 
-/// @example scss - Usage
-/// $layout: (
-///   2:1,
-///   7:0,
-///   3:0,
-/// );
-/// .row { @include row($layout); }
-///
-/// @link http://creatiointl.org/gallery/william/rocket/layout-grid.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
-
+// *** metro *** //
 @mixin metro($key) {
   $condition: ro-get($key, ('min' 'max'), 'min');
   $media: ro-get($key, $ro-media);

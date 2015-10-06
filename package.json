@@ -1,7 +1,7 @@
 {
   "title": "Rocket",
   "name": "Rocket",
-  "version": "2.5.2",
+  "version": "3.0.0",
   "description": "a powerful tool to help web developers handle layout and other components",
   "directories": {
     "src": "src"
