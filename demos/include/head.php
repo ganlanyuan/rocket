@@ -57,6 +57,5 @@
 
 	<script src="prism/prism.js"></script>
 	<script src="js/Modernizr.js"></script>
-	<script src="js/rem.min.js"></script>
 	<script src="../dist/kit.min.js"></script>
 </head>

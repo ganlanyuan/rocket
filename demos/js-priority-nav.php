@@ -39,7 +39,7 @@ ready(function () {
 </div>
 <script>
   ready(function () {
-    priorityNav('.nav', 'more', 600);
+    priorityNav('.nav', 'more', false, 600);
   });
 </script>
 </body>

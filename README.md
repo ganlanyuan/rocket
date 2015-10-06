@@ -1262,11 +1262,14 @@ sticky({
 #### priority-nav
 ````javascript
 // pattern
-priorityNav (obj, buttonText, restore)
+priorityNav (obj, buttonText, restore, distory)
 // buttonText can be html code: <span class="icon-menu"></span>
-// restore: breakpoint to push back all hidden menus to their original status
+// restore: push back all hidden menu items
+// distory: hide all menu items
 
-priorityNav('.nav', 'more', 600);
+priorityNav('.nav', 'more', false, 600);
+// restore: false
+// distory: 600
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-priority-nav.php)
 

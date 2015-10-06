@@ -322,7 +322,7 @@ pre[class*="language-"] {
 .example-gallery > li {
   box-sizing: border-box;
   padding: 0 10px 20px;
-  width: 33.33333%;
+  width: 33.3333333333%;
 }
 
 .no-flexwrap .example-gallery {
