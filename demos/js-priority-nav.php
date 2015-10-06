@@ -28,7 +28,7 @@
       </code></pre>
       <pre><code class="language-javascript">
 ready(function () {
-  priorityNav('.nav', 'more', 600);
+  priorityNav('.nav', 'more', false, 600);
 });
       </code></pre>
     </div>
