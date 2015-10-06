@@ -1,7 +1,7 @@
 # Changelog
 
-### 3.0.0 Beta
-Rewrite main layout mixins using `flex-box`. Add many new layout mixins and components. Add several js components.
+### 3.0.0 
+Rewrite main layout mixins using `flex-box`. Add many new sass mixins, components and javascript components.
 
 + Added: `grid`
 + Added: `metro`
