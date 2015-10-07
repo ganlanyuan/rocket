@@ -1,4 +1,4 @@
 @import 'demo-base';
 // *** layout: container *** //
 
-.container { @include container(1220px); }
+.wrapper { @include container(800px gutter 30px); }

@@ -4,14 +4,14 @@
 
   <div class="topic">
     <h2 class="main-heading"><span>layout: </span>container</h2>
-    <div class="example">
-      <div class="container" data-margin>
+    <div class="example" data-margin>
+      <div class="wrapper">
         <div class="example-content cell" data-content></div>
       </div>
     </div>
     <div class="container">
       <pre><code class="language-scss">
-.container { @include container(1220px); }
+.wrapper { @include container(800px gutter 30px); }
       </code></pre>
     </div>
   </div>
