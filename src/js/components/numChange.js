@@ -1,5 +1,5 @@
-// ========== NUMINCREASE ==========
-function numIncrease(element, from, to, duration){
+// ========== NUMCHANGE ==========
+function numChange(element, from, to, duration){
   if (duration < 0) {return;}
   var difference = to - from,
       perTick = difference / duration * 10;
@@ -8,6 +8,6 @@ function numIncrease(element, from, to, duration){
     from += perTick;
     element.text(Math.round(from));
     if (from === to) { return; }
-    numIncrease(element, from, to, duration - 10);
+    numChange(element, from, to, duration - 10);
   }, 10);
 }

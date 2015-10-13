@@ -28,7 +28,7 @@ $ro-vertical-align: baseline, sub, super, text-top, text-bottom, middle, top, bo
 $ro-direction: left, right, top, bottom !default;
 
 // breakpoint
-$ro-media: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$ro-media-type: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
 
 // type
 $ro-font-weights: thin, hairline, extra light, ultra light, lighter, light, normal, medium, semi bold, demi bold, bold, bolder, extra bold, black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
@@ -37,7 +37,7 @@ $ro-text-aligns: left, right, center, justify, align-inherit !default;
 $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 
 // media list
-$ro-media-type: 'media', 'media-body';
+$ro-media-list-type: 'media', 'media-body';
 $ro-media-direction: left, right;
 
 // off-canvas

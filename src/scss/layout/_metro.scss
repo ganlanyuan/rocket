@@ -1,7 +1,7 @@
 // *** metro *** //
 @mixin metro($key) {
   $condition: ro-get($key, ('min' 'max'), 'min');
-  $media: ro-get($key, $ro-media);
+  $media-type: ro-get($key, $ro-media-type);
   $ratio: ro-get-next($key, 'ratio', map-get($ro-metro, 'ratio'));
   $gutter: ro-get-next($key, 'gutter', map-get($ro-metro, 'gutter'));
   $child: ro-get-next($key, 'child', map-get($ro-metro, 'child'));

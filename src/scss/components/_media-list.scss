@@ -1,7 +1,7 @@
 // *** media-list *** //
 @mixin media-list($key){
 	$gutter: ro-get-type($key, 'number');
-	$role: ro-get($key, $ro-media-type, 'media');
+	$role: ro-get($key, $ro-media-list-type, 'media');
 	$direction: ro-get($key, $ro-media-direction, left);
 
 	// *** output *** //

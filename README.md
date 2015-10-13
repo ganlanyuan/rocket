@@ -215,7 +215,7 @@ $ro-metro: (
 
 @mixin metro($key)
 //pattern
-$key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media
+$key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
 
 .main { @include metro( (null: 3 1 h2 1 w3 of 3, 800: 3 1 h2 1 w3 of 4) ); }
 // null 800: media query, null -> default, 800 -> 800px and up;
@@ -227,7 +227,7 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media
 // "of 3": totaly 3 blocks width;
 
 // condition: media query condition 'min' or 'max';
-// media: media type like 'screen', 'print'
+// media-type: media type like 'screen', 'print'
 
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-metro.php)
@@ -1071,7 +1071,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
 @mixin visible($key)
 // pattern
-$key: $media $breakpoints
+$key: $media-type $breakpoints
 
 @include visible(500)
 // visible on 500px up on all media
@@ -1083,7 +1083,7 @@ A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
 @mixin hidden($key)
 // pattern
-$key: $media $breakpoints
+$key: $media-type $breakpoints
 
 @include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen

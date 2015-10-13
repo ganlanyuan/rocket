@@ -12,7 +12,7 @@
 // @codekit-prepend "components/ie-placeholder.js"
 // @codekit-prepend "components/reach.js"
 // @codekit-prepend "components/scrollTo.js"
-// @codekit-prepend "components/numIncrease.js"
+// @codekit-prepend "components/numChange.js"
 // @codekit-prepend "components/animate.js"
 // @codekit-prepend "components/autoheight-carousel.js"
 // @codekit-prepend "components/autoheight-gallery.js"

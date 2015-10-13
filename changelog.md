@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.0.1 
++ Fixed: `grid`, `liquid-2`, `liquid-3` layout issues when have a big image inside them.
++ Fixed: `grid` parameter issue when items are more than 4.
++ Renamed: `numIncrease` to `numChange`
++ Renamed: `$ro-media-type` to `$ro-media-list-type`, `$ro-media` to `$ro-media-type`.
+
 ### 3.0.0 
 Rewrite main layout mixins using `flex-box`. Add many new sass mixins, components and javascript components.
 
