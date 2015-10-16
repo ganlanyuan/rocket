@@ -2,9 +2,12 @@
 <p>
   <img src="https://img.shields.io/badge/sass-3.4.0-ff69b4.svg">
   <img src="https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg">
-  <img src="https://img.shields.io/badge/Version-2.5.3-blue.svg">
+  <img src="https://img.shields.io/badge/Version-2.5.4-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.    
+
+**Version 2 will not be updated except issues fixing. If you want to keep updated, please turn to [Version 3](https://github.com/ganlanyuan/rocket/tree/v3).**   
+
 [sassdoc](http://creatiointl.org/gallery/william/sassdoc/)   
 [demos](http://creatiointl.org/gallery/william/rocket/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   

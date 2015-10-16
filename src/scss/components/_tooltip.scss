@@ -32,6 +32,7 @@
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  vertical-align: top; // prevent tooltip elements wobble because of overflow:hidden
   &:before, 
   &:after {
     @extend %ro-global-transition;

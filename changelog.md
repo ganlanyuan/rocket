@@ -2,6 +2,7 @@
 
 ### v2.5.4
 + Fixed: a syntax issue in color `core` mixin.
++ Fixed: `tooltip` wobble issue on hover over.
 + Improved: `font-size` now accept more parameters than *font-size* and *line-height*, more detail please refer to `type`. `font-size` will be renamed in next version.
 
 ### v2.5.3

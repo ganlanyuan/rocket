@@ -334,6 +334,7 @@ pre[class*="language-"] {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .tooltip.left:before,
@@ -409,6 +410,7 @@ pre[class*="language-"] {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .tooltip.right:before,
@@ -485,6 +487,7 @@ pre[class*="language-"] {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .tooltip.bottom:before,
@@ -561,6 +564,7 @@ pre[class*="language-"] {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .tooltip.top:before,
