@@ -86,14 +86,14 @@ Rocket/
 |── js/ 
     |── base                                           
     |── components
+        |── ie-placeholder                                        
+        |── animate                                        
+        |── numChange                                        
         |── sticky                                        
         |── priority-nav
         |── equalizer                                        
         |── reach                                        
         |── scrollTo                                        
-        |── animate                                        
-        |── numIncrease                                        
-        |── ie-placeholder                                        
 ````
 
 #【 Layout 】
@@ -391,9 +391,9 @@ $data2: (
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-charts.php)
 
 #### off-canvas
-Pure css off-canvas with multiple styles.  
+Pure css off-canvas with multiple modes.  
 ```` html
-<!-- styles: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
+<!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
 <input type="checkbox" name="" id="nav-toggle">
 <div class="page">
   <header>
@@ -412,8 +412,8 @@ Pure css off-canvas with multiple styles.
   <div>Other content</div>
 </div>
 
-<!-- styles: slide-along, slide-out, scale-down, scale-up, open-door, reveal -->
-<!-- If you using these styles, make sure to compile it with Ruby Sass, not Libsass. Current Libsass doesn't fully support @at-root. -->
+<!-- modes: slide-along, slide-out, scale-down, scale-up, open-door, reveal -->
+<!-- If you using these modes, make sure to compile it with Ruby Sass, not Libsass. Current Libsass doesn't fully support @at-root. -->
 <input type="checkbox" name="" id="nav-toggle">
 <nav class="nav">
   <ul>
@@ -435,15 +435,33 @@ Pure css off-canvas with multiple styles.
 ```` scss
 @mixin off-canvas($key)
 // pattern
-$key: $style $direction $nav $nav-width $overlay-background-color $duration
+$key: $mode $nav $nav-width $direction ($map $breakpoints) $overlay-background-color $duration
 
 .page { @include off-canvas('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
-// style: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
+// mode: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
 // direction: left; (left | right | top | bottom)
 // nav: .nav;
 // nav-width(or height): 200px; (default 240px)
 // overlay-background-color: rgba(0, 0, 0, 0.1);
 // duration: 0.5s;
+
+// For mode "drawer": 
+// you need set a dynamic gutter between the nav and the top edge of the window.
+// The format is map: $keys => break points, values => gutters.
+// You can use the keys form your $breakpoints.
+$breakpoints: (
+  small: 600px,
+  medium: 1000px,
+);
+$map: (
+  500px: 20px, 
+  small: 30px, 
+  medium: 40px, 
+  null: 50px 
+);
+// null means default (without media query)
+
+.page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-off-canvas.php)
 
@@ -1239,6 +1257,22 @@ kit('.site-nav a').forEach(function (el) {
 });
 ````
 
+#### animate
+```` javascript
+animate(el, attr, from, to, duration);
+animate(kit('.target'), 'left', 0, 20, 400);
+````
+
+#### numChange
+Smoothly change numbers in given period of time.
+```` javascript
+numChange(element, from, to, duration);
+
+document.onload = function  () {
+  numChange(kit('.follows'), 0, 200000, 400);
+};
+````
+
 #### sticky
 ```` javascript
 // pattern
@@ -1309,20 +1343,4 @@ kit('.icon-menu').click(function() {
 });
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-scrollTo.php)
-
-#### numIncrease
-Increase numbers in given period of time.
-```` javascript
-numIncrease(element, from, to, duration);
-
-document.onload = function  () {
-  numIncrease(kit('.follows'), 0, 200000, 400);
-};
-````
-
-#### animate
-```` javascript
-animate(el, attr, from, to, duration);
-animate(kit('.target'), 'left', 0, 20, 400);
-````
 

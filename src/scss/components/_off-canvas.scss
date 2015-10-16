@@ -355,7 +355,10 @@
     }
   }
   
-  $list: list-descend($list);
+  @if length($list) > 1 {
+    $list: list-descend($list);
+  }
+
   @each $item in $list {
     @include bp('max' $item) {
       #{$prop}: map-get($map, $item);

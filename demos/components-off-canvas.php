@@ -18,10 +18,31 @@
       <?php 
         $navs = array('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'push', 'drawer');
         $dir = left;
+        $map = '';
+        $bp = '';
+        $vmap = '';
+        $vbp = '';
 
         foreach ($navs as $nav) {
-          if ($nav === 'push') {
+          if ($nav == 'push') {
             $dir = top;
+          } elseif ($nav == 'drawer') {
+            $dir = left;
+            $map = '
+$map: (
+  500px: 20px, 
+  small: 30px, 
+  medium: 40px, 
+  null: 50px
+);
+';
+            $bp = '
+$bp: (
+  small: 600px, 
+  medium: 1000px
+);';
+            $vmap = '$map';
+            $vbp = '$bp';
           }        
 
           echo '
@@ -80,10 +101,8 @@
         </div>
       </div>
       <div class="mode-code mode-' . $nav . '">
-        <pre><code class="language-scss">
-.page {
-  @include off-canvas("' . $nav .'" '. $dir . ' ".nav-'. $nav . '" rgba(0, 0, 0, 0.1) 200px 0.5s);
-}
+        <pre><code class="language-scss"> '. $bp .''. $map .'
+.page { @include off-canvas("' . $nav .'" ".nav-'. $nav . '" '. $dir . ' ' . $vmap . ' ' . $vbp . ' rgba(0, 0, 0, 0.1) 200px 0.5s); }
         </code></pre>
       </div>
           ';
@@ -91,9 +110,9 @@
 
         $navs2 = array('slide-along', 'slide-out', 'scale-down', 'scale-up', 'open-door', 'reveal');
         foreach ($navs2 as $nav2) {
-          if ($nav === 'reveal') {
+          if ($nav2 === 'reveal') {
             $dir = right;
-          }        
+          } 
 
           echo '
       <!-- ' . $nav2 . ' -->
@@ -152,9 +171,7 @@
       </div>
       <div class="mode-code mode-' . $nav2 . '">
         <pre><code class="language-scss">
-.page {
-  @include off-canvas("' . $nav2 . '" ' . $dir . ' ".nav-'. $nav2 . '" rgba(0, 0, 0, 0.1) 200px 0.5s);
-}
+.page { @include off-canvas("' . $nav2 . '" ".nav-'. $nav2 . '" ' . $dir . ' rgba(0, 0, 0, 0.1) 200px 0.5s); }
         </code></pre>
       </div>
           ';

@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.2 
++ Fixed: a parameter issue in `off-canvas`.
++ Improved: Errors will be thrown out if the object doesn't exist, in `sticky` and `priority-nav`.
+
 ### 3.0.1 
 + Fixed: `grid`, `liquid-2`, `liquid-3` layout issues when have a big image inside them.
 + Fixed: `grid` parameter issue when items are more than 4.
