@@ -2,7 +2,7 @@
 <p>
   <img src="https://img.shields.io/badge/sass-3.4.0-ff69b4.svg">
   <img src="https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg">
-  <img src="https://img.shields.io/badge/Version-3.0.0-blue.svg">
+  <img src="https://img.shields.io/badge/Version-3.0.2-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and other components.   
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
