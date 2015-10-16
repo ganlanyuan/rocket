@@ -20,7 +20,8 @@ Add many new sass mixins, components and javascript components.
 + [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)   
 
 #### Tips
-+ `Flexbox` 2009 syntax is not supported.   
++ `Flexbox` 2009 syntax is not supported.  
++ If you are using version 2, please go to branch [v2](https://github.com/ganlanyuan/rocket/tree/v2) 
 
 # Install
 
