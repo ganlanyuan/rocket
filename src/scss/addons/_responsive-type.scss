@@ -1,0 +1,35 @@
+// *** responsive-type *** //
+@mixin responsive-type($key) {
+  $map: false;
+  $breakpoints: false;
+  @each $item in $key {
+    @if type-of($item) == 'map' {
+      @if not $map {
+        $map: $item;
+      } @else {
+        $breakpoints: $item;
+      }
+    }
+  }
+
+  // *** output *** //
+  @each $breakpoint, $type in $map {
+    @if $breakpoint == null {
+      @include type($type);
+    } @else {
+      // If $type is a key that exists in $breakpoints, use the value
+      @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint: map-get($breakpoints, $breakpoint);
+      }
+
+      @include bp('min' $breakpoint) {
+        @include type($type);
+      }
+    }
+  }
+}
+
+
+@mixin rp-type($key) {
+  @include responsive-type($key);
+}

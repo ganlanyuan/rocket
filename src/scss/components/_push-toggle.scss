@@ -1,0 +1,20 @@
+// *** push-toggle *** //
+@mixin push-toggle() {
+  // *** output *** //
+  @include clearfix;
+
+  [type="radio"] {
+    position: absolute; 
+    left: -9999px;
+  }
+  label {
+    float: left;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  input:checked + label {
+    @content;
+  }
+}

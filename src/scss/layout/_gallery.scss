@@ -1,0 +1,67 @@
+// *** gallery *** //
+@mixin gallery($key){
+  $per-row: 1;
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, gutter));
+  $child: ro-get-next($key, 'child', 'li');
+  $direction: ro-get($key, left right, right);
+  $keep: ro-get($key, 'keep');
+
+  @each $item in $key {
+    @if type-of($item) == number and unitless($item) {
+      $per-row: $item;
+    }
+  }
+  $half-gutter: ($gutter / 2);
+
+  // *** output *** //
+  @if not $keep {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @if $direction == left {
+      @include flex-direction(row-reverse);
+    }
+
+    // fix left and right edge padding
+    margin-left: - $half-gutter;
+    margin-right: - $half-gutter;
+  }
+
+  > #{$child} {
+    @if not $keep {
+      box-sizing: border-box;
+      @if unit($gutter) == '%' {
+        padding-left: $half-gutter;
+        padding-right: $half-gutter;
+      } @else {
+        padding: 0 $half-gutter $gutter; 
+      }
+    }
+    @if unit($gutter) == '%' {
+      // fix firefox treat percentage gutter as 0
+      &:after {
+        content: '';
+        display: block;
+        padding-bottom: ($gutter * $per-row);
+      }
+    }
+
+    // set col width
+    width: percentage(1 / $per-row);
+  }
+
+  // for non-flex, non-flexwrap browsers
+  .no-flexwrap & { display: block; }
+  .no-flexbox.no-flexboxtweener &,
+  .no-flexwrap & {
+    @if not $keep { @include clearfix(); }
+  
+    > #{$child} {
+      @if not $keep { float: opposite($direction); }
+
+      &:nth-child(#{$per-row}n+1) { clear: both; }
+      @for $i from 2 through $per-row {
+        &:nth-child(#{$per-row}n+#{$i}) { clear: none; }
+      }
+    }
+  }
+}

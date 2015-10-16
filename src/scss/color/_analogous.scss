@@ -1,0 +1,31 @@
+// *** analogous *** //
+@function analogous($key) {
+  $color: false;
+  $lightness: false;
+  
+  @if type-of($key) == 'color' {
+    $color: $key;
+  } @else if type-of($key) == number {
+    $lightness: $key;
+  } @else if type-of($key) == list {
+    @for $i from 1 through length($key) {
+      $val: nth($key, $i);
+
+      @if type-of($val) == color {
+        $color: $val;
+      } @else if type-of($val) == number {
+        $lightness: $val;
+      }
+
+    }
+  }
+
+  @if $color and $lightness {
+    @if lightness($color) >= 50% { 
+      @return darken($color, $lightness); 
+    } @else { 
+      @return lighten($color, $lightness); 
+    }
+  }
+
+}

@@ -1,0 +1,29 @@
+// *** accordion *** //
+@mixin accordion($key){
+  $ac-content: ro-get-type($key, 'string');
+  $max-height: 1000px;
+  $duration: 0.3s;
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if unitless($item) {
+        $max-height: $item + 'px';
+      } @else if unit($item) == 's' {
+        $duration: $item;
+      } @else {
+        $max-height: $item;
+      }
+    }
+  }
+  > input {
+    position: absolute;
+    left: -9999px;
+    &:checked ~ #{$ac-content} {
+      max-height: $max-height;
+    }
+  }
+  > #{$ac-content} {
+    @include transition(max-height $duration);
+    max-height: 0;
+    overflow: hidden;
+  }
+}

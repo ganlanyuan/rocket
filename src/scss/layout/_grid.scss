@@ -1,0 +1,153 @@
+// *** grid *** //
+@mixin grid($key:false){
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $mode: ro-get($key, ('isolate' 'fluid'), 'fluid');
+  $direction: ro-get($key, (left right), right);
+  $child: ro-get-next($key, 'child', 'div');
+  $keep: ro-get($key, 'keep', false);
+
+  $half-gutter: ($gutter / 2);
+
+  // get map
+  $map: false;
+  $keys: false;
+  $values: false;
+  $order: ();
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    // check if $key is the data list
+    $is-keys: ();
+    @each $item in $key {
+      @if type-of($item) != 'number' {
+        $is-keys: append($is-keys, false);
+      } @else {
+        $is-keys: append($is-keys, true);
+      }
+    }
+
+    // get $keys
+    @if index($is-keys, false) {
+      $keys: ro-get-type($key, 'list');
+    } @else {
+      $keys: $key;
+    }
+    // get map
+    $map: ro-get-type($key, 'map');
+  }
+  
+  @if $map {
+    $keys: map-keys($map);
+    $values: map-values($map);
+
+    // get order
+    $u-values: list-ascend(remove-dup($values)); // reordered values
+    @each $u-val in $u-values {
+      @for $i from 1 through length($values) {
+        @if nth($values, $i) == $u-val {
+          $order: append($order, $i);
+        }
+      }
+    }
+  } @else {
+    $values: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    $order: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  }
+
+  // get full width
+  $full-width: 0;
+  @each $item in $keys {
+    $full-width: $full-width + $item;
+  }
+  
+  // *** output *** //
+  @if not $keep {
+    @include clearfix();
+    margin-#{opposite($direction)}: - $half-gutter;
+    margin-#{$direction}: - $half-gutter;
+
+    @if $keys { 
+      @include flexbox; 
+      @if $direction == left {
+        @include flex-direction(row-reverse);
+      }
+    }
+  }
+
+  @if $keys {
+    > #{$child} {
+      @if not $keep {
+        padding-#{opposite($direction)}: $half-gutter;
+        padding-#{$direction}: $half-gutter;
+        box-sizing: border-box;
+      }
+
+      // set col width
+      @for $i from 1 through length($keys) {
+        &:nth-child(#{$i}) {
+          width: percentage(nth($keys, $i) / $full-width); 
+          @include order(nth($values, $i));
+        }
+      }
+    }
+  }
+
+  // no-flexbox
+  .no-flexbox.no-flexboxtweener & {
+    @if $keys {
+      > #{$child} {
+        @if not $keep {
+          float: opposite($direction);
+          @if $mode == 'isolate' { margin-#{$direction}: -100%; }
+        }
+        
+        // reset direction value
+        &:nth-child(n+1) { #{opposite($direction)}: 0; }
+
+        @for $i from 1 through length($keys) {
+          &:nth-child(#{$i}) {
+            // set col order
+            $location: index($order, $i);
+            $location-val: 0;
+            @if $mode == 'isolate' {
+              @if $location != 1 {
+                @for $j from 1 to $location {
+                  $location-val: ($location-val + nth($keys, nth($order, $j)));
+                }
+                margin-#{opposite($direction)}: percentage($location-val / $full-width);
+              } @else {
+                margin-#{opposite($direction)}: 0;
+              }
+            } @else if $mode == 'fluid' {
+              $origin-val: 0;
+              $move-val: 0;
+              // get origin-val
+              @if $i != 1 {
+                @for $h from 1 to $i {
+                  $origin-val: ($origin-val + nth($keys, $h));
+                }
+              } @else {
+                $origin-val: 0;
+              }
+              // get location-val
+              @if $location != 1 {
+                @for $q from 1 to $location {
+                  $location-val: ($location-val + nth($keys, nth($order, $q)));
+                }
+              } @else {
+                $location-val: 0;
+              }
+              // get move-val
+              $move-val: ($location-val - $origin-val);
+
+              @if $move-val != 0 {
+                position: relative;
+                #{opposite($direction)}: percentage($move-val / $full-width);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

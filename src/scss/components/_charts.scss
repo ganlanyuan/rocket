@@ -1,0 +1,269 @@
+// *** charts *** //
+@mixin charts($key) {
+  $chart-type: ro-get($key, $ro-charts-type, 'bar');
+  $bar-height: ro-get-next($key, 'bar-height', 40px);
+  $bar-gap: ro-get-next($key, 'bar-gap', 6em);
+  $steps: ro-get-next($key, 'steps', (5 100));
+  $gutter: ro-get-next($key, 'gutter');
+  $animation: ro-get($key, 'animation');
+  $animation-val: ro-get-next($key, 'animation');
+  
+  $tick-line-color: #e7e7e7;
+
+  // set hide
+  $units: true;
+  $labels: true;
+  $numbers: true;
+  $hide: ro-get-next($key, 'hide');
+  @if $hide {
+    @if index($hide, 'units') {
+      $units: false;
+    } 
+    @if index($hide, 'labels') {
+      $labels: false;
+    } 
+    @if index($hide, 'numbers') {
+      $numbers: false;
+    }
+  }
+
+  // set step
+  $full-width: nth($steps, 2);
+  $step-val: nth($steps, 1);
+  $step-num: ($full-width / $step-val);
+
+  // set grow, tick-grow, direction
+  $grow: false;
+  $tick-grow: false;
+  $direction: false;
+  @if $chart-type == 'bar' {
+    $grow: width;
+    $tick-grow: height;
+    $direction: right;
+  } @else if $chart-type == 'column' {
+    $grow: height;
+    $tick-grow: width;
+    $direction: top;
+  }
+
+  // get color, data
+  $map: false;
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    $map: ro-get-type($key, 'map');
+  }
+  $colors: map-keys($map);
+  $data: map-values($map);
+
+  // set animation path
+  $path: '';
+  @if $animation {
+    $path: '&.active';
+  }
+  $duration: 1s;
+  $timing-function: ro-get-type($animation-val, 'string', false, ease);
+  $animation-val: reject($animation-val, $timing-function);
+  @if length($animation-val) > 0 {
+    $duration: nth($animation-val, 1);
+  }
+
+  // *** output *** //
+  @if $chart-type == 'bar' or $chart-type == 'column' {
+    position: relative;
+    // items
+    li {
+      position: relative;
+      strong { position: absolute; }
+      > span {
+        display: block;
+        color: #fff;
+        box-sizing: border-box;
+        @if $animation {
+          #{$grow}: 0;
+          padding: 0;
+          transition: $grow $duration $timing-function, padding $duration $timing-function;
+        }
+        @if not $numbers {
+          text-indent: 110%;
+        }
+        @for $i from 1 through length($colors) {
+          &:nth-of-type(#{$i}) { background-color: nth($colors, $i); }
+        }
+      }
+    }
+    @for $i from 1 through length(nth($data, 1)) {
+      #{$path} .item-#{$i} {
+        @for $j from 1 through length($data) {
+          > span:nth-of-type(#{$j}) {
+            #{$grow}: percentage(nth(nth($data, $j), $i) / $full-width);
+            &:before { content: '#{nth(nth($data, $j), $i)}'; } // add content 
+            // transition-delay: ($delay * ($i - 1 + length(nth($data, 1)) * ($j - 1)));
+          }
+        }
+      }
+    }
+    // ticks
+    .ticks {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      > div {
+        position: absolute;
+        #{$grow}: 0;
+        #{$tick-grow}: 100%;
+        font-size: 0.7em;
+        color: darken($tick-line-color, 30%);
+        border-#{$direction}: 1px solid $tick-line-color;
+      }
+      @if $units {
+        span { 
+          display: block; 
+          width: 3em;
+        }
+      } @else {
+        span { display: none; }
+      }
+    }
+    @for $i from 1 through ($step-num + 1) {
+      .tick-#{$i} { 
+        #{opposite($direction)}: (percentage($step-val / $full-width) * ($i - 1)); 
+        @if $units {
+          span:before { content: '#{($step-val * ($i - 1))}'; }
+        }
+      }
+    }
+    // labels
+    @if $labels {
+      .labels {
+        position: absolute;
+        div {
+          display: inline-block;
+          margin-right: 0.5em;
+          font-size: 0.8em;
+          text-transform: capitalize;
+          &:before {
+            content: '';
+            width: 1em;
+            height: 1em;
+            margin-right: 0.25em;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+      @for $i from 1 through length($colors) {
+        .label-#{$i}:before { background-color: nth($colors, $i); }
+      }
+    } @else {
+      .labels { display: none; }
+    }
+  }
+  @if $chart-type == 'bar' {
+    $gutter: 10px;
+
+    margin-left: $bar-gap !important;
+    // items
+    li {
+      padding: $gutter 0;
+      > strong {
+        top: 0;
+        @if unit($bar-gap) == 'px' {
+          width: ($bar-gap - 10px);
+        } @else if unit($bar-gap) == 'em' {
+          width: ($bar-gap - 1em);
+        } @else if unit($bar-gap) == 'rem' {
+          width: ($bar-gap - 1rem);
+        } @else if unit($bar-gap) == 'vw' {
+          width: ($bar-gap - 1vw);
+        }
+        left: - $bar-gap;
+        line-height: ($bar-height * length($data));
+        text-align: right;
+        margin: $gutter 0;
+      }
+      > span {
+        height: $bar-height;
+        line-height: $bar-height;
+        text-align: right;
+        @if not $animation {
+          padding-right: 0.8em;
+        }
+      }
+    }
+    @if $animation {
+      #{$path} li > span { padding-right: 0.8em; }
+    }
+    // ticks
+    .ticks {
+      @include clearfix(); 
+      > div { text-align: right; }
+      @if $units {
+        span {
+          margin-top: -1.2em;
+          margin-left: -1.5em;
+          text-align: center;
+        }
+      }
+    }
+    // labels
+    @if $labels {
+      .labels { margin-top: 1em; }
+    }
+  } @else if $chart-type == 'column' {
+    $gutter: 0.2;
+    $column-width: percentage((1 - $gutter) / length($data));
+
+    @include clearfix();
+    // items
+    li {
+      float: left;
+      padding-top: 60%;
+      width: percentage(1 / length(nth($data, 1)));
+      > strong {
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: -2em;
+      }
+      > span {
+        position: absolute;
+        bottom: 0;
+        width: $column-width;
+        text-align: center;
+        @if not $animation {
+          padding-top: 0.8em; 
+        }
+        @for $i from 1 through length($data) {
+          &:nth-of-type(#{$i}) {
+            left: (percentage($gutter / 2) + $column-width * ($i - 1));
+          }
+        }
+      }
+    }
+    @if $animation {
+      #{$path} li > span { padding-top: 0.8em; }
+    }
+    // ticks
+    @if $units {
+      .ticks {
+        span {
+          margin-top: -0.5em;
+          margin-left: -3.5em;
+          text-align: right;
+        }
+      }
+    }
+    // labels
+    @if $labels {
+      .labels {
+        right: 0;
+        top: -1.5em;
+        > div:last-child { margin-right: 0; }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+// *** container *** //
+@mixin container($key: false){
+  $container: false;
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $align: ro-get($key, (left right center), center);
+
+  @if type-of($key) == 'number' {
+    $container: $key;
+  } @else if type-of($key) == list {
+    @if index($key, 'gutter') {
+      $key: reject($key, $gutter);
+    }
+
+    @each $item in $key {
+      @if type-of($item) == 'number' and not $container {
+        $container: $item;
+      } @else {
+        $container: map-get($ro-layout, container);
+      }
+    }
+  } @else {
+    $container: map-get($ro-layout, container);
+  }
+
+  // strip unit when gutter == 0
+  @if $gutter and strip-unit($gutter) == 0 {
+    $gutter: 0;
+  }
+
+  // *** output *** //
+  @extend %ro-clearfix;
+  @extend %ro-global-transition;
+  max-width: $container;
+
+  // direction
+  @if $align == center {
+    margin-left: auto; 
+    margin-right: auto; 
+  } @else {
+    margin-#{opposite($align)}: auto;
+  } 
+
+  // flexible container
+  @if unit($container) == '%' {
+    @if $gutter {
+      margin-left: $gutter;
+      margin-right: $gutter;
+    }
+  // fixed container
+  } @else {
+    @if $gutter and $gutter != 0 { 
+      $container-breakpoint: $container;
+      @if unit($gutter) != '%' and unit($container) == unit($gutter) {
+        $container-breakpoint: ( $container + ( $gutter * 2 ) );
+      }
+
+      @include bp('max' $container-breakpoint) { 
+        margin-left: $gutter; 
+        margin-right: $gutter; 
+      }
+    }
+  }
+}

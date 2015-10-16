@@ -1,0 +1,27 @@
+@import 'demo-base';
+
+// *** layout: justify *** //
+
+.example-justify {
+  @include justify();
+  li {
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  a {
+    display: block;
+    @extend %ro-global-transition;
+    &:hover { 
+      text-decoration: none;
+    }
+  }
+  input {
+    @extend %ro-global-transition;
+    @include button('0.6em 0.8em' #fff);
+    width: 150px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    &:focus { width: 250px; }
+  }
+}
+

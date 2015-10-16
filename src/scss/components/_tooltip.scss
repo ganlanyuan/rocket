@@ -1,0 +1,102 @@
+// *** tooltip *** //
+@mixin tooltip(
+  $key:
+    width 230px
+    height 3.94em
+) {
+  $direction: ro-get($key, $ro-tooltip-direction, 'right');
+  $color: ro-get-type($key, 'color', false, #333);
+  $radius: ro-get($key, 'radius');
+  $width: ro-get-next($key, 'width', 230px);
+  $height: ro-get-next($key, 'height', 3.94em);
+  $content: attr(data-tooltip);
+
+
+  // *** output *** //
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  vertical-align: top; // prevent tooltip elements wobble because of overflow:hidden
+  &:before, 
+  &:after {
+    @extend %ro-global-transition;
+    @extend %tooltip-common;
+    @include opacity(0);
+    #{$direction}: -8px;
+  }
+  &:before { content: ''; }
+  &:after {
+    @extend %tooltip-content;
+    content: $content;
+    background-color: $color;
+    max-width: $width;
+    @if $radius { border-radius: $ro-tooltip-radius; }
+  }
+  &:hover { 
+    overflow: visible; 
+    &:before,
+    &:after { @include opacity(1); }
+  }
+  .no-csstransforms &:after { 
+    padding: 8px; // rewrite the padding for calculating left value later
+    width: $width; 
+  }
+
+  // horizontal or vertical
+  @if $direction == top or $direction == bottom {
+    &:before,
+    &:after { left: 50%; }
+    &:before { margin-left: -6px; }
+    .no-csstransforms &:before,
+    .no-csstransforms &:after { #{opposite($direction)}: 100%; }
+    .no-csstransforms &:after { 
+      @if unit($width) == 'px' {
+        margin-left: - ($width / 2 + 8px); 
+      } @else if unit($width) == 'em' {
+        margin-left: - ($width / 2 + em(8)); 
+      }
+      height: $height;
+    }
+  } @else if $direction == left or $direction == right {
+    &:before,
+    &:after { top: 50%; }
+    &:before { margin-top: -8px; }
+    .no-csstransforms &:before,
+    .no-csstransforms &:after { top: -2px; }
+    .no-csstransforms &:before { margin-top: 5px; }
+  }
+
+  // individual direction
+  @if $direction == top {
+    &:before { @include triangle(12px, $color, down); }
+    &:after { @include transform(translate(-50%, -100%)); }
+    .no-csstransforms &:after { 
+      @if unit($height) == 'px' {
+        margin-top: - ($height + 19px); 
+      } @else if unit($height) == 'em' {
+        margin-top: - ($height + em(19)); 
+      }
+    }
+  } @else if $direction == bottom {
+    &:before { @include triangle(12px, $color, up); }
+    &:after { @include transform(translate(-50%, 100%)); }
+    .no-csstransforms &:after { margin-top: 6px; }
+  } @else if $direction == left {
+    &:before { @include triangle(12px, $color, right); }
+    &:after { @include transform(translate(-100%, -50%)); }
+    .no-csstransforms &:after { 
+      @if unit($width) == 'px' {
+        left: - ($width + 16px + 8px); // double padding + left
+      } @else if unit($width) == 'em' {
+        left: - ($width + em(16) + em(8)); 
+      }
+    } 
+  } @else if $direction == right {
+    &:before { @include triangle(12px, $color, left); }
+    &:after { @include transform(translate(100%, -50%)); }
+    .no-csstransforms &:after {
+      left: 100%;
+      margin-left: 8px;
+    }
+  }
+}

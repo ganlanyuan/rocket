@@ -1,0 +1,12 @@
+// *** split-complementary *** //
+@function split-complementary($key){
+  $key-new: ();
+
+  @if type-of($key) == 'list' {
+    $key-new: append($key, 'split-complementary');
+  } @else {
+    $key-new: append(append($key-new, $key), 'split-complementary');
+  }
+
+  @return color($key-new);
+}

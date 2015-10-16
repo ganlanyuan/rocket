@@ -1,0 +1,149 @@
+// *** breakpoint *** //
+@mixin breakpoint($key){
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media-type: ro-get($key, $ro-media-type);
+
+  // get breakpoints
+  $key-em: ();
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if strip-unit($item) == 0 {
+        $item: 0;
+      } @else {
+        $item: em($item);
+      }
+
+      $key-em: append($key-em, $item);
+    }
+  }
+
+  $only: false;
+  $min-1: false;
+  $max-1: false;
+  $min-2: false;
+  $max-2: false;
+  $min-3: false;
+  $max-3: false;
+  $length: length($key-em);
+  @if $length == 1 {
+    $only: nth($key-em, 1);
+    // breakpoint-fix
+    @if $condition == 'max' and $breakpoint-fix {
+      $only: ($only - em(1));
+    }
+  } 
+  @if $length >= 2 {
+    $min-1: nth($key-em, 1);
+    $max-1: nth($key-em, 2);
+    // breakpoint-fix
+    @if $breakpoint-fix {
+      $max-1: (nth($key-em, 2) - em(1));
+    }
+  } 
+  @if $length >= 3 {
+    $min-2: nth($key-em, 3);
+  } 
+  @if $length >= 4 {
+    $max-2: nth($key-em, 4);
+    // breakpoint-fix
+    @if $breakpoint-fix {
+      $max-2: (nth($key-em, 4) - em(1));
+    }
+  } 
+  @if $length >= 5 {
+    $min-3: nth($key-em, 5);
+  } 
+  @if $length >= 6 {
+    $max-3: nth($key-em, 6);
+    // breakpoint-fix
+    @if $breakpoint-fix {
+      $max-3: (nth($key-em, 6) - em(1));
+    }
+  }
+  @if $length > 6 {
+    @warn 'You are passing more than 6 breakpoints, they are too many for me ^^';
+  }
+
+  // *** output *** //
+  @if $media-type {
+    @if $length == 1 {
+      @media #{$media-type} and (#{$condition}-width: $only) {
+        @content;
+      }
+    } 
+    @if $length == 2 {
+      @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1) {
+        @content;
+      }
+    } 
+    @if $length == 3 {
+      @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
+             #{$media-type} and (min-width: $min-2) {
+        @content;
+      }
+    } 
+    @if $length == 4 {
+      @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
+             #{$media-type} and (min-width: $min-2) and (max-width: $max-2) {
+        @content;
+      }
+    } 
+    @if $length == 5 {
+      @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
+             #{$media-type} and (min-width: $min-2) and (max-width: $max-2),
+             #{$media-type} and (min-width: $min-3) {
+        @content;
+      }
+    } 
+    @if $length == 6 {
+      @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
+             #{$media-type} and (min-width: $min-2) and (max-width: $max-2),
+             #{$media-type} and (min-width: $min-3) and (max-width: $max-3) {
+        @content;
+      }
+    }
+  } @else {
+    @if $length == 1 {
+      @media (#{$condition}-width: $only) {
+        @content;
+      }
+    } 
+    @if $length == 2 {
+      @media (min-width: $min-1) and (max-width: $max-1) {
+        @content;
+      }
+    } 
+    @if $length == 3 {
+      @media (min-width: $min-1) and (max-width: $max-1), 
+             (min-width: $min-2) {
+        @content;
+      }
+    } 
+    @if $length == 4 {
+      @media (min-width: $min-1) and (max-width: $max-1), 
+             (min-width: $min-2) and (max-width: $max-2) {
+        @content;
+      }
+    } 
+    @if $length == 5 {
+      @media (min-width: $min-1) and (max-width: $max-1), 
+             (min-width: $min-2) and (max-width: $max-2),
+             (min-width: $min-3) {
+        @content;
+      }
+    } 
+    @if $length == 6 {
+      @media (min-width: $min-1) and (max-width: $max-1), 
+             (min-width: $min-2) and (max-width: $max-2),
+             (min-width: $min-3) and (max-width: $max-3) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin bp($key) {
+  @include breakpoint($key) {
+    @content;
+  };
+}

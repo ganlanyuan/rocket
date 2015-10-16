@@ -1,0 +1,26 @@
+@import 'demo-base';
+
+// *** addons: media list *** //
+
+.media-body { @include media-list('media-body'); }
+.news-left { 
+  .media { @include media-list('media' 15px); }
+  p { 
+    margin-top: 0; 
+    max-width: none;
+  }
+}
+.news-right { 
+  .media-left { @include media-list('media' 15px); }
+  .media { @include media-list('media' 15px right); }
+  p { 
+    margin-top: 0; 
+    max-width: none;
+  }
+}
+.news-left,
+.news-right { 
+  max-width: 900px;
+  margin: 0 auto;
+}
+

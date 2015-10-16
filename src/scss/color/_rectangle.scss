@@ -1,0 +1,12 @@
+// *** rectangle *** //
+@function rectangle($key){
+  $key-new: ();
+
+  @if type-of($key) == 'list' {
+    $key-new: append($key, 'rectangle');
+  } @else {
+    $key-new: append(append($key-new, $key), 'rectangle');
+  }
+
+  @return color($key-new);
+}

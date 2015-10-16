@@ -1,0 +1,25 @@
+// *** justify *** //
+@mixin justify($key: li){
+  $child: ro-get-next($key, 'child', 'li');
+  @if type-of($key) == 'string' { $child: $key; }
+
+  // *** output *** //
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+
+  // for non-flex browsers
+  .no-flexbox.no-flexboxtweener & {
+    text-align: justify;
+    line-height: 0;
+    &:after {
+      content: "";
+      width: 100%;
+      display: inline-block;
+    }
+    > #{$child} {
+      line-height: 1;
+      display: inline-block;
+    }
+  }
+}

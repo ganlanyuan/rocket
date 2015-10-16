@@ -1,0 +1,12 @@
+// *** complementary *** //
+@function complementary($key){
+  $key-new: ();
+
+  @if type-of($key) == 'list' {
+    $key-new: append($key, 'complementary');
+  } @else {
+    $key-new: append(append($key-new, $key), 'complementary');
+  }
+
+  @return color($key-new);
+}

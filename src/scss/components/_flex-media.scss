@@ -1,0 +1,21 @@
+// *** flex-media *** //
+@mixin flex-media(
+  $key:
+    9/16
+    false
+){
+  $ratio: ro-get-type($key, 'number');
+  $child: ro-get-type($key, 'string');
+  @if unitless($ratio) { $ratio: percentage($ratio); }
+
+  // *** output *** //
+  @extend %flex-video-container;
+  padding-bottom: $ratio;
+  @if $child {
+    > #{$child} { @extend %flex-video; }
+  } @else {
+    > iframe,
+    > object,
+    > embed { @extend %flex-video; }
+  }
+}

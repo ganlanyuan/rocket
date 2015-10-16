@@ -1,0 +1,12 @@
+// *** triad *** //
+@function triad($key){
+  $key-new: ();
+
+  @if type-of($key) == 'list' {
+    $key-new: append($key, 'triad');
+  } @else {
+    $key-new: append(append($key-new, $key), 'triad');
+  }
+
+  @return color($key-new);
+}

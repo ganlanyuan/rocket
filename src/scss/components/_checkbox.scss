@@ -1,0 +1,18 @@
+// *** checkbox *** //
+@mixin checkbox(){
+  > input { 
+    @include opacity(0); 
+    float: left;
+  }
+  > label {
+    display: inline-block;
+    clear: both;
+    @content;
+  }
+}
+
+@mixin checkbox-active(){
+  > input:checked + label {
+    @content;
+  }
+}

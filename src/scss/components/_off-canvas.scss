@@ -1,0 +1,367 @@
+// *** off-canvas *** //
+@mixin off-canvas($key) {
+  $check: append(join($ro-off-canvas-direction, $ro-off-canvas-modes), 'submenu');
+  // initalize $map-list, $map, $breakpoint
+  $map-list: ();
+  $map: ();
+  $breakpoint: ();
+  $duration: 0.3s;
+  $width: 240px;
+
+  $direction: ro-get($key, $ro-off-canvas-direction, 'left');
+  $mode: ro-get($key, $ro-off-canvas-modes, 'slide-in');
+  $nav: ro-get-type($key, 'string', $check);
+  $submenu: ro-get($key, 'submenu');
+  $overlay-color: ro-get-type($key, 'color', false, rgba(0, 0, 0, 0.2));
+
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if unit($item) == 's' {
+        $duration: $item;
+      } @else {
+        $width: $item;
+      }
+    } @else if type-of($item) == 'map' {
+      $map-list: append($map-list, $item);
+    }
+  }
+  @if length($map-list) > 0 {
+    $map: nth($map-list, 1);
+    @if length($map-list) > 1 {
+      $breakpoint: nth($map-list, 2);
+    }
+  }
+
+  // define modules
+  $page-push: false;
+  $page-over-nav: false;
+  $page-transform: false;
+
+  $nav-push: false;
+  $nav-push-val: false;
+  $nav-transform: false;
+  $nav-outside: false;
+
+  $overlay: true;
+  $overlay-push: false;
+
+  $horizontal: false;
+  $vertical: false;
+
+  $transform-origin: false;
+  $rotate: false;
+  $rotate-default: false;
+  $rotate-active: false;
+  $scale-default: translate3d(0px, 0px, 0px);
+  $scale-active: perspective(1000px) translate3d(0px, 0px, -300px);
+
+  @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $mode) {
+    $page-push: true;
+  }
+  @if index(('reveal', 'slide-along', 'slide-out', 'scale-up'), $mode) {
+    $page-over-nav: true;
+  }
+  @if index(('scale-down', 'open-door'), $mode) {
+    $page-transform: true;
+  }
+
+  @if index(('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $mode) {
+    $nav-push: true;
+  }
+  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $mode) {
+    $nav-push-val: - $width;
+  } @else if index(('slide-along'), $mode) {
+    $nav-push-val: - ($width / 2);
+  } @else if index(('slide-out'), $mode) {
+    $nav-push-val: ($width / 2);
+  }
+  @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $mode) {
+    $nav-transform: true;
+  }
+  @if $page-over-nav or index(('scale-down', 'open-door'), $mode) {
+    $nav-outside: true;
+  }
+
+  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'scale-up', 'push', 'drawer'), $mode) {
+    $overlay: true;
+  }
+  @if index(('slide-along', 'slide-out', 'rotate-in', 'rotate-in-reverse', 'rotate-out', 'reveal', 'scale-up'), $mode) {
+    $overlay-push: true;
+  }
+
+  @if index((left, right), $direction) {
+    $horizontal: true;
+  } @else if index((top, bottom), $direction) {
+    $vertical: true;
+  }
+
+  @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse'), $mode) {
+    $rotate: true;
+    @if $horizontal {
+      $rotate-active: rotateY(0);
+    } @else {
+      $rotate-active: rotateX(0);
+    }
+  }
+  @if index(('rotate-in', 'rotate-out', 'open-door'), $mode) {
+    @if $direction == left {
+      $transform-origin: 100% 50% 0px;
+    } @else if $direction == right {
+      $transform-origin: 0 50% 0px;
+    } @else if $direction == top {
+      $transform-origin: 50% 100% 0px;
+    } @else if $direction == bottom {
+      $transform-origin: 50% 0 0px;
+    }
+  }
+  @if index(('rotate-in-reverse', 'scale-up'), $mode) {
+    @if $direction == left {
+      $transform-origin: 0 50% 0px;
+    } @else if $direction == right {
+      $transform-origin: 100% 50% 0px;
+    } @else if $direction == top {
+      $transform-origin: 50% 0 0px;
+    } @else if $direction == bottom {
+      $transform-origin: 50% 100% 0px;
+    }
+  }
+  @if index(('rotate-in'), $mode) {
+    @if $direction == left {
+      $rotate-default: perspective(#{$width}) rotateY(-90deg);
+    } @else if $direction == right {
+      $rotate-default: perspective(#{$width}) rotateY(90deg);
+    } @else if $direction == top {
+      $rotate-default: perspective(#{$width}) rotateX(90deg);
+    } @else if $direction == bottom {
+      $rotate-default: perspective(#{$width}) rotateX(-90deg);
+    }
+  }
+  @if index(('rotate-out', 'rotate-in-reverse'), $mode) {
+    @if $direction == left {
+      $rotate-default: perspective(#{$width}) rotateY(90deg);
+    } @else if $direction == right {
+      $rotate-default: perspective(#{$width}) rotateY(-90deg);
+    } @else if $direction == top {
+      $rotate-default: perspective(#{$width}) rotateX(-90deg);
+    } @else if $direction == bottom {
+      $rotate-default: perspective(#{$width}) rotateX(90deg);
+    }
+  }
+
+  // *** output *** //
+  @at-root (without: media) { @at-root {
+    .hidden-checkbox {
+      position: absolute;
+      left: -9999px;
+    }
+  }}
+
+  // page
+  @if $page-transform {
+    @include transition(transform $duration);
+  }
+  @if $page-push {
+    @include transition($direction $duration);
+    position: relative;
+    #{$direction}: 0;
+
+    @if $page-over-nav {
+      z-index: map-get($ro-off-canvas-z-index, 'page');
+    }
+
+    input:checked ~ & {
+      #{$direction}: $width;
+    }
+  }
+  @if $transform-origin and $page-transform {
+    @include transform-origin($transform-origin);
+    @include transform-style(preserve-3d);
+  }
+  @if $mode == 'scale-down' {
+    @include transform-style(preserve-3d);
+    @include transform($scale-default);
+    input:checked ~ & {
+      @include transform($scale-active);
+    }
+  } @else if $mode == 'open-door' {
+    @include transform(perspective(1000px) rotateY(0deg));
+    input:checked ~ & {
+      @if $direction == left {
+        @include transform(perspective(1000px) rotateY(-7deg));
+      } @else if $direction == right {
+        @include transform(perspective(1000px) rotateY(7deg));
+      } @else if $direction == top {
+        @include transform(perspective(1000px) rotateX(7deg));
+      } @else if $direction == bottom {
+        @include transform(perspective(1000px) rotateX(-7deg));
+      }
+    }
+  }
+
+  // nav
+  @at-root {
+    #{$nav} {
+      position: fixed;
+      display: block;
+      z-index: map-get($ro-off-canvas-z-index, 'nav');
+      box-sizing: border-box;
+      #{$direction}: 0;
+
+      @if $nav-push and $nav-transform {
+        @include transition(transform $duration, margin-#{$direction} $duration);
+      } @else if $nav-push and not $nav-transform {
+        @include transition(margin-#{$direction} $duration);
+      } @else if $nav-transform and not $nav-push {
+        @include transition(transform $duration);
+      }
+
+      @if $nav-push-val {
+        margin-#{$direction}: $nav-push-val;
+      }
+
+      @if $horizontal {
+        width: $width;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        @if $mode == 'drawer' {
+          @include nav-map(top, $map, $breakpoint); // set top value 
+        } @else {
+          top: 0;
+        }
+      } @else if $vertical {
+        height: $width;
+        left: 0;
+        right: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      @if $transform-origin and $nav-transform {
+        @include transform-origin($transform-origin);
+        @include transform-style(preserve-3d);
+      }
+      @if $rotate {
+        @include transform($rotate-default);
+      }
+
+      @if $mode == 'scale-up' {
+        @include transform($scale-active);
+        input:checked ~ & {
+          @include transform($scale-default);
+        }
+      }
+      
+      // submenu
+      @if $submenu {
+        [data-has-submenu] { 
+          @include clearfix(); 
+          > label {
+            float: right;
+          }
+        }
+        [data-submenu] {
+          position: absolute;
+          @if $horizontal {
+            left: $width;
+            width: $width;
+            top: 0;
+            bottom: 0;
+            transition: left $duration;
+          } @else if $vertical {
+            top: $width;
+            height: $width;
+            left: 0;
+            right: 0;
+            transition: top $duration;
+          }
+        }
+        input:checked ~ [data-submenu] {
+          @if $horizontal {
+            left: 0;
+          } @else if $vertical {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+  @if $nav-push {
+    @if $nav-outside {
+      @at-root {
+        input:checked ~ #{$nav} {
+          margin-#{$direction}: 0;
+        }
+      }
+    } @else {
+      input:checked ~ & #{$nav} {
+        margin-#{$direction}: 0;
+        @if $rotate {
+          @include transform($rotate-active);
+        }
+      }
+    }
+  }
+
+  // page-overlay
+  @if $overlay {
+    .page-overlay {
+      @include transition(background $duration);
+      position: fixed;
+      display: block;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      #{opposite($direction)}: auto;
+      background-color: transparent;
+      z-index: map-get($ro-off-canvas-z-index, 'page-overlay');
+      @include transition(#{$direction} $duration);
+      input:checked ~ & {
+        // background-color
+        background-color: $overlay-color;
+        .lt-ie9 & {
+          background-color: opacify($overlay-color, 1);
+          @include opacity(opacity($overlay-color));
+        }
+        // drawer top
+        @if $mode == 'drawer' {
+          @include nav-map(top, $map, $breakpoint); // set top value
+        } 
+        // push
+        #{opposite($direction)}: 0;
+        @if $overlay-push {
+          #{$direction}: $width;
+        } @else {
+          #{$direction}: 0;
+        }
+      }
+    }
+  }
+
+}
+
+@mixin nav-map($prop, $map, $breakpoint) {
+  $list: map-keys($map);
+  @each $item in $list {
+    @if $item == null {
+      #{$prop}: map-get($map, $item);
+      $list: reject($list, $item);
+    } @else if map-has-key($breakpoint, $item) {
+      $list: append($list, map-get($breakpoint, $item));
+      $list: reject($list, $item);
+      $map: map-merge($map, (map-get($breakpoint, $item): map-get($map, $item)));
+      $map: map-remove($map, $item);
+    }
+  }
+  
+  @if length($list) > 1 {
+    $list: list-descend($list);
+  }
+
+  @each $item in $list {
+    @include bp('max' $item) {
+      #{$prop}: map-get($map, $item);
+    }
+  }
+}

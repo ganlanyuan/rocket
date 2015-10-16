@@ -1,0 +1,54 @@
+@import 'demo-base';
+
+// *** validation: validation *** //
+#form1 { @include validation(shake default); }
+#form2 { @include validation(fade-in right default); }
+#form3 { @include validation(fade-in bottom default); }
+#form4 { @include validation(slide-in top default); }
+.validation-wrap {
+  @include bp(min 600) {
+    @include gallery(2);
+  }
+}
+.myform {
+  margin-top: 50px;
+  padding: 0 20px 10px;
+  border: 1px solid #f2f2f2;
+  background-color: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
+  h4 { 
+    font-size: 22px; 
+    margin-bottom: 1em;
+  }
+  li { margin: 20px 0; }
+  label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  input:not([type="submit"]) {
+    padding: 0.5em 0.8em;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    &:invalid {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  input[type="submit"] {
+    @include button('0.7em 1.2em' 0.3em);
+    border-width: 0;
+    color: #fff;
+    background-color: #3277FF;
+  }
+  .valid input:not([type="submit"]) { border-color: #5CC41B; }
+  .error input:not([type="submit"]) { border-color: #B50015; }
+  .required input:not([type="submit"]) { border-color: #B65C16; }
+  .optional input:not([type="submit"]) { border-color: #1EA2B7; }
+  [data-info] {
+    font-family: arial, sans-serif;
+    z-index: 9999;
+    min-width: 5em;
+  }
+}

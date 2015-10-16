@@ -1,0 +1,16 @@
+// *** media-list *** //
+@mixin media-list($key){
+	$gutter: ro-get-type($key, 'number');
+	$role: ro-get($key, $ro-media-list-type, 'media');
+	$direction: ro-get($key, $ro-media-direction, left);
+
+	// *** output *** //
+  display: table-cell;
+  vertical-align: top;
+	@if $role == 'media' {
+		padding-#{opposite($direction)}: $gutter;
+		img { max-width: none; }
+	} @else if $role == 'media-body' {
+		width: 10000px;
+	}
+}

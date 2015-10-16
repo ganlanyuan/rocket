@@ -1,0 +1,203 @@
+// *** liquid-3 *** //
+@mixin liquid-3($key){
+  $child: ro-get-next($key, 'child', 'div');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $keep: ro-get($key, 'keep', false);
+
+  // get map
+  $map: false;
+  $keys: false;
+  $values: false;
+  $order: ();
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    // check if $key is the data list
+    $is-keys: ();
+    @each $item in $key {
+      @if $item != null and type-of($item) != 'number' {
+        $is-keys: append($is-keys, false);
+      } @else {
+        $is-keys: append($is-keys, true);
+      }
+    }
+
+    // get $keys
+    @if index($is-keys, false) {
+      $keys: ro-get-type($key, 'list');
+    } @else {
+      $keys: $key;
+    }
+    // get map
+    $map: ro-get-type($key, 'map');
+  }
+  
+  @if $map {
+    $keys: map-keys($map);
+    $values: map-values($map);
+    
+    // get order
+    $u-values: list-ascend(remove-dup($values)); // reordered values
+    @each $u-val in $u-values {
+      @for $i from 1 through length($values) {
+        @if nth($values, $i) == $u-val {
+          $order: append($order, $i);
+        }
+      }
+    }
+  } @else {
+    $values: (0, 0, 0);
+    $order: (1, 2, 3);
+  }
+  
+  // *** output *** //
+  // &:before { content: '#{$keys}'; position: absolute; margin-top: -20px; }
+  @if not $keep {
+    @if $keys {
+      @include flexbox;
+      @include align-content(stretch);
+    }
+  }
+
+  @if $keys {
+    > #{$child} {
+      @if not $keep { @include align-content(stretch); }
+
+      @for $i from 1 through length($keys) {
+        // set width
+        $thisWidth: nth($keys, $i);
+        $asides: reject($keys, null);
+        &:nth-child(#{$i}) {
+          @if $thisWidth == null {
+            width: calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter});
+          } @else {
+            width: $thisWidth;
+          }
+
+          // set order
+          @include order(nth($values, $i));
+        }
+      }
+      
+      // clear margin
+      .flexbox &:nth-child(n+1), 
+      .flexboxtweener &:nth-child(n+1) { margin: 0; }
+      // set margin to middle column
+      .flexbox &:nth-child(#{nth($order, 2)}), 
+      .flexboxtweener &:nth-child(#{nth($order, 2)}) {
+        margin-left: $gutter;
+        margin-right: $gutter;
+      }
+    }
+  }
+
+  // no-flexbox
+  .no-flexbox.no-flexboxtweener & {
+    // get main-layout
+    $main-layout: null;
+    @if nth($keys, nth($order, 1)) == null {
+      $main-layout: 'left';
+    } @else if nth($keys, nth($order, 2)) == null {
+      $main-layout: 'center';
+    } @else if nth($keys, nth($order, 3)) == null {
+      $main-layout: 'right';
+    }
+    // &:before { content: '#{$main-layout}';  position: absolute; margin-top: -20px; }
+
+    // check gutter 
+    @if unit($gutter) == '%' { $gutter: 0; }
+    // get left, right and full width 
+    $left-width: 0;
+    $right-width: 0;
+    $full-width: 0;
+    $new-keys: ();
+    $new-order: ();
+    @for $i from 1 through length($keys) {
+      @if nth($keys, $i) == null {
+        $new-keys: reject($keys, null);
+        $new-order: reject($order, $i);
+      } @else {
+        @if unitless(nth($keys, $i)) {
+          $keys: set-nth($keys, $i, (nth($keys, $i) * 1px));
+        }
+        $full-width: ($full-width + nth($keys, $i) + $gutter);
+      }
+    }
+    @if nth($new-order, 1) > nth($new-order, 2) {
+      $left-width: (nth($new-keys, 2) + $gutter);
+      $right-width: (nth($new-keys, 1) + $gutter);
+    } @else {
+      $left-width: (nth($new-keys, 1) + $gutter);
+      $right-width: (nth($new-keys, 2) + $gutter);
+    }
+
+    @if not $keep { @include clearfix(); }
+    @if $keys {
+      > #{$child} {
+        @if not $keep { box-sizing: border-box; }
+        // reset padding, margin
+        &:nth-child(n+1) {
+          padding: 0;
+          margin: 0;
+        }
+
+        @if $main-layout == 'left' {
+          &:nth-child(#{nth($order, 1)}) {
+            width: 100%;
+            padding-right: $full-width;
+            float: left;
+            margin-right: -100%;
+          } 
+          &:nth-child(#{nth($order, 2)}) {
+            width: nth($keys, nth($order, 2));
+            margin-right: $right-width;
+            float: right;
+            margin-left: -100%;
+          }
+          &:nth-child(#{nth($order, 3)}) {
+            width: nth($keys, nth($order, 3));
+            float: right;
+            margin-left: -100%;
+          }
+        } @else if $main-layout == 'center' {
+          &:nth-child(#{nth($order, 1)}) {
+            width: nth($keys, nth($order, 1));
+            float: left;
+            margin-right: -100%;
+          }
+          &:nth-child(#{nth($order, 2)}) {
+            width: 100%;
+            padding-left: $left-width;
+            padding-right: $right-width;
+            float: left;
+            margin-right: -100%;
+          }
+          &:nth-child(#{nth($order, 3)}) {
+            width: nth($keys, nth($order, 3));
+            float: right;
+            margin-left: -100%;
+          }
+        } @else if $main-layout == 'right' {
+          &:nth-child(#{nth($order, 1)}) {
+            width: nth($keys, nth($order, 1));
+            float: left;
+            margin-right: -100%;
+          }
+          &:nth-child(#{nth($order, 2)}) {
+            width: nth($keys, nth($order, 2));
+            margin-left: $left-width;
+            float: left;
+            margin-right: -100%;
+          } 
+          &:nth-child(#{nth($order, 3)}) {
+            width: 100%;
+            padding-left: $full-width;
+            float: right;
+            margin-left: -100%;
+          }
+        }
+
+      }
+    }
+  }
+}

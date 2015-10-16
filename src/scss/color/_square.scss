@@ -1,0 +1,13 @@
+// *** square *** //
+@function square($key){
+  $key-new: ();
+
+  @if type-of($key) == 'list' {
+    $key-new: append($key, 'square');
+  } @else {
+    $key-new: append(append($key-new, $key), 'square');
+  }
+
+  @return color($key-new);
+}
+
