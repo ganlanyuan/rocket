@@ -81,7 +81,7 @@ $ro-ideal-model: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 8
 // validation
 $validation-style: 'normal', 'fade-in', 'slide-in' !default;
 $validation-direction: left, right, top, bottom !default;
-$validation-background-color: (
+$validation-background: (
   'valid': #40B328,
   'required': #272106,
   'error': #FC2625,

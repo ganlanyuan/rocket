@@ -75,11 +75,11 @@
       $border-radius: 0.19em;
       $shadow: rgba(0,0,0,0.15) 0px 6px 12px;
 
-      background-color: $bgc;
+      background: $bgc;
       @if $border { border: $border; }
       @if $border-radius { border-radius: $border-radius; }
       @if $shadow { box-shadow: $shadow; }
-      .current > a, li:hover > a { background-color: analogous($bgc 10%);}
+      .current > a, li:hover > a { background: analogous($bgc 10%);}
       li { 
         transition: all $duration;
         &:first-child > a { padding-top: nth($padding, 1) * 2;}

@@ -88,7 +88,7 @@
           text-indent: 110%;
         }
         @for $i from 1 through length($colors) {
-          &:nth-of-type(#{$i}) { background-color: nth($colors, $i); }
+          &:nth-of-type(#{$i}) { background: nth($colors, $i); }
         }
       }
     }
@@ -156,7 +156,7 @@
         }
       }
       @for $i from 1 through length($colors) {
-        .label-#{$i}:before { background-color: nth($colors, $i); }
+        .label-#{$i}:before { background: nth($colors, $i); }
       }
     } @else {
       .labels { display: none; }

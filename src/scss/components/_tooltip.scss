@@ -28,7 +28,7 @@
   &:after {
     @extend %tooltip-content;
     content: $content;
-    background-color: $color;
+    background: $color;
     max-width: $width;
     @if $radius { border-radius: $ro-tooltip-radius; }
   }

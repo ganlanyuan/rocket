@@ -59,16 +59,16 @@
       display: inline-block;
       height: $height;
       line-height: $height;
-      transition: padding 0.3s, background-color 0.3s;
+      transition: padding 0.3s, background 0.3s;
 
       @if $style == 'toggle' {
-        background-color: $default-color;
+        background: $default-color;
         padding: $border ($height * 0.85) $border $border;
       } @else if $style == 'slider' {
         text-align: left;
         position: relative;
         padding: 0 $width 0 0;
-        &:before, &:after { transition: background-color 0.3s; }
+        &:before, &:after { transition: background 0.3s; }
         &:before {
           content: '';
           width: $width;
@@ -77,8 +77,8 @@
           left: ($height / 2);
           top: ($height / 2);
           z-index: -1;
-          background-color: $default-color;
-          .lt-ie9 & { background-color: $active-color; }
+          background: $default-color;
+          .lt-ie9 & { background: $active-color; }
         }
       }
 
@@ -98,7 +98,7 @@
         content: '';
         display: inline-block;
         height: $height;
-        background-color: #fff;
+        background: #fff;
 
         @if $style == 'toggle' {
           width: $width;
@@ -106,7 +106,7 @@
         } @else if $style == 'slider' {
           width: $height;
           box-shadow: 0 ($border / 1.3) $border 0 rgba(0, 0, 0, 0.2);
-          .lt-ie9 & { background-color: $active-color; }
+          .lt-ie9 & { background: $active-color; }
         }
 
         @if $radius {
@@ -123,11 +123,11 @@
     &:checked ~ label {
       padding: $border $border $border ($height * 0.85);
       @if $style == 'toggle' {
-        background-color: $active-color;
+        background: $active-color;
       } @else if $style == 'slider' {
         padding: 0 0 0 $width;
         &:before, &:after {
-          background-color: $active-color;
+          background: $active-color;
         }
       }
 

@@ -314,14 +314,14 @@
       top: 0;
       bottom: 0;
       #{opposite($direction)}: auto;
-      background-color: transparent;
+      background: transparent;
       z-index: map-get($ro-off-canvas-z-index, 'page-overlay');
       @include transition(#{$direction} $duration);
       input:checked ~ & {
-        // background-color
-        background-color: $overlay-color;
+        // background
+        background: $overlay-color;
         .lt-ie9 & {
-          background-color: opacify($overlay-color, 1);
+          background: opacify($overlay-color, 1);
           @include opacity(opacity($overlay-color));
         }
         // drawer top

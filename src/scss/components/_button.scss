@@ -62,7 +62,7 @@
     border-radius: $ro-button-round;
   }
   @if not index(('simple' 'veil' 'line-drawing'), $hover) {
-    background-color: $color-1;
+    background: $color-1;
     color: contrast($color-1);
   }
   @if $colors {
@@ -80,7 +80,7 @@
             left: 0;
           }
           #{$direction}: -100%;
-          background-color: $color-2;
+          background: $color-2;
           transition: #{$direction} $duration $timing-function;
         }
         &:hover {
@@ -90,9 +90,9 @@
           &:before { #{$direction}: 0; }
         }
       } @else if $hover == 'highlight' {
-        transition: background-color $duration $timing-function, color $duration $timing-function;
+        transition: background $duration $timing-function, color $duration $timing-function;
         &:hover {
-          background-color: $color-2;
+          background: $color-2;
           @if contrast($color-1) != contrast($color-2) {
             color: contrast($color-2);
           }
@@ -101,11 +101,11 @@
         color: $color-1;
         border: 1px solid currentColor;
         .lt-ie9 & { border: 1px solid $color-1; }
-        background-color: transparent;
-        transition: background-color $duration $timing-function, border-color $duration $timing-function, color $duration $timing-function;
+        background: transparent;
+        transition: background $duration $timing-function, border-color $duration $timing-function, color $duration $timing-function;
         &:hover {
           color: contrast($color-1);
-          background-color: $color-1;
+          background: $color-1;
         }
       } @else if $hover == 'ripple' {
         @include button-pos-r();
@@ -123,7 +123,7 @@
           margin-left: -5em;
           margin-top: -5em;
           border-radius: 50%;
-          background-color: $color-2;
+          background: $color-2;
           @include keyframes(button-ripple) {
             to {
               @include transform(scale(1));
@@ -141,8 +141,8 @@
         color: $color-1;
         border: 1px solid currentColor;
         .lt-ie9 & { border: 1px solid $color-1; }
-        background-color: transparent;
-        transition: background-color $duration $timing-function, color $duration $timing-function;
+        background: transparent;
+        transition: background $duration $timing-function, color $duration $timing-function;
         &:before {
           @include button-pos-a();
           @include opacity(0);
@@ -155,7 +155,7 @@
           top: 0;
           width: 100%;
           height: 100%;
-          background-color: $color-1;
+          background: $color-1;
           transition: transform $duration $timing-function, opacity $duration $timing-function;
           .no-csstransforms & { display: none; }
         }
@@ -237,7 +237,7 @@
           top: 0;
           width: 150%;
           height: 100%;
-          background-color: $color-2;
+          background: $color-2;
           transition: transform $duration $timing-function;
           .no-csstransforms & { display: none; }
         }
@@ -284,7 +284,7 @@
           position: absolute;
           display: block;
           box-sizing: border-box;
-          background-color: $color-1;
+          background: $color-1;
           transition: width $duration $timing-function, height $duration $timing-function;
           &:nth-child(1) {
             left: 0;

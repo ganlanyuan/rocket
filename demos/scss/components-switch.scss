@@ -22,5 +22,5 @@
 }
 .one { @include switch(radius); }
 .two { @include switch(round 50px #C06EE1); }
-.slider { @include switch(round slider 42px 27px #399DE1); }
+.slider { @include switch(round slider 48px 24px #399DE1); }
 .text { @include switch(round text ("on" "off") 36px #399DE1); }

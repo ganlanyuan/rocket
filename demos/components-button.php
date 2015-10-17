@@ -7,9 +7,9 @@
       <h2 class="main-heading"><span>components: </span>buttons</h2>
       <div class="example">
         <div class="example-button">
-          <span class="normal">normal button</span>
-          <a href="" class="radius">radius button</a>
-          <span class="round">round button</span> <br>
+          <span class="normal">normal</span>
+          <a href="" class="radius">border-radius</a>
+          <span class="round">round</span> <br>
           <span class="highlight">highlight</span>
           <span class="slide">slide</span>
           <span class="ripple">ripple</span>
