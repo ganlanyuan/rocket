@@ -67,155 +67,20 @@
         <!-- <div><div class="box"></div></div> -->
       <!-- </div> -->
     </div>
-  </div>
-
-  <!-- gallery -->
-  <ul class="gallery">
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
-  </ul>
-
-  <!-- metro -->
-  <ul class="metro">
-    <li>
-      <div class="metro-item">
-        <ul class="metro-first">
-          <li>
-            <div class="metro-item">
-              <div class="box"></div>
-            </div>
-          </li>
-          <li>
-            <div class="metro-item">
-              <div class="box"></div>
-            </div>
-          </li>
-          <li>
-            <div class="metro-item">
-              <div class="box"></div>
-            </div>
-          </li>
-          <li>
-            <div class="metro-item">
-              <div class="box"></div>
-            </div>
-          </li>
-          <li>
-            <div class="metro-item">
-              <div class="box"></div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="metro-item">
-        <div class="box"></div>
-      </div>
-    </li>
-    <li>
-      <div class="metro-item">
-        <div class="box"></div>
-      </div>
-    </li>
-    <li>
-      <div class="metro-item">
-        <div class="box"></div>
-      </div>
-    </li>
-    <li>
-      <div class="metro-item">
-        <div class="box"></div>
-      </div>
-    </li>
-  </ul>
-
-  <!-- liquid-2 -->
-  <div class="two">
-    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
-    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
-  </div>
-
-  <!-- liquid-3 -->
-  <div class="three">
-    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
-    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
-    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
-  </div>
-  
-  <!-- button -->
-  <div class="btn">Submit</div>
-
-  <!-- charts -->
-  <div class="charts">
-    <ul class="items">
-      <li class="item-1"><strong>A</strong><span></span></li>
-      <li class="item-2"><strong>B</strong><span></span></li>
-      <li class="item-3"><strong>C</strong><span></span></li>
-      <li class="item-4"><strong>D</strong><span></span></li>
-    </ul>
-    <div class="ticks">
-      <div class="tick-1"><span></span></div>
-      <div class="tick-2"><span></span></div>
-      <div class="tick-3"><span></span></div>
-      <div class="tick-4"><span></span></div>
-      <div class="tick-5"><span></span></div>
-      <div class="tick-6"><span></span></div>
-      <div class="tick-7"><span></span></div>
-      <div class="tick-8"><span></span></div>
-      <div class="tick-9"><span></span></div>
-      <div class="tick-10"><span></span></div>
-      <div class="tick-11"><span></span></div>
-      <div class="tick-12"><span></span></div>
-      <div class="tick-13"><span></span></div>
-      <div class="tick-14"><span></span></div>
-      <div class="tick-15"><span></span></div>
-      <div class="tick-16"><span></span></div>
-      <div class="tick-17"><span></span></div>
-      <div class="tick-18"><span></span></div>
-      <div class="tick-19"><span></span></div>
-      <div class="tick-20"><span></span></div>
+    <div>
+      <!-- <div class="row-inner"> -->
+        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=4" alt="" width="1200" height="600"></div>
+        <!-- <div><div class="box"></div></div> -->
+      <!-- </div> -->
     </div>
-    <div class="labels">
-      <div class="label-1">Sale</div>
+    <div>
+      <!-- <div class="row-inner"> -->
+        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=5" alt="" width="1200" height="600"></div>
+        <!-- <div><div class="box"></div></div> -->
+      <!-- </div> -->
     </div>
   </div>
 
-  <!-- off-canvas -->
-  <input type="checkbox" name="" id="nav-toggle" class="hidden-checkbox">
-  <div class="page">
-    <label for="nav-toggle" class="icon-menu">menu</label>
-    <label for="nav-toggle" class="page-overlay"></label>
-    <div class="nav">
-      <ul>
-        <li>Entertainment</li>
-        <li>Sports</li>
-        <li>Business</li>
-        <li>Technology</li>
-        <li>Nation</li>
-        <li>Politics</li>
-        <li>World</li>
-        <li>Opinion</li>
-        <li>Obituaries</li>
-        <li>Travel</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-<script>
-  ready(function () {
-    // kit('.charts').addClass('active');
-    // priorityNav('.nav', 'more', 400);
-  })
-</script>
 <!-- <div class="card">
   <div class="chart front">front</div>
   <div class="chart back">back</div>

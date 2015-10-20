@@ -7,174 +7,303 @@ img { max-width: 100%; height: auto; }
 body { margin: 0; padding: 20px 0 0; }
 .container { @include container(1000px 20px); }
 
-
-.box {
-  min-height: 200px;
-  padding: 10px;
-  background-color: #eee;
-}
-// row
-.row {
-  // @include grid((2:2, 3:3, 5:1));
-  // &-inner { @include grid((1 1)); }
-  // display: none;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -20px;
-  > div {
-    padding-right: 20px;
-    box-sizing: border-box;
-    flex: 1 0 auto;
-    max-width: 100%;
-  }
-  > div:nth-child(1) {
-    width: 20%;
-    width: 200px;
-  }
-  > div:nth-child(2) {
-    width: 30%;
-    width: 250px;
-    order: 1;
-  }
-  > div:nth-child(3) {
-    width: 50%;
-    width: 400px;
-  }
-}
-
-// gallery
-.gallery {
-  @include gallery(3);
-  // @include bp('min' 800) { @include gallery(4); }
-  display: none !important;
-}
-
-// metro
-$ro-metro: (
-  'gutter': 20px,
-  'ratio': (3 / 4),
-  'child': 'li',
-);
-.metro {
-  @include metro((null: 3 1 h2 1 w3 of 4));
-  .box { height: 1000px; }
-  display: none;
-}
-.metro-first { @include metro((null: 1 w2 2 1 1 of 3)); }
-
-// liquid
-.two { 
-  @include liquid-2((null 200px) gutter 10%); 
-  display: none;
-}
-.three { 
-  @include liquid-3((null:1, 150px:3, 200px: 2) gutter 50px); 
-  display: none;
-}
-
-// button
-.btn { 
-  @include button('0.8em 1.2em' #3095E6 3px); 
-  cursor: pointer;
-  display: none;
-}
-
-// charts
-.charts {
-  @include charts(bar (#3095E6: 8 10 16 14) steps (1 16));
-  display: none;
-}
-
-// off-canvas & priority-nav
-$nav-bp: 400;
-// @include bp('max' $nav-bp) {
-  .page {
-    @include off-canvas('slide-in' '.nav' 200px left);
-    display: none;
-  }
-  .nav {
-    background-color: #08274A;
-    li {
-      display: block;
-      padding: 10px;
-      color: #fff;
+// is-number-list
+@function is-number-list($key) {
+  $is-number-list: ();
+  @each $item in $key {
+    @if type-of($item) != 'number' {
+      $is-number-list: append($is-number-list, false);
+    } @else {
+      $is-number-list: append($is-number-list, true);
     }
   }
-// }
-// @include bp('min' $nav-bp) {
-//   .nav {
-//     @include priority-nav();
-//     margin-left: auto;
-//     li { padding: 10px 13px; }
-//     button {
-//       padding: 10px;
-//       border-width: 0;
-//       color: #fff;
-//       font-size: 11px;
-//       text-transform: uppercase;
-//       background-color: #333;
-//       position: relative;
-//       overflow: visible;
-//       &:before {
-//         content: attr(data-count);
-//         width: 23px;
-//         height: 23px;
-//         line-height: 23px;
-//         border-radius: 50%;
-//         font-size: 14px;
-//         text-align: center;
-//         position: absolute;
-//         left: 0;
-//         top: 50%;
-//         margin-left: -11px;
-//         margin-top: -11px;
-//         color: #412F08;
-//         background-color: #FFB822;
-//       }
-//     }
+
+  // return
+  @if index($is-number-list, false) {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
+
+// is-deep-list
+@function is-deep-list($key) {
+  $is-deep-list: false;
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'list' or type-of($item) == 'map' {
+        @if not $is-deep-list {
+          $is-deep-list: true;
+        }
+      }
+    }
+  }
+
+  @return $is-deep-list;
+}
+
+$row10: (3:1, 5:0, 6:0, 4:0, 1:0);
+$row11: (3 5) (6 4) 1;
+$row12: (3 5: 1 0) (6 4: 3 0) 1;
+
+$row21: (
+  default: (3 5) (6 4) 1,
+  800px: (3 5 6) (4 1),
+  1200px: (3 5 6 4 1),
+);
+
+$row22: (
+  default: (3 5: 1 0) (6 4) 1,
+  800px: (3 5 6: 0 1 0) (4 1),
+  1200px: (3 5 6 4 1: 0 1 0 2 1),
+);
+
+@function grid-get-keys($key) {
+  $cols: false;
+
+  @if type-of($key) == 'list' or type-of($key) == 'number' {
+    $cols: $key;
+  } @else if type-of($key) == 'map' {
+    @if length(map-keys($key)) == 1 {
+      $cols: nth(map-keys($key), 1);
+    } @else {
+      $cols: map-keys($key);
+    }
+  }
+
+  @return $cols;
+}
+
+@function grid-get-values($key) {
+  $orders: false;
+
+  @if type-of($key) == 'map' {
+    @if length(map-keys($key)) == 1 {
+      $orders: nth(map-values($key), 1);
+
+    } @else {
+      $orders: map-values($key);
+    }
+  }
+
+  @return $orders;
+}
+
+@mixin make-grid($key) {
+
+}
+
+@mixin pre-make-grid($key) {
+  $is-deep-list: is-deep-list($key);
+  
+  $cols: ();
+  $orders: ();
+  $max-order: (0);
+  $list-length: 0;
+  
+  @if $is-deep-list {
+    &:before {
+      // content: '#{nth($key, 1)}';
+    }
+    @for $i from 1 through length($key) {
+      $item: nth($key, $i);
+
+      $cols: grid-get-keys($item);
+      $orders: grid-get-values($item);
+      @if $cols { $list-length: ($list-length + length($cols)); }
+
+      @include make-grid($item);
+      &:before {
+        // content: '#{$orders}';
+      }
+    }
+  } @else {
+    $cols: grid-get-keys($key);
+    $orders: grid-get-values($key);
+    @if $cols { $list-length: ($list-length + length($cols)); }
+    @include make-grid($key);
+  }
+  &:before {
+    // content: '#{$list-length}';
+  }
+}
+
+// *** grid *** //
+@mixin row($key:false){
+  $grid: ro-get-next($key, 'grid');
+
+  $bp: ro-get-next($key, 'bp');
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media-type: ro-get($key, $ro-media-type);
+
+  $child: ro-get-next($key, 'child', 'div');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $mode: ro-get($key, ('isolate' 'fluid'), 'fluid');
+  $direction: ro-get($key, (left right), right);
+  $keep: ro-get($key, 'keep', false);
+
+  // get grid
+  @if not $grid {
+    @if type-of($key) == 'map' {
+      $grid: $key;
+    } @else if type-of($key) == 'list' {
+      
+      @if is-number-list($key) {
+        $grid: $key;
+      } @else {
+        @if ro-get-type($key, 'map') {
+          $grid: ro-get-type($key, 'map');
+        } @else if ro-get-type($key, 'list') and is-number-list(ro-get-type($key, 'list')) {
+          @each $item in $key {
+            @if not $grid and type-of($item) == 'list' and is-number-list(ro-get-type($key, 'list')) {
+              $grid: $item;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  $has-breakpoints: false;
+  @if $grid {
+    @if type-of($grid) == 'map' {
+      $v-bp: nth(map-keys($grid), 1);
+      @if $v-bp == 'default' or type-of($v-bp) == 'number' and not unitless($v-bp) {
+        $has-breakpoints: true;
+      }
+    }
+
+    @if $has-breakpoints {
+      $grid-bp: map-keys($grid);
+      @each $item in $grid-bp {
+        @if $item == 'default' {
+          @include pre-make-grid(map-get($grid, $item));
+        } @else if type-of($item) != 'number' and $bp and map-has-key($bp, $item) {
+          @include bp($condition $media-type map-get($bp, $item)) {
+            @include pre-make-grid(map-get($grid, $item));
+          }
+        } @else {
+          @include bp($condition $media-type $item) {
+            @include pre-make-grid(map-get($grid, $item));
+          }
+        }
+      }
+    } @else {
+      @include pre-make-grid($grid);
+    }
+  }
+  // @if $map {
+  //   $keys: map-keys($map);
+  //   $values: map-values($map);
+
+    // get order
+    // $u-values: list-ascend(remove-dup($values)); // reordered values
+    // @each $u-val in $u-values {
+    //   @for $i from 1 through length($values) {
+    //     @if nth($values, $i) == $u-val {
+    //       $order: append($order, $i);
+    //     }
+    //   }
+    // }
+//   } @else {
+//     $values: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+//     $order: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 //   }
-//   .icon-menu { display: none; }
-// }
+  
+  // get full width
+  // $full-width: 0;
+  // @each $item in $keys {
+  //   $full-width: $full-width + $item;
+  // }
+  
+  // *** output *** //
+  // @if not $keep {
+  //   @include clearfix();
+  //   margin-#{$direction}: - $gutter;
 
+  //   @if $keys { 
+  //     @include flexbox; 
+  //     @include flex-wrap(wrap);
+  //     @if $direction == left {
+  //       @include flex-direction(row-reverse);
+  //     }
+  //   }
+  // }
 
+  // @if $keys {
+  //   > #{$child} {
+  //     @if not $keep {
+  //       padding-#{$direction}: $gutter;
+  //       box-sizing: border-box;
+  //     }
 
+  //     // set col width
+  //     @for $i from 1 through length($keys) {
+  //       &:nth-child(#{$i}) {
+  //         @include order(nth($values, $i));
+  //         width: percentage(nth($keys, $i) / $full-width); 
+  //       }
+  //     }
+  //   }
+  // }
 
+  // no-flexbox
+  // .no-flexbox.no-flexboxtweener & {
+  //   @if $keys {
+  //     > #{$child} {
+  //       @if not $keep {
+  //         float: opposite($direction);
+  //         @if $mode == 'isolate' { margin-#{$direction}: -100%; }
+  //       }
+        
+  //       // reset direction value
+  //       &:nth-child(n+1) { #{opposite($direction)}: 0; }
 
+  //       @for $i from 1 through length($keys) {
+  //         &:nth-child(#{$i}) {
+  //           // set col order
+  //           $location: index($order, $i);
+  //           $location-val: 0;
+  //           @if $mode == 'isolate' {
+  //             @if $location != 1 {
+  //               @for $j from 1 to $location {
+  //                 $location-val: ($location-val + nth($keys, nth($order, $j)));
+  //               }
+  //               margin-#{opposite($direction)}: percentage($location-val / $full-width);
+  //             } @else {
+  //               margin-#{opposite($direction)}: 0;
+  //             }
+  //           } @else if $mode == 'fluid' {
+  //             $origin-val: 0;
+  //             $move-val: 0;
+  //             // get origin-val
+  //             @if $i != 1 {
+  //               @for $h from 1 to $i {
+  //                 $origin-val: ($origin-val + nth($keys, $h));
+  //               }
+  //             } @else {
+  //               $origin-val: 0;
+  //             }
+  //             // get location-val
+  //             @if $location != 1 {
+  //               @for $q from 1 to $location {
+  //                 $location-val: ($location-val + nth($keys, nth($order, $q)));
+  //               }
+  //             } @else {
+  //               $location-val: 0;
+  //             }
+  //             // get move-val
+  //             $move-val: ($location-val - $origin-val);
 
-
-
-
-
-
-
-
-// .card {
-//   position: relative;
-//   width: 200px;
-//   height: 200px;
-//   &:hover { 
-//     .front { transform: perspective(400px) rotateY(180deg); }
-//     .back { transform: perspective(400px) rotateY(0deg); }
-//   }
-// }
-// .chart {
-//   height: 200px;
-//   background-color: #51B6FF;
-//   text-align: center;
-//   color: #fff;
-//   transition: transform 1s;
-//   transform-origin: center;
-//   backface-visibility: hidden;
-//   border-radius: 5px;
-// }
-// .front { 
-//   transform: perspective(400px) rotateY(0deg); 
-// }
-// .back { 
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   transform: perspective(400px) rotateY(-180deg); 
-// }
+  //             @if $move-val != 0 {
+  //               position: relative;
+  //               #{opposite($direction)}: percentage($move-val / $full-width);
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
+.row { @include row(grid $row22); }
