@@ -6,8 +6,6 @@
   $child: ro-get-next($key, 'child', 'div');
   $keep: ro-get($key, 'keep', false);
 
-  $half-gutter: ($gutter / 2);
-
   // get map
   $map: false;
   $keys: false;
@@ -63,11 +61,11 @@
   // *** output *** //
   @if not $keep {
     @include clearfix();
-    margin-#{opposite($direction)}: - $half-gutter;
-    margin-#{$direction}: - $half-gutter;
+    margin-#{$direction}: - $gutter;
 
     @if $keys { 
       @include flexbox; 
+      @include flex-wrap(wrap);
       @if $direction == left {
         @include flex-direction(row-reverse);
       }
@@ -77,16 +75,15 @@
   @if $keys {
     > #{$child} {
       @if not $keep {
-        padding-#{opposite($direction)}: $half-gutter;
-        padding-#{$direction}: $half-gutter;
+        padding-#{$direction}: $gutter;
         box-sizing: border-box;
       }
 
       // set col width
       @for $i from 1 through length($keys) {
         &:nth-child(#{$i}) {
-          width: percentage(nth($keys, $i) / $full-width); 
           @include order(nth($values, $i));
+          width: percentage(nth($keys, $i) / $full-width); 
         }
       }
     }

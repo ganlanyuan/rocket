@@ -50,35 +50,35 @@
   <!-- row -->
   <div class="row">
     <div>
-      <div class="row-inner">
-        <div><img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"></div>
-        <div><div class="box"></div></div>
-      </div>
+      <!-- <div class="row-inner"> -->
+        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=1" alt="" width="1200" height="600"></div>
+        <!-- <div><div class="box"></div></div> -->
+      <!-- </div> -->
     </div>
     <div>
-      <div class="row-inner">
-        <div><img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"></div>
-        <div><div class="box"></div></div>
-      </div>
+      <!-- <div class="row-inner"> -->
+        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=2" alt="" width="1200" height="600"></div>
+        <!-- <div><div class="box"></div></div> -->
+      <!-- </div> -->
     </div>
     <div>
-      <div class="row-inner">
-        <div><img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"></div>
-        <div><div class="box"></div></div>
-      </div>
+      <!-- <div class="row-inner"> -->
+        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=3" alt="" width="1200" height="600"></div>
+        <!-- <div><div class="box"></div></div> -->
+      <!-- </div> -->
     </div>
   </div>
 
   <!-- gallery -->
   <ul class="gallery">
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
-    <li> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
+    <li> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </li>
   </ul>
 
   <!-- metro -->
@@ -138,15 +138,15 @@
 
   <!-- liquid-2 -->
   <div class="two">
-    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
-    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
+    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
+    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
   </div>
 
   <!-- liquid-3 -->
   <div class="three">
-    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
-    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
-    <div> <img src="http://placehold.it/1000x800/88E68C/fff" alt="" width="1000" height="800"> </div>
+    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
+    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
+    <div> <img src="http://placehold.it/1200x600/88E68C/fff" alt="" width="1200" height="600"> </div>
   </div>
   
   <!-- button -->

@@ -15,9 +15,31 @@ body { margin: 0; padding: 20px 0 0; }
 }
 // row
 .row {
-  @include grid((2:2, 3:3, 5:1));
-  &-inner { @include grid((1 1)); }
+  // @include grid((2:2, 3:3, 5:1));
+  // &-inner { @include grid((1 1)); }
   // display: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  > div {
+    padding-right: 20px;
+    box-sizing: border-box;
+    flex: 1 0 auto;
+    max-width: 100%;
+  }
+  > div:nth-child(1) {
+    width: 20%;
+    width: 200px;
+  }
+  > div:nth-child(2) {
+    width: 30%;
+    width: 250px;
+    order: 1;
+  }
+  > div:nth-child(3) {
+    width: 50%;
+    width: 400px;
+  }
 }
 
 // gallery

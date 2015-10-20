@@ -27,7 +27,7 @@ Add many new sass mixins, components and javascript components.
 
 Install with [Bower](http://bower.io/): 
 ```` bash
-$ bower install rocket#v3
+$ bower install rocket
 ````
 Install with [git](http://www.git-scm.com/):
 ```` bash

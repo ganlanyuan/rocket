@@ -8,7 +8,9 @@
       <div class="example ovh">
         <div class="row" data-margin>
           <div>
-            <div class="example-content cell" data-content><strong>A</strong></div>
+            <div class="example-content cell" data-content><strong>A</strong>
+              <img src="https://placehold.it/1500x900" alt="">
+            </div>
           </div>
           <div>
             <div class="example-content cell" data-content><strong>B</strong></div>
