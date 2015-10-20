@@ -16,7 +16,7 @@ Rocket is a powerful SASS library to help web developers handle layout, color an
 
 Download [rocket](https://github.com/ganlanyuan/rocket.git) or install with [Bower](http://bower.io/): 
 ```` bash
-$ bower install rocket
+$ bower install rocket#2.x
 ````
 Or install with [git](http://www.git-scm.com/):
 ```` bash
