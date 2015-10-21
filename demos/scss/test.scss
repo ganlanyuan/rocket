@@ -42,21 +42,6 @@ body { margin: 0; padding: 20px 0 0; }
   @return $is-deep-list;
 }
 
-$row10: (3:1, 5:0, 6:0, 4:0, 1:0);
-$row11: (3 5) (6 4) 1;
-$row12: (3 5: 1 0) (6 4: 3 0) 1;
-
-$row21: (
-  default: (3 5) (6 4) 1,
-  800px: (3 5 6) (4 1),
-  1200px: (3 5 6 4 1),
-);
-
-$row22: (
-  default: (3 5: 1 0) (6 4) 1,
-  800px: (3 5 6: 0 1 0) (4 1),
-  1200px: (3 5 6 4 1: 0 1 0 2 1),
-);
 
 @function grid-get-keys($key) {
   $cols: false;
@@ -86,46 +71,70 @@ $row22: (
     }
   }
 
+  @if $orders {
+    $min-order: min($orders...);
+    $new-orders: ();
+
+    @if $min-order <= 0 {
+      @each $item in $orders {
+        $new-orders: append($new-orders, ($item + abs($min-order) + 1));
+      }
+
+      $orders: $new-orders;
+    }
+  }
   @return $orders;
 }
 
-@mixin make-grid($key) {
+@mixin make-grid($cols, $orders, $child, $max-order:0, $list-length:0) {
+  $full-col: 0;
+  @each $item in $cols {
+    $full-col: ($full-col + $item);
+  }
 
+  @for $i from 1 through length($cols) {
+    > #{$child}:nth-child(#{$i}) {
+      @if $orders { @include order((nth($orders, $i) + $max-order)); }
+      width: percentage(nth($cols, $i) / $full-col);
+    }
+  }
 }
 
-@mixin pre-make-grid($key) {
+@mixin pre-make-grid($key, $child) {
   $is-deep-list: is-deep-list($key);
   
   $cols: ();
   $orders: ();
-  $max-order: (0);
+
   $list-length: 0;
+  $max-order: 0;
   
   @if $is-deep-list {
-    &:before {
-      // content: '#{nth($key, 1)}';
-    }
+    // &:before { content: '#{nth($key, 1)}'; }
     @for $i from 1 through length($key) {
       $item: nth($key, $i);
 
       $cols: grid-get-keys($item);
       $orders: grid-get-values($item);
-      @if $cols { $list-length: ($list-length + length($cols)); }
 
-      @include make-grid($item);
-      &:before {
-        // content: '#{$orders}';
+
+      @include make-grid($cols, $orders, $child, $max-order, $list-length);
+      // &:before { content: '#{$orders}'; }
+
+      @if $cols { $list-length: ($list-length + length($cols)); }
+      @if $orders {
+        $max-order: ($max-order + max($orders...));
+      } @else {
+        $max-order: $max-order + 1;
       }
     }
   } @else {
     $cols: grid-get-keys($key);
     $orders: grid-get-values($key);
-    @if $cols { $list-length: ($list-length + length($cols)); }
-    @include make-grid($key);
+
+    @include make-grid($cols, $orders, $child);
   }
-  &:before {
-    // content: '#{$list-length}';
-  }
+  // &:before { content: '#{$list-length}'; }
 }
 
 // *** grid *** //
@@ -164,8 +173,29 @@ $row22: (
     }
   }
 
-  $has-breakpoints: false;
+  // *** output *** //
+  // basis
+  @if not $keep {
+    // clear float
+    @include clearfix();
+
+    // flexbox
+    @include flexbox; 
+    @include flex-wrap(wrap);
+    @if $direction == left {
+      @include flex-direction(row-reverse);
+    }
+
+    // gutter
+    margin-#{$direction}: - $gutter;
+    > #{$child} {
+      padding-#{$direction}: $gutter;
+      box-sizing: border-box;
+    }
+  }
+
   @if $grid {
+    $has-breakpoints: false;
     @if type-of($grid) == 'map' {
       $v-bp: nth(map-keys($grid), 1);
       @if $v-bp == 'default' or type-of($v-bp) == 'number' and not unitless($v-bp) {
@@ -177,21 +207,23 @@ $row22: (
       $grid-bp: map-keys($grid);
       @each $item in $grid-bp {
         @if $item == 'default' {
-          @include pre-make-grid(map-get($grid, $item));
+          @include pre-make-grid(map-get($grid, $item), $child);
         } @else if type-of($item) != 'number' and $bp and map-has-key($bp, $item) {
           @include bp($condition $media-type map-get($bp, $item)) {
-            @include pre-make-grid(map-get($grid, $item));
+            @include pre-make-grid(map-get($grid, $item), $child);
           }
         } @else {
           @include bp($condition $media-type $item) {
-            @include pre-make-grid(map-get($grid, $item));
+            @include pre-make-grid(map-get($grid, $item), $child);
           }
         }
       }
     } @else {
-      @include pre-make-grid($grid);
+      @include pre-make-grid($grid, $child);
     }
   }
+
+
   // @if $map {
   //   $keys: map-keys($map);
   //   $values: map-values($map);
@@ -215,27 +247,9 @@ $row22: (
   // @each $item in $keys {
   //   $full-width: $full-width + $item;
   // }
-  
-  // *** output *** //
-  // @if not $keep {
-  //   @include clearfix();
-  //   margin-#{$direction}: - $gutter;
-
-  //   @if $keys { 
-  //     @include flexbox; 
-  //     @include flex-wrap(wrap);
-  //     @if $direction == left {
-  //       @include flex-direction(row-reverse);
-  //     }
-  //   }
-  // }
 
   // @if $keys {
   //   > #{$child} {
-  //     @if not $keep {
-  //       padding-#{$direction}: $gutter;
-  //       box-sizing: border-box;
-  //     }
 
   //     // set col width
   //     @for $i from 1 through length($keys) {
@@ -306,4 +320,8 @@ $row22: (
   //   }
   // }
 }
-.row { @include row(grid $row22); }
+
+$row: (3:1, 5:0, 6:0, 4:0, 2:0);
+// $row: (3 5 6 4 2);
+
+.row { @include row(grid $row); }
