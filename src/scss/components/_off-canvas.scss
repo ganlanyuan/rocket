@@ -206,6 +206,7 @@
       z-index: map-get($ro-off-canvas-z-index, 'nav');
       box-sizing: border-box;
       #{$direction}: 0;
+      > ul { position: relative; }
 
       @if $nav-push and $nav-transform {
         @include transition(transform $duration, margin-#{$direction} $duration);
@@ -266,7 +267,7 @@
             left: $width;
             width: $width;
             top: 0;
-            bottom: 0;
+            height: 100%;
             transition: left $duration;
           } @else if $vertical {
             top: $width;

@@ -8,9 +8,7 @@
       <div class="example ovh">
         <div class="row" data-margin>
           <div>
-            <div class="example-content cell" data-content><strong>A</strong>
-              <img src="https://placehold.it/1500x900" alt="">
-            </div>
+            <div class="example-content cell" data-content><strong>A</strong></div>
           </div>
           <div>
             <div class="example-content cell" data-content><strong>B</strong></div>
@@ -18,11 +16,21 @@
           <div>
             <div class="example-content cell" data-content><strong>C</strong></div>
           </div>
+          <div>
+            <div class="example-content cell" data-content><strong>D</strong></div>
+          </div>
+          <div>
+            <div class="example-content cell" data-content><strong>E</strong></div>
+          </div>
         </div>
       </div>
       <pre><code class="language-scss">
-.row { @include grid((2:1, 7:0, 3:0)); }
-// if you don't need to change the order, simply @include row((2 7 3));
+$grid: (
+  'default': (3 4) ( 2 5) 1,
+  800px: (2 7 3: 1 0 1) (1 1: 1 0),
+  1000px: (2 7 3 4 4),
+);
+.row { @include grid(grid $grid); }
       </code></pre>
     </div>
     

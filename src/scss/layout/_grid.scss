@@ -1,150 +1,288 @@
 // *** grid *** //
 @mixin grid($key:false){
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $mode: ro-get($key, ('isolate' 'fluid'), 'fluid');
-  $direction: ro-get($key, (left right), right);
+  $grid: ro-get-next($key, 'grid');
+
+  $breakpoints: ro-get-next($key, 'bp');
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media-type: ro-get($key, $ro-media-type);
+
   $child: ro-get-next($key, 'child', 'div');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $direction: ro-get($key, (left right), right);
   $keep: ro-get($key, 'keep', false);
 
-  // get map
-  $map: false;
-  $keys: false;
-  $values: false;
-  $order: ();
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    // check if $key is the data list
-    $is-keys: ();
-    @each $item in $key {
-      @if type-of($item) != 'number' {
-        $is-keys: append($is-keys, false);
+  // get grid
+  @if not $grid {
+    @if type-of($key) == 'map' {
+      $grid: $key;
+    } @else if type-of($key) == 'list' {
+      
+      @if is-number-list($key) {
+        $grid: $key;
       } @else {
-        $is-keys: append($is-keys, true);
-      }
-    }
-
-    // get $keys
-    @if index($is-keys, false) {
-      $keys: ro-get-type($key, 'list');
-    } @else {
-      $keys: $key;
-    }
-    // get map
-    $map: ro-get-type($key, 'map');
-  }
-  
-  @if $map {
-    $keys: map-keys($map);
-    $values: map-values($map);
-
-    // get order
-    $u-values: list-ascend(remove-dup($values)); // reordered values
-    @each $u-val in $u-values {
-      @for $i from 1 through length($values) {
-        @if nth($values, $i) == $u-val {
-          $order: append($order, $i);
-        }
-      }
-    }
-  } @else {
-    $values: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    $order: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-  }
-
-  // get full width
-  $full-width: 0;
-  @each $item in $keys {
-    $full-width: $full-width + $item;
-  }
-  
-  // *** output *** //
-  @if not $keep {
-    @include clearfix();
-    margin-#{$direction}: - $gutter;
-
-    @if $keys { 
-      @include flexbox; 
-      @include flex-wrap(wrap);
-      @if $direction == left {
-        @include flex-direction(row-reverse);
-      }
-    }
-  }
-
-  @if $keys {
-    > #{$child} {
-      @if not $keep {
-        padding-#{$direction}: $gutter;
-        box-sizing: border-box;
-      }
-
-      // set col width
-      @for $i from 1 through length($keys) {
-        &:nth-child(#{$i}) {
-          @include order(nth($values, $i));
-          width: percentage(nth($keys, $i) / $full-width); 
-        }
-      }
-    }
-  }
-
-  // no-flexbox
-  .no-flexbox.no-flexboxtweener & {
-    @if $keys {
-      > #{$child} {
-        @if not $keep {
-          float: opposite($direction);
-          @if $mode == 'isolate' { margin-#{$direction}: -100%; }
-        }
-        
-        // reset direction value
-        &:nth-child(n+1) { #{opposite($direction)}: 0; }
-
-        @for $i from 1 through length($keys) {
-          &:nth-child(#{$i}) {
-            // set col order
-            $location: index($order, $i);
-            $location-val: 0;
-            @if $mode == 'isolate' {
-              @if $location != 1 {
-                @for $j from 1 to $location {
-                  $location-val: ($location-val + nth($keys, nth($order, $j)));
-                }
-                margin-#{opposite($direction)}: percentage($location-val / $full-width);
-              } @else {
-                margin-#{opposite($direction)}: 0;
-              }
-            } @else if $mode == 'fluid' {
-              $origin-val: 0;
-              $move-val: 0;
-              // get origin-val
-              @if $i != 1 {
-                @for $h from 1 to $i {
-                  $origin-val: ($origin-val + nth($keys, $h));
-                }
-              } @else {
-                $origin-val: 0;
-              }
-              // get location-val
-              @if $location != 1 {
-                @for $q from 1 to $location {
-                  $location-val: ($location-val + nth($keys, nth($order, $q)));
-                }
-              } @else {
-                $location-val: 0;
-              }
-              // get move-val
-              $move-val: ($location-val - $origin-val);
-
-              @if $move-val != 0 {
-                position: relative;
-                #{opposite($direction)}: percentage($move-val / $full-width);
-              }
+        @if ro-get-type($key, 'map') {
+          $grid: ro-get-type($key, 'map');
+        } @else if ro-get-type($key, 'list') and is-number-list(ro-get-type($key, 'list')) {
+          @each $item in $key {
+            @if not $grid and type-of($item) == 'list' and is-number-list(ro-get-type($key, 'list')) {
+              $grid: $item;
             }
           }
         }
       }
     }
   }
+
+  // *** output *** //
+  // basis
+  @if not $keep {
+    // clear float
+    .no-flexbox.no-flexboxtweener & { @include clearfix(); }
+
+    // flexbox
+    @include flexbox; 
+    @include flex-wrap(wrap);
+    @if $direction == left {
+      @include flex-direction(row-reverse);
+    }
+
+    // gutter
+    margin-#{$direction}: - $gutter;
+    > #{$child} {
+      padding-#{$direction}: $gutter;
+      box-sizing: border-box;
+
+      .no-flexbox.no-flexboxtweener & {
+        float: opposite($direction);
+        margin-#{$direction}: -100%;
+      }
+    }
+  }
+
+  @if $grid {
+    $has-breakpoints: false;
+    @if type-of($grid) == 'map' {
+      $v-bp: nth(map-keys($grid), 1);
+      @if type-of($v-bp) == 'string' or type-of($v-bp) == 'number' and not unitless($v-bp) {
+        $has-breakpoints: true;
+      }
+    }
+
+    @if $has-breakpoints {
+      $grid-bp: map-keys($grid);
+      @each $item in $grid-bp {
+        @if $item == 'default' {
+          @include check-deep-list(map-get($grid, $item), $child, $direction);
+        } @else if type-of($item) != 'number' and $breakpoints and map-has-key($breakpoints, $item) {
+          @include bp($condition $media-type map-get($breakpoints, $item)) {
+            // reset order, clear
+            > #{$child}:nth-child(n) { 
+              @include order(0); 
+              .no-flexbox.no-flexboxtweener & {
+                clear: none;
+              }
+            }
+            @include check-deep-list(map-get($grid, $item), $child, $direction);
+          }
+        } @else {
+          @include bp($condition $media-type $item) {
+            // reset order, clear
+            > #{$child}:nth-child(n) { 
+              @include order(0); 
+              .no-flexbox.no-flexboxtweener & {
+                clear: none;
+              }
+            }
+            @include check-deep-list(map-get($grid, $item), $child, $direction);
+          }
+        }
+      }
+    } @else {
+      @include check-deep-list($grid, $child, $direction);
+    }
+  }
 }
+
+// == check-deep-list ==
+@mixin check-deep-list($key, $child, $direction) {
+  $is-deep-list: is-deep-list($key);
+  
+  $cols: false;
+  $orders: false;
+  $has-orders: false;
+
+  $list-length: 0;
+  $max-order: 0;
+  
+  @if $is-deep-list {
+    // &:before { content: '#{length($key)}'; }
+    @for $i from 1 through length($key) {
+      $item: nth($key, $i);
+      $cols: grid-get-keys($item);
+      $orders: grid-get-values($item);
+  
+
+      @include make-grid($cols, $orders, $child, $direction, $max-order, $list-length, $has-orders);
+      // &:before { content: '#{$has-orders}'; }
+
+      @if $orders { $has-orders: true; }
+      @if $cols { $list-length: ($list-length + length($cols)); }
+      @if $orders {
+        $max-order: ($max-order + max($orders...));
+      } @else {
+        $max-order: $max-order + 1;
+      }
+    }
+
+    // some of previous groups have orders, this group doesn't
+    %same-order { @include order($max-order); }
+
+  } @else {
+    $cols: grid-get-keys($key);
+    $orders: grid-get-values($key);
+
+    @include make-grid($cols, $orders, $child);
+  }
+  // &:before { content: '#{$list-length}'; }
+}
+
+// == make-grid ==
+@mixin make-grid($cols, $orders, $child, $direction:right, $max-order:0, $list-length:0, $has-orders:false) {
+
+  $full-col: 0;
+  @each $item in $cols {
+    $full-col: ($full-col + $item);
+  }
+  
+  // new row: clear float
+  .no-flexbox.no-flexboxtweener & {
+    @if $list-length > 0 {
+      > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
+    }
+  }
+
+  @for $i from 1 through length($cols) {
+    > #{$child}:nth-child(#{$i + $list-length}) {
+      width: percentage(nth($cols, $i) / $full-col);
+
+      // flexbox
+      @if $orders { 
+        @include order((nth($orders, $i) + $max-order)); 
+      } @else if $has-orders {
+        @extend %same-order;
+      }
+
+      // no-flexbox
+      $new-orders: ();
+      $location: 1;
+      $val: 0;
+      @if $orders {
+        $simplify-orders: list-ascend(remove-dup($orders)); // reordered
+        @each $item in $simplify-orders {
+          @for $i from 1 through length($orders) {
+            @if nth($orders, $i) == $item {
+              $new-orders: append($new-orders, $i);
+            }
+          }
+        }
+
+        $location: index($new-orders, $i);
+      } @else {
+        $new-orders: (1 2 3 4 5 6 7 8 9 10);
+        $location: $i;
+      }
+
+      .no-flexbox.no-flexboxtweener & {
+        @if $location == 1 {
+          margin-#{opposite($direction)}: 0;
+        } @else {
+          @for $j from 1 to $location {
+            $val: ($val + nth($cols, nth($new-orders, $j)));
+          }
+          margin-#{opposite($direction)}: percentage($val / $full-col);
+        }
+      }
+    }
+  }
+}
+
+// == is-number-list ==
+@function is-number-list($key) {
+  $is-number-list: ();
+  @each $item in $key {
+    @if type-of($item) != 'number' {
+      $is-number-list: append($is-number-list, false);
+    } @else {
+      $is-number-list: append($is-number-list, true);
+    }
+  }
+
+  // return
+  @if index($is-number-list, false) {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
+
+// == is-deep-list == 
+@function is-deep-list($key) {
+  $is-deep-list: false;
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'list' or type-of($item) == 'map' {
+        @if not $is-deep-list {
+          $is-deep-list: true;
+        }
+      }
+    }
+  }
+
+  @return $is-deep-list;
+}
+
+// == grid-get-keys ==
+@function grid-get-keys($key) {
+  $cols: false;
+
+  @if type-of($key) == 'list' or type-of($key) == 'number' {
+    $cols: $key;
+  } @else if type-of($key) == 'map' {
+    @if length(map-keys($key)) == 1 {
+      $cols: nth(map-keys($key), 1);
+    } @else {
+      $cols: map-keys($key);
+    }
+  }
+
+  @return $cols;
+}
+
+// == grid-get-values ==
+@function grid-get-values($key) {
+  $orders: false;
+
+  @if type-of($key) == 'map' {
+    @if length(map-keys($key)) == 1 {
+      $orders: nth(map-values($key), 1);
+
+    } @else {
+      $orders: map-values($key);
+    }
+  }
+
+  @if $orders {
+    $min-order: min($orders...);
+    $new-orders: ();
+
+    @if $min-order <= 0 {
+      @each $item in $orders {
+        $new-orders: append($new-orders, ($item + abs($min-order) + 1));
+      }
+
+      $orders: $new-orders;
+    }
+  }
+  @return $orders;
+}
+

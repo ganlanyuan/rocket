@@ -45,42 +45,6 @@
 </head>
 <body>
 
-<div class="container">
-
-  <!-- row -->
-  <div class="row">
-    <div>
-      <!-- <div class="row-inner"> -->
-        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=1" alt="" width="1200" height="600"></div>
-        <!-- <div><div class="box"></div></div> -->
-      <!-- </div> -->
-    </div>
-    <div>
-      <!-- <div class="row-inner"> -->
-        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=2" alt="" width="1200" height="600"></div>
-        <!-- <div><div class="box"></div></div> -->
-      <!-- </div> -->
-    </div>
-    <div>
-      <!-- <div class="row-inner"> -->
-        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=3" alt="" width="1200" height="600"></div>
-        <!-- <div><div class="box"></div></div> -->
-      <!-- </div> -->
-    </div>
-    <div>
-      <!-- <div class="row-inner"> -->
-        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=4" alt="" width="1200" height="600"></div>
-        <!-- <div><div class="box"></div></div> -->
-      <!-- </div> -->
-    </div>
-    <div>
-      <!-- <div class="row-inner"> -->
-        <div><img src="http://placehold.it/1200x600/88E68C/fff?text=5" alt="" width="1200" height="600"></div>
-        <!-- <div><div class="box"></div></div> -->
-      <!-- </div> -->
-    </div>
-  </div>
-
 <!-- <div class="card">
   <div class="chart front">front</div>
   <div class="chart back">back</div>

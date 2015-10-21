@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.1.0 beta
++ Improved: `grid` now works with `@media query` and can make several rows.
+
 ### 3.0.2 
 + Fixed: a parameter issue in `off-canvas`.
 + Improved: Errors will be thrown out if the object doesn't exist, in `sticky` and `priority-nav`.

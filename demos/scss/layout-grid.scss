@@ -1,4 +1,18 @@
 @import 'demo-base';
 // *** layout: grid *** //
 
-.row { @include grid((2:1, 7:0, 3:0)); }
+
+$grid: (
+  'default': (3 4) ( 2 5) 1,
+  800px: (2 7 3: 1 0 1) (1 1: 1 0),
+  1000px: (2 7 3 4 4),
+);
+.row { @include grid( grid ((3 7 4) (2 5)) ); }
+@include bp('max' 1000) {
+  .row { 
+    margin-bottom: - map-get($ro-layout, 'gutter'); 
+    > div {
+      margin-bottom: map-get($ro-layout, 'gutter');
+    }
+  }
+}

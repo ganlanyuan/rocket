@@ -131,7 +131,7 @@ $key: $container (gutter $gutter) $align
 ````
 
 #### grid
-Make a grid is supper easy. Just `@include grid()` at the wrapper element, then pass a list parameter with each column width to it. 
+Make a grid is supper easy. Just `@include grid()` at the wrapper element, then pass a list parameter with each column width. 
 ````html
 <div class="row">
   <div></div>
@@ -142,18 +142,36 @@ Make a grid is supper easy. Just `@include grid()` at the wrapper element, then 
 ```` scss
 @mixin grid($key)
 // pattern
-$key: ($list or $map) (gutter $gutter) keep
+$key: (grid $list / $map) (bp $breakpoints) (gutter $gutter) (child $child) $direction $condition $media-type keep;
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $direction: from left to right => right (default), from right to left => left
 
-.row { @include grid( (3 7 4) ); }
+.row { @include grid( 'grid' (3 7 4) ); }
 // 1st child: 3 columns;
 // 2nd child: 7 columns;
 // 3rd child: 4 columns;
-// total columns number is 3 + 7 + 4 = 14
+// total columns: 3 + 7 + 4 = 14
 
-.row { @include grid( (3:1, 7:0, 4:0) ); }
+// change orders
+.row { @include grid( 'grid' (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
 // children orders: 1 0 0; 
-// elements with smaller order will go to the front, elements with equal orders will go with the origin order in html.
-// this order is based on flex order, more detail please refer to http://the-echoplex.net/flexyboxes/?fixed-height=on&legacy=on&display=flex&flex-direction=row&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=stretch&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto
+// elements with smaller order will go to the front, with equal orders will go with the origin order in markup.
+// more detail about orders please refer to http://the-echoplex.net/flexyboxes/?fixed-height=on&legacy=on&display=flex&flex-direction=row&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=stretch&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto
+
+// several rows
+$main: ( (3 7 4) (2 5) );
+.row { @include grid('grid' $main); }
+// first 3 elements will occupy one row
+// last 2 elements will occupy the second row
+
+// with mediaquery
+$main: (
+  'default': (3 4) ( 2 5) 1,
+  800px: (2 7 3: 1 0 1) (1 1: 1 0),
+  1000px: (2 7 3 4 4),
+);
+.row { @include grid('grid' $main); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)
 
