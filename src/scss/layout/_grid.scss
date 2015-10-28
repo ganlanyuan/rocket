@@ -72,7 +72,7 @@
       $grid-bp: map-keys($grid);
       @each $item in $grid-bp {
         @if $item == 'default' {
-          @include check-deep-list(map-get($grid, $item), $child, $direction);
+          @include check-nested-list(map-get($grid, $item), $child, $direction);
         } @else if type-of($item) != 'number' and $breakpoints and map-has-key($breakpoints, $item) {
           @include bp($condition $media-type map-get($breakpoints, $item)) {
             // reset order, clear
@@ -82,7 +82,7 @@
                 clear: none;
               }
             }
-            @include check-deep-list(map-get($grid, $item), $child, $direction);
+            @include check-nested-list(map-get($grid, $item), $child, $direction);
           }
         } @else {
           @include bp($condition $media-type $item) {
@@ -93,19 +93,19 @@
                 clear: none;
               }
             }
-            @include check-deep-list(map-get($grid, $item), $child, $direction);
+            @include check-nested-list(map-get($grid, $item), $child, $direction);
           }
         }
       }
     } @else {
-      @include check-deep-list($grid, $child, $direction);
+      @include check-nested-list($grid, $child, $direction);
     }
   }
 }
 
-// == check-deep-list ==
-@mixin check-deep-list($key, $child, $direction) {
-  $is-deep-list: is-deep-list($key);
+// == check-nested-list ==
+@mixin check-nested-list($key, $child, $direction) {
+  $is-nested-list: is-nested-list($key);
   
   $cols: false;
   $orders: false;
@@ -114,7 +114,7 @@
   $list-length: 0;
   $max-order: 0;
   
-  @if $is-deep-list {
+  @if $is-nested-list {
     // &:before { content: '#{length($key)}'; }
     @for $i from 1 through length($key) {
       $item: nth($key, $i);
@@ -210,7 +210,15 @@
 @function is-number-list($key) {
   $is-number-list: ();
   @each $item in $key {
-    @if type-of($item) != 'number' {
+    @if type-of($item) == 'list' {
+      @each $sub-item in $item {
+        @if type-of($item) != 'number' {
+          $is-number-list: append($is-number-list, false);
+        } @else {
+          $is-number-list: append($is-number-list, true);
+        }
+      }
+    } @else if type-of($item) != 'number' {
       $is-number-list: append($is-number-list, false);
     } @else {
       $is-number-list: append($is-number-list, true);
@@ -225,20 +233,20 @@
   }
 }
 
-// == is-deep-list == 
-@function is-deep-list($key) {
-  $is-deep-list: false;
+// == is-nested-list == 
+@function is-nested-list($key) {
+  $is-nested-list: false;
   @if type-of($key) == 'list' {
     @each $item in $key {
       @if type-of($item) == 'list' or type-of($item) == 'map' {
-        @if not $is-deep-list {
-          $is-deep-list: true;
+        @if not $is-nested-list {
+          $is-nested-list: true;
         }
       }
     }
   }
 
-  @return $is-deep-list;
+  @return $is-nested-list;
 }
 
 // == grid-get-keys ==

@@ -177,7 +177,7 @@
       }
     }
     @include keyframes(#{$prefix}-out) {
-      0 {
+      0% {
         @include transform($perspective $transform-current);
       }
       100% {

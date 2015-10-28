@@ -7,7 +7,7 @@ $grid: (
   800px: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.row { @include grid( grid ((3 7 4) (2 5)) ); }
+.row { @include grid(grid $grid); }
 @include bp('max' 1000) {
   .row { 
     margin-bottom: - map-get($ro-layout, 'gutter'); 
