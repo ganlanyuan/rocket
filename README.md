@@ -110,7 +110,7 @@ $ro-layout: (
 #### container
 The container of the main content. It can be center, left or right aligned.
 ````html
-<div class="container">
+<div class="header container">
   <!-- other elements -->
 </div>
 ````

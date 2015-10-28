@@ -2,6 +2,20 @@
 
 ### 3.1.0 beta
 + Improved: `grid` now works with `@media query` and can make several rows.
++ Improved: rewrite `container` with `css-calc`, now you can combine `container` with other structure tags:
+```html
+<header class="header container">
+  <!-- Content -->
+</header>
+```
+instead of separate them:
+``` html
+<header class="header">
+  <div class="container">
+    <!-- Content -->
+  </div>
+</header>
+```
 + Fixed: `off-canvas` submenu height issue.
 
 ### 3.0.2 

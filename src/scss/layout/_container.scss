@@ -12,13 +12,17 @@
     }
 
     @each $item in $key {
-      @if type-of($item) == 'number' and not $container {
-        $container: $item;
-      } @else {
-        $container: map-get($ro-layout, container);
-      }
+      @if type-of($item) == 'number'{
+        @if not $container {
+          $container: $item;
+        } @else {
+          $gutter: $item;
+        }
+      } 
     }
-  } @else {
+  }
+
+  @if not $container {
     $container: map-get($ro-layout, container);
   }
 
@@ -30,34 +34,44 @@
   // *** output *** //
   @extend %ro-clearfix;
   @extend %ro-global-transition;
-  max-width: $container;
 
-  // direction
+  padding: 0 $gutter;
   @if $align == center {
-    margin-left: auto; 
-    margin-right: auto; 
+    padding: 0 calc(50% - #{$container / 2});
   } @else {
-    margin-#{opposite($align)}: auto;
+    padding-#{opposite($align)}: calc(100% - #{$container + $gutter});
   } 
 
-  // flexible container
-  @if unit($container) == '%' {
-    @if $gutter {
-      margin-left: $gutter;
-      margin-right: $gutter;
-    }
-  // fixed container
+  $breakpoint: $container;
+  @if unit($gutter) != '%' and unit($container) == unit($gutter) {
+    $breakpoint: ( $container + ( $gutter * 2 ) );
   } @else {
-    @if $gutter and $gutter != 0 { 
-      $container-breakpoint: $container;
-      @if unit($gutter) != '%' and unit($container) == unit($gutter) {
-        $container-breakpoint: ( $container + ( $gutter * 2 ) );
-      }
-
-      @include bp('max' $container-breakpoint) { 
-        margin-left: $gutter; 
-        margin-right: $gutter; 
-      }
-    }
+    $breakpoint: (em($container) + em(40));
   }
+
+  // for small screen
+  @include bp('max' $breakpoint) { 
+    padding: 0 $gutter; 
+  }
+
+  // // flexible container
+  // @if unit($container) == '%' {
+  //   @if $gutter {
+  //     margin-left: $gutter;
+  //     margin-right: $gutter;
+  //   }
+  // // fixed container
+  // } @else {
+  //   @if $gutter and $gutter != 0 { 
+  //     $breakpoint: $container;
+  //     @if unit($gutter) != '%' and unit($container) == unit($gutter) {
+  //       $breakpoint: ( $container + ( $gutter * 2 ) );
+  //     }
+
+  //     @include bp('max' $breakpoint) { 
+  //       margin-left: $gutter; 
+  //       margin-right: $gutter; 
+  //     }
+  //   }
+  // }
 }
