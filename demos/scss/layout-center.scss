@@ -5,5 +5,10 @@
 .example-center { 
   @include center(div left);
   height: 500px;
-  > div { padding: 10px; }
+  &:after { display: none; }
+  > div { 
+    padding: 10px; 
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }

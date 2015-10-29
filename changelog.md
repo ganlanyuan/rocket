@@ -1,6 +1,7 @@
 # Changelog
 
 ### 3.1.0 beta
++ Added: `sticky-footer`.
 + Improved: `grid` now works with `@media query` and can make several rows.
 + Improved: rewrite `container` with `css-calc`, now you can combine `container` with other structure tags:
 ```html
@@ -16,6 +17,7 @@ instead of separate them:
   </div>
 </header>
 ```
++ Improved & fixed: simplify `center` and fix a layout broken issue while the content is wider than the container.
 + Fixed: `off-canvas` submenu height issue.
 
 ### 3.0.2 

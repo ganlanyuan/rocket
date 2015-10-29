@@ -310,9 +310,9 @@ $key: ($list or $map) (gutter $gutter) (child $child) keep
 ```` scss
 @mixin center($key)
 // pattern
-$key: (child $child) $align
+$key: $child $align
 
-.popup { @include center(child div left); }
+.popup { @include center('div' left); }
 // child: div;
 // align: left; (left | right | center, for old browser)
 ````
@@ -331,11 +331,30 @@ $key: (child $child) $align
 ````
 ```` scss
 @mixin justify($key);
+// pattern
 $key: (child $child)
 
 .justify { @include justify(); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-justify.php)
+
+#### sticky-footer
+Create `sticky-footer` to prevent layout collapse when content is less, like on 404 page.
+````html
+<body>
+  <header>header</header>
+  <div class="main">main</div>
+  <footer>footer</footer>
+</body>
+````
+```` scss
+@mixin sticky-footer($key);
+// pattern
+$key: $main;
+
+body { @include sticky-footer('.main'); }
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-sticky-footer.php)
 
 
 #【 Components 】
@@ -450,17 +469,44 @@ Pure css off-canvas with multiple modes.
   </header>
   <div>Other content</div>
 </div>
+
+<!-- Sub menu -->
+<!-- 1. Add [data-has-submenu] to parent item, [data-submenu] to submenu. -->
+<!-- 2. Place a checkbox and label before submenu, connect them by [for] and [id]. -->
+<nav class="nav">
+  <ul>
+    <li><a href="">How It Works</a></li>
+    <li><a href="">Compare</a></li>
+    <li><a href="">Technology</a></li>
+    <li><a href="">Careers</a></li>
+    <li data-has-submenu>
+      <input type="checkbox" id="subnav-1-1" class="hidden-checkbox">
+      <label for="subnav-1-1">&gt;</label>
+      <a href="">Careers</a>
+      <ul data-submenu>
+        <li><label for="subnav-1-1" data-back>Back</label></li>
+        <li><a href="">sub item 1</a></li>
+        <li><a href="">sub item 2</a></li>
+        <li><a href="">sub item 3</a></li>
+      </ul>
+    </li>
+    <li><a href="">Help</a></li>
+  </ul>
+</nav>
+
 ````
 ```` scss
 @mixin off-canvas($key)
 // pattern
-$key: $mode $nav $nav-width $direction ($map $breakpoints) $overlay-background-color $duration
+$key: $mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration
 
-.page { @include off-canvas('slide-in' left '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
+// normal
+.page { @include off-canvas('slide-in' left 'submenu' '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 // mode: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
 // direction: left; (left | right | top | bottom)
 // nav: .nav;
 // nav-width(or height): 200px; (default 240px)
+// submenu: has sub menu;
 // overlay-background-color: rgba(0, 0, 0, 0.1);
 // duration: 0.5s;
 

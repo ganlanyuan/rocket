@@ -49,6 +49,7 @@
 @import "layout/metro"; // @require [mixin] wrap
 @import "layout/justify"; // @required [mixin] display, justify-content, align-items
 @import "layout/center";
+@import "layout/sticky-footer";
 
 // components
 @import "components/button"; // @require [function] contrast

@@ -1,0 +1,37 @@
+@import 'demo-base';
+// *** layout: sticky-footer *** //
+
+.body { @include sticky-footer('.main'); }
+.body {
+  header, 
+  footer {
+    color: #fff;
+    background-color: #333;
+  }
+  header, 
+  footer,
+  .main {
+    padding: 20px;
+  }
+  label {
+    font-size: 12px;
+    color: #666;
+    display: inline-block;
+    padding: 10px 0;
+  }
+  p {
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+    font-size: 18px;
+    color: #000;
+    display: none;
+  }
+  #content-toggle:checked ~ p {
+    display: block;
+  }
+}
+.container-inner {
+  max-width: 900px;
+  @include bp(min 960) {
+    margin: 0 auto;
+  }
+}

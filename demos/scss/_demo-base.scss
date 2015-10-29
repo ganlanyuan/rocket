@@ -85,11 +85,13 @@ p {
 }
 pre { clear: both; }
 .container {
-  max-width: 100em;
-  margin: 0 1.875em;
+  max-width: 1400px;
+  margin: 0 auto; 
 }
-@media screen and (min-width: 103.75em) {
-  .container { margin: 0 auto; }
+@media screen and (max-width: 1399px) {
+  .container {
+    margin: 0 1.875em;
+  }
 }
 [data-margin] { background-color: #E698CC; }
 [data-padding] { background-color: #C2EBBA; }
@@ -99,7 +101,7 @@ pre[class*="language-"] > code[data-language] { overflow: auto; max-height: none
 pre[class*="language-"] { padding: 0 1em; }
 
 .topic { 
-  padding: 4em 0;
+  padding: 2em 0 4em;
   > section { margin: 2em 0; }
 }
 @media screen and (min-width: 1024px) {

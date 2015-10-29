@@ -1,32 +1,32 @@
 // *** center *** //
-@mixin center(
-	$key: child 'div' center
-){
+@mixin center($key: child 'div' center){
   $check: (left right center 'child');
 
-	$child: ro-get-type($key, 'string', $check, '*');
-	$align: ro-get($key, (left right center), center);
+  $child: ro-get-type($key, 'string', $check, '*');
+  $align: ro-get($key, (left right center), center);
 
   // *** output *** //
-	@include flexbox;
-	@include justify-content(center);
-	@include align-items(center);
+  @include flexbox;
+  -ms-flex-align: center; // for IE10
+  > #{$child} { margin: auto; }
 
-	// for non-flex browsers
-	.no-flexbox.no-flexboxtweener & {
-		text-align: center; 
-		&:before {
-			content: '';
-			display: inline-block;
-			height: 100%;
-			vertical-align: middle;
-			margin-right: -.25em; // adjusts for spacing
-		}
-		> #{$child} {
-			display: inline-block;
-			vertical-align: middle;
-			@if $align != center { text-align: $align; }
-		}
-	}
+  // for non-flex browsers
+  .no-flexbox.no-flexboxtweener & {
+    text-align: center; 
+    white-space: nowrap;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -.25em; // adjusts for spacing
+    }
+    > #{$child} {
+      display: inline-block;
+      vertical-align: middle;
+      white-space: normal;
+      @if $align != center { text-align: $align; }
+    }
+  }
 }
 
