@@ -54,21 +54,22 @@
 @import "layout/angled-edges";
 
 // components
-@import "components/button"; // @require [function] contrast
-@import "components/parallelogram"; 
-@import "components/media-list";
-@import "components/off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
-@import "components/priority-nav";
-@import "components/dropdown";
-@import "components/tabs";
-@import "components/switch";
-@import "components/accordion";
-@import "components/push-toggle";
-@import "components/checkbox";
-@import "components/tooltip";
-@import "components/validation";
-@import "components/flex-media";
 @import "components/charts";
+@import "components/off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
 @import "components/slider-carousel";
 @import "components/slider-gallery";
+@import "components/validation";
+@import "components/button"; // @require [function] contrast
+@import "components/parallelogram"; 
+@import "components/drop-shadow"; 
+@import "components/switch";
+@import "components/push-toggle";
+@import "components/checkbox";
+@import "components/tabs";
+@import "components/accordion";
+@import "components/dropdown";
+@import "components/tooltip";
+@import "components/media-list";
+@import "components/flex-media";
+@import "components/priority-nav";
 

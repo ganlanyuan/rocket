@@ -99,3 +99,7 @@ $ro-switch-style: 'toggle', 'slider' !default;
 
 // angled-edges
 $ro-angled-edges: 'top', 'bottom', 'both' !default;
+
+// drop-shadow
+$ro-drop-shadow-styles: 'lifted', 'raised', 'perspective', 'curve' !default;
+$ro-drop-shadow-directions: left, right, top, bottom, 'horizontal', 'vertical' !default;

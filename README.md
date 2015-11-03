@@ -57,6 +57,7 @@ Rocket/
 |   |   |── validation
 |   |   |── button
 |   |   |── parallelogram
+|   |   |── drop-shadow
 |   |   |── switch
 |   |   |── push-toggle
 |   |   |── checkbox
@@ -777,18 +778,37 @@ $key: $padding ($border-radius | round) ($background-color $active-color) $hover
 #### parallelogram
 Create parallelogram style.
 ````html
-<div class="anything"></div>
+<div class="box"></div>
 ````
 ````scss
 @mixin parallelogram($key);
 // pattern
 $key: $background $angle
 
-.anything { @include parallelogram(#61A4DE -30deg); }
+.box { @include parallelogram(#61A4DE -30deg); }
 // $background: #61A4DE; 
 // $angle: -30deg;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-parallelogram.php)
+
+#### drop-shadow
+Thanks [Nicolas Gallagher](http://nicolasgallagher.com/css-drop-shadows-without-images/) for the idea.
+````html
+<div class="box"></div>
+````
+````scss
+@mixin drop-shadow($key);
+// pattern
+$key: $style $direction $color $shadow-size;
+// $style: 'lifted' | 'raised' | 'perspective' | 'curve'
+// $direction: left | right | top | bottom | 'horizontal' | 'vertical'
+
+.box { @include drop-shadow(curve horizontal 20px); }
+// $style: 'curve'; 
+// $direction: horizontal;
+// $shadow-size: 20px;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-drop-shadow.php)
 
 #### switch
 Pure css switch.   
