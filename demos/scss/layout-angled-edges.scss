@@ -1,109 +1,13 @@
 @import 'demo-base';
 
 // *** addons: angled-edges *** //
-$ro-angled-edges: 'top', 'bottom', 'both' !default;
-
-@mixin angled-edges ($key) {
-  $edges: ro-get($key, $ro-angled-edges, 'bottom');
-  $flip: ro-get($key, 'flip');
-  $selector: '&:before, &:after';
-  @if $edges == 'top' {
-    $selector: '&:before';
-  } @else if $edges == 'bottom' {
-    $selector: '&:after';
-  }
-
-  $angle-1: false;
-  $angle-2: false;
-  @if type-of($key) == 'number' and unit($key) == 'deg' {
-    $angle-1: $key;
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'number' and unit($item) == 'deg' {
-        @if $angle-1 {
-          $angle-2: $item;
-        } @else {
-          $angle-1: $item;
-        }
-      }
-    }
-  }
-  @if not $angle-1 { $angle-1: 15deg; }
-  @if not $angle-2 { 
-    @if $flip {
-      $angle-2: - $angle-1; 
-    } @else {
-      $angle-2: $angle-1; 
-    }
-  }
-
-  position: relative;
-  z-index: 1;
-  #{$selector} {
-    background: inherit;
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 50%;
-    z-index: -1;
-  }
-
-  @if $edges == 'top' {
-    margin-top: (tan(abs($angle-1)) * 100%);
-    #{$selector} {
-      top: 0;
-      @include transform(skewY($angle-1));
-      @if strip-unit($angle-1) < 0 {
-        @include transform-origin(0 0);
-      } @else {
-        @include transform-origin(100% 0);
-      }
-    }
-  } @else if $edges == 'bottom' {
-    margin-bottom: (tan(abs($angle-1)) * 100%);
-    #{$selector} {
-      // background-position: 0 56.25%;
-      bottom: 0;
-      @include transform(skewY($angle-1));
-      @if strip-unit($angle-1) < 0 {
-        @include transform-origin(100% 0);
-      } @else {
-        @include transform-origin(0 100%);
-      }
-    }
-  } @else if $edges == 'both' {
-    margin-top: (tan(abs($angle-1)) * 100%);
-    margin-bottom: (tan(abs($angle-2)) * 100%);
-    &:before {
-      top: 0;
-      @include transform(skewY($angle-1));
-      @if strip-unit($angle-1) < 0 {
-        @include transform-origin(0 0);
-      } @else {
-        @include transform-origin(100% 0);
-      }
-    }
-    &:after {
-      bottom: 0;
-      @include transform(skewY($angle-2));
-      @if strip-unit($angle-2) < 0 {
-        @include transform-origin(100% 0);
-      } @else {
-        @include transform-origin(0 100%);
-      }
-    }
-  }
-
-}
-
 .example-angled-edges {
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
   > div {
     background: #52ABFF;
+    // background-image: linear-gradient(to bottom, #52ABFF, #6EC7FF);
     // background: #52ABFF url('https://nthp-savingplaces.s3.amazonaws.com/2015/09/17/11/09/56/607/NYSP-Cover-duncan-kendall.jpg') 0 0 no-repeat;
     color: #fff;
     padding: 50px;
@@ -111,20 +15,25 @@ $ro-angled-edges: 'top', 'bottom', 'both' !default;
     h1,
     p {
       padding: 0;
-      max-width: none;
-      margin-bottom: 30px;
       color: inherit;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    p {
+      max-width: none;
+      &:last-child { margin-bottom: 0; }
     }
   }
   .bottom {
     @include angled-edges(bottom 5deg);
   }
   .both {
-    background-color: #FF5E8E;
-    @include angled-edges(both 5deg flip);
+    background-color: #284688;
+    @include angled-edges(both 5deg flip 20px);
   }
   .top {
-    background-color: #BC58ED;
+    background-color: #D150ED;
     @include angled-edges(top -5deg);
   }
 }

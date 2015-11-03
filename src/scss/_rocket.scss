@@ -51,6 +51,7 @@
 @import "layout/justify"; // @required [mixin] display, justify-content, align-items
 @import "layout/center";
 @import "layout/sticky-footer";
+@import "layout/angled-edges";
 
 // components
 @import "components/button"; // @require [function] contrast

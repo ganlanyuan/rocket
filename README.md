@@ -47,6 +47,7 @@ Rocket/
 |   |   |── center   
 |   |   |── justify               
 |   |   |── sticky-footer               
+|   |   |── angled-edges               
 |   |                                          
 |   |── components 
 |   |   |── charts
@@ -357,6 +358,26 @@ $key: $main;
 body { @include sticky-footer('.main'); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-sticky-footer.php)
+
+#### angled-edges
+Create `angled-edges` layout. Only works with `background-color` for now.
+````html
+<div class="main">
+  <!-- Your content goes here -->
+</div>
+````
+```` scss
+@mixin angled-edges($key);
+// pattern
+$key: $edges $angle flip $gap;
+// $edges: top | bottom | both
+
+.main { @include angled-edges("bottom" -5deg 20px); }
+// edge: bottom;
+// angle: -5deg;
+// gap: 20px;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-angled-edges.php)
 
 
 #【 Components 】

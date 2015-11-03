@@ -26,7 +26,7 @@
   @include angled-edges(bottom 5deg);
 }
 .both {
-  @include angled-edges(both 5deg flip);
+  @include angled-edges(both 5deg flip 20px);
 }
 .top {
   @include angled-edges(top -5deg);
