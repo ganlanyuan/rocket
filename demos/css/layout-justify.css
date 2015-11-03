@@ -74,7 +74,7 @@ img.full {
 
 a {
   text-decoration: none;
-  color: #212121;
+  color: inherit;
 }
 
 a:hover {

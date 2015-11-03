@@ -166,6 +166,7 @@
     $gutter: 10px;
 
     margin-left: $bar-gap !important;
+    // background: #fff repeating-linear-gradient(90deg, $tick-line-color, transparent 1px, transparent (percentage($step-val / $full-width))) 0 0 no-repeat;
     // items
     li {
       padding: $gutter 0;
@@ -218,6 +219,7 @@
     $column-width: percentage((1 - $gutter) / length($data));
 
     @include clearfix();
+    // background: #fff repeating-linear-gradient(0deg, $tick-line-color, transparent 1px, transparent (percentage($step-val / $full-width))) 0 0 no-repeat;
     // items
     li {
       float: left;

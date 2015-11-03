@@ -4,11 +4,6 @@
   display: table;
 }
 
-.container {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
 ul, ol {
   margin: 0;
   padding: 0;
@@ -36,12 +31,11 @@ body {
 
 .container {
   padding: 0 20px;
-  padding: 0 calc(50% - 500px);
 }
 
-@media (max-width: 64.938em) {
+@media (min-width: 65em) {
   .container {
-    padding: 0 20px;
+    padding: 0 calc(50% - 500px);
   }
 }
 /*# sourceMappingURL=test.css.map */

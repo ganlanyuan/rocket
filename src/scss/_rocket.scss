@@ -5,6 +5,7 @@
 
 // base
 @import "base/variables";
+@import "base/trigonometric";
 @import "base/functions";
 @import "base/mixins";
 @import "base/placeholders";
@@ -53,6 +54,7 @@
 
 // components
 @import "components/button"; // @require [function] contrast
+@import "components/parallelogram"; 
 @import "components/media-list";
 @import "components/off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
 @import "components/priority-nav";

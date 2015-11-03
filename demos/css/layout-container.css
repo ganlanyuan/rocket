@@ -4,11 +4,6 @@
   display: table;
 }
 
-.wrapper {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
 /* Android 2.3 :checked fix */
 @-webkit-keyframes fake {
   from {
@@ -71,7 +66,7 @@ img.full {
 
 a {
   text-decoration: none;
-  color: #212121;
+  color: inherit;
 }
 
 a:hover {
@@ -319,12 +314,11 @@ pre[class*="language-"] {
 
 .wrapper {
   padding: 0 30px;
-  padding: 0 calc(50% - 400px);
 }
 
-@media (max-width: 53.688em) {
+@media (min-width: 53.75em) {
   .wrapper {
-    padding: 0 30px;
+    padding: 0 calc(50% - 400px);
   }
 }
 /*# sourceMappingURL=layout-container.css.map */

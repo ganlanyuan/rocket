@@ -46,6 +46,7 @@ Rocket/
 |   |   |── liquid-3              
 |   |   |── center   
 |   |   |── justify               
+|   |   |── sticky-footer               
 |   |                                          
 |   |── components 
 |   |   |── charts
@@ -54,6 +55,7 @@ Rocket/
 |   |   |── slider-gallery
 |   |   |── validation
 |   |   |── button
+|   |   |── parallelogram
 |   |   |── switch
 |   |   |── push-toggle
 |   |   |── checkbox
@@ -750,6 +752,22 @@ $key: $padding ($border-radius | round) ($background-color $active-color) $hover
 // hover: bubble;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-button.php)
+
+#### parallelogram
+Create parallelogram style.
+````html
+<div class="anything"></div>
+````
+````scss
+@mixin parallelogram($key);
+// pattern
+$key: $background $angle
+
+.anything { @include parallelogram(#61A4DE -30deg); }
+// $background: #61A4DE; 
+// $angle: -30deg;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-parallelogram.php)
 
 #### switch
 Pure css switch.   
