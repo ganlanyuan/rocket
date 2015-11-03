@@ -1,9 +1,9 @@
 # Changelog
 
-### 3.1.0 beta
+### 3.1.0 
 + Added: `sticky-footer`.
-+ Added: `parallelogram`.
 + Added: `angled-edges`.
++ Added: `parallelogram`.
 + Added: `drop-shadow`.
 + Improved: `grid` now works with `@media query` and can make several rows.
 + Improved: rewrite `container` with `css-calc`, now you can combine `container` with other structure tags:
