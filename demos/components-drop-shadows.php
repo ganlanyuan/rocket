@@ -4,9 +4,9 @@
   <div class="container">
 
     <div class="topic">
-      <h2 class="main-heading"><span>components: </span>drop-shadow</h2>
+      <h2 class="main-heading"><span>components: </span>drop-shadows</h2>
       <div class="example">
-        <div class="example-drop-shadow">
+        <div class="example-drop-shadows">
           <div class="box lifted">lifted</div>
           <div class="box raised">raised</div>
           <div class="box perspective">perspective</div>
@@ -19,15 +19,15 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.lifted { @include drop-shadow(lifted); }
-.raised { @include drop-shadow(raised); }
-.perspective { @include drop-shadow(perspective); }
-.curve.left { @include drop-shadow(curve left); }
-.curve.right { @include drop-shadow(curve right); }
-.curve.horizontal { @include drop-shadow(curve horizontal); }
-.curve.top { @include drop-shadow(curve top); }
-.curve.bottom { @include drop-shadow(curve bottom); }
-.curve.vertical { @include drop-shadow(curve vertical); }
+.lifted { @include drop-shadows(lifted); }
+.raised { @include drop-shadows(raised); }
+.perspective { @include drop-shadows(perspective); }
+.curve.left { @include drop-shadows(curve left); }
+.curve.right { @include drop-shadows(curve right); }
+.curve.horizontal { @include drop-shadows(curve horizontal); }
+.curve.top { @include drop-shadows(curve top); }
+.curve.bottom { @include drop-shadows(curve bottom); }
+.curve.vertical { @include drop-shadows(curve vertical); }
       </code></pre>
     </div>
     

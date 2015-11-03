@@ -1,5 +1,5 @@
-// *** drop-shadow *** //
-@mixin drop-shadow($key){
+// *** drop-shadows *** //
+@mixin drop-shadows($key){
   $style: ro-get($key, $ro-drop-shadow-styles);
   $direction: ro-get($key, $ro-drop-shadow-directions, bottom);
   $color: ro-get-type($key, 'color', false, rgba(0, 0, 0, 0.6));

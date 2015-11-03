@@ -57,7 +57,7 @@ Rocket/
 |   |   |── validation
 |   |   |── button
 |   |   |── parallelogram
-|   |   |── drop-shadow
+|   |   |── drop-shadows
 |   |   |── switch
 |   |   |── push-toggle
 |   |   |── checkbox
@@ -791,24 +791,24 @@ $key: $background $angle
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-parallelogram.php)
 
-#### drop-shadow
+#### drop-shadows
 Thanks [Nicolas Gallagher](http://nicolasgallagher.com/css-drop-shadows-without-images/) for the idea.
 ````html
 <div class="box"></div>
 ````
 ````scss
-@mixin drop-shadow($key);
+@mixin drop-shadows($key);
 // pattern
 $key: $style $direction $color $shadow-size;
 // $style: 'lifted' | 'raised' | 'perspective' | 'curve'
 // $direction: left | right | top | bottom | 'horizontal' | 'vertical'
 
-.box { @include drop-shadow(curve horizontal 20px); }
+.box { @include drop-shadows(curve horizontal 20px); }
 // $style: 'curve'; 
 // $direction: horizontal;
 // $shadow-size: 20px;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-drop-shadow.php)
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-drop-shadows.php)
 
 #### switch
 Pure css switch.   
