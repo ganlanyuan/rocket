@@ -99,12 +99,12 @@
         }
       } @else if $hover == 'simple' {
         color: $color-1;
-        border: 1px solid currentColor;
-        .lt-ie9 & { border: 1px solid $color-1; }
+        border: 1px solid $color-1;
         background: transparent;
-        transition: background $duration $timing-function, border-color $duration $timing-function, color $duration $timing-function;
+        transition: background $duration $timing-function, color $duration $timing-function;
         &:hover {
           color: contrast($color-1);
+          border-color: $color-1;
           background: $color-1;
         }
       } @else if $hover == 'ripple' {
