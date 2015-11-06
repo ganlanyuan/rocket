@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.1.1 
++ Fixed: `button: simple` border-color issue.
++ Improved: remove text-decoration property from `button`.
+
 ### 3.1.0 
 + Added: `sticky-footer`.
 + Added: `angled-edges`.
