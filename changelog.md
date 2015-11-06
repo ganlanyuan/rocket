@@ -1,5 +1,8 @@
 # Changelog
 
+### v2.5.5
++Fixed: `off-canvas` overlay background issue in chrome.
+
 ### v2.5.4
 + Fixed: a syntax issue in color `core` mixin.
 + Fixed: `tooltip` wobble issue on hover over.

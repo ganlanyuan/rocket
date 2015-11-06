@@ -190,6 +190,7 @@
 
   // *** output *** //
   position: relative;
+  background-color: #fff;
   -webkit-transition: all $ro-global-animation-duration $ro-global-bezier 0s;
   transition: all $ro-global-animation-duration $ro-global-bezier 0s;
   > [data-page-cover] {
