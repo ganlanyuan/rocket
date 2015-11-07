@@ -1334,7 +1334,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 
 #【 kit.js 】
 `Kit.js` is small Javascript library has similar functions with jQuery. `Kit.js` works well on IE8+ and morden browsers.   
-The follow metheds are available:   
+The follow methods are available:   
 `on`, `off`, `click`, `mouseover`, `mouseout`, `focus`, `blur`, `submit`, `keydown`, `keyup`,   
 `find`, `eq`, `filter`, `first`, `last`, `parent`, `parents`, `children`, `firstChild`, `lastChild`, `siblings`, `prev`, `prevAll`, `next`, `nextAll`,   
 `hide`, `show`, `fadeIn`, `remove`,   
