@@ -40,6 +40,7 @@
 @import "addons/hidden"; // @required [mixin] breakpoint
 @import "addons/type";
 @import "addons/responsive-type";
+@import "addons/hide-text"; 
 
 // layout
 @import "layout/container"; // @required [mixin] breakpoint
