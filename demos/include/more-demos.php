@@ -8,7 +8,7 @@
 
       foreach ($layouts as $layout) {
         if ($pagename == 'layout-' . $layout) {
-          $cur = 'class="current"';
+          $cur = ' class="current" ';
         } else {
           $cur = '';
         }
@@ -25,7 +25,7 @@
 
       foreach ($components as $component) {
         if ($pagename == 'components-' . $component) {
-          $cur = 'class="current"';
+          $cur = ' class="current" ';
         } else {
           $cur = '';
         }
@@ -42,7 +42,7 @@
 
       foreach ($addons as $addon) {
         if ($pagename == 'addons-' . $addon) {
-          $cur = 'class="current"';
+          $cur = ' class="current" ';
         } else {
           $cur = '';
         }
@@ -59,7 +59,7 @@
 
       foreach ($addons as $addon) {
         if ($pagename == 'js-' . $addon) {
-          $cur = 'class="current"';
+          $cur = ' class="current" ';
         } else {
           $cur = '';
         }
