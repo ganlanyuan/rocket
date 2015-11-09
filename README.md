@@ -61,6 +61,7 @@ Rocket/
 |   |   |── switch
 |   |   |── push-toggle
 |   |   |── checkbox
+|   |   |── input-file
 |   |   |── tabs
 |   |   |── accordion
 |   |   |── dropdown
@@ -882,7 +883,9 @@ Customize radios or checkboxes.
 </div>
 ````
 ```` scss
-@mixin checkbox()
+@mixin checkbox() {
+  @content;
+}
 
 .radio {
   @include checkbox() {
@@ -897,7 +900,9 @@ Customize radios or checkboxes.
 Radios or checkboxes' active style.   
 
 ```` scss
-@mixin checkbox-active()
+@mixin checkbox-active() {
+  @content;
+}
 
 .radio {
   @include checkbox-active() {
@@ -906,6 +911,34 @@ Radios or checkboxes' active style.
 }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)    
+
+#### input-file
+Customize `input[type="file"]`. Thanks [Osvaldas Valutis](http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) for the idea.
+```` html
+<div class="input-file">
+  <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+  <label for="file"><span>Choose a file</span></label>
+</div>
+````
+```` scss
+@mixin input-file() {
+  @content;
+}
+
+.radio {
+  @include input-file() {
+    // customized style goes here
+  }
+}
+````
+```js
+// link input-file.js to your page
+<script src="path/to/input-file.js"></script>
+<script type="text/javascript">
+  inputFile('#file');
+</script>
+```
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-input-file.php)   
 
 #### tabs
 Pure css tabs.   
@@ -1168,13 +1201,16 @@ p.example-font-size { @include rp-type($p-font-sizes $bp); }
 
 #### hide-text
 Visually hide a text element.
+```html
+  <h1 class="logo">Brand Name</h1>
+```
 ```` scss
 @mixin hide-text();
 %hide-text {};
 
 .logo { 
-  @include hide-text(); 
-  // or @extend %hide-text; 
+  @extend %hide-text; 
+  // or @include hide-text(); 
 }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-hide-text.php) 

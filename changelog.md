@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.2.0 beta 
++ Added: `hide-text`.
++ Added: `input-file`.
+
 ### 3.1.1 
 + Fixed: `button: simple` border-color issue.
 + Improved: remove text-decoration property from `button`.

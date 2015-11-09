@@ -22,3 +22,4 @@
 // @codekit-prepend "components/equalizer.js"
 // @codekit-prepend "components/reach.js"
 // @codekit-prepend "components/scrollTo.js"
+// @codekit-prepend "components/input-file.js"
