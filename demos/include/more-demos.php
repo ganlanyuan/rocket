@@ -20,7 +20,7 @@
   <h4>components</h4>
   <nav class="demo-links">
     <?php 
-      $components = array('charts', 'off-canvas', 'slider-carousel', 'slider-gallery', 'validation', 'button', 'parallelogram', 'drop-shadows', 'switch', 'push-toggle', 'checkbox', 'tabs', 'accordion', 'dropdown', 'tooltip', 'media-list', 'flex-media', ); 
+      $components = array('charts', 'off-canvas', 'slider-carousel', 'slider-gallery', 'validation', 'button', 'parallelogram', 'drop-shadows', 'switch', 'push-toggle', 'checkbox', 'input-file', 'tabs', 'accordion', 'dropdown', 'tooltip', 'media-list', 'flex-media', ); 
       $cur = '';
 
       foreach ($components as $component) {
@@ -37,7 +37,7 @@
   <h4>addons</h4>
   <nav class="demo-links">
     <?php 
-      $addons = array('type', 'responsive-type', 'visibility', 'breakpoint', 'color-functions'); 
+      $addons = array('type', 'responsive-type', 'visibility', 'breakpoint', 'hide-text' , 'color-functions'); 
       $cur = '';
 
       foreach ($addons as $addon) {

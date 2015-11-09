@@ -1,0 +1,7 @@
+@import 'demo-base';
+
+// *** components: input-file *** //
+
+.input-file {
+  @include input-file();
+}

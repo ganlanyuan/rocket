@@ -74,6 +74,7 @@ Rocket/
 |       |── visible               
 |       |── hidden                
 |       |── breakpoint (bp)       
+|       |── hide-text               
 |       |── opacity               
 |       |── ie-rgba               
 |       |── em                  
@@ -1164,6 +1165,19 @@ h3.example-font-size { @include rp-type($h3-font-sizes $bp); }
 p.example-font-size { @include rp-type($p-font-sizes $bp); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-font-size.php) 
+
+#### hide-text
+Visually hide a text element.
+```` scss
+@mixin hide-text();
+%hide-text {};
+
+.logo { 
+  @include hide-text(); 
+  // or @extend %hide-text; 
+}
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-hide-text.php) 
 
 #### opacity
 Use `opacity` to set `opacity` property for old IE and modern browsers.
