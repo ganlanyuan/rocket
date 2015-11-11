@@ -1,3 +1,4 @@
+// pow
 @function pow($number, $exp) {
   $value: 1;
   @if $exp > 0 {
@@ -12,6 +13,8 @@
   }
   @return $value;
 }
+
+// fact
 @function fact($number) {
   $value: 1;
   @if $number > 0 {
@@ -22,10 +25,12 @@
   @return $value;
 }
 
+// pi
 @function pi() {
   @return 3.14159265359;
 }
 
+// rad
 @function rad($angle) {
   $unit: unit($angle);
   $unitless: $angle / ($angle * 0 + 1);
@@ -36,6 +41,7 @@
   @return $unitless;
 }
 
+// sin
 @function sin($angle) {
   $sin: 0;
   $angle: rad($angle);
@@ -46,6 +52,7 @@
   @return $sin;
 }
 
+// cos
 @function cos($angle) {
   $cos: 0;
   $angle: rad($angle);
@@ -56,6 +63,21 @@
   @return $cos;
 }
 
+// tan
 @function tan($angle) {
   @return sin($angle) / cos($angle);
+}
+
+// sqrt
+// http://www.antimath.info/css/sass-sqrt-function/
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+ 
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+ 
+  @return $x1;
 }

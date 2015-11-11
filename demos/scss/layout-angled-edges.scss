@@ -1,6 +1,138 @@
 @import 'demo-base';
 
 // *** addons: angled-edges *** //
+@mixin angled-edges ($key) {
+  $edges: ro-get($key, $ro-angled-edges, 'bottom');
+  $flip: ro-get($key, 'flip');
+  $selector: '&:before, &:after';
+  @if $edges == 'top' {
+    $selector: '&:before';
+  } @else if $edges == 'bottom' {
+    $selector: '&:after';
+  }
+
+  // get colors
+  $color1: false;
+  $color2: false;
+  @each $item in $key {
+    @if type-of($item) == 'color' {
+      @if not $color1 {
+        $color1: $item;
+      } @else if not $color2 {
+        $color2: $item;
+      }
+    }
+  }
+  @if not $color1 {$color1: #fff; }
+  @if not $color2 {$color2: #fff; }
+
+  $angle-1: false;
+  $angle-2: false;
+  $gap: false;
+  $gap-1: false;
+  $gap-2: false;
+  @if type-of($key) == 'number' {
+    @if unit($key) == 'deg' {
+      $angle-1: $key;
+    } @else {
+      $gap: $key;
+    }
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if unit($item) == 'deg' {
+          @if $angle-1 {
+            $angle-2: $item;
+          } @else {
+            $angle-1: $item;
+          }
+        } @else {
+          $gap: $item;
+        }
+      }
+    }
+  }
+  @if not $angle-1 { $angle-1: 15deg; }
+  @if not $angle-2 { 
+    @if $flip {
+      $angle-2: - $angle-1; 
+    } @else {
+      $angle-2: $angle-1; 
+    }
+  }
+
+  @if not $gap { $gap: 0; }
+  @if unitless($gap) or unit($gap) == '%' {
+    $gap-1: ((tan(abs($angle-1)) * 100%) + $gap);
+    $gap-2: ((tan(abs($angle-2)) * 100%) + $gap);
+  } @else {
+    $gap-1: calc(#{(tan(abs($angle-1)) * 100%)} + #{$gap});
+    $gap-2: calc(#{(tan(abs($angle-2)) * 100%)} + #{$gap});
+  }
+
+  position: relative;
+  overflow: hidden;
+  // z-index: 1;
+  #{$selector} {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    // left: 0;
+    // right: 0;
+    // height: 50%;
+    // z-index: -1;
+  }
+
+  $border-width: 5000px;
+  @if $edges == 'top' or $edges == 'bottom' {
+    padding-#{$edges}: edge-tan($angle-1, 100%);
+    #{$selector} {
+      #{$edges}: 0;
+      border-#{$edges}: edge-tan($angle-1, $border-width) solid $color1;
+      @if strip-unit($angle-1) < 0 {
+        right: 0;
+        border-right: $border-width solid transparent;
+      } @else {
+        left: 0;
+        border-left: $border-width solid transparent;
+      }
+    }
+  } @else if $edges == 'both' {
+    padding-top: edge-tan($angle-1, 100%);
+    padding-bottom: edge-tan($angle-2, 100%);
+    &:before {
+      top: 0;
+      border-top: edge-tan($angle-1, $border-width) solid $color1;
+      @if strip-unit($angle-1) < 0 {
+        right: 0;
+        border-right: $border-width solid transparent;
+      } @else {
+        left: 0;
+        border-left: $border-width solid transparent;
+      }
+    }
+    &:after {
+      bottom: 0;
+      border-bottom: edge-tan($angle-2, $border-width) solid $color1;
+      @if strip-unit($angle-2) < 0 {
+        left: 0;
+        border-left: $border-width solid transparent;
+      } @else {
+        right: 0;
+        border-right: $border-width solid transparent;
+      }
+    }
+  }
+
+}
+
+@function edge-tan($color, $width) {
+  @return (tan(abs($color)) * $width);
+}
+
+
 .example-angled-edges {
   max-width: 950px;
   margin-left: auto;
@@ -26,7 +158,7 @@
     }
   }
   .bottom {
-    @include angled-edges(bottom 5deg);
+    @include angled-edges(bottom -5deg);
   }
   .both {
     background-color: #284688;

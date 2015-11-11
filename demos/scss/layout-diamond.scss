@@ -24,7 +24,7 @@ $ro-diamond-style: 'loose', 'compact' !default;
   } 
 
   @if $shape == 'diamond' {
-    @include transform(rotate(-45deg) scale((1/1.4142135624)));
+    @include transform( rotate(-45deg) scale( (1/sqrt(2)) ) );
 
     @if $style == 'compact' {
       &:nth-child(6),
@@ -53,7 +53,7 @@ $ro-diamond-style: 'loose', 'compact' !default;
     @include center();
 
     @if $shape == 'diamond' {
-      @include transform(rotate(45deg) scale(1.4142135624));
+      @include transform( rotate(45deg) scale( sqrt(2) ) );
     } @else if $shape == 'octagon' {
       @include transform(rotate(45deg));
       overflow: inherit;

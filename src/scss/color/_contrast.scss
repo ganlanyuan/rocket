@@ -22,7 +22,7 @@
   @return $root;
 }
 
-@function sqrt($num) {
+@function color-sqrt($num) {
   $root:0;
   $testRoot : 0;
   $upperBounds : round($num / 2) + 1; //never need over half the main number. Add one just to be sure!
@@ -54,7 +54,7 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   $blue-component: blue($color);
    
   // Calculate a brightness value in 3d color space between 0 and 255
-  $number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
+  $number: color-sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
    
   // Convert to percentage and return
   @return 100% * $number / 255;

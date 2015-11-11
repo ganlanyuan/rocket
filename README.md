@@ -40,14 +40,15 @@ Rocket/
 |   |── layout              
 |   |   |── container             
 |   |   |── grid                  
-|   |   |── gallery               
-|   |   |── metro               
 |   |   |── liquid-2              
 |   |   |── liquid-3              
-|   |   |── center   
-|   |   |── justify               
-|   |   |── sticky-footer               
+|   |   |── gallery               
+|   |   |── metro               
+|   |   |── diamond               
 |   |   |── angled-edges               
+|   |   |── sticky-footer               
+|   |   |── justify               
+|   |   |── center   
 |   |                                          
 |   |── components 
 |   |   |── charts
