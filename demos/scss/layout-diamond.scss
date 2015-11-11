@@ -1,12 +1,19 @@
 @import 'demo-base';
 
 // *** layout: gallery *** //
+$ro-diamond-shape: 'diamond', 'octagon' !default;
+$ro-diamond-style: 'loose', 'compact' !default;
+
 @mixin diamond($key:false){
   $size: ro-get-type($key, 'number', false, 100%);
+  $shape: ro-get($key, $ro-diamond-shape, 'diamond');
+  $style: ro-get($key, $ro-diamond-style, 'compact');
   
-  @include transform(rotate(-45deg));
   position: relative;
+  float: left;
   width: $size;
+  overflow: hidden;
+
   @if not unitless($size) {
     @if unit($size) == '%' {
       padding-bottom: $size;
@@ -15,30 +22,82 @@
       height: $size;
     }
   } 
-  overflow: hidden;
+
+  @if $shape == 'diamond' {
+    @include transform(rotate(-45deg) scale((1/1.4142135624)));
+
+    @if $style == 'compact' {
+      &:nth-child(6),
+      &:nth-child(15) {
+        margin-left: ($size / 2);
+        clear: both;
+      }
+      &:nth-child(n+6) {
+        margin-top: (- $size / 2);
+      }
+    }
+
+  } @else if $shape == 'octagon' {
+    @include transform(rotate(-45deg));
+  }
+
+// 5+4+5+4+5+4
+
+  // content
   > .diamond-content {
-    @include transform(rotate(45deg));
-    @include flexbox();
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    -ms-flex-align: center; // for IE10
-    > * { margin: auto; }
+    @include center();
+
+    @if $shape == 'diamond' {
+      @include transform(rotate(45deg) scale(1.4142135624));
+    } @else if $shape == 'octagon' {
+      @include transform(rotate(45deg));
+      overflow: inherit;
+    }
   }
 }
 
 
 .diamond {
-  @include diamond(100%);
-}
-.example-diamond {
-  max-width: 900px;
-  margin: 0 auto;
-  > li {
-    float: left;
-    width: 17%;
-    margin: 0 (17% * 0.4142135624) (17% * 0.4142135624) 0;
+  &-s,
+  &-m {
+    outline: 1px solid #fff;
+    cursor: pointer;
+  }
+  &-s { 
+    @include diamond(20%); 
+  }
+  &-m { 
+    @include diamond(40%); 
+    margin-left: -10%;
+    margin-right: -10%;
+    &:nth-child(n+6) {
+      margin-top: -30%;
+    }
+    &:nth-child(6), 
+    &:nth-child(10) {
+      margin-left: 0;
+    }
   }
 }
+.example-diamond {
+  @extend %ro-clearfix;
+  max-width: 900px;
+  margin: 0 auto;
+  span {
+    display: block;
+    width: 100%;
+  }
+  img {
+    width: inherit;
+  }
+}
+
+
+// todo:
+// 1. quantity query
+// 2. clip-path method

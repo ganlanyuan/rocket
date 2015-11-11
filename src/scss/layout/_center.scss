@@ -1,5 +1,5 @@
 // *** center *** //
-@mixin center($key: child 'div' center){
+@mixin center($key: false){
   $check: (left right center 'child');
 
   $child: ro-get-type($key, 'string', $check, '*');
