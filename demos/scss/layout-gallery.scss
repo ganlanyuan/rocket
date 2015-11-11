@@ -2,4 +2,9 @@
 
 // *** layout: gallery *** //
 
-.example-gallery { @include gallery(6); }
+$map: (
+  'null': 2,
+  600: 3,
+  800: 4,
+);
+.example-gallery { @include gallery($map); }

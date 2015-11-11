@@ -1,10 +1,30 @@
 // *** gallery *** //
 @mixin gallery($key){
   $per-row: 1;
+  $map: false;
+  $map-keys: false;
+  $breakpoints: false;
+
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'map' {
+        @if not $map {
+          $map: $item;
+        } @else if not $breakpoints {
+          $breakpoints: $item;
+        }
+      }
+    }
+  }
+  @if $map { $map-keys: map-keys($map); }
+
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, gutter));
   $child: ro-get-next($key, 'child', 'li');
   $direction: ro-get($key, left right, right);
   $keep: ro-get($key, 'keep');
+  $condition: ro-get($key, ('min' 'max'), 'min');
 
   @each $item in $key {
     @if type-of($item) == number and unitless($item) {
@@ -14,20 +34,23 @@
   $half-gutter: ($gutter / 2);
 
   // *** output *** //
+  $non-flex: '.no-flexbox.no-flexboxtweener &, .no-flexwrap &';
+
   @if not $keep {
     @include flexbox;
     @include flex-wrap(wrap);
-    @if $direction == left {
-      @include flex-direction(row-reverse);
-    }
+    @if $direction == left { @include flex-direction(row-reverse); }
+    #{$non-flex} { @include clearfix(); }
 
     // fix left and right edge padding
     margin-left: - $half-gutter;
     margin-right: - $half-gutter;
   }
+  .no-flexwrap & { display: block; }
 
   > #{$child} {
     @if not $keep {
+      #{$non-flex} { float: opposite($direction); }
       box-sizing: border-box;
       @if unit($gutter) == '%' {
         padding-left: $half-gutter;
@@ -46,21 +69,37 @@
     }
 
     // set col width
-    width: percentage(1 / $per-row);
-  }
-
-  // for non-flex, non-flexwrap browsers
-  .no-flexwrap & { display: block; }
-  .no-flexbox.no-flexboxtweener &,
-  .no-flexwrap & {
-    @if not $keep { @include clearfix(); }
-  
-    > #{$child} {
-      @if not $keep { float: opposite($direction); }
-
-      &:nth-child(#{$per-row}n+1) { clear: both; }
-      @for $i from 2 through $per-row {
-        &:nth-child(#{$per-row}n+#{$i}) { clear: none; }
+    @if $map {
+      @each $item in $map-keys {
+        @if type-of($item) == 'number' {
+          @include bp($item $condition) { 
+            width: percentage(1 / map-get($map, $item)); 
+            #{$non-flex} {
+              &:nth-child(n) { clear: none; }
+              &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
+            }
+          }
+        } @else if $item == 'null' or $item == 'default' {
+          width: percentage(1 / map-get($map, $item));
+          #{$non-flex} {
+            &:nth-child(n) { clear: none; }
+            &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
+          }
+        } @else if $breakpoints {
+          @include bp(map-get($breakpoints, $item) $condition) { 
+            width: percentage(1 / map-get($map, $item)); 
+            #{$non-flex} {
+              &:nth-child(n) { clear: none; }
+              &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
+            }
+          }
+        }
+      }
+    } @else {
+      width: percentage(1 / $per-row);
+      #{$non-flex} {
+        &:nth-child(n) { clear: none; }
+        &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
       }
     }
   }

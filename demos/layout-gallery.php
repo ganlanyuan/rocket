@@ -27,7 +27,12 @@
         </ul>
       </div>
       <pre><code class="language-scss">
-.example-gallery { @include gallery(3); }
+$map: (
+  'null': 2,
+  600: 3,
+  800: 4,
+);
+.example-gallery { @include gallery($map); }
       </code></pre>
     </div>
     
