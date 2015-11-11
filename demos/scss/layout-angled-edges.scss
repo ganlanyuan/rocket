@@ -4,6 +4,8 @@
 @mixin angled-edges ($key) {
   $edges: ro-get($key, $ro-angled-edges, 'bottom');
   $flip: ro-get($key, 'flip');
+
+  // set selector
   $selector: '&:before, &:after';
   @if $edges == 'top' {
     $selector: '&:before';
@@ -11,10 +13,14 @@
     $selector: '&:after';
   }
 
-  // get colors
+  // set colors & angles
   $color1: false;
   $color2: false;
+  $angle-1: false;
+  $angle-2: false;
   @each $item in $key {
+
+    // colors
     @if type-of($item) == 'color' {
       @if not $color1 {
         $color1: $item;
@@ -22,81 +28,52 @@
         $color2: $item;
       }
     }
-  }
-  @if not $color1 {$color1: #fff; }
-  @if not $color2 {$color2: #fff; }
 
-  $angle-1: false;
-  $angle-2: false;
-  $gap: false;
-  $gap-1: false;
-  $gap-2: false;
-  @if type-of($key) == 'number' {
-    @if unit($key) == 'deg' {
-      $angle-1: $key;
-    } @else {
-      $gap: $key;
-    }
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'number' {
-        @if unit($item) == 'deg' {
-          @if $angle-1 {
-            $angle-2: $item;
-          } @else {
-            $angle-1: $item;
-          }
-        } @else {
-          $gap: $item;
-        }
+    // angles
+    @if type-of($item) == 'number' and unit($item) == 'deg' {
+      @if not $angle-1 {
+        $angle-1: $item;
+      } @else if not $angle-2 {
+        $angle-2: $item;
       }
     }
   }
-  @if not $angle-1 { $angle-1: 15deg; }
+  @if not $color1 {$color1: #fff; }
+  @if not $color2 {$color2: #fff; }
+  @if not $angle-1 { $angle-1: 5deg; }
   @if not $angle-2 { 
-    @if $flip {
-      $angle-2: - $angle-1; 
-    } @else {
-      $angle-2: $angle-1; 
-    }
+    $angle-2: $angle-1; 
+    @if $flip { $angle-2: - $angle-1; }
   }
 
-  @if not $gap { $gap: 0; }
-  @if unitless($gap) or unit($gap) == '%' {
-    $gap-1: ((tan(abs($angle-1)) * 100%) + $gap);
-    $gap-2: ((tan(abs($angle-2)) * 100%) + $gap);
-  } @else {
-    $gap-1: calc(#{(tan(abs($angle-1)) * 100%)} + #{$gap});
-    $gap-2: calc(#{(tan(abs($angle-2)) * 100%)} + #{$gap});
-  }
-
+  // *** output *** //
   position: relative;
   overflow: hidden;
-  // z-index: 1;
   #{$selector} {
     content: '';
     display: block;
     position: absolute;
     width: 0;
     height: 0;
-    // left: 0;
-    // right: 0;
-    // height: 50%;
-    // z-index: -1;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.001);
   }
 
   $border-width: 5000px;
   @if $edges == 'top' or $edges == 'bottom' {
+    $dir: right;
+    @if $edges == 'bottom' { $dir: left; }
+
     padding-#{$edges}: edge-tan($angle-1, 100%);
     #{$selector} {
       #{$edges}: 0;
       border-#{$edges}: edge-tan($angle-1, $border-width) solid $color1;
-      @if strip-unit($angle-1) < 0 {
-        right: 0;
-        border-right: $border-width solid transparent;
+      @if strip-unit($angle-1) > 0 {
+        #{$dir}: 0;
+        border-#{$dir}-width: $border-width;
       } @else {
-        left: 0;
-        border-left: $border-width solid transparent;
+        #{opposite($dir)}: 0;
+        border-#{opposite($dir)}-width: $border-width;
       }
     }
   } @else if $edges == 'both' {
@@ -105,23 +82,23 @@
     &:before {
       top: 0;
       border-top: edge-tan($angle-1, $border-width) solid $color1;
-      @if strip-unit($angle-1) < 0 {
+      @if strip-unit($angle-1) > 0 {
         right: 0;
-        border-right: $border-width solid transparent;
+        border-right-width: $border-width;
       } @else {
         left: 0;
-        border-left: $border-width solid transparent;
+        border-left-width: $border-width;
       }
     }
     &:after {
       bottom: 0;
-      border-bottom: edge-tan($angle-2, $border-width) solid $color1;
-      @if strip-unit($angle-2) < 0 {
+      border-bottom: edge-tan($angle-2, $border-width) solid $color2;
+      @if strip-unit($angle-2) > 0 {
         left: 0;
-        border-left: $border-width solid transparent;
+        border-left-width: $border-width;
       } @else {
         right: 0;
-        border-right: $border-width solid transparent;
+        border-right-width: $border-width;
       }
     }
   }
@@ -133,39 +110,40 @@
 }
 
 
+$bg1: #339FEC;
+$bg2: #FF4468;
 .example-angled-edges {
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
-  > div {
-    background: #52ABFF;
-    // background-image: linear-gradient(to bottom, #52ABFF, #6EC7FF);
-    // background: #52ABFF url('https://nthp-savingplaces.s3.amazonaws.com/2015/09/17/11/09/56/607/NYSP-Cover-duncan-kendall.jpg') 0 0 no-repeat;
-    color: #fff;
+  .bottom,
+  .both,
+  .top,
+  .sibling {
     padding: 50px;
-    box-sizing: border-box;
     h1,
     p {
       padding: 0;
-      color: inherit;
+      color: #fff;
     }
-    h1 {
-      margin-bottom: 30px;
-    }
-    p {
-      max-width: none;
-      &:last-child { margin-bottom: 0; }
+    h1 { margin: 30px 0; }
+    p { 
+      max-width: none; 
+      font-size: 17px;
     }
   }
-  .bottom {
-    @include angled-edges(bottom -5deg);
-  }
-  .both {
-    background-color: #284688;
-    @include angled-edges(both 5deg flip 20px);
-  }
+  .bottom,
+  .both,
   .top {
-    background-color: #D150ED;
-    @include angled-edges(top -5deg);
+    box-sizing: border-box;
+    background: #52ABFF url('../images/NYSP-Cover-duncan-kendall.jpg') 0 0 no-repeat;
+    background-size: cover;
+  }
+  .bottom { @include angled-edges(bottom 5deg $bg1); }
+  .both { @include angled-edges(both 5deg flip $bg1 $bg2); }
+  .top { @include angled-edges(top -5deg $bg2); }
+  .sibling {
+    &-1 { background-color: $bg1; }
+    &-2 { background-color: $bg2; }
   }
 }
