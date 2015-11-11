@@ -26,14 +26,16 @@ $ro-diamond-style: 'loose', 'compact' !default;
   @if $shape == 'diamond' {
     @include transform( rotate(-45deg) scale( (1/sqrt(2)) ) );
 
-    @if $style == 'compact' {
-      &:nth-child(6),
-      &:nth-child(15) {
-        margin-left: ($size / 2);
-        clear: both;
-      }
-      &:nth-child(n+6) {
-        margin-top: (- $size / 2);
+    .csstransforms & {
+      @if $style == 'compact' {
+        &:nth-child(6),
+        &:nth-child(15) {
+          margin-left: ($size / 2);
+          clear: both;
+        }
+        &:nth-child(n+6) {
+          margin-top: (- $size / 2);
+        }
       }
     }
 
@@ -73,14 +75,16 @@ $ro-diamond-style: 'loose', 'compact' !default;
   }
   &-m { 
     @include diamond(40%); 
-    margin-left: -10%;
-    margin-right: -10%;
-    &:nth-child(n+6) {
-      margin-top: -30%;
-    }
-    &:nth-child(6), 
-    &:nth-child(10) {
-      margin-left: 0;
+    .csstransforms & {
+      margin-left: -10%;
+      margin-right: -10%;
+      &:nth-child(n+6) {
+        margin-top: -30%;
+      }
+      &:nth-child(6), 
+      &:nth-child(10) {
+        margin-left: 0;
+      }
     }
   }
 }

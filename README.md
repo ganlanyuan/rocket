@@ -196,9 +196,12 @@ $main: (
 </ul>
 ````
 ```` scss
-@mixin gallery($key)
+@mixin gallery($key);
 //pattern
-$key: $per-row (gutter $gutter) (child $child) $direction keep
+$key: ($map / $per-row) (gutter $gutter) (child $child) $condition $direction keep;
+// $condition: 'min' | 'max'
+// $map: ( $breakpoint: $per-row, ...)
+// $direction: left | right
 
 .gallery { @include gallery(3); }
 // per-row: 3;
@@ -207,6 +210,17 @@ $key: $per-row (gutter $gutter) (child $child) $direction keep
 // per-row: 4;
 // gutter: 2%;
 // direction: right -> left
+
+// with breakpoints
+$map: (
+  'null': 2, 
+  600: 3,
+  800: 4,
+);
+.gallery { @include gallery($map); }
+// default: 2 items per row
+// 600px and up: 3 items per row
+// 800px and up: 4 items per row
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-gallery.php)
 
