@@ -3,6 +3,9 @@
 ### 3.2.0 beta 
 + Added: `hide-text`.
 + Added: `input-file`.
++ Added: `diamond` layout.
++ Improved: `gallery` now accept map parameter as breakpoints.
++ Improved: `angled-edges`.
 
 ### 3.1.1 
 + Fixed: `button: simple` border-color issue.
