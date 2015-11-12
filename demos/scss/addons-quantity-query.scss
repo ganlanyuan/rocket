@@ -2,78 +2,30 @@
 
 // *** addons: quantity-query *** //
 
-@mixin quantity-selector($key, $method) {
-  $selector: ro-get-type($key, 'string', ('nth' 'type'), '*');
-  $selector-type: ro-get($key, ('nth' 'type'), 'nth');
-  $count: false;
-  $count-2: false;
-
-  @if type-of($key) == 'number' {
-    $count: $key;
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'number' {
-        @if not $count {
-          $count: $item;
-        } @else if not $count-2 {
-          $count-2: $item;
-        }
-      }
-    }
-  }
-
-  @if $count {
-    @if $method == 'more' {
-      #{$selector}:first-child:nth-last-child(#{$count}),
-      #{$selector}:first-child:nth-last-child(#{$count}) ~ #{$selector} {
-        @content;
-      }
-    } @else if $method == 'less' {
-      #{$selector}:first-child:nth-last-child(-n + #{$count}),
-      #{$selector}:first-child:nth-last-child(-n + #{$count}) ~ #{$selector} {
-        @content;
-      }
-    } @else if $method == 'equal' {
-      #{$selector}:first-child:nth-last-child(#{$count}) {
-        @content;
-      }
-    } @else if $method == 'between' {
-      @if $count-2 and $count-2 > $count {
-        #{$selector}:first-child:nth-last-child(n + #{$count}):nth-last-child(-n + #{$count-2}), 
-        #{$selector}:first-child:nth-last-child(n + #{$count}):nth-last-child(-n + #{$count-2}) ~ #{$selector} {
-          @content;
-        }
-      }
-    }
-  }
+.box {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: #56AFEE;
 }
 
-@mixin at-least($key) {
-  @include quantity-selector($key, 'more') {
-    @content;
+.at-least {
+  @include at-least('.box' 4) {
+    background-color: #FF49A6;
   }
 }
-
-@mixin at-most($key) {
-  @include quantity-selector($key, 'less') {
-    @content;
+.at-most {
+  @include at-least('.box' 6) {
+    background-color: #FF49A6;
   }
 }
-
-@mixin equal-to($key) {
-  @include quantity-selector($key, 'equal'){
-    @content;
+.equal-to {
+  @include at-least('.box' 4) {
+    background-color: #FF49A6;
   }
 }
-
-@mixin between($key) {
-  @include quantity-selector($key, 'between') {
-    @content;
-  }
-}
-
-header {
-  @include between(li 6 9) {
-    width: 25%;
+.between {
+  @include at-least('.box' 4 8) {
+    background-color: #FF49A6;
   }
 }

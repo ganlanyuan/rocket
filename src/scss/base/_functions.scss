@@ -297,3 +297,15 @@
   @return $str-selector;
 }
 
+// get-last-selector
+@function get-last-selector($key) {
+  $_return: ();
+  
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      $_return: append($_return, nth($item, -1));
+    }
+  }
+  
+  @return $_return;
+}

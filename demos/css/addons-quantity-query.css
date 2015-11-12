@@ -306,8 +306,30 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-header li:first-child:nth-last-child(n + 6):nth-last-child(-n + 9),
-header li:first-child:nth-last-child(n + 6):nth-last-child(-n + 9) ~ li {
-  width: 25%;
+.box {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: #56AFEE;
+}
+
+.at-least .box:first-child:nth-last-child(4),
+.at-least .box:first-child:nth-last-child(4) ~ .box {
+  background-color: #FF49A6;
+}
+
+.at-most .box:first-child:nth-last-child(6),
+.at-most .box:first-child:nth-last-child(6) ~ .box {
+  background-color: #FF49A6;
+}
+
+.equal-to .box:first-child:nth-last-child(4),
+.equal-to .box:first-child:nth-last-child(4) ~ .box {
+  background-color: #FF49A6;
+}
+
+.between .box:first-child:nth-last-child(4),
+.between .box:first-child:nth-last-child(4) ~ .box {
+  background-color: #FF49A6;
 }
 /*# sourceMappingURL=addons-quantity-query.css.map */
