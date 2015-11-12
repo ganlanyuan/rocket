@@ -37,7 +37,7 @@
   <h4>addons</h4>
   <nav class="demo-links">
     <?php 
-      $addons = array('type', 'responsive-type', 'visibility', 'breakpoint', 'hide-text' , 'color-functions'); 
+      $addons = array('hide-text' , 'type', 'responsive-type', 'visibility', 'breakpoint', 'quantity-query', 'color-functions'); 
       $cur = '';
 
       foreach ($addons as $addon) {
