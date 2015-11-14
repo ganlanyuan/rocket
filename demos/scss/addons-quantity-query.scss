@@ -2,11 +2,34 @@
 
 // *** addons: quantity-query *** //
 
-.box {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  background: #56AFEE;
+.control {
+  margin-bottom: 20px;
+  input {
+    @include button('0.6em 1.1em' #CBCBCB 3px highlight);
+    border-width: 0;
+  }
+  .active { 
+    color: #fff;
+    background-color: #333; 
+    &:hover {
+      background-color: #222;
+    }
+  }
+  .action {
+    @include button(#f2f2f2 highlight);
+  }
+}
+.show {
+  @extend %ro-clearfix;
+  margin-bottom: 40px;
+  > .box {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: #56AFEE;
+  }
 }
 
 .at-least {
@@ -15,17 +38,17 @@
   }
 }
 .at-most {
-  @include at-least('.box' 6) {
+  @include at-most('.box' 4) {
     background-color: #FF49A6;
   }
 }
 .equal-to {
-  @include at-least('.box' 4) {
+  @include equal-to('.box' 4) {
     background-color: #FF49A6;
   }
 }
 .between {
-  @include at-least('.box' 4 8) {
+  @include between('.box' 3 6) {
     background-color: #FF49A6;
   }
 }

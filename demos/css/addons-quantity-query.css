@@ -1,3 +1,14 @@
+.show:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.control input, .control .action {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 /* Android 2.3 :checked fix */
 @-webkit-keyframes fake {
   from {
@@ -306,20 +317,64 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.box {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
+.control {
+  margin-bottom: 20px;
+}
+
+.control input {
+  padding: 0.6em 1.1em;
+  border-radius: 3px;
+  background: #CBCBCB;
+  color: #000;
+  -webkit-transition: background 0.3s ease, color 0.3s ease;
+          transition: background 0.3s ease, color 0.3s ease;
+  border-width: 0;
+}
+
+.control input:hover {
+  background: #b2b2b2;
+}
+
+.control .active {
+  color: #fff;
+  background-color: #333;
+}
+
+.control .active:hover {
+  background-color: #222;
+}
+
+.control .action {
+  background: #f2f2f2;
+  color: #000;
+  -webkit-transition: background 0.3s ease, color 0.3s ease;
+          transition: background 0.3s ease, color 0.3s ease;
+}
+
+.control .action:hover {
+  background: #d8d8d8;
+}
+
+.show {
+  margin-bottom: 40px;
+}
+
+.show > .box {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   background: #56AFEE;
 }
 
-.at-least .box:first-child:nth-last-child(4),
-.at-least .box:first-child:nth-last-child(4) ~ .box {
+.at-least .box:first-child:nth-last-child(n + 4),
+.at-least .box:first-child:nth-last-child(n + 4) ~ .box {
   background-color: #FF49A6;
 }
 
-.at-most .box:first-child:nth-last-child(6),
-.at-most .box:first-child:nth-last-child(6) ~ .box {
+.at-most .box:first-child:nth-last-child(-n + 4),
+.at-most .box:first-child:nth-last-child(-n + 4) ~ .box {
   background-color: #FF49A6;
 }
 
@@ -328,8 +383,8 @@ pre[class*="language-"] {
   background-color: #FF49A6;
 }
 
-.between .box:first-child:nth-last-child(4),
-.between .box:first-child:nth-last-child(4) ~ .box {
+.between .box:first-child:nth-last-child(n + 3):nth-last-child(-n + 6),
+.between .box:first-child:nth-last-child(n + 3):nth-last-child(-n + 6) ~ .box {
   background-color: #FF49A6;
 }
 /*# sourceMappingURL=addons-quantity-query.css.map */

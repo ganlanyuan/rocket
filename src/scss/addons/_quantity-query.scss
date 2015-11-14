@@ -21,8 +21,8 @@
 
   @if $count {
     @if $method == 'more' {
-      #{$selector}:first-child:nth-last-child(#{$count}),
-      #{$selector}:first-child:nth-last-child(#{$count}) ~ #{$selector} {
+      #{$selector}:first-child:nth-last-child(n + #{$count}),
+      #{$selector}:first-child:nth-last-child(n + #{$count}) ~ #{$selector} {
         @content;
       }
     } @else if $method == 'less' {
@@ -31,7 +31,8 @@
         @content;
       }
     } @else if $method == 'equal' {
-      #{$selector}:first-child:nth-last-child(#{$count}) {
+      #{$selector}:first-child:nth-last-child(#{$count}),
+      #{$selector}:first-child:nth-last-child(#{$count}) ~ #{$selector} {
         @content;
       }
     } @else if $method == 'between' {

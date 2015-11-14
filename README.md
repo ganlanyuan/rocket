@@ -76,6 +76,7 @@ Rocket/
 |       |── visible               
 |       |── hidden                
 |       |── breakpoint (bp)       
+|       |── quantity-query (at-least, at-most, equal-to, between)       
 |       |── hide-text               
 |       |── opacity               
 |       |── ie-rgba               
@@ -1273,6 +1274,61 @@ $key: $condition $media $breakpoints
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-breakpoint.php)
 
+## quantity-query
+#### at-least
+```` scss
+@mixin at-least($key) {
+  @content;
+}
+// pattern
+$key: $selector number
+
+.nav {
+  @include at-least('li' 4) { width: 25%; }
+}
+````
+
+#### at-most
+```` scss
+@mixin at-most($key) {
+  @content;
+}
+// pattern
+$key: $selector number
+
+.nav {
+  @include at-most('li' 4) { width: 25%; }
+}
+````
+
+#### equal-to
+```` scss
+@mixin equal-to($key) {
+  @content;
+}
+// pattern
+$key: $selector number
+
+.nav {
+  @include equal-to('li' 4) { width: 25%; }
+}
+````
+
+#### between
+```` scss
+@mixin between($key) {
+  @content;
+}
+// pattern
+$key: $selector number number
+
+.nav {
+  @include between('li' 4 6) { width: 25%; }
+}
+````
+[quantity-query demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-quantity-query.php)
+
+## visibility
 #### visible
 A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
@@ -1283,7 +1339,6 @@ $key: $media-type $breakpoints
 @include visible(500)
 // visible on 500px up on all media
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-visibility.php)
 
 #### hidden
 A shorthand @mixin for hide elements on some parts of viewport.
@@ -1295,7 +1350,7 @@ $key: $media-type $breakpoints
 @include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-visibility.php)
+[visibility demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-visibility.php)
 
 
 #【 Color Functions 】
