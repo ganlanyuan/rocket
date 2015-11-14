@@ -174,14 +174,67 @@ $main: ( (3 7 4) (2 5) );
 // last 2 elements will occupy the second row
 
 // with mediaquery
+$breakpoints: (
+  medium: 800px,
+  large: 1200px,
+);
 $main: (
   'default': (3 4) ( 2 5) 1,
-  800px: (2 7 3: 1 0 1) (1 1: 1 0),
+  medium: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.row { @include grid('grid' $main); }
+.row { @include grid('grid' $main bp $breakpoints); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)
+
+#### liquid-2
+`liquid-2` is for creating a two columns layout: One is fixed, another is flexible.     
+Similar with grid, you can use list or map as a parameter to set up the layout.
+````html
+<div class="wrapper">
+  <div></div>
+  <div></div>
+</div>
+````
+```` scss
+// scss
+@mixin liquid-2($key)
+// pattern
+$key: ($list or $map) (gutter $gutter) (child $child) keep
+
+.wrapper { @include liquid-2( (null 200px) ); }
+// 1st child width: flexible;
+// 2nd child width: 200px;
+
+.wrapper { @include liquid-2( (null:2, 200px:1) ); }
+// children orders: 2 1;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
+
+#### liquid-3
+`liquid-3` is for creating a three columns layout: one is flexible, another two are fixed.     
+Similar with grid, you can use list or map as a parameter to set up the layout.
+````html
+<div class="wrapper">
+  <div></div>
+  <div></div>
+</div>
+````
+```` scss
+// scss
+@mixin liquid-3($key)
+// pattern
+$key: ($list or $map) (gutter $gutter) (child $child) keep
+
+.wrapper { @include liquid-3( (150px null 200px) ); }
+// 1st child width: 150px;
+// 2nd child width: flexible;
+// 3rd child width: 200px;
+
+.wrapper { @include liquid-3( (150px:0, null:2, 200px:1) ); }
+// children orders: 0 2 1;
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-3.php)
 
 #### gallery
 `gallery` is for creating picture galleries.
@@ -273,72 +326,92 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-metro.php)
 
-#### liquid-2
-`liquid-2` is for creating a two columns layout: One is fixed, another is flexible.     
-Similar with grid, you can use list or map as a parameter to set up the layout.
+#### diamond
 ````html
-<div class="wrapper">
-  <div></div>
-  <div></div>
+<div class="wrapper"> <!-- 'wrapper' could be any valid class name -->
+  <div class="diamond"> <!-- 'diamond' could be any valid class name -->
+    <div class="diamond-content"> <!-- class 'diamond-content' is required -->
+      <div>content</div>
+    </div>
+  </div>
+  <div class="diamond">
+    <div class="diamond-content">
+      <div>content</div>
+    </div>
+  </div>
+  <div class="diamond">
+    <div class="diamond-content">
+      <div>content</div>
+    </div>
+  </div>
+  <div class="diamond">
+    <div class="diamond-content">
+      <div>content</div>
+    </div>
+  </div>
+  <div class="diamond">
+    <div class="diamond-content">
+      <div>content</div>
+    </div>
+  </div>
+  <div class="diamond">
+    <div class="diamond-content">
+      <div>content</div>
+    </div>
+  </div>
 </div>
 ````
 ```` scss
-// scss
-@mixin liquid-2($key)
-// pattern
-$key: ($list or $map) (gutter $gutter) (child $child) keep
+@mixin diamond($key)
+//pattern
+$key: ($per-row / $size) $shape 'combined' $selector-type 'keep';
+// $shape: 'diamond' | 'octagon'
+// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)
 
-.wrapper { @include liquid-2( (null 200px) ); }
-// 1st child width: flexible;
-// 2nd child width: 200px;
+.diamond { @include diamond(5 'combined'); }
+// per-row: 5 (5 diamonds per row)
 
-.wrapper { @include liquid-2( (null:2, 200px:1) ); }
-// children orders: 2 1;
+.diamond { @include diamond(20%); }
+// diamond size: 20% (could be fixed value like 200px too)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-diamond.php)
 
-#### liquid-3
-`liquid-3` is for creating a three columns layout: one is flexible, another two are fixed.     
-Similar with grid, you can use list or map as a parameter to set up the layout.
+#### angled-edges
+Create `angled-edges` layout. `background` could be image, gradient or pure color, but the background of sibling elements must be pure color.
 ````html
-<div class="wrapper">
-  <div></div>
-  <div></div>
+<div class="main">
+  <!-- Content goes here -->
 </div>
 ````
 ```` scss
-// scss
-@mixin liquid-3($key)
+@mixin angled-edges($key);
 // pattern
-$key: ($list or $map) (gutter $gutter) (child $child) keep
+$key: $edges $angle flip;
+// $edges: top | bottom | both
 
-.wrapper { @include liquid-3( (150px null 200px) ); }
-// 1st child width: 150px;
-// 2nd child width: flexible;
-// 3rd child width: 200px;
-
-.wrapper { @include liquid-3( (150px:0, null:2, 200px:1) ); }
-// children orders: 0 2 1;
+.main { @include angled-edges("bottom" -5deg); }
+// edge: bottom;
+// angle: -5deg;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-angled-edges.php)
 
-#### center
-`center` is for creating both horizontal and vertical center aligned layout.
+#### sticky-footer
+Create `sticky-footer` to prevent layout collapse when content is less, like on 404 page.
 ````html
-<div class="popup">
-  <div></div>
-</div>
+<body>
+  <header>header</header>
+  <div class="main">main</div>
+  <footer>footer</footer>
+</body>
 ````
 ```` scss
-@mixin center($key)
+@mixin sticky-footer($key);
 // pattern
-$key: $child $align
+$key: $main;
 
-.popup { @include center('div' left); }
-// child: div;
-// align: left; (left | right | center, for old browser)
+body { @include sticky-footer('.main'); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-center.php)
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-sticky-footer.php)
 
 #### justify
 `justify` is for creating `justify` layout.
@@ -360,43 +433,23 @@ $key: (child $child)
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-justify.php)
 
-#### sticky-footer
-Create `sticky-footer` to prevent layout collapse when content is less, like on 404 page.
+#### center
+`center` is for creating both horizontal and vertical center aligned layout.
 ````html
-<body>
-  <header>header</header>
-  <div class="main">main</div>
-  <footer>footer</footer>
-</body>
-````
-```` scss
-@mixin sticky-footer($key);
-// pattern
-$key: $main;
-
-body { @include sticky-footer('.main'); }
-````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-sticky-footer.php)
-
-#### angled-edges
-Create `angled-edges` layout. Only works with `background-color` for now.
-````html
-<div class="main">
-  <!-- Your content goes here -->
+<div class="popup">
+  <div></div>
 </div>
 ````
 ```` scss
-@mixin angled-edges($key);
+@mixin center($key)
 // pattern
-$key: $edges $angle flip $gap;
-// $edges: top | bottom | both
+$key: $child $align
 
-.main { @include angled-edges("bottom" -5deg 20px); }
-// edge: bottom;
-// angle: -5deg;
-// gap: 20px;
+.popup { @include center('div' left); }
+// child: div;
+// align: left; (left | right | center, for old browser)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-angled-edges.php)
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-center.php)
 
 
 #【 Components 】

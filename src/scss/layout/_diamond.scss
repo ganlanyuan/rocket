@@ -1,3 +1,116 @@
 // *** diamond *** //
 @mixin diamond($key){
+  $per-row: false;
+  $size: false;
+  $shape: ro-get($key, $ro-diamond-shape, 'diamond');
+  $combined: ro-get($key, 'combined');
+  $selector-type: ro-get($key, ('nth' 'type'), 'nth');
+  $keep: ro-get($key, 'keep');
+
+  // nth-child & nth-of-type
+  @if $selector-type == 'type' {
+    $selector-type: 'nth-of-type';
+  } @else {
+    $selector-type: 'nth-child';
+  }
+  
+  // per-row & size
+  @if type-of($key) == 'number' {
+    @if unitless($key) {
+      $per-row: $key; 
+    } @else {
+      $size: $key;
+    }
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if unitless($item) {
+          $per-row: $item;
+        } @else {
+          $size: $item;
+        }
+      }
+    }
+  }
+  @if $size and unit($size) == '%' and $per-row {
+    $per-row: floor(100% / $size);
+  }
+  @if not $size {
+    @if $per-row {
+      $size: percentage(1 / $per-row);
+    }
+  } 
+  @if not $per-row {
+    @if $size and unit($size) == '%' {
+      $per-row: floor(100% / $size);
+    }
+  } 
+
+  // *** output *** //
+  @if $size {
+    @if not $keep {
+      position: relative;
+      float: left;
+      overflow: hidden;
+    }
+    width: $size;
+
+    @if not unitless($size) {
+      @if unit($size) == '%' {
+        padding-bottom: $size;
+        height: 0;
+      } @else {
+        height: $size;
+      }
+    } 
+
+    @if $shape == 'diamond' {
+      @if not $keep {
+        @include transform( rotate(-45deg) scale( (1/sqrt(2)) ) );
+      }
+
+      @if $per-row {
+        .csstransforms & {
+          @if $combined {
+            &:#{$selector-type}(n) {
+              margin-left: 0;
+              margin-top: 0;
+              clear: none;
+            }
+            &:#{$selector-type}(#{$per-row * 2 - 1}n + #{($per-row + 1)}) {
+              margin-left: ($size / 2);
+              clear: both;
+            }
+            &:#{$selector-type}(n + #{($per-row + 1)}) {
+              margin-top: (- $size / 2);
+            }
+          }
+        }
+      }
+
+    } @else if $shape == 'octagon' {
+      @if not $keep {
+        @include transform(rotate(-45deg));
+      }
+    }
+
+    // content
+    @if not $keep {
+      > .diamond-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        @include center();
+
+        @if $shape == 'diamond' {
+          @include transform( rotate(45deg) scale( sqrt(2) ) );
+        } @else if $shape == 'octagon' {
+          @include transform(rotate(45deg));
+          overflow: inherit;
+        }
+      }
+    }
+  }
 }

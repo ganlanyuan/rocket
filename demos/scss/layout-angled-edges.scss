@@ -110,8 +110,8 @@
 }
 
 
-$bg1: #339FEC;
-$bg2: #FF4468;
+$bg1: #B9E2FF;
+$bg2: #FBDBF6;
 .example-angled-edges {
   max-width: 950px;
   margin-left: auto;
@@ -131,6 +131,9 @@ $bg2: #FF4468;
       max-width: none; 
       font-size: 17px;
     }
+  }
+  .sibling {
+    h1, p { color: #000; }
   }
   .bottom,
   .both,
