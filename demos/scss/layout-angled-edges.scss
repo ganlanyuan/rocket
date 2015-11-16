@@ -150,3 +150,22 @@ $bg2: #FBDBF6;
     &-2 { background-color: $bg2; }
   }
 }
+
+.test {
+  transform: perspective(1000px) scaleX((1 + 20/45)) rotateY(20deg);
+  perspective: 1000px;
+  perspective-origin: bottom left;
+  transform-origin: bottom left;
+  // width: 100%;
+  height: 500px;
+  background: #52ABFF url('../images/NYSP-Cover-duncan-kendall.jpg') 0 0 no-repeat;
+  color: #fff;
+  font-size: 30px;
+  padding: 30px;
+  box-sizing: border-box;
+  &-2 {
+    transform: perspective(1000px) scaleX((1 + 20/45)) rotateY(20deg);
+    perspective-origin: top left;
+    transform-origin: top left;
+  }
+}
