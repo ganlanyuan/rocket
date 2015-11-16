@@ -32,10 +32,9 @@
     }
   }
   $half-gutter: ($gutter / 2);
-
-  // *** output *** //
   $non-flex: '.no-flexbox.no-flexboxtweener &, .no-flexwrap &';
 
+  // *** output *** //
   @if not $keep {
     @include flexbox;
     @include flex-wrap(wrap);
@@ -45,8 +44,8 @@
     // fix left and right edge padding
     margin-left: - $half-gutter;
     margin-right: - $half-gutter;
+    .no-flexwrap & { display: block; }
   }
-  .no-flexwrap & { display: block; }
 
   > #{$child} {
     @if not $keep {
@@ -55,16 +54,14 @@
       @if unit($gutter) == '%' {
         padding-left: $half-gutter;
         padding-right: $half-gutter;
+        // fix firefox treat percentage gutter as 0
+        &:after {
+          content: '';
+          display: block;
+          padding-bottom: ($gutter * $per-row);
+        }
       } @else {
         padding: 0 $half-gutter $gutter; 
-      }
-    }
-    @if unit($gutter) == '%' {
-      // fix firefox treat percentage gutter as 0
-      &:after {
-        content: '';
-        display: block;
-        padding-bottom: ($gutter * $per-row);
       }
     }
 
