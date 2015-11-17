@@ -6,9 +6,7 @@
     <div class="topic">
       <h2 class="main-heading"><span>components: </span>angled-edges</h2>
       <div class="example">
-<!--         <div class="test test-1"><div>test</div></div>
-        <div class="test test-2"><div>test</div></div>
- -->        <div class="example-angled-edges">
+        <div class="example-angled-edges">
           <div class="bottom">
             <h1>Edge: bottom</h1>
             <p>Ducimus laboriosam sapiente, sed! Aut alias ipsam excepturi delectus, repellendus laborum deleniti. Modi magni, veniam aliquid, aspernatur quibusdam saepe est, inventore in, ullam eius voluptates quam dolorum ducimus porro dolores?</p>
@@ -29,7 +27,7 @@
             <p>Incidunt ipsum suscipit, culpa autem saepe veniam similique assumenda facere eligendi consectetur, quibusdam ducimus optio inventore unde ullam! Soluta laudantium eum inventore doloremque assumenda sunt modi aperiam, error, debitis odio.</p>
           </div>
           <div class="top">
-            <h1>Edge: bottom</h1>
+            <h1>Edge: top</h1>
             <p>Quam aliquid, dolorum facilis tempora est soluta perspiciatis mollitia illum distinctio, assumenda, nam praesentium tenetur dolores in nihil sapiente labore maxime voluptates libero. Ex culpa vitae, asperiores quasi. Veniam, eveniet.</p>
             <p>Odit minima expedita voluptatum harum iste natus error libero corporis modi dolor! Architecto repellat consectetur possimus, esse distinctio laboriosam magni vero error fugiat dicta, reprehenderit odit, enim at delectus doloribus.</p>
           </div>

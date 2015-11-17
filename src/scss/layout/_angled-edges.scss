@@ -2,6 +2,8 @@
 @mixin angled-edges ($key) {
   $edges: ro-get($key, $ro-angled-edges, 'bottom');
   $flip: ro-get($key, 'flip');
+
+  // set selector
   $selector: '&:before, &:after';
   @if $edges == 'top' {
     $selector: '&:before';
@@ -9,127 +11,98 @@
     $selector: '&:after';
   }
 
+  // set colors & angles
+  $color1: false;
+  $color2: false;
   $angle-1: false;
   $angle-2: false;
-  $gap: false;
-  $gap-1: false;
-  $gap-2: false;
-  @if type-of($key) == 'number' {
-    @if unit($key) == 'deg' {
-      $angle-1: $key;
-    } @else {
-      $gap: $key;
+  @each $item in $key {
+
+    // colors
+    @if type-of($item) == 'color' {
+      @if not $color1 {
+        $color1: $item;
+      } @else if not $color2 {
+        $color2: $item;
+      }
     }
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'number' {
-        @if unit($item) == 'deg' {
-          @if $angle-1 {
-            $angle-2: $item;
-          } @else {
-            $angle-1: $item;
-          }
-        } @else {
-          $gap: $item;
-        }
+
+    // angles
+    @if type-of($item) == 'number' and unit($item) == 'deg' {
+      @if not $angle-1 {
+        $angle-1: $item;
+      } @else if not $angle-2 {
+        $angle-2: $item;
       }
     }
   }
-  @if not $angle-1 { $angle-1: 15deg; }
+  @if not $color1 {$color1: #fff; }
+  @if not $color2 {$color2: #fff; }
+  @if not $angle-1 { $angle-1: 5deg; }
   @if not $angle-2 { 
-    @if $flip {
-      $angle-2: - $angle-1; 
-    } @else {
-      $angle-2: $angle-1; 
-    }
+    $angle-2: $angle-1; 
+    @if $flip { $angle-2: - $angle-1; }
   }
 
-  @if not $gap { $gap: 0; }
-  @if unitless($gap) or unit($gap) == '%' {
-    $gap-1: ((tan(abs($angle-1)) * 100%) + $gap);
-    $gap-2: ((tan(abs($angle-2)) * 100%) + $gap);
-  } @else {
-    $gap-1: calc(#{(tan(abs($angle-1)) * 100%)} + #{$gap});
-    $gap-2: calc(#{(tan(abs($angle-2)) * 100%)} + #{$gap});
-  }
-
+  // *** output *** //
   position: relative;
-  z-index: 1;
+  overflow: hidden;
   #{$selector} {
-    background: inherit;
     content: '';
     display: block;
     position: absolute;
-    left: 0;
-    right: 0;
-    height: 50%;
-    z-index: -1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
   }
 
-  @if $edges == 'top' {
+  $border-width: 5000px;
+  @if $edges == 'top' or $edges == 'bottom' {
+    $dir: right;
+    @if $edges == 'bottom' { $dir: left; }
+
+    padding-#{$edges}: edge-tan($angle-1, 100%);
     #{$selector} {
       #{$edges}: 0;
-      @include transform(skewY($angle-1));
-      @if strip-unit($angle-1) < 0 {
-        @include transform-origin(0 0);
+      border-#{$edges}: edge-tan($angle-1, $border-width) solid $color1;
+      @if strip-unit($angle-1) > 0 {
+        #{$dir}: 0;
+        border-#{$dir}-width: $border-width;
       } @else {
-        @include transform-origin(100% 0);
+        #{opposite($dir)}: 0;
+        border-#{opposite($dir)}-width: $border-width;
       }
     }
-    // supports transforms, doesn't support calc
-    @if not unitless($gap) and unit($gap) != '%' {
-      .csstransforms.no-csscalc & { margin-#{$edges}: (tan(abs($angle-1)) * 100%); }
-    }
-    // supports transforms and calc
-    .csstransforms & { margin-#{$edges}: $gap-1; }
-  } @else if $edges == 'bottom' {
-    #{$selector} {
-      // background-position: 0 56.25%;
-      #{$edges}: 0;
-      @include transform(skewY($angle-1));
-      @if strip-unit($angle-1) < 0 {
-        @include transform-origin(100% 0);
-      } @else {
-        @include transform-origin(0 100%);
-      }
-    }
-    // supports transforms, doesn't support calc
-    @if not unitless($gap) and unit($gap) != '%' {
-      .csstransforms.no-csscalc & { margin-#{$edges}: (tan(abs($angle-1)) * 100%); }
-    }
-    // supports transforms and calc
-    .csstransforms & { margin-#{$edges}: $gap-1; }
   } @else if $edges == 'both' {
+    padding-top: edge-tan($angle-1, 100%);
+    padding-bottom: edge-tan($angle-2, 100%);
     &:before {
       top: 0;
-      @include transform(skewY($angle-1));
-      @if strip-unit($angle-1) < 0 {
-        @include transform-origin(0 0);
+      border-top: edge-tan($angle-1, $border-width) solid $color1;
+      @if strip-unit($angle-1) > 0 {
+        right: 0;
+        border-right-width: $border-width;
       } @else {
-        @include transform-origin(100% 0);
+        left: 0;
+        border-left-width: $border-width;
       }
     }
     &:after {
       bottom: 0;
-      @include transform(skewY($angle-2));
-      @if strip-unit($angle-2) < 0 {
-        @include transform-origin(100% 0);
+      border-bottom: edge-tan($angle-2, $border-width) solid $color2;
+      @if strip-unit($angle-2) > 0 {
+        left: 0;
+        border-left-width: $border-width;
       } @else {
-        @include transform-origin(0 100%);
+        right: 0;
+        border-right-width: $border-width;
       }
-    }
-    // supports transforms, doesn't support calc
-    @if not unitless($gap) and unit($gap) != '%' {
-      .csstransforms.no-csscalc & { 
-        margin-top: (tan(abs($angle-1)) * 100%); 
-        margin-bottom: (tan(abs($angle-2)) * 100%); 
-      }
-    }
-    // supports transforms and calc
-    .csstransforms & { 
-      margin-top: $gap-1;
-      margin-bottom: $gap-2;
     }
   }
 
+}
+
+@function edge-tan($color, $width) {
+  @return (tan(abs($color)) * $width);
 }

@@ -1,9 +1,0 @@
-@charset "UTF-8";
-@import "../../src/scss/rocket"; 
-ul, ol { margin: 0; padding: 0; }
-li { list-style: none; }
-@media \0screen { img { width: auto; } }
-img { max-width: 100%; height: auto; }
-body { margin: 0; padding: 20px 0 0; }
-.container { @include container(1000px 20px); }
-
