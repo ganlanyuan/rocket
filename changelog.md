@@ -5,7 +5,7 @@
 + Added: `input-file`.
 + Added: `diamond` layout.
 + Improved: `gallery` now accept map parameter as breakpoints.
-+ Improved: `angled-edges`.
++ Improved: `angled-edges`. Now the element with angled edges could has any background (image, gradient), but its previous and next siblings elements must be plain background.
 + Fixed: a mathematical issue in `contrast` when the color is #000.
 
 ### 3.1.1 
