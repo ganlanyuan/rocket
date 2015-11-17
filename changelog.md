@@ -6,6 +6,7 @@
 + Added: `diamond` layout.
 + Improved: `gallery` now accept map parameter as breakpoints.
 + Improved: `angled-edges`.
++ Fixed: a mathematical issue in `contrast` when the color is #000.
 
 ### 3.1.1 
 + Fixed: `button: simple` border-color issue.
