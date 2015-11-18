@@ -1,0 +1,67 @@
+@import 'demo-base';
+
+// *** components: charts *** //
+
+
+table {
+  text-align: left;
+  width: 100%;
+  font-size: 13px;
+  border: 1px solid #dbdbdb;
+  border-width: 1px 0 0 1px;
+}
+th, td {
+  padding: 10px 6px;
+  border: 1px solid #dbdbdb;
+  border-width: 0 1px 1px 0;
+}
+th {
+  background-color: #f5f5f5;
+}
+$responsive-table-mode: 'scroll' 'simple' 'others' !default;
+@mixin responsive-table($key) {
+  $bp: ro-get-type($key, 'number', false, 800px);
+  $mode: ro-get($key, $responsive-table-mode, 'scroll');
+
+  @if $mode == 'simple' {
+    display: block;
+    overflow-x: auto;
+  } @else if $mode == 'scroll' {
+    @include bp('max' $bp) {
+      position: relative; 
+      width: 100%;
+      &,
+      > thead,
+      > thead > tr,
+      > tbody,
+      th,
+      td { display: block; }
+      > thead { float: left; }
+      > tbody { 
+        width: auto; 
+        position: relative; 
+        overflow-x: auto; 
+        white-space: nowrap; 
+        letter-spacing: -0.34em;
+        > tr { 
+          display: inline-block; 
+          vertical-align: top; 
+          letter-spacing: 0;
+        }
+      }
+      .lt-ie10 & > thead { float: none; }
+      @content;
+    }
+  }
+}
+.table-1 { 
+  // @include responsive-table(900px) {
+  //   border-right-width: 1px;
+  //   > tbody > tr:last-child > td { border-right-width: 0; }
+  //   .lt-ie10 & { 
+  //     border-right-width: 0; 
+  //     > tbody > tr:last-child > td { border-right-width: 1px; }
+  //   }
+  // } 
+  @include responsive-table(900px 'simple');
+}
