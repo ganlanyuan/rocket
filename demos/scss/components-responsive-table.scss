@@ -18,50 +18,101 @@ th, td {
 th {
   background-color: #f5f5f5;
 }
-$responsive-table-mode: 'scroll' 'simple' 'others' !default;
-@mixin responsive-table($key) {
-  $bp: ro-get-type($key, 'number', false, 800px);
-  $mode: ro-get($key, $responsive-table-mode, 'scroll');
+$responsive-table-mode: 'flip-scroll' 'stacked' 'others' !default;
+@mixin responsive-table($key:false) {
+  $mode: ro-get($key, $responsive-table-mode, 'flip-scroll');
+  $data: ro-get-next($key, 'data');
+  $border-color: ro-get-type($key, 'color', false, #e1e1e1);
+  $th-width: ro-get-type($key, 'number', false, 50%);
 
-  @if $mode == 'simple' {
-    display: block;
-    overflow-x: auto;
-  } @else if $mode == 'scroll' {
-    @include bp('max' $bp) {
-      position: relative; 
-      width: 100%;
-      &,
-      > thead,
-      > thead > tr,
-      > tbody,
-      th,
-      td { display: block; }
-      > thead { float: left; }
-      > tbody { 
-        width: auto; 
-        position: relative; 
-        overflow-x: auto; 
-        white-space: nowrap; 
-        letter-spacing: -0.34em;
-        > tr { 
-          display: inline-block; 
-          vertical-align: top; 
-          letter-spacing: 0;
+  @if $mode == 'stacked' {
+    &, 
+    thead, 
+    tbody, 
+    th, 
+    td, 
+    tr { display: block; }
+    // Hide table headers (but not display: none;, for accessibility)
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    // Behave  like a "row"
+    td { 
+      // border
+      background: linear-gradient(to right, transparent $th-width, $border-color $th-width, $border-color calc(#{$th-width} + 1px), transparent calc(#{$th-width} + 1px)) 0 0 no-repeat;
+      // Now like a table header
+      &:before { 
+        display: inline-block;
+        vertical-align: top;
+        font-weight: bold;
+        width: $th-width; 
+        box-sizing: border-box;
+      }
+      // Label the data
+      @if $data {
+        @for $i from 1 through length($data) {
+          &:nth-of-type(#{$i}):before { content: nth($data, $i);}
         }
       }
-      .lt-ie10 & > thead { float: none; }
-      @content;
+    }
+    // fallback for IE9-
+    .lt-ie10 & { 
+      thead tr { position: static; }
+      td:before { display: none; }
+    }
+  } @else if $mode == 'flip-scroll' {
+    position: relative; 
+    width: 100%;
+    &,
+    thead,
+    thead tr,
+    tbody,
+    th,
+    td { display: block; }
+    > thead { float: left; }
+    > tbody { 
+      width: auto; 
+      position: relative; 
+      overflow-x: auto; 
+      white-space: nowrap; 
+      letter-spacing: -0.34em;
+      > tr { 
+        display: inline-block; 
+        vertical-align: top; 
+        letter-spacing: 0;
+      }
+    }
+    // fallback for IE9-
+    .lt-ie10 & { 
+      > thead { float: none; }
+      > tbody { white-space: normal; }
     }
   }
+
+  @content;
 }
-.table-1 { 
-  // @include responsive-table(900px) {
-  //   border-right-width: 1px;
-  //   > tbody > tr:last-child > td { border-right-width: 0; }
-  //   .lt-ie10 & { 
-  //     border-right-width: 0; 
-  //     > tbody > tr:last-child > td { border-right-width: 1px; }
-  //   }
-  // } 
-  @include responsive-table(900px 'simple');
+.flip-scroll { 
+  @include bp('max' 900) {
+    @include responsive-table() {
+      border-right-width: 1px;
+      > tbody > tr:last-child > td { border-right-width: 0; }
+      .lt-ie10 & { 
+        border-right-width: 0; 
+        > tbody > tr:last-child > td { border-right-width: 1px; }
+      }
+    } 
+  }
+}
+.stacked {
+  @include bp('max' 900) {
+    @include responsive-table('stacked' data ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) {
+      tr:nth-of-type(2n) { 
+        background-color: #f5f5f5; 
+        .lt-ie10 & { background-color: transparent; }
+      }
+      td:before { margin-right: 7px; }
+    }
+  }
 }
