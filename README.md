@@ -52,6 +52,7 @@ Rocket/
 |   |                                          
 |   |── components 
 |   |   |── charts
+|   |   |── responsive-table
 |   |   |── off-canvas
 |   |   |── slider-carousel
 |   |   |── slider-gallery
