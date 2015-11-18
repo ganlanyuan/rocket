@@ -106,3 +106,6 @@ $ro-drop-shadow-directions: left, right, top, bottom, 'horizontal', 'vertical' !
 
 // diamond
 $ro-diamond-shape: 'diamond', 'octagon' !default;
+
+// responsive-table
+$responsive-table-mode: 'flip-scroll' 'stack' 'toggle' !default;

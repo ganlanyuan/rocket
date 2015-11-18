@@ -1,4 +1,4 @@
-// Rocket v3.1.1
+// Rocket v3.2.0
 // Created by William Lin (ganlanyuan@gmail.com)
 // Licensed under MIT Open Source
 // =============================================
@@ -58,6 +58,7 @@
 
 // components
 @import "components/charts";
+@import "components/responsive-table"; // @requir [mixin] bp
 @import "components/off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
 @import "components/slider-carousel";
 @import "components/slider-gallery";

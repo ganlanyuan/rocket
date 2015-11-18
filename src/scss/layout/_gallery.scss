@@ -96,7 +96,7 @@
       width: percentage(1 / $per-row);
       #{$non-flex} {
         &:nth-child(n) { clear: none; }
-        &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
+        &:nth-child(#{$per-row}n+1) { clear: both; }
       }
     }
   }

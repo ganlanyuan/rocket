@@ -1,8 +1,6 @@
 @import 'demo-base';
 
-// *** components: charts *** //
-
-
+// *** components: responsive-table *** //
 table {
   text-align: left;
   width: 100%;
@@ -18,151 +16,8 @@ th, td {
 th {
   background-color: #f5f5f5;
 }
-$responsive-table-mode: 'flip-scroll' 'stack' 'toggle' !default;
-@mixin responsive-table($key:false) {
-  $mode: ro-get($key, $responsive-table-mode, 'flip-scroll');
-  $data: ro-get-next($key, 'data');
-  $border-color: ro-get-type($key, 'color', false, #e1e1e1);
-  $bp: false;
-  $th-width: false;
-
-  @if type-of($key) == 'number' {
-    @if unitless($key) {
-      $bp: $key;
-    } @else {
-      $th-width: $key;
-    }
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'number' {
-        @if unitless($item) {
-          $bp: $item;
-        } @else {
-          $th-width: $item;
-        }
-      }
-    }
-  }
-  @if not $bp { $bp: 768; }
-  @if not $th-width { $th-width: 50%; }
-  
-  %visible {
-    display: table-cell;
-    visibility: visible;
-  }
-  // *** output *** //
-  // normal
-  @if $mode == 'toggle' {
-    overflow-x: auto;
-    input { @extend %ro-hidden-checkbox; }
-    label { font-size: 14px; }
-    .control-panel {
-      position: absolute;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      border: 1px solid #dbdbdb;
-      border-radius: 3px;
-      background: #fff;
-      display: none;
-      label {
-        display: block;
-        padding: 0.5em 1.2em;
-        transition: background 0.3s;
-        &:hover { background-color: #f2f2f2; }
-      }
-    }
-    @include bp('min' $bp) {
-      input ~ label { display: none; }
-    }
-  }
-  // small screen
-  @include bp('max' $bp) {
-    @if $mode == 'stack' {
-      &, 
-      thead, 
-      tbody, 
-      th, 
-      td, 
-      tr { display: block; }
-      // Hide table headers (but not display: none;, for accessibility)
-      thead tr { 
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-      // Behave  like a "row"
-      td { 
-        // border
-        background: linear-gradient(to right, transparent $th-width, $border-color $th-width, $border-color calc(#{$th-width} + 1px), transparent calc(#{$th-width} + 1px)) 0 0 no-repeat;
-        // Now like a table header
-        &:before { 
-          display: inline-block;
-          vertical-align: top;
-          font-weight: bold;
-          width: $th-width; 
-          box-sizing: border-box;
-        }
-        // Label the data
-        @if $data {
-          @for $i from 1 through length($data) {
-            &:nth-of-type(#{$i}):before { content: nth($data, $i);}
-          }
-        }
-      }
-      // fallback for IE9-
-      .lt-ie10 & { 
-        thead tr { position: static; }
-        td:before { display: none; }
-      }
-    } @else if $mode == 'toggle' {
-      table { margin-top: 0.5em; }
-      th, td {
-        display: none;
-        visibility: hidden;
-      }
-      #control-panel:checked ~ .control-panel { display: block; }
-      @for $i from 1 through 20 {
-        input:nth-of-type(#{$i}):checked ~ .control-panel label:nth-of-type(#{$i}) {
-          background-color: #f2f2f2;
-        }
-        input:nth-of-type(#{$i}):checked ~ table th:nth-of-type(#{$i}),
-        input:nth-of-type(#{$i}):checked ~ table td:nth-of-type(#{$i}) { @extend %visible; }
-      }
-      #display-all:checked ~ table th,
-      #display-all:checked ~ table td { @extend %visible; }
-    } @else if $mode == 'flip-scroll' {
-      position: relative; 
-      width: 100%;
-      &,
-      thead,
-      thead tr,
-      tbody,
-      th,
-      td { display: block; }
-      > thead { float: left; }
-      > tbody { 
-        width: auto; 
-        position: relative; 
-        overflow-x: auto; 
-        white-space: nowrap; 
-        letter-spacing: -0.34em;
-        > tr { 
-          display: inline-block; 
-          vertical-align: top; 
-          letter-spacing: 0;
-        }
-      }
-      // fallback for IE9-
-      .lt-ie10 & { 
-        > thead { float: none; }
-        > tbody { white-space: normal; }
-      }
-    }
-
-    @content;
-  }
-}
 .flip-scroll { 
-  @include responsive-table(900) {
+  @include rp-table(bp 900) {
     border-right-width: 1px;
     > tbody > tr:last-child > td { border-right-width: 0; }
     .lt-ie10 & { 
@@ -172,11 +27,10 @@ $responsive-table-mode: 'flip-scroll' 'stack' 'toggle' !default;
   } 
 }
 .toggle-wrapper {
-  @include responsive-table('toggle' 900) {
-  }
+  @include rp-table(toggle bp 900 count 10);
 }
 .stack {
-  @include responsive-table('stack' 900 data ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) {
+  @include rp-table(stack bp 900 #dbdbdb data ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) {
     tr:nth-of-type(2n) { 
       background-color: #f5f5f5; 
       .lt-ie10 & { background-color: transparent; }

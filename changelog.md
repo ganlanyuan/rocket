@@ -1,12 +1,13 @@
 # Changelog
 
-### 3.2.0 beta 
+### 3.2.0 
 + Added: `hide-text`.
 + Added: `input-file`.
 + Added: `diamond` layout.
 + Added: `responsive-table`.
 + Improved: `gallery` now accept map parameter as breakpoints.
 + Improved: `angled-edges`. Now the element with angled edges could has any background (image, gradient), but its previous and next siblings elements must be plain background.
++ Fixed: a parameter issue in `gallery` when the only parameter is a number.
 + Fixed: a mathematical issue in `contrast` when the color is #000.
 
 ### 3.1.1 

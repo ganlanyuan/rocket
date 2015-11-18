@@ -2,22 +2,31 @@
 <p>
   <img src="https://img.shields.io/badge/sass-3.4.0-ff69b4.svg">
   <img src="https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg">
-  <img src="https://img.shields.io/badge/Version-3.1.1-blue.svg">
+  <img src="https://img.shields.io/badge/Version-3.2.0-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
 
-##### What's new in version 3
+#### What's new in version 3
 Rewrite main layout mixins using `flex-box`. 
 Add many new sass mixins, components and javascript components.
 + Scss: `grid`, `metro` , `liquid-3` , `charts` , `validation` , `responsive-type`  
 + Javascript: `sticky` , `priority-nav` , `equalizer` , `reach` , `scrollTo`
 + Improved `breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
-##### Requests
-+ [Modernizr](http://v3.modernizr.com/) (`csstransforms`, `cssanimations`, `flexbox`, `flexboxlegacy`, `flexboxtweener`, `flexwrap`)    
-+ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)   
+#### Requests
++ [Modernizr](http://v3.modernizr.com/) (`csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`)    
++ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)
++ Please replace `<html>` with:
+``` html
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+```
+for better IE support. We use some IE classes like `.lt-ie9`.
 
 #### Tips
 + `Flexbox` 2009 syntax is not supported.  
@@ -523,6 +532,75 @@ $data2: (
 // hide: numbers and labels
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-charts.php)
+
+#### responsive-table
+Solutions for display a complex data table on small screen.
+Referance:     
+http://dbushell.com/2012/01/05/responsive-tables-2/  
+https://github.com/nadangergeo/RWD-Table-Patterns  
+``` html
+<!-- modes: flip-scroll, stack -->
+<table class="your-table">
+  <!-- table content goes here -->
+</table>
+
+<!-- modes: toggle -->
+<div class="table-wrapper">
+  <input type="checkbox" name="" id="toggle-1" checked="">
+  <input type="checkbox" name="" id="toggle-2">
+  <input type="checkbox" name="" id="toggle-3">
+  …
+  <input type="checkbox" name="" id="control-panel"> <!-- required -->
+  <input type="checkbox" name="" id="display-all"> <!-- required -->
+  <label for="control-panel">Display</label> <!-- required -->
+  <label for="display-all">Display All</label> <!-- required -->
+  <div class="control-panel"> <!-- required -->
+    <label for="toggle-1">First Name</label>
+    <label for="toggle-2">Last Name</label>
+    <label for="toggle-3">Job Title</label>
+    …
+  </div>
+  <table>
+    <!-- table content goes here -->
+  </table>
+</div>
+```
+``` scss
+@mixin responsive-table($key) { // rp-table() for shorthand
+  @content;
+}
+// pattern
+$key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count);
+// $mode: 'slip-scroll' 'toggle' 'stack'
+// $data: list, thead content
+// $count: thead > th length
+
+// slip-scroll: $breakpoint
+// toggle: $breakpoint and $count
+// stack: $data, $border-color and $th-width
+
+// flip-scroll
+.table { 
+  @include rp-table('flip-scroll' 'bp' 900) {
+    border-right-width: 1px;
+    > tbody > tr:last-child > td { border-right-width: 0; }
+  }
+}
+
+// toggle
+.table {
+  @include rp-table('toggle' 'bp' 900 'count' 10);
+}
+
+// stack
+.table {
+  @include rp-table('stack' 'bp' 900 #dbdbdb 'data' ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) {
+    tr:nth-of-type(2n) { background-color: #f5f5f5; }
+    td:before { margin-right: 7px; }
+  }
+}
+```
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-responsive-table.php)
 
 #### off-canvas
 Pure css off-canvas with multiple modes.  

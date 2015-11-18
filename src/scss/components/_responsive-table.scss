@@ -1,0 +1,142 @@
+// *** responsive-table *** //
+@mixin responsive-table($key) {
+  $mode: ro-get($key, $responsive-table-mode, 'flip-scroll');
+  $data: ro-get-next($key, 'data');
+  $border-color: ro-get-type($key, 'color');
+  $breakpoint: ro-get-next($key, 'bp', 768);
+  $th-width: ro-get-next($key, 'width', 50%);
+  $count: ro-get-next($key, 'count', 15);
+
+  // *** output *** //
+  // normal
+  @if $mode == 'toggle' {
+    overflow-x: auto;
+    input { @extend %ro-hidden-checkbox; }
+    label { font-size: 14px; }
+    .control-panel {
+      position: absolute;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background: #fff;
+      display: none;
+      label {
+        display: block;
+        padding: 0.5em 1.2em;
+        transition: background 0.3s;
+        &:hover { background-color: #f2f2f2; }
+      }
+    }
+    @include bp('min' $breakpoint) {
+      input ~ label { display: none; }
+    }
+  }
+  // == small screen ==
+  @include bp('max' $breakpoint) {
+    // == stack ==
+    @if $mode == 'stack' {
+      &, 
+      thead, 
+      tbody, 
+      th, 
+      td, 
+      tr { display: block; }
+      // Hide table headers (but not display: none;, for accessibility)
+      thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      // Behave  like a "row"
+      td { 
+        // border
+        @if $border-color {
+          background: linear-gradient(to right, transparent $th-width, $border-color $th-width, $border-color calc(#{$th-width} + 1px), transparent calc(#{$th-width} + 1px)) 0 0 no-repeat;
+        }
+        // Now like a table header
+        &:before { 
+          display: inline-block;
+          vertical-align: top;
+          font-weight: bold;
+          width: $th-width; 
+          box-sizing: border-box;
+        }
+        // Label the data
+        @if $data {
+          @for $i from 1 through length($data) {
+            &:nth-of-type(#{$i}):before { content: nth($data, $i);}
+          }
+        }
+      }
+      // fallback for IE9-
+      .lt-ie10 & { 
+        thead tr { position: static; }
+        td:before { display: none; }
+      }
+
+    // == toggle ==
+    } @else if $mode == 'toggle' {
+      // placeholders
+      %visible {
+        display: table-cell;
+      }
+      %checked {
+        background-color: #f2f2f2;
+      }
+
+      table { margin-top: 0.5em; }
+      th, td {
+        display: none;
+      }
+      #control-panel:checked ~ .control-panel { display: block; }
+      @for $i from 1 through $count {
+        input:nth-of-type(#{$i}):checked ~ .control-panel label:nth-of-type(#{$i}) {
+          @extend %checked;
+        }
+        input:nth-of-type(#{$i}):checked ~ table th:nth-of-type(#{$i}),
+        input:nth-of-type(#{$i}):checked ~ table td:nth-of-type(#{$i}) { @extend %visible; }
+      }
+      #display-all:checked ~ table th,
+      #display-all:checked ~ table td { @extend %visible; }
+
+    // == flip-scroll ==
+    } @else if $mode == 'flip-scroll' {
+      position: relative; 
+      width: 100%;
+      &,
+      thead,
+      thead tr,
+      tbody,
+      th,
+      td { display: block; }
+      > thead { float: left; }
+      > tbody { 
+        width: auto; 
+        position: relative; 
+        overflow-x: auto; 
+        white-space: nowrap; 
+        letter-spacing: -0.34em;
+        > tr { 
+          display: inline-block; 
+          vertical-align: top; 
+          letter-spacing: 0;
+        }
+      }
+      // fallback for IE9-
+      .lt-ie10 & { 
+        > thead { float: none; }
+        > tbody { white-space: normal; }
+      }
+    }
+
+    @content;
+  } // media query end <<
+
+}
+
+// shorthand
+@mixin rp-table($key) {
+  @include responsive-table($key) {
+    @content;
+  }
+}
