@@ -76,6 +76,12 @@
 
     // == toggle ==
     } @else if $mode == 'toggle' {
+      table { margin-top: 0.5em; }
+      th, td {
+        display: none;
+      }
+      #control-panel:checked ~ .control-panel { display: block; }
+
       // placeholders
       %visible {
         display: table-cell;
@@ -83,22 +89,47 @@
       %checked {
         background-color: #f2f2f2;
       }
-
-      table { margin-top: 0.5em; }
-      th, td {
-        display: none;
-      }
-      #control-panel:checked ~ .control-panel { display: block; }
       @for $i from 1 through $count {
         input:nth-of-type(#{$i}):checked ~ .control-panel label:nth-of-type(#{$i}) {
-          @extend %checked;
+          // @extend %checked;
+          background-color: #f2f2f2;
         }
         input:nth-of-type(#{$i}):checked ~ table th:nth-of-type(#{$i}),
-        input:nth-of-type(#{$i}):checked ~ table td:nth-of-type(#{$i}) { @extend %visible; }
+        input:nth-of-type(#{$i}):checked ~ table td:nth-of-type(#{$i}) { 
+          // @extend %visible; 
+          display: table-cell;
+        }
       }
       #display-all:checked ~ table th,
-      #display-all:checked ~ table td { @extend %visible; }
+      #display-all:checked ~ table td { 
+        // @extend %visible; 
+        display: table-cell;
+      }
 
+    // == scroll ==
+    } @else if $mode == 'scroll' {
+      position: relative;
+      > .pinned {
+        position: absolute;
+        width: auto;
+        background-color: #fff;
+        th, td {
+          &:nth-child(n+2) { display: none; }
+        }
+      }
+      > .scrollable {
+        display: block;
+        overflow-x: auto;
+        th, td { white-space: nowrap; }
+      }
+      // fallback for IE9-
+      .lt-ie10 & { 
+        > .pinned { display: none; }
+        > .scrollable {
+          display: table;
+          th, td { white-space: normal; }
+        }
+      }
     // == flip-scroll ==
     } @else if $mode == 'flip-scroll' {
       position: relative; 

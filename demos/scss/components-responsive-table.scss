@@ -26,6 +26,18 @@ th {
     }
   } 
 }
+.scroll-wrapper { 
+  @include rp-table('scroll' bp 900) {
+    .scrollable {
+      border-right-width: 1px;
+      th:last-child, td:last-child { border-right-width: 0; }
+      .lt-ie10 & { 
+        border-right-width: 0; 
+        th:last-child, td:last-child { border-right-width: 1px; }
+      }
+    }
+  } 
+}
 .toggle-wrapper {
   @include rp-table(toggle bp 900 count 10);
 }
