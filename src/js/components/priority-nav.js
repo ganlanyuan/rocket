@@ -6,8 +6,8 @@ function priorityNav (navClass, buttonText, restore, distory) {
   var nav = kit(navClass);
 
   if (nav.length > 0) {
-    nav.find('ul').addClass('visible-links');
-    nav.prepend('<button class="js-nav-toggle is-hidden" data-count="">' + buttonText + '</button>').append('<ul class="hidden-links is-hidden"></ul>');
+    nav.find('ul').first().addClass('visible-links');
+    nav.first().prepend('<button class="js-nav-toggle is-hidden" data-count="">' + buttonText + '</button>').append('<ul class="hidden-links is-hidden"></ul>');
 
     var nav = kit(navClass);
     var btn = kit(navClass + '> .js-nav-toggle');

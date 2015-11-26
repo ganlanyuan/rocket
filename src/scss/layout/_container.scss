@@ -31,14 +31,14 @@
   // get container breakpoint
   $breakpoint: $container;
   @if unit($gutter) != '%' and unit($container) == unit($gutter) {
-    $breakpoint: ( $container + ( $gutter * 2 ) );
+    $breakpoint: ( $container + $gutter );
   } @else {
-    $breakpoint: (em($container) + em(40));
+    $breakpoint: (em($container) + em(20));
   }
 
   // *** output *** //
   @extend %ro-clearfix;
-  padding: 0 $gutter;
+  padding: 0 ($gutter / 2);
   // for big screen
   @include bp('min' $breakpoint) { 
     @if $align == center {

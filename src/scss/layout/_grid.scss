@@ -51,6 +51,7 @@
     > #{$child} {
       padding-#{$direction}: $gutter;
       box-sizing: border-box;
+      width: 100%;
 
       .no-flexbox.no-flexboxtweener & {
         float: opposite($direction);

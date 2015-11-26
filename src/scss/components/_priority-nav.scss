@@ -9,7 +9,7 @@
   }
   .visible-links {
     display: inline-table;
-    li { 
+    > li { 
       display: table-cell; 
       white-space: nowrap;
     }
