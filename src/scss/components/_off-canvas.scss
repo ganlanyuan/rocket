@@ -212,8 +212,8 @@
         @include transition(transform $duration, margin-#{$direction} $duration);
       } @else if $nav-push and not $nav-transform {
         @include transition(margin-#{$direction} $duration);
-      } @else if $nav-transform and not $nav-push {
-        @include transition(transform $duration);
+      } @else if not $nav-push and $nav-transform {
+        @include transition(transform #{$duration});
       }
 
       @if $nav-push-val {

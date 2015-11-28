@@ -1,3 +1,5 @@
+.sass-cache
+*.css.map
 *.DS_Store
 *.codekit
 *.sublime-project
@@ -6,12 +8,9 @@
 *.swp
 
 /.codekit-cache/
-/doc/
-/sassdoc/
-/develop/
 /bower_components/
 
 README.html
 changelog.html
 LICENSE
-
+package.json
