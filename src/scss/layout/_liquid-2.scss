@@ -54,13 +54,13 @@
       $local-breakpoint-num: get-breakpoint($local-breakpoint, $global-breakpoint);
 
       @if nth($local-breakpoint-num, 1) == null {
-        @include flexbox;
-        @include align-content(stretch);
-        margin-right: - $gutter;
-        > #{$child} { 
-          @include align-content(stretch); 
-          .flexbox &, .flexboxtweener & { margin-right: $gutter; }
-        }
+        // @include flexbox;
+        // @include align-content(stretch);
+        // margin-right: - $gutter;
+        // > #{$child} { 
+        //   @include align-content(stretch); 
+        //   .flexbox &, .flexboxtweener & { margin-right: $gutter; }
+        // }
         
         .no-flexbox.no-flexboxtweener & {
           @include clearfix();
@@ -68,9 +68,13 @@
         }
       } @else {
         @include bp($condition $media-type nth($local-breakpoint-num, 1)) {
-          @include flexbox;
-          @include align-content(stretch);
-          > #{$child} { @include align-content(stretch); }
+          // @include flexbox;
+          // @include align-content(stretch);
+          // margin-right: - $gutter;
+          // > #{$child} { 
+          //   @include align-content(stretch); 
+          //   .flexbox &, .flexboxtweener & { margin-right: $gutter; }
+          // }
           
           .no-flexbox.no-flexboxtweener & {
             @include clearfix();
@@ -87,8 +91,8 @@
         @if $bp == null  {
           @if $layout-type == 'list' {
             $column-width: $layout;
-            $order: (0, 0);
-            $position-number: (1, 2);
+            // $order: (0, 0);
+            @if not $position-number { $position-number: (1, 2); }
           } @else if $layout-type == 'map' {
             $column-width: map-keys($layout);
             $order: map-values(map-get($map, $bp));
@@ -100,8 +104,8 @@
           @include bp($condition $media-type nth($local-breakpoint-num, $i)) {
             @if $layout-type == 'list' {
               $column-width: $layout;
-              $order: (0, 0);
-              $position-number: (1, 2);
+              // $order: (0, 0);
+              @if not $position-number { $position-number: (1, 2); }
             } @else if $layout-type == 'map' {
               $column-width: map-keys($layout);
               $order: map-values(map-get($map, $bp));
@@ -115,8 +119,8 @@
     }
     
   } @else {
-    $order: (0, 0);
-    $position-number: (1, 2);
+    // $order: (0, 0);
+    @if not $position-number { $position-number: (1, 2); }
 
     @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep);
   }
@@ -124,97 +128,86 @@
 }
 
 @mixin make-liquid-2 ($column-width, $order, $position-number, $child, $gutter, $keep) {  
-  @if not $keep {
-    @if $column-width {
-      @include flexbox;
-      @include align-content(stretch);
-      margin-right: - $gutter;
-    }
-  }
+  // @if not $keep {
+  //   @if $column-width {
+  //     @include flexbox;
+  //     @include align-content(stretch);
+  //     margin-right: - $gutter;
+  //   }
+  // }
 
-  @if $column-width {
-    > #{$child} {
-      @if not $keep { @include align-content(stretch); }
+  // @if $column-width {
+  //   > #{$child} {
+  //     @if not $keep { 
+  //       @include align-content(stretch); 
+  //       .flexbox &, .flexboxtweener & { margin-right: $gutter; }
+  //     }
 
-      @for $i from 1 through length($column-width) {
-        // set width
-        $thisWidth: nth($column-width, $i);
-        $asides: reject($column-width, null);
-        &:nth-child(#{$i}) {
-          @if $thisWidth == null {
-            width: calc(100% - #{nth($asides, 1)} - #{$gutter});
-          } @else {
-            width: $thisWidth;
-          }
+  //     @for $i from 1 through length($column-width) {
+  //       // set width
+  //       $thisWidth: nth($column-width, $i);
+  //       $asides: reject($column-width, null);
+  //       &:nth-child(#{$i}) {
+  //         @if $thisWidth == null {
+  //           width: calc(100% - #{nth($asides, 1)} - #{$gutter});
+  //         } @else {
+  //           width: $thisWidth;
+  //         }
 
-          // set order
-          @if $order {
-            @include order(nth($order, $i));
-          }
-        }
-      }
-    }
-  }
+  //         // set order
+  //         @if $order {
+  //           @include order(nth($order, $i));
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   // no-flexbox
-  .no-flexbox.no-flexboxtweener & {
-    // get main-layout
-    $main-layout: null;
-    @if nth($column-width, nth($position-number, 1)) == null {
-      $main-layout: 'left';
-    } @else if nth($column-width, nth($position-number, 2)) == null {
-      $main-layout: 'right';
+  // .no-flexbox.no-flexboxtweener & {
+    $sidebar-position: left;
+    $sidebar-order: 1;
+    $main-order: 2;
+    @if nth($column-width, nth($position-number, 1)) == null { 
+      $sidebar-position: right; 
     }
-
-    // check gutter 
-    @if unit($gutter) == '%' { $gutter: 0; }
-    $full-width: 0;
-    @each $item in $column-width {
-      @if $item != null {
-        @if unitless($item) { $item: ($item * 1px); }
-        $full-width: ($item + $gutter);
-      }
+    @if nth($column-width, 1) == null { 
+      $sidebar-order: 2;
+      $main-order: 1;
     }
+    // &:before { content: '#{$sidebar-position}';}
 
-    @if not $keep { @include clearfix(); }
     @if $column-width {
+
+      @if not $keep { @include clearfix(); }
+      // reset padding, margin
+      padding: 0;
+      > #{$child}:nth-child(n) { margin: 0; }
+
+      padding-#{$sidebar-position}: nth($column-width, $sidebar-order);
       > #{$child} {
-        @if not $keep { box-sizing: border-box; }
-
-        // reset padding, margin
-        &:nth-child(n+1) {
-          padding: 0;
-          margin: 0;
+        @if not $keep { 
+          position: relative;
+          box-sizing: border-box; 
         }
-
-        @if $main-layout == 'left' {
-          &:nth-child(#{nth($position-number, 1)}) {
-            width: 100%;
-            padding-right: $full-width;
-            float: left;
-            margin-right: -100%;
-          } 
-          &:nth-child(#{nth($position-number, 2)}) {
-            width: nth($column-width, nth($position-number, 2));
-            float: right;
-            margin-left: -100%;
+        float: $sidebar-position;
+        &:nth-child(#{$main-order}) {
+          width: 100%;
+          padding-#{$sidebar-position}: $gutter;
+        } 
+        &:nth-child(#{$sidebar-order}) {
+          width: nth($column-width, $sidebar-order);
+          @if $sidebar-position == left {
+            margin-#{$sidebar-position}: - 100%;
+            #{opposite($sidebar-position)}: nth($column-width, $sidebar-order);
+          } @else {
+            margin-#{$sidebar-position}: - nth($column-width, $sidebar-order);
           }
-        } @else if $main-layout == 'right' {
-          &:nth-child(#{nth($position-number, 1)}) {
-            width: nth($column-width, nth($position-number, 1));
-            float: left;
-            margin-right: -100%;
-          }
-          &:nth-child(#{nth($position-number, 2)}) {
-            width: 100%;
-            padding-left: $full-width;
-            float: right;
-            margin-left: -100%;
-          } 
+          height: 300px;
         }
-
       }
+
     }
-  }
+  // }
 }
 
 @function get-position-number($order) {

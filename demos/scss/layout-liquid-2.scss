@@ -1,13 +1,238 @@
 @import 'demo-base';
 
 // *** layout: liquid-2 *** //
+@mixin liquid-2($key){
+  $map: ro-get-next($key, 'layout');
+  $column-width: false;
+  $order: false;
+  $position-number: false;
+  $local-breakpoint: ();
+
+  $global-breakpoint: ro-get-next($key, 'bp');
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media-type: ro-get($key, $ro-media-type);
+
+  $use-flex: ro-get($key, 'use-flex');
+  $non-flex-selector: '&';
+  @if $use-flex { $non-flex-selector: '.no-flexbox.no-flexboxtweener &'; }
+
+  $child: ro-get-next($key, 'child', 'div');
+  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $keep: ro-get($key, 'keep', false);
+
+  // get map
+  @if not $map {
+    @if type-of($key) == 'map' {
+      $map: $key;
+    } @else if type-of($key) == 'list' {
+      // check if $key is a simple list
+      @if is-simple-list($key) {
+        $column-width: $key;
+      } @else {
+        @each $item in $key {
+          $type: type-of($item);
+
+          @if $type == 'list' {
+            $column-width: ro-get-type($key, 'list');
+          } @else if $type == 'map' {
+            @if not $map {
+              $map: $item;
+            } @else if not $global-breakpoint {
+              $global-breakpoint: $item;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @if $map {
+    @if is-simple-map($map) {
+      $column-width: map-keys($map);
+      $order: map-values($map);
+      $position-number: get-position-number($order);
+
+      @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+    } @else {
+      // has breakpoint
+      $keep: true;
+      $local-breakpoint: map-keys($map);
+      $local-breakpoint-num: get-breakpoint($local-breakpoint, $global-breakpoint);
+
+      @if nth($local-breakpoint-num, 1) == null {
+        @include liquid-2-base($child, $gutter, $use-flex, $non-flex-selector);
+      } @else {
+        @include bp($condition $media-type nth($local-breakpoint-num, 1)) {
+          @include liquid-2-base($child, $gutter, $use-flex, $non-flex-selector);
+        }
+      }
+
+      @for $i from 1 through length($local-breakpoint) {
+        $bp: nth($local-breakpoint, $i);
+        $layout: map-get($map, $bp);
+        $layout-type: type-of($layout);
+
+        @if $bp == null  {
+          @if $layout-type == 'list' {
+            $column-width: $layout;
+            // $order: (0, 0);
+            @if not $position-number { $position-number: (1, 2); }
+          } @else if $layout-type == 'map' {
+            $column-width: map-keys($layout);
+            $order: map-values(map-get($map, $bp));
+            $position-number: get-position-number($order);
+          }
+
+          @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+        } @else {
+          @include bp($condition $media-type nth($local-breakpoint-num, $i)) {
+            @if $layout-type == 'list' {
+              $column-width: $layout;
+              // $order: (0, 0);
+              @if not $position-number { $position-number: (1, 2); }
+            } @else if $layout-type == 'map' {
+              $column-width: map-keys($layout);
+              $order: map-values(map-get($map, $bp));
+              $position-number: get-position-number($order);
+            }
+
+            @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+          }
+        }
+      }
+    }
+    
+  } @else {
+    // $order: (0, 0);
+    @if not $position-number { $position-number: (1, 2); }
+
+    @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+  }
+
+}
+
+@mixin liquid-2-base($child, $gutter, $use-flex, $non-flex-selector){
+  @if $use-flex {
+    @include flexbox;
+    @include align-content(stretch);
+    > #{$child} { @include align-content(stretch); }
+    .flexbox &, .flexboxtweener & { 
+      margin-right: - $gutter;
+      > #{$child} { margin-right: $gutter; }
+    }
+  }
+  
+  #{$non-flex-selector} {
+    @include clearfix();
+    > #{$child} { box-sizing: border-box; }
+  }
+}
+
+@mixin make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector) {  
+  @if not $keep and $use-flex {
+    @if $column-width {
+      @include flexbox;
+      @include align-content(stretch);
+      margin-right: - $gutter;
+    }
+  }
+
+  @if $column-width and $use-flex {
+    > #{$child} {
+      @if not $keep { 
+        @include align-content(stretch); 
+        .flexbox &, .flexboxtweener & { margin-right: $gutter; }
+      }
+
+      @for $i from 1 through length($column-width) {
+        // set width
+        $thisWidth: nth($column-width, $i);
+        $asides: reject($column-width, null);
+        &:nth-child(#{$i}) {
+          @if $thisWidth == null {
+            width: calc(100% - #{nth($asides, 1)} - #{$gutter});
+          } @else {
+            width: $thisWidth;
+          }
+
+          // set order
+          @if $order {
+            @include order(nth($order, $i));
+          }
+        }
+      }
+    }
+  }
+  // no-flexbox
+  #{$non-flex-selector} {
+    $sidebar-position: left;
+    $sidebar-order: 1;
+    $main-order: 2;
+    @if nth($column-width, nth($position-number, 1)) == null { 
+      $sidebar-position: right; 
+    }
+    @if nth($column-width, 1) == null { 
+      $sidebar-order: 2;
+      $main-order: 1;
+    }
+
+    @if $column-width {
+      @if not $keep { @include clearfix(); }
+
+      // reset padding, margin
+      padding: 0;
+      > #{$child}:nth-child(n) { margin: 0; padding: 0; }
+      
+      padding-#{$sidebar-position}: nth($column-width, $sidebar-order);
+      > #{$child} {
+        @if not $keep { box-sizing: border-box; }
+
+        @if nth($column-width, 1) == null {
+          float: opposite($sidebar-position);
+        } @else {
+          float: $sidebar-position;
+        }
+
+        &:nth-child(#{$main-order}) {
+          width: 100%;
+          padding-#{$sidebar-position}: $gutter;
+        } 
+        &:nth-child(#{$sidebar-order}) {
+          width: nth($column-width, $sidebar-order);
+          margin-#{$sidebar-position}: - nth($column-width, $sidebar-order);
+        }
+      }
+
+    }
+  }
+}
+
+@function get-position-number($order) {
+  $nums: list-ascend(remove-dup($order)); // reordered values
+  $position-number: ();
+
+  @each $num in $nums {
+    @for $i from 1 through length($order) {
+      @if nth($order, $i) == $num {
+        $position-number: append($position-number, $i);
+      }
+    }
+  }
+
+  @return $position-number;
+}
+
+
 $map: (
-  null: (300px: 1, null: 0),
-  small: (100px, null),
-  800px: (null, 300px),
+  null: (100px, null),
+  small: (200px, null),
+  900px: (null, 100px),
 );
 $bp: (
-  small: 600px,
+  small: 700px,
 );
-.example-liquid-2 { @include liquid-2(layout $map bp $bp); }
-// .example-liquid-2 { @include liquid-2((null:1, 200px:0)); }
+// .example-liquid-2 { @include liquid-2(layout $map bp $bp); }
+$direction: left;
+.example-liquid-2 { 
+  @include liquid-2(layout $map bp $bp); 
+}
