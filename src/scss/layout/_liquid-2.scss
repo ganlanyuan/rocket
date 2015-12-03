@@ -1,55 +1,89 @@
 // *** liquid-2 *** //
 @mixin liquid-2($key){
+  $map: ro-get-next($key, 'layout');
+  $keys: false;
+  $values: false;
+  $order: ();
+  $local-breakpoint: ();
+
+  $global-breakpoint: ro-get-next($key, 'bp');
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $media-type: ro-get($key, $ro-media-type);
+
   $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $keep: ro-get($key, 'keep', false);
 
   // get map
-  $map: false;
-  $keys: false;
-  $values: false;
-  $order: ();
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    // check if $key is the data list
-    $is-keys: ();
-    @each $item in $key {
-      @if $item != null and type-of($item) != 'number' {
-        $is-keys: append($is-keys, false);
+  @if not $map {
+    @if type-of($key) == 'map' {
+      $map: $key;
+    } @else if type-of($key) == 'list' {
+      // check if $key is a simple list
+      @if is-simple-list($key) {
+        $keys: $key;
       } @else {
-        $is-keys: append($is-keys, true);
-      }
-    }
+        @each $item in $key {
+          $type: type-of($item);
 
-    // get $keys
-    @if index($is-keys, false) {
-      $keys: ro-get-type($key, 'list');
-    } @else {
-      $keys: $key;
-    }
-    // get map
-    $map: ro-get-type($key, 'map');
-  }
-  
-  @if $map {
-    $keys: map-keys($map);
-    $values: map-values($map);
-    
-    // get order
-    $u-values: list-ascend(remove-dup($values)); // reordered values
-    @each $u-val in $u-values {
-      @for $i from 1 through length($values) {
-        @if nth($values, $i) == $u-val {
-          $order: append($order, $i);
+          @if $type == 'list' {
+            $keys: ro-get-type($key, 'list');
+          } @else if $type == 'map' {
+            @if not $map {
+              $map: $item;
+            } @else if not $global-breakpoint {
+              $global-breakpoint: $item;
+            }
+          }
         }
       }
     }
+  }
+  
+  @if $map {
+    @if is-simple-map($map) {
+      $keys: map-keys($map);
+      $values: map-values($map);
+      $order: liquid-order($values);
+
+      @include make-liquid-2($keys, $values, $order, $child, $gutter, $keep);
+    } @else {
+      // has breakpoint
+      $keep: true;
+      $local-breakpoint: map-keys($map);
+
+      @include bp($condition $media-type nth($local-breakpoint, 1)) {
+        @include flexbox;
+        @include align-content(stretch);
+        > #{$child} { @include align-content(stretch); }
+        
+        .no-flexbox.no-flexboxtweener & {
+          @include clearfix();
+          > #{$child} { box-sizing: border-box; }
+        }
+      }
+      
+      @each $bp in $local-breakpoint {
+        @include bp($condition $media-type $bp) {
+          $keys: map-keys(map-get($map, $bp));
+          $values: map-values(map-get($map, $bp));
+          $order: liquid-order($values);
+
+          @include make-liquid-2($keys, $values, $order, $child, $gutter, $keep);
+        }
+      }
+    }
+    
   } @else {
     $values: (0, 0);
     $order: (1, 2);
+
+    @include make-liquid-2($keys, $values, $order, $child, $gutter, $keep);
   }
-  
+
+}
+
+@mixin make-liquid-2 ($keys, $values, $order, $child, $gutter, $keep) {  
   // *** output *** //
   // &:before { content: '#{$order}'; position: absolute; margin-top: -20px; }
   @if not $keep {
@@ -150,3 +184,19 @@
     }
   }
 }
+
+@function liquid-order($values) {
+  $u-values: list-ascend(remove-dup($values)); // reordered values
+  $order: ();
+
+  @each $u-val in $u-values {
+    @for $i from 1 through length($values) {
+      @if nth($values, $i) == $u-val {
+        $order: append($order, $i);
+      }
+    }
+  }
+
+  @return $order;
+}
+

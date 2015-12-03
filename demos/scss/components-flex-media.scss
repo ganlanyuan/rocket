@@ -2,4 +2,4 @@
 
 // *** addons: flex media *** //
 
-.video { @include flex-media(iframe 315/560); }
+.video { @include flex-media(iframe (315/560)); }
