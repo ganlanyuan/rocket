@@ -2,8 +2,8 @@
 
 // *** layout: liquid-2 *** //
 $map: (
-  null: (200px, null),
-  small: (400px, null),
+  null: (300px: 1, null: 0),
+  small: (100px, null),
   800px: (null, 300px),
 );
 $bp: (
