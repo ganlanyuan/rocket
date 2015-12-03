@@ -1,5 +1,13 @@
 @import 'demo-base';
 
 // *** layout: liquid-2 *** //
-
-.example-liquid-2 { @include liquid-2((null:1, 200px:0)); }
+$map: (
+  null: (200px, null),
+  small: (400px, null),
+  800px: (null, 300px),
+);
+$bp: (
+  small: 600px,
+);
+.example-liquid-2 { @include liquid-2(layout $map bp $bp); }
+// .example-liquid-2 { @include liquid-2((null:1, 200px:0)); }

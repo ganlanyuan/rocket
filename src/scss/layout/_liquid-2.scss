@@ -64,12 +64,26 @@
       }
       
       @each $bp in $local-breakpoint {
-        @include bp($condition $media-type $bp) {
+        @if $bp == null  {
           $keys: map-keys(map-get($map, $bp));
           $values: map-values(map-get($map, $bp));
           $order: liquid-order($values);
 
           @include make-liquid-2($keys, $values, $order, $child, $gutter, $keep);
+        } @else {
+          @if type-of($bp) == 'string' and 
+              $global-breakpoint and
+              index(map-keys($global-breakpoint), $bp) {
+                $bp: map-get($global-breakpoint, $bp);
+          }
+          
+          @include bp($condition $media-type $bp) {
+            $keys: map-keys(map-get($map, $bp));
+            $values: map-values(map-get($map, $bp));
+            $order: liquid-order($values);
+
+            @include make-liquid-2($keys, $values, $order, $child, $gutter, $keep);
+          }
         }
       }
     }
