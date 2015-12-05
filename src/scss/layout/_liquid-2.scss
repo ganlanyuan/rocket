@@ -1,43 +1,44 @@
 // *** liquid-2 *** //
 @mixin liquid-2($key){
-  $map: ro-get-next($key, 'layout');
+  $map: false;
   $column-width: false;
-  $order: false;
-  $position-number: false;
-  $local-breakpoint: ();
+  $order: false; // for flexbox
+  $position-number: false; // for non-flexbox
 
-  $global-breakpoint: ro-get-next($key, 'bp');
+  $global-breakpoint: false;
+  $local-breakpoint: ();
   $condition: ro-get($key, ('min' 'max'), 'min');
   $media-type: ro-get($key, $ro-media-type);
 
   $use-flex: ro-get($key, 'use-flex');
-  $non-flex-selector: '&';
-  @if $use-flex { $non-flex-selector: '.no-flexbox.no-flexboxtweener &'; }
+  $non-flex: if(
+    $use-flex,
+    '.no-flexbox.no-flexboxtweener &',
+    '&');
 
   $child: ro-get-next($key, 'child', 'div');
   $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $keep: ro-get($key, 'keep', false);
 
   // get map
-  @if not $map {
-    @if type-of($key) == 'map' {
-      $map: $key;
-    } @else if type-of($key) == 'list' {
-      // check if $key is a simple list
-      @if is-simple-list($key) {
-        $column-width: $key;
-      } @else {
-        @each $item in $key {
-          $type: type-of($item);
-
-          @if $type == 'list' {
-            $column-width: ro-get-type($key, 'list');
-          } @else if $type == 'map' {
-            @if not $map {
-              $map: $item;
-            } @else if not $global-breakpoint {
-              $global-breakpoint: $item;
-            }
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    @if is-simple-list($key) and is-liquid-list($key) {
+      $column-width: $key;
+    } @else {
+      @each $item in $key {
+        @if type-of($item) == 'list' and is-simple-list($item) {
+          @if is-liquid-list($item) {
+            $column-width: $item;
+          } @else {
+            $child: $item;
+          }
+        } @else if type-of($item) == 'map' {
+          @if not $map {
+            $map: $item;
+          } @else if not $global-breakpoint {
+            $global-breakpoint: $item;
           }
         }
       }
@@ -50,7 +51,7 @@
       $order: map-values($map);
       $position-number: get-position-number($order);
 
-      @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+      @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
     } @else {
       // has breakpoint
       $keep: true;
@@ -58,10 +59,10 @@
       $local-breakpoint-num: get-breakpoint($local-breakpoint, $global-breakpoint);
 
       @if nth($local-breakpoint-num, 1) == null {
-        @include liquid-2-base($child, $gutter, $use-flex, $non-flex-selector);
+        @include liquid-2-base($child, $gutter, $use-flex, $non-flex);
       } @else {
         @include bp($condition $media-type nth($local-breakpoint-num, 1)) {
-          @include liquid-2-base($child, $gutter, $use-flex, $non-flex-selector);
+          @include liquid-2-base($child, $gutter, $use-flex, $non-flex);
         }
       }
 
@@ -73,7 +74,6 @@
         @if $bp == null  {
           @if $layout-type == 'list' {
             $column-width: $layout;
-            // $order: (0, 0);
             @if not $position-number { $position-number: (1, 2); }
           } @else if $layout-type == 'map' {
             $column-width: map-keys($layout);
@@ -81,12 +81,11 @@
             $position-number: get-position-number($order);
           }
 
-          @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+          @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
         } @else {
           @include bp($condition $media-type nth($local-breakpoint-num, $i)) {
             @if $layout-type == 'list' {
               $column-width: $layout;
-              // $order: (0, 0);
               @if not $position-number { $position-number: (1, 2); }
             } @else if $layout-type == 'map' {
               $column-width: map-keys($layout);
@@ -94,111 +93,122 @@
               $position-number: get-position-number($order);
             }
 
-            @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+            @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
           }
         }
       }
     }
     
   } @else {
-    // $order: (0, 0);
     @if not $position-number { $position-number: (1, 2); }
 
-    @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector);
+    @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
   }
 
 }
 
-@mixin liquid-2-base($child, $gutter, $use-flex, $non-flex-selector){
+@mixin liquid-2-base($child, $gutter, $use-flex, $non-flex){
+  $children: if(
+    type-of($child) == 'list' and length($child) == 2,
+    ("> #{nth($child, 1)}, > #{nth($child, 2)}"), 
+    "> #{$child}" );
+
+  // flexbox
   @if $use-flex {
     @include flexbox;
     @include align-content(stretch);
-    > #{$child} { @include align-content(stretch); }
+    #{$children} { @include align-content(stretch); }
     .flexbox &, .flexboxtweener & { 
       margin-right: - $gutter;
-      > #{$child} { margin-right: $gutter; }
+      #{$children} { margin-right: $gutter; }
     }
   }
   
-  #{$non-flex-selector} {
+  // non-flexbox
+  #{$non-flex} {
     @include clearfix();
-    > #{$child} { box-sizing: border-box; }
+    #{$children} { box-sizing: border-box; }
   }
 }
 
-@mixin make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex-selector) {  
-  @if not $keep and $use-flex {
-    @if $column-width {
+@mixin make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex) {  
+
+  $child-list: if(
+    type-of($child) == 'list' and length($child) == 2,
+    $child, 
+    ("> #{$child}:nth-child(1)", "> #{$child}:nth-child(2)") );
+  $children: if(
+    type-of($child) == 'list' and length($child) == 2,
+    ("> #{nth($child, 1)}, > #{nth($child, 2)}"), 
+    "> #{$child}" );
+
+  // flexbox
+  @if $use-flex {
+    @if not $keep {
       @include flexbox;
       @include align-content(stretch);
       margin-right: - $gutter;
-    }
-  }
-
-  @if $column-width and $use-flex {
-    > #{$child} {
-      @if not $keep { 
+      #{$children} {
         @include align-content(stretch); 
         .flexbox &, .flexboxtweener & { margin-right: $gutter; }
       }
+    }
 
-      @for $i from 1 through length($column-width) {
-        // set width
-        $thisWidth: nth($column-width, $i);
-        $asides: reject($column-width, null);
-        &:nth-child(#{$i}) {
-          @if $thisWidth == null {
-            width: calc(100% - #{nth($asides, 1)} - #{$gutter});
-          } @else {
-            width: $thisWidth;
-          }
+    @for $i from 1 through length($column-width) {
+      // set width
+      $thisWidth: nth($column-width, $i);
+      $asides: reject($column-width, null);
 
-          // set order
-          @if $order {
-            @include order(nth($order, $i));
-          }
-        }
+      #{nth($child-list, $i)} {
+        width: if(
+          $thisWidth == null,
+          ( calc(100% - #{nth($asides, 1)} - #{$gutter}) ), 
+          $thisWidth );
+        @if $order { @include order(nth($order, $i)); }
       }
     }
   }
-  // no-flexbox
-  #{$non-flex-selector} {
-    $sidebar-position: left;
-    $sidebar-order: 1;
-    $main-order: 2;
-    @if nth($column-width, nth($position-number, 1)) == null { 
-      $sidebar-position: right; 
-    }
-    @if nth($column-width, 1) == null { 
-      $sidebar-order: 2;
-      $main-order: 1;
-    }
+
+  // non-flexbox
+  #{$non-flex} {
+    $sidebar-position: if(
+      nth($column-width, nth($position-number, 1)) == null, 
+      right,
+      left );
+    $sidebar-order: if(
+      nth($column-width, 1) == null,
+      2,
+      1 );
+    $main-order: if(
+      nth($column-width, 1) == null,
+      1,
+      2 );
+    $child-reset: if(
+      type-of($child) == 'list' and length($child) == 2,
+      $children,
+      "> #{$child}:nth-child(1), > #{$child}:nth-child(2)" );
 
     @if $column-width {
       @if not $keep { @include clearfix(); }
-
-      // reset padding, margin
       padding: 0;
-      > #{$child}:nth-child(n) { margin: 0; padding: 0; }
-      
       padding-#{$sidebar-position}: nth($column-width, $sidebar-order);
-      > #{$child} {
+
+      @if $keep { #{$child-reset} { padding: 0; } }
+
+      #{$children} {
         @if not $keep { box-sizing: border-box; }
-
-        @if nth($column-width, 1) == null {
-          float: opposite($sidebar-position);
-        } @else {
-          float: $sidebar-position;
-        }
-
-        &:nth-child(#{$main-order}) {
-          width: 100%;
-          padding-#{$sidebar-position}: $gutter;
-        } 
-        &:nth-child(#{$sidebar-order}) {
-          width: nth($column-width, $sidebar-order);
-          margin-#{$sidebar-position}: - nth($column-width, $sidebar-order);
-        }
+        float: if(
+          nth($column-width, 1) == null, 
+          opposite($sidebar-position),
+          $sidebar-position );
+      }
+      #{nth($child-list, $main-order)} {
+        width: 100%;
+        padding-#{$sidebar-position}: $gutter;
+      } 
+      #{nth($child-list, $sidebar-order)} {
+        width: nth($column-width, $sidebar-order);
+        margin-#{$sidebar-position}: - nth($column-width, $sidebar-order);
       }
 
     }
@@ -218,4 +228,21 @@
   }
 
   @return $position-number;
+}
+
+// == is-liquid-list ==
+@function is-liquid-list($key) {
+  $is-liquid-list: ();
+
+  @each $item in $key {
+    $is-liquid-list: if(
+      type-of($item) != 'number' and $item != null,
+      append($is-liquid-list, false),
+      append($is-liquid-list, true) );
+  }
+
+  @return if(
+    index($is-liquid-list, false),
+    false,
+    true );
 }

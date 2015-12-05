@@ -207,32 +207,6 @@
   }
 }
 
-// == is-number-list ==
-@function is-number-list($key) {
-  $is-number-list: ();
-  @each $item in $key {
-    @if type-of($item) == 'list' {
-      @each $sub-item in $item {
-        @if type-of($item) != 'number' {
-          $is-number-list: append($is-number-list, false);
-        } @else {
-          $is-number-list: append($is-number-list, true);
-        }
-      }
-    } @else if type-of($item) != 'number' {
-      $is-number-list: append($is-number-list, false);
-    } @else {
-      $is-number-list: append($is-number-list, true);
-    }
-  }
-
-  // return
-  @if index($is-number-list, false) {
-    @return false;
-  } @else {
-    @return true;
-  }
-}
 
 // == is-nested-list == 
 @function is-nested-list($key) {
