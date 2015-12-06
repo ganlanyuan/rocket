@@ -186,7 +186,7 @@
     $child-reset: if(
       type-of($child) == 'list' and length($child) == 2,
       $children,
-      "> #{$child}:nth-child(1), > #{$child}:nth-child(2)" );
+      "> #{$child}:nth-child(n)" );
 
     @if $column-width {
       @if not $keep { @include clearfix(); }
