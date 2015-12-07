@@ -1,5 +1,11 @@
 # Changelog
 
+### 3.2.1
++ Added: `responsive-table.js`.
++ Improved: `liquid-2`, `liquid-3` now accept breakpoint parameters.
++ Fixed: an issue in `transition.scss`.
++ Fixed: `priority-nav`, `grid` and `container`.
+
 ### 3.2.0 
 + Added: `hide-text`.
 + Added: `input-file`.
