@@ -1,0 +1,58 @@
+@import 'demo-base';
+// *** layout: grid *** //
+
+@mixin masonry ($key) {
+  $map: false;
+  $map-keys: false;
+  $condition: ro-get($key, ('min' 'max'), 'min');
+
+  $gutter: ro-get-next($key, 'gutter');
+  @if not $gutter { $gutter: 0; }
+  $half-gutter: ($gutter / 2);
+
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'map' {
+        @if not $map {
+          $map: $item;
+        }
+      }
+    }
+  }
+
+  // set col width
+  @if $map {
+    @each $item in $map-keys {
+      @if type-of($item) == 'number' {
+        @include bp($item $condition) { 
+        }
+      } @else if $item == 'null' or $item == 'default' {
+      } @else if $breakpoints {
+        @include bp(map-get($breakpoints, $item) $condition) { 
+        }
+      }
+    }
+  } @else {
+  }
+
+}
+
+
+.masonry-layout {
+  column-count: 3;
+  column-gap: 20px;
+}
+.masonry-layout-panel {
+  break-inside: avoid;
+  padding-bottom: 20px;
+}
+.masonry-layout-panel__content {
+  padding: 15px;
+  // border-radius: 10px;
+  line-height: 1.5;
+  font-size: 19px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
