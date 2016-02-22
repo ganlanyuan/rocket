@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.3.0 
++ Added: `masonry`.
+
 ### 3.2.0 
 + Added: `hide-text`.
 + Added: `input-file`.

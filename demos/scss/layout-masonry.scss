@@ -1,58 +1,45 @@
 @import 'demo-base';
-// *** layout: grid *** //
+// *** layout: masonry *** //
 
-@mixin masonry ($key) {
-  $map: false;
-  $map-keys: false;
-  $condition: ro-get($key, ('min' 'max'), 'min');
+$masonry: (
+  'default': 1,
+      600px: 2,
+      768px: 3,
+     1024px: 4,
+);
 
-  $gutter: ro-get-next($key, 'gutter');
-  @if not $gutter { $gutter: 0; }
-  $half-gutter: ($gutter / 2);
+.masonry { @include masonry($masonry gutter 20px); }
 
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'map' {
-        @if not $map {
-          $map: $item;
-        }
-      }
-    }
-  }
-
-  // set col width
-  @if $map {
-    @each $item in $map-keys {
-      @if type-of($item) == 'number' {
-        @include bp($item $condition) { 
-        }
-      } @else if $item == 'null' or $item == 'default' {
-      } @else if $breakpoints {
-        @include bp(map-get($breakpoints, $item) $condition) { 
-        }
-      }
-    }
-  } @else {
-  }
-
+// other styles
+.masonry > li > * {
+  border-radius: 5px;
+  overflow: hidden;
 }
-
-
-.masonry-layout {
-  column-count: 3;
-  column-gap: 20px;
-}
-.masonry-layout-panel {
-  break-inside: avoid;
-  padding-bottom: 20px;
-}
-.masonry-layout-panel__content {
+.masonry-content {
+  background: #f2f2f2;
   padding: 15px;
-  // border-radius: 10px;
-  line-height: 1.5;
-  font-size: 19px;
-  font-weight: bold;
-  text-transform: uppercase;
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+}
+
+// fallback
+.no-csscolumns {
+  .masonry {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
 }

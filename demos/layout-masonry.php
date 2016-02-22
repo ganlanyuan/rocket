@@ -6,56 +6,145 @@
     <div class="topic">
       <h2 class="main-heading"><span>layout: </span>masonry</h2>
       <div class="example">
-        <div class="masonry-layout" data-margin>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"It was joyous because for the first time in three months, Marius and Ruth were together with all five children at the same time, in the same place. It was such a happy reunion, for everybody had so much to say," the website announced in an official statement on Thursday.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"Naomi couldn't stop talking; Ioan, the 2-year-old boy had learned a few more words and had a lot to say also. Baby Ezekiel was happier than ever," the statement continued.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>After the family talked and played, they sat at the table to eat a meal.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>The statement details how the family, which previously claimed that their children were taken because of concerns with their Christian faith, was allowed to pray and even sang a prayer-song before they ate their rooster and soup.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>Although most of the visit was joyous, the parents grew concerned after Naomi told them that she didn't want them to die because she still has much to learn from them. Naomi's comment led them to wonder where she got the idea that they were going to die.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"The day was a mixture of joy and sorrow, for after three hours had passed, they had to part again," the statement explains. "The children cannot understand why they can't stay with their parents but, instead, have to go to strangers."</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>The Bodnarius still need to stand trial in order to regain custody of their children. As the agency wants them to submit to a psychological evaluation, the family has requested that a psychologist not associated with the Barnevernet to do the evaluations.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>The statement claims that the prosecutor denied the family's proposal for an outside psychologist.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>Although supporters believed that the Bodnarius would have their day in court sometime in March, the statement implies that the case might not be heard until May.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"The same prosecutor is too busy to attend a court hearing before the end of May and Barnevernet thinks this is in the superior interest of the baby," the statement argues.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>While the Norwegian media has been less-than sympathetic toward the Bodnariu family, the children's grandfather <a href="http://bodnariufamily.org/articles/ruths-father-letter-for-local-government-and-norwegian-media-tatal-lui-ruth-mesaj-pentru-administratia-locala-si-presa-norvegiana-bilingual/" target="_blank">released a statement</a>&nbsp;on Friday to break his silence about the situation.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"This case has hurt the whole family and way beyond us. It has also been painful to read articles about the case in different newspapers where the upbringing of the children has been presented negatively without knowing the actual conditions," Ruth's father was quoted as saying. "We who live here in the home and have had the children around us since they were born, must be the ones who know best how the children have been with their parents."</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"Grandmother has at times taken much care of the children. When they came from school and the parents were not at home, the kids were with us," he continued. "When their present home was being refurbished, the whole family lived with us for six months, and we, thereby, had full insight into their upbringing."</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>The grandfather added that he has never seen any violence in their family.</div>
-          </div>
-          <div class="masonry-layout-panel">
-            <div class="masonry-layout-panel__content" data-content>"We can assure that we have never seen that violence has been used against the children. Not even that they have raised their voices to them," he said. "The children themselves have never told us that the parents have been nasty to them. For us who love our grandchildren so much, it would be inconceivable to know that they were not happy and not to intervene. After all, we are well informed people."</div>
-          </div>
-        </div>
+        <ul class="masonry">
+          <li>
+            <div class="masonry-content">
+              <h3>Kalamazoo Searches for Motive in Spree That Killed 6</h3>
+              <p>The eight remaining justices return to the bench on Monday for the first time since Justice Antonin Scalia’s death. He had been the longest-serving member of the current court, so the other justices knew only one kind of Supreme Court argument — the kind dominated by a giant personality now departed. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered</h3>
+              <p> I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him. </p>
+            </div>
+          </li>
+          <li>
+            <div class="masonry-content">
+              <h3>After South Carolina, Cruz and Rubio Vie to Become Top Rival to Trump</h3>
+              <p> He asked more questions than any other justice. He deployed sarcastic put-downs and provocative remarks. But he also had keen insights, a tart wit and an enviable ability to turn a phrase. He was easily the most quotable member of the court. No one else was even close. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/sports/lifestyle/preview/mountainbike_gears_8064585.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Is There Any Stopping Donald Trump?</h3>
+              <p> On Monday, Justice Scalia’s chair and the bench in front of it will be draped in black. The arguments, in a pair of minor cases, will no doubt be muted. Some losses start to feel real only when you return to the routines of daily life. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Delegate Count Leaving Bernie Sanders With Steep Climb</h3>
+              <p>Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>The Party of Bush Yields, Warily, to a New Face: Donald Trump</h3>
+              <p>Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?</h3>
+              <p>Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court. </p>
+            </div>
+          </li>
+          <li>
+            <div class="masonry-content">
+              <h3>“The Isaac Mizrahi Pictures: New York City 1989-1993”</h3>
+              <p>Lawyers are already scrutinizing the backgrounds of possible nominees, and top aides are almost certainly reaching out to potential picks. And in the days ahead, President Obama will want to interview those he is considering. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Where Will Bush Voters Go?</h3>
+              <p>But if the White House has its way, all of that will happen directly under the noses of people like me, and without leaking. In 2009 and 2010, Mr. Obama’s advisers did that pretty well, though word of the president’s in-person interviews quickly spread. </p>
+            </div>
+          </li>
+          <li>
+            <div class="masonry-content">
+              <h3>Donald Trump Wins South Carolina Primary; Cruz and Rubio Vie for 2nd</h3>
+              <p>This time, with the stakes so high, I expect my fellow White House correspondents and I will try hard to pierce the wall of confidentiality that Mr. Obama and his aides have already begun to erect. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/food/drinks/preview/cappuccino_mug.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Apple Moves to Shift Battle Over Unlocking iPhone to Capitol Hill</h3>
+              <p>Is the Supreme Court hanging in the balance a winning campaign issue? Senator Ted Cruz sure thinks so. He has spent much of the last week assuring voters that he’s the only conservative fit to appoint a true “constitutionalist” to replace Justice Scalia. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/workplace/energy/preview/arc_welding.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Oscars Pin Hopes on Chris Rock for Ratings</h3>
+              <p>Michael D. Shear, a longtime political reporter, is based at the White House for The Times. He focuses on immigration, health care, gun control and executive authority. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/buildings/london/preview/big_ben.jpg" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>5G Is a New Frontier for Mobile Carriers and Tech Companies</h3>
+              <p>It gets a little more personal on Monday as the Senate returns after a week’s recess. Now the conflict over how to replace Justice Scalia switches from one waged long distance through news releases and media interviews to one that is more face-to-face as senators converge on the floor and in Capitol hallways. </p>
+            </div>
+          </li>
+          <li><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
+          <li>
+            <div class="masonry-content">
+              <h3>Bits: What 5G Will Mean for You</h3>
+              <p>Top Democrats and Republicans will immediately begin meeting to map strategy and figure out how to push their preferred message while countering the opposition’s. Republicans, scattered across the country and around the world over the Presidents’ Day break, have struggled to produce a strong unified position. </p>
+            </div>
+          </li>
+          <li>
+            <div class="masonry-content">
+              <h3>Facebook Open Sources Wireless Gear</h3>
+              <p>Being able to gather in one room to hash things out should give them a chance to come up with a common theme — and to exert pressure on wobbly colleagues who might be nervous about stonewalling a Supreme Court nominee. </p>
+            </div>
+          </li>
+        </ul>
       </div>
       <pre><code class="language-scss">
-      </code></pre>
+.masonry { @include masonry($masonry gutter 20px); }
+
+/* other styles */
+.masonry > li > * {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.masonry-content {
+  background: #f2f2f2;
+  padding: 15px;
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+}
+
+/* fallback */
+.no-csscolumns {
+  .masonry {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
+}      </code></pre>
     </div>
     
     <?php include "include/more-demos.php" ?>

@@ -1,104 +1,78 @@
 // *** masonry *** //
 @mixin masonry ($key) {
-  $edges: ro-get($key, $ro-angled-edges, 'bottom');
-  $flip: ro-get($key, 'flip');
+  $map: false;
+  $map-keys: false;
+  $count: false;
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $child: ro-get-next($key, 'child', 'li');
 
-  // set selector
-  $selector: '&:before, &:after';
-  @if $edges == 'top' {
-    $selector: '&:before';
-  } @else if $edges == 'bottom' {
-    $selector: '&:after';
-  }
+  $gutter: ro-get-next($key, 'gutter');
+  @if not $gutter { $gutter: 0; }
 
-  // set colors & angles
-  $color1: false;
-  $color2: false;
-  $angle-1: false;
-  $angle-2: false;
-  @each $item in $key {
-
-    // colors
-    @if type-of($item) == 'color' {
-      @if not $color1 {
-        $color1: $item;
-      } @else if not $color2 {
-        $color2: $item;
+  // get map
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'map' {
+        @if not $map {
+          $map: $item;
+        }
       }
     }
+  } 
 
-    // angles
-    @if type-of($item) == 'number' and unit($item) == 'deg' {
-      @if not $angle-1 {
-        $angle-1: $item;
-      } @else if not $angle-2 {
-        $angle-2: $item;
+  // get count
+  @if not $map {
+    @if type-of($key) == 'number' {
+      @if unitless($key) { $count: $key; }
+    } @else if type-of($key) == 'list' {
+      @each $item in $key {
+        @if type-of($item) == 'number' {
+          @if not $count and unitless($item) { $count: $item; }
+        }
       }
     }
-  }
-  @if not $color1 {$color1: #fff; }
-  @if not $color2 {$color2: #fff; }
-  @if not $angle-1 { $angle-1: 5deg; }
-  @if not $angle-2 { 
-    $angle-2: $angle-1; 
-    @if $flip { $angle-2: - $angle-1; }
   }
 
   // *** output *** //
-  position: relative;
-  overflow: hidden;
-  #{$selector} {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-color: transparent;
+  overflow: hidden; // fix an chrome overflow
+  -webkit-column-gap: $gutter;
+     -moz-column-gap: $gutter;
+          column-gap: $gutter;
+  > #{$child} {
+    padding-bottom: $gutter;
+    -webkit-column-break-inside: avoid;
+              page-break-inside: avoid;
+                   break-inside: avoid;
   }
 
-  $border-width: 5000px;
-  @if $edges == 'top' or $edges == 'bottom' {
-    $dir: right;
-    @if $edges == 'bottom' { $dir: left; }
+  @if $map {
+    $map-keys: map-keys($map);
 
-    padding-#{$edges}: edge-tan($angle-1, 100%);
-    #{$selector} {
-      #{$edges}: 0;
-      border-#{$edges}: edge-tan($angle-1, $border-width) solid $color1;
-      @if strip-unit($angle-1) > 0 {
-        #{$dir}: 0;
-        border-#{$dir}-width: $border-width;
-      } @else {
-        #{opposite($dir)}: 0;
-        border-#{opposite($dir)}-width: $border-width;
+    @each $item in $map-keys {
+      @if type-of($item) == 'number' {
+        @include bp($item $condition) {
+          -webkit-column-count: map-get($map, $item);
+             -moz-column-count: map-get($map, $item);
+                  column-count: map-get($map, $item);
+        }
+      } @else if $item == 'null' or $item == 'default' {
+        -webkit-column-count: map-get($map, $item);
+           -moz-column-count: map-get($map, $item);
+                column-count: map-get($map, $item);
+      } @else if $breakpoints {
+        @include bp(map-get($breakpoints, $item) $condition) { 
+          -webkit-column-count: map-get($map, $item);
+             -moz-column-count: map-get($map, $item);
+                  column-count: map-get($map, $item);
+        }
       }
     }
-  } @else if $edges == 'both' {
-    padding-top: edge-tan($angle-1, 100%);
-    padding-bottom: edge-tan($angle-2, 100%);
-    &:before {
-      top: 0;
-      border-top: edge-tan($angle-1, $border-width) solid $color1;
-      @if strip-unit($angle-1) > 0 {
-        right: 0;
-        border-right-width: $border-width;
-      } @else {
-        left: 0;
-        border-left-width: $border-width;
-      }
-    }
-    &:after {
-      bottom: 0;
-      border-bottom: edge-tan($angle-2, $border-width) solid $color2;
-      @if strip-unit($angle-2) > 0 {
-        left: 0;
-        border-left-width: $border-width;
-      } @else {
-        right: 0;
-        border-right-width: $border-width;
-      }
-    }
+  } @else if $count {
+    -webkit-column-count: $count;
+       -moz-column-count: $count;
+            column-count: $count;
   }
 
 }

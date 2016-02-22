@@ -45,7 +45,7 @@
   	echo 'href="css/' . $pagename . '.css"';
   ?> rel="stylesheet">
 
-	<!-- javascript -->
+	<!-- javascript --> 
 	<!--[if (lt IE 9)]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<script src="js/ie.min.js"></script>
