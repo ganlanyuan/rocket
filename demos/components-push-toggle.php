@@ -51,7 +51,8 @@
 }
       </code></pre>
     
-    <?php include "include/more-demos.php" ?>
+      <?php include "include/more-demos.php" ?>
+    </div>
   </div>
   <?php include "include/site-footer.php"; ?>
 </div>
