@@ -159,7 +159,7 @@
     $rotate-val-right: perspective(600px) scale(0.85) rotateY(20deg);
   }
   @if index(('scale' 'rotate'), $style) {
-    .inner > li { @include transition(transform $speed); }
+    .inner > li { @include ro-transition(transform $speed); }
 
     @for $i from 1 through $items {
       #{$id}-#{$i}:checked ~ {
@@ -195,17 +195,17 @@
           } 
           // left, right
           @if $style == 'scale' {
-            &:nth-child(n) { @include transform(#{$scale-val}); }
+            &:nth-child(n) { @include ro-transform(#{$scale-val}); }
           } @else if $style == 'rotate' {
-            &:nth-child(-n + #{$left-num}) { @include transform(#{$rotate-val-left}); }
-            &:nth-child(n + #{$right-num}) { @include transform(#{$rotate-val-right}); }
+            &:nth-child(-n + #{$left-num}) { @include ro-transform(#{$rotate-val-left}); }
+            &:nth-child(n + #{$right-num}) { @include ro-transform(#{$rotate-val-right}); }
           }
           // center
           @if $perpage < 5 and ceil($perpage / 2) == ($perpage / 2) {
             &:nth-child(#{$center-num}), 
-            &:nth-child(#{$center-num + 1}) { @include transform(scale(1) rotateY(0deg)); }
+            &:nth-child(#{$center-num + 1}) { @include ro-transform(scale(1) rotateY(0deg)); }
           } @else {
-            &:nth-child(#{$center-num}) { @include transform(scale(1) rotateY(0deg)); }
+            &:nth-child(#{$center-num}) { @include ro-transform(scale(1) rotateY(0deg)); }
           }
         }
       }
@@ -213,7 +213,7 @@
   } @else {
     @for $i from 1 through $items {
       #{$id}-#{$i}:checked ~ .outer > .inner > li:nth-child(n) {
-        @include transform(scale(1) rotateY(0deg));
+        @include ro-transform(scale(1) rotateY(0deg));
       }
     }
   }
@@ -254,7 +254,7 @@
     $left-val: 0;
     $frames: 1;
 
-    @include keyframes(#{$prefix}-inner) {
+    @include ro-keyframes(#{$prefix}-inner) {
       @if $bypage { $frames: ceil($items/$perpage); } 
       @else { $frames: ($items - $perpage + 1); }
       
@@ -325,7 +325,7 @@
     
     // progress-bar keyframes
     @if $progress-bar {
-      @include keyframes(#{$prefix}-progress) {
+      @include ro-keyframes(#{$prefix}-progress) {
         0% { width: 0; }
         #{percentage($timeout / $time-per-item)} { width: 100%; }
         #{percentage($timeout / $time-per-item + 0.0001)} { width: 0; }
@@ -335,9 +335,9 @@
 
     @at-root {
       #{$id}-autoplay:checked ~ {
-        .outer > .inner { @include animation(#{$prefix}-inner $time-per-item * $frames ease infinite); }
+        .outer > .inner { @include ro-animation(#{$prefix}-inner $time-per-item * $frames ease infinite); }
         @if $progress-bar {
-          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
+          .autoplay > .autoplay-progress { @include ro-animation( #{$prefix}-progress $time-per-item ease infinite); }
         }
       }
     }
@@ -345,9 +345,9 @@
     @if $hoverpause {
       &:hover {
         #{$id}-autoplay ~ {
-          .outer > .inner { @include animation-play-state(paused); }
+          .outer > .inner { @include ro-animation-play-state(paused); }
           @if $progress-bar {
-            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
+            .autoplay > .autoplay-progress { @include ro-animation-play-state(paused); }
           }
         }
       }

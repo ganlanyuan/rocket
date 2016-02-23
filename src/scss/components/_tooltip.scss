@@ -68,8 +68,8 @@
 
   // individual direction
   @if $direction == top {
-    &:before { @include triangle(12px, $color, down); }
-    &:after { @include transform(translate(-50%, -100%)); }
+    &:before { @include ro-triangle(12px, $color, down); }
+    &:after { @include ro-transform(translate(-50%, -100%)); }
     .no-csstransforms &:after { 
       @if unit($height) == 'px' {
         margin-top: - ($height + 19px); 
@@ -78,12 +78,12 @@
       }
     }
   } @else if $direction == bottom {
-    &:before { @include triangle(12px, $color, up); }
-    &:after { @include transform(translate(-50%, 100%)); }
+    &:before { @include ro-triangle(12px, $color, up); }
+    &:after { @include ro-transform(translate(-50%, 100%)); }
     .no-csstransforms &:after { margin-top: 6px; }
   } @else if $direction == left {
-    &:before { @include triangle(12px, $color, right); }
-    &:after { @include transform(translate(-100%, -50%)); }
+    &:before { @include ro-triangle(12px, $color, right); }
+    &:after { @include ro-transform(translate(-100%, -50%)); }
     .no-csstransforms &:after { 
       @if unit($width) == 'px' {
         left: - ($width + 16px + 8px); // double padding + left
@@ -92,8 +92,8 @@
       }
     } 
   } @else if $direction == right {
-    &:before { @include triangle(12px, $color, left); }
-    &:after { @include transform(translate(100%, -50%)); }
+    &:before { @include ro-triangle(12px, $color, left); }
+    &:after { @include ro-transform(translate(100%, -50%)); }
     .no-csstransforms &:after {
       left: 100%;
       margin-left: 8px;

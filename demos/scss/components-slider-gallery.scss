@@ -15,11 +15,11 @@
   // setting item
   .outer { overflow: visible; }
   li { 
-    @include transform(scale(0) rotate(-140deg)); 
+    @include ro-transform(scale(0) rotate(-140deg)); 
     transition: all 1.6s !important;
   }
   @for $i from 1 through 5 {
-    #sg-customise-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include transform(scale(1) rotate(0deg)); }
+    #sg-customise-#{$i}:checked ~ .outer li:nth-child(#{$i}) { @include ro-transform(scale(1) rotate(0deg)); }
   }
   // setting .info
   .info { 

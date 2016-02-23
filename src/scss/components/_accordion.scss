@@ -22,7 +22,7 @@
     }
   }
   > #{$ac-content} {
-    @include transition(max-height $duration);
+    @include ro-transition(max-height $duration);
     max-height: 0;
     overflow: hidden;
   }

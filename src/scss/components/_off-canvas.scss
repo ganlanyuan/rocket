@@ -158,10 +158,10 @@
 
   // page
   @if $page-transform {
-    @include transition(transform $duration);
+    @include ro-transition(transform $duration);
   }
   @if $page-push {
-    @include transition($direction $duration);
+    @include ro-transition($direction $duration);
     position: relative;
     #{$direction}: 0;
 
@@ -174,26 +174,26 @@
     }
   }
   @if $transform-origin and $page-transform {
-    @include transform-origin($transform-origin);
-    @include transform-style(preserve-3d);
+    @include ro-transform-origin($transform-origin);
+    @include ro-transform-style(preserve-3d);
   }
   @if $mode == 'scale-down' {
-    @include transform-style(preserve-3d);
-    @include transform($scale-default);
+    @include ro-transform-style(preserve-3d);
+    @include ro-transform($scale-default);
     input:checked ~ & {
-      @include transform($scale-active);
+      @include ro-transform($scale-active);
     }
   } @else if $mode == 'open-door' {
-    @include transform(perspective(1000px) rotateY(0deg));
+    @include ro-transform(perspective(1000px) rotateY(0deg));
     input:checked ~ & {
       @if $direction == left {
-        @include transform(perspective(1000px) rotateY(-7deg));
+        @include ro-transform(perspective(1000px) rotateY(-7deg));
       } @else if $direction == right {
-        @include transform(perspective(1000px) rotateY(7deg));
+        @include ro-transform(perspective(1000px) rotateY(7deg));
       } @else if $direction == top {
-        @include transform(perspective(1000px) rotateX(7deg));
+        @include ro-transform(perspective(1000px) rotateX(7deg));
       } @else if $direction == bottom {
-        @include transform(perspective(1000px) rotateX(-7deg));
+        @include ro-transform(perspective(1000px) rotateX(-7deg));
       }
     }
   }
@@ -209,11 +209,11 @@
       > ul { position: relative; }
 
       @if $nav-push and $nav-transform {
-        @include transition(transform $duration, margin-#{$direction} $duration);
+        @include ro-transition(transform $duration, margin-#{$direction} $duration);
       } @else if $nav-push and not $nav-transform {
-        @include transition(margin-#{$direction} $duration);
+        @include ro-transition(margin-#{$direction} $duration);
       } @else if not $nav-push and $nav-transform {
-        @include transition(transform #{$duration});
+        @include ro-transition(transform #{$duration});
       }
 
       @if $nav-push-val {
@@ -239,17 +239,17 @@
       }
 
       @if $transform-origin and $nav-transform {
-        @include transform-origin($transform-origin);
-        @include transform-style(preserve-3d);
+        @include ro-transform-origin($transform-origin);
+        @include ro-transform-style(preserve-3d);
       }
       @if $rotate {
-        @include transform($rotate-default);
+        @include ro-transform($rotate-default);
       }
 
       @if $mode == 'scale-up' {
-        @include transform($scale-active);
+        @include ro-transform($scale-active);
         input:checked ~ & {
-          @include transform($scale-default);
+          @include ro-transform($scale-default);
         }
       }
       
@@ -298,7 +298,7 @@
       input:checked ~ & #{$nav} {
         margin-#{$direction}: 0;
         @if $rotate {
-          @include transform($rotate-active);
+          @include ro-transform($rotate-active);
         }
       }
     }
@@ -307,7 +307,7 @@
   // page-overlay
   @if $overlay {
     .page-overlay {
-      @include transition(background $duration);
+      @include ro-transition(background $duration);
       position: fixed;
       display: block;
       left: 0;
@@ -317,7 +317,7 @@
       #{opposite($direction)}: auto;
       background: transparent;
       z-index: map-get($ro-off-canvas-z-index, 'page-overlay');
-      @include transition(#{$direction} $duration);
+      @include ro-transition(#{$direction} $duration);
       input:checked ~ & {
         // background
         background: $overlay-color;

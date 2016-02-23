@@ -114,9 +114,9 @@
 
   // flexbox
   @if $use-flex {
-    @include flexbox;
-    @include align-content(stretch);
-    #{$children} { @include align-content(stretch); }
+    @include ro-flexbox;
+    @include ro-align-content(stretch);
+    #{$children} { @include ro-align-content(stretch); }
   }
   
   // non-flexbox
@@ -143,9 +143,9 @@
 
   @if $use-flex {
     @if not $keep {
-      @include flexbox;
-      @include align-content(stretch);
-      #{$children} { @include align-content(stretch); }
+      @include ro-flexbox;
+      @include ro-align-content(stretch);
+      #{$children} { @include ro-align-content(stretch); }
     }
     
     @for $i from 1 through length($column-width) {
@@ -159,7 +159,7 @@
             calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter}),
             $thisWidth );
 
-          @if $order { @include order(nth($order, $i)); }
+          @if $order { @include ro-order(nth($order, $i)); }
         }
       }
       

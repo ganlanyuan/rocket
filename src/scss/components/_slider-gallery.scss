@@ -168,45 +168,45 @@
 
   // styles
   @if $style {
-    @include keyframes(#{$prefix}-in) {
+    @include ro-keyframes(#{$prefix}-in) {
       0% {
-        @include transform($perspective $transform-before);
+        @include ro-transform($perspective $transform-before);
       }
       100% {
-        @include transform($perspective $transform-current);
+        @include ro-transform($perspective $transform-current);
       }
     }
-    @include keyframes(#{$prefix}-out) {
+    @include ro-keyframes(#{$prefix}-out) {
       0% {
-        @include transform($perspective $transform-current);
+        @include ro-transform($perspective $transform-current);
       }
       100% {
-        @include transform($perspective $transform-after);
+        @include ro-transform($perspective $transform-after);
       }
     }
     @for $i from 1 through $items {
       #{$id}-autoplay:not(:checked) ~ #{$id}-#{$i}:checked ~ .outer li {
         &:nth-child(n) { 
-          @include animation(#{$prefix}-out $speed); 
+          @include ro-animation(#{$prefix}-out $speed); 
           @if index(('rotate-in' 'rotate-out'), $style) {
-            @include transform-origin(opposite($direction));
+            @include ro-transform-origin(opposite($direction));
           } @else if $style == 'fall-down' {
             @if index((left top), $direction) {
-              @include transform-origin(100% 100%);
+              @include ro-transform-origin(100% 100%);
             } @else if index((right bottom), $direction) {
-              @include transform-origin(100% 0);
+              @include ro-transform-origin(100% 0);
             }
           }
         }
         &:nth-child(#{$i}) { 
-          @include animation(#{$prefix}-in $speed); 
+          @include ro-animation(#{$prefix}-in $speed); 
           @if index(('rotate-in' 'rotate-out'), $style) {
-            @include transform-origin($direction);
+            @include ro-transform-origin($direction);
           } @else if $style == 'fall-down' {
             @if index((left top), $direction) {
-              @include transform-origin(100% 0);
+              @include ro-transform-origin(100% 0);
             } @else if index((right bottom), $direction) {
-              @include transform-origin(100% 100%);
+              @include ro-transform-origin(100% 100%);
             }
           }
         }
@@ -217,18 +217,18 @@
   // setting autoplay
   @if $autoplay {
     // animation
-    @include keyframes(#{$prefix}) {
+    @include ro-keyframes(#{$prefix}) {
       0% { 
         @include item-hide(); 
         @if $style {
-          @include transform($perspective $transform-before);
+          @include ro-transform($perspective $transform-before);
           @if index(('rotate-in' 'rotate-out'), $style) {
-            @include transform-origin($direction);
+            @include ro-transform-origin($direction);
           } @else if $style == 'fall-down' {
             @if index((left top), $direction) {
-              @include transform-origin(100% 0);
+              @include ro-transform-origin(100% 0);
             } @else if index((right bottom), $direction) {
-              @include transform-origin(100% 100%);
+              @include ro-transform-origin(100% 100%);
             }
           }
         }
@@ -236,26 +236,26 @@
       #{percentage($speed / ($time-per-item * $items))} { 
         @include item-show(); 
         @if $style {
-          @include transform($perspective $transform-current);
+          @include ro-transform($perspective $transform-current);
         }
       }
       #{percentage($time-per-item / ($time-per-item * $items))} { 
         @include item-show(); 
         @if $style {
-          @include transform($perspective $transform-current);
+          @include ro-transform($perspective $transform-current);
         }
       }
       #{percentage(($time-per-item + $speed) / ($time-per-item * $items))} { 
         @include item-hide(); 
         @if $style {
-          @include transform($perspective $transform-after);
+          @include ro-transform($perspective $transform-after);
           @if index(('rotate-in' 'rotate-out'), $style) {
-            @include transform-origin(opposite($direction));
+            @include ro-transform-origin(opposite($direction));
           } @else if $style == 'fall-down' {
             @if index((left top), $direction) {
-              @include transform-origin(100% 100%);
+              @include ro-transform-origin(100% 100%);
             } @else if index((right bottom), $direction) {
-              @include transform-origin(100% 0);
+              @include ro-transform-origin(100% 0);
             }
           }
         }
@@ -266,7 +266,7 @@
     }
     // progress-bar keyframes
     @if $progress-bar {
-      @include keyframes(#{$prefix}-progress) {
+      @include ro-keyframes(#{$prefix}-progress) {
         0% { width: 0; }
         #{percentage($speed / $time-per-item)} { width: 0; }
         100% { width: 100%; }
@@ -276,20 +276,20 @@
     @at-root { @at-root (without: media) {
       #{$id}-autoplay:checked ~ {
         // animation
-        .outer li { @include animation( #{$prefix} ($time-per-item * $items) ease infinite); }
+        .outer li { @include ro-animation( #{$prefix} ($time-per-item * $items) ease infinite); }
         @if $progress-bar {
-          .autoplay > .autoplay-progress { @include animation( #{$prefix}-progress $time-per-item ease infinite); }
+          .autoplay > .autoplay-progress { @include ro-animation( #{$prefix}-progress $time-per-item ease infinite); }
         }
 
         // delay
         @if $items == 2 {
-          .outer li:nth-child(2) { @include animation-delay($time-per-item); }
+          .outer li:nth-child(2) { @include ro-animation-delay($time-per-item); }
         } @else {
           @for $i from 1 to $items {
             @if $i == ($items - 1) {
-              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
+              .outer li:nth-child(#{($i + 1)}) { @include ro-animation-delay(($time-per-item * $i)); }
             } @else {
-              .outer li:nth-child(#{($i + 1)}) { @include animation-delay(($time-per-item * $i)); }
+              .outer li:nth-child(#{($i + 1)}) { @include ro-animation-delay(($time-per-item * $i)); }
             }
           }
         }
@@ -299,9 +299,9 @@
     @if $hoverpause {
       &:hover {
         #{$id}-autoplay ~ {
-          .outer li { @include animation-play-state(paused); }
+          .outer li { @include ro-animation-play-state(paused); }
           @if $progress-bar {
-            .autoplay > .autoplay-progress { @include animation-play-state(paused); }
+            .autoplay > .autoplay-progress { @include ro-animation-play-state(paused); }
           }
         }
       }

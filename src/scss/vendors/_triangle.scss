@@ -1,4 +1,4 @@
-@mixin triangle($size, $color, $direction) {
+@mixin ro-triangle($size, $color, $direction) {
   $width: nth($size, 1);
   $height: nth($size, length($size));
   $foreground-color: nth($color, 1);

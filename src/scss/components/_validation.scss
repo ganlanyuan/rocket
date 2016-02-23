@@ -22,7 +22,7 @@
       display: none;
     } @else if $style == 'fade-in' {
       @include opacity(0);
-      @include transition(opacity $speed);
+      @include ro-transition(opacity $speed);
       position: absolute;
       @if $direction == right {
         margin-left: 10px;
@@ -52,14 +52,14 @@
       display: inline-block;
       #{$direction}: 0;
       @if $direction == left {
-        @include transform(translateX(-100%));
+        @include ro-transform(translateX(-100%));
       } @else if $direction == right {
-        @include transform(translateX(100%));
+        @include ro-transform(translateX(100%));
       } @else if $direction == top {
         margin-top: 0 !important;
-        @include transform(translate(-50%, -100%));
+        @include ro-transform(translate(-50%, -100%));
       } @else if $direction == bottom {
-        @include transform(translate(-50%, 100%));
+        @include ro-transform(translate(-50%, 100%));
       }
       @if $horizontal {
         bottom: 20px;
@@ -100,7 +100,7 @@
         }
         $trans-show: translate(-50%, 0);
       }
-      @include keyframes(form-slide) {
+      @include ro-keyframes(form-slide) {
         0%, 100% {
           transform: $trans-hide;
           @if $vertical { #{$direction}: 0; }
@@ -111,7 +111,7 @@
           @if $vertical { #{$direction}: 10px; }
         }
       }
-      @include animation(form-slide ($speed * 7));
+      @include ro-animation(form-slide ($speed * 7));
       // non-transform
       .no-csstransforms & { display: inline-block; }
     }
@@ -122,12 +122,12 @@
   .error { 
     position: relative; 
     @if $shake {
-      @include keyframes(form-shake) {
+      @include ro-keyframes(form-shake) {
         0%, 100% { transform: translateX(0);}
         16.6%, 50%, 83.3% { transform: translateX(-0.6em);}
         33.3%, 66.6% { transform: translateX(0.6em);}
       }
-      .js-blur { @include animation(form-shake ($speed * 1.5) 1); }
+      .js-blur { @include ro-animation(form-shake ($speed * 1.5) 1); }
     }
   }
 

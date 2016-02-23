@@ -59,7 +59,7 @@
 //
 // (Placeholder selectors for each type, for those who rather @extend)
 
-@mixin flexbox {
+@mixin ro-flexbox {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -67,11 +67,11 @@
   display: flex;
 }
 
-%flexbox { @include flexbox; }
+%flexbox { @include ro-flexbox; }
 
 //----------------------------------
 
-@mixin inline-flexbox {
+@mixin ro-inline-flexbox {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
@@ -79,7 +79,7 @@
   display: inline-flex;
 }
 
-%inline-flex { @include inline-flexbox; }
+%inline-flex { @include ro-inline-flexbox; }
 
 //----------------------------------------------------------------------
 
@@ -94,7 +94,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#flex-direction-property
 
-@mixin flex-direction($value: row) {
+@mixin ro-flex-direction($value: row) {
   @if $value == row-reverse {
     -webkit-box-direction: reverse;
     -webkit-box-orient: horizontal;
@@ -114,7 +114,7 @@
   flex-direction: $value;
 }
   // Shorter version:
-  @mixin flex-dir($args...) { @include flex-direction($args...); }
+  @mixin ro-flex-dir($args...) { @include ro-flex-direction($args...); }
 
 //----------------------------------------------------------------------
 
@@ -129,7 +129,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#flex-wrap-property
 
-@mixin flex-wrap($value: nowrap) {
+@mixin ro-flex-wrap($value: nowrap) {
   // No Webkit Box fallback.
   -webkit-flex-wrap: $value;
   -moz-flex-wrap: $value;
@@ -154,7 +154,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#flex-flow-property
 
-@mixin flex-flow($values: (row nowrap)) {
+@mixin ro-flex-flow($values: (row nowrap)) {
   // No Webkit Box fallback.
   -webkit-flex-flow: $values;
   -moz-flex-flow: $values;
@@ -173,7 +173,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#order-property
 
-@mixin order($int: 0) {
+@mixin ro-order($int: 0) {
   -webkit-box-ordinal-group: $int + 1;
   -webkit-order: $int;
   -moz-order: $int;
@@ -192,7 +192,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#flex-grow-property
 
-@mixin flex-grow($int: 0) {
+@mixin ro-flex-grow($int: 0) {
   -webkit-box-flex: $int;
   -webkit-flex-grow: $int;
   -moz-flex-grow: $int;
@@ -211,7 +211,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#flex-shrink-property
 
-@mixin flex-shrink($int: 1) {
+@mixin ro-flex-shrink($int: 1) {
   -webkit-flex-shrink: $int;
   -moz-flex-shrink: $int;
   -ms-flex-negative: $int;
@@ -229,7 +229,7 @@
 //
 // http://www.w3.org/TR/css3-flexbox/#flex-basis-property
 
-@mixin flex-basis($value: auto) {
+@mixin ro-flex-basis($value: auto) {
   -webkit-flex-basis: $value;
   -moz-flex-basis: $value;
   -ms-flex-preferred-size: $value;
@@ -251,7 +251,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#flex-property
 
-@mixin flex($fg: 1, $fs: null, $fb: null) {
+@mixin ro-flex($fg: 1, $fs: null, $fb: null) {
     
   // Set a variable to be used by box-flex properties
   $fg-boxflex: $fg;
@@ -288,7 +288,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#justify-content-property
 
-@mixin justify-content($value: flex-start) {
+@mixin ro-justify-content($value: flex-start) {
   @if $value == flex-start {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
@@ -309,7 +309,7 @@
   justify-content: $value;
 }
   // Shorter version:
-  @mixin flex-just($args...) { @include justify-content($args...); }
+  @mixin ro-flex-just($args...) { @include ro-justify-content($args...); }
 
 //----------------------------------------------------------------------
 
@@ -328,7 +328,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#align-items-property
 
-@mixin align-items($value: stretch) {
+@mixin ro-align-items($value: stretch) {
   @if $value == flex-start {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -351,7 +351,7 @@
 // Values: auto | flex-start | flex-end | center | baseline | stretch
 // Default: auto
 
-@mixin align-self($value: auto) {
+@mixin ro-align-self($value: auto) {
   // No Webkit Box Fallback.
   -webkit-align-self: $value;
   -moz-align-self: $value;
@@ -379,7 +379,7 @@
 //
 // http://w3.org/tr/css3-flexbox/#align-content-property
 
-@mixin align-content($value: stretch) {
+@mixin ro-align-content($value: stretch) {
   // No Webkit Box Fallback.
   -webkit-align-content: $value;
   -moz-align-content: $value;
