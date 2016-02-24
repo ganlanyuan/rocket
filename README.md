@@ -13,7 +13,7 @@ Rewrite main layout mixins using `flex-box`.
 Add many new sass mixins, components and javascript components.
 + Scss: `grid`, `metro` , `liquid-3` , `charts` , `validation` , `responsive-type`  
 + Javascript: `sticky` , `priority-nav` , `equalizer` , `reach` , `scrollTo`
-+ Improved `breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
++ Improved `ro-breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 #### Requests
 + [Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`)    
