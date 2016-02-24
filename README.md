@@ -86,7 +86,7 @@ Rocket/
 |       |── responsive-type (rp-type) 
 |       |── visible               
 |       |── hidden                
-|       |── breakpoint (bp)       
+|       |── ro-breakpoint (bp)       
 |       |── quantity-query (at-least, at-most, equal-to, between)       
 |       |── hide-text               
 |       |── opacity               
@@ -1447,11 +1447,11 @@ $key: $rgba
 // }
 ````
 
-#### breakpoint (bp)
+#### ro-breakpoint (bp)
 A shorthand @mixin for breakpoints.    
 Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). 
 ```` scss
-@mixin breakpoint($key)
+@mixin ro-breakpoint($key)
 // pattern
 $key: $condition $media $breakpoints
 
