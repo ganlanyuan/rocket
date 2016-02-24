@@ -1,5 +1,5 @@
 // *** breakpoint *** //
-@mixin breakpoint($key){
+@mixin ro-breakpoint($key){
   $condition: ro-get($key, ('min' 'max'), 'min');
   $media-type: ro-get($key, $ro-media-type);
 
@@ -143,7 +143,7 @@
 }
 
 @mixin bp($key) {
-  @include breakpoint($key) {
+  @include ro-breakpoint($key) {
     @content;
   };
 }
