@@ -34,16 +34,16 @@
     }
     &:before {
       left: $shadow-size;
-      @include transform(rotate(-3deg));
+      @include ro-transform(rotate(-3deg));
     }
     &:after {
       right: $shadow-size;
-      @include transform(rotate(3deg));
+      @include ro-transform(rotate(3deg));
     }
   } @else if $style == 'perspective' {
     #{$selector} {
-      @include transform(skew(40deg));
-      @include transform-origin(0px 100%);
+      @include ro-transform(skew(40deg));
+      @include ro-transform-origin(0px 100%);
       left: $shadow-size * 8;
       bottom: 5px;
       width: 50%;

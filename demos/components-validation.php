@@ -26,7 +26,7 @@
         </li>
         <li>
           <form action="" class="myform" id="form4">
-            <h4>Form 4: slide-in right</h4>
+            <h4>Form 4: slide-in top</h4>
             <?php include 'include/form-validation.php'; ?>
           </form>
         </li>
@@ -35,7 +35,7 @@
 #form1 { @include validation(default); }
 #form2 { @include validation(fade-in right default); }
 #form3 { @include validation(fade-in bottom default); }
-#form4 { @include validation(slide-in right default); }
+#form4 { @include validation(slide-in top default); }
       </code></pre>
     </div>
     

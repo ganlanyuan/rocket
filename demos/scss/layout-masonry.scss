@@ -1,0 +1,45 @@
+@import 'demo-base';
+// *** layout: masonry *** //
+
+$masonry: (
+  'default': 1,
+      600px: 2,
+      768px: 3,
+     1024px: 4,
+);
+
+.masonry { @include masonry($masonry gutter 20px); }
+
+// other styles
+.masonry > li > * {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.masonry-content {
+  background: #f2f2f2;
+  padding: 15px;
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+}
+
+// fallback
+.no-csscolumns {
+  .masonry {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
+}

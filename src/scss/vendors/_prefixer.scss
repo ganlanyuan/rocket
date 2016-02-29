@@ -7,7 +7,7 @@ $prefix-for-opera:     true     !global;
 $prefix-for-spec:      true      !global;
 
 
-@mixin prefixer($property, $value, $prefixes) {
+@mixin ro-prefixer($property, $value, $prefixes) {
   @each $prefix in $prefixes {
     @if $prefix == webkit {
       @if $prefix-for-webkit {
@@ -35,7 +35,7 @@ $prefix-for-spec:      true      !global;
   }
 }
 
-@mixin disable-prefix-for-all() {
+@mixin ro-disable-prefix-for-all() {
   $prefix-for-webkit:    false !global;
   $prefix-for-mozilla:   false !global;
   $prefix-for-microsoft: false !global;

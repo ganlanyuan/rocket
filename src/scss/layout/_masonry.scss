@@ -1,0 +1,78 @@
+// *** masonry *** //
+@mixin masonry ($key) {
+  $map: false;
+  $map-keys: false;
+  $count: false;
+  $condition: ro-get($key, ('min' 'max'), 'min');
+  $child: ro-get-next($key, 'child', 'li');
+
+  $gutter: ro-get-next($key, 'gutter');
+  @if not $gutter { $gutter: 0; }
+
+  // get map
+  @if type-of($key) == 'map' {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'map' {
+        @if not $map {
+          $map: $item;
+        }
+      }
+    }
+  } 
+
+  // get count
+  @if not $map {
+    @if type-of($key) == 'number' {
+      @if unitless($key) { $count: $key; }
+    } @else if type-of($key) == 'list' {
+      @each $item in $key {
+        @if type-of($item) == 'number' {
+          @if not $count and unitless($item) { $count: $item; }
+        }
+      }
+    }
+  }
+
+  // *** output *** //
+  overflow: hidden; // fix an chrome overflow
+  -webkit-column-gap: $gutter;
+     -moz-column-gap: $gutter;
+          column-gap: $gutter;
+  > #{$child} {
+    padding-bottom: $gutter;
+    -webkit-column-break-inside: avoid;
+              page-break-inside: avoid;
+                   break-inside: avoid;
+  }
+
+  @if $map {
+    $map-keys: map-keys($map);
+
+    @each $item in $map-keys {
+      @if type-of($item) == 'number' {
+        @include bp($item $condition) {
+          -webkit-column-count: map-get($map, $item);
+             -moz-column-count: map-get($map, $item);
+                  column-count: map-get($map, $item);
+        }
+      } @else if $item == 'null' or $item == 'default' {
+        -webkit-column-count: map-get($map, $item);
+           -moz-column-count: map-get($map, $item);
+                column-count: map-get($map, $item);
+      } @else if $breakpoints {
+        @include bp(map-get($breakpoints, $item) $condition) { 
+          -webkit-column-count: map-get($map, $item);
+             -moz-column-count: map-get($map, $item);
+                  column-count: map-get($map, $item);
+        }
+      }
+    }
+  } @else if $count {
+    -webkit-column-count: $count;
+       -moz-column-count: $count;
+            column-count: $count;
+  }
+
+}

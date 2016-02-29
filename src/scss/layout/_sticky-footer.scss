@@ -2,8 +2,8 @@
 @mixin sticky-footer($key) {
   $main: ro-get-type($key, 'string');
 
-  @include flexbox;
-  @include flex-flow(column);
+  @include ro-flexbox;
+  @include ro-flex-flow(column);
 
   $selector: &;
   @if $selector == 'body' {
@@ -15,7 +15,7 @@
   }
   @if $main {
     > #{$main} { 
-      @include flex-grow(1); 
+      @include ro-flex-grow(1); 
       .lt-ie10 & {
         min-height: 500px; // for IE8
         min-height: 80vh; // for IE9

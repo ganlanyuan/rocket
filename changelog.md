@@ -1,9 +1,15 @@
 # Changelog
 
+### 3.3.0
++ Added: `masonry` (http://creatiointl.org/gallery/william/rocket/v3/demos/layout-masonry.php).
++ Improved: add 'ro-' prefixer to `breakpoint`, `transition`, `transition-property`, `transition-duration`, `transition-timing-function`, `transition-delay`, `flexbox `, `inline-flexbox `, `flex-direction`, `flex-dir`, `flex-wrap`, `flex-flow`, `order`, `flex-grow`, `flex-shrink`, `flex-basis`, `flex`, `justify-content`, `flex-just`, `align-items`, `align-self`, `align-content`, `keyframes`, `perspective`, `perspective-origin`, `prefixer`, `disable-prefix-for-all`, `transform`, `transform-origin`, `transform-style`, `transition`, `transition-property`, `transition-duration`, `transition-timing-function`, `transition-delay` and `triangle`, to prevent clashing with other frameworks.
+
 ### 3.2.1
++ Added: scroll mode to `responsive-table`.
 + Added: `responsive-table.js`.
++ Added: add breakpoint to `liquid-3`(holy-grail).
 + Improved: `liquid-2`, `liquid-3` now accept breakpoint parameters.
-+ Fixed: an issue in `transition.scss`.
++ Fixed: a parameter issue in `transition.scss`.
 + Fixed: `priority-nav`, `grid` and `container`.
 
 ### 3.2.0 

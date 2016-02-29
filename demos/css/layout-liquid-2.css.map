@@ -42,6 +42,7 @@
 		"../../src/scss/layout/_liquid-2.scss",
 		"../../src/scss/layout/_liquid-3.scss",
 		"../../src/scss/layout/_gallery.scss",
+		"../../src/scss/layout/_masonry.scss",
 		"../../src/scss/layout/_metro.scss",
 		"../../src/scss/layout/_diamond.scss",
 		"../../src/scss/layout/_justify.scss",

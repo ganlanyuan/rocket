@@ -66,7 +66,7 @@
 
     @if $shape == 'diamond' {
       @if not $keep {
-        @include transform( rotate(-45deg) scale( (1/sqrt(2)) ) );
+        @include ro-transform( rotate(-45deg) scale( (1/sqrt(2)) ) );
       }
 
       @if $per-row {
@@ -90,7 +90,7 @@
 
     } @else if $shape == 'octagon' {
       @if not $keep {
-        @include transform(rotate(-45deg));
+        @include ro-transform(rotate(-45deg));
       }
     }
 
@@ -105,9 +105,9 @@
         @include center();
 
         @if $shape == 'diamond' {
-          @include transform( rotate(45deg) scale( sqrt(2) ) );
+          @include ro-transform( rotate(45deg) scale( sqrt(2) ) );
         } @else if $shape == 'octagon' {
-          @include transform(rotate(45deg));
+          @include ro-transform(rotate(45deg));
           overflow: inherit;
         }
       }

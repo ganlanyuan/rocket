@@ -3,7 +3,7 @@
   <h4>layout</h4>
   <nav class="demo-links">
     <?php 
-      $layouts = array('container', 'grid', 'liquid-2', 'liquid-3', 'gallery', 'metro', 'diamond', 'angled-edges', 'sticky-footer', 'justify', 'center');
+      $layouts = array('container', 'grid', 'liquid-2', 'liquid-3', 'gallery', 'masonry', 'metro', 'diamond', 'angled-edges', 'sticky-footer', 'justify', 'center');
       $cur = '';
 
       foreach ($layouts as $layout) {

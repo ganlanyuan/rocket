@@ -6,7 +6,7 @@
   $align: ro-get($key, (left right center), center);
 
   // *** output *** //
-  @include flexbox;
+  @include ro-flexbox;
   -ms-flex-align: center; // for IE10
   > #{$child} { margin: auto; }
 

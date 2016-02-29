@@ -2,7 +2,6 @@
 <body>
 <div class="page">
   <div class="container">
-
     <div class="topic">
       <h2 class="main-heading"><span>components: </span>Accordion</h2>
       <div class="example example-accordion">
@@ -94,7 +93,8 @@
 .accordion { @include accordion(div 200px 0.4s); }
       </code></pre>
     
-    <?php include "include/more-demos.php" ?>
+      <?php include "include/more-demos.php" ?>
+    </div>
   </div>
   <?php include "include/site-footer.php"; ?>
 </div>

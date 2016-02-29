@@ -36,9 +36,9 @@
 
   // *** output *** //
   @if not $keep {
-    @include flexbox;
-    @include flex-wrap(wrap);
-    @if $direction == left { @include flex-direction(row-reverse); }
+    @include ro-flexbox;
+    @include ro-flex-wrap(wrap);
+    @if $direction == left { @include ro-flex-direction(row-reverse); }
     #{$non-flex} { @include clearfix(); }
 
     // fix left and right edge padding

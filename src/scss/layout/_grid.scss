@@ -40,10 +40,10 @@
     .no-flexbox.no-flexboxtweener & { @include clearfix(); }
 
     // flexbox
-    @include flexbox; 
-    @include flex-wrap(wrap);
+    @include ro-flexbox; 
+    @include ro-flex-wrap(wrap);
     @if $direction == left {
-      @include flex-direction(row-reverse);
+      @include ro-flex-direction(row-reverse);
     }
 
     // gutter
@@ -78,7 +78,7 @@
           @include bp($condition $media-type map-get($breakpoints, $item)) {
             // reset order, clear
             > #{$child}:nth-child(n) { 
-              @include order(0); 
+              @include ro-order(0); 
               .no-flexbox.no-flexboxtweener & {
                 clear: none;
               }
@@ -89,7 +89,7 @@
           @include bp($condition $media-type $item) {
             // reset order, clear
             > #{$child}:nth-child(n) { 
-              @include order(0); 
+              @include ro-order(0); 
               .no-flexbox.no-flexboxtweener & {
                 clear: none;
               }
@@ -136,7 +136,7 @@
     }
 
     // some of previous groups have orders, this group doesn't
-    %same-order { @include order($max-order); }
+    %same-order { @include ro-order($max-order); }
 
   } @else {
     $cols: grid-get-keys($key);
@@ -168,7 +168,7 @@
 
       // flexbox
       @if $orders { 
-        @include order((nth($orders, $i) + $max-order)); 
+        @include ro-order((nth($orders, $i) + $max-order)); 
       } @else if $has-orders {
         @extend %same-order;
       }

@@ -1,8 +1,8 @@
-@mixin perspective($depth: none) {
+@mixin ro-perspective($depth: none) {
   // none | <length>
-  @include prefixer(perspective, $depth, webkit moz spec);
+  @include ro-prefixer(perspective, $depth, webkit moz spec);
 }
 
-@mixin perspective-origin($value: 50% 50%) {
-  @include prefixer(perspective-origin, $value, webkit moz spec);
+@mixin ro-perspective-origin($value: 50% 50%) {
+  @include ro-prefixer(perspective-origin, $value, webkit moz spec);
 }

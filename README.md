@@ -2,7 +2,7 @@
 <p>
   <img src="https://img.shields.io/badge/sass-3.4.0-ff69b4.svg">
   <img src="https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg">
-  <img src="https://img.shields.io/badge/Version-3.2.1-blue.svg">
+  <img src="https://img.shields.io/badge/Version-3.3.0-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
 [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
@@ -13,10 +13,10 @@ Rewrite main layout mixins using `flex-box`.
 Add many new sass mixins, components and javascript components.
 + Scss: `grid`, `metro` , `liquid-3` , `charts` , `validation` , `responsive-type`  
 + Javascript: `sticky` , `priority-nav` , `equalizer` , `reach` , `scrollTo`
-+ Improved `breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
++ Improved `ro-breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 #### Requests
-+ [Modernizr](http://v3.modernizr.com/) (`csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`)    
++ [Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`)    
 + [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)
 + Please replace `<html>` with:
 ``` html
@@ -52,6 +52,7 @@ Rocket/
 |   |   |── liquid-2              
 |   |   |── liquid-3              
 |   |   |── gallery               
+|   |   |── masonry               
 |   |   |── metro               
 |   |   |── diamond               
 |   |   |── angled-edges               
@@ -85,7 +86,7 @@ Rocket/
 |       |── responsive-type (rp-type) 
 |       |── visible               
 |       |── hidden                
-|       |── breakpoint (bp)       
+|       |── ro-breakpoint (bp)       
 |       |── quantity-query (at-least, at-most, equal-to, between)       
 |       |── hide-text               
 |       |── opacity               
@@ -255,8 +256,6 @@ $key: ($list or $map) (gutter $gutter) (child $child) keep
   <li></li>
   <li></li>
   <li></li>
-  <li></li>
-  <li></li>
 </ul>
 ````
 ```` scss
@@ -267,15 +266,17 @@ $key: ($map / $per-row) (gutter $gutter) (child $child) $condition $direction ke
 // $map: ( $breakpoint: $per-row, ...)
 // $direction: left | right
 
+// *** case 1 *** //
 .gallery { @include gallery(3); }
 // per-row: 3;
 
+// *** case 2: change gutter and direction *** //
 .gallery { @include gallery(4 gutter 2% left); }
 // per-row: 4;
 // gutter: 2%;
 // direction: right -> left
 
-// with breakpoints
+// *** case 3: with breakpoints *** //
 $map: (
   'null': 2, 
   600: 3,
@@ -287,6 +288,63 @@ $map: (
 // 800px and up: 4 items per row
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-gallery.php)
+
+#### masonry
+`masonry` is for creating masonry layouts with pure css.
+````html
+<ul class="masonry">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+````
+```` scss
+@mixin masonry($key);
+//pattern
+$key: ($map / $count) (gutter $gutter) (child $child) $condition;
+// $map: ( $breakpoint-1: $count-1, $breakpoint-2: $count-2, ...)
+// $count: num;
+// $condition: 'min' | 'max'
+
+// *** case 1 *** //
+.masonry { @include masonry(3); }
+// count: 3;
+
+// *** case 2: with gutter *** //
+.masonry { @include masonry(4 gutter 20px); }
+// count: 4;
+// gutter: 20px;
+
+// *** case 3: with breakpoints *** //
+$map: (
+  'default': 1, 
+  600px: 2,
+  768px: 3,
+  1024px: 4
+);
+.masonry { @include masonry($map gutter 20px child '.panel'); }
+// default: 1 items per row
+// 600px and up: 2 items per row
+// 768px and up: 3 items per row
+// 1024px and up: 4 items per row
+
+// *** fallback: IE9- *** //
+.no-csscolumns {
+  .masonry {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
+}
+````
+[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-masonry.php)
 
 #### metro
 `metro` is for creating block layout inspired by Windows 8. Use nested `metro` to make complex layout.
@@ -1389,11 +1447,11 @@ $key: $rgba
 // }
 ````
 
-#### breakpoint (bp)
+#### ro-breakpoint (bp)
 A shorthand @mixin for breakpoints.    
 Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). 
 ```` scss
-@mixin breakpoint($key)
+@mixin ro-breakpoint($key)
 // pattern
 $key: $condition $media $breakpoints
 

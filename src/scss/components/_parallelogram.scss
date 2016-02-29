@@ -20,7 +20,7 @@
       background: $background;
     }
     @if $angle {
-      @include transform(skew($angle));
+      @include ro-transform(skew($angle));
     }
   }
 }
