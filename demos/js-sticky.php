@@ -111,34 +111,32 @@ ready(function () {
   <?php include "include/site-footer.php" ?>
 </div>
 <script>
-  ready(function () {
-    sticky({
-      sticky: '.sticky-left-1', 
-      spacing: 10,
-      stickyWrapper: '.wrapper-left-1',
-    });
-    sticky({
-      sticky: '.sticky-middle-1', 
-      stickyWrapper: '.wrapper-middle-1', 
-      spacing: 30,
-      breakpoints: [600, 1000]
-    });
-    sticky({
-      sticky: '.sticky-right-1', 
-      stickyWrapper: '.wrapper-right-1',
-      spacing: 10,
-    });
-    sticky({
-      sticky: '.sticky-middle-2', 
-      stickyWrapper: '.wrapper-middle-2', 
-      stickTo: 'bottom',
-      spacing: 10,
-    });
-    sticky({
-      sticky: '.sticky-right-2',  
-      stickTo: 'bottom',
-      spacing: 10,
-    });
+  sticky({
+    sticky: '.sticky-left-1', 
+    spacing: 10,
+    stickyWrapper: '.wrapper-left-1',
+  });
+  sticky({
+    sticky: '.sticky-middle-1', 
+    stickyWrapper: '.wrapper-middle-1', 
+    spacing: 30,
+    breakpoints: [600, 1000]
+  });
+  sticky({
+    sticky: '.sticky-right-1', 
+    stickyWrapper: '.wrapper-right-1',
+    spacing: 10,
+  });
+  sticky({
+    sticky: '.sticky-middle-2', 
+    stickyWrapper: '.wrapper-middle-2', 
+    stickTo: 'bottom',
+    spacing: 10,
+  });
+  sticky({
+    sticky: '.sticky-right-2',  
+    stickTo: 'bottom',
+    spacing: 10,
   });
 </script>
 </body>

@@ -817,27 +817,29 @@ kit.prototype.offset = function () {
 // ========== GET WINDOW SIZE ==========
 kit.win = {
 	W: function  () {
-		var d = document, w = window,
-		winW = w.innerWidth || d.documentElement.clientWidth || d.body.clientWidth;
-		return winW;  
+		return document.documentElement.clientWidth;
 	},
 
-	H: function () {
-		var winH, d = document, w = window;
-		if(w.innerHeight) { // all except IE
-			winH = w.innerHeight;
-		} else if (d.documentElement && d.documentElement.clientHeight) {
-		// IE 6 Strict Mode
-			winH = d.documentElement.clientHeight;
-		} else if (d.body) { // other
-			winH = d.body.clientHeight;
-		}
+	H: function () {	
+		var winH, 
+			d = document, 
+			w = window;
+
+		winH = w.innerHeight || 
+					 d.documentElement.clientHeight || 
+					 d.body.clientHeight;
+
 		return winH;
 	},
 
 	ST: function () {
-		var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-		return scrollTop;
+		return window.pageYOffset || 
+					 document.documentElement.scrollTop;
+	},
+
+	SL: function () {
+	  return window.pageXOffset || 
+	  			 document.documentElement.scrollLeft;
 	}
 };
 
