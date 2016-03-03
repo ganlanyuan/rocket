@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.3.2
++ Fixed: a mixin name issue (breakpoint => bp).
+
 ### 3.3.1
 + Fixed: a comment issue.
 
