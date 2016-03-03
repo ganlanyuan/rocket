@@ -537,12 +537,12 @@
 .sc-autoplay-js { @include slider-carousel(5 by 2 bypage autoplay-js default); } // autoplay (js)
 .sc-autoheight { @include slider-carousel(5 by 1 default); } // autoheight
 .sc-vertical { @include slider-carousel(5 by 1 vertical autoplay progress-bar default); } // vertical
-@include breakpoint('min' 700) {
+@include bp('min' 700) {
   .carousel-a { @include slider-carousel(5 by 2); }
   .sc-bypage { @include slider-carousel(5 by 3 bypage); }
   .sc-autoheight { @include slider-carousel(5 by 2); }
 }
-@include breakpoint('min' 1000) {
+@include bp('min' 1000) {
   .carousel-a { @include slider-carousel(5 by 3); }
   .sc-autoheight { @include slider-carousel(5 by 3); }
 }

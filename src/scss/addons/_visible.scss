@@ -3,7 +3,7 @@
   $new-key: ();
 
   @if type-of($key) == 'number' {
-    @include breakpoint('max' $key) { display: none !important; }
+    @include bp('max' $key) { display: none !important; }
   } @else if type-of($key) == list {
     @if nth($key, 1) == 0 {
       $key: reject($key, 0);
@@ -16,6 +16,6 @@
       $new-key: append($new-key, $item);
     }
 
-    @include breakpoint($new-key) { display: none !important; }
+    @include bp($new-key) { display: none !important; }
   }
 }
