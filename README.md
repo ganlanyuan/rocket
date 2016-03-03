@@ -211,7 +211,8 @@ Similar with grid, you can use list or map as a parameter to set up the layout.
 // scss
 @mixin liquid-2($key)
 // pattern
-$key: ($list or $map) (gutter $gutter) (child $child) keep
+$key: ($list or $map) (gutter $gutter) (child $child) use-flex keep;
+// use-flex: use flexbox to make the layout;
 
 .wrapper { @include liquid-2( (null 200px) ); }
 // 1st child width: flexible;
@@ -235,7 +236,8 @@ Similar with grid, you can use list or map as a parameter to set up the layout.
 // scss
 @mixin liquid-3($key)
 // pattern
-$key: ($list or $map) (gutter $gutter) (child $child) keep
+$key: ($list or $map) (gutter $gutter) (child $child) use-flex keep;
+// use-flex: use flexbox to make the layout;
 
 .wrapper { @include liquid-3( (150px null 200px) ); }
 // 1st child width: 150px;
