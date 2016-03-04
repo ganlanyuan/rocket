@@ -116,7 +116,7 @@
   @if $use-flex {
     @include ro-flexbox;
     @include ro-align-content(stretch);
-    #{$children} { @include ro-align-content(stretch); }
+    #{$children} { @include ro-align-self(stretch); }
   }
   
   // non-flexbox
@@ -145,7 +145,7 @@
     @if not $keep {
       @include ro-flexbox;
       @include ro-align-content(stretch);
-      #{$children} { @include ro-align-content(stretch); }
+      #{$children} { @include ro-align-self(stretch); }
     }
     
     @for $i from 1 through length($column-width) {
@@ -156,7 +156,7 @@
         #{nth($child-list, $i)} {
           width: if(
             $thisWidth == null,
-            calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter}),
+            calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter * 3}),
             $thisWidth );
 
           @if $order { @include ro-order(nth($order, $i)); }

@@ -1,5 +1,8 @@
 # Changelog
 
+### 3.3.3
++ Fixed: `liquid-2`, `liquid-3` gutter issue when use css flexbox.
+
 ### 3.3.2
 + Fixed: a mixin name issue (breakpoint => bp).
 

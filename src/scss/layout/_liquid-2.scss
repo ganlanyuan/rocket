@@ -117,7 +117,7 @@
   @if $use-flex {
     @include ro-flexbox;
     @include ro-align-content(stretch);
-    #{$children} { @include ro-align-content(stretch); }
+    #{$children} { @include ro-align-self(stretch); }
     .flexbox &, .flexboxtweener & { 
       margin-right: - $gutter;
       #{$children} { margin-right: $gutter; }
@@ -149,7 +149,7 @@
       @include ro-align-content(stretch);
       margin-right: - $gutter;
       #{$children} {
-        @include ro-align-content(stretch); 
+        @include ro-align-self(stretch); 
         .flexbox &, .flexboxtweener & { margin-right: $gutter; }
       }
     }
@@ -162,7 +162,7 @@
       #{nth($child-list, $i)} {
         width: if(
           $thisWidth == null,
-          ( calc(100% - #{nth($asides, 1)} - #{$gutter}) ), 
+          ( calc(100% - #{nth($asides, 1)} - #{$gutter * 2}) ), 
           $thisWidth );
         @if $order { @include ro-order(nth($order, $i)); }
       }
