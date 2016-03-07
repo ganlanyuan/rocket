@@ -1,4 +1,4 @@
 @import 'demo-base';
 
 // *** layout: holy-grail *** //
-.example-liquid-3 { @include liquid-3((null: 1, 150px: 0, 200px: 0)); }
+.example-liquid-3 { @include liquid-3((null: 1, 150px: 0, 200px: 0) use-flex); }

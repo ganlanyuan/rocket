@@ -116,12 +116,7 @@
   // flexbox
   @if $use-flex {
     @include ro-flexbox;
-    @include ro-align-content(stretch);
-    #{$children} { @include ro-align-self(stretch); }
-    .flexbox &, .flexboxtweener & { 
-      margin-right: - $gutter;
-      #{$children} { margin-right: $gutter; }
-    }
+    @include ro-justify-content(space-between);
   }
   
   // non-flexbox
@@ -146,12 +141,7 @@
   @if $use-flex {
     @if not $keep {
       @include ro-flexbox;
-      @include ro-align-content(stretch);
-      margin-right: - $gutter;
-      #{$children} {
-        @include ro-align-self(stretch); 
-        .flexbox &, .flexboxtweener & { margin-right: $gutter; }
-      }
+      @include ro-justify-content(space-between);
     }
 
     @for $i from 1 through length($column-width) {
@@ -162,7 +152,7 @@
       #{nth($child-list, $i)} {
         width: if(
           $thisWidth == null,
-          ( calc(100% - #{nth($asides, 1)} - #{$gutter * 2}) ), 
+          ( calc(100% - #{nth($asides, 1)} - #{$gutter}) ), 
           $thisWidth );
         @if $order { @include ro-order(nth($order, $i)); }
       }

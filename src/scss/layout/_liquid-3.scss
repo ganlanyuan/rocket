@@ -115,8 +115,10 @@
   // flexbox
   @if $use-flex {
     @include ro-flexbox;
-    @include ro-align-content(stretch);
-    #{$children} { @include ro-align-self(stretch); }
+
+    // flex gutter
+    margin-right: - $gutter;
+    #{$children} { margin-right: $gutter; }
   }
   
   // non-flexbox
@@ -144,35 +146,23 @@
   @if $use-flex {
     @if not $keep {
       @include ro-flexbox;
-      @include ro-align-content(stretch);
-      #{$children} { @include ro-align-self(stretch); }
+
+      // flex gutter
+      margin-right: - $gutter;
+      #{$children} { margin-right: $gutter; }
     }
     
     @for $i from 1 through length($column-width) {
       $thisWidth: nth($column-width, $i);
       $asides: reject($column-width, null);
 
-      #{$children} {
-        #{nth($child-list, $i)} {
-          width: if(
-            $thisWidth == null,
-            calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter * 3}),
-            $thisWidth );
+      #{nth($child-list, $i)} {
+        width: if(
+          $thisWidth == null,
+          calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter * 2}),
+          $thisWidth );
 
-          @if $order { @include ro-order(nth($order, $i)); }
-        }
-      }
-      
-      .flexbox, .flexboxtweener {
-        & { 
-          // clear margin
-          #{$child-reset} { margin: 0; } 
-          // set margin to middle column
-          #{($child-list, nth($position-number, 2))} {
-            margin-left: $gutter;
-            margin-right: $gutter;
-          }
-        }
+        @if $order { @include ro-order(nth($order, $i)); }
       }
     }
   }
@@ -241,6 +231,7 @@
           width: nth($column-width, nth($position-number, 3));
           float: right;
           margin-left: -100%;
+          margin-right: 0; // reset flex margin-right
         }
       } @else if $main-layout == 'center' {
         #{nth($child-list, nth($position-number, 1))} {
@@ -259,6 +250,7 @@
           width: nth($column-width, nth($position-number, 3));
           float: right;
           margin-left: -100%;
+          margin-right: 0; // reset flex margin-right
         }
       } @else if $main-layout == 'right' {
         #{nth($child-list, nth($position-number, 1))} {
@@ -277,6 +269,7 @@
           padding-left: $full-width;
           float: right;
           margin-left: -100%;
+          margin-right: 0; // reset flex margin-right
         }
       }
 
@@ -288,3 +281,4 @@
 @mixin liquid-3($key) {
   @include holy-grail($key);
 }
+
