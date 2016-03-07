@@ -1,6 +1,11 @@
 // *** gallery *** //
 @mixin gallery($key){
   $per-row: 1;
+  @each $item in $key {
+    @if type-of($item) == number and unitless($item) {
+      $per-row: $item;
+    }
+  }
   $map: false;
   $map-keys: false;
   $breakpoints: false;
@@ -26,43 +31,17 @@
   $keep: ro-get($key, 'keep');
   $condition: ro-get($key, ('min' 'max'), 'min');
 
-  @each $item in $key {
-    @if type-of($item) == number and unitless($item) {
-      $per-row: $item;
-    }
-  }
-  $half-gutter: ($gutter / 2);
-  $non-flex: '.no-flexbox.no-flexboxtweener &, .no-flexwrap &';
-
   // *** output *** //
   @if not $keep {
-    @include ro-flexbox;
-    @include ro-flex-wrap(wrap);
-    @if $direction == left { @include ro-flex-direction(row-reverse); }
-    #{$non-flex} { @include clearfix(); }
-
-    // fix left and right edge padding
-    margin-left: - $half-gutter;
-    margin-right: - $half-gutter;
-    .no-flexwrap & { display: block; }
+    @include clearfix();
+    margin-right: - $gutter;
   }
 
   > #{$child} {
     @if not $keep {
-      #{$non-flex} { float: opposite($direction); }
+      float: opposite($direction);
       box-sizing: border-box;
-      @if unit($gutter) == '%' {
-        padding-left: $half-gutter;
-        padding-right: $half-gutter;
-        // fix firefox treat percentage gutter as 0
-        &:after {
-          content: '';
-          display: block;
-          padding-bottom: ($gutter * $per-row);
-        }
-      } @else {
-        padding: 0 $half-gutter $gutter; 
-      }
+      padding: 0 $gutter $gutter 0;
     }
 
     // set col width
@@ -71,33 +50,25 @@
         @if type-of($item) == 'number' {
           @include bp($item $condition) { 
             width: percentage(1 / map-get($map, $item)); 
-            #{$non-flex} {
-              &:nth-child(n) { clear: none; }
-              &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
-            }
-          }
-        } @else if $item == 'null' or $item == 'default' {
-          width: percentage(1 / map-get($map, $item));
-          #{$non-flex} {
             &:nth-child(n) { clear: none; }
             &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
           }
+        } @else if $item == 'null' or $item == 'default' {
+          width: percentage(1 / map-get($map, $item));
+          &:nth-child(n) { clear: none; }
+          &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
         } @else if $breakpoints {
           @include bp(map-get($breakpoints, $item) $condition) { 
             width: percentage(1 / map-get($map, $item)); 
-            #{$non-flex} {
-              &:nth-child(n) { clear: none; }
-              &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
-            }
+            &:nth-child(n) { clear: none; }
+            &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
           }
         }
       }
     } @else {
       width: percentage(1 / $per-row);
-      #{$non-flex} {
-        &:nth-child(n) { clear: none; }
-        &:nth-child(#{$per-row}n+1) { clear: both; }
-      }
+      &:nth-child(n) { clear: none; }
+      &:nth-child(#{$per-row}n+1) { clear: both; }
     }
   }
 }
