@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.3.4
++ Fixed `liquid-3`
++ Improved: simplify `liquid-2`, `liquid-3` and `gallery`.
+
 ### 3.3.3
 + Fixed: `liquid-2`, `liquid-3` gutter issue when use css flexbox.
 
