@@ -1,5 +1,5 @@
 .sass-cache
-*.css.map
+*.map
 *.DS_Store
 *.codekit
 *.sublime-project

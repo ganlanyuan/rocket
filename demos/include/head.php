@@ -36,7 +36,6 @@
 	<link href="http://fonts.googleapis.com" rel="dns-prefetch">
 	
 	<!-- css -->
-	<link href="https://fontastic.s3.amazonaws.com/MSJHPuJFXkve8cKEDAVMKT/icons.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300' rel='stylesheet' type='text/css'>
 	<link href="prism/prism.css" rel="stylesheet">
 	<link href="css/normalize.css" rel="stylesheet">

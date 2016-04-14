@@ -3,7 +3,6 @@
 // *** addons: breakpoint *** //
 
 .box { 
-  @extend %ro-global-transition;
   width: 300px;
   height: 200px;
   margin: 80px auto;
