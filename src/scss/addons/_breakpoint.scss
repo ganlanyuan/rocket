@@ -2,6 +2,8 @@
 @mixin ro-breakpoint($key){
   $condition: ro-get($key, ('min' 'max'), 'min');
   $media-type: ro-get($key, $ro-media-type, 'screen');
+  $ie8: ro-get($key, 'ie8');
+  $selector: '';
 
   // get breakpoints
   $key-em: ();
@@ -66,39 +68,31 @@
 
   // *** output *** //
   @if $length == 1 {
-    @media #{$media-type} and (#{$condition}-width: $only) {
-      @content;
-    }
+    $selector: '#{$media-type} and (#{$condition}-width: #{$only})';
   } 
   @if $length == 2 {
-    @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1) {
-      @content;
-    }
+    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1})';
   } 
   @if $length == 3 {
-    @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
-           #{$media-type} and (min-width: $min-2) {
-      @content;
-    }
+    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2})';
   } 
   @if $length == 4 {
-    @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
-           #{$media-type} and (min-width: $min-2) and (max-width: $max-2) {
-      @content;
-    }
+    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2}) and (max-width: #{$max-2})';
   } 
   @if $length == 5 {
-    @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
-           #{$media-type} and (min-width: $min-2) and (max-width: $max-2),
-           #{$media-type} and (min-width: $min-3) {
-      @content;
-    }
+    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2}) and (max-width: #{$max-2}), #{$media-type} and (min-width: #{$min-3})';
   } 
   @if $length == 6 {
-    @media #{$media-type} and (min-width: $min-1) and (max-width: $max-1), 
-           #{$media-type} and (min-width: $min-2) and (max-width: $max-2),
-           #{$media-type} and (min-width: $min-3) and (max-width: $max-3) {
-      @content;
+    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2}) and (max-width: #{$max-2}), #{$media-type} and (min-width: #{$min-3}) and (max-width: #{$max-3})';
+  }
+
+  // output
+  @media #{unquote($selector)} { @content; }
+  @if $ie8 {
+    @if & == null {
+      .lt-ie9 { @content; }
+    } @else {
+      .lt-ie9 & { @content; }
     }
   }
 }

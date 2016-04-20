@@ -158,10 +158,10 @@
 
   // page
   @if $page-transform {
-    @include ro-transition(transform $duration);
+    @include ro-transition(unquote("transform #{$duration}"));
   }
   @if $page-push {
-    @include ro-transition($direction $duration);
+    @include ro-transition(unquote("$direction #{$duration}"));
     position: relative;
     #{$direction}: 0;
 
@@ -209,11 +209,11 @@
       > ul { position: relative; }
 
       @if $nav-push and $nav-transform {
-        @include ro-transition(transform $duration, margin-#{$direction} $duration);
+        @include ro-transition(unquote("transform #{$duration}"), unquote("margin-#{$direction} #{$duration}"));
       } @else if $nav-push and not $nav-transform {
-        @include ro-transition(margin-#{$direction} $duration);
+        @include ro-transition(unquote("margin-#{$direction} #{$duration}"));
       } @else if not $nav-push and $nav-transform {
-        @include ro-transition(transform #{$duration});
+        @include ro-transition(unquote("transform #{$duration}"));
       }
 
       @if $nav-push-val {
@@ -307,7 +307,7 @@
   // page-overlay
   @if $overlay {
     .page-overlay {
-      @include ro-transition(background $duration);
+      @include ro-transition(unquote("background #{$duration}"));
       position: fixed;
       display: block;
       left: 0;
@@ -317,7 +317,7 @@
       #{opposite($direction)}: auto;
       background: transparent;
       z-index: map-get($ro-off-canvas-z-index, 'page-overlay');
-      @include ro-transition(#{$direction} $duration);
+      @include ro-transition(unquote("#{$direction} #{$duration}"));
       input:checked ~ & {
         // background
         background: $overlay-color;

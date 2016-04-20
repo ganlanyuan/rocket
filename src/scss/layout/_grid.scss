@@ -11,6 +11,8 @@
   $direction: ro-get($key, (left right), right);
   $keep: ro-get($key, 'keep', false);
 
+  $initialized: false;
+
   // get grid
   @if not $grid {
     @if type-of($key) == 'map' {
@@ -46,88 +48,85 @@
       @include ro-flex-direction(row-reverse);
     }
 
-    // gutter
-    margin-#{$direction}: - $gutter;
     > #{$child} {
-      padding-#{$direction}: $gutter;
       box-sizing: border-box;
       width: 100%;
-
-      .no-flexbox.no-flexboxtweener & {
-        float: opposite($direction);
-        margin-#{$direction}: -100%;
-      }
-    }
+    }    
   }
 
   @if $grid {
-    $has-breakpoints: false;
-    @if type-of($grid) == 'map' {
-      $v-bp: nth(map-keys($grid), 1);
-      @if type-of($v-bp) == 'string' or type-of($v-bp) == 'number' and not unitless($v-bp) {
-        $has-breakpoints: true;
-      }
-    }
+    $bp-first: nth(map-keys($grid), 1);
 
-    @if $has-breakpoints {
-      $grid-bp: map-keys($grid);
-      @each $item in $grid-bp {
-        @if $item == 'default' {
-          @include check-nested-list(map-get($grid, $item), $child, $direction);
-        } @else if type-of($item) != 'number' and $breakpoints and map-has-key($breakpoints, $item) {
-          @include bp($condition $media-type map-get($breakpoints, $item)) {
-            // reset order, clear
-            > #{$child}:nth-child(n) { 
-              @include ro-order(0); 
-              .no-flexbox.no-flexboxtweener & {
-                clear: none;
-              }
+    // check the first key, to see if it has breakpoints
+    // has breakpoints
+    @if type-of($bp-first) == 'string' or 
+        type-of($bp-first) == 'number' and not unitless($bp-first) {
+      
+      // get number breakpoints and max-breakpoint
+      @each $bp in $grid {
+        @if type-of($bp) != 'number' and 
+            $bp != 'default' and 
+            $breakpoints and 
+            map-has-key($breakpoints, $bp) {
+              $bp: map-get($breakpoints, $bp);
             }
-            @include check-nested-list(map-get($grid, $item), $child, $direction);
-          }
+      }
+      $bps: map-keys($grid);
+
+      @each $bp in $bps {
+        @if $bp == 'default' {
+          @include check-list(map-get($grid, $bp), $child, $direction, $initialized);
         } @else {
-          @include bp($condition $media-type $item) {
+          @include bp($condition $media-type $bp) {
             // reset order, clear
             > #{$child}:nth-child(n) { 
               @include ro-order(0); 
-              .no-flexbox.no-flexboxtweener & {
-                clear: none;
-              }
+              .no-flexbox.no-flexboxtweener & { clear: none; }
             }
-            @include check-nested-list(map-get($grid, $item), $child, $direction);
+            @include check-list(map-get($grid, $bp), $child, $direction, $initialized);
           }
         }
       }
+    // no breakpoints
     } @else {
-      @include check-nested-list($grid, $child, $direction);
+      @include check-list($grid, $child, $direction, $initialized);
     }
   }
 }
 
-// == check-nested-list ==
-@mixin check-nested-list($key, $child, $direction) {
-  $is-nested-list: is-nested-list($key);
-  
-  $cols: false;
+// == check-list ==
+@mixin check-list($value, $child, $direction, $initialized) {
+  $columns: false;
   $orders: false;
   $has-orders: false;
 
   $list-length: 0;
   $max-order: 0;
   
-  @if $is-nested-list {
-    // &:before { content: '#{length($key)}'; }
-    @for $i from 1 through length($key) {
-      $item: nth($key, $i);
-      $cols: grid-get-keys($item);
-      $orders: grid-get-values($item);
-  
+  // initialize
+  @if not $initialized {
+    margin-#{$direction}: - $gutter;
+    > #{$child} {
+      padding-#{$direction}: $gutter;
 
-      @include make-grid($cols, $orders, $child, $direction, $max-order, $list-length, $has-orders);
-      // &:before { content: '#{$has-orders}'; }
+      .no-flexbox.no-flexboxtweener & {
+        float: opposite($direction);
+        margin-#{$direction}: -100%;
+      }
+    }
+
+    $initialized: true;
+  }
+
+  @if is-deep-list($value) {
+    @each $item in $value {
+      $columns: grid-get-columns($item);
+      $orders: grid-get-orders($item);
+
+      @include make-grid($columns, $orders, $child, $direction, $max-order, $list-length, $has-orders);
 
       @if $orders { $has-orders: true; }
-      @if $cols { $list-length: ($list-length + length($cols)); }
+      @if $columns { $list-length: ($list-length + length($columns)); }
       @if $orders {
         $max-order: ($max-order + max($orders...));
       } @else {
@@ -139,12 +138,11 @@
     %same-order { @include ro-order($max-order); }
 
   } @else {
-    $cols: grid-get-keys($key);
-    $orders: grid-get-values($key);
+    $columns: grid-get-columns($value);
+    $orders: grid-get-orders($value);
 
-    @include make-grid($cols, $orders, $child);
+    @include make-grid($columns, $orders, $child);
   }
-  // &:before { content: '#{$list-length}'; }
 }
 
 // == make-grid ==
@@ -207,52 +205,38 @@
   }
 }
 
-
-// == is-nested-list == 
-@function is-nested-list($key) {
-  $is-nested-list: false;
-  @if type-of($key) == 'list' {
-    @each $item in $key {
+// == is-deep-list == 
+@function is-deep-list($list) {
+  $is-deep-list: false;
+  @if type-of($list) == 'list' {
+    @each $item in $list {
       @if type-of($item) == 'list' or type-of($item) == 'map' {
-        @if not $is-nested-list {
-          $is-nested-list: true;
+        @if not $is-deep-list {
+          $is-deep-list: true;
         }
       }
     }
   }
 
-  @return $is-nested-list;
+  @return $is-deep-list;
 }
 
-// == grid-get-keys ==
-@function grid-get-keys($key) {
-  $cols: false;
+// == grid-get-columns ==
+@function grid-get-columns($value) {
+  $columns: false;
 
-  @if type-of($key) == 'list' or type-of($key) == 'number' {
-    $cols: $key;
-  } @else if type-of($key) == 'map' {
-    @if length(map-keys($key)) == 1 {
-      $cols: nth(map-keys($key), 1);
-    } @else {
-      $cols: map-keys($key);
-    }
+  @if type-of($value) == 'list' or type-of($value) == 'number' {
+    $columns: $value;
+  } @else if type-of($value) == 'map' {
+    $columns: map-keys($value);
   }
 
-  @return $cols;
+  @return $columns;
 }
 
-// == grid-get-values ==
-@function grid-get-values($key) {
-  $orders: false;
-
-  @if type-of($key) == 'map' {
-    @if length(map-keys($key)) == 1 {
-      $orders: nth(map-values($key), 1);
-
-    } @else {
-      $orders: map-values($key);
-    }
-  }
+// == grid-get-orders ==
+@function grid-get-orders($value) {
+  $orders: if(type-of($value) == 'map', map-values($value), false);
 
   @if $orders {
     $min-order: min($orders...);
@@ -266,6 +250,6 @@
       $orders: $new-orders;
     }
   }
+
   @return $orders;
 }
-
