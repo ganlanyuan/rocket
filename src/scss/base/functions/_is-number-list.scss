@@ -1,0 +1,32 @@
+@function is-number-list($key) {
+  $is-number-list: ();
+  @each $item in $key {
+    @if type-of($item) == 'list' {
+      @each $sub-item in $item {
+        @if type-of($sub-item) == 'list' {
+          @each $sub-sub-item in $sub-item {
+            $is-number-list: if(
+              type-of($sub-sub-item) != 'number',
+              append($is-number-list, false),
+              append($is-number-list, true) );
+          }
+        } @else {
+          $is-number-list: if(
+            type-of($sub-item) != 'number',
+            append($is-number-list, false),
+            append($is-number-list, true) );
+        }
+      }
+    } @else {
+      $is-number-list: if(
+        type-of($item) != 'number',
+        append($is-number-list, false),
+        append($is-number-list, true) );
+    }
+  }
+
+  @return if(
+    index($is-number-list, false),
+    false,
+    true );
+}

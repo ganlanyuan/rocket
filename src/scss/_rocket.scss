@@ -5,9 +5,8 @@
 
 // base
 @import "base/variables";
-@import "base/trigonometric";
-@import "base/functions";
-@import "base/mixins";
+@import "base/functions/functions";
+@import "base/mixins/clearfix";
 @import "base/placeholders";
         
 // vendors

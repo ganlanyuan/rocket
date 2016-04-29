@@ -1,0 +1,10 @@
+@function get-slider-selector($selector){
+  $str-selector: #{$selector};
+  $start: 0;
+  $result: null;
+  
+  @while (str-index($str-selector, '.')) { $str-selector: str-slice($str-selector, str-index($str-selector, '.') + 1, str-length($str-selector)); }
+  @while (str-index($str-selector, '#')) { $str-selector: str-slice($str-selector, str-index($str-selector, '#') + 1, str-length($str-selector)); }
+
+  @return $str-selector;
+}

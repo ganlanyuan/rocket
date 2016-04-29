@@ -1,0 +1,17 @@
+@function is-simple-map($key) {
+  @if type-of($key) == 'map' {
+    $types: ();
+    $list: join(map-keys($key), map-values($key));
+
+    @each $item in $list {
+      $type: type-of($item);
+      @if index(('string' 'number' 'null' 'bool'), $type) {
+        $types: append($types, true);
+      } @else {
+        $types: append($types, false);
+      }
+    }
+
+    @return if(index($types, false), false, true);
+  }
+}

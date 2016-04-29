@@ -1,0 +1,13 @@
+@function map-update-breakpoints($map, $bps) {
+  @if not $bps {
+    @error "breakpoints doesn't exit."
+  }
+
+  @each $key, $value in $map {
+    @if type-of($key) == 'string' and map-has-key($bps, $key) {
+        $key: map-get($bps, $key);
+    }
+  }
+
+  @return $map;
+}

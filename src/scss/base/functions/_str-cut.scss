@@ -1,0 +1,20 @@
+@function str-cut($string, $separator, $position) {
+  $i: 1;
+  $final-string: '';
+  $length: str-length($string);
+
+  @if str-index($string, $separator) {
+    $i: str-index($string, $separator);
+    @if $position == after {
+      $i: $i + 1;
+      $final-string: str-slice($string, $i, $length);
+    } @else if $position == before {
+      $i: $i - 1;
+      $final-string: str-slice($string, 1, $i);
+    }
+  } @else {
+    $final-string: $string;
+  }
+
+  @return $final-string;
+}

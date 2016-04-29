@@ -1,0 +1,8 @@
+@function col-calc ($col, $cols, $gutter){
+  $result: '';
+
+  $col-percentage: percentage($col / $cols);
+  $col-gutter: ($gutter * $col / $cols);
+  $result: '#{$col-percentage}' + ' + ' + '#{$col-gutter}';
+  @return $result;
+}

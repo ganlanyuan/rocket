@@ -1,0 +1,17 @@
+@function ro-get($key, $arg, $def:false){
+  $result: $def;
+
+  @if type-of($arg) == 'string' {
+    @if index($key, $arg) {
+      $result: true;
+    } 
+  } @else if type-of($arg) == 'list' {
+    @each $item in $arg {
+      @if index($key, $item) {
+        $result: $item;
+      } 
+    }
+  }
+
+  @return $result;
+}

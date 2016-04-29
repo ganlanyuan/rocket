@@ -1,0 +1,6 @@
+@import "../bower_components/bootcamp/dist/bootcamp"; // or "[node_modules|bower_components]/bootcamp/dist/bootcamp" if you didn't set load_paths
+@import "../src/scss/rocket"; // or "[node_modules|bower_components]/bootcamp/dist/bootcamp" if you didn't set load_paths
+
+@include runner-start;
+@import "specs/example";
+@include runner-end;

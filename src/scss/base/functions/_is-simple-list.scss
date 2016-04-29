@@ -1,0 +1,16 @@
+@function is-simple-list($key) {
+  @if type-of($key) == 'list' {
+    $types: ();
+
+    @each $item in $key {
+      $type: type-of($item);
+      @if index(('string' 'number' 'null' 'bool'), $type) {
+        $types: append($types, true);
+      } @else {
+        $types: append($types, false);
+      }
+    }
+
+    @return if(index($types, false), false, true);
+  }
+}

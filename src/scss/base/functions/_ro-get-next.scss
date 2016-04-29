@@ -1,0 +1,8 @@
+@function ro-get-next($list, $val, $def:false) {
+  $this-index: index($list, $val);
+  @if $this-index {
+    @return nth($list, ($this-index + 1));
+  } @else {
+    @return $def;
+  }
+}

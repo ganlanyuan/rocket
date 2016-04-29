@@ -1,0 +1,11 @@
+@function remove-dup($list) {
+  $result: ();
+
+  @each $item in $list {
+    @if not index($result, $item) {
+      $result: append($result, $item);
+    }
+  }
+
+  @return $result;
+}

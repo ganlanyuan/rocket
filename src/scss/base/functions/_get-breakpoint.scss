@@ -1,0 +1,10 @@
+@function get-breakpoint($bp1, $bp2) {
+  @for $i from 1 through length($bp1) {
+    $bp: nth($bp1, $i);
+    @if type-of($bp) == 'string' and $bp2 and index(map-keys($bp2), $bp) {
+      $bp1: set-nth($bp1, $i, map-get($bp2, $bp));
+    }
+  }
+
+  @return $bp1;
+}

@@ -1,0 +1,3 @@
+@function to-string($value) {
+  @return inspect($value);
+}

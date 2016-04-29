@@ -1,0 +1,15 @@
+@function plus-one ($key) {
+  @if type-of($key) == 'number' {
+    @if unitless($key) {
+      $key: $key + 1;
+    } @else if unit($key) == 'px' {
+      $key: $key + 1px;
+    } @else if unit($key) == 'em' {
+      $key: $key + em(1);
+    } @else if unit($key) == 'rem' {
+      $key: $key + rem(1);
+    }
+  }
+
+  @return $key;
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*! sassyjson - v1.1.8 - 2014-06-01 */
+/* >> Bootcamp >> */
+A suite contains spec with an expectation {
+   ✗: Expected "0em" to be "1em";
+  Test: Failed;
+}
+
+Test Results {
+  Success: false;
+  Stats:  ✗;
+  Tests: 1;
+  Asserts: 1;
+  Passed: 0;
+  Failed: 1;
+  Skipped: 0;
+}
+
+/* << Bootcamp << */
+
+/*# sourceMappingURL=tests.css.map */

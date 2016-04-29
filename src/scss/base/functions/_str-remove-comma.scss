@@ -1,0 +1,3 @@
+@function str-remove-comma($key){
+  @return str-slice($key, 1, (str-length($key) - 2));
+}
