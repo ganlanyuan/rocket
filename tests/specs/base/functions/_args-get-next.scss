@@ -1,0 +1,30 @@
+@include test-module('Arguments') {
+
+  @include test('args-get-next [function]') {
+    
+    $args1: (map (1024px: (200px null)) left gutter 20px);
+    $test1: args-get-next($args1, 'map');
+    $expect1: (1024px: (200px null));
+    @include assert-equal($test1, $expect1, 'get a map.');
+    
+    $args2: (map #ccc left gutter 20px);
+    $test2: args-get-next($args2, 'gutter');
+    $expect2: 20px;
+    @include assert-equal($test2, $expect2, 'get a gutter.');
+    
+    $args3: (map left gutter 20px);
+    $test3: args-get-next($args3, 'child');
+    $expect3: false;
+    @include assert-equal($test3, $expect3, '"child" doesn\'t exists.');
+    
+    $args4: (map left gutter);
+    $test4: args-get-next($args4, 'gutter');
+    $expect4: false;
+    @include assert-equal($test4, $expect4, 'Nothing after "gutter".');
+    
+    $args5: 'map left gutter';
+    $test5: args-get-next($args5, 'gutter');
+    $expect5: false;
+    @include assert-equal($test5, $expect5, 'argment is not a list.');
+  };
+};

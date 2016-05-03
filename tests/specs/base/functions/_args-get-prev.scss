@@ -1,0 +1,25 @@
+@include test-module('Arguments') {
+
+  @include test('args-get-prev [function]') {
+    
+    $args1: (1 of 3 by 4);
+    $test1: args-get-prev($args1, 'by');
+    $expect1: 3;
+    @include assert-equal($test1, $expect1, 'get prev item of "by".');
+    
+    $args2: (map left gutter 20px);
+    $test2: args-get-prev($args2, 'child');
+    $expect2: false;
+    @include assert-equal($test2, $expect2, '"child" doesn\'t exists.');
+    
+    $args3: (map left gutter);
+    $test3: args-get-prev($args3, 'map');
+    $expect3: false;
+    @include assert-equal($test3, $expect3, '"map" is the first item in "$args4".');
+    
+    $args4: 'map left gutter';
+    $test4: args-get-prev($args4, 'gutter');
+    $expect4: false;
+    @include assert-equal($test4, $expect4, 'argment is not a list.');
+  };
+};

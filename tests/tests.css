@@ -152,6 +152,48 @@
   -description: "get a string.";
 }
 
+/* # Arguments ---------- */
+/* args-get-prev [function] */
+[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
+  -result: PASS;
+  -description: 'get prev item of "by".';
+}
+[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
+  -result: PASS;
+  -description: "\"child\" doesn't exists.";
+}
+[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
+  -result: PASS;
+  -description: '"map" is the first item in "$args4".';
+}
+[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
+  -result: PASS;
+  -description: "argment is not a list.";
+}
+
+/* # Arguments ---------- */
+/* args-get-next [function] */
+[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a map.";
+}
+[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a gutter.";
+}
+[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
+  -result: PASS;
+  -description: "\"child\" doesn't exists.";
+}
+[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
+  -result: PASS;
+  -description: 'Nothing after "gutter".';
+}
+[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
+  -result: PASS;
+  -description: "argment is not a list.";
+}
+
 /* # Functions ---------- */
 /* is-deep-list [function] */
 [data-module="Functions"] [data-test="is-deep-list [function]"] .assert-false {
@@ -196,8 +238,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 17 Tests: */
-/*  - 17 Passed */
+/* 19 Tests: */
+/*  - 19 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 
