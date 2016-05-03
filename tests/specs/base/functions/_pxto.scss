@@ -1,0 +1,13 @@
+@include test-module('Functions') {
+
+  // Testing Functions
+  @include test('pxto [function]') {
+    $test-1: pxto(1em, 16px, 16px);
+    $expect-1: 1em;
+    @include assert-equal($test-1, $expect-1, 'return em length');
+
+    $test-2: pxto(1rem, 32px, 16px);
+    $expect-2: 2rem;
+    @include assert-equal($test-2, $expect-2, 'return rem length');
+  }
+}

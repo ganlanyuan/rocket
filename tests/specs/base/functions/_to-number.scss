@@ -1,0 +1,13 @@
+@include test-module('Functions') {
+
+  // Testing Functions
+  @include test('to-number [function]') {
+    $test-1: to-number('10px');
+    $expect-1: 10px;
+    @include assert-equal($test-1, $expect-1, 'return number');
+
+    $test-2: to-number('-10.33');
+    $expect-2: -10.33;
+    @include assert-equal($test-2, $expect-2, 'return number');
+  }
+}

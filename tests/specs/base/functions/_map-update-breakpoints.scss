@@ -1,0 +1,11 @@
+@include test-module('Functions') {
+  
+  @include test('map-update-breakpoints [function]') {
+    $a: (null: 12px, small: 20px, 900px: 30px);
+    $b: (small: 700px);
+
+    $test-1: map-update-breakpoints($a, $b);
+    $expect-1: (null: 12px, 700px: 20px, 900px: 30px);
+    @include assert-equal($test-1, $expect-1, 'update map');
+  }
+}

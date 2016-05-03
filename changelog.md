@@ -1,5 +1,11 @@
 # Changelog
 
+##### 3.4.0
+- Added: a desktop version fallback for IE8 and below in `breakpoint` (`bp`), `responsive-type` (`rp-type`), since they don't support CSS3 media query.
+- Added: unit test [true](http://oddbird.net/true/).
+- Added: `masonry-cluster` to support Masonry Layout.
+- Fixed: a quote warning in `get-slider-selector`.
+
 ##### 3.3.5
 - Improved: update parameters for `ro-transition` in `off-canvas` to prevent future syntax issues.
 - Fixed: a parameter issue in `responsive-type`.

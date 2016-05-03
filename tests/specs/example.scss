@@ -1,5 +1,0 @@
-@include describe("A suite") {
-  @include it("contains spec with an expectation") {
-    @include should( expect( em(0) ), to( be( 1em )));
-  }
-}

@@ -1,6 +1,38 @@
-@import "../bower_components/bootcamp/dist/bootcamp"; // or "[node_modules|bower_components]/bootcamp/dist/bootcamp" if you didn't set load_paths
-@import "../src/scss/rocket"; // or "[node_modules|bower_components]/bootcamp/dist/bootcamp" if you didn't set load_paths
+@import "../bower_components/true/sass/_true.scss";
+@import "../src/scss/rocket";
 
-@include runner-start;
-@import "specs/example";
-@include runner-end;
+@import "specs/base/functions/functions";
+@import "specs/layout/layout";
+
+// @include test-module('Utilities') {
+
+//   // Testing Functions
+//   @include test('Map Add [function]') {
+//     $base: (one: 1, two: 1, three: 1);
+//     $add: (one: 1, two: 2, three: -1);
+
+//     $test: map-add($base, $add);
+//     $expect: (one: 2, two: 3, three: 0);
+//     @include assert-equal($test, $expect,
+//       'Returns the sum of two numeric maps');
+//   }
+
+//   // Testing Mixins
+//   @include test('Font Size [mixin]') {
+//     @include assert('Outputs a font size and line height based on keyword.') {
+//       @include input {
+//         @include font-size(large);
+//       }
+
+//       @include expect {
+//         font-size: 2rem;
+//         line-height: 3rem;
+//       }
+//     }
+//   }
+// }
+
+// Optionally show summary report in CSS and/or the command line:
+// - If you use Mocha, reporting to the command line is automatic.
+// - if you use true-cli, report(terminal) is required for output.
+@include report;

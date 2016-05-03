@@ -1,0 +1,9 @@
+@include test-module('Functions') {
+
+  // Testing Functions
+  @include test('strip-unit [function]') {
+    $test-1: strip-unit(20px);
+    $expect-1: 20;
+    @include assert-equal($test-1, $expect-1, 'return em length');
+  }
+}

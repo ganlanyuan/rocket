@@ -1,13 +1,18 @@
 @function map-update-breakpoints($map, $bps) {
   @if not $bps {
-    @error "breakpoints doesn't exit."
+    @warn "breakpoints doesn't exit."
   }
+
+  $map-new: (_placeholder: _placeholder);
 
   @each $key, $value in $map {
     @if type-of($key) == 'string' and map-has-key($bps, $key) {
-        $key: map-get($bps, $key);
+      $map-new: map-merge($map-new, ( map-get($bps, $key): $value ));
+    } @else {
+      $map-new: map-merge($map-new, ( $key: $value ));
     }
   }
 
-  @return $map;
+  $map-new: map-remove($map-new, _placeholder);
+  @return $map-new;
 }

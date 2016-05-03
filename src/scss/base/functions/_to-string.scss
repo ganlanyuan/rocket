@@ -1,3 +1,7 @@
 @function to-string($value) {
-  @return inspect($value);
+  @if type-of($value) == string {
+    @return $value;
+  } @else {
+    @return "" + $value;
+  }
 }

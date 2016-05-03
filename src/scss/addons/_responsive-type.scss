@@ -29,7 +29,7 @@
   @if $ie8 {
     @if $condition == 'max' and 
         index($bps, 'default') or 
-        index($bps, 'null') {
+        index($bps, null) {
     } @else {
       $bp-max: nums-get-max($bps);
     }

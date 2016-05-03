@@ -55,11 +55,12 @@
   }
 
   @if $grid {
-    $bp-first: nth(map-keys($grid), 1);
+    $bp-first: if( type-of($grid) == 'map', nth(map-keys($grid), 1), false );
 
     // check the first key, to see if it has breakpoints
     // has breakpoints
-    @if type-of($bp-first) == 'string' or 
+    @if $bp-first and 
+        type-of($bp-first) == 'string' or 
         type-of($bp-first) == 'number' and not unitless($bp-first) {
       
       // get number breakpoints and max-breakpoint
@@ -75,7 +76,7 @@
 
       @each $bp in $bps {
         @if $bp == 'default' {
-          @include check-list(map-get($grid, $bp), $child, $direction, $initialized);
+          @include check-list(map-get($grid, $bp), $gutter, $child, $direction, $initialized);
         } @else {
           @include bp($condition $media-type $bp) {
             // reset order, clear
@@ -83,19 +84,19 @@
               @include ro-order(0); 
               .no-flexbox.no-flexboxtweener & { clear: none; }
             }
-            @include check-list(map-get($grid, $bp), $child, $direction, $initialized);
+            @include check-list(map-get($grid, $bp), $gutter, $child, $direction, $initialized);
           }
         }
       }
     // no breakpoints
     } @else {
-      @include check-list($grid, $child, $direction, $initialized);
+      @include check-list($grid, $gutter, $child, $direction, $initialized);
     }
   }
 }
 
 // == check-list ==
-@mixin check-list($value, $child, $direction, $initialized) {
+@mixin check-list($value, $gutter, $child, $direction, $initialized) {
   $columns: false;
   $orders: false;
   $has-orders: false;
@@ -207,6 +208,10 @@
 
 // == is-deep-list == 
 @function is-deep-list($list) {
+  @if type-of($list) != 'list' {
+    @debug '#{$list} is not a list';
+  }
+
   $is-deep-list: false;
   @if type-of($list) == 'list' {
     @each $item in $list {
@@ -228,7 +233,11 @@
   @if type-of($value) == 'list' or type-of($value) == 'number' {
     $columns: $value;
   } @else if type-of($value) == 'map' {
-    $columns: map-keys($value);
+    @if length(map-keys($value)) == 1 {
+      $columns: nth(map-keys($value), 1);
+    } @else {
+      $columns: map-keys($value);
+    }
   }
 
   @return $columns;
@@ -236,7 +245,14 @@
 
 // == grid-get-orders ==
 @function grid-get-orders($value) {
-  $orders: if(type-of($value) == 'map', map-values($value), false);
+  $orders: false;
+  @if type-of($value) == 'map' {
+    @if length(map-values($value)) == 1 {
+      $orders: nth(map-values($value), 1);
+    } @else {
+      $orders: map-values($value);
+    }
+  }
 
   @if $orders {
     $min-order: min($orders...);

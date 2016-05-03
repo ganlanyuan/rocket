@@ -104,6 +104,9 @@ $ro-angled-edges: 'top', 'bottom', 'both' !default;
 $ro-drop-shadow-styles: 'lifted', 'raised', 'perspective', 'curve' !default;
 $ro-drop-shadow-directions: left, right, top, bottom, 'horizontal', 'vertical' !default;
 
+// masonry cluster
+$ro-masonry-cluster-directions: row, row-reverse, column, column-reverse !default;
+
 // diamond
 $ro-diamond-shape: 'diamond', 'octagon' !default;
 

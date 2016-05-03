@@ -1,0 +1,13 @@
+@include test-module('Functions') {
+
+  // Testing Functions
+  @include test('to-length [function]') {
+    $test-1: to-length(20, 'px');
+    $expect-1: 20px;
+    @include assert-equal($test-1, $expect-1, 'return length');
+
+    $test-2: to-length(33.3, 'vmin');
+    $expect-2: 33.3vmin;
+    @include assert-equal($test-2, $expect-2, 'return length');
+  }
+}

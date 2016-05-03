@@ -5,19 +5,31 @@ $masonry: (
   'default': 1,
       600px: 2,
       768px: 3,
-     1024px: 4,
 );
 
 .masonry { @include masonry($masonry gutter 20px); }
+.masonry-cluster-h { @include masonry-cluster( (1024px: (1 2)) child div gutter 20px); }
+.masonry-cluster-h-2 { @include masonry-cluster( (1024px: (2 1)) child div gutter 20px); }
+.masonry-cluster-v { @include masonry-cluster(column (1024px: (2 1)) child div gutter 20px); }
 
 // other styles
-.masonry > li > * {
-  border-radius: 5px;
+@include bp(min 1024) {
+  .cluster-img {
+    object-fit: cover;
+    object-position: 50% 50%;
+    max-width: none;
+    height: 350px;
+  }
+}
+.masonry img {
   overflow: hidden;
+  border-radius: 5px;
 }
 .masonry-content {
-  background: #f2f2f2;
   padding: 15px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #f2f2f2;
   h3 {
     font-size: 18px;
     margin-bottom: 10px;

@@ -1,0 +1,9 @@
+@include test-module('Functions') {
+
+  // Testing Functions
+  @include test('em [function]') {
+    $test-1: em(16px);
+    $expect-1: 1em;
+    @include assert-equal($test-1, $expect-1, 'return em length');
+  }
+}

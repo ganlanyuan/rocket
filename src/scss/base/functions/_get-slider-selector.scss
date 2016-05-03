@@ -1,5 +1,5 @@
 @function get-slider-selector($selector){
-  $str-selector: #{$selector};
+  $str-selector: unquote("#{$selector}");
   $start: 0;
   $result: null;
   

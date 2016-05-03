@@ -1,9 +1,10 @@
-@function pxto($result-unit, $pxval, $base) {
-  @if unit($pxval) == 'em' or unit($pxval) == 'rem' { 
-    @return $pxval; 
+@function pxto($unit, $px-val, $base) {
+  @if unit($px-val) == 'em' or unit($px-val) == 'rem' { 
+    @return strip-unit($px-val) * $unit; 
+
   } @else {
-    @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }
+    @if unit($px-val) == 'px' or unitless($px-val) { $px-val: strip-unit($px-val); }
     @if unit($base) == 'px' or unitless($base) { $base: strip-unit($base); }
-    @return ($pxval / $base) * $result-unit;
+    @return ($px-val / $base) * $unit;
   } 
 }

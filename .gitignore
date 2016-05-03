@@ -1,5 +1,4 @@
-.sass-cache
-*.map
+*.css.map
 *.DS_Store
 *.codekit
 *.sublime-project
@@ -7,6 +6,7 @@
 *.scssc
 *.swp
 
+.sass-cache/
 /.codekit-cache/
 /bower_components/
 

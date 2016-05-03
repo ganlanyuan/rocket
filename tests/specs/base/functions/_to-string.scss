@@ -1,0 +1,25 @@
+@include test-module('Functions') {
+
+  // Testing Functions
+  @include test('to-string [function]') {
+    // number
+    $test-1: to-string(16px);
+    $expect-1: '16px';
+    @include assert-equal($test-1, $expect-1, 'return a string');
+
+    // color
+    $test-2: to-string(#ccc);
+    $expect-2: '#ccc';
+    @include assert-equal($test-2, $expect-2, 'return a string');
+
+    // bool
+    $test-3: to-string(true);
+    $expect-3: 'true';
+    @include assert-equal($test-3, $expect-3, 'return a string');
+
+    // string
+    $test-4: to-string('20em');
+    $expect-4: '20em';
+    @include assert-equal($test-4, $expect-4, 'return a string');
+  }
+}

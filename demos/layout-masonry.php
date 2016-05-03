@@ -8,29 +8,27 @@
       <div class="example">
         <ul class="masonry">
           <li>
-            <div class="masonry-content">
-              <h3>Kalamazoo Searches for Motive in Spree That Killed 6</h3>
-              <p>The eight remaining justices return to the bench on Monday for the first time since Justice Antonin Scalia’s death. He had been the longest-serving member of the current court, so the other justices knew only one kind of Supreme Court argument — the kind dominated by a giant personality now departed. </p>
+            <div class="masonry-cluster-h">
+              <div class="masonry-content">
+                <div>
+                  <h3>Kalamazoo Searches for Motive in Spree That Killed</h3>
+                  <p>The eight remaining justices return to the bench on Monday for the first time since Justice Antonin Scalia’s death. He had been the longest-serving member of the current court</p>
+                </div>
+              </div>
+              <div class="masonry-cluster-v">
+                <div>
+                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
+                </div>
+                <div class="masonry-content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, mollitia.</p>
+                </div>
+              </div>
             </div>
           </li>
-          <li><img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt=""></li>
           <li>
             <div class="masonry-content">
               <h3>Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered</h3>
               <p> I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him. </p>
-            </div>
-          </li>
-          <li>
-            <div class="masonry-content">
-              <h3>After South Carolina, Cruz and Rubio Vie to Become Top Rival to Trump</h3>
-              <p> He asked more questions than any other justice. He deployed sarcastic put-downs and provocative remarks. But he also had keen insights, a tart wit and an enviable ability to turn a phrase. He was easily the most quotable member of the court. No one else was even close. </p>
-            </div>
-          </li>
-          <li><img src="http://www.freeimageslive.com/galleries/sports/lifestyle/preview/mountainbike_gears_8064585.jpg" alt=""></li>
-          <li>
-            <div class="masonry-content">
-              <h3>Is There Any Stopping Donald Trump?</h3>
-              <p> On Monday, Justice Scalia’s chair and the bench in front of it will be draped in black. The arguments, in a pair of minor cases, will no doubt be muted. Some losses start to feel real only when you return to the routines of daily life. </p>
             </div>
           </li>
           <li><img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt=""></li>
@@ -60,11 +58,27 @@
               <p>Lawyers are already scrutinizing the backgrounds of possible nominees, and top aides are almost certainly reaching out to potential picks. And in the days ahead, President Obama will want to interview those he is considering. </p>
             </div>
           </li>
-          <li><img src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt=""></li>
+          <li>
+            <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
+          </li>
           <li>
             <div class="masonry-content">
               <h3>Where Will Bush Voters Go?</h3>
               <p>But if the White House has its way, all of that will happen directly under the noses of people like me, and without leaking. In 2009 and 2010, Mr. Obama’s advisers did that pretty well, though word of the president’s in-person interviews quickly spread. </p>
+            </div>
+          </li>
+          <li>
+            <div class="masonry-cluster-h-2">
+              <div class="masonry-cluster-v">
+                <div><img class="cluster-img" src="http://www.freeimageslive.com/galleries/sports/lifestyle/preview/mountainbike_gears_8064585.jpg" alt=""></div>
+                <div class="masonry-content">
+                  <p>After South Carolina, Cruz and Rubio Vie to Become Top Rival to Trump</p>
+                </div>
+              </div>
+              <div class="masonry-content">
+                <h3>Is There Any Stopping Donald Trump?</h3>
+                <p> On Monday, Justice Scalia’s chair and the bench in front of it will be draped in black. The arguments, in a pair of minor cases, will no doubt be muted. Some losses start to feel real only when you return to the routines of daily life. </p>
+              </div>
             </div>
           </li>
           <li>
@@ -110,41 +124,17 @@
         </ul>
       </div>
       <pre><code class="language-scss">
+$masonry: (
+  'default': 1,
+      600px: 2,
+      768px: 3,
+);
+
 .masonry { @include masonry($masonry gutter 20px); }
-
-/* other styles */
-.masonry > li > * {
-  border-radius: 5px;
-  overflow: hidden;
-}
-.masonry-content {
-  background: #f2f2f2;
-  padding: 15px;
-  h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  p {
-    margin: 0;
-    line-height: 1.5;
-    font-size: 13px;
-    color: #666;
-  }
-}
-
-/* fallback */
-.no-csscolumns {
-  .masonry {
-    text-align: center;
-    > li {
-      display: inline-block;
-      vertical-align: top;
-      width: 250px;
-      margin: 0 20px 20px 0;
-      text-align: left;
-    }
-  }
-}      </code></pre>
+.masonry-cluster-h { @include masonry-cluster( (1024px: (1 2)) child div gutter 20px); }
+.masonry-cluster-h-2 { @include masonry-cluster( (1024px: (2 1)) child div gutter 20px); }
+.masonry-cluster-v { @include masonry-cluster(column (1024px: (2 1)) child div gutter 20px); }
+      </code></pre>
     </div>
     
     <?php include "include/more-demos.php" ?>
