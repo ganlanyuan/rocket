@@ -213,7 +213,7 @@
 
   // page
   @if $page-transform {
-    @include transition(transform $duration);
+    @include transition(transform #{$duration});
   }
   @if $page-push {
     @include transition($direction $duration);

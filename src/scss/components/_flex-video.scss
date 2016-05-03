@@ -13,23 +13,21 @@
 /// @link http://creatiointl.org/gallery/william/rocket/components-flex-video.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
-@mixin flex-video(
-  $key:
-    9/16
-    false
-){
+@mixin flex-video($key: (9 / 16) false){
   $ratio: ro-get-type($key, 'number');
   $child: ro-get-type($key, 'string');
-  @if unitless($ratio) { $ratio: percentage($ratio); }
-
-  // *** output *** //
-  @extend %flex-video-container;
-  padding-bottom: $ratio;
-  @if $child {
-    > #{$child} { @extend %flex-video; }
-  } @else {
-    > iframe,
-    > object,
-    > embed { @extend %flex-video; }
+  @if type-of($ratio) == 'number' {
+    @if unitless($ratio) { $ratio: percentage($ratio); }
+    
+    // *** output *** //
+    @extend %flex-video-container;
+    padding-bottom: $ratio;
+    @if $child {
+      > #{$child} { @extend %flex-video; }
+    } @else {
+      > iframe,
+      > object,
+      > embed { @extend %flex-video; }
+    }
   }
 }

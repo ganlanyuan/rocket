@@ -98,12 +98,50 @@
   }
 
   @at-root (without: media) { 
-    @extend %slider-carousel-base;
-    .outer { transition: height ($speed / 3); }
-    .inner { transition: left $speed; }
-    @if $autoplay { 
-      .autoplay {
-        .no-cssanimations & { display: none !important; } 
+    & {
+      position: relative;
+      img { width: 100%; }
+      .outer { 
+        overflow: hidden; 
+        transition: height ($speed / 3);
+      }
+      .inner {
+        @include clearfix();
+        position: relative;
+        letter-spacing: -0.34em; // remove white space between inline-block elements
+        white-space: nowrap;
+        transition: left $speed;
+        li {
+          display: inline-block;
+          vertical-align: top;
+          width: 100%;
+          letter-spacing: 0; // restore letter-spacing
+          box-sizing: border-box;
+          white-space: normal;
+        }
+      }
+      .controls, .dots, .autoplay { z-index: 2; }
+      .controls {
+        span { display: none; }
+        .prev { float: left; }
+        .next { float: right; }
+      }
+      .dots {
+        letter-spacing: -0.34em; // remove white space between inline-block elements
+        > label { letter-spacing: 0; } // restore letter-spacing
+        > label, span {
+          display: inline-block;
+          vertical-align: top;
+        }
+        .normal { display: block; }
+        .active { display: none; }
+      }
+      & > input { position: absolute; left: -9999px; }
+      .autoplay .pause {display: none; }
+      @if $autoplay { 
+        .autoplay {
+          .no-cssanimations & { display: none !important; } 
+        }
       }
     }
 
@@ -391,44 +429,4 @@
       }
     }
   }
-}
-
-%slider-carousel-base {
-  position: relative;
-  img { width: 100%; }
-  & > input { position: absolute; left: -9999px; }
-  .outer { 
-    overflow: hidden; 
-  }
-  .inner {
-    @include clearfix();
-    position: relative;
-    letter-spacing: -0.34em; // remove white space between inline-block elements
-    white-space: nowrap;
-    li {
-      display: inline-block;
-      vertical-align: top;
-      width: 100%;
-      letter-spacing: 0; // restore letter-spacing
-      box-sizing: border-box;
-      white-space: normal;
-    }
-  }
-  .controls, .dots, .autoplay { z-index: 2; }
-  .controls {
-    span { display: none; }
-    .prev { float: left; }
-    .next { float: right; }
-  }
-  .dots {
-    letter-spacing: -0.34em; // remove white space between inline-block elements
-    > label { letter-spacing: 0; } // restore letter-spacing
-    > label, span {
-      display: inline-block;
-      vertical-align: top;
-    }
-    .normal { display: block; }
-    .active { display: none; }
-  }
-  .autoplay .pause {display: none; }
 }

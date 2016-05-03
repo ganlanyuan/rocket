@@ -19,8 +19,8 @@ $h3-font-sizes: (
   900px : 22px,
   large : (30px, 1.2),
 );
-h3.example-font-size { @include font-size($h3-font-sizes, $bp); margin-bottom: 10px; }
-p.example-font-size { @include font-size($p-font-sizes, $bp); margin-bottom: 10px; }
+h3.example-font-size { @include font-size($h3-font-sizes $bp); margin-bottom: 10px; }
+p.example-font-size { @include font-size($p-font-sizes $bp); margin-bottom: 10px; }
 
 .example-font-size {
   text-transform: none;

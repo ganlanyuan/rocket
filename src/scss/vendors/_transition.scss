@@ -11,7 +11,9 @@
   $spec: ();
 
   // Create lists for vendor-prefixed transform
-  @each $list in $properties {
+  @for $i from 1 through length($properties) {
+    $list: nth($properties, $i);
+
     @if nth($list, 1) == "transform" {
       $needs-prefixes: true;
       $list1: -webkit-transform;
@@ -26,7 +28,6 @@
           $list2: join($list2, $var);
         }
       }
-
       $webkit: append($webkit, $list1);
       $moz:    append($moz,    $list2);
       $spec:   append($spec,   $list3);
@@ -36,11 +37,10 @@
       $spec:   append($spec,   $list, comma);
     }
   }
-
   @if $needs-prefixes {
     -webkit-transition: $webkit;
        -moz-transition: $moz;
-            transition: $spec;
+            transition: #{$spec};
   } @else {
     @if length($properties) >= 1 {
       @include prefixer(transition, $properties, webkit moz spec);
