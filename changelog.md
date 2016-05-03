@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.5.6
++ Fixed: some issues in `slider-carousel`, `flex-video` and `transition` when compile with Libsass.
++ Fixed: a warning `#{} interpolation near operators will be simplified` in `mobile-nav` when compile with Sass#3.4.21.
+
 ### v2.5.5
 +Fixed: `off-canvas` overlay background issue in chrome.
 

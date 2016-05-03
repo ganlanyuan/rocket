@@ -213,10 +213,10 @@
 
   // page
   @if $page-transform {
-    @include transition(transform #{$duration});
+    @include transition(unquote("transform #{$duration}"));
   }
   @if $page-push {
-    @include transition($direction $duration);
+    @include transition(unquote("#{$direction} #{$duration}"));
     position: relative;
     #{$direction}: 0;
 
@@ -263,11 +263,11 @@
       #{$direction}: 0;
 
       @if $nav-push and $nav-transform {
-        @include transition(transform $duration, margin-#{$direction} $duration);
+        @include transition(unquote("transform #{$duration}, margin-#{$direction} #{$duration}"));
       } @else if $nav-push and not $nav-transform {
-        @include transition(margin-#{$direction} $duration);
+        @include transition(unquote("margin-#{$direction} #{$duration}"));
       } @else if $nav-transform and not $nav-push {
-        @include transition(transform $duration);
+        @include transition(unquote("transform #{$duration}"));
       }
 
       @if $nav-push-val {
@@ -328,7 +328,7 @@
   // page-overlay
   @if $overlay {
     .page-overlay {
-      @include transition(background $duration);
+      @include transition(unquote("background #{$duration}"));
       position: fixed;
       display: block;
       left: 0;
@@ -338,7 +338,7 @@
       #{opposite($direction)}: auto;
       background-color: transparent;
       z-index: map-get($ro-nav-z-index, 'page-overlay');
-      @include transition(#{$direction} $duration);
+      @include transition(unquote("#{$direction} #{$duration}"));
       #nav-toggle:checked ~ & {
         // background-color
         background-color: $overlay-color;

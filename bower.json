@@ -1,6 +1,6 @@
 {
   "name": "rocket",
-  "version": "2.5.5",
+  "version": "2.5.6",
   "main": [
     "./src/scss/rocket.scss",
     "./src/js/kit.js",
