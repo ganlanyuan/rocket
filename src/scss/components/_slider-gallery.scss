@@ -3,18 +3,18 @@
   $items: 1;
 
   // options
-  $style: ro-get($key, $ro-slider-gallery-style);
-  $direction: ro-get($key, $ro-direction, left);
-  $angle: ro-get-next($key, 'angle', 60deg);
-  $keep: ro-get($key, 'keep');
+  $style: args-get($key, $ro-slider-gallery-style);
+  $direction: args-get($key, $ro-direction, left);
+  $angle: args-get-next($key, 'angle', 60deg);
+  $keep: args-get($key, 'keep');
 
   // autoplay
-  $autoplay: ro-get($key, 'autoplay');
-  $autoplay-js: ro-get($key, 'autoplay-js');
-  $progress-bar: ro-get($key, 'progress-bar');
-  $hoverpause: ro-get($key, 'hoverpause');
-  $speed: ro-get-next($key, 'speed', 1s);
-  $timeout: ro-get-next($key, 'timeout', 3s);
+  $autoplay: args-get($key, 'autoplay');
+  $autoplay-js: args-get($key, 'autoplay-js');
+  $progress-bar: args-get($key, 'progress-bar');
+  $hoverpause: args-get($key, 'hoverpause');
+  $speed: args-get-next($key, 'speed', 1s);
+  $timeout: args-get-next($key, 'timeout', 3s);
   $time-per-item: ($speed + $timeout);
 
   @if type-of($key) == number {

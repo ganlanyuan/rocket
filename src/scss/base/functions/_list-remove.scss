@@ -1,0 +1,16 @@
+@function list-remove($list, $val){
+  $result: ();
+
+  @if type-of($list) != 'list' {
+    $result: $list;
+    @warn '"#{$list}" is not a list.'
+  }
+
+  @each $item in $list {
+    @if $item != $val {
+      $result: append($result, $item);
+    }
+  }
+
+  @return $result;
+}

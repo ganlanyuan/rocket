@@ -1,7 +1,7 @@
 // *** flex-media *** //
 @mixin flex-media($key: ((9/16) false) ){
-  $ratio: ro-get-type($key, 'number');
-  $child: ro-get-type($key, 'string');
+  $ratio: args-get-type($key, 'number');
+  $child: args-get-type($key, 'string');
   @if unitless($ratio) { $ratio: percentage($ratio); }
 
   // *** output *** //

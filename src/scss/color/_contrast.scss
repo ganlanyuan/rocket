@@ -1,13 +1,15 @@
 // *** contrast *** //
 @function contrast($key) {
-  $light: ro-get-next($key, 'light', #fff);
-  $dark: ro-get-next($key, 'dark', #000);
+  $light: args-get-next($key, 'light', #fff);
+  $dark: args-get-next($key, 'dark', #000);
 
-  $key: reject($key, $light);
-  $key: reject($key, $dark);
-  $color: ro-get-type($key, 'color');
+  @if type-of($key) == 'list' {
+    $key: list-remove($key, $light);
+    $key: list-remove($key, $dark);
+  }
+  $color: args-get-type($key, 'color');
 
-
+  // @error $color;
   @if $color {
     @if brightness($color) < 65% { 
       @return $light; 

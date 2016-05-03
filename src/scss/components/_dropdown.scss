@@ -2,15 +2,14 @@
 @mixin dropdown($key: 'ul'){
   $check: append(join(join($ro-dropdown-show, $ro-dropdown-style), $ro-dropdown-direction), 'default');
 
-  $child: ro-get-type($key, 'string', $check, 'ul');
-  $show: ro-get($key, $ro-dropdown-show, 'hover');
-  $style: ro-get($key, $ro-dropdown-style, 'display');
-  $direction: ro-get($key, $ro-dropdown-direction);
-  $duration: ro-get-type($key, 'number', false, 0.3s);
-  $default: ro-get($key, 'default');
+  $child: args-get-type($key, 'string', $check, 'ul');
+  $show: args-get($key, $ro-dropdown-show, 'hover');
+  $style: args-get($key, $ro-dropdown-style, 'display');
+  $direction: args-get($key, $ro-dropdown-direction);
+  $duration: args-get-type($key, 'number', false, 0.3s);
+  $default: args-get($key, 'default');
   $path: false;
 
-  
   // *** output *** //
   position: relative;
   @if $show == 'hover' { cursor: pointer; }

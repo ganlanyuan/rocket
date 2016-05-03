@@ -1,9 +1,9 @@
 // *** parallelogram *** //
 @mixin parallelogram($key) {
-  $background: ro-get-type($key, 'color');
-  $angle: ro-get-type($key, 'number');
+  $background: args-get-type($key, 'color');
+  $angle: args-get-type($key, 'number');
   @if not $background {
-    $background: ro-get-type($key, 'string');
+    $background: args-get-type($key, 'string');
   }
 
   position: relative;

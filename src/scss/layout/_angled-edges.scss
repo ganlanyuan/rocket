@@ -1,7 +1,7 @@
 // *** angled-edges *** //
 @mixin angled-edges ($key) {
-  $edges: ro-get($key, $ro-angled-edges, 'bottom');
-  $flip: ro-get($key, 'flip');
+  $edges: args-get($key, $ro-angled-edges, 'bottom');
+  $flip: args-get($key, 'flip');
 
   // set selector
   $selector: '&:before, &:after';

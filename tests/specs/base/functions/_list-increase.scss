@@ -1,0 +1,8 @@
+@include test-module('Functions') {
+
+  @include test('list-increase [function]') {
+    $test: list-increase( (1px 5px 20px 3px) );
+    $expect: (1px 3px 5px 20px);
+    @include assert-equal($test, $expect, 'reorder number list: increase');
+  };
+};

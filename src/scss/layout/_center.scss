@@ -2,8 +2,8 @@
 @mixin center($key: false){
   $check: (left right center 'child');
 
-  $child: ro-get-type($key, 'string', $check, '*');
-  $align: ro-get($key, (left right center), center);
+  $child: args-get-type($key, 'string', $check, '*');
+  $align: args-get($key, (left right center), center);
 
   // *** output *** //
   @include ro-flexbox;

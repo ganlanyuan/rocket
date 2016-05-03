@@ -1,0 +1,25 @@
+@include test-module('Arguments') {
+
+  @include test('args-get-type [function]') {
+    
+    $args1: (map (1024px: (200px null)) left gutter 20px);
+    $test1: args-get-type($args1, 'map');
+    $expect1: (1024px: (200px null));
+    @include assert-equal($test1, $expect1, 'get a map.');
+    
+    $args2: (map (1024px: (200px null)) #ccc left gutter 20px);
+    $test2: args-get-type($args2, 'color');
+    $expect2: #ccc;
+    @include assert-equal($test2, $expect2, 'get a color.');
+    
+    $args3: (map (1024px: (200px null)) left gutter 20px);
+    $test3: args-get-type($args3, 'color');
+    $expect3: false;
+    @include assert-equal($test3, $expect3, 'get a color.');
+    
+    $args4: (map (1024px: (200px null)) left gutter 20px div);
+    $test4: args-get-type($args4, 'string', (map left gutter));
+    $expect4: 'div';
+    @include assert-equal($test4, $expect4, 'get a string.');
+  };
+};

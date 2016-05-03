@@ -7,18 +7,18 @@
 
   $global-breakpoint: false;
   $local-breakpoint: ();
-  $condition: ro-get($key, ('min' 'max'), 'min');
-  $media-type: ro-get($key, $ro-media-type);
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
 
-  $use-flex: ro-get($key, 'use-flex');
+  $use-flex: args-get($key, 'use-flex');
   $non-flex: if(
     $use-flex,
     '.no-flexbox.no-flexboxtweener &',
     '&');
 
-  $child: ro-get-next($key, 'child', 'div');
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $keep: ro-get($key, 'keep', false);
+  $child: args-get-next($key, 'child', 'div');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $keep: args-get($key, 'keep', false);
 
   @if type-of($key) == 'map' {
     $map: $key;
@@ -154,7 +154,7 @@
     
     @for $i from 1 through length($column-width) {
       $thisWidth: nth($column-width, $i);
-      $asides: reject($column-width, null);
+      $asides: list-remove($column-width, null);
 
       #{nth($child-list, $i)} {
         width: if(
@@ -189,8 +189,8 @@
     $new-order: ();
     @for $i from 1 through length($column-width) {
       @if nth($column-width, $i) == null {
-        $new-keys: reject($column-width, null);
-        $new-order: reject($position-number, $i);
+        $new-keys: list-remove($column-width, null);
+        $new-order: list-remove($position-number, $i);
       } @else {
         @if unitless(nth($column-width, $i)) {
           $column-width: set-nth($column-width, $i, (nth($column-width, $i) * 1px));

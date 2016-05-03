@@ -1,15 +1,15 @@
 // *** container *** //
 @mixin container($key: false){
   $container: false;
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $align: ro-get($key, (left right center), center);
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $align: args-get($key, (left right center), center);
 
   // get container & gutter
   @if type-of($key) == 'number' {
     $container: $key;
   } @else if type-of($key) == list {
     @if index($key, 'gutter') {
-      $key: reject($key, $gutter);
+      $key: list-remove($key, $gutter);
     }
     @each $item in $key {
       @if type-of($item) == 'number'{

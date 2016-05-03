@@ -1,11 +1,11 @@
 // *** responsive-table *** //
 @mixin responsive-table($key) {
-  $mode: ro-get($key, $responsive-table-mode, 'flip-scroll');
-  $data: ro-get-next($key, 'data');
-  $border-color: ro-get-type($key, 'color');
-  $breakpoint: ro-get-next($key, 'bp', 768);
-  $th-width: ro-get-next($key, 'width', 50%);
-  $count: ro-get-next($key, 'count', 15);
+  $mode: args-get($key, $responsive-table-mode, 'flip-scroll');
+  $data: args-get-next($key, 'data');
+  $border-color: args-get-type($key, 'color');
+  $breakpoint: args-get-next($key, 'bp', 768);
+  $th-width: args-get-next($key, 'width', 50%);
+  $count: args-get-next($key, 'count', 15);
 
   // *** output *** //
   // normal

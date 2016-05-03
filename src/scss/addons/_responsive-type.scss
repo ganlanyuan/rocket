@@ -1,9 +1,9 @@
 // *** responsive-type *** //
 @mixin responsive-type($key) {
   $map: false;
-  $condition: ro-get($key, ('min' 'max'), 'min');
+  $condition: args-get($key, ('min' 'max'), 'min');
   $global-bps: false;
-  $ie8: ro-get($key, 'ie8');
+  $ie8: args-get($key, 'ie8');
 
   @if type-of($key) == 'map' {
     $map: $key;
@@ -31,7 +31,7 @@
         index($bps, 'default') or 
         index($bps, null) {
     } @else {
-      $bp-max: nums-get-max($bps);
+      $bp-max: list-get-max($bps);
     }
   }
   

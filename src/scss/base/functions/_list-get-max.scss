@@ -1,16 +1,16 @@
-@function nums-get-max($list) {
-  $list-new: ();
+@function list-get-max($list) {
+  $_list: ();
   $max: false;
 
   @if type-of($list) == 'list' {
     @each $item in $list {
       @if type-of($item) == 'number' {
-        $list-new: append($list-new, $item);
+        $_list: append($_list, $item);
       }
     }
-    $max: max($list-new...);
+    $max: max($_list...);
     @return $max;
   } @else {
-    @error '#{$list} is not a list.'
+    @warn '"#{$list}" is not a list.'
   }
 }

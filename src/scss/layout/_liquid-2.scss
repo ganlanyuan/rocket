@@ -7,18 +7,18 @@
 
   $global-breakpoint: false;
   $local-breakpoint: ();
-  $condition: ro-get($key, ('min' 'max'), 'min');
-  $media-type: ro-get($key, $ro-media-type);
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
 
-  $use-flex: ro-get($key, 'use-flex');
+  $use-flex: args-get($key, 'use-flex');
   $non-flex: if(
     $use-flex,
     '.no-flexbox.no-flexboxtweener &',
     '&');
 
-  $child: ro-get-next($key, 'child', 'div');
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $keep: ro-get($key, 'keep', false);
+  $child: args-get-next($key, 'child', 'div');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $keep: args-get($key, 'keep', false);
 
   // get map
   @if type-of($key) == 'map' {
@@ -147,7 +147,7 @@
     @for $i from 1 through length($column-width) {
       // set width
       $thisWidth: nth($column-width, $i);
-      $asides: reject($column-width, null);
+      $asides: list-remove($column-width, null);
 
       #{nth($child-list, $i)} {
         width: if(
@@ -206,7 +206,7 @@
 }
 
 @function get-position-number($order) {
-  $nums: list-ascend(remove-dup($order)); // reordered values
+  $nums: list-increase(list-remove-duplicates($order)); // reordered values
   $position-number: ();
 
   @each $num in $nums {

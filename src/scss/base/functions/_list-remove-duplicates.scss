@@ -1,4 +1,8 @@
-@function remove-dup($list) {
+@function list-remove-duplicates($list) {
+  @if type-of($list) != 'list' {
+    @warn '"#{$list}" is not a list.'
+  }
+
   $result: ();
 
   @each $item in $list {

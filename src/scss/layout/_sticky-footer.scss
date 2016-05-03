@@ -1,6 +1,6 @@
 // *** sticky-footer *** //
 @mixin sticky-footer($key) {
-  $main: ro-get-type($key, 'string');
+  $main: args-get-type($key, 'string');
 
   @include ro-flexbox;
   @include ro-flex-flow(column);

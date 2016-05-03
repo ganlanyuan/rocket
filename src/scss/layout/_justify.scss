@@ -1,6 +1,6 @@
 // *** justify *** //
 @mixin justify($key: li){
-  $child: ro-get-next($key, 'child', 'li');
+  $child: args-get-next($key, 'child', 'li');
   @if type-of($key) == 'string' { $child: $key; }
 
   // *** output *** //

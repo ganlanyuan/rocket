@@ -1,0 +1,24 @@
+@function list-decrease($list) {
+  @if type-of($list) != 'list' {
+    @warn '"#{$list}" is not a list.'
+  }
+
+  @each $item in $list {
+    @if type-of($item) != 'number' {
+      @warn '"#{$item}" is not a number.'
+    }
+  }
+
+  $list: $list;
+  $return: ();
+  
+  @while length($list) > 1 {
+    $max: max($list...);
+
+    $return: append($return, $max);
+    $list: list-remove($list, $max);
+  }
+  $return: append($return, nth($list, 1));
+  
+  @return $return;
+}

@@ -2,10 +2,10 @@
 @mixin diamond($key){
   $per-row: false;
   $size: false;
-  $shape: ro-get($key, $ro-diamond-shape, 'diamond');
-  $combined: ro-get($key, 'combined');
-  $selector-type: ro-get($key, ('nth' 'type'), 'nth');
-  $keep: ro-get($key, 'keep');
+  $shape: args-get($key, $ro-diamond-shape, 'diamond');
+  $combined: args-get($key, 'combined');
+  $selector-type: args-get($key, ('nth' 'type'), 'nth');
+  $keep: args-get($key, 'keep');
 
   // nth-child & nth-of-type
   @if $selector-type == 'type' {

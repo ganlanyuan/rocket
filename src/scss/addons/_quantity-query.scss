@@ -1,7 +1,7 @@
 // *** quantity-query *** //
 @mixin quantity-selector($key, $method) {
-  $selector: ro-get-type($key, 'string', ('nth' 'type'), '*');
-  $selector-type: ro-get($key, ('nth' 'type'), 'nth');
+  $selector: args-get-type($key, 'string', ('nth' 'type'), '*');
+  $selector-type: args-get($key, ('nth' 'type'), 'nth');
   $count: false;
   $count-2: false;
 

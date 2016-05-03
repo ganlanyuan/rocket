@@ -1,12 +1,12 @@
 // *** charts *** //
 @mixin charts($key) {
-  $chart-type: ro-get($key, $ro-charts-type, 'bar');
-  $bar-height: ro-get-next($key, 'bar-height', 40px);
-  $bar-gap: ro-get-next($key, 'bar-gap', 6em);
-  $steps: ro-get-next($key, 'steps', (5 100));
-  $gutter: ro-get-next($key, 'gutter');
-  $animation: ro-get($key, 'animation');
-  $animation-val: ro-get-next($key, 'animation');
+  $chart-type: args-get($key, $ro-charts-type, 'bar');
+  $bar-height: args-get-next($key, 'bar-height', 40px);
+  $bar-gap: args-get-next($key, 'bar-gap', 6em);
+  $steps: args-get-next($key, 'steps', (5 100));
+  $gutter: args-get-next($key, 'gutter');
+  $animation: args-get($key, 'animation');
+  $animation-val: args-get-next($key, 'animation');
   
   $tick-line-color: #e7e7e7;
 
@@ -14,7 +14,7 @@
   $units: true;
   $labels: true;
   $numbers: true;
-  $hide: ro-get-next($key, 'hide');
+  $hide: args-get-next($key, 'hide');
   @if $hide {
     @if index($hide, 'units') {
       $units: false;
@@ -51,7 +51,7 @@
   @if type-of($key) == 'map' {
     $map: $key;
   } @else if type-of($key) == 'list' {
-    $map: ro-get-type($key, 'map');
+    $map: args-get-type($key, 'map');
   }
   $colors: map-keys($map);
   $data: map-values($map);
@@ -62,8 +62,8 @@
     $path: '&.active';
   }
   $duration: 1s;
-  $timing-function: ro-get-type($animation-val, 'string', false, ease);
-  $animation-val: reject($animation-val, $timing-function);
+  $timing-function: args-get-type($animation-val, 'string', false, ease);
+  $animation-val: list-remove($animation-val, $timing-function);
   @if length($animation-val) > 0 {
     $duration: nth($animation-val, 1);
   }

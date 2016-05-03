@@ -1,15 +1,15 @@
 // *** color core *** //
 // color
 @function color($key){
-  $method: ro-get($key, $ro-color-methods);
-  $color: ro-get-type($key, 'color');
-  $saturation: ro-get-next($key, 'saturation', 0%);
-  $lightness: ro-get-next($key, 'lightness', 0%);
-  $dist: ro-get-next($key, 'dist', $ro-color-dist);
+  $method: args-get($key, $ro-color-methods);
+  $color: args-get-type($key, 'color');
+  $saturation: args-get-next($key, 'saturation', 0%);
+  $lightness: args-get-next($key, 'lightness', 0%);
+  $dist: args-get-next($key, 'dist', $ro-color-dist);
 
-  $key: reject($key, $saturation);
-  $key: reject($key, $lightness);
-  $order: ro-get-type($key, 'number', false, 0);
+  $key: list-remove($key, $saturation);
+  $key: list-remove($key, $lightness);
+  $order: args-get-type($key, 'number', false, 0);
 
   $hue: hue($color);
   $target-hue: 0deg;

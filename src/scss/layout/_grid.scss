@@ -1,15 +1,15 @@
 // *** grid *** //
 @mixin grid($key:false){
-  $grid: ro-get-next($key, 'grid');
+  $grid: args-get-next($key, 'grid');
 
-  $breakpoints: ro-get-next($key, 'bp');
-  $condition: ro-get($key, ('min' 'max'), 'min');
-  $media-type: ro-get($key, $ro-media-type);
+  $breakpoints: args-get-next($key, 'bp');
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
 
-  $child: ro-get-next($key, 'child', 'div');
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $direction: ro-get($key, (left right), right);
-  $keep: ro-get($key, 'keep', false);
+  $child: args-get-next($key, 'child', 'div');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $direction: args-get($key, (left right), right);
+  $keep: args-get($key, 'keep', false);
 
   $initialized: false;
 
@@ -22,11 +22,11 @@
       @if is-number-list($key) {
         $grid: $key;
       } @else {
-        @if ro-get-type($key, 'map') {
-          $grid: ro-get-type($key, 'map');
-        } @else if ro-get-type($key, 'list') and is-number-list(ro-get-type($key, 'list')) {
+        @if args-get-type($key, 'map') {
+          $grid: args-get-type($key, 'map');
+        } @else if args-get-type($key, 'list') and is-number-list(args-get-type($key, 'list')) {
           @each $item in $key {
-            @if not $grid and type-of($item) == 'list' and is-number-list(ro-get-type($key, 'list')) {
+            @if not $grid and type-of($item) == 'list' and is-number-list(args-get-type($key, 'list')) {
               $grid: $item;
             }
           }
@@ -177,7 +177,7 @@
       $location: 1;
       $val: 0;
       @if $orders {
-        $simplify-orders: list-ascend(remove-dup($orders)); // reordered
+        $simplify-orders: list-increase(list-remove-duplicates($orders)); // reordered
         @each $item in $simplify-orders {
           @for $i from 1 through length($orders) {
             @if nth($orders, $i) == $item {

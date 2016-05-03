@@ -1,4 +1,23 @@
 /* # Functions ---------- */
+/* opposite [function] */
+[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return opposite direction.";
+}
+[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return opposite direction.";
+}
+[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return opposite direction.";
+}
+[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return opposite direction.";
+}
+
+/* # Functions ---------- */
 /* strip-unit [function] */
 [data-module="Functions"] [data-test="strip-unit [function]"] .assert-equal {
   -result: PASS;
@@ -72,10 +91,65 @@
 }
 
 /* # Functions ---------- */
+/* list-remove-duplicates [function] */
+[data-module="Functions"] [data-test="list-remove-duplicates [function]"] .assert-equal {
+  -result: PASS;
+  -description: "remove duplicate list items.";
+}
+
+/* # Functions ---------- */
+/* list-increase [function] */
+[data-module="Functions"] [data-test="list-increase [function]"] .assert-equal {
+  -result: PASS;
+  -description: "reorder number list: increase";
+}
+
+/* # Functions ---------- */
+/* list-decrease [function] */
+[data-module="Functions"] [data-test="list-decrease [function]"] .assert-equal {
+  -result: PASS;
+  -description: "reorder number list: decrease";
+}
+
+/* # Functions ---------- */
 /* map-update-breakpoints [function] */
 [data-module="Functions"] [data-test="map-update-breakpoints [function]"] .assert-equal {
   -result: PASS;
   -description: "update map";
+}
+
+/* # Arguments ---------- */
+/* args-get [function] */
+[data-module="Arguments"] [data-test="args-get [function]"] .assert-true {
+  -result: PASS;
+  -description: "get a value from arguments.";
+}
+[data-module="Arguments"] [data-test="args-get [function]"] .assert-false {
+  -result: PASS;
+  -description: "get a value from arguments.";
+}
+[data-module="Arguments"] [data-test="args-get [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a value from arguments.";
+}
+
+/* # Arguments ---------- */
+/* args-get-type [function] */
+[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a map.";
+}
+[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a color.";
+}
+[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a color.";
+}
+[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a string.";
 }
 
 /* # Functions ---------- */
@@ -122,8 +196,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 11 Tests: */
-/*  - 11 Passed */
+/* 17 Tests: */
+/*  - 17 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 

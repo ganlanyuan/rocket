@@ -1,11 +1,11 @@
 // *** validation *** //
 @mixin validation($key:false){
-  $style: ro-get($key, $validation-style, 'normal');
-  $direction: ro-get($key, $validation-direction, right);
-  $shake: ro-get($key, 'shake');
-  $speed: ro-get-next($key, 'speed', 0.3s);
-  $duration: ro-get-next($key, 'duration', 1.3s);
-  $default: ro-get($key, 'default');
+  $style: args-get($key, $validation-style, 'normal');
+  $direction: args-get($key, $validation-direction, right);
+  $shake: args-get($key, 'shake');
+  $speed: args-get-next($key, 'speed', 0.3s);
+  $duration: args-get-next($key, 'duration', 1.3s);
+  $default: args-get($key, 'default');
 
   $horizontal: false;
   $vertical: false;

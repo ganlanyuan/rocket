@@ -1,11 +1,11 @@
 // *** switch *** //
 @mixin switch($key: 20px){
-  $radius: ro-get($key, 'radius');
-  $round: ro-get($key, 'round');
-  $style: ro-get($key, $ro-switch-style, 'toggle');
+  $radius: args-get($key, 'radius');
+  $round: args-get($key, 'round');
+  $style: args-get($key, $ro-switch-style, 'toggle');
   $default-color: #ddd;
-  $active-color: ro-get-type($key, 'color', false, #3DD754);
-  $text: ro-get-next($key, 'text');
+  $active-color: args-get-type($key, 'color', false, #3DD754);
+  $text: args-get-next($key, 'text');
   
   // change em, rem to px
   $width: false;

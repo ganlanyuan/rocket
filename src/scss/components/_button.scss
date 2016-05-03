@@ -3,11 +3,11 @@
   $check: append(join($ro-button-hover, $ro-button-direction), 'round');
 
   $padding: false;
-  $round: ro-get($key, 'round');
+  $round: args-get($key, 'round');
   $border-radius: false;
 
-  $direction: ro-get($key, $ro-button-direction);
-  $hover: ro-get($key, $ro-button-hover);
+  $direction: args-get($key, $ro-button-direction);
+  $hover: args-get($key, $ro-button-hover);
 
   $colors: ();
   $color-1: #f2f2f2;

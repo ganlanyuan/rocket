@@ -1,0 +1,9 @@
+@include test-module('Functions') {
+
+  @include test('list-remove-duplicates [function]') {
+    
+    $list: (2 4 0 4 5 3 5);
+    $expect: (2 4 0 5 3);
+    @include assert-equal(list-remove-duplicates($list), $expect, 'remove duplicate list items.');
+  };
+};

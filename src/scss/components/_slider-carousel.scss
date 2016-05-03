@@ -2,25 +2,25 @@
 @mixin slider-carousel($key){
   $items: 1;
   $perpage: 1;
-  $gutter: ro-get-next($key, 'gutter', 10px);
+  $gutter: args-get-next($key, 'gutter', 10px);
 
   // options
-  $center: ro-get($key, 'center');
-  $bypage: ro-get($key, 'bypage');
-  $style: ro-get($key, $ro-slider-carousel-style);
-  $keep: ro-get($key, 'keep');
+  $center: args-get($key, 'center');
+  $bypage: args-get($key, 'bypage');
+  $style: args-get($key, $ro-slider-carousel-style);
+  $keep: args-get($key, 'keep');
 
   // vertical
-  $vertical: ro-get($key, 'vertical');
-  $ratio: ro-get-next($key, 'ratio', 9/16);
+  $vertical: args-get($key, 'vertical');
+  $ratio: args-get-next($key, 'ratio', 9/16);
 
   // autoplay
-  $autoplay: ro-get($key, 'autoplay');
-  $autoplay-js: ro-get($key, 'autoplay-js');
-  $progress-bar: ro-get($key, 'progress-bar');
-  $hoverpause: ro-get($key, 'hoverpause');
-  $speed: ro-get-next($key, 'speed', 1s);
-  $timeout: ro-get-next($key, 'timeout', 3s);
+  $autoplay: args-get($key, 'autoplay');
+  $autoplay-js: args-get($key, 'autoplay-js');
+  $progress-bar: args-get($key, 'progress-bar');
+  $hoverpause: args-get($key, 'hoverpause');
+  $speed: args-get-next($key, 'speed', 1s);
+  $timeout: args-get-next($key, 'timeout', 3s);
   $time-per-item: ($speed + $timeout);
 
   @if type-of($key) == 'number' {
@@ -29,8 +29,8 @@
     @each $val in $key {
 
       @if index($key, by) {
-        $items: ro-get-prev($key, by);
-        $perpage: ro-get-next($key, by);
+        $items: args-get-prev($key, by);
+        $perpage: args-get-next($key, by);
       } @else if type-of($val) == 'number' and unitless($val) {
         $items: $val;
       }

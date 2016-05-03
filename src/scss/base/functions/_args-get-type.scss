@@ -1,0 +1,24 @@
+@function args-get-type($key, $arg, $check:false, $def:false) {
+  $result: $def;
+
+  // @error $key;
+  @if type-of($key) == $arg {
+    $result: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == $arg {
+        @if $check {
+          @if not index($check, $item) {
+            $result: $item;
+          }
+        } @else {
+          $result: $item;
+        }
+      }
+    }
+  } @else {
+    @warn '"#{$key}" should be a #{$arg} or list.'
+  }
+
+  @return $result;
+}

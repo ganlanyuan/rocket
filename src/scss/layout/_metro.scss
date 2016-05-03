@@ -1,10 +1,10 @@
 // *** metro *** //
 @mixin metro($key) {
-  $condition: ro-get($key, ('min' 'max'), 'min');
-  $media-type: ro-get($key, $ro-media-type);
-  $ratio: ro-get-next($key, 'ratio', map-get($ro-metro, 'ratio'));
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-metro, 'gutter'));
-  $child: ro-get-next($key, 'child', map-get($ro-metro, 'child'));
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+  $ratio: args-get-next($key, 'ratio', map-get($ro-metro, 'ratio'));
+  $gutter: args-get-next($key, 'gutter', map-get($ro-metro, 'gutter'));
+  $child: args-get-next($key, 'child', map-get($ro-metro, 'child'));
 
   // $is-map: true;
   $map: false;
@@ -13,7 +13,7 @@
   @if type-of($key) == 'map' {
     $map: $key;
   } @else if type-of($key) == 'list' {
-    $map: ro-get-type($key, 'map');
+    $map: args-get-type($key, 'map');
   }
 
   @if $map {
@@ -41,7 +41,7 @@
     @for $i from 1 through length($breakpoints) {
       $this-bp: nth($breakpoints, $i);
       $this-data: nth($data, $i);
-      $this-full: ro-get-next($this-data, 'of');
+      $this-full: args-get-next($this-data, 'of');
       @if $this-bp == null {
         @for $j from 1 through (length($this-data) - 2) {
           $width: percentage(1 / $this-full);

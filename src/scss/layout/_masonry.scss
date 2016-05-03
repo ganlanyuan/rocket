@@ -3,10 +3,10 @@
   $map: false;
   $map-keys: false;
   $count: false;
-  $condition: ro-get($key, ('min' 'max'), 'min');
-  $child: ro-get-next($key, 'child', 'li');
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $child: args-get-next($key, 'child', 'li');
 
-  $gutter: ro-get-next($key, 'gutter');
+  $gutter: args-get-next($key, 'gutter');
   @if not $gutter { $gutter: 0; }
 
   // get map

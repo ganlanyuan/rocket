@@ -25,11 +25,11 @@
   }
   @if $map { $map-keys: map-keys($map); }
 
-  $gutter: ro-get-next($key, 'gutter', map-get($ro-layout, gutter));
-  $child: ro-get-next($key, 'child', 'li');
-  $direction: ro-get($key, left right, right);
-  $keep: ro-get($key, 'keep');
-  $condition: ro-get($key, ('min' 'max'), 'min');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
+  $child: args-get-next($key, 'child', 'li');
+  $direction: args-get($key, left right, right);
+  $keep: args-get($key, 'keep');
+  $condition: args-get($key, ('min' 'max'), 'min');
 
   // *** output *** //
   @if not $keep {

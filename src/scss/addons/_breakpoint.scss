@@ -1,8 +1,8 @@
 // *** breakpoint *** //
 @mixin ro-breakpoint($key){
-  $condition: ro-get($key, ('min' 'max'), 'min');
-  $media-type: ro-get($key, $ro-media-type, 'screen');
-  $ie8: ro-get($key, 'ie8');
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type, 'screen');
+  $ie8: args-get($key, 'ie8');
   $selector: '';
 
   // get breakpoints

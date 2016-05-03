@@ -1,7 +1,7 @@
 // *** tabs *** //
 @mixin tabs($key) {
-  $length: ro-get-type($key, 'number', 0);
-  $style: ro-get($key, $ro-tabs-style, 'normal');
+  $length: args-get-type($key, 'number', 0);
+  $style: args-get($key, $ro-tabs-style, 'normal');
 
   // *** output *** //
   > [type="radio"] {
@@ -64,7 +64,7 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin tabs-active($key) {
-  $length: ro-get-type($key, 'number', 0);
+  $length: args-get-type($key, 'number', 0);
   $len-base: str-length(selector-str()) + 1 + 1; // space: 1
   $path: '';
 
@@ -99,7 +99,7 @@
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin tabs-panel-active($key) {
-  $length: ro-get-type($key, 'number', 0);
+  $length: args-get-type($key, 'number', 0);
   $len-base: str-length(selector-str()) + 1 + 1; // space: 1, index +1
   $path: '';
 

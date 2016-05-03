@@ -3,11 +3,11 @@
   $map: false;
   $columns: false;
   $bps: false;
-  $condition: ro-get($key, ('min' 'max'), 'min');
+  $condition: args-get($key, ('min' 'max'), 'min');
 
-  $child: ro-get-next($key, 'child', 'li');
-  $direction: ro-get($key, $ro-masonry-cluster-directions, row);
-  $gutter: ro-get-next($key, 'gutter');
+  $child: args-get-next($key, 'child', 'li');
+  $direction: args-get($key, $ro-masonry-cluster-directions, row);
+  $gutter: args-get-next($key, 'gutter');
   $gutter-direction: if($direction == row, right, bottom);
   @if not $gutter { $gutter: 0; }
   $initialized: false;
@@ -63,9 +63,9 @@
 
 @mixin make-masonry-cluster ($map, $child, $direction, $gutter, $gutter-direction, $initialized) {
   @if not $initialized {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: space-between;
+    @include ro-flexbox;
+    @include ro-flex-direction($direction);
+    @include ro-justify-content(space-between);
   }
 
   $full-columns: 0;
@@ -75,14 +75,14 @@
 
   > #{$child} {
     @if not $initialized {
-      flex: 1 1 auto;
+      @include ro-flex(1 1 auto);
       overflow: hidden;
     }
 
     $child-count: length($map);
     @for $i from 1 through $child-count {
       &:nth-child(#{$i}) {
-        flex-basis: calc(#{percentage(nth($map, $i) / $full-columns)} - #{$gutter * ($child-count - 1) / $child-count});
+        @include ro-flex-basis(calc(#{percentage(nth($map, $i) / $full-columns)} - #{$gutter * ($child-count - 1) / $child-count}));
 
         @if not $initialized and $i != length($map) {
           margin-#{$gutter-direction}: $gutter;

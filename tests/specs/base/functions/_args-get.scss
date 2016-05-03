@@ -1,0 +1,19 @@
+@include test-module('Arguments') {
+
+  @include test('args-get [function]') {
+    
+    $args1: (map (1024px: (200px null)) left gutter 20px);
+    $test1: args-get($args1, left);
+    @include assert-true($test1, 'get a value from arguments.');
+
+    $args2: (map (1024px: (200px null)) left gutter 20px);
+    $test2: args-get($args2, right);
+    @include assert-false($test2, 'get a value from arguments.');
+    
+    $base: capitalize, uppercase, lowercase, none, full-width, transform-inherit;
+    $args3: (14px 1.4 uppercase bold);
+    $test3: args-get($args3, $base);
+    $expect3: uppercase;
+    @include assert-equal($test3, $expect3, 'get a value from arguments.');
+  };
+};

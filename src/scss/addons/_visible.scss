@@ -6,7 +6,7 @@
     @include bp('max' $key) { display: none !important; }
   } @else if type-of($key) == list {
     @if nth($key, 1) == 0 {
-      $key: reject($key, 0);
+      $key: list-remove($key, 0);
     } @else {
       $new-key: append($new-key, 0);
     }

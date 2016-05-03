@@ -1,0 +1,12 @@
+@include test-module('Functions') {
+
+  @include test('opposite [function]') {
+
+    $direction: (left right top bottom);
+    $expect: (right left bottom top);
+    @include assert-equal(opposite(nth($direction, 1)), nth($expect, 1), 'return opposite direction.');
+    @include assert-equal(opposite(nth($direction, 2)), nth($expect, 2), 'return opposite direction.');
+    @include assert-equal(opposite(nth($direction, 3)), nth($expect, 3), 'return opposite direction.');
+    @include assert-equal(opposite(nth($direction, 4)), nth($expect, 4), 'return opposite direction.');
+  };
+};

@@ -1,9 +1,9 @@
 // *** drop-shadows *** //
 @mixin drop-shadows($key){
-  $style: ro-get($key, $ro-drop-shadow-styles);
-  $direction: ro-get($key, $ro-drop-shadow-directions, bottom);
-  $color: ro-get-type($key, 'color', false, rgba(0, 0, 0, 0.6));
-  $shadow-size: ro-get-type($key, 'number', false, 10px);
+  $style: args-get($key, $ro-drop-shadow-styles);
+  $direction: args-get($key, $ro-drop-shadow-directions, bottom);
+  $color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.6));
+  $shadow-size: args-get-type($key, 'number', false, 10px);
 
   $selector: '&:before';
   @if $style == 'lifted' {

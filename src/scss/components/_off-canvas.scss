@@ -8,11 +8,11 @@
   $duration: 0.3s;
   $width: 240px;
 
-  $direction: ro-get($key, $ro-off-canvas-direction, 'left');
-  $mode: ro-get($key, $ro-off-canvas-modes, 'slide-in');
-  $nav: ro-get-type($key, 'string', $check);
-  $submenu: ro-get($key, 'submenu');
-  $overlay-color: ro-get-type($key, 'color', false, rgba(0, 0, 0, 0.2));
+  $direction: args-get($key, $ro-off-canvas-direction, 'left');
+  $mode: args-get($key, $ro-off-canvas-modes, 'slide-in');
+  $nav: args-get-type($key, 'string', $check);
+  $submenu: args-get($key, 'submenu');
+  $overlay-color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.2));
 
   @each $item in $key {
     @if type-of($item) == 'number' {
@@ -347,17 +347,17 @@
   @each $item in $list {
     @if $item == null {
       #{$prop}: map-get($map, $item);
-      $list: reject($list, $item);
+      $list: list-remove($list, $item);
     } @else if map-has-key($breakpoint, $item) {
       $list: append($list, map-get($breakpoint, $item));
-      $list: reject($list, $item);
+      $list: list-remove($list, $item);
       $map: map-merge($map, (map-get($breakpoint, $item): map-get($map, $item)));
       $map: map-remove($map, $item);
     }
   }
   
   @if length($list) > 1 {
-    $list: list-descend($list);
+    $list: list-decrease($list);
   }
 
   @each $item in $list {

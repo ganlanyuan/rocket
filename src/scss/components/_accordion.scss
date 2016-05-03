@@ -1,6 +1,6 @@
 // *** accordion *** //
 @mixin accordion($key){
-  $ac-content: ro-get-type($key, 'string');
+  $ac-content: args-get-type($key, 'string');
   $max-height: 1000px;
   $duration: 0.3s;
   @each $item in $key {
