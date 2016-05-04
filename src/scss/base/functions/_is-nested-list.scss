@@ -1,0 +1,17 @@
+@function is-nested-list($list) {
+  @if type-of($list) != 'list' {
+    @warn '#{$list} is not a list';
+  } @else {
+
+    $is-nested-list: false;
+    @each $item in $list {
+      @if type-of($item) == 'list' or type-of($item) == 'map' {
+        @if not $is-nested-list {
+          $is-nested-list: true;
+        }
+      }
+    }
+
+    @return $is-nested-list;
+  }
+}
