@@ -105,6 +105,17 @@
   -description: "return rem length";
 }
 
+/* # String ---------- */
+/* string-slice-from [function] */
+[data-module="String"] [data-test="string-slice-from [function]"] .assert-equal {
+  -result: PASS;
+  -description: 'get string slice after "-".';
+}
+[data-module="String"] [data-test="string-slice-from [function]"] .assert-equal {
+  -result: PASS;
+  -description: 'get string slice before ".".';
+}
+
 /* # Functions ---------- */
 /* list-remove-duplicates [function] */
 [data-module="Functions"] [data-test="list-remove-duplicates [function]"] .assert-equal {
@@ -258,6 +269,21 @@
   -description: "argment is not a list.";
 }
 
+/* # List ---------- */
+/* get-slider-id [function] */
+[data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get the last class.";
+}
+[data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get the last id.";
+}
+[data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get the entire selector when there is no class or id.";
+}
+
 /* # Functions ---------- */
 /* grid-get-columns [function] */
 [data-module="Functions"] [data-test="grid-get-columns [function]"] .assert-equal {
@@ -288,8 +314,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 22 Tests: */
-/*  - 22 Passed */
+/* 24 Tests: */
+/*  - 24 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 

@@ -11,6 +11,8 @@
 @import "em";
 @import "rem";
 
+@import "string-slice-from";
+
 @import "list-remove";
 @import "list-remove-duplicates";
 @import "list-increase";
@@ -27,7 +29,5 @@
 @import "args-get-prev";
 @import "args-get-next";
 
-@import "str-cut";
-@import "get-slider-selector";
-@import "get-last-selector";
+@import "get-slider-id";
 @import "get-breakpoint";

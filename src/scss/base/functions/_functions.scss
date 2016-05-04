@@ -1,27 +1,33 @@
 // *** function *** //
+@import "opposite";
+@import "strip-unit";
 @import "trigonometric";
-@import "to-number";
+
 @import "to-length";
+@import "to-number";
 @import "to-string";
+
 @import "pxto";
 @import "em";
 @import "rem";
-@import "strip-unit";
-@import "opposite";
-@import "list-remove-duplicates";
+
+@import "string-slice-from";
+
 @import "list-remove";
+@import "list-remove-duplicates";
 @import "list-increase";
 @import "list-decrease";
-@import "map-update-breakpoints";
 @import "list-get-max";
+@import "is-nested-list";
+@import "is-number-list";
+
+@import "map-update-breakpoints";
+@import "is-simple-map";
+
 @import "args-get";
 @import "args-get-type";
 @import "args-get-prev";
 @import "args-get-next";
-@import "str-cut";
-@import "get-slider-selector";
-@import "get-last-selector";
-@import "is-nested-list";
-@import "is-number-list";
-@import "is-simple-map";
+
+@import "get-slider-id";
 @import "get-breakpoint";

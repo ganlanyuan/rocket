@@ -1,0 +1,13 @@
+@include test-module('String') {
+
+  @include test('string-slice-from [function]') {
+
+    $test1: string-slice-from('weight-normal', '-', after);
+    $expect1: 'normal';
+    @include assert-equal($test1, $expect1, 'get string slice after "-".');
+
+    $test2: string-slice-from('weight.normal', '.', before);
+    $expect2: 'weight';
+    @include assert-equal($test2, $expect2, 'get string slice before ".".');
+  }
+}

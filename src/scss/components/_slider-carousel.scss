@@ -39,7 +39,7 @@
 
   $half: 0;
   $pages: $items - $perpage + 1;
-  $prefix: get-slider-selector(&);
+  $prefix: get-slider-id(&);
   $id: "#" + $prefix;
   @if $center and $perpage > 1 { 
     $half: (1 / ($perpage * 2)); 

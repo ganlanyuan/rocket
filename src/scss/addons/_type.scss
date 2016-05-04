@@ -29,16 +29,16 @@
 
   // remove prefix
   @if type-of($font-weight) == 'string' {
-    $font-weight: str-cut($font-weight, '-', after);
+    $font-weight: string-slice-from($font-weight, '-', after);
   }
   @if type-of($font-style) == 'string' {
-    $font-style: str-cut($font-style, '-', after);
+    $font-style: string-slice-from($font-style, '-', after);
   }
   @if type-of($text-align) == 'string' {
-    $text-align: str-cut($text-align, '-', after);
+    $text-align: string-slice-from($text-align, '-', after);
   }
   @if type-of($text-transform) == 'string' {
-    $text-transform: str-cut($text-transform, '-', after);
+    $text-transform: string-slice-from($text-transform, '-', after);
   }
 
 

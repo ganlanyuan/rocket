@@ -1,0 +1,12 @@
+@function get-slider-id($selector){
+  $id: $selector + '';
+  
+  @while (str-index($id, '.')) { 
+    $id: str-slice($id, str-index($id, '.') + 1, str-length($id)); 
+  }
+  @while (str-index($id, '#')) { 
+    $id: str-slice($id, str-index($id, '#') + 1, str-length($id)); 
+  }
+
+  @return $id;
+}

@@ -28,7 +28,7 @@
     }
   }
 
-  $prefix: get-slider-selector(&);
+  $prefix: get-slider-id(&);
   $id: "#" + $prefix;
 
   // angle

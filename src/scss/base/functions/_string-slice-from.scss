@@ -1,0 +1,23 @@
+@function string-slice-from($string, $separator, $from) {
+  @if type-of($string) == 'string' {
+    $position: 1;
+    $return: '';
+
+    @if str-index($string, $separator) {
+      $position: str-index($string, $separator);
+      @if $from == 'after' {
+        $position: $position + 1;
+        $return: str-slice($string, $position, str-length($string));
+      } @else if $from == 'before' {
+        $position: $position - 1;
+        $return: str-slice($string, 1, $position);
+      }
+    } @else {
+      $return: $string;
+    }
+
+    @return $return;
+  } @else {
+    @warn '"#{$string}" is not a string.';
+  }
+}
