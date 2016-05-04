@@ -48,70 +48,49 @@
 }
 
 /// Set tabs' active styles.
-/// 
-/// $key: `$length`
-/// @group components
-/// @param {number} $key - key 
-/// @example scss - Usage
-/// .your-tab-class { 
-///   @include tabs-active(3) {
-///     // tab active style
-///   } 
-/// }
-/// // length: 3; (3 tabs)
-///
-/// @link http://creatiointl.org/gallery/william/rocket/components-tabs.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
+@mixin tabs-active($length) {
+  @if $length <= 0 {
+    @warn '"Length" should be at least 1.';
+  }
 
-@mixin tabs-active($key) {
-  $length: args-get-type($key, 'number', 0);
-  $len-base: str-length(selector-str()) + 1 + 1; // space: 1
   $path: '';
 
   // get selector
   @for $i from 1 through $length {
     > input:nth-child(#{$i}):checked ~ {
       .ro-tabs > label:nth-child(#{$i}) {
-        $path: $path + selector-str-sliced($len-base);
+        $path: $path + & + ', ';
       }
     }
   }
   
+  // remove the last comma
+  $path: str-slice($path, 1, (str-length($path) - 2));
+
   // *** output *** //
-  $path: str-remove-comma($path);
-  #{$path} { @content; }
+  @at-root #{$path} { @content; }
 }
 
 /// Set panels' active styles.
-/// 
-/// $key: `$length`
-/// @group components
-/// @param {number} $key - key 
-/// @example scss - Usage
-/// .your-tab-class { 
-///   @include tabs-panel-active(3) {
-///     // panel active style
-///   } 
-/// }
-/// // length: 3; (3 tabs)
-///
-/// @link http://creatiointl.org/gallery/william/rocket/components-tabs.php demo
-/// @link https://github.com/ganlanyuan/rocket full document
+@mixin tabs-panel-active($length) {
+  @if $length <= 0 {
+    @warn '"Length" should be at least 1.';
+  }
 
-@mixin tabs-panel-active($key) {
-  $length: args-get-type($key, 'number', 0);
-  $len-base: str-length(selector-str()) + 1 + 1; // space: 1, index +1
   $path: '';
 
   // get selector
   @for $i from 1 through $length {
     > input:nth-child(#{$i}):checked ~ {
       .ro-panels > div:nth-child(#{$i}) {
-        $path: $path + selector-str-sliced($len-base);
+        $path: $path + & + ', ';
       }
     }
   }
+
+  // remove the last comma
+  $path: str-slice($path, 1, (str-length($path) - 2));
+
   // *** output *** //
-  $path: str-remove-comma($path);
-  #{$path} { @content; }
+  @at-root #{$path} { @content; }
 }

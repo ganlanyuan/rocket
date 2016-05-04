@@ -1,0 +1,14 @@
+@include test-module('map') {
+
+  @include test('is-simple-map [function]') {
+
+    $test-1: (null:1, 200px:0);
+    @include assert-true(is-simple-map($test-1), 'This is a simple map.');
+
+    $test-2: ('default': 2 2, 800px: (3 7) 2);
+    @include assert-false(is-simple-map($test-2), 'This map containes lists.');
+
+    $test-3: ('default': 2 2, 800px: (3:1, 7:0));
+    @include assert-false(is-simple-map($test-3), 'This map contains nested map.');
+  }
+}

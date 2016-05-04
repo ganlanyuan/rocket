@@ -1,3 +1,0 @@
-@function selector-str-sliced($len){
-  @return str-slice(selector-str(), $len, str-length(selector-str())) + ', ';
-}

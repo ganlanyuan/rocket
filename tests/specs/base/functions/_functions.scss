@@ -16,23 +16,20 @@
 @import "list-increase";
 @import "list-decrease";
 @import "list-get-max";
+@import "is-nested-list";
+@import "is-number-list";
 
 @import "map-update-breakpoints";
+@import "is-simple-map";
 
 @import "args-get";
 @import "args-get-type";
 @import "args-get-prev";
 @import "args-get-next";
 
-@import "selector-str";
-@import "selector-str-sliced";
-@import "str-remove-comma";
 @import "plus-one";
 @import "minus-one";
 @import "str-cut";
 @import "get-slider-selector";
 @import "get-last-selector";
-@import "is-simple-list";
-@import "is-number-list";
-@import "is-simple-map";
 @import "get-breakpoint";

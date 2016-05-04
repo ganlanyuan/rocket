@@ -1,7 +1,7 @@
-@function is-simple-map($key) {
-  @if type-of($key) == 'map' {
+@function is-simple-map($map) {
+  @if type-of($map) == 'map' {
     $types: ();
-    $list: join(map-keys($key), map-values($key));
+    $list: map-values($map);
 
     @each $item in $list {
       $type: type-of($item);
@@ -13,5 +13,7 @@
     }
 
     @return if(index($types, false), false, true);
+  } @else {
+    @warn '"#{$map} is not a map."';
   }
 }

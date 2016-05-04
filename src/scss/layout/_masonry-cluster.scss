@@ -16,7 +16,7 @@
   @if type-of($key) == 'map' {
     $map: $key;
   } @else if type-of($key) == 'list' {
-    @if is-deep-list($key) {
+    @if is-nested-list($key) {
       @each $item in $key {
         @if type-of($item) == 'map' or type-of($item) == 'list' {
           @if not $map {

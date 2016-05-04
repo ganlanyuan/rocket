@@ -1,3 +1,4 @@
+// http://thesassway.com/advanced/inverse-trigonometric-functions-with-sass
 // pow
 @function pow($number, $exp) {
   $value: 1;
@@ -71,13 +72,19 @@
 // sqrt
 // http://www.antimath.info/css/sass-sqrt-function/
 @function sqrt($r) {
-  $x0: 1;
-  $x1: $x0;
- 
-  @for $i from 1 through 10 {
-    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-    $x0: $x1;
+  @if $r < 0 {
+    @return false;
+  } @else if $r == 0 {
+    @return 0;
+  } @else {
+    $x0: 1;
+    $x1: $x0;
+   
+    @for $i from 1 through 10 {
+      $x1: $x0 - ($x0 * $x0 - $r) / (2 * $x0);
+      $x0: $x1;
+    }
+   
+    @return $x1;
   }
- 
-  @return $x1;
 }

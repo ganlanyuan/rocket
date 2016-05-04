@@ -119,7 +119,7 @@
     $initialized: true;
   }
 
-  @if is-deep-list($value) {
+  @if is-nested-list($value) {
     @each $item in $value {
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
@@ -204,26 +204,6 @@
       }
     }
   }
-}
-
-// == is-deep-list == 
-@function is-deep-list($list) {
-  @if type-of($list) != 'list' {
-    @debug '#{$list} is not a list';
-  }
-
-  $is-deep-list: false;
-  @if type-of($list) == 'list' {
-    @each $item in $list {
-      @if type-of($item) == 'list' or type-of($item) == 'map' {
-        @if not $is-deep-list {
-          $is-deep-list: true;
-        }
-      }
-    }
-  }
-
-  @return $is-deep-list;
 }
 
 // == grid-get-columns ==

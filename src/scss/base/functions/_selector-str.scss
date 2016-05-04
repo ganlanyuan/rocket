@@ -1,6 +1,0 @@
-@function selector-str(){
-  $sel: &;
-  $sel-str: (nth($sel, 1) + '');
-
-  @return $sel-str;
-}

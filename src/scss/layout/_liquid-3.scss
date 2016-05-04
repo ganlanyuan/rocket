@@ -23,11 +23,11 @@
   @if type-of($key) == 'map' {
     $map: $key;
   } @else if type-of($key) == 'list' {
-    @if is-simple-list($key) and is-liquid-list($key) {
+    @if not is-nested-list($key) and is-liquid-list($key) {
       $column-width: $key;
     } @else {
       @each $item in $key {
-        @if type-of($item) == 'list' and is-simple-list($item) {
+        @if type-of($item) == 'list' and not is-nested-list($item) {
           @if is-liquid-list($item) {
             $column-width: $item;
           } @else {

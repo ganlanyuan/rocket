@@ -24,6 +24,21 @@
   -description: "return em length";
 }
 
+/* # trigonometric ---------- */
+/* sqrt [function] */
+[data-module="trigonometric"] [data-test="sqrt [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return a square root of 9.";
+}
+[data-module="trigonometric"] [data-test="sqrt [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return a square root of 0.";
+}
+[data-module="trigonometric"] [data-test="sqrt [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return false when value is negative.";
+}
+
 /* # Functions ---------- */
 /* to-length [function] */
 [data-module="Functions"] [data-test="to-length [function]"] .assert-equal {
@@ -111,11 +126,60 @@
   -description: "reorder number list: decrease";
 }
 
+/* # List ---------- */
+/* is-nested-list [function] */
+[data-module="List"] [data-test="is-nested-list [function]"] .assert-false {
+  -result: PASS;
+  -description: "This is a simple list.";
+}
+[data-module="List"] [data-test="is-nested-list [function]"] .assert-true {
+  -result: PASS;
+  -description: "This list contains nested list.";
+}
+[data-module="List"] [data-test="is-nested-list [function]"] .assert-true {
+  -result: PASS;
+  -description: "This list contains map.";
+}
+
+/* # List ---------- */
+/* is-number-list [function] */
+[data-module="List"] [data-test="is-number-list [function]"] .assert-true {
+  -result: PASS;
+  -description: "This is a number list.";
+}
+[data-module="List"] [data-test="is-number-list [function]"] .assert-true {
+  -result: PASS;
+  -description: "This list is a number list.";
+}
+[data-module="List"] [data-test="is-number-list [function]"] .assert-false {
+  -result: PASS;
+  -description: "This list contains map.";
+}
+[data-module="List"] [data-test="is-number-list [function]"] .assert-false {
+  -result: PASS;
+  -description: "This list contains string.";
+}
+
 /* # Functions ---------- */
 /* map-update-breakpoints [function] */
 [data-module="Functions"] [data-test="map-update-breakpoints [function]"] .assert-equal {
   -result: PASS;
   -description: "update map";
+}
+
+/* # map ---------- */
+/* is-simple-map [function] */
+[data-module="map"] [data-test="is-simple-map [function]"] .assert-true {
+  -result: PASS;
+  -description: "This is a simple map.";
+}
+[data-module="map"] [data-test="is-simple-map [function]"] .assert-false {
+  -result: PASS;
+  -description: "This map containes lists.";
+}
+[data-module="map"] [data-test="is-simple-map [function]"] .assert-false {
+  -result: PASS;
+  -description: "This map contains nested map.";
 }
 
 /* # Arguments ---------- */
@@ -195,20 +259,6 @@
 }
 
 /* # Functions ---------- */
-/* is-deep-list [function] */
-[data-module="Functions"] [data-test="is-deep-list [function]"] .assert-false {
-  -result: PASS;
-  -description: "This is a simple list.";
-}
-[data-module="Functions"] [data-test="is-deep-list [function]"] .assert-true {
-  -result: PASS;
-  -description: "This list contains nested list.";
-}
-[data-module="Functions"] [data-test="is-deep-list [function]"] .assert-true {
-  -result: PASS;
-  -description: "This list contains map.";
-}
-
 /* grid-get-columns [function] */
 [data-module="Functions"] [data-test="grid-get-columns [function]"] .assert-equal {
   -result: PASS;
@@ -238,8 +288,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 19 Tests: */
-/*  - 19 Passed */
+/* 22 Tests: */
+/*  - 22 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 

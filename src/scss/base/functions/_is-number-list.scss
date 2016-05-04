@@ -1,32 +1,27 @@
-@function is-number-list($key) {
-  $is-number-list: ();
-  @each $item in $key {
-    @if type-of($item) == 'list' {
-      @each $sub-item in $item {
-        @if type-of($sub-item) == 'list' {
-          @each $sub-sub-item in $sub-item {
-            $is-number-list: if(
-              type-of($sub-sub-item) != 'number',
-              append($is-number-list, false),
-              append($is-number-list, true) );
-          }
-        } @else {
-          $is-number-list: if(
-            type-of($sub-item) != 'number',
-            append($is-number-list, false),
-            append($is-number-list, true) );
-        }
-      }
-    } @else {
-      $is-number-list: if(
-        type-of($item) != 'number',
-        append($is-number-list, false),
-        append($is-number-list, true) );
-    }
-  }
+@function is-number-list($list) {
+  @if type-of($list) != 'list' {
+    @warn '"#{$list}" is not a list';
+  } @else {
 
-  @return if(
-    index($is-number-list, false),
-    false,
-    true );
+    $types: ();
+    @each $item in $list {
+      @if type-of($item) == 'list' {
+
+        @each $sub-item in $item {
+          @if type-of($sub-item) == 'list' {
+            
+            @each $sub-sub-item in $sub-item {
+              $types: if(type-of($sub-sub-item) != 'number', append($types, false), append($types, true));
+            }
+          } @else {
+            $types: if(type-of($sub-item) != 'number', append($types, false), append($types, true));
+          }
+        }
+      } @else {
+        $types: if(type-of($item) != 'number', append($types, false), append($types, true));
+      }
+    }
+
+    @return if(index($types, false), false, true);
+  }
 }

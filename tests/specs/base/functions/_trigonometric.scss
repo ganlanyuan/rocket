@@ -1,0 +1,17 @@
+@include test-module('trigonometric') {
+
+  @include test('sqrt [function]') {
+    
+    $test1: sqrt(9);
+    $expect1: 3;
+    @include assert-equal($test1, $expect1, 'return a square root of 9.');
+    
+    $test2: sqrt(0);
+    $expect2: 0;
+    @include assert-equal($test2, $expect2, 'return a square root of 0.');
+    
+    $test3: sqrt(-2);
+    $expect3: false;
+    @include assert-equal($test3, $expect3, 'return false when value is negative.');
+  };
+};
