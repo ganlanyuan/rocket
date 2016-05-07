@@ -1,7 +1,16 @@
 @import 'demo-base';
 
 // *** layout: liquid-2 *** //
-.example-liquid-2 { @include liquid-2((null:1, 200px:0) use-flex); }
+$list: (null 200px);
+$map1: (
+  null:1, 
+  200px:0
+);
+$map2: (
+  null: (200px null),
+  800px: (null:1, 200px:0)
+);
+.example-liquid-2 { @include liquid-2($map2 use-flex); }
 .example-liquid-2 {
   > div:last-child .cell {
     // height: 400px;

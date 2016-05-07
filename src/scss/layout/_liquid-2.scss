@@ -1,44 +1,41 @@
 // *** liquid-2 *** //
 @mixin liquid-2($key){
   $map: false;
-  $column-width: false;
+  $columns: false;
   $order: false; // for flexbox
   $position-number: false; // for non-flexbox
 
-  $global-breakpoint: false;
-  $local-breakpoint: ();
+  $global-bps: false;
+  $bps: ();
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
   $use-flex: args-get($key, 'use-flex');
-  $non-flex: if(
-    $use-flex,
-    '.no-flexbox.no-flexboxtweener &',
-    '&');
+  $non-flex: if($use-flex, '.lt-ie10 &', '&');
 
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $keep: args-get($key, 'keep', false);
+  $initialized: false;
 
   // get map
   @if type-of($key) == 'map' {
     $map: $key;
   } @else if type-of($key) == 'list' {
     @if not is-nested-list($key) and is-liquid-list($key) {
-      $column-width: $key;
+      $columns: $key;
     } @else {
       @each $item in $key {
         @if type-of($item) == 'list' and not is-nested-list($item) {
           @if is-liquid-list($item) {
-            $column-width: $item;
+            $columns: $item;
           } @else {
             $child: $item;
           }
         } @else if type-of($item) == 'map' {
           @if not $map {
             $map: $item;
-          } @else if not $global-breakpoint {
-            $global-breakpoint: $item;
+          } @else if not $global-bps {
+            $global-bps: $item;
           }
         }
       }
@@ -47,53 +44,40 @@
   
   @if $map {
     @if is-simple-map($map) {
-      $column-width: map-keys($map);
+      $columns: map-keys($map);
       $order: map-values($map);
       $position-number: get-position-number($order);
 
-      @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
+      @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
     } @else {
       // has breakpoint
-      $keep: true;
-      $local-breakpoint: map-keys($map);
-      $local-breakpoint-num: get-breakpoint($local-breakpoint, $global-breakpoint);
-
-      @if nth($local-breakpoint-num, 1) == null {
-        @include liquid-2-base($child, $gutter, $use-flex, $non-flex);
-      } @else {
-        @include bp($condition $media-type nth($local-breakpoint-num, 1)) {
-          @include liquid-2-base($child, $gutter, $use-flex, $non-flex);
-        }
+      @if $global-bps {
+        $map: map-update-breakpoints($map, $global-bps);
       }
+      $bps: map-keys($map);
 
-      @for $i from 1 through length($local-breakpoint) {
-        $bp: nth($local-breakpoint, $i);
+      @for $i from 1 through length($bps) {
+        $bp: nth($bps, $i);
         $layout: map-get($map, $bp);
-        $layout-type: type-of($layout);
+
+        @if $i != 1 {
+          $initialized: true;
+        }
+
+        @if type-of($layout) == 'list' {
+          $columns: $layout;
+          @if not $position-number { $position-number: (1, 2); }
+        } @else if type-of($layout) == 'map' {
+          $columns: map-keys($layout);
+          $order: map-values(map-get($map, $bp));
+          $position-number: get-position-number($order);
+        }
 
         @if $bp == null  {
-          @if $layout-type == 'list' {
-            $column-width: $layout;
-            @if not $position-number { $position-number: (1, 2); }
-          } @else if $layout-type == 'map' {
-            $column-width: map-keys($layout);
-            $order: map-values(map-get($map, $bp));
-            $position-number: get-position-number($order);
-          }
-
-          @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
+          @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
         } @else {
-          @include bp($condition $media-type nth($local-breakpoint-num, $i)) {
-            @if $layout-type == 'list' {
-              $column-width: $layout;
-              @if not $position-number { $position-number: (1, 2); }
-            } @else if $layout-type == 'map' {
-              $column-width: map-keys($layout);
-              $order: map-values(map-get($map, $bp));
-              $position-number: get-position-number($order);
-            }
-
-            @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
+          @include bp($condition $media-type nth($bps, $i)) {
+            @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
           }
         }
       }
@@ -102,31 +86,12 @@
   } @else {
     @if not $position-number { $position-number: (1, 2); }
 
-    @include make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex);
+    @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
   }
 
 }
 
-@mixin liquid-2-base($child, $gutter, $use-flex, $non-flex){
-  $children: if(
-    type-of($child) == 'list' and length($child) == 2,
-    ("> #{nth($child, 1)}, > #{nth($child, 2)}"), 
-    "> #{$child}" );
-
-  // flexbox
-  @if $use-flex {
-    @include ro-flexbox;
-    @include ro-justify-content(space-between);
-  }
-  
-  // non-flexbox
-  #{$non-flex} {
-    @include clearfix();
-    #{$children} { box-sizing: border-box; }
-  }
-}
-
-@mixin make-liquid-2($column-width, $order, $position-number, $child, $gutter, $keep, $use-flex, $non-flex) {  
+@mixin make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex) {  
 
   $child-list: if(
     type-of($child) == 'list' and length($child) == 2,
@@ -139,15 +104,15 @@
 
   // flexbox
   @if $use-flex {
-    @if not $keep {
+    @if not $initialized {
       @include ro-flexbox;
       @include ro-justify-content(space-between);
     }
 
-    @for $i from 1 through length($column-width) {
+    @for $i from 1 through length($columns) {
       // set width
-      $thisWidth: nth($column-width, $i);
-      $asides: list-remove($column-width, null);
+      $thisWidth: nth($columns, $i);
+      $asides: list-remove($columns, null);
 
       #{nth($child-list, $i)} {
         width: if(
@@ -162,15 +127,15 @@
   // non-flexbox
   #{$non-flex} {
     $sidebar-position: if(
-      nth($column-width, nth($position-number, 1)) == null, 
+      nth($columns, nth($position-number, 1)) == null, 
       right,
       left );
     $sidebar-order: if(
-      nth($column-width, 1) == null,
+      nth($columns, 1) == null,
       2,
       1 );
     $main-order: if(
-      nth($column-width, 1) == null,
+      nth($columns, 1) == null,
       1,
       2 );
     $child-reset: if(
@@ -178,17 +143,22 @@
       $children,
       "> #{$child}:nth-child(n)" );
 
-    @if $column-width {
-      @if not $keep { @include clearfix(); }
+    @if $columns {
+      @if not $initialized { @include clearfix(); }
       padding: 0;
-      padding-#{$sidebar-position}: nth($column-width, $sidebar-order);
+      padding-#{$sidebar-position}: nth($columns, $sidebar-order);
 
-      @if $keep { #{$child-reset} { padding: 0; } }
+      @if $initialized { 
+        #{$child-reset} { 
+          margin: 0;
+          padding: 0; 
+        } 
+      }
 
       #{$children} {
-        @if not $keep { box-sizing: border-box; }
+        @if not $initialized { box-sizing: border-box; }
         float: if(
-          nth($column-width, 1) == null, 
+          nth($columns, 1) == null, 
           opposite($sidebar-position),
           $sidebar-position );
       }
@@ -197,12 +167,12 @@
         padding-#{$sidebar-position}: $gutter;
       } 
       #{nth($child-list, $sidebar-order)} {
-        width: nth($column-width, $sidebar-order);
-        margin-#{$sidebar-position}: - nth($column-width, $sidebar-order);
+        width: nth($columns, $sidebar-order);
+        margin-#{$sidebar-position}: - nth($columns, $sidebar-order);
       }
-
     }
   }
+
 }
 
 @function get-position-number($order) {

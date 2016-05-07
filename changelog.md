@@ -5,6 +5,7 @@
 - Added: unit test [true](http://oddbird.net/true/).
 - Added: `masonry-cluster` to support Masonry Layout.
 - Fixed: a quote warning in `get-slider-selector`.
+- Fixed: `liquid-2`.
 
 ##### 3.3.5
 - Improved: update parameters for `ro-transition` in `off-canvas` to prevent future syntax issues.
