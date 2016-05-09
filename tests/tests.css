@@ -269,6 +269,21 @@
   -description: "argment is not a list.";
 }
 
+/* # Arguments ---------- */
+/* args-get-maps [function] */
+[data-module="Arguments"] [data-test="args-get-maps [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get a map.";
+}
+[data-module="Arguments"] [data-test="args-get-maps [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get the second map.";
+}
+[data-module="Arguments"] [data-test="args-get-maps [function]"] .assert-equal {
+  -result: PASS;
+  -description: "map doesn't found.";
+}
+
 /* # List ---------- */
 /* get-slider-id [function] */
 [data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
@@ -314,8 +329,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 24 Tests: */
-/*  - 24 Passed */
+/* 25 Tests: */
+/*  - 25 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 

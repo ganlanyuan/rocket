@@ -1,0 +1,18 @@
+@function args-get-maps($arg){
+  $result: ();
+
+  // map: return map
+  @if type-of($arg) == 'map' {
+    $result: append($result, $arg);
+  } @else if type-of($arg) == 'list' {
+
+    // list: check type of each item, append maps to result
+    @each $item in $arg {
+      @if type-of($item) == 'map' {
+        $result: append($result, $item);
+      } 
+    }
+  }
+
+  @return $result;
+}

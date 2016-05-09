@@ -1,28 +1,35 @@
 // *** liquid-2 *** //
 @mixin liquid-2($key){
+  $maps: args-get-maps($key);
   $map: false;
   $columns: false;
-  $order: false; // for flexbox
-  $position-number: false; // for non-flexbox
+  $order: false; 
+  $child: args-get-next($key, 'child', 'div');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
 
   $global-bps: false;
   $bps: ();
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
-  $use-flex: args-get($key, 'use-flex');
-  $non-flex: if($use-flex, '.lt-ie10 &', '&');
-
-  $child: args-get-next($key, 'child', 'div');
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $initialized: false;
+  $non-calc: '.lt-ie9 &';
 
   // get map
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    @if not is-nested-list($key) and is-liquid-list($key) {
-      $columns: $key;
+  @if length($maps) >= 1 {
+    $map: nth($maps, 1);
+  }
+  @if length($maps) >= 2 {
+    $global-bps: nth($maps, 2);
+  }
+
+  @if length($maps) == 0 and type-of($key) == 'list' {
+    @if not is-nested-list($key) {
+      @if is-liquid-list($key) {
+        $columns: $key;
+      } @else {
+        $child: $key;
+      }
     } @else {
       @each $item in $key {
         @if type-of($item) == 'list' and not is-nested-list($item) {
@@ -30,12 +37,6 @@
             $columns: $item;
           } @else {
             $child: $item;
-          }
-        } @else if type-of($item) == 'map' {
-          @if not $map {
-            $map: $item;
-          } @else if not $global-bps {
-            $global-bps: $item;
           }
         }
       }
@@ -46,9 +47,8 @@
     @if is-simple-map($map) {
       $columns: map-keys($map);
       $order: map-values($map);
-      $position-number: get-position-number($order);
 
-      @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+      @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
     } @else {
       // has breakpoint
       @if $global-bps {
@@ -66,32 +66,31 @@
 
         @if type-of($layout) == 'list' {
           $columns: $layout;
-          @if not $position-number { $position-number: (1, 2); }
+          @if not $order { $order: (1, 2); }
         } @else if type-of($layout) == 'map' {
           $columns: map-keys($layout);
           $order: map-values(map-get($map, $bp));
-          $position-number: get-position-number($order);
         }
 
-        @if $bp == null  {
-          @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+        @if $bp == 'default' or $bp == null  {
+          @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
         } @else {
           @include bp($condition $media-type nth($bps, $i)) {
-            @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+            @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
           }
         }
       }
     }
     
   } @else {
-    @if not $position-number { $position-number: (1, 2); }
+    @if not $order { $order: (1, 2); }
 
-    @include make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+    @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
   }
 
 }
 
-@mixin make-liquid-2($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex) {  
+@mixin make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc) {  
 
   $child-list: if(
     type-of($child) == 'list' and length($child) == 2,
@@ -102,92 +101,67 @@
     ("> #{nth($child, 1)}, > #{nth($child, 2)}"), 
     "> #{$child}" );
 
-  // flexbox
-  @if $use-flex {
-    @if not $initialized {
-      @include ro-flexbox;
-      @include ro-justify-content(space-between);
-    }
+  $reverse: nth($order, 1) > nth($order, 2);
+  $first-column-auto: nth($columns, 1) == null;
+  $main-order: if($first-column-auto, 1, 2);
+  $sidebar-order: if($main-order == 1, 2, 1);
 
-    @for $i from 1 through length($columns) {
-      // set width
-      $thisWidth: nth($columns, $i);
-      $asides: list-remove($columns, null);
+  $sidebar-direction: left;
+  @if $reverse {
+    $sidebar-direction: if($first-column-auto, left, right);
+  } @else {
+    $sidebar-direction: if($first-column-auto, right, left);
+  }
 
-      #{nth($child-list, $i)} {
-        width: if(
-          $thisWidth == null,
-          ( calc(100% - #{nth($asides, 1)} - #{$gutter}) ), 
-          $thisWidth );
-        @if $order { @include ro-order(nth($order, $i)); }
+  @if not $initialized { 
+    @include clearfix(); 
+  }
+
+  @for $i from 1 through length($columns) {
+    // set width
+    $thisWidth: nth($columns, $i);
+    $aside: nth(list-remove($columns, null), 1);
+
+    #{nth($child-list, $i)} {
+      @if $reverse {
+        float: if($i == 1, right, left);
+      } @else {
+        float: if($i == 1, left, right);
       }
+
+      @if $thisWidth == null {
+        width: 100%;
+        width: calc(100% - #{$aside} - #{$gutter});
+      } @else {
+        width: $thisWidth;
+      }
+
     }
   }
 
-  // non-flexbox
-  #{$non-flex} {
-    $sidebar-position: if(
-      nth($columns, nth($position-number, 1)) == null, 
-      right,
-      left );
-    $sidebar-order: if(
-      nth($columns, 1) == null,
-      2,
-      1 );
-    $main-order: if(
-      nth($columns, 1) == null,
-      1,
-      2 );
-    $child-reset: if(
-      type-of($child) == 'list' and length($child) == 2,
-      $children,
-      "> #{$child}:nth-child(n)" );
+  // non-calc
+  #{$non-calc} {
+    $full-sidebar: nth($columns, $sidebar-order) + $gutter;
+
+    @if not $initialized {
+      #{$children} { box-sizing: border-box; }
+    }
 
     @if $columns {
-      @if not $initialized { @include clearfix(); }
-      padding: 0;
-      padding-#{$sidebar-position}: nth($columns, $sidebar-order);
-
-      @if $initialized { 
-        #{$child-reset} { 
-          margin: 0;
-          padding: 0; 
-        } 
-      }
-
-      #{$children} {
-        @if not $initialized { box-sizing: border-box; }
-        float: if(
-          nth($columns, 1) == null, 
-          opposite($sidebar-position),
-          $sidebar-position );
-      }
-      #{nth($child-list, $main-order)} {
-        width: 100%;
-        padding-#{$sidebar-position}: $gutter;
-      } 
-      #{nth($child-list, $sidebar-order)} {
-        width: nth($columns, $sidebar-order);
-        margin-#{$sidebar-position}: - nth($columns, $sidebar-order);
+      @if $sidebar-direction == left {
+        padding: 0 0 0 #{$full-sidebar};
+        #{nth($child-list, $sidebar-order)} {
+          margin: 0 0 0 #{- $full-sidebar};
+        }
+      } @else {
+        padding: 0 #{$full-sidebar} 0 0;
+        #{nth($child-list, $sidebar-order)} {
+          margin: 0 #{- $full-sidebar} 0 0;
+        }
       }
     }
   }
 
-}
-
-@function get-position-number($order) {
-  $nums: list-increase(list-remove-duplicates($order)); // reordered values
-  $position-number: ();
-
-  @each $num in $nums {
-    @for $i from 1 through length($order) {
-      @if nth($order, $i) == $num {
-        $position-number: append($position-number, $i);
-      }
-    }
-  }
-
-  @return $position-number;
 }
 
 // == is-liquid-list ==
@@ -201,8 +175,5 @@
       append($is-liquid-list, true) );
   }
 
-  @return if(
-    index($is-liquid-list, false),
-    false,
-    true );
+  @return if(index($is-liquid-list, false), false, true);
 }

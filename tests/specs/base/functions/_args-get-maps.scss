@@ -1,0 +1,22 @@
+@include test-module('Arguments') {
+
+  @include test('args-get-maps [function]') {
+    
+    // arg is a map
+    $args1: (1024px: (200px null));
+    $test1: nth(args-get-maps($args1), 1);
+    $expect1: (1024px: (200px null));
+    @include assert-equal($test1, $expect1, 'get a map.');
+    
+    // args contains 2 maps
+    $args2: ('default': (null 200px), 800px: (300px null)) ('small': 640px, 'medium': 768px);
+    $test2: nth(args-get-maps($args2), 2);
+    $expect2: ('small': 640px, 'medium': 768px);
+    @include assert-equal($test2, $expect2, 'get the second map.');
+    
+    $args3: (map left gutter 20px);
+    $test3: length(args-get-maps($args3));
+    $expect3: 0;
+    @include assert-equal($test3, $expect3, 'map doesn\'t found.');
+  };
+};

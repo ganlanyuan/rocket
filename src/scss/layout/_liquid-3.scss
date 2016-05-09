@@ -277,6 +277,21 @@
   }
 }
 
+@function get-position-number($order) {
+  $nums: list-increase(list-remove-duplicates($order)); // reordered values
+  $position-number: ();
+
+  @each $num in $nums {
+    @for $i from 1 through length($order) {
+      @if nth($order, $i) == $num {
+        $position-number: append($position-number, $i);
+      }
+    }
+  }
+
+  @return $position-number;
+}
+
 
 @mixin liquid-3($key) {
   @include holy-grail($key);
