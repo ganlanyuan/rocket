@@ -72,10 +72,10 @@
           $order: map-values(map-get($map, $bp));
         }
 
-        @if $bp == 'default' or $bp == null  {
+        @if $bp == 'default' or $bp == null {
           @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
         } @else {
-          @include bp($condition $media-type nth($bps, $i)) {
+          @include bp($condition $media-type $bp) {
             @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
           }
         }

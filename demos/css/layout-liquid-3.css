@@ -309,7 +309,16 @@ pre[class*="language-"] {
 }
 
 .example-liquid-3 > div:nth-child(1) {
-  width: calc(100% - 150px - 200px - 40px);
+  width: 100px;
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -moz-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+.example-liquid-3 > div:nth-child(2) {
+  width: calc(100% - 100px - 250px - 40px);
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -moz-order: 1;
@@ -317,17 +326,8 @@ pre[class*="language-"] {
   order: 1;
 }
 
-.example-liquid-3 > div:nth-child(2) {
-  width: 150px;
-  -webkit-box-ordinal-group: 1;
-  -webkit-order: 0;
-  -moz-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-}
-
 .example-liquid-3 > div:nth-child(3) {
-  width: 200px;
+  width: 250px;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
   -moz-order: 0;
@@ -345,25 +345,123 @@ pre[class*="language-"] {
   box-sizing: border-box;
 }
 
-.no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(2) {
-  width: 150px;
+.no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(3) {
+  width: 250px;
   float: left;
   margin-right: -100%;
 }
 
-.no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(3) {
-  width: 200px;
-  margin-left: 170px;
+.no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(2) {
+  width: 100%;
+  padding-left: 270px;
+  padding-right: 120px;
   float: left;
   margin-right: -100%;
 }
 
 .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(1) {
-  width: 100%;
-  padding-left: 390px;
+  width: 100px;
   float: right;
   margin-left: -100%;
   margin-right: 0;
+}
+
+@media screen and (min-width: 43.75em) {
+  .example-liquid-3 > div:nth-child(1) {
+    width: 100px;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -moz-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+  }
+  .example-liquid-3 > div:nth-child(2) {
+    width: calc(100% - 100px - 250px - 40px);
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -moz-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .example-liquid-3 > div:nth-child(3) {
+    width: 250px;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -moz-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(n) {
+    padding: 0;
+    margin: 0;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(1) {
+    width: 100px;
+    float: left;
+    margin-right: -100%;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(2) {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 270px;
+    float: left;
+    margin-right: -100%;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(3) {
+    width: 250px;
+    float: right;
+    margin-left: -100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  .example-liquid-3 > div:nth-child(1) {
+    width: 100px;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -moz-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+  .example-liquid-3 > div:nth-child(2) {
+    width: calc(100% - 100px - 250px - 40px);
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -moz-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .example-liquid-3 > div:nth-child(3) {
+    width: 250px;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -moz-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(n) {
+    padding: 0;
+    margin: 0;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(3) {
+    width: 250px;
+    float: left;
+    margin-right: -100%;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(2) {
+    width: 100%;
+    padding-left: 270px;
+    padding-right: 120px;
+    float: left;
+    margin-right: -100%;
+  }
+  .no-flexbox.no-flexboxtweener .example-liquid-3 > div:nth-child(1) {
+    width: 100px;
+    float: right;
+    margin-left: -100%;
+    margin-right: 0;
+  }
 }
 
 /*# sourceMappingURL=layout-liquid-3.css.map */

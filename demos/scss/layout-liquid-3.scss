@@ -1,4 +1,11 @@
 @import 'demo-base';
 
 // *** layout: holy-grail *** //
-.example-liquid-3 { @include liquid-3((null: 1, 150px: 0, 200px: 0) use-flex); }
+$list: (null 150px 200px);
+$map1: (150px:2, null:1, 200px:0);
+$map2: (
+  null: (100px:2, null:1, 250px:0),
+  700px: (100px:0, null:1, 250px:2),
+  900px: (100px:2, null:1, 250px:0),
+);
+.example-liquid-3 { @include liquid-3($map2 use-flex); }
