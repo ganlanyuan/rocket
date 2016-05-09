@@ -20,7 +20,7 @@
   }
 }
 .show {
-  @extend %ro-clearfix;
+  @extend %clearfix;
   margin-bottom: 40px;
   > .box {
     float: left;

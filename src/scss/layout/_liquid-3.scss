@@ -1,7 +1,8 @@
 // *** liquid-3 *** //
 @mixin holy-grail($key){
+  $maps: args-get-maps($key);
   $map: false;
-  $column-width: false;
+  $columns: false;
   $order: false; // for flexbox
   $position-number: (); // for non-flexbox
   $child: args-get-next($key, 'child', 'div');
@@ -13,31 +14,31 @@
   $media-type: args-get($key, $ro-media-type);
 
   $use-flex: args-get($key, 'use-flex');
-  $non-flex: if(
-    $use-flex,
-    '.no-flexbox.no-flexboxtweener &',
-    '&');
-
+  $non-flex: if($use-flex, '.no-flexbox.no-flexboxtweener &', '&');
   $initialized: false;
 
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    @if not is-nested-list($key) and is-liquid-list($key) {
-      $column-width: $key;
+  // get map
+  @if length($maps) >= 1 {
+    $map: nth($maps, 1);
+  }
+  @if length($maps) >= 2 {
+    $global-bps: nth($maps, 2);
+  }
+
+  @if length($maps) == 0 and type-of($key) == 'list' {
+    @if not is-nested-list($key) {
+      @if is-liquid-list($key) {
+        $columns: $key;
+      } @else {
+        $child: $key;
+      }
     } @else {
       @each $item in $key {
         @if type-of($item) == 'list' and not is-nested-list($item) {
           @if is-liquid-list($item) {
-            $column-width: $item;
+            $columns: $item;
           } @else {
             $child: $item;
-          }
-        } @else if type-of($item) == 'map' {
-          @if not $map {
-            $map: $item;
-          } @else if not $global-bps {
-            $global-bps: $item;
           }
         }
       }
@@ -46,11 +47,11 @@
   
   @if $map {
     @if is-simple-map($map) {
-      $column-width: map-keys($map);
+      $columns: map-keys($map);
       $order: map-values($map);
       $position-number: get-position-number($order);
 
-      @include make-holy-grail($column-width, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+      @include make-holy-grail($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
     } @else {
       // has breakpoint
       @if $global-bps {
@@ -67,19 +68,19 @@
         }
 
         @if type-of($layout) == 'list' {
-          $column-width: $layout;
+          $columns: $layout;
           @if not $position-number { $position-number: (1, 2, 3); }
         } @else if type-of($layout) == 'map' {
-          $column-width: map-keys($layout);
+          $columns: map-keys($layout);
           $order: map-values(map-get($map, $bp));
           $position-number: get-position-number($order);
         }
 
         @if $bp == 'default' or $bp == null {
-          @include make-holy-grail($column-width, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+          @include make-holy-grail($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
         } @else {
           @include bp($condition $media-type $bp) {
-            @include make-holy-grail($column-width, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+            @include make-holy-grail($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
           }
         }
       }
@@ -88,12 +89,12 @@
   } @else {
     @if not $position-number { $position-number: (1, 2, 3); }
 
-    @include make-holy-grail($column-width, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
+    @include make-holy-grail($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex);
   }
 
 }
 
-@mixin make-holy-grail($column-width, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex) {
+@mixin make-holy-grail($columns, $order, $position-number, $child, $gutter, $initialized, $use-flex, $non-flex) {
 
   $child-list: if(
     type-of($child) == 'list' and length($child) == 3,
@@ -117,14 +118,14 @@
       #{$children} { margin-right: $gutter; }
     }
     
-    @for $i from 1 through length($column-width) {
-      $thisWidth: nth($column-width, $i);
-      $asides: list-remove($column-width, null);
+    @for $i from 1 through length($columns) {
+      $thisWidth: nth($columns, $i);
+      $asides: list-remove($columns, null);
 
       #{nth($child-list, $i)} {
         width: if(
           $thisWidth == null,
-          calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter * 2}),
+          calc(100% - #{nth($asides, 1)} - #{nth($asides, 2)} - #{$gutter * 3}),
           $thisWidth );
 
         @if $order { @include ro-order(nth($order, $i)); }
@@ -136,11 +137,11 @@
   #{$non-flex} {
     // get main-layout
     $main-layout: null;
-    @if nth($column-width, nth($position-number, 1)) == null {
+    @if nth($columns, nth($position-number, 1)) == null {
       $main-layout: 'left';
-    } @else if nth($column-width, nth($position-number, 2)) == null {
+    } @else if nth($columns, nth($position-number, 2)) == null {
       $main-layout: 'center';
-    } @else if nth($column-width, nth($position-number, 3)) == null {
+    } @else if nth($columns, nth($position-number, 3)) == null {
       $main-layout: 'right';
     }
 
@@ -152,15 +153,15 @@
     $full-width: 0;
     $new-keys: ();
     $new-order: ();
-    @for $i from 1 through length($column-width) {
-      @if nth($column-width, $i) == null {
-        $new-keys: list-remove($column-width, null);
+    @for $i from 1 through length($columns) {
+      @if nth($columns, $i) == null {
+        $new-keys: list-remove($columns, null);
         $new-order: list-remove($position-number, $i);
       } @else {
-        @if unitless(nth($column-width, $i)) {
-          $column-width: set-nth($column-width, $i, (nth($column-width, $i) * 1px));
+        @if unitless(nth($columns, $i)) {
+          $columns: set-nth($columns, $i, (nth($columns, $i) * 1px));
         }
-        $full-width: ($full-width + nth($column-width, $i) + $gutter);
+        $full-width: ($full-width + nth($columns, $i) + $gutter);
       }
     }
     @if nth($new-order, 1) > nth($new-order, 2) {
@@ -171,9 +172,10 @@
       $right-width: (nth($new-keys, 2) + $gutter);
     }
 
-    @if $column-width {
+    @if $columns {
       @if not $initialized { 
         @include clearfix();
+        margin-right: 0;
         #{$children} { box-sizing: border-box; } 
       } @else {
         #{$child-reset} { padding: 0; margin: 0; }
@@ -187,20 +189,20 @@
           margin-right: -100%;
         } 
         #{nth($child-list, nth($position-number, 2))} {
-          width: nth($column-width, nth($position-number, 2));
+          width: nth($columns, nth($position-number, 2));
           margin-right: $right-width;
           float: right;
           margin-left: -100%;
         }
         #{nth($child-list, nth($position-number, 3))} {
-          width: nth($column-width, nth($position-number, 3));
+          width: nth($columns, nth($position-number, 3));
           float: right;
           margin-left: -100%;
           margin-right: 0; // reset flex margin-right
         }
       } @else if $main-layout == 'center' {
         #{nth($child-list, nth($position-number, 1))} {
-          width: nth($column-width, nth($position-number, 1));
+          width: nth($columns, nth($position-number, 1));
           float: left;
           margin-right: -100%;
         }
@@ -212,19 +214,19 @@
           margin-right: -100%;
         }
         #{nth($child-list, nth($position-number, 3))} {
-          width: nth($column-width, nth($position-number, 3));
+          width: nth($columns, nth($position-number, 3));
           float: right;
           margin-left: -100%;
           margin-right: 0; // reset flex margin-right
         }
       } @else if $main-layout == 'right' {
         #{nth($child-list, nth($position-number, 1))} {
-          width: nth($column-width, nth($position-number, 1));
+          width: nth($columns, nth($position-number, 1));
           float: left;
           margin-right: -100%;
         }
         #{nth($child-list, nth($position-number, 2))} {
-          width: nth($column-width, nth($position-number, 2));
+          width: nth($columns, nth($position-number, 2));
           margin-left: $left-width;
           float: left;
           margin-right: -100%;

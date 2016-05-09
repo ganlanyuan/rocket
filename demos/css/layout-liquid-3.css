@@ -318,7 +318,7 @@ pre[class*="language-"] {
 }
 
 .example-liquid-3 > div:nth-child(2) {
-  width: calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 60px);
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -moz-order: 1;
@@ -333,6 +333,10 @@ pre[class*="language-"] {
   -moz-order: 0;
   -ms-flex-order: 0;
   order: 0;
+}
+
+.no-flexbox.no-flexboxtweener .example-liquid-3 {
+  margin-right: 0;
 }
 
 .no-flexbox.no-flexboxtweener .example-liquid-3:after {
@@ -376,7 +380,7 @@ pre[class*="language-"] {
     order: 0;
   }
   .example-liquid-3 > div:nth-child(2) {
-    width: calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 60px);
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -moz-order: 1;
@@ -425,7 +429,7 @@ pre[class*="language-"] {
     order: 2;
   }
   .example-liquid-3 > div:nth-child(2) {
-    width: calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 60px);
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -moz-order: 1;

@@ -2,8 +2,6 @@
 //-----------------------------
 
 // clearfix
-%ro-clearfix { @include clearfix; }
-
 %ro-hidden-checkbox {
   position: absolute; 
   left: -9999px;

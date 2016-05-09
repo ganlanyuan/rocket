@@ -2,7 +2,7 @@
 
 // *** layout: gallery *** //
 .example-diamond {
-  @extend %ro-clearfix;
+  @extend %clearfix;
   max-width: 900px;
   margin: 80px auto 20px;
   span {

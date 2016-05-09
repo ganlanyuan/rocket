@@ -16,6 +16,7 @@
   $non-calc: '.lt-ie9 &';
 
   // get map
+  // (200px:1, null:0)
   @if length($maps) >= 1 {
     $map: nth($maps, 1);
   }
@@ -23,6 +24,8 @@
     $global-bps: nth($maps, 2);
   }
 
+  // if no map, use list
+  // (200px null)
   @if length($maps) == 0 and type-of($key) == 'list' {
     @if not is-nested-list($key) {
       @if is-liquid-list($key) {
@@ -43,14 +46,20 @@
     }
   }
   
+  // using map
+  // (200px:1, null:0)
   @if $map {
+    // simple map, without media querys
+    // (200px:1, null:0)
     @if is-simple-map($map) {
       $columns: map-keys($map);
       $order: map-values($map);
 
       @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
+
+    // complex map, with media querys
+    // ('default': (200px:1, null:0), 800px: (null 300px))
     } @else {
-      // has breakpoint
       @if $global-bps {
         $map: map-update-breakpoints($map, $global-bps);
       }
@@ -82,6 +91,8 @@
       }
     }
     
+  // using list
+  // (200px null)
   } @else {
     @if not $order { $order: (1, 2); }
 

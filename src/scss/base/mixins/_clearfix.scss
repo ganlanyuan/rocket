@@ -5,3 +5,5 @@
     display: table;
   }
 }
+
+%clearfix { @include clearfix; }
