@@ -161,7 +161,7 @@
     @include ro-transition(unquote("transform #{$duration}"));
   }
   @if $page-push {
-    @include ro-transition(unquote("$direction #{$duration}"));
+    @include ro-transition(unquote("#{$direction} #{$duration}"));
     position: relative;
     #{$direction}: 0;
 
