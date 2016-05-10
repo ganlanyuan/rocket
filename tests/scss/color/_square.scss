@@ -1,0 +1,19 @@
+@include test-module('Colors') {
+
+  // Testing Functions
+  @include test('square [function]') {
+    $original: #d92626;
+
+    $test1: square($original 1);
+    $expect1: #d9bb26;
+    @include assert-equal($test1, $expect1, 'Returns the square color');
+
+    $test2: square($original 2);
+    $expect2: #26d926;
+    @include assert-equal($test2, $expect2, 'Returns the square color');
+
+    $test3: square($original 3);
+    $expect3: #5026d9;
+    @include assert-equal($test3, $expect3, 'Returns the square color');
+  }
+}

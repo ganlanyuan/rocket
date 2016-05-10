@@ -1,8 +1,9 @@
-@import "../bower_components/true/sass/_true.scss";
-@import "../src/scss/rocket";
+@import "../../bower_components/true/sass/_true.scss";
+@import "../../src/scss/rocket";
 
-@import "specs/base/functions/functions";
-@import "specs/layout/layout";
+@import "utilities/utilities";
+@import "color/color";
+@import "layout/layout";
 
 // @include test-module('Utilities') {
 

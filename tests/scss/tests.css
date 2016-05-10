@@ -299,6 +299,106 @@
   -description: "get the entire selector when there is no class or id.";
 }
 
+/* # Colors ---------- */
+/* contrast [function] */
+[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the contrast color";
+}
+[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the contrast color";
+}
+[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the contrast color";
+}
+[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the contrast color";
+}
+
+/* # Colors ---------- */
+/* analogous [function] */
+[data-module="Colors"] [data-test="analogous [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the analogous color";
+}
+[data-module="Colors"] [data-test="analogous [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the analogous color";
+}
+
+/* # Colors ---------- */
+/* adjacent [function] */
+[data-module="Colors"] [data-test="adjacent [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the adjacent color";
+}
+[data-module="Colors"] [data-test="adjacent [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the adjacent color";
+}
+
+/* # Colors ---------- */
+/* complementary [function] */
+[data-module="Colors"] [data-test="complementary [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the complementary color";
+}
+
+/* # Colors ---------- */
+/* split-complementary [function] */
+[data-module="Colors"] [data-test="split-complementary [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the split-complementary color";
+}
+[data-module="Colors"] [data-test="split-complementary [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the split-complementary color";
+}
+
+/* # Colors ---------- */
+/* triad [function] */
+[data-module="Colors"] [data-test="triad [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the triad color";
+}
+[data-module="Colors"] [data-test="triad [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the triad color";
+}
+
+/* # Colors ---------- */
+/* rectangle [function] */
+[data-module="Colors"] [data-test="rectangle [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the rectangle color";
+}
+[data-module="Colors"] [data-test="rectangle [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the rectangle color";
+}
+[data-module="Colors"] [data-test="rectangle [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the rectangle color";
+}
+
+/* # Colors ---------- */
+/* square [function] */
+[data-module="Colors"] [data-test="square [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the square color";
+}
+[data-module="Colors"] [data-test="square [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the square color";
+}
+[data-module="Colors"] [data-test="square [function]"] .assert-equal {
+  -result: PASS;
+  -description: "Returns the square color";
+}
+
 /* # Functions ---------- */
 /* grid-get-columns [function] */
 [data-module="Functions"] [data-test="grid-get-columns [function]"] .assert-equal {
@@ -329,8 +429,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 25 Tests: */
-/*  - 25 Passed */
+/* 33 Tests: */
+/*  - 33 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 

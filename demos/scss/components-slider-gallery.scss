@@ -96,7 +96,8 @@
       width: 80%;
       max-width: 1000px; 
       margin-bottom: 40px; 
-      @extend %ro-global-transition; 
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
       [id*="-md"]:checked ~ & { max-width: 700px; }
       [id*="-sm"]:checked ~ & { max-width: 400px; }
     }

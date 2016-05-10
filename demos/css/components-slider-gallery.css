@@ -1,8 +1,3 @@
-[class^="gallery-"], [class^="carousel-"] {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
 .slider .slider-labels label {
   display: inline-block;
   box-sizing: border-box;
@@ -3000,6 +2995,8 @@ pre[class*="language-"] {
   width: 80%;
   max-width: 1000px;
   margin-bottom: 40px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 [id*="-md"]:checked ~ [class^="gallery-"], [id*="-md"]:checked ~ [class^="carousel-"] {

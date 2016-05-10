@@ -1,12 +1,12 @@
+.control input, .control .action {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 .show:after {
   clear: both;
   content: "";
   display: table;
-}
-
-.control input, .control .action {
-  display: inline-block;
-  box-sizing: border-box;
 }
 
 /* Android 2.3 :checked fix */

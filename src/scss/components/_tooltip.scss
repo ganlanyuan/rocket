@@ -19,10 +19,11 @@
   vertical-align: top; // prevent tooltip elements wobble because of overflow:hidden
   &:before, 
   &:after {
-    @extend %ro-global-transition;
     @extend %tooltip-common;
     @include opacity(0);
     #{$direction}: -8px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
   }
   &:before { content: ''; }
   &:after {

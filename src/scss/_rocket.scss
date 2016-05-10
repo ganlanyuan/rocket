@@ -3,13 +3,15 @@
 // Licensed under MIT Open Source
 // =============================================
 
-// base
-@import "base/variables";
-@import "base/functions/functions";
-@import "base/mixins/clearfix";
-@import "base/placeholders";
+// setting
+@import "setting/variables";
+@import "setting/placeholders";
+
+// utilities
+@import "utilities/utilities";
         
 // vendors
+@import "vendors/clearfix";
 @import "vendors/prefixer";
 @import "vendors/keyframes";
 @import "vendors/animation";

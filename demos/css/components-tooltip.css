@@ -1,9 +1,4 @@
 .tooltip.left:before, .tooltip.left:after, .tooltip.right:before, .tooltip.right:after, .tooltip.bottom:before, .tooltip.bottom:after, .tooltip.top:before, .tooltip.top:after {
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-}
-
-.tooltip.left:before, .tooltip.left:after, .tooltip.right:before, .tooltip.right:after, .tooltip.bottom:before, .tooltip.bottom:after, .tooltip.top:before, .tooltip.top:after {
   position: absolute;
   z-index: 9999;
 }
@@ -330,6 +325,8 @@ pre[class*="language-"] {
   opacity: 0;
   filter: alpha(opacity=0);
   left: -8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .tooltip.left:before {
@@ -405,6 +402,8 @@ pre[class*="language-"] {
   opacity: 0;
   filter: alpha(opacity=0);
   right: -8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .tooltip.right:before {
@@ -481,6 +480,8 @@ pre[class*="language-"] {
   opacity: 0;
   filter: alpha(opacity=0);
   bottom: -8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .tooltip.bottom:before {
@@ -557,6 +558,8 @@ pre[class*="language-"] {
   opacity: 0;
   filter: alpha(opacity=0);
   top: -8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .tooltip.top:before {

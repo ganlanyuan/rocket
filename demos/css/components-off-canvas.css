@@ -522,9 +522,9 @@ input:checked ~ .page-slide-in .page-overlay {
 }
 
 .page-slide-along {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  transition: left 0.5s;
   position: relative;
   left: 0;
   z-index: 201;
@@ -627,9 +627,9 @@ input:checked ~ .page-slide-along .page-overlay {
 }
 
 .page-slide-out {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  transition: left 0.5s;
   position: relative;
   left: 0;
   z-index: 201;
@@ -732,9 +732,9 @@ input:checked ~ .page-slide-out .page-overlay {
 }
 
 .page-rotate-in {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  transition: left 0.5s;
   position: relative;
   left: 0;
 }
@@ -856,9 +856,9 @@ input:checked ~ .page-rotate-in .page-overlay {
 }
 
 .page-rotate-out {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  transition: left 0.5s;
   position: relative;
   left: 0;
 }
@@ -980,9 +980,9 @@ input:checked ~ .page-rotate-out .page-overlay {
 }
 
 .page-rotate-in-reverse {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  transition: left 0.5s;
   position: relative;
   left: 0;
 }
@@ -1220,9 +1220,9 @@ input:checked ~ .page-scale-down .page-overlay {
 }
 
 .page-scale-up {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: left 0.5s;
+  -moz-transition: left 0.5s;
+  transition: left 0.5s;
   position: relative;
   left: 0;
   z-index: 201;
@@ -1464,9 +1464,9 @@ input:checked ~ .page-open-door .page-overlay {
 }
 
 .page-push {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: top 0.5s;
+  -moz-transition: top 0.5s;
+  transition: top 0.5s;
   position: relative;
   top: 0;
 }
@@ -1568,9 +1568,9 @@ input:checked ~ .page-push .page-overlay {
 }
 
 .page-reveal {
-  -webkit-transition: $direction 0.5s;
-  -moz-transition: $direction 0.5s;
-  transition: $direction 0.5s;
+  -webkit-transition: right 0.5s;
+  -moz-transition: right 0.5s;
+  transition: right 0.5s;
   position: relative;
   right: 0;
   z-index: 201;

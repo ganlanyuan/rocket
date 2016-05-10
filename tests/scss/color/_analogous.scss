@@ -1,0 +1,14 @@
+@include test-module('Colors') {
+
+  // Testing Functions
+  @include test('analogous [function]') {
+
+    $test1: analogous(#5173a3 10%);
+    $expect1: #6f8db8;
+    @include assert-equal($test1, $expect1, 'Returns the analogous color');
+
+    $test2: analogous(#bbf8e6 10%);
+    $expect2: #8df3d5;
+    @include assert-equal($test2, $expect2, 'Returns the analogous color');
+  }
+}
