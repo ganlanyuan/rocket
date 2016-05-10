@@ -3,81 +3,11 @@
 // Licensed under MIT Open Source
 // =============================================
 
-// setting
-@import "setting/variables";
-@import "setting/placeholders";
-
-// utilities
+@import "setting/setting";
 @import "utilities/utilities";
-        
-// vendors
-@import "vendors/clearfix";
-@import "vendors/prefixer";
-@import "vendors/keyframes";
-@import "vendors/animation";
-@import "vendors/transform";
-@import "vendors/perspective";
-@import "vendors/transition";
-@import "vendors/triangle";
-@import "vendors/flexbox";
+@import "vendors/vendors";
 
-// color functions
-@import "color/core"; 
-@import "color/analogous"; 
-@import "color/contrast";  
-@import "color/adjacent";  
-@import "color/complementary";  
-@import "color/split-complementary";  
-@import "color/triad"; 
-@import "color/rectangle"; 
-@import "color/square"; 
-
-// addons
-@import "addons/quantity-query"; 
-@import "addons/opacity";
-@import "addons/ie-rgba";
-@import "addons/rems";
-@import "addons/breakpoint";
-@import "addons/visible"; // @required [mixin] breakpoint
-@import "addons/hidden"; // @required [mixin] breakpoint
-@import "addons/type";
-@import "addons/responsive-type";
-@import "addons/hide-text"; 
-
-// layout
-@import "layout/container"; // @required [mixin] breakpoint
-@import "layout/grid";
-@import "layout/liquid-2";
-@import "layout/liquid-3";
-@import "layout/gallery"; // @require [mixin] wrap
-@import "layout/masonry";
-@import "layout/masonry-cluster";
-@import "layout/metro"; // @require [mixin] wrap
-@import "layout/diamond"; 
-@import "layout/justify"; // @required [mixin] display, justify-content, align-items
-@import "layout/center";
-@import "layout/sticky-footer";
-@import "layout/angled-edges";
-
-// components
-@import "components/charts";
-@import "components/responsive-table"; // @requir [mixin] bp
-@import "components/off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
-@import "components/slider-carousel";
-@import "components/slider-gallery";
-@import "components/validation";
-@import "components/button"; // @require [function] contrast
-@import "components/parallelogram"; 
-@import "components/drop-shadows"; 
-@import "components/switch";
-@import "components/push-toggle";
-@import "components/checkbox";
-@import "components/input-file";
-@import "components/tabs";
-@import "components/accordion";
-@import "components/dropdown";
-@import "components/tooltip";
-@import "components/media-list";
-@import "components/flex-media";
-@import "components/priority-nav";
-
+@import "color/color"; 
+@import "addons/addons"; 
+@import "layout/layout";
+@import "components/components";
