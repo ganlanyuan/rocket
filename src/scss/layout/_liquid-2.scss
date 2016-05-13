@@ -1,4 +1,3 @@
-// *** liquid-2 *** //
 @mixin liquid-2($key){
   $maps: args-get-maps($key);
   $map: false;
@@ -6,14 +5,13 @@
   $order: false; 
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $ie8: args-get($key, 'ie8', false);
 
   $global-bps: false;
   $bps: ();
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
-  $initialized: false;
-  $non-calc: '.lt-ie9 &';
 
   // get map
   // (200px:1, null:0)
@@ -46,6 +44,8 @@
     }
   }
   
+  @extend %clearfix; 
+  
   // using map
   // (200px:1, null:0)
   @if $map {
@@ -54,8 +54,11 @@
     @if is-simple-map($map) {
       $columns: map-keys($map);
       $order: map-values($map);
+      @include make-liquid-2($columns, $order, $child, $gutter, false);
 
-      @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
+      @if $ie8 {
+        @include make-liquid-2($columns, $order, $child, $gutter, true);
+      }
 
     // complex map, with media querys
     // ('default': (200px:1, null:0), 800px: (null 300px))
@@ -64,14 +67,11 @@
         $map: map-update-breakpoints($map, $global-bps);
       }
       $bps: map-keys($map);
+      $bp-ie8: get-ie8-bp($bps, $condition);
 
       @for $i from 1 through length($bps) {
         $bp: nth($bps, $i);
         $layout: map-get($map, $bp);
-
-        @if $i != 1 {
-          $initialized: true;
-        }
 
         @if type-of($layout) == 'list' {
           $columns: $layout;
@@ -82,11 +82,16 @@
         }
 
         @if $bp == 'default' or $bp == null {
-          @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
+          @include make-liquid-2($columns, $order, $child, $gutter, false);
         } @else {
           @include bp($condition $media-type $bp) {
-            @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
+            @include make-liquid-2($columns, $order, $child, $gutter, false);
           }
+        }
+
+        // generate ie8-only style
+        @if $bp == $bp-ie8 {
+          @include make-liquid-2($columns, $order, $child, $gutter, true);
         }
       }
     }
@@ -95,79 +100,104 @@
   // (200px null)
   } @else {
     @if not $order { $order: (1, 2); }
+    @include make-liquid-2($columns, $order, $child, $gutter, false);
 
-    @include make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc);
+    @if $ie8 {
+      @include make-liquid-2($columns, $order, $child, $gutter, true);
+    }
   }
 
 }
 
-@mixin make-liquid-2($columns, $order, $child, $gutter, $initialized, $non-calc) {  
+@mixin make-liquid-2($columns, $order, $child, $gutter, $ie8) {  
 
-  $child-list: if(
-    type-of($child) == 'list' and length($child) == 2,
-    $child, 
-    ("> #{$child}:nth-child(1)", "> #{$child}:nth-child(2)") );
-  $children: if(
-    type-of($child) == 'list' and length($child) == 2,
-    ("> #{nth($child, 1)}, > #{nth($child, 2)}"), 
-    "> #{$child}" );
+  $child-list: ();
+  $children-ie8: '';
+  @if type-of($child) == 'string' {
 
-  $reverse: nth($order, 1) > nth($order, 2);
-  $first-column-auto: nth($columns, 1) == null;
-  $main-order: if($first-column-auto, 1, 2);
-  $sidebar-order: if($main-order == 1, 2, 1);
+    $child-list: ('#{$child}:nth-child(1)', '#{$child}:nth-child(2)');
+    $children-ie8: '.lt-ie9 #{&} > #{$child}';
+  } @else if type-of($child) == 'list' and length($child) == 2 {
 
-  $sidebar-direction: left;
-  @if $reverse {
-    $sidebar-direction: if($first-column-auto, left, right);
-  } @else {
-    $sidebar-direction: if($first-column-auto, right, left);
-  }
+    $child-list: $child;
+    $children-ie8: '.lt-ie9 #{&} > #{nth($child, 1)}, .lt-ie9 #{&} > #{nth($child, 2)}'
+  } 
 
-  @if not $initialized { 
-    @include clearfix(); 
-  }
+  $positions: get-positions($order);
+  $new-columns: ();
+  @for $i from 1 through 2 {
+   $new-columns: append($new-columns, nth($columns, nth($positions, $i)));
+  } 
 
-  @for $i from 1 through length($columns) {
-    // set width
-    $thisWidth: nth($columns, $i);
-    $aside: nth(list-remove($columns, null), 1);
+  // flexible-column is on the left
+  @if nth($columns, nth($positions, 1)) == null or nth($columns, nth($positions, 1)) == 'auto' {
 
-    #{nth($child-list, $i)} {
-      @if $reverse {
-        float: if($i == 1, right, left);
-      } @else {
-        float: if($i == 1, left, right);
+    @if $ie8 {
+      .lt-ie9 & {
+        padding: 0 (nth($new-columns, 2) + $gutter) 0 0;
+        box-sizing: border-box;
       }
-
-      @if $thisWidth == null {
-        width: 100%;
-        width: calc(100% - #{$aside} - #{$gutter});
-      } @else {
-        width: $thisWidth;
-      }
-
-    }
-  }
-
-  // non-calc
-  #{$non-calc} {
-    $full-sidebar: nth($columns, $sidebar-order) + $gutter;
-
-    @if not $initialized {
-      #{$children} { box-sizing: border-box; }
     }
 
-    @if $columns {
-      @if $sidebar-direction == left {
-        padding: 0 0 0 #{$full-sidebar};
-        #{nth($child-list, $sidebar-order)} {
-          margin: 0 0 0 #{- $full-sidebar};
+    @for $i from 1 through length($new-columns) {
+      $selector: if($ie8, 
+        '.lt-ie9 & > .ie8-#{nth($positions, $i)}', 
+        '> ' nth($child-list, nth($positions, $i))
+        );
+
+      #{$selector} {
+        @if $i == 1 {
+          float: left;
+
+          @if $ie8 {
+            width: 100%;
+          } @else {
+            width: calc(100% - #{(nth($new-columns, 2) + $gutter)});
+          }
+        } @else {
+          float: right;
+          width: nth($new-columns, 2);
+
+          @if $ie8 {
+            margin: 0 (- nth($new-columns, 2)) 0 0;
+          }
         }
-      } @else {
-        padding: 0 #{$full-sidebar} 0 0;
-        #{nth($child-list, $sidebar-order)} {
-          margin: 0 #{- $full-sidebar} 0 0;
+      }
+    }
+
+  // flexible-column is on the right
+  } @else {
+
+    @if $ie8 {
+      .lt-ie9 & {
+        padding: 0 0 0 (nth($new-columns, 1) + $gutter);
+        box-sizing: border-box;
+      }
+    }
+
+    @for $i from 1 through length($new-columns) {
+      $selector: if($ie8, 
+        '.lt-ie9 & > .ie8-#{nth($positions, $i)}', 
+        '> ' nth($child-list, nth($positions, $i))
+        );
+
+      #{$selector} {
+        @if $i == 1 {
+          float: left;
+          width: nth($new-columns, 1);
+
+          @if $ie8 {
+            margin: 0 0 0 (- nth($new-columns, 1));
+          }
+
+        } @else {
+          float: right;
+
+          @if $ie8 {
+            width: 100%;
+          } @else {
+            width: calc(100% - #{(nth($new-columns, 1) + $gutter)});
+          }
         }
       }
     }

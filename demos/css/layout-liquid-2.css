@@ -1,3 +1,9 @@
+.example-liquid-2:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -250,6 +256,11 @@ pre[class*="language-"] {
   font-size: 13px;
   line-height: 1.4;
   letter-spacing: normal;
+  cursor: pointer;
+}
+
+.example-content:hover {
+  background: #484848;
 }
 
 .example-content strong {
@@ -295,12 +306,6 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.example-liquid-2:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
 .example-liquid-2 > div:nth-child(1) {
   float: left;
   width: 150px;
@@ -308,37 +313,17 @@ pre[class*="language-"] {
 
 .example-liquid-2 > div:nth-child(2) {
   float: right;
-  width: 100%;
-  width: calc(100% - 150px - 20px);
-}
-
-.lt-ie9 .example-liquid-2 {
-  padding: 0 0 0 170px;
-}
-
-.lt-ie9 .example-liquid-2 > div {
-  box-sizing: border-box;
-}
-
-.lt-ie9 .example-liquid-2 > div:nth-child(1) {
-  margin: 0 0 0 -170px;
+  width: calc(100% - 170px);
 }
 
 @media screen and (min-width: 46.875em) {
+  .example-liquid-2 > div:nth-child(2) {
+    float: left;
+    width: calc(100% - 170px);
+  }
   .example-liquid-2 > div:nth-child(1) {
     float: right;
     width: 150px;
-  }
-  .example-liquid-2 > div:nth-child(2) {
-    float: left;
-    width: 100%;
-    width: calc(100% - 150px - 20px);
-  }
-  .lt-ie9 .example-liquid-2 {
-    padding: 0 170px 0 0;
-  }
-  .lt-ie9 .example-liquid-2 > div:nth-child(1) {
-    margin: 0 -170px 0 0;
   }
 }
 
@@ -349,15 +334,24 @@ pre[class*="language-"] {
   }
   .example-liquid-2 > div:nth-child(2) {
     float: right;
-    width: 100%;
-    width: calc(100% - 150px - 20px);
+    width: calc(100% - 170px);
   }
-  .lt-ie9 .example-liquid-2 {
-    padding: 0 0 0 170px;
-  }
-  .lt-ie9 .example-liquid-2 > div:nth-child(1) {
-    margin: 0 0 0 -170px;
-  }
+}
+
+.lt-ie9 .example-liquid-2 {
+  padding: 0 0 0 170px;
+  box-sizing: border-box;
+}
+
+.lt-ie9 .example-liquid-2 > .ie8-1 {
+  float: left;
+  width: 150px;
+  margin: 0 0 0 -150px;
+}
+
+.lt-ie9 .example-liquid-2 > .ie8-2 {
+  float: right;
+  width: 100%;
 }
 
 /*# sourceMappingURL=layout-liquid-2.css.map */

@@ -1,6 +1,5 @@
 @import 'demo-base';
 
-// *** layout: liquid-2 *** //
 $list: (null 200px);
 $map1: (
   null:1, 
@@ -11,4 +10,4 @@ $map2: (
   750px: (150px:1, null:0),
   900px: (150px:0, null:1)
 );
-.example-liquid-2 { @include liquid-2($map2 use-flex); }
+.example-liquid-2 { @include liquid-2($map2); }
