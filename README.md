@@ -5,8 +5,9 @@
   <img src="https://img.shields.io/badge/Version-3.3.4-blue.svg">
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
-[demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)   
+Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
+<!-- [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)    -->
 
 #### What's new in version 3
 Rewrite main layout mixins using `flex-box`. 
@@ -16,9 +17,9 @@ Add many new sass mixins, components and javascript components.
 + Improved `ro-breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 #### Requests
-+ [Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`). (Update: no longer required from [v3.4.0]().)    
-+ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one). (Update: no longer required from [v3.4.0]().)
-+ Please replace `<html>` with:
++ <del>[Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`).</del> Update: no longer required from [v3.4.0]().    
++ <del>[Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).</del> Update: no longer required from [v3.4.0]().  
++ Please replace `<html>` with the markup below for better IE support.
 ``` html
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -26,7 +27,6 @@ Add many new sass mixins, components and javascript components.
 <!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 ```
-for better IE support. We use some IE classes like `.lt-ie9`.
 
 #### Tips
 + `Flexbox` 2009 syntax is not supported.  
