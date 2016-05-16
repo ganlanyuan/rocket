@@ -299,6 +299,17 @@
   -description: "get the entire selector when there is no class or id.";
 }
 
+/* # trigonometric ---------- */
+/* get-TRBL [function] */
+[data-module="trigonometric"] [data-test="get-TRBL [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return a TRBL value.";
+}
+[data-module="trigonometric"] [data-test="get-TRBL [function]"] .assert-equal {
+  -result: PASS;
+  -description: "return a TRBL value.";
+}
+
 /* # Colors ---------- */
 /* contrast [function] */
 [data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
@@ -429,8 +440,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 33 Tests: */
-/*  - 33 Passed */
+/* 34 Tests: */
+/*  - 34 Passed */
 /*  - 0 Failed */
 /* -------------------- */
 

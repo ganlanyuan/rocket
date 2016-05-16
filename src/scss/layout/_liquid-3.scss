@@ -5,6 +5,7 @@
   $order: false;
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
   $ie8: args-get($key, 'ie8', false);
 
   $global-bps: false;
@@ -53,10 +54,10 @@
     @if is-simple-map($map) {
       $columns: map-keys($map);
       $order: map-values($map);
-      @include make-holy-grail($columns, $order, $child, $gutter, false);
+      @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
 
       @if $ie8 {
-        @include make-holy-grail($columns, $order, $child, $gutter, true);
+        @include make-holy-grail($columns, $order, $child, $gutter, $float, true);
       }
 
     // complex map: with breakpoints
@@ -81,16 +82,16 @@
         }
 
         @if $bp == 'default' or $bp == null {
-          @include make-holy-grail($columns, $order, $child, $gutter, false);
+          @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
         } @else {
           @include bp($condition $media-type $bp) {
-            @include make-holy-grail($columns, $order, $child, $gutter, false);
+            @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
           }
         }
 
         // generate ie8-only style
         @if $bp == $bp-ie8 {
-          @include make-holy-grail($columns, $order, $child, $gutter, true);
+          @include make-holy-grail($columns, $order, $child, $gutter, $float, true);
         }
       }
     }
@@ -99,16 +100,16 @@
   // ('auto' 300px)
   } @else {
     @if not $order { $order: (1, 2, 3); }
-    @include make-holy-grail($columns, $order, $child, $gutter, false);
+    @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
 
     @if $ie8 {
-      @include make-holy-grail($columns, $order, $child, $gutter, true);
+      @include make-holy-grail($columns, $order, $child, $gutter, $float, true);
     }
   }
 
 }
 
-@mixin make-holy-grail($columns, $order, $child, $gutter, $ie8) {
+@mixin make-holy-grail($columns, $order, $child, $gutter, $float, $ie8) {
 
   $child-list: ();
   $children-ie8: '';
@@ -139,7 +140,7 @@
   @if unit($gutter) == '%' { $gutter: 0; }
 
   // flexible-column is on the left
-  @if nth($columns, nth($positions, 1)) == null or nth($columns, nth($positions, 1)) == 'auto' {
+  @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
 
     @for $i from 1 through length($new-columns) {
       $selector: if($ie8, 
@@ -150,25 +151,32 @@
       #{$selector} {
 
         @if ($i == 1) {
-          float: left;
-          margin: 0 -100% 0 0;
+          float: $float;
+          margin: get-TRBL(opposite($float) -100%);
+          // float: left;
+          // margin-right: -100%;
 
           @if $ie8 {
             width: 100%;
-            padding: 0 #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)} 0 0;
+            padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2));
+            // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
             z-index: 0;
           } @else {
             width: calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
           }
 
         } @else {
-          float: right;
+          float: opposite($float);
           width: nth($new-columns, $i);
+          // float: right;
 
           @if $i == 2 {
-            margin: 0 (nth($new-columns, 3) + $gutter) 0 -100%;
+            margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float -100%);
+            // margin-left: -100%;
+            // margin-right: (nth($new-columns, 3);
           } @else {
-            margin: 0 0 0 -100%;
+            margin: get-TRBL($float);
+            // margin-left: -100%;
           }
 
           @if $ie8 { 
@@ -180,7 +188,7 @@
     }
 
   // flexible-column is on the middle
-  } @else if nth($columns, nth($positions, 2)) == null or nth($columns, nth($positions, 2)) == 'auto' {
+  } @else if nth($new-columns, 2) == null or nth($new-columns, 2) == 'auto' {
 
     @for $i from 1 through length($new-columns) {
       $selector: if($ie8, 
@@ -191,9 +199,11 @@
       #{$selector} {
 
         @if ($i == 3) {
-          float: right;
+          float: opposite($float);
           width: nth($new-columns, $i);
-          margin: 0 0 0 -100%;
+          margin: get-TRBL($float -100%);
+          // float: right;
+          // margin-left: -100%;
 
           @if $ie8 { 
             padding: 0; 
@@ -201,23 +211,30 @@
           }
 
         } @else {
-          float: left;
+          float: $float;
+          // float: left;
 
           @if $i == 2 {
 
             @if $ie8 {
               width: 100%;
-              padding: 0 #{(nth($new-columns, 3) + $gutter)} 0 #{(nth($new-columns, 1) + $gutter)};
-              margin: 0 0 -100% 0;
+              padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float (nth($new-columns, 1) + $gutter));
+              // padding-left: #{(nth($new-columns, 1) + $gutter)};
+              // padding-right: #{(nth($new-columns, 3) + $gutter)};
+              margin: get-TRBL(opposite($float) -100%);
+              // margin-right: -100%;
               z-index: 0;
             } @else {
               width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
-              margin: 0 -100% 0 #{(nth($new-columns, 1) + $gutter)};
+              margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter));
+              // margin-left: #{(nth($new-columns, 1) + $gutter)};
+              // margin-right: -100%;
             }
 
           } @else {
             width: nth($new-columns, $i);
-            margin: 0 -100% 0 0;
+            margin: get-TRBL(opposite($float) -100%);
+            // margin-right: -100%;
 
             @if $ie8 { 
               padding: 0; 
@@ -229,7 +246,7 @@
     }
 
   // flexible-column is on the right
-  } @else if nth($columns, nth($positions, 3)) == null or nth($columns, nth($positions, 3)) == 'auto' {
+  } @else if nth($new-columns, 3) == null or nth($new-columns, 3) == 'auto' {
 
     @for $i from 1 through length($new-columns) {
       $selector: if($ie8, 
@@ -240,25 +257,32 @@
       #{$selector} {
 
         @if ($i == 3) {
-          float: right;
-          margin: 0 0 0 -100%;
+          float: opposite($float);
+          margin: get-TRBL($float -100%);
+          // float: right;
+          // margin-left: -100%;
           
           @if $ie8 {
             width: 100%;
-            padding: 0 0 0 #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)};
+            padding: get-TRBL($float #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
+            // padding-left: #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)};
             z-index: 0;
           } @else {
             width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
           }
 
         } @else {
-          float: left;
+          float: $float;
           width: nth($new-columns, $i);
+          // float: left;
 
           @if $i == 2 {
-            margin: 0 -100% 0 #{(nth($new-columns, 1) + $gutter)};
+            margin: get-TRBL(opposite($float) -100% $float #{(nth($new-columns, 1) + $gutter)});
+            // margin-left: #{(nth($new-columns, 1) + $gutter)};
+            // margin-right: -100%;
           } @else {
-            margin: 0 -100% 0 0;
+            margin: get-TRBL(opposite($float) -100%);
+            // margin-right: -100%;
           }
 
           @if $ie8 { 

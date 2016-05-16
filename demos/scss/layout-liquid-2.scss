@@ -1,10 +1,7 @@
 @import 'demo-base';
 
 $list: (null 200px);
-$map1: (
-  null:1, 
-  200px:0
-);
+$map1: (null:1, 200px:0);
 $map2: (
   'default': (150px null),
   750px: (150px:1, null:0),

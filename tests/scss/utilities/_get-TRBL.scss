@@ -1,0 +1,13 @@
+@include test-module('trigonometric') {
+
+  @include test('get-TRBL [function]') {
+    
+    $test1: get-TRBL(top 30px);
+    $expect1: 30px 0 0 0;
+    @include assert-equal($test1, $expect1, 'return a TRBL value.');
+    
+    $test2: get-TRBL(left 300px right 20px);
+    $expect2: 0 20px 0 300px;
+    @include assert-equal($test2, $expect2, 'return a TRBL value.');
+  };
+};

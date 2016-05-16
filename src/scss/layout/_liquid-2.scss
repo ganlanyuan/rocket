@@ -5,6 +5,7 @@
   $order: false; 
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
+  $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
   $ie8: args-get($key, 'ie8', false);
 
   $global-bps: false;
@@ -54,10 +55,10 @@
     @if is-simple-map($map) {
       $columns: map-keys($map);
       $order: map-values($map);
-      @include make-liquid-2($columns, $order, $child, $gutter, false);
+      @include make-liquid-2($columns, $order, $child, $gutter, $float, false);
 
       @if $ie8 {
-        @include make-liquid-2($columns, $order, $child, $gutter, true);
+        @include make-liquid-2($columns, $order, $child, $gutter, $float, true);
       }
 
     // complex map, with media querys
@@ -82,16 +83,16 @@
         }
 
         @if $bp == 'default' or $bp == null {
-          @include make-liquid-2($columns, $order, $child, $gutter, false);
+          @include make-liquid-2($columns, $order, $child, $gutter, $float, false);
         } @else {
           @include bp($condition $media-type $bp) {
-            @include make-liquid-2($columns, $order, $child, $gutter, false);
+            @include make-liquid-2($columns, $order, $child, $gutter, $float, false);
           }
         }
 
         // generate ie8-only style
         @if $bp == $bp-ie8 {
-          @include make-liquid-2($columns, $order, $child, $gutter, true);
+          @include make-liquid-2($columns, $order, $child, $gutter, $float, true);
         }
       }
     }
@@ -100,17 +101,16 @@
   // (200px null)
   } @else {
     @if not $order { $order: (1, 2); }
-    @include make-liquid-2($columns, $order, $child, $gutter, false);
+    @include make-liquid-2($columns, $order, $child, $gutter, $float, false);
 
     @if $ie8 {
-      @include make-liquid-2($columns, $order, $child, $gutter, true);
+      @include make-liquid-2($columns, $order, $child, $gutter, $float, true);
     }
   }
 
 }
 
-@mixin make-liquid-2($columns, $order, $child, $gutter, $ie8) {  
-
+@mixin make-liquid-2($columns, $order, $child, $gutter, $float, $ie8) {
   $child-list: ();
   $children-ie8: '';
   @if type-of($child) == 'string' {
@@ -130,11 +130,12 @@
   } 
 
   // flexible-column is on the left
-  @if nth($columns, nth($positions, 1)) == null or nth($columns, nth($positions, 1)) == 'auto' {
+  @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
 
     @if $ie8 {
       .lt-ie9 & {
-        padding: 0 (nth($new-columns, 2) + $gutter) 0 0;
+        padding: get-TRBL(opposite($float) (nth($new-columns, 2) + $gutter));
+        // padding-right: (nth($new-columns, 2) + $gutter);
         box-sizing: border-box;
       }
     }
@@ -147,7 +148,8 @@
 
       #{$selector} {
         @if $i == 1 {
-          float: left;
+          float: $float;
+          // float: left;
 
           @if $ie8 {
             width: 100%;
@@ -155,11 +157,13 @@
             width: calc(100% - #{(nth($new-columns, 2) + $gutter)});
           }
         } @else {
-          float: right;
+          float: opposite($float);
           width: nth($new-columns, 2);
+          // float: right;
 
           @if $ie8 {
-            margin: 0 (- nth($new-columns, 2)) 0 0;
+            margin: get-TRBL(opposite($float) (- (nth($new-columns, 2) + $gutter)));
+            // margin-right: (- (nth($new-columns, 2) + $gutter));
           }
         }
       }
@@ -170,7 +174,8 @@
 
     @if $ie8 {
       .lt-ie9 & {
-        padding: 0 0 0 (nth($new-columns, 1) + $gutter);
+        padding: get-TRBL($float (nth($new-columns, 1) + $gutter));
+        // padding-left: (nth($new-columns, 1) + $gutter);
         box-sizing: border-box;
       }
     }
@@ -183,15 +188,18 @@
 
       #{$selector} {
         @if $i == 1 {
-          float: left;
+          float: $float;
           width: nth($new-columns, 1);
+          // float: left;
 
           @if $ie8 {
-            margin: 0 0 0 (- nth($new-columns, 1));
+            margin: get-TRBL($float (- (nth($new-columns, 1) + $gutter)));
+            // margin-left: (- (nth($new-columns, 1) + $gutter));
           }
 
         } @else {
-          float: right;
+          float: opposite($float);
+          // float: right;
 
           @if $ie8 {
             width: 100%;
