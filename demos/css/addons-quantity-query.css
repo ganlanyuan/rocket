@@ -261,6 +261,11 @@ pre[class*="language-"] {
   font-size: 13px;
   line-height: 1.4;
   letter-spacing: normal;
+  cursor: pointer;
+}
+
+.example-content:hover {
+  background: #484848;
 }
 
 .example-content strong {

@@ -1,18 +1,9 @@
 @import 'demo-base';
-// *** layout: grid *** //
 
-
-$grid: (
+$list: (3 4 7) 1 1;
+$map: (
   'default': (3 4) ( 2 5) 1,
   800px: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.row { @include grid(grid $grid); }
-@include bp('max' 1000) {
-  .row { 
-    margin-bottom: - map-get($ro-layout, 'gutter'); 
-    > div {
-      margin-bottom: map-get($ro-layout, 'gutter');
-    }
-  }
-}
+.row { @include grid($map); }

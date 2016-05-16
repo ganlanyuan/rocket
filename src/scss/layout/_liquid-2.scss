@@ -57,6 +57,7 @@
       $order: map-values($map);
       @include make-liquid-2($columns, $order, $child, $gutter, $float, false);
 
+      // generate ie8-only style
       @if $ie8 {
         @include make-liquid-2($columns, $order, $child, $gutter, $float, true);
       }
