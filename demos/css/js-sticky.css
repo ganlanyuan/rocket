@@ -1,3 +1,12 @@
+@media screen and (max-width: 62.4375em) {
+  .row {
+    margin-bottom: -20px;
+  }
+  .row > div {
+    margin-bottom: 20px;
+  }
+}
+
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -315,22 +324,19 @@ pre[class*="language-"] {
   margin: 0 auto;
 }
 
-.no-flexbox.no-flexboxtweener .sticky-grid:after {
+.lt-ie10 .sticky-grid:after {
   clear: both;
   content: "";
   display: table;
 }
 
 .sticky-grid > div {
-  box-sizing: border-box;
   width: 100%;
-}
-
-.sticky-grid > div {
   padding-right: 20px;
+  box-sizing: border-box;
 }
 
-.no-flexbox.no-flexboxtweener .sticky-grid > div {
+.lt-ie10 .sticky-grid > div {
   float: left;
   margin-right: -100%;
 }
@@ -339,7 +345,7 @@ pre[class*="language-"] {
   width: 25%;
 }
 
-.no-flexbox.no-flexboxtweener .sticky-grid > div:nth-child(1) {
+.lt-ie10 .sticky-grid > div:nth-child(1) {
   margin-left: 0;
 }
 
@@ -347,7 +353,7 @@ pre[class*="language-"] {
   width: 75%;
 }
 
-.no-flexbox.no-flexboxtweener .sticky-grid > div:nth-child(2) {
+.lt-ie10 .sticky-grid > div:nth-child(2) {
   margin-left: 25%;
 }
 
@@ -364,22 +370,19 @@ pre[class*="language-"] {
   margin-right: -20px;
 }
 
-.no-flexbox.no-flexboxtweener .inner-1:after {
+.lt-ie10 .inner-1:after {
   clear: both;
   content: "";
   display: table;
 }
 
 .inner-1 > div {
-  box-sizing: border-box;
   width: 100%;
-}
-
-.inner-1 > div {
   padding-right: 20px;
+  box-sizing: border-box;
 }
 
-.no-flexbox.no-flexboxtweener .inner-1 > div {
+.lt-ie10 .inner-1 > div {
   float: left;
   margin-right: -100%;
 }
@@ -388,7 +391,7 @@ pre[class*="language-"] {
   width: 66.66667%;
 }
 
-.no-flexbox.no-flexboxtweener .inner-1 > div:nth-child(1) {
+.lt-ie10 .inner-1 > div:nth-child(1) {
   margin-left: 0;
 }
 
@@ -396,7 +399,7 @@ pre[class*="language-"] {
   width: 33.33333%;
 }
 
-.no-flexbox.no-flexboxtweener .inner-1 > div:nth-child(2) {
+.lt-ie10 .inner-1 > div:nth-child(2) {
   margin-left: 66.66667%;
 }
 
@@ -413,22 +416,19 @@ pre[class*="language-"] {
   margin-right: -20px;
 }
 
-.no-flexbox.no-flexboxtweener .inner-2:after {
+.lt-ie10 .inner-2:after {
   clear: both;
   content: "";
   display: table;
 }
 
 .inner-2 > div {
-  box-sizing: border-box;
   width: 100%;
-}
-
-.inner-2 > div {
   padding-right: 20px;
+  box-sizing: border-box;
 }
 
-.no-flexbox.no-flexboxtweener .inner-2 > div {
+.lt-ie10 .inner-2 > div {
   float: left;
   margin-right: -100%;
 }
@@ -437,7 +437,7 @@ pre[class*="language-"] {
   width: 28.57143%;
 }
 
-.no-flexbox.no-flexboxtweener .inner-2 > div:nth-child(1) {
+.lt-ie10 .inner-2 > div:nth-child(1) {
   margin-left: 0;
 }
 
@@ -445,7 +445,7 @@ pre[class*="language-"] {
   width: 71.42857%;
 }
 
-.no-flexbox.no-flexboxtweener .inner-2 > div:nth-child(2) {
+.lt-ie10 .inner-2 > div:nth-child(2) {
   margin-left: 28.57143%;
 }
 

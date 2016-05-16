@@ -1,3 +1,11 @@
+@media screen and (max-width: 62.4375em) {
+  .row {
+    margin-bottom: -20px;
+  }
+  .row > div {
+    margin-bottom: 20px;
+  }
+}
 /* # Functions ---------- */
 /* opposite [function] */
 [data-module="Functions"] [data-test="opposite [function]"] .assert-equal {

@@ -39,6 +39,12 @@
   // *** output *** //
   @extend %clearfix;
   padding: 0 ($gutter / 2);
+
+  .lt-ie9 & {
+    max-width: $container;
+    margin: 0 auto;
+  }
+  
   // for big screen
   @include bp('min' $breakpoint) { 
     @if $align == center {
