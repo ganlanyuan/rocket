@@ -28,9 +28,9 @@
       </div>
       <pre><code class="language-scss">
 $map: (
-  'null': 2,
-  600: 3,
-  800: 4,
+  'default': 2,
+  700: 3,
+  1000: 4,
 );
 .example-gallery { @include gallery($map); }
       </code></pre>

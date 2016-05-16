@@ -504,11 +504,11 @@ pre[class*="language-"] {
   color: #666;
 }
 
-.no-csscolumns .masonry {
+.lt-ie10 .masonry {
   text-align: center;
 }
 
-.no-csscolumns .masonry > li {
+.lt-ie10 .masonry > li {
   display: inline-block;
   vertical-align: top;
   width: 250px;

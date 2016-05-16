@@ -51,7 +51,7 @@
     }
 
     // hide menu
-    .no-csstransforms & { display: none; }
+    .lt-ie9 & { display: none; }
     @if $style == 'display' {
       display: none;
     } @else if $style == 'scale' {
@@ -102,7 +102,7 @@
 
   // show
   #{$path} #{$child} {
-    .no-csstransforms & { display: block; }
+    .lt-ie9 & { display: block; }
     @if $style == 'display' {
       display: block;
     } @else if $style == 'scale' {

@@ -67,7 +67,7 @@
         left: 50%;
       }
       // non-transform
-      .no-csstransforms & {
+      .lt-ie9 & {
         position: static;
         display: none;
       }
@@ -113,7 +113,7 @@
       }
       @include ro-animation(form-slide ($speed * 7));
       // non-transform
-      .no-csstransforms & { display: inline-block; }
+      .lt-ie9 & { display: inline-block; }
     }
   }
 

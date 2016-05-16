@@ -332,18 +332,18 @@ pre[class*="language-"] {
   align-items: center;
 }
 
-.no-flexbox.no-flexboxtweener .example-justify {
+.lt-ie10 .example-justify {
   text-align: justify;
   line-height: 0;
 }
 
-.no-flexbox.no-flexboxtweener .example-justify:after {
+.lt-ie10 .example-justify:after {
   content: "";
   width: 100%;
   display: inline-block;
 }
 
-.no-flexbox.no-flexboxtweener .example-justify > li {
+.lt-ie10 .example-justify > li {
   line-height: 1;
   display: inline-block;
 }

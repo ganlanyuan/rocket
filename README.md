@@ -16,8 +16,8 @@ Add many new sass mixins, components and javascript components.
 + Improved `ro-breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 #### Requests
-+ [Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`)    
-+ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one)
++ [Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`). (Update: no longer required from [v3.4.0]().)    
++ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one). (Update: no longer required from [v3.4.0]().)
 + Please replace `<html>` with:
 ``` html
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
@@ -30,7 +30,7 @@ for better IE support. We use some IE classes like `.lt-ie9`.
 
 #### Tips
 + `Flexbox` 2009 syntax is not supported.  
-+ If you are using version 2, please go to branch [v2](https://github.com/ganlanyuan/rocket/tree/v2) 
++ Want version 2, please go to branch [v2](https://github.com/ganlanyuan/rocket/tree/v2) 
 
 # Install
 
@@ -53,6 +53,7 @@ Rocket/
 |   |   |── liquid-3              
 |   |   |── gallery               
 |   |   |── masonry               
+|   |   |── masonry-cluster               
 |   |   |── metro               
 |   |   |── diamond               
 |   |   |── angled-edges               

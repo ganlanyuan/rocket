@@ -17,8 +17,12 @@
         </div>
       </div>
       <pre><code class="language-scss">
-.example-liquid-3 { @include liquid-3((null: 1, 150px: 0, 200px: 0)); }
-// you could do @include liquid-2((null 150px 200px)) if you don't need to change the order
+$map2: (
+  null: (100px:2, null:1, 250px:0),
+  700px: (100px:0, null:1, 250px:2),
+  900px: (100px:2, null:1, 250px:0),
+);
+.example-liquid-3 { @include liquid-3($map2); }
       </code></pre>
     </div>
     

@@ -111,7 +111,7 @@
       .active { display: none; }
     }
     .autoplay {
-      @if $autoplay { .no-cssanimations & { display: none !important; } }
+      @if $autoplay { .lt-ie10 & { display: none !important; } }
       .pause {display: none; }
     }
   }
@@ -130,7 +130,7 @@
           // hide controls and dots
           .controls, .dots {
             display: none; 
-            .no-cssanimations & { display: block !important; }
+            .lt-ie10 & { display: block !important; }
           }
         }
       }

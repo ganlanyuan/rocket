@@ -1,0 +1,29 @@
+@function get-max-breakpoint($list, $condition) {
+  @if type-of($list) == 'list' {
+
+    $list-nums: ();
+    @each $bp in $list {
+      @if type-of($bp) == 'number' {
+        $list-nums: append($list-nums, $bp);
+      }
+    }
+
+    @if $condition == 'min' {
+      @return max($list-nums...);
+
+    } @else {
+
+      @if index($list, null) {
+        @return null;
+
+      } @else if index($list, 'default') {
+        @return 'default';
+
+      } @else {
+        @return max($list-nums...);
+      }
+    }
+  } @else {
+    @warn '"#{$list}" is not a list.'
+  }
+}

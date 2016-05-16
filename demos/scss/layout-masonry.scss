@@ -43,7 +43,7 @@ $masonry: (
 }
 
 // fallback
-.no-csscolumns {
+.lt-ie10 {
   .masonry {
     text-align: center;
     > li {

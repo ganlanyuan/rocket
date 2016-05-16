@@ -334,6 +334,14 @@ h3.example-responsive-type {
   }
 }
 
+.lt-ie9 h3.example-responsive-type {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: left;
+}
+
 p.example-responsive-type {
   font-size: 15px;
   font-size: 0.9375rem;
@@ -376,6 +384,11 @@ p.example-responsive-type {
     font-size: 20px;
     font-size: 1.25rem;
   }
+}
+
+.lt-ie9 p.example-responsive-type {
+  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .example-responsive-type {

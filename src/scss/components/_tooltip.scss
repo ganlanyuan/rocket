@@ -38,7 +38,7 @@
     &:before,
     &:after { @include opacity(1); }
   }
-  .no-csstransforms &:after { 
+  .lt-ie9 &:after { 
     padding: 8px; // rewrite the padding for calculating left value later
     width: $width; 
   }
@@ -48,9 +48,9 @@
     &:before,
     &:after { left: 50%; }
     &:before { margin-left: -6px; }
-    .no-csstransforms &:before,
-    .no-csstransforms &:after { #{opposite($direction)}: 100%; }
-    .no-csstransforms &:after { 
+    .lt-ie9 &:before,
+    .lt-ie9 &:after { #{opposite($direction)}: 100%; }
+    .lt-ie9 &:after { 
       @if unit($width) == 'px' {
         margin-left: - ($width / 2 + 8px); 
       } @else if unit($width) == 'em' {
@@ -62,16 +62,16 @@
     &:before,
     &:after { top: 50%; }
     &:before { margin-top: -8px; }
-    .no-csstransforms &:before,
-    .no-csstransforms &:after { top: -2px; }
-    .no-csstransforms &:before { margin-top: 5px; }
+    .lt-ie9 &:before,
+    .lt-ie9 &:after { top: -2px; }
+    .lt-ie9 &:before { margin-top: 5px; }
   }
 
   // individual direction
   @if $direction == top {
     &:before { @include ro-triangle(12px, $color, down); }
     &:after { @include ro-transform(translate(-50%, -100%)); }
-    .no-csstransforms &:after { 
+    .lt-ie9 &:after { 
       @if unit($height) == 'px' {
         margin-top: - ($height + 19px); 
       } @else if unit($height) == 'em' {
@@ -81,11 +81,11 @@
   } @else if $direction == bottom {
     &:before { @include ro-triangle(12px, $color, up); }
     &:after { @include ro-transform(translate(-50%, 100%)); }
-    .no-csstransforms &:after { margin-top: 6px; }
+    .lt-ie9 &:after { margin-top: 6px; }
   } @else if $direction == left {
     &:before { @include ro-triangle(12px, $color, right); }
     &:after { @include ro-transform(translate(-100%, -50%)); }
-    .no-csstransforms &:after { 
+    .lt-ie9 &:after { 
       @if unit($width) == 'px' {
         left: - ($width + 16px + 8px); // double padding + left
       } @else if unit($width) == 'em' {
@@ -95,7 +95,7 @@
   } @else if $direction == right {
     &:before { @include ro-triangle(12px, $color, left); }
     &:after { @include ro-transform(translate(100%, -50%)); }
-    .no-csstransforms &:after {
+    .lt-ie9 &:after {
       left: 100%;
       margin-left: 8px;
     }

@@ -9,7 +9,7 @@
 
   $global-bps: false;
   $bps: false;
-  $bp-ie8: false;
+  $bp-max: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
@@ -42,7 +42,7 @@
   }
   @if $map {
     $bps: map-keys($map);
-    $bp-ie8: get-ie8-bp($bps, $condition);
+    $bp-max: get-max-breakpoint($bps, $condition);
   }
 
   // *** output *** //
@@ -71,7 +71,7 @@
           @include make-gallery($this-per-row, $child, false);
         }
 
-        @if $bp == $bp-ie8 {
+        @if $bp == $bp-max {
           @include make-gallery($this-per-row, $child, true);
         }
       }

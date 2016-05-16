@@ -325,7 +325,19 @@ pre[class*="language-"] {
   padding: 0 20px 20px 0;
 }
 
-@media screen and (min-width: 37.5em) {
+.example-gallery > li {
+  width: 50%;
+}
+
+.example-gallery > li:nth-child(n) {
+  clear: none;
+}
+
+.example-gallery > li:nth-child(2n+1) {
+  clear: both;
+}
+
+@media screen and (min-width: 43.75em) {
   .example-gallery > li {
     width: 33.33333%;
   }
@@ -337,7 +349,7 @@ pre[class*="language-"] {
   }
 }
 
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 62.5em) {
   .example-gallery > li {
     width: 25%;
   }

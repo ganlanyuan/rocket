@@ -9,7 +9,7 @@
   @include ro-align-items(center);
 
   // for non-flex browsers
-  .no-flexbox.no-flexboxtweener & {
+  .lt-ie10 & {
     text-align: justify;
     line-height: 0;
     &:after {
