@@ -1,35 +1,49 @@
-// *** gallery *** //
 @mixin gallery($key){
-  $per-row: 1;
-  @each $item in $key {
-    @if type-of($item) == number and unitless($item) {
-      $per-row: $item;
-    }
-  }
+  $maps: args-get-maps($key);
   $map: false;
-  $map-keys: false;
-  $breakpoints: false;
+  $per-row: 1;
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
+  $child: args-get-next($key, 'child', 'li');
+  $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
+  $ie8: args-get($key, 'ie8', false);
 
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
+  $global-bps: false;
+  $bps: false;
+  $bp-ie8: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+
+  $keep: args-get($key, 'keep');
+
+  // get map
+  @if length($maps) >= 1 {
+    $map: nth($maps, 1);
+  }
+  @if length($maps) >= 2 {
+    $global-bps: nth($maps, 2);
+  }
+
+  // get per-row
+  @if type-of($key) == 'number' and unitless($key) {
+    $per-row: $key;
+  } @else if type-of($key) == 'list' and not $map {
     @each $item in $key {
-      @if type-of($item) == 'map' {
-        @if not $map {
-          $map: $item;
-        } @else if not $breakpoints {
-          $breakpoints: $item;
+      @if type-of($item) == 'number' {
+        @if unitless($item) {
+          $per-row: $item;
         }
       }
     }
   }
-  @if $map { $map-keys: map-keys($map); }
 
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
-  $child: args-get-next($key, 'child', 'li');
-  $direction: args-get($key, left right, right);
-  $keep: args-get($key, 'keep');
-  $condition: args-get($key, ('min' 'max'), 'min');
+  // update $map breakpoints
+  @if $global-bps {
+    $map: map-update-breakpoints($map, $global-bps);
+  }
+  @if $map {
+    $bps: map-keys($map);
+    $bp-ie8: get-ie8-bp($bps, $condition);
+  }
 
   // *** output *** //
   @if not $keep {
@@ -39,34 +53,48 @@
 
   > #{$child} {
     @if not $keep {
-      float: opposite($direction);
+      float: $float;
       box-sizing: border-box;
       padding: 0 $gutter $gutter 0;
     }
+  }
 
-    // set col width
-    @if $map {
-      @each $item in $map-keys {
-        @if type-of($item) == 'number' {
-          @include bp($item $condition) { 
-            width: percentage(1 / map-get($map, $item)); 
-            &:nth-child(n) { clear: none; }
-            &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
-          }
-        } @else if $item == 'null' or $item == 'default' {
-          width: percentage(1 / map-get($map, $item));
-          &:nth-child(n) { clear: none; }
-          &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
-        } @else if $breakpoints {
-          @include bp(map-get($breakpoints, $item) $condition) { 
-            width: percentage(1 / map-get($map, $item)); 
-            &:nth-child(n) { clear: none; }
-            &:nth-child(#{map-get($map, $item)}n+1) { clear: both; }
-          }
+  // set col width
+  @if $bps {
+    @each $bp in $bps {
+      $this-per-row: map-get($map, $bp);
+
+      @if $bp == null or $bp == 'default' {
+        @include make-gallery($this-per-row, $child, false);
+      } @else if type-of($bp) == 'number' {
+        @include bp($bp $condition) {
+          @include make-gallery($this-per-row, $child, false);
+        }
+
+        @if $bp == $bp-ie8 {
+          @include make-gallery($this-per-row, $child, true);
         }
       }
-    } @else {
-      width: percentage(1 / $per-row);
+    }
+  } @else {
+     @include make-gallery($per-row, $child, false);
+
+     @if $ie8 {
+       @include make-gallery($per-row, $child, true);
+     }
+  }
+}
+
+@mixin make-gallery($per-row, $child, $ie8) {
+
+  @if $ie8 {
+    .lt-ie9 & > {
+      #{$child} { width: percentage(1 / $per-row); }
+      .ie8-#{$per-row + 1} { clear: both; }
+    }
+  } @else {
+    > #{$child} { 
+      width: percentage(1 / $per-row); 
       &:nth-child(n) { clear: none; }
       &:nth-child(#{$per-row}n+1) { clear: both; }
     }

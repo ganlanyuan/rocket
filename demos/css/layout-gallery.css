@@ -1,3 +1,12 @@
+@media screen and (max-width: 62.4375em) {
+  .row {
+    margin-bottom: -20px;
+  }
+  .row > div {
+    margin-bottom: 20px;
+  }
+}
+
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -314,15 +323,6 @@ pre[class*="language-"] {
   float: left;
   box-sizing: border-box;
   padding: 0 20px 20px 0;
-  width: 50%;
-}
-
-.example-gallery > li:nth-child(n) {
-  clear: none;
-}
-
-.example-gallery > li:nth-child(2n+1) {
-  clear: both;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -347,6 +347,14 @@ pre[class*="language-"] {
   .example-gallery > li:nth-child(4n+1) {
     clear: both;
   }
+}
+
+.lt-ie9 .example-gallery > li {
+  width: 25%;
+}
+
+.lt-ie9 .example-gallery > .ie8-5 {
+  clear: both;
 }
 
 /*# sourceMappingURL=layout-gallery.css.map */
