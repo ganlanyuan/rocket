@@ -686,7 +686,6 @@ Pure css off-canvas with multiple modes.
 </div>
 
 <!-- modes: slide-along, slide-out, scale-down, scale-up, open-door, reveal -->
-<!-- If you using these modes, make sure to compile it with Ruby Sass, not Libsass. Current Libsass doesn't fully support @at-root. -->
 <input type="checkbox" name="" id="nav-toggle">
 <nav class="nav">
   <ul>

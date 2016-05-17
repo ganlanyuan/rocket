@@ -1,10 +1,15 @@
 // *** off-canvas *** //
 @mixin off-canvas($key) {
   $check: append(join($ro-off-canvas-direction, $ro-off-canvas-modes), 'submenu');
-  // initalize $map-list, $map, $breakpoint
-  $map-list: ();
-  $map: ();
-  $breakpoint: ();
+
+  $maps: args-get-maps($key);
+  $map: false;
+  $global-bps: false;
+  $bps: false;
+  $bp-max: false;
+  $condition: args-get($key, ('min' 'max'), 'max');
+  $media-type: args-get($key, $ro-media-type);
+
   $duration: 0.3s;
   $width: 240px;
 
@@ -14,6 +19,24 @@
   $submenu: args-get($key, 'submenu');
   $overlay-color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.2));
 
+  // get map
+  @if length($maps) >= 1 {
+    $map: nth($maps, 1);
+  }
+  @if length($maps) >= 2 {
+    $global-bps: nth($maps, 2);
+  }
+
+  // update map breakpoints
+  @if $global-bps {
+    $map: map-update-breakpoints($map, $global-bps);
+  }
+  // get breakpoints, breakpoint-max
+  @if $map {
+    $bps: map-keys($map);
+    $bp-max: get-max-breakpoint($bps, $condition);
+  }
+
   @each $item in $key {
     @if type-of($item) == 'number' {
       @if unit($item) == 's' {
@@ -21,14 +44,6 @@
       } @else {
         $width: $item;
       }
-    } @else if type-of($item) == 'map' {
-      $map-list: append($map-list, $item);
-    }
-  }
-  @if length($map-list) > 0 {
-    $map: nth($map-list, 1);
-    @if length($map-list) > 1 {
-      $breakpoint: nth($map-list, 2);
     }
   }
 
@@ -226,7 +241,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         @if $mode == 'drawer' {
-          @include nav-map(top, $map, $breakpoint); // set top value 
+          @include nav-map(top, $map, $bps, $bp-max); // set top value 
         } @else {
           top: 0;
         }
@@ -327,7 +342,7 @@
         }
         // drawer top
         @if $mode == 'drawer' {
-          @include nav-map(top, $map, $breakpoint); // set top value
+          @include nav-map(top, $map, $bps, $bp-max); // set top value
         } 
         // push
         #{opposite($direction)}: 0;
@@ -342,27 +357,20 @@
 
 }
 
-@mixin nav-map($prop, $map, $breakpoint) {
-  $list: map-keys($map);
-  @each $item in $list {
-    @if $item == null {
-      #{$prop}: map-get($map, $item);
-      $list: list-remove($list, $item);
-    } @else if map-has-key($breakpoint, $item) {
-      $list: append($list, map-get($breakpoint, $item));
-      $list: list-remove($list, $item);
-      $map: map-merge($map, (map-get($breakpoint, $item): map-get($map, $item)));
-      $map: map-remove($map, $item);
+@mixin nav-map($prop, $map, $bps, $bp-max) {
+  @each $bp in $bps {
+    @if $bp == null or $bp == 'default' {
+      #{$prop}: map-get($map, $bp);
+    } @else {
+      @include bp('max' $bp) {
+        #{$prop}: map-get($map, $bp);
+      }
     }
-  }
-  
-  @if length($list) > 1 {
-    $list: list-decrease($list);
-  }
 
-  @each $item in $list {
-    @include bp('max' $item) {
-      #{$prop}: map-get($map, $item);
+    @if $bp == $bp-max {
+      .lt-ie9 & {
+        #{$prop}: map-get($map, $bp);
+      }
     }
   }
 }
