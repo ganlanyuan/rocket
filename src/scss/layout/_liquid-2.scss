@@ -14,7 +14,6 @@
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
-
   // get map
   // (200px:1, null:0)
   @if length($maps) >= 1 {

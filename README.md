@@ -17,8 +17,8 @@ Add many new sass mixins, components and javascript components.
 + Improved `ro-breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 #### Requests
-+ <del>[Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`).</del> Update: no longer required from [v3.4.0]().    
-+ <del>[Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).</del> Update: no longer required from [v3.4.0]().  
++ <del>[Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`).</del> Update: not required from [v3.4.0]().    
++ <del>[Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).</del> Update: not required from [v3.4.0]().  
 + Please replace `<html>` with the markup below for better IE support.
 ``` html
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
@@ -30,91 +30,17 @@ Add many new sass mixins, components and javascript components.
 
 #### Tips
 + `Flexbox` 2009 syntax is not supported.  
-+ Want version 2, please go to branch [v2](https://github.com/ganlanyuan/rocket/tree/v2) 
++ Looking for version 2? please go to branch [v2](https://github.com/ganlanyuan/rocket/tree/v2) 
 
 # Install
 
-Install with [Bower](http://bower.io/): 
+Via [Bower](http://bower.io/): 
 ```` bash
 $ bower install rocket
 ````
-Install with [git](http://www.git-scm.com/):
+Via [git](http://www.git-scm.com/):
 ```` bash
 $ git clone https://github.com/ganlanyuan/rocket.git
-````
-# Structure
-```` html 
-Rocket/ 
-|── scss/   
-|   |── layout              
-|   |   |── container             
-|   |   |── grid                  
-|   |   |── liquid-2              
-|   |   |── liquid-3              
-|   |   |── gallery               
-|   |   |── masonry               
-|   |   |── masonry-cluster               
-|   |   |── metro               
-|   |   |── diamond               
-|   |   |── angled-edges               
-|   |   |── sticky-footer               
-|   |   |── justify               
-|   |   |── center   
-|   |                                          
-|   |── components 
-|   |   |── charts
-|   |   |── responsive-table
-|   |   |── off-canvas
-|   |   |── slider-carousel
-|   |   |── slider-gallery
-|   |   |── validation
-|   |   |── button
-|   |   |── parallelogram
-|   |   |── drop-shadows
-|   |   |── switch
-|   |   |── push-toggle
-|   |   |── checkbox
-|   |   |── input-file
-|   |   |── tabs
-|   |   |── accordion
-|   |   |── dropdown
-|   |   |── tooltip
-|   |   |── media-list
-|   |   |── flex-media
-|   |
-|   |── addons              
-|       |── type                  
-|       |── responsive-type (rp-type) 
-|       |── visible               
-|       |── hidden                
-|       |── ro-breakpoint (bp)       
-|       |── quantity-query (at-least, at-most, equal-to, between)       
-|       |── hide-text               
-|       |── opacity               
-|       |── ie-rgba               
-|       |── em                  
-|       |── rem                  
-|       |── rems                  
-|       |── color functions  
-|           |── analogous
-|           |── contrast
-|           |── adjacent
-|           |── complementary
-|           |── split-complementary
-|           |── triad
-|           |── rectangle
-|           |── square                              
-|── js/ 
-    |── base                                           
-    |── components
-        |── ie-placeholder                                        
-        |── animate                                        
-        |── numChange                                        
-        |── sticky                                        
-        |── priority-nav
-        |── equalizer                                        
-        |── reach                                        
-        |── scrollTo                                        
 ````
 
 #【 Layout 】
@@ -151,39 +77,39 @@ $key: $container (gutter $gutter) $align
 ````
 
 #### grid
-Make a grid is supper easy. Just `@include grid()` at the wrapper element, then pass a list parameter with each column width. 
 ````html
 <div class="row">
-  <div></div>
-  <div></div>
-  <div></div>
+  <div class="ie8-1"></div>
+  <div class="ie8-2"></div>
+  <div class="ie8-3"></div>
 </div>
+<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 @mixin grid($key)
 // pattern
-$key: (grid $list / $map) (bp $breakpoints) (gutter $gutter) (child $child) $direction $condition $media-type keep;
+$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8 keep;
 // $condition: 'min' or 'max'
 // $media-type: screen, print, tv
-// $direction: from left to right => right (default), from right to left => left
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
 
-.row { @include grid( 'grid' (3 7 4) ); }
+.row { @include grid( (3 7 4) ); }
 // 1st child: 3 columns;
 // 2nd child: 7 columns;
 // 3rd child: 4 columns;
-// total columns: 3 + 7 + 4 = 14
+// full width: 3 + 7 + 4 = 14 columns;
 
 // change orders
-.row { @include grid( 'grid' (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
+.row { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
 // children orders: 1 0 0; 
 // elements with smaller order will go to the front, with equal orders will go with the origin order in markup.
 // more detail about orders please refer to http://the-echoplex.net/flexyboxes/?fixed-height=on&legacy=on&display=flex&flex-direction=row&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=stretch&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto
 
 // several rows
 $main: ( (3 7 4) (2 5) );
-.row { @include grid('grid' $main); }
-// first 3 elements will occupy one row
-// last 2 elements will occupy the second row
+.row { @include grid($main); }
+// The first row: (3 7 4)
+// The second row: (2 5)
 
 // with mediaquery
 $breakpoints: (
@@ -195,58 +121,62 @@ $main: (
   medium: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.row { @include grid('grid' $main bp $breakpoints); }
+.row { @include grid($main $breakpoints); }
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)
 
 #### liquid-2
-`liquid-2` is for creating a two columns layout: One is fixed, another is flexible.     
-Similar with grid, you can use list or map as a parameter to set up the layout.
+`liquid-2` is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.
 ````html
 <div class="wrapper">
-  <div></div>
-  <div></div>
+  <div class="ie8-1"></div>
+  <div class="ie8-2"></div>
 </div>
+<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 // scss
 @mixin liquid-2($key)
 // pattern
-$key: ($list or $map) (gutter $gutter) (child $child) use-flex keep;
-// use-flex: use flexbox to make the layout;
+$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8;
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
 
-.wrapper { @include liquid-2( (null 200px) ); }
-// 1st child width: flexible;
-// 2nd child width: 200px;
+.wrapper { @include liquid-2( ('auto' 200px) ); }
+// 1st column: fluid;
+// 2nd column: 200px;
 
-.wrapper { @include liquid-2( (null:2, 200px:1) ); }
-// children orders: 2 1;
+.wrapper { @include liquid-2( ('auto':2, 200px:1) ); }
+// columns' order: 2 1;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
 
 #### liquid-3
-`liquid-3` is for creating a three columns layout: one is flexible, another two are fixed.     
-Similar with grid, you can use list or map as a parameter to set up the layout.
+`liquid-3` is for creating a holy-grail layout: a fluid column with 2 fixed columns.     
 ````html
 <div class="wrapper">
-  <div></div>
-  <div></div>
+  <div class="ie8-1"></div>
+  <div class="ie8-2"></div>
 </div>
+<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 // scss
 @mixin liquid-3($key)
 // pattern
-$key: ($list or $map) (gutter $gutter) (child $child) use-flex keep;
-// use-flex: use flexbox to make the layout;
+$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8;
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
 
-.wrapper { @include liquid-3( (150px null 200px) ); }
-// 1st child width: 150px;
-// 2nd child width: flexible;
-// 3rd child width: 200px;
+.wrapper { @include liquid-3( (150px 'auto' 200px) ); }
+// 1st column: 150px;
+// 2nd column: fluid;
+// 3rd column: 200px;
 
-.wrapper { @include liquid-3( (150px:0, null:2, 200px:1) ); }
-// children orders: 0 2 1;
+.wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }
+// columns' order: 0 2 1;
 ````
 [demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-3.php)
 
@@ -254,34 +184,35 @@ $key: ($list or $map) (gutter $gutter) (child $child) use-flex keep;
 `gallery` is for creating picture galleries.
 ````html
 <ul class="gallery">
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li class="ie8-1"></li>
+  <li class="ie8-2"></li>
+  <li class="ie8-3"></li>
+  <li class="ie8-4"></li>
+  <li class="ie8-5"></li>
 </ul>
+<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 @mixin gallery($key);
 //pattern
-$key: ($map / $per-row) (gutter $gutter) (child $child) $condition $direction keep;
-// $condition: 'min' | 'max'
-// $map: ( $breakpoint: $per-row, ...)
-// $direction: left | right
+$key: ($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8 keep;
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
 
 // *** case 1 *** //
 .gallery { @include gallery(3); }
-// per-row: 3;
+// 3 items per row
 
 // *** case 2: change gutter and direction *** //
-.gallery { @include gallery(4 gutter 2% left); }
-// per-row: 4;
+.gallery { @include gallery(4 gutter 2% RTL); }
+// 4 items per row
 // gutter: 2%;
-// direction: right -> left
+// RTL: right-to-left
 
 // *** case 3: with breakpoints *** //
 $map: (
-  'null': 2, 
+  'default': 2, 
   600: 3,
   800: 4,
 );
@@ -1455,7 +1386,7 @@ Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g.
 ```` scss
 @mixin ro-breakpoint($key)
 // pattern
-$key: $condition $media $breakpoints
+$key: $condition $media $breakpoints ie8
 
 @include bp('min' 640) {};
 // output: @media (min-width: 40em) {};
