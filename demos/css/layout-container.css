@@ -311,13 +311,13 @@ pre[class*="language-"] {
 }
 
 .lt-ie9 .wrapper {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-@media screen and (min-width: 51.875em) {
+@media screen and (min-width: 58.125em) {
   .wrapper {
-    padding: 0 calc(50% - 400px);
+    padding: 0 calc(50% - 450px);
   }
 }
 

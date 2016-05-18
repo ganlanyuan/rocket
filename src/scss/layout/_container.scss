@@ -1,5 +1,6 @@
 @mixin container($key: false){
   $container: false;
+  $breakpoint: false;
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $align: args-get($key, (left right center), center);
 
@@ -27,29 +28,34 @@
     $gutter: 0;
   }
 
-  // get container breakpoint
-  $breakpoint: $container;
-  @if unit($gutter) != '%' and unit($container) == unit($gutter) {
-    $breakpoint: ( $container + $gutter );
-  } @else {
-    $breakpoint: (em($container) + em(20));
-  }
-
   // *** output *** //
   @extend %clearfix;
-  padding: 0 ($gutter / 2);
 
-  .lt-ie9 & {
-    max-width: $container;
-    margin: 0 auto;
-  }
-  
-  // for big screen
-  @include bp('min' $breakpoint) { 
-    @if $align == center {
-      padding: 0 calc(50% - #{$container / 2});
+  // pecentage container: 80%
+  @if unit($container) == % {
+    padding: 0 (50% - ($container / 2));
+
+  // px or em container: 1000px 
+  } @else {
+    @if unit($gutter) != '%' and unit($container) == unit($gutter) {
+      $breakpoint: ( $container + $gutter );
     } @else {
-      padding-#{opposite($align)}: calc(100% - #{$container + $gutter});
-    } 
+      $breakpoint: (em($container) + em(20));
+    }
+
+    padding: 0 ($gutter / 2);
+    .lt-ie9 & {
+      max-width: $container;
+      margin: 0 auto;
+    }
+    
+    // for big screen
+    @include bp('min' $breakpoint) { 
+      @if $align == center {
+        padding: 0 calc(50% - #{$container / 2});
+      } @else {
+        padding-#{opposite($align)}: calc(100% - #{$container + $gutter});
+      } 
+    }
   }
 }
