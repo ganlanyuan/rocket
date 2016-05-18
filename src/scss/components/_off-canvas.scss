@@ -5,8 +5,6 @@
   $maps: args-get-maps($key);
   $map: false;
   $global-bps: false;
-  $bps: false;
-  $bp-max: false;
   $condition: args-get($key, ('min' 'max'), 'max');
   $media-type: args-get($key, $ro-media-type);
 
@@ -30,11 +28,6 @@
   // update map breakpoints
   @if $global-bps {
     $map: map-update-breakpoints($map, $global-bps);
-  }
-  // get breakpoints, breakpoint-max
-  @if $map {
-    $bps: map-keys($map);
-    $bp-max: get-max-breakpoint($bps, $condition);
   }
 
   @each $item in $key {
@@ -241,7 +234,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         @if $mode == 'drawer' {
-          @include nav-map(top, $map, $bps, $bp-max); // set top value 
+          @include nav-map(top, $map); // set top value 
         } @else {
           top: 0;
         }
@@ -342,7 +335,7 @@
         }
         // drawer top
         @if $mode == 'drawer' {
-          @include nav-map(top, $map, $bps, $bp-max); // set top value
+          @include nav-map(top, $map); // set top value
         } 
         // push
         #{opposite($direction)}: 0;
@@ -357,18 +350,14 @@
 
 }
 
-@mixin nav-map($prop, $map, $bps, $bp-max) {
+@mixin nav-map($prop, $map) {
+  $bps: map-keys($map);
+
   @each $bp in $bps {
     @if $bp == null or $bp == 'default' {
       #{$prop}: map-get($map, $bp);
     } @else {
       @include bp('max' $bp) {
-        #{$prop}: map-get($map, $bp);
-      }
-    }
-
-    @if $bp == $bp-max {
-      .lt-ie9 & {
         #{$prop}: map-get($map, $bp);
       }
     }

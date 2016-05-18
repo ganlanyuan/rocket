@@ -7,19 +7,19 @@
       <h2 class="main-heading"><span>layout: </span>grid</h2>
       <div class="example ovh">
         <div class="row" data-margin>
-          <div class="ie8-1">
+          <div>
             <div class="example-content cell" data-content><strong>A</strong></div>
           </div>
-          <div class="ie8-2">
+          <div>
             <div class="example-content cell" data-content><strong>B</strong></div>
           </div>
-          <div class="ie8-3">
+          <div>
             <div class="example-content cell" data-content><strong>C</strong></div>
           </div>
-          <div class="ie8-4">
+          <div>
             <div class="example-content cell" data-content><strong>D</strong></div>
           </div>
-          <div class="ie8-5">
+          <div>
             <div class="example-content cell" data-content><strong>E</strong></div>
           </div>
         </div>

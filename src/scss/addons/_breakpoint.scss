@@ -2,7 +2,6 @@
 @mixin ro-breakpoint($key){
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type, 'screen');
-  $ie8: args-get($key, 'ie8');
   $selector: '';
 
   // get breakpoints
@@ -88,13 +87,6 @@
 
   // output
   @media #{unquote($selector)} { @content; }
-  @if $ie8 {
-    @if & == null {
-      .lt-ie9 { @content; }
-    } @else {
-      .lt-ie9 & { @content; }
-    }
-  }
 }
 
 @mixin bp($key) {

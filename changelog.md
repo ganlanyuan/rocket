@@ -1,23 +1,9 @@
 # Changelog
 
 ##### 3.4.0
-- Added: `ie8` parameter in `breakpoint` (`bp`), `responsive-type` (`rp-type`), `grid`, `gallery`, `liquid-2`, `liquid-3`, which will add fallback for IE8 and below.
 - Added: `masonry-cluster` to support Masonry Layout.
 - Added: many utility functions.
 - Added: unit test for utility functions.
-- Improved: remove Javascript (Modernizr and Selectivizr) dependency. For IE8 support, '.ie8-' classes are required for each item when using `grid`, `gallery`, `liquid-2`, `liquid-3` and `off-canvas`. 
-```html
-<ul>
-  <li class="ie8-1"></li>
-  <li class="ie8-2"></li>
-  <li class="ie8-3"></li>
-  <li class="ie8-4"></li>
-  <li class="ie8-5"></li>
-  <li class="ie8-6"></li>
-  <li class="ie8-7"></li>
-  <li class="ie8-8"></li>
-</ul>
-```
 - Fixed: a quote warning in `get-slider-selector`.
 - Fixed: `liquid-2`.
 - Fixed: update parameters for `ro-transition` in `off-canvas` to prevent future syntax issues.

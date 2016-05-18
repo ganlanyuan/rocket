@@ -5,11 +5,9 @@
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
   $child: args-get-next($key, 'child', 'li');
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
-  $ie8: args-get($key, 'ie8', false);
 
   $global-bps: false;
   $bps: false;
-  $bp-max: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
@@ -42,7 +40,6 @@
   }
   @if $map {
     $bps: map-keys($map);
-    $bp-max: get-max-breakpoint($bps, $condition);
   }
 
   // *** output *** //
@@ -70,33 +67,17 @@
         @include bp($bp $condition) {
           @include make-gallery($this-per-row, $child, false);
         }
-
-        @if $bp == $bp-max {
-          @include make-gallery($this-per-row, $child, true);
-        }
       }
     }
   } @else {
      @include make-gallery($per-row, $child, false);
-
-     @if $ie8 {
-       @include make-gallery($per-row, $child, true);
-     }
   }
 }
 
 @mixin make-gallery($per-row, $child, $ie8) {
-
-  @if $ie8 {
-    .lt-ie9 & > {
-      #{$child} { width: percentage(1 / $per-row); }
-      .ie8-#{$per-row + 1} { clear: both; }
-    }
-  } @else {
-    > #{$child} { 
-      width: percentage(1 / $per-row); 
-      &:nth-child(n) { clear: none; }
-      &:nth-child(#{$per-row}n+1) { clear: both; }
-    }
+  > #{$child} { 
+    width: percentage(1 / $per-row); 
+    &:nth-child(n) { clear: none; }
+    &:nth-child(#{$per-row}n+1) { clear: both; }
   }
 }

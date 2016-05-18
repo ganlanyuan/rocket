@@ -1,5 +1,14 @@
 @import 'demo-base';
 
+@include bp('max' 1000) {
+  .row { 
+    margin-bottom: - map-get($ro-layout, 'gutter'); 
+    > div {
+      margin-bottom: map-get($ro-layout, 'gutter');
+    }
+  }
+}
+
 $list: (3 4 7) 1 1;
 $map: (
   'default': (3 4) ( 2 5) 1,

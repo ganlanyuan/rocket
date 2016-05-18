@@ -184,18 +184,17 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 `gallery` is for creating picture galleries.
 ````html
 <ul class="gallery">
-  <li class="ie8-1"></li>
-  <li class="ie8-2"></li>
-  <li class="ie8-3"></li>
-  <li class="ie8-4"></li>
-  <li class="ie8-5"></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 </ul>
-<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 @mixin gallery($key);
 //pattern
-$key: ($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8 keep;
+$key: ($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep;
 // $condition: 'min' or 'max'
 // $media-type: screen, print, tv
 // $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)

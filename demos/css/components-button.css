@@ -3,15 +3,6 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -462,7 +453,7 @@ pre[class*="language-"] {
   }
 }
 
-.no-csstransforms .example-button .ripple:before {
+.lt-ie9 .example-button .ripple:before {
   display: none;
 }
 
@@ -472,7 +463,7 @@ pre[class*="language-"] {
   animation: button-ripple 1s 1;
 }
 
-.no-csstransforms .example-button .ripple:hover:before {
+.lt-ie9 .example-button .ripple:hover:before {
   display: block;
 }
 
@@ -511,7 +502,7 @@ pre[class*="language-"] {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.no-csstransforms .example-button .veil:before {
+.lt-ie9 .example-button .veil:before {
   display: none;
 }
 
@@ -529,7 +520,7 @@ pre[class*="language-"] {
   transform: scaleX(1);
 }
 
-.no-csstransforms .example-button .veil:hover:before {
+.lt-ie9 .example-button .veil:hover:before {
   display: block;
 }
 
@@ -566,7 +557,7 @@ pre[class*="language-"] {
   transition: transform 0.3s ease;
 }
 
-.no-csstransforms .example-button .cut:before {
+.lt-ie9 .example-button .cut:before {
   display: none;
 }
 
@@ -578,7 +569,7 @@ pre[class*="language-"] {
   transform: rotate3d(0, 0, 1, 0deg);
 }
 
-.no-csstransforms .example-button .cut:hover:before {
+.lt-ie9 .example-button .cut:hover:before {
   display: block;
 }
 
@@ -625,7 +616,7 @@ pre[class*="language-"] {
   box-sizing: border-box;
 }
 
-.no-csstransforms .example-button .push:before {
+.lt-ie9 .example-button .push:before {
   display: none;
 }
 
@@ -649,7 +640,7 @@ pre[class*="language-"] {
   transform: translateY(0);
 }
 
-.no-csstransforms .example-button .push:hover:before {
+.lt-ie9 .example-button .push:hover:before {
   display: block;
 }
 

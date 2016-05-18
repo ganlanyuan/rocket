@@ -4,15 +4,6 @@
   display: table;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -315,52 +306,62 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
-.example-liquid-2 > div:nth-child(1) {
-  float: left;
-  width: 150px;
-}
-
-.example-liquid-2 > div:nth-child(2) {
-  float: right;
-  width: calc(100% - 170px);
-}
-
-@media screen and (min-width: 46.875em) {
-  .example-liquid-2 > div:nth-child(2) {
-    float: left;
-    width: calc(100% - 170px);
-  }
-  .example-liquid-2 > div:nth-child(1) {
-    float: right;
-    width: 150px;
-  }
-}
-
-@media screen and (min-width: 56.25em) {
-  .example-liquid-2 > div:nth-child(1) {
-    float: left;
-    width: 150px;
-  }
-  .example-liquid-2 > div:nth-child(2) {
-    float: right;
-    width: calc(100% - 170px);
-  }
-}
-
 .lt-ie9 .example-liquid-2 {
   padding: 0 0 0 170px;
   box-sizing: border-box;
 }
 
-.lt-ie9 .example-liquid-2 > .ie8-1 {
+.example-liquid-2 > div:nth-child(1) {
   float: left;
   width: 150px;
+}
+
+.lt-ie9 .example-liquid-2 > div:nth-child(1) {
   margin: 0 0 0 -170px;
 }
 
-.lt-ie9 .example-liquid-2 > .ie8-2 {
+.example-liquid-2 > div:nth-child(2) {
   float: right;
   width: 100%;
+  width: calc(100% - 170px);
+}
+
+@media screen and (min-width: 46.875em) {
+  .lt-ie9 .example-liquid-2 {
+    padding: 0 170px 0 0;
+    box-sizing: border-box;
+  }
+  .example-liquid-2 > div:nth-child(2) {
+    float: left;
+    width: 100%;
+    width: calc(100% - 170px);
+  }
+  .example-liquid-2 > div:nth-child(1) {
+    float: right;
+    width: 150px;
+  }
+  .lt-ie9 .example-liquid-2 > div:nth-child(1) {
+    margin: 0 -170px 0 0;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  .lt-ie9 .example-liquid-2 {
+    padding: 0 0 0 170px;
+    box-sizing: border-box;
+  }
+  .example-liquid-2 > div:nth-child(1) {
+    float: left;
+    width: 150px;
+  }
+  .lt-ie9 .example-liquid-2 > div:nth-child(1) {
+    margin: 0 0 0 -170px;
+  }
+  .example-liquid-2 > div:nth-child(2) {
+    float: right;
+    width: 100%;
+    width: calc(100% - 170px);
+  }
 }
 
 /*# sourceMappingURL=layout-liquid-2.css.map */

@@ -4,15 +4,6 @@
   display: table;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -381,12 +372,12 @@ pre[class*="language-"] {
   margin: auto;
 }
 
-.no-flexbox.no-flexboxtweener .diamond > .diamond-content {
+.lt-ie10 .diamond > .diamond-content {
   text-align: center;
   white-space: nowrap;
 }
 
-.no-flexbox.no-flexboxtweener .diamond > .diamond-content:before {
+.lt-ie10 .diamond > .diamond-content:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -394,7 +385,7 @@ pre[class*="language-"] {
   margin-right: -.25em;
 }
 
-.no-flexbox.no-flexboxtweener .diamond > .diamond-content > * {
+.lt-ie10 .diamond > .diamond-content > * {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
@@ -442,12 +433,12 @@ pre[class*="language-"] {
   margin: auto;
 }
 
-.no-flexbox.no-flexboxtweener .diamond-s > .diamond-content {
+.lt-ie10 .diamond-s > .diamond-content {
   text-align: center;
   white-space: nowrap;
 }
 
-.no-flexbox.no-flexboxtweener .diamond-s > .diamond-content:before {
+.lt-ie10 .diamond-s > .diamond-content:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -455,7 +446,7 @@ pre[class*="language-"] {
   margin-right: -.25em;
 }
 
-.no-flexbox.no-flexboxtweener .diamond-s > .diamond-content > * {
+.lt-ie10 .diamond-s > .diamond-content > * {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
@@ -498,12 +489,12 @@ pre[class*="language-"] {
   margin: auto;
 }
 
-.no-flexbox.no-flexboxtweener .diamond-m > .diamond-content {
+.lt-ie10 .diamond-m > .diamond-content {
   text-align: center;
   white-space: nowrap;
 }
 
-.no-flexbox.no-flexboxtweener .diamond-m > .diamond-content:before {
+.lt-ie10 .diamond-m > .diamond-content:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -511,7 +502,7 @@ pre[class*="language-"] {
   margin-right: -.25em;
 }
 
-.no-flexbox.no-flexboxtweener .diamond-m > .diamond-content > * {
+.lt-ie10 .diamond-m > .diamond-content > * {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;

@@ -1,46 +1,33 @@
 // *** responsive-type *** //
 @mixin responsive-type($key) {
+  $maps: args-get-maps($key);
   $map: false;
-  $global-bps: false;
-  $bps: false;
-  $bp-max: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
-  $ie8: args-get($key, 'ie8');
 
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'map' {
-        @if not $map {
-          $map: $item;
-        } @else {
-          $global-bps: $item;
-        }
-      }
-    }
+  $global-bps: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+
+  // get map
+  @if length($maps) >= 1 {
+    $map: nth($maps, 1);
+  }
+  @if length($maps) >= 2 {
+    $global-bps: nth($maps, 2);
   }
 
   // *** output *** //
   @if $global-bps {
     $map: map-update-breakpoints($map, $global-bps);
   }
+
   @if $map {
-    $bps: map-keys($map);
-    $bp-max: get-max-breakpoint($bps, $condition);
-  }
-
-  @each $bp, $type in $map {
-    @if $bp == 'default' or $bp == null {
-      @include type($type);
-    } @else {
-      @include bp($condition $bp) {
+    @each $bp, $type in $map {
+      @if $bp == 'default' or $bp == null {
         @include type($type);
-      }
-
-      // @media fallback for IE8
-      @if $bp == $bp-max {
-        .lt-ie9 & { @include type($type); }
+      } @else {
+        @include bp($condition $bp) {
+          @include type($type);
+        }
       }
     }
   }

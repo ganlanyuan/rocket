@@ -6,11 +6,9 @@
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
-  $ie8: args-get($key, 'ie8', false);
 
   $global-bps: false;
   $bps: false;
-  $bp-max: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
@@ -23,7 +21,7 @@
   }
 
   // if no map, use list
-  @if length($maps) == 0 and type-of($key) == 'list' {
+  @if not $map and type-of($key) == 'list' {
     @if not is-nested-list($key) {
       @if is-liquid-list($key) {
         $columns: $key;
@@ -55,11 +53,7 @@
     @if is-simple-map($map) {
       $columns: map-keys($map);
       $order: map-values($map);
-      @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
-
-      @if $ie8 {
-        @include make-holy-grail($columns, $order, $child, $gutter, $float, true);
-      }
+      @include make-holy-grail($columns, $order, $child, $gutter, $float);
 
     // complex map: with breakpoints
     // ('default': ('auto' 300px), 800px: ('auto':1, 300px:0));
@@ -68,7 +62,6 @@
         $map: map-update-breakpoints($map, $global-bps);
       }
       $bps: map-keys($map);
-      $bp-max: get-max-breakpoint($bps, $condition);
 
       @for $i from 1 through length($bps) {
         $bp: nth($bps, $i);
@@ -83,16 +76,11 @@
         }
 
         @if $bp == 'default' or $bp == null {
-          @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
+          @include make-holy-grail($columns, $order, $child, $gutter, $float);
         } @else {
           @include bp($condition $media-type $bp) {
-            @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
+            @include make-holy-grail($columns, $order, $child, $gutter, $float);
           }
-        }
-
-        // generate ie8-only style
-        @if $bp == $bp-max {
-          @include make-holy-grail($columns, $order, $child, $gutter, $float, true);
         }
       }
     }
@@ -101,17 +89,12 @@
   // ('auto' 300px)
   } @else {
     @if not $order { $order: (1, 2, 3); }
-    @include make-holy-grail($columns, $order, $child, $gutter, $float, false);
-
-    @if $ie8 {
-      @include make-holy-grail($columns, $order, $child, $gutter, $float, true);
-    }
+    @include make-holy-grail($columns, $order, $child, $gutter, $float);
   }
 
 }
 
-@mixin make-holy-grail($columns, $order, $child, $gutter, $float, $ie8) {
-
+@mixin make-holy-grail($columns, $order, $child, $gutter, $float) {
   $child-list: ();
   $children-ie8: '';
   @if type-of($child) == 'string' {
@@ -130,11 +113,9 @@
     $new-columns: append($new-columns, nth($columns, nth($positions, $i)));
   }
 
-  @if $ie8 {
-    @at-root #{$children-ie8} {
-      box-sizing: border-box;
-      position: relative;
-    }
+  @at-root #{$children-ie8} {
+    box-sizing: border-box;
+    position: relative;
   }
 
   // check gutter 
@@ -144,26 +125,20 @@
   @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
 
     @for $i from 1 through length($new-columns) {
-      $selector: if($ie8, 
-        '.lt-ie9 & > .ie8-#{nth($positions, $i)}', 
-        '> ' nth($child-list, nth($positions, $i))
-        );
-
-      #{$selector} {
+      > #{nth($child-list, nth($positions, $i))} {
 
         @if ($i == 1) {
           float: $float;
           margin: get-TRBL(opposite($float) -100%);
           // float: left;
           // margin-right: -100%;
+          width: 100%;
+          width: calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
 
-          @if $ie8 {
-            width: 100%;
+          .lt-ie9 & {
             padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2));
             // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
             z-index: 0;
-          } @else {
-            width: calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
           }
 
         } @else {
@@ -172,15 +147,15 @@
           // float: right;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float -100%);
+            margin: get-TRBL(opposite($float) (nth($new-columns, 3) +$gutter) $float -100%);
             // margin-left: -100%;
-            // margin-right: (nth($new-columns, 3);
+            // margin-right: (nth($new-columns, 3) + $gutter);
           } @else {
-            margin: get-TRBL($float);
+            margin: get-TRBL($float -100%);
             // margin-left: -100%;
           }
 
-          @if $ie8 { 
+          .lt-ie9 & { 
             padding: 0; 
             z-index: 1;
           }
@@ -192,12 +167,7 @@
   } @else if nth($new-columns, 2) == null or nth($new-columns, 2) == 'auto' {
 
     @for $i from 1 through length($new-columns) {
-      $selector: if($ie8, 
-        '.lt-ie9 & > .ie8-#{nth($positions, $i)}', 
-        '> ' nth($child-list, nth($positions, $i))
-        );
-
-      #{$selector} {
+      > #{nth($child-list, nth($positions, $i))} {
 
         @if ($i == 3) {
           float: opposite($float);
@@ -206,7 +176,7 @@
           // float: right;
           // margin-left: -100%;
 
-          @if $ie8 { 
+          .lt-ie9 & { 
             padding: 0; 
             z-index: 1;
           }
@@ -216,20 +186,19 @@
           // float: left;
 
           @if $i == 2 {
+            width: 100%;
+            width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
+            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter));
+            // margin-left: #{(nth($new-columns, 1) + $gutter)};
+            // margin-right: -100%;
 
-            @if $ie8 {
-              width: 100%;
+            .lt-ie9 & {
               padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float (nth($new-columns, 1) + $gutter));
               // padding-left: #{(nth($new-columns, 1) + $gutter)};
               // padding-right: #{(nth($new-columns, 3) + $gutter)};
               margin: get-TRBL(opposite($float) -100%);
               // margin-right: -100%;
               z-index: 0;
-            } @else {
-              width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
-              margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter));
-              // margin-left: #{(nth($new-columns, 1) + $gutter)};
-              // margin-right: -100%;
             }
 
           } @else {
@@ -237,7 +206,7 @@
             margin: get-TRBL(opposite($float) -100%);
             // margin-right: -100%;
 
-            @if $ie8 { 
+            .lt-ie9 & { 
               padding: 0; 
               z-index: 1;
             }
@@ -250,26 +219,20 @@
   } @else if nth($new-columns, 3) == null or nth($new-columns, 3) == 'auto' {
 
     @for $i from 1 through length($new-columns) {
-      $selector: if($ie8, 
-        '.lt-ie9 & > .ie8-#{nth($positions, $i)}', 
-        '> ' nth($child-list, nth($positions, $i))
-        );
-
-      #{$selector} {
+      > #{nth($child-list, nth($positions, $i))} {
 
         @if ($i == 3) {
           float: opposite($float);
           margin: get-TRBL($float -100%);
           // float: right;
           // margin-left: -100%;
+          width: 100%;
+          width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
           
-          @if $ie8 {
-            width: 100%;
+          .lt-ie9 & {
             padding: get-TRBL($float #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
             // padding-left: #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)};
             z-index: 0;
-          } @else {
-            width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
           }
 
         } @else {
@@ -286,7 +249,7 @@
             // margin-right: -100%;
           }
 
-          @if $ie8 { 
+          .lt-ie9 & { 
             padding: 0; 
             z-index: 1;
           }

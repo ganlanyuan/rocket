@@ -6,10 +6,10 @@
     <div class="topic">
       <h2 class="main-heading"><span>layout: </span>liquid-2</h2>
       <div class="example example-liquid-2" data-margin>
-        <div class="ie8-1">
+        <div>
           <div class="example-content cell" data-content><strong>A</strong></div>
         </div>
-        <div class="ie8-2">
+        <div>
           <div class="example-content cell" data-content><strong>B</strong></div>
         </div>
       </div>

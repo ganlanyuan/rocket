@@ -3,15 +3,6 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -373,7 +364,7 @@ pre[class*="language-"] {
   display: none;
 }
 
-.no-cssanimations .sg-autoplay .autoplay {
+.lt-ie10 .sg-autoplay .autoplay {
   display: none !important;
 }
 
@@ -401,7 +392,7 @@ pre[class*="language-"] {
   display: none;
 }
 
-.no-cssanimations #sg-autoplay-autoplay:checked ~ .controls, .no-cssanimations #sg-autoplay-autoplay:checked ~ .dots {
+.lt-ie10 #sg-autoplay-autoplay:checked ~ .controls, .lt-ie10 #sg-autoplay-autoplay:checked ~ .dots {
   display: block !important;
 }
 

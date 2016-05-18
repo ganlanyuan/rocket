@@ -4,15 +4,6 @@
   display: table;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {

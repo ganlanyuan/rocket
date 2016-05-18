@@ -5,11 +5,9 @@
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
-  $ie8: args-get($key, 'ie8', false);
 
   $global-bps: args-get-next($key, 'bp');
   $bps: false;
-  $bp-max: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
@@ -77,12 +75,11 @@
         $map: map-update-breakpoints($map, $global-bps);
       }
       $bps: map-keys($map);
-      $bp-max: get-max-breakpoint($bps, $condition);
 
       @each $bp in $bps {
 
         @if $bp == 'default' {
-          @include check-list(map-get($map, $bp), $gutter, $child, $float, false);
+          @include check-list(map-get($map, $bp), $gutter, $child, $float);
         } @else {
           @include bp($condition $media-type $bp) {
             // reset order, clear
@@ -90,13 +87,8 @@
               @include ro-order(0); 
               .lt-ie10 & { clear: none; }
             }
-            @include check-list(map-get($map, $bp), $gutter, $child, $float, false);
+            @include check-list(map-get($map, $bp), $gutter, $child, $float);
           }
-        }
-
-        // generate ie8-only style
-        @if $bp == $bp-max {
-          @include check-list(map-get($map, $bp), $gutter, $child, $float, true);
         }
       }
 
@@ -104,16 +96,12 @@
     // (3 4 5: 1 0 2) (4 6)
     } @else {
       @include check-list($map, $gutter, $child, $float, false);
-
-      @if $ie8 {
-        @include check-list($map, $gutter, $child, $float, true);
-      }
     }
   }
 }
 
 // == check-list ==
-@mixin check-list($value, $gutter, $child, $float, $ie8) {
+@mixin check-list($value, $gutter, $child, $float) {
   $columns: false;
   $orders: false;
   $has-orders: false;
@@ -126,7 +114,7 @@
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
 
-      @include make-grid($columns, $orders, $child, $float, $ie8, $max-order, $list-length, $has-orders);
+      @include make-grid($columns, $orders, $child, $float, $max-order, $list-length, $has-orders);
 
       @if $orders { $has-orders: true; }
       @if $columns { $list-length: ($list-length + length($columns)); }
@@ -144,12 +132,12 @@
     $columns: grid-get-columns($value);
     $orders: grid-get-orders($value);
 
-    @include make-grid($columns, $orders, $child, $float, $ie8);
+    @include make-grid($columns, $orders, $child, $float);
   }
 }
 
 // == make-grid ==
-@mixin make-grid($cols, $orders, $child, $float, $ie8, $max-order:0, $list-length:0, $has-orders:false) {
+@mixin make-grid($cols, $orders, $child, $float, $max-order:0, $list-length:0, $has-orders:false) {
 
   $full-col: 0;
   @each $item in $cols {
@@ -158,11 +146,7 @@
   
   // new row: clear float
   @if $list-length > 0 {
-    @if $ie8 {
-      .lt-ie9 & > .ie8-#{$list-length + 1} { clear: both; }
-    } @else {
-      .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
-    }
+    .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
   }
 
   @for $i from 1 through length($cols) {
@@ -177,22 +161,17 @@
       $location: $i;
     }
 
-    $selector: if($ie8, '.lt-ie9 & > .ie8-#{$i + $list-length}', '> #{$child}:nth-child(#{$i + $list-length})');
-
-    #{$selector} {
+    > #{$child}:nth-child(#{$i + $list-length}) {
       width: percentage(nth($cols, $i) / $full-col);
 
       // flexbox
-      @if not $ie8 {
-        @if $orders and not $ie8 { 
-          @include ro-order((nth($orders, $i) + $max-order)); 
-        } @else if $has-orders {
-          @extend %same-order;
-        }
+      @if $orders { 
+        @include ro-order((nth($orders, $i) + $max-order)); 
+      } @else if $has-orders {
+        @extend %same-order;
       }
 
-      $new-selector: if($ie8, '&', '.lt-ie10 &');
-      #{$new-selector} {
+      .lt-ie10 & {
         @if $location == 1 {
           margin-#{$float}: 0;
         } @else {
@@ -268,13 +247,4 @@
   }
 
   @return $orders;
-}
-
-@include bp('max' 1000) {
-  .row { 
-    margin-bottom: - map-get($ro-layout, 'gutter'); 
-    > div {
-      margin-bottom: map-get($ro-layout, 'gutter');
-    }
-  }
 }

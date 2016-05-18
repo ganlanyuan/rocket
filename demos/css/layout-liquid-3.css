@@ -4,15 +4,6 @@
   display: table;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -315,16 +306,33 @@ pre[class*="language-"] {
   color: #b1b1b1;
 }
 
+.lt-ie9 .example-liquid-3 > div {
+  box-sizing: border-box;
+  position: relative;
+}
+
 .example-liquid-3 > div:nth-child(3) {
   float: left;
   width: 250px;
   margin: 0 -100% 0 0;
 }
 
+.lt-ie9 .example-liquid-3 > div:nth-child(3) {
+  padding: 0;
+  z-index: 1;
+}
+
 .example-liquid-3 > div:nth-child(2) {
   float: left;
+  width: 100%;
   width: calc(100% - 390px);
   margin: 0 -100% 0 270px;
+}
+
+.lt-ie9 .example-liquid-3 > div:nth-child(2) {
+  padding: 0 120px 0 270px;
+  margin: 0 -100% 0 0;
+  z-index: 0;
 }
 
 .example-liquid-3 > div:nth-child(1) {
@@ -333,69 +341,81 @@ pre[class*="language-"] {
   margin: 0 0 0 -100%;
 }
 
+.lt-ie9 .example-liquid-3 > div:nth-child(1) {
+  padding: 0;
+  z-index: 1;
+}
+
 @media screen and (min-width: 43.75em) {
+  .lt-ie9 .example-liquid-3 > div {
+    box-sizing: border-box;
+    position: relative;
+  }
   .example-liquid-3 > div:nth-child(1) {
     float: left;
     width: 100px;
     margin: 0 -100% 0 0;
   }
+  .lt-ie9 .example-liquid-3 > div:nth-child(1) {
+    padding: 0;
+    z-index: 1;
+  }
   .example-liquid-3 > div:nth-child(2) {
     float: left;
+    width: 100%;
     width: calc(100% - 390px);
     margin: 0 -100% 0 120px;
+  }
+  .lt-ie9 .example-liquid-3 > div:nth-child(2) {
+    padding: 0 270px 0 120px;
+    margin: 0 -100% 0 0;
+    z-index: 0;
   }
   .example-liquid-3 > div:nth-child(3) {
     float: right;
     width: 250px;
     margin: 0 0 0 -100%;
+  }
+  .lt-ie9 .example-liquid-3 > div:nth-child(3) {
+    padding: 0;
+    z-index: 1;
   }
 }
 
 @media screen and (min-width: 56.25em) {
+  .lt-ie9 .example-liquid-3 > div {
+    box-sizing: border-box;
+    position: relative;
+  }
   .example-liquid-3 > div:nth-child(3) {
     float: left;
     width: 250px;
     margin: 0 -100% 0 0;
   }
+  .lt-ie9 .example-liquid-3 > div:nth-child(3) {
+    padding: 0;
+    z-index: 1;
+  }
   .example-liquid-3 > div:nth-child(2) {
     float: left;
+    width: 100%;
     width: calc(100% - 390px);
     margin: 0 -100% 0 270px;
+  }
+  .lt-ie9 .example-liquid-3 > div:nth-child(2) {
+    padding: 0 120px 0 270px;
+    margin: 0 -100% 0 0;
+    z-index: 0;
   }
   .example-liquid-3 > div:nth-child(1) {
     float: right;
     width: 100px;
     margin: 0 0 0 -100%;
   }
-}
-
-.lt-ie9 .example-liquid-3 > div {
-  box-sizing: border-box;
-  position: relative;
-}
-
-.lt-ie9 .example-liquid-3 > .ie8-3 {
-  float: left;
-  width: 250px;
-  margin: 0 -100% 0 0;
-  padding: 0;
-  z-index: 1;
-}
-
-.lt-ie9 .example-liquid-3 > .ie8-2 {
-  float: left;
-  width: 100%;
-  padding: 0 120px 0 270px;
-  margin: 0 -100% 0 0;
-  z-index: 0;
-}
-
-.lt-ie9 .example-liquid-3 > .ie8-1 {
-  float: right;
-  width: 100px;
-  margin: 0 0 0 -100%;
-  padding: 0;
-  z-index: 1;
+  .lt-ie9 .example-liquid-3 > div:nth-child(1) {
+    padding: 0;
+    z-index: 1;
+  }
 }
 
 /*# sourceMappingURL=layout-liquid-3.css.map */

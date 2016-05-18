@@ -3,15 +3,6 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 62.4375em) {
-  .row {
-    margin-bottom: -20px;
-  }
-  .row > div {
-    margin-bottom: 20px;
-  }
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -552,7 +543,7 @@ pre[class*="language-"] {
   left: 50%;
 }
 
-.no-csstransforms #form4 [data-info] {
+.lt-ie9 #form4 [data-info] {
   position: static;
   display: none;
 }
@@ -601,8 +592,8 @@ pre[class*="language-"] {
   }
 }
 
-.no-csstransforms #form4 .valid [data-info="valid"], .no-csstransforms
-#form4 .required [data-info="required"], .no-csstransforms
+.lt-ie9 #form4 .valid [data-info="valid"], .lt-ie9
+#form4 .required [data-info="required"], .lt-ie9
 #form4 .error [data-info="error"] {
   display: inline-block;
 }

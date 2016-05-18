@@ -1,12 +1,14 @@
 @import 'demo-base';
 
-$list1: (null 100px 250px);
-$list2: (100px null 250px);
-$list3: (100px 250px null);
-$map1: (100px:2, null:0, 250px:0);
-$map2: (
-  null: (100px:2, null:1, 250px:0),
-  700px: (100px:0, null:1, 250px:2),
-  900px: (100px:2, null:1, 250px:0),
+$list1: ('auto' 100px 250px);
+$list2: (100px 'auto' 250px);
+$list3: (100px 250px 'auto');
+$map1: (100px:2, 'auto':0, 250px:0);
+$map2: (100px:2, 'auto':1, 250px:0);
+$map3: (100px:2, 'auto':3, 250px:2);
+$map4: (
+  'default': (100px:2, 'auto':1, 250px:0),
+  700px: (100px:0, 'auto':1, 250px:2),
+  900px: (100px:2, 'auto':1, 250px:0),
 );
-.example-liquid-3 { @include liquid-3($map2); }
+.example-liquid-3 { @include liquid-3($map4); }

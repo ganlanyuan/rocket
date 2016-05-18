@@ -1,4 +1,3 @@
-// *** container *** //
 @mixin container($key: false){
   $container: false;
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
