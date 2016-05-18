@@ -1,6 +1,6 @@
 # Rocket v3
 <p>
-  <img src="https://img.shields.io/badge/sass-3.4.0-ff69b4.svg">
+  <img src="https://img.shields.io/badge/sass-3.3.4-ff69b4.svg">
   <img src="https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg">
   <img src="https://img.shields.io/badge/Version-3.3.4-blue.svg">
 </p>
@@ -18,7 +18,7 @@ Add many new sass mixins, components and javascript components.
 
 #### Requests
 + <del>[Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`).</del> Update: not required from [v3.4.0]().    
-+ <del>[Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).</del> Update: not required from [v3.4.0]().  
++ [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).  
 + Please replace `<html>` with the markup below for better IE support.
 ``` html
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
@@ -79,11 +79,10 @@ $key: $container (gutter $gutter) $align
 #### grid
 ````html
 <div class="row">
-  <div class="ie8-1"></div>
-  <div class="ie8-2"></div>
-  <div class="ie8-3"></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
-<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 @mixin grid($key)
@@ -129,10 +128,9 @@ $main: (
 `liquid-2` is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.
 ````html
 <div class="wrapper">
-  <div class="ie8-1"></div>
-  <div class="ie8-2"></div>
+  <div></div>
+  <div></div>
 </div>
-<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 // scss
@@ -156,10 +154,9 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 `liquid-3` is for creating a holy-grail layout: a fluid column with 2 fixed columns.     
 ````html
 <div class="wrapper">
-  <div class="ie8-1"></div>
-  <div class="ie8-2"></div>
+  <div></div>
+  <div></div>
 </div>
-<!-- .ie8-* is for ie8 only. If no need for supporting ie8, remove them. -->
 ````
 ```` scss
 // scss

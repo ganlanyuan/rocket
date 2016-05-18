@@ -1,6 +1,6 @@
 # Changelog
 
-##### 3.4.0
+##### 3.4.0 beta
 - Added: `masonry-cluster` to support Masonry Layout.
 - Added: many utility functions.
 - Added: unit test for utility functions.
