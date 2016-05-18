@@ -6,8 +6,8 @@
 </p>
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
 Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
+[demos](http://creatiointl.org/william/rocket/v3/layout-grid.php)   
 [Changelog](https://github.com/ganlanyuan/rocket/blob/master/changelog.md)   
-<!-- [demos](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)    -->
 
 #### What's new in version 3
 Rewrite main layout mixins using `flex-box`. 
@@ -122,7 +122,7 @@ $main: (
 );
 .row { @include grid($main $breakpoints); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-grid.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-grid.php)
 
 #### liquid-2
 `liquid-2` is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.
@@ -148,7 +148,7 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 .wrapper { @include liquid-2( ('auto':2, 200px:1) ); }
 // columns' order: 2 1;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-2.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-liquid-2.php)
 
 #### liquid-3
 `liquid-3` is for creating a holy-grail layout: a fluid column with 2 fixed columns.     
@@ -175,7 +175,7 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 .wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }
 // columns' order: 0 2 1;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-liquid-3.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-liquid-3.php)
 
 #### gallery
 `gallery` is for creating picture galleries.
@@ -217,7 +217,7 @@ $map: (
 // 600px and up: 3 items per row
 // 800px and up: 4 items per row
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-gallery.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-gallery.php)
 
 #### masonry
 `masonry` is for creating masonry layouts with pure css.
@@ -274,7 +274,7 @@ $map: (
   }
 }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-masonry.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-masonry.php)
 
 #### metro
 `metro` is for creating block layout inspired by Windows 8. Use nested `metro` to make complex layout.
@@ -322,7 +322,7 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
 // media-type: media type like 'screen', 'print'
 
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-metro.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-metro.php)
 
 #### diamond
 ````html
@@ -372,7 +372,7 @@ $key: ($per-row / $size) $shape 'combined' $selector-type 'keep';
 .diamond { @include diamond(20%); }
 // diamond size: 20% (could be fixed value like 200px too)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-diamond.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-diamond.php)
 
 #### angled-edges
 Create `angled-edges` layout. `background` could be image, gradient or pure color, but the background of sibling elements must be pure color.
@@ -391,7 +391,7 @@ $key: $edges $angle flip;
 // edge: bottom;
 // angle: -5deg;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-angled-edges.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-angled-edges.php)
 
 #### sticky-footer
 Create `sticky-footer` to prevent layout collapse when content is less, like on 404 page.
@@ -409,7 +409,7 @@ $key: $main;
 
 body { @include sticky-footer('.main'); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-sticky-footer.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-sticky-footer.php)
 
 #### justify
 `justify` is for creating `justify` layout.
@@ -429,7 +429,7 @@ $key: (child $child)
 
 .justify { @include justify(); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-justify.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-justify.php)
 
 #### center
 `center` is for creating both horizontal and vertical center aligned layout.
@@ -447,7 +447,7 @@ $key: $child $align
 // child: div;
 // align: left; (left | right | center, for old browser)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/layout-center.php)
+[demo](http://creatiointl.org/william/rocket/v3/layout-center.php)
 
 
 #【 Components 】
@@ -519,7 +519,7 @@ $data2: (
 // steps: unit 2, total 24
 // hide: numbers and labels
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-charts.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-charts.php)
 
 #### responsive-table
 Solutions for display a complex data table on small screen.
@@ -588,7 +588,7 @@ $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count
   }
 }
 ```
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-responsive-table.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-responsive-table.php)
 
 #### off-canvas
 Pure css off-canvas with multiple modes.  
@@ -689,7 +689,7 @@ $map: (
 
 .page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-off-canvas.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-off-canvas.php)
 
 ## Pure CSS Sliders
 A pure CSS responsive slider with previous/next buttons, nav dots, autoplay(IE8- are not supported), autoheight and more. It works well on modern browsers and IE8+, but it doesn't support loop and lazyload for now.
@@ -781,7 +781,7 @@ Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
   });
 </script>
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-slider-carousel.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-slider-carousel.php)
 
 #### slider-gallery
 ```` scss
@@ -841,7 +841,7 @@ Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
   });
 </script>
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-slider-gallery.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-slider-gallery.php)
 
 #### validation
 Html5 form validation using [H5F](https://github.com/ryanseddon/H5F). We already include H5F in `kit.js` (with a little bit modification), so you don't need download it again.     
@@ -880,7 +880,7 @@ $key: $style $direction $shake $speed $duration default;
 // style: slide-in;
 // direction: right;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-validation.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-validation.php)
 
 #### button
 ````html
@@ -910,7 +910,7 @@ $key: $padding ($border-radius | round) ($background-color $active-color) $hover
 // border-radius: 5px; 
 // hover: bubble;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-button.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-button.php)
 
 #### parallelogram
 Create parallelogram style.
@@ -926,7 +926,7 @@ $key: $background $angle
 // $background: #61A4DE; 
 // $angle: -30deg;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-parallelogram.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-parallelogram.php)
 
 #### drop-shadows
 Thanks [Nicolas Gallagher](http://nicolasgallagher.com/css-drop-shadows-without-images/) for the idea.
@@ -945,7 +945,7 @@ $key: $style $direction $color $shadow-size;
 // $direction: horizontal;
 // $shadow-size: 20px;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-drop-shadows.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-drop-shadows.php)
 
 #### switch
 Pure css switch.   
@@ -968,7 +968,7 @@ $key: $style $size $active-color (text $text) (radius | round);
 // active-color: #399DE1;
 // round: true;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-switch.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-switch.php)
 
 #### push-toggle
 Pure css push toggle.   
@@ -999,7 +999,7 @@ Pure css push toggle.
   }
  }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-push-toggle.php)    
+[demo](http://creatiointl.org/william/rocket/v3/components-push-toggle.php)    
 
 #### checkbox
 Customize radios or checkboxes.
@@ -1029,7 +1029,7 @@ Customize radios or checkboxes.
   }
 }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)   
+[demo](http://creatiointl.org/william/rocket/v3/components-checkbox.php)   
 
 #### checkbox-active
 Radios or checkboxes' active style.   
@@ -1045,7 +1045,7 @@ Radios or checkboxes' active style.
   }
 }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-checkbox.php)    
+[demo](http://creatiointl.org/william/rocket/v3/components-checkbox.php)    
 
 #### input-file
 Customize `input[type="file"]`. Thanks [Osvaldas Valutis](http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) for the idea.
@@ -1073,7 +1073,7 @@ Customize `input[type="file"]`. Thanks [Osvaldas Valutis](http://tympanus.net/co
   inputFile('#file');
 </script>
 ```
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-input-file.php)   
+[demo](http://creatiointl.org/william/rocket/v3/components-input-file.php)   
 
 #### tabs
 Pure css tabs.   
@@ -1114,7 +1114,7 @@ $key: $length $style
 // length: 3; (3 tabs)
 // style: carousel; (normal | carousel | customize)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)
 
 #### tabs-active
 Set tabs' active styles.   
@@ -1130,7 +1130,7 @@ $key: $length
 }
 // length: 3; (3 tabs)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)
 
 #### tabs-panel-active
 Set panels' active styles.   
@@ -1146,7 +1146,7 @@ $key: $length
 }
 // length: 3; (3 tabs)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tabs.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)
 
 #### accordion
 Pure css accordion.   
@@ -1169,7 +1169,7 @@ $key: $content $max-height $transition-duration
 // $max-height: 200px;
 // $transition-duration: 0.4s;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-accordion.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-accordion.php)
 
 #### dropdown
 ```` html
@@ -1202,7 +1202,7 @@ $key: $child $show $style $direction $duration default;
 // direction: right; 
 // default: true; (use default dropdown menu style)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-dropdown.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-dropdown.php)
 
 #### tooltip
 pure css `tooltip`.
@@ -1220,7 +1220,7 @@ $key: $direction $color (width $width) (height $height) radius
 // background-color: #b02df3;
 // width: 300px; (for old browsers)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-tooltip.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-tooltip.php)
 
 #### Media-list
 `media-list` displays a media object (images, video, audio) to the left or right of a block object.
@@ -1252,7 +1252,7 @@ $key: $role $gutter $direction
 .news .media-body { @include media-list('media-body'); }
 // role: 'media-body'; 
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-media-list.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-media-list.php)
 
 #### flex media
 ````html
@@ -1273,7 +1273,7 @@ $key: $ratio $child
 // ratio: 9/16;
 // child: svg; 
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/components-flex-media.php)
+[demo](http://creatiointl.org/william/rocket/v3/components-flex-media.php)
 
 #【 Addons 】
 #### type
@@ -1300,7 +1300,7 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 // $ro-text-aligns: left, right, center, justify, align-inherit !default;
 // $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-type.php)
+[demo](http://creatiointl.org/william/rocket/v3/addons-type.php)
 
 #### responsive-type (rp-type)
 Responsive type.     
@@ -1332,7 +1332,7 @@ $h3-font-sizes: (
 h3.example-font-size { @include rp-type($h3-font-sizes $bp); }
 p.example-font-size { @include rp-type($p-font-sizes $bp); }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-font-size.php) 
+[demo](http://creatiointl.org/william/rocket/v3/addons-font-size.php) 
 
 #### hide-text
 Visually hide a text element.
@@ -1348,7 +1348,7 @@ Visually hide a text element.
   // or @include hide-text(); 
 }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-hide-text.php) 
+[demo](http://creatiointl.org/william/rocket/v3/addons-hide-text.php) 
 
 #### opacity
 Use `opacity` to set `opacity` property for old IE and modern browsers.
@@ -1391,7 +1391,7 @@ $key: $condition $media $breakpoints ie8
 @include bp(400 767 1000 1200 1500) {};
 // output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-breakpoint.php)
+[demo](http://creatiointl.org/william/rocket/v3/addons-breakpoint.php)
 
 ## quantity-query
 #### at-least
@@ -1445,7 +1445,7 @@ $key: $selector number number
   @include between('li' 4 6) { width: 25%; }
 }
 ````
-[quantity-query demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-quantity-query.php)
+[quantity-query demo](http://creatiointl.org/william/rocket/v3/addons-quantity-query.php)
 
 ## visibility
 #### visible
@@ -1469,7 +1469,7 @@ $key: $media-type $breakpoints
 @include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
 ````
-[visibility demo](http://creatiointl.org/gallery/william/rocket/v3/demos/addons-visibility.php)
+[visibility demo](http://creatiointl.org/william/rocket/v3/addons-visibility.php)
 
 
 #【 Color Functions 】
@@ -1487,7 +1487,7 @@ $key: $color (light $light) (dark $dark)
 // light: #fff; (default)
 // dark: #000; (default)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-contrast.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-contrast.php)
 
 #### adjacent
 `adjacent` is for creating adjacent colors.
@@ -1503,7 +1503,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 // lightness -20%;
 // distribution: 20;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-adjacent.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-adjacent.php)
 
 #### complementary
 `complementary` is for getting a complementary color.
@@ -1516,7 +1516,7 @@ $key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
 // color: #a6e36e;
 // saturation: 20%;
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-complementary.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-complementary.php)
 
 #### split-complementary
 `split-complementary` is for getting split-complementary colors based on a given color.
@@ -1529,7 +1529,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-split-complementary.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-split-complementary.php)
 
 #### triad
 `triad` is for getting triad colors based on a given color.
@@ -1542,7 +1542,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-triad.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-triad.php)
 
 #### rectangle
 `rectangle` is for getting rectangle colors based on a given color.
@@ -1555,7 +1555,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 // color: #a6e36e;
 // order: -3; (-3 | -2 | -1 | 1 | 2 | 3)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-rectangle.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-rectangle.php)
 
 #### square
 `square` is for getting square colors based on a given color.
@@ -1568,7 +1568,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
 // color: #a6e36e;
 // order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/color-square.php)
+[demo](http://creatiointl.org/william/rocket/v3/color-square.php)
 
 
 #【 kit.js 】
@@ -1654,7 +1654,7 @@ sticky({
   spacing: 20
 });
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-sticky.php)
+[demo](http://creatiointl.org/william/rocket/v3/js-sticky.php)
 
 #### priority-nav
 ````javascript
@@ -1668,7 +1668,7 @@ priorityNav('.nav', 'more', false, 600);
 // restore: false
 // distory: 600
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-priority-nav.php)
+[demo](http://creatiointl.org/william/rocket/v3/js-priority-nav.php)
 
 #### equalizer
 Create equal height boxes.
@@ -1679,7 +1679,7 @@ equalizer(obj1, obj2, obj3, ...);
 equalizer('.item1', '.item2');
 equalizer('.gallery li');
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-equalizer.php)
+[demo](http://creatiointl.org/william/rocket/v3/js-equalizer.php)
 
 #### reach
 `reach` is a function to check if target element reach the top, middle or bottom of the browser window.  
@@ -1694,7 +1694,7 @@ if (kit(el).reach('bottom',0)) {
   // if target element reach the bottom of the browser, do something
 }
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-reach.php)
+[demo](http://creatiointl.org/william/rocket/v3/js-reach.php)
 
 #### scrollTo
 Scroll to some point in a given period of time.  
@@ -1705,5 +1705,5 @@ kit('.icon-menu').click(function() {
   scrollTo (0,200); // scroll to top in 200ms
 });
 ````
-[demo](http://creatiointl.org/gallery/william/rocket/v3/demos/js-scrollTo.php)
+[demo](http://creatiointl.org/william/rocket/v3/js-scrollTo.php)
 
