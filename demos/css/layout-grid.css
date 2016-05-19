@@ -322,36 +322,43 @@ pre[class*="language-"] {
   margin-right: -20px;
 }
 
+.row > div {
+  width: 100%;
+  margin-right: 20px;
+}
+
 .lt-ie10 .row:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.row > div {
-  width: 100%;
+.lt-ie10 .row > div {
+  float: left;
+  margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
 }
 
-.lt-ie10 .row > div {
-  float: left;
-  margin-right: -100%;
-}
-
 .row > div:nth-child(1) {
   width: 42.85714%;
+  width: -webkit-calc(42.85714% - 20px);
+  width: calc(42.85714% - 20px);
 }
 
 .lt-ie10 .row > div:nth-child(1) {
+  width: 42.85714%;
   margin-left: 0;
 }
 
 .row > div:nth-child(2) {
   width: 57.14286%;
+  width: -webkit-calc(57.14286% - 20px);
+  width: calc(57.14286% - 20px);
 }
 
 .lt-ie10 .row > div:nth-child(2) {
+  width: 57.14286%;
   margin-left: 42.85714%;
 }
 
@@ -361,17 +368,23 @@ pre[class*="language-"] {
 
 .row > div:nth-child(3) {
   width: 28.57143%;
+  width: -webkit-calc(28.57143% - 20px);
+  width: calc(28.57143% - 20px);
 }
 
 .lt-ie10 .row > div:nth-child(3) {
+  width: 28.57143%;
   margin-left: 0;
 }
 
 .row > div:nth-child(4) {
   width: 71.42857%;
+  width: -webkit-calc(71.42857% - 20px);
+  width: calc(71.42857% - 20px);
 }
 
 .lt-ie10 .row > div:nth-child(4) {
+  width: 71.42857%;
   margin-left: 28.57143%;
 }
 
@@ -381,9 +394,12 @@ pre[class*="language-"] {
 
 .row > div:nth-child(5) {
   width: 100%;
+  width: -webkit-calc(100% - 20px);
+  width: calc(100% - 20px);
 }
 
 .lt-ie10 .row > div:nth-child(5) {
+  width: 100%;
   margin-left: 0;
 }
 
@@ -400,6 +416,8 @@ pre[class*="language-"] {
   }
   .row > div:nth-child(1) {
     width: 16.66667%;
+    width: -webkit-calc(16.66667% - 20px);
+    width: calc(16.66667% - 20px);
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
     -moz-order: 2;
@@ -407,10 +425,13 @@ pre[class*="language-"] {
     order: 2;
   }
   .lt-ie10 .row > div:nth-child(1) {
+    width: 16.66667%;
     margin-left: 58.33333%;
   }
   .row > div:nth-child(2) {
     width: 58.33333%;
+    width: -webkit-calc(58.33333% - 20px);
+    width: calc(58.33333% - 20px);
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -moz-order: 1;
@@ -418,10 +439,13 @@ pre[class*="language-"] {
     order: 1;
   }
   .lt-ie10 .row > div:nth-child(2) {
+    width: 58.33333%;
     margin-left: 0;
   }
   .row > div:nth-child(3) {
     width: 25%;
+    width: -webkit-calc(25% - 20px);
+    width: calc(25% - 20px);
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
     -moz-order: 2;
@@ -429,6 +453,7 @@ pre[class*="language-"] {
     order: 2;
   }
   .lt-ie10 .row > div:nth-child(3) {
+    width: 25%;
     margin-left: 75%;
   }
   .lt-ie10 .row > div:nth-child(4) {
@@ -436,6 +461,8 @@ pre[class*="language-"] {
   }
   .row > div:nth-child(4) {
     width: 50%;
+    width: -webkit-calc(50% - 20px);
+    width: calc(50% - 20px);
     -webkit-box-ordinal-group: 5;
     -webkit-order: 4;
     -moz-order: 4;
@@ -443,10 +470,13 @@ pre[class*="language-"] {
     order: 4;
   }
   .lt-ie10 .row > div:nth-child(4) {
+    width: 50%;
     margin-left: 50%;
   }
   .row > div:nth-child(5) {
     width: 50%;
+    width: -webkit-calc(50% - 20px);
+    width: calc(50% - 20px);
     -webkit-box-ordinal-group: 4;
     -webkit-order: 3;
     -moz-order: 3;
@@ -454,6 +484,7 @@ pre[class*="language-"] {
     order: 3;
   }
   .lt-ie10 .row > div:nth-child(5) {
+    width: 50%;
     margin-left: 0;
   }
 }
@@ -471,32 +502,47 @@ pre[class*="language-"] {
   }
   .row > div:nth-child(1) {
     width: 10%;
+    width: -webkit-calc(10% - 20px);
+    width: calc(10% - 20px);
   }
   .lt-ie10 .row > div:nth-child(1) {
+    width: 10%;
     margin-left: 0;
   }
   .row > div:nth-child(2) {
     width: 35%;
+    width: -webkit-calc(35% - 20px);
+    width: calc(35% - 20px);
   }
   .lt-ie10 .row > div:nth-child(2) {
+    width: 35%;
     margin-left: 10%;
   }
   .row > div:nth-child(3) {
     width: 15%;
+    width: -webkit-calc(15% - 20px);
+    width: calc(15% - 20px);
   }
   .lt-ie10 .row > div:nth-child(3) {
+    width: 15%;
     margin-left: 45%;
   }
   .row > div:nth-child(4) {
     width: 20%;
+    width: -webkit-calc(20% - 20px);
+    width: calc(20% - 20px);
   }
   .lt-ie10 .row > div:nth-child(4) {
+    width: 20%;
     margin-left: 60%;
   }
   .row > div:nth-child(5) {
     width: 20%;
+    width: -webkit-calc(20% - 20px);
+    width: calc(20% - 20px);
   }
   .lt-ie10 .row > div:nth-child(5) {
+    width: 20%;
     margin-left: 80%;
   }
 }

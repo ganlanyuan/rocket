@@ -48,19 +48,20 @@
     @if $float == right {
       @include ro-flex-direction(row-reverse);
     }
+
     margin-#{opposite($float)}: - $gutter;
-
-    // clear float
-    .lt-ie10 & { @include clearfix(); }
-
     > #{$child} {
       width: 100%;
-      padding-#{opposite($float)}: $gutter;
-      box-sizing: border-box;
+      margin-#{opposite($float)}: $gutter;
+    }
 
-      .lt-ie10 & {
+    .lt-ie10 & {
+      @include clearfix();
+      > #{$child} {
         float: $float;
         margin-#{opposite($float)}: -100%;
+        padding-#{opposite($float)}: $gutter;
+        box-sizing: border-box;
       }
     }
   }
@@ -114,7 +115,7 @@
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
 
-      @include make-grid($columns, $orders, $child, $float, $max-order, $list-length, $has-orders);
+      @include make-grid($columns, $orders, $child, $float, $gutter, $max-order, $list-length, $has-orders);
 
       @if $orders { $has-orders: true; }
       @if $columns { $list-length: ($list-length + length($columns)); }
@@ -132,12 +133,12 @@
     $columns: grid-get-columns($value);
     $orders: grid-get-orders($value);
 
-    @include make-grid($columns, $orders, $child, $float);
+    @include make-grid($columns, $orders, $child, $float, $gutter);
   }
 }
 
 // == make-grid ==
-@mixin make-grid($cols, $orders, $child, $float, $max-order:0, $list-length:0, $has-orders:false) {
+@mixin make-grid($cols, $orders, $child, $float, $gutter, $max-order:0, $list-length:0, $has-orders:false) {
 
   $full-col: 0;
   @each $item in $cols {
@@ -163,6 +164,10 @@
 
     > #{$child}:nth-child(#{$i + $list-length}) {
       width: percentage(nth($cols, $i) / $full-col);
+      // 1. Add calc support for chrome back to 19+.
+      // 2. No need to add -moz- because firefox already support css-calc form 28+ while it full supports flexbox.
+      width: -webkit-calc(#{percentage(nth($cols, $i) / $full-col)} - #{$gutter});
+      width: calc(#{percentage(nth($cols, $i) / $full-col)} - #{$gutter});
 
       // flexbox
       @if $orders { 
@@ -172,6 +177,8 @@
       }
 
       .lt-ie10 & {
+        // reset width from calc value for IE9
+        width: percentage(nth($cols, $i) / $full-col);
         @if $location == 1 {
           margin-#{$float}: 0;
         } @else {
