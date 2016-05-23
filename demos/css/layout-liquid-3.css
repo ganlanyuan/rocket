@@ -325,6 +325,8 @@ pre[class*="language-"] {
 .example-liquid-3 > div:nth-child(2) {
   float: left;
   width: 100%;
+  width: -webkit-calc(100% - 390px);
+  width: -moz-calc(100% - 390px);
   width: calc(100% - 390px);
   margin: 0 -100% 0 270px;
 }
@@ -363,6 +365,8 @@ pre[class*="language-"] {
   .example-liquid-3 > div:nth-child(2) {
     float: left;
     width: 100%;
+    width: -webkit-calc(100% - 390px);
+    width: -moz-calc(100% - 390px);
     width: calc(100% - 390px);
     margin: 0 -100% 0 120px;
   }
@@ -399,6 +403,8 @@ pre[class*="language-"] {
   .example-liquid-3 > div:nth-child(2) {
     float: left;
     width: 100%;
+    width: -webkit-calc(100% - 390px);
+    width: -moz-calc(100% - 390px);
     width: calc(100% - 390px);
     margin: 0 -100% 0 270px;
   }

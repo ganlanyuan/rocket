@@ -20,8 +20,6 @@ Add many new sass mixins, components and javascript components.
 + [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).  
 + Please replace `<html>` with the markup below for better IE support.
 ``` html
-<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
@@ -53,6 +51,12 @@ $ro-layout: (
 ````
 
 #### container
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 4+](https://img.shields.io/badge/Firefox-4+-e88e08.svg)
+![Chrome 19+](https://img.shields.io/badge/Chrome-19+-5CC15B.svg)
+![Safari 6+](https://img.shields.io/badge/Safari-6+-257BC8.svg)
+![Opera 15+](https://img.shields.io/badge/Opera-15+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-container.php)  
 The container of the main content. It can be center, left or right aligned.
 ````html
 <div class="header container">
@@ -129,6 +133,12 @@ $main: (
 ````
 
 #### liquid-2
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 4+](https://img.shields.io/badge/Firefox-4+-e88e08.svg)
+![Chrome 19+](https://img.shields.io/badge/Chrome-19+-5CC15B.svg)
+![Safari 6+](https://img.shields.io/badge/Safari-6+-257BC8.svg)
+![Opera 15+](https://img.shields.io/badge/Opera-15+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-liquid-2.php)   
 `liquid-2` is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.
 ````html
 <div class="wrapper">
@@ -152,9 +162,14 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 .wrapper { @include liquid-2( ('auto':2, 200px:1) ); }
 // columns' order: 2 1;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-liquid-2.php)
 
 #### liquid-3
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 4+](https://img.shields.io/badge/Firefox-4+-e88e08.svg)
+![Chrome 19+](https://img.shields.io/badge/Chrome-19+-5CC15B.svg)
+![Safari 6+](https://img.shields.io/badge/Safari-6+-257BC8.svg)
+![Opera 15+](https://img.shields.io/badge/Opera-15+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-liquid-3.php)   
 `liquid-3` is for creating a holy-grail layout: a fluid column with 2 fixed columns.     
 ````html
 <div class="wrapper">
@@ -179,9 +194,14 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 .wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }
 // columns' order: 0 2 1;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-liquid-3.php)
 
 #### gallery
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 21+](https://img.shields.io/badge/Chrome-21+-5CC15B.svg)
+![Safari 6.2+](https://img.shields.io/badge/Safari-6.2+-257BC8.svg)
+![Opera 15+](https://img.shields.io/badge/Opera-15+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-gallery.php)   
 `gallery` is for creating picture galleries.
 ````html
 <ul class="gallery">
@@ -221,9 +241,14 @@ $map: (
 // 600px and up: 3 items per row
 // 800px and up: 4 items per row
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-gallery.php)
 
 #### masonry
+![IE 10+](https://img.shields.io/badge/IE-10+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 11.5+](https://img.shields.io/badge/Opera-11.5+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-masonry.php)   
 `masonry` is for creating masonry layouts with pure css.
 ````html
 <ul class="masonry">
@@ -278,9 +303,14 @@ $map: (
   }
 }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-masonry.php)
 
 #### metro
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-metro.php)   
 `metro` is for creating block layout inspired by Windows 8. Use nested `metro` to make complex layout.
 ````html
 <ul class="main">
@@ -326,7 +356,6 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
 // media-type: media type like 'screen', 'print'
 
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-metro.php)
 
 #### diamond
 ````html

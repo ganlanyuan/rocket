@@ -317,6 +317,8 @@ pre[class*="language-"] {
 
 @media screen and (min-width: 58.125em) {
   .wrapper {
+    padding: 0 -webkit-calc(50% - 450px);
+    padding: 0 -moz-calc(50% - 450px);
     padding: 0 calc(50% - 450px);
   }
 }

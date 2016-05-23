@@ -133,6 +133,8 @@
           // float: left;
           // margin-right: -100%;
           width: 100%;
+          width: -webkit-calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
+          width: -moz-calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
           width: calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
 
           .lt-ie9 & {
@@ -187,6 +189,8 @@
 
           @if $i == 2 {
             width: 100%;
+            width: -webkit-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
+            width: -moz-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
             width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
             margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter));
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
@@ -227,6 +231,8 @@
           // float: right;
           // margin-left: -100%;
           width: 100%;
+          width: -webkit-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
+          width: -moz-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
           width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
           
           .lt-ie9 & {

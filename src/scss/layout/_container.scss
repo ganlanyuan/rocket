@@ -52,8 +52,12 @@
     // for big screen
     @include bp('min' $breakpoint) { 
       @if $align == center {
+        padding: 0 -webkit-calc(50% - #{$container / 2});
+        padding: 0 -moz-calc(50% - #{$container / 2});
         padding: 0 calc(50% - #{$container / 2});
       } @else {
+        padding-#{opposite($align)}: -webkit-calc(100% - #{$container + $gutter});
+        padding-#{opposite($align)}: -moz-calc(100% - #{$container + $gutter});
         padding-#{opposite($align)}: calc(100% - #{$container + $gutter});
       } 
     }

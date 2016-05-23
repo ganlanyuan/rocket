@@ -124,6 +124,8 @@
           float: $float;
           // float: left;
           width: 100%;
+          width: -webkit-calc(100% - #{(nth($new-columns, 2) + $gutter)});
+          width: -moz-calc(100% - #{(nth($new-columns, 2) + $gutter)});
           width: calc(100% - #{(nth($new-columns, 2) + $gutter)});
         } @else {
           float: opposite($float);
@@ -164,6 +166,8 @@
           float: opposite($float);
           // float: right;
           width: 100%;
+          width: -webkit-calc(100% - #{(nth($new-columns, 1) + $gutter)});
+          width: -moz-calc(100% - #{(nth($new-columns, 1) + $gutter)});
           width: calc(100% - #{(nth($new-columns, 1) + $gutter)});
         }
       }

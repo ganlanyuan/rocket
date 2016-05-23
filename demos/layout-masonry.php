@@ -72,12 +72,12 @@
               <div class="masonry-cluster-v">
                 <div><img class="cluster-img" src="http://www.freeimageslive.com/galleries/sports/lifestyle/preview/mountainbike_gears_8064585.jpg" alt=""></div>
                 <div class="masonry-content">
-                  <p>After South Carolina, Cruz and Rubio Vie to Become Top Rival to Trump</p>
+                  <p> On Monday, Justice Scalia’s chair and the bench in front of it will be draped in black. The arguments, in a pair of minor cases, will no doubt be muted. Some losses start to feel real only when you return to the routines of daily life. </p>
                 </div>
               </div>
               <div class="masonry-content">
                 <h3>Is There Any Stopping Donald Trump?</h3>
-                <p> On Monday, Justice Scalia’s chair and the bench in front of it will be draped in black. The arguments, in a pair of minor cases, will no doubt be muted. Some losses start to feel real only when you return to the routines of daily life. </p>
+                <p>After South Carolina, Cruz and Rubio Vie to Become Top Rival to Trump</p>
               </div>
             </div>
           </li>
@@ -131,9 +131,12 @@ $masonry: (
 );
 
 .masonry { @include masonry($masonry gutter 20px); }
-.masonry-cluster-h { @include masonry-cluster( (1024px: (1 2)) child div gutter 20px); }
-.masonry-cluster-h-2 { @include masonry-cluster( (1024px: (2 1)) child div gutter 20px); }
-.masonry-cluster-v { @include masonry-cluster(column (1024px: (2 1)) child div gutter 20px); }
+
+.masonry-cluster-h { @include grid( (1024px: (1 2)) child div gutter 20px); }
+.masonry-cluster-h-2 { @include grid( (1024px: (2 1)) child div gutter 20px); }
+.masonry-cluster-v {
+  > div:first-child { margin-bottom: 20px; }
+}
       </code></pre>
     </div>
     
