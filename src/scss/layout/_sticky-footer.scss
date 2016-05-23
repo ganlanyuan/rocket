@@ -3,7 +3,7 @@
   $main: args-get-type($key, 'string');
 
   @include ro-flexbox;
-  @include ro-flex-flow(column);
+  @include ro-flex-direction(column);
 
   $selector: &;
   @if $selector == 'body' {

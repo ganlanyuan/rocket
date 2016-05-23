@@ -358,6 +358,12 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
 ````
 
 #### diamond
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 11.5+](https://img.shields.io/badge/Opera-11.5+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-diamond.php)   
 ````html
 <div class="wrapper"> <!-- 'wrapper' could be any valid class name -->
   <div class="diamond"> <!-- 'diamond' could be any valid class name -->
@@ -405,9 +411,14 @@ $key: ($per-row / $size) $shape 'combined' $selector-type 'keep';
 .diamond { @include diamond(20%); }
 // diamond size: 20% (could be fixed value like 200px too)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-diamond.php)
 
 #### angled-edges
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 18+](https://img.shields.io/badge/Chrome-18+-5CC15B.svg)
+![Safari 6+](https://img.shields.io/badge/Safari-6+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-angled-edges.php)   
 Create `angled-edges` layout. `background` could be image, gradient or pure color, but the background of sibling elements must be pure color.
 ````html
 <div class="main">
@@ -424,9 +435,14 @@ $key: $edges $angle flip;
 // edge: bottom;
 // angle: -5deg;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-angled-edges.php)
 
 #### sticky-footer
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 22+](https://img.shields.io/badge/Firefox-22+-e88e08.svg)
+![Chrome 22+](https://img.shields.io/badge/Chrome-22+-5CC15B.svg)
+![Safari 6+](https://img.shields.io/badge/Safari-6+-257BC8.svg)
+![Opera 15+](https://img.shields.io/badge/Opera-15+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-sticky-footer.php)   
 Create `sticky-footer` to prevent layout collapse when content is less, like on 404 page.
 ````html
 <body>
@@ -442,9 +458,14 @@ $key: $main;
 
 body { @include sticky-footer('.main'); }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-sticky-footer.php)
 
 #### justify
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 22+](https://img.shields.io/badge/Firefox-22+-e88e08.svg)
+![Chrome 21+](https://img.shields.io/badge/Chrome-21+-5CC15B.svg)
+![Safari 6+](https://img.shields.io/badge/Safari-6+-257BC8.svg)
+![Opera 12.1+](https://img.shields.io/badge/Opera-12.1+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-justify.php)   
 `justify` is for creating `justify` layout.
 ````html
 <ul class="justify">
@@ -462,9 +483,14 @@ $key: (child $child)
 
 .justify { @include justify(); }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-justify.php)
 
 #### center
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 22+](https://img.shields.io/badge/Firefox-22+-e88e08.svg)
+![Chrome 21+](https://img.shields.io/badge/Chrome-21+-5CC15B.svg)
+![Safari 6.2+](https://img.shields.io/badge/Safari-6.2+-257BC8.svg)
+![Opera 12.1+](https://img.shields.io/badge/Opera-12.1+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/layout-center.php)   
 `center` is for creating both horizontal and vertical center aligned layout.
 ````html
 <div class="popup">
@@ -480,7 +506,6 @@ $key: $child $align
 // child: div;
 // align: left; (left | right | center, for old browser)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/layout-center.php)
 
 
 #【 Components 】

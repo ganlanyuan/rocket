@@ -1,7 +1,5 @@
 @import 'demo-base';
-// *** layout: sticky-footer *** //
 
-.body { @include sticky-footer('.main'); }
 .body {
   header, 
   footer {
@@ -35,3 +33,5 @@
     margin: 0 auto;
   }
 }
+
+.body { @include sticky-footer('.main'); }

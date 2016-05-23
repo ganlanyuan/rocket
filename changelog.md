@@ -8,6 +8,7 @@
 - Fixed: update parameters for `ro-transition` in `off-canvas` to prevent future syntax issues.
 - Fixed: a parameter issue in `responsive-type`.
 - Fixed: an issue in `grid` which cause IE8 broken layout.
+- Fixed: a flexbox issue in `sticky-footer` on Firefox 22.
 
 ##### 3.3.4
 - Fixed `liquid-3`
