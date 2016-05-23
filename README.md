@@ -510,6 +510,12 @@ $key: $child $align
 
 #【 Components 】
 #### Charts
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-charts.php)   
 Pure css responsive charts. Currently only include `bar` and `column`, more types will be added soon.
 ````html
 <div class="charts">
@@ -577,9 +583,9 @@ $data2: (
 // steps: unit 2, total 24
 // hide: numbers and labels
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-charts.php)
 
 #### responsive-table
+[demo](http://creatiointl.org/william/rocket/v3/components-responsive-table.php)   
 Solutions for display a complex data table on small screen.
 Referance:     
 http://dbushell.com/2012/01/05/responsive-tables-2/  
@@ -646,7 +652,6 @@ $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count
   }
 }
 ```
-[demo](http://creatiointl.org/william/rocket/v3/components-responsive-table.php)
 
 #### off-canvas
 Pure css off-canvas with multiple modes.  
