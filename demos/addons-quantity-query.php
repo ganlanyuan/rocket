@@ -7,12 +7,13 @@
       <h2 class="main-heading"><span>addons: </span>quantity-query</h2>
       <div class="quantity-query">
         <div class="control">
-          <input type="button" value="at-least" class="type at-least active">
-          <input type="button" value="at-most" class="type at-most">
-          <input type="button" value="equal-to" class="type equal-to">
-          <input type="button" value="between" class="type between">
+          <input type="button" value="at-least 4" class="type at-least active">
+          <input type="button" value="at-most 4" class="type at-most">
+          <input type="button" value="equal-to 4" class="type equal-to">
+          <input type="button" value="between 3 - 6" class="type between">
           <input type="button" value="+" class="action plus">
           <input type="button" value="-" class="action minus">
+          <span class="info">Boxes' color turn to <span>pink</span> when fulfill the condition.</span>
         </div>
         <div class="show at-least">
           <div class="box"></div>

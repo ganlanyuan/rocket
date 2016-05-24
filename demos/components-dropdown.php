@@ -12,10 +12,9 @@
           <ul>
             <li><a href="">item 01</a></li>
             <li><a href="">item 02</a></li>
-            <li class="sub-2">
+            <li class="sub-1">
               <input type="checkbox" name="" id="dropdown-2">
-              <label for="dropdown-2"><img src="images/arrow-down.png" alt=""></label>
-              <a href="">item 03</a>
+              <label for="dropdown-2">item 03 <img src="images/arrow-down.png" alt=""></label>
               <ul>
                 <li><a href="">subitem 01</a></li>
                 <li><a href="">subitem 02</a></li>
@@ -28,11 +27,11 @@
           <span>dropdown: hover</span>
           <ul>
             <li><a href="">item 01</a></li>
-            <li class="sub"><a href="">item 02 <img src="images/arrow-right.png" alt=""></a>
+            <li class="sub-2"><a href="">item 02 <img src="images/arrow-right.png" alt=""></a>
               <ul>
                 <li><a href="">subitem 01</a></li>
                 <li><a href="">subitem 02</a></li>
-                <li class="sub"><a href="">subitem 03 <img src="images/arrow-right.png" alt=""></a>
+                <li class="sub-2"><a href="">subitem 03 <img src="images/arrow-right.png" alt=""></a>
                   <ul>
                     <li><a href="">subitem 01</a></li>
                     <li><a href="">subitem 02</a></li>

@@ -360,6 +360,18 @@ pre[class*="language-"] {
   background: #56AFEE;
 }
 
+.info {
+  color: #666;
+  font-size: 13px;
+  margin-left: 10px;
+  vertical-align: bottom;
+}
+
+.info span {
+  color: #ff49a6;
+  vertical-align: middle;
+}
+
 .at-least .box:first-child:nth-last-child(n + 4),
 .at-least .box:first-child:nth-last-child(n + 4) ~ .box {
   background-color: #FF49A6;

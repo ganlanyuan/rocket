@@ -3,7 +3,7 @@
 // *** addons: dropdown *** //
 
 .example { 
-  margin: 50px 0;
+  margin: 50px 0 200px;
   text-align: center; 
 }
 .dropdown-1,
@@ -12,8 +12,12 @@
   padding: 10px 0 0; 
   margin-right: 30px; 
   display: inline-block; 
+  vertical-align: top;
   > ul { 
-    z-index: 1;
+    z-index: 9999;
+  }
+  li {
+    white-space: nowrap;
   }
   small {
     font-size: 12px;
@@ -26,11 +30,11 @@
     display: inline-block;
     padding: 10px 0;
   }
-  @include dropdown(default rotate click); 
-  .sub-2 {
-    @include dropdown(default left rotate click);
-    > label { float: right; }
-    li { white-space: nowrap; }
+  .sub-1 {
+    padding-bottom: 0.62em;
+    label {
+      padding: 0.31em 1.25em 0.62em 1.25em;
+    }
     > input:checked ~ a { background-color: #dfdfdf; }
   }
 }
@@ -40,9 +44,18 @@
     display: inline-block;
     padding: 10px 0;
   }
-  @include dropdown(scale default); 
-  .sub { 
-    @include dropdown(default scale right hover); 
-    li { white-space: nowrap; }
+}
+
+
+.dropdown {
+  &-1 {
+    @include dropdown(default rotate click); 
+    .sub-1 { @include dropdown(default left rotate click); }
+  }
+  &-2 {
+    @include dropdown(scale default); 
+    .sub-2 {
+      @include dropdown(default scale right hover); 
+    }
   }
 }

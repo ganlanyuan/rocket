@@ -51,7 +51,10 @@
     }
 
     // hide menu
-    .lt-ie9 & { display: none; }
+    .lt-ie9 & { 
+      display: none; 
+      opacity: 1;
+    }
     @if $style == 'display' {
       display: none;
     } @else if $style == 'scale' {

@@ -325,7 +325,7 @@ pre[class*="language-"] {
   bottom: 0;
   left: 0;
   z-index: -1;
-  background: linear-gradient(to bottom, #32A8DE, #54CDDE);
+  background: #1C6493;
   -webkit-transform: skew(-20deg);
   -moz-transform: skew(-20deg);
   -ms-transform: skew(-20deg);

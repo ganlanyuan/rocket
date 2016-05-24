@@ -334,6 +334,8 @@ pre[class*="language-"] {
 }
 
 .sc-normal .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -589,6 +591,8 @@ pre[class*="language-"] {
 }
 
 .sc-bypage .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -858,6 +862,8 @@ pre[class*="language-"] {
 }
 
 .sc-center .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -1113,6 +1119,8 @@ pre[class*="language-"] {
 }
 
 .sc-scale .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -1414,6 +1422,8 @@ pre[class*="language-"] {
 }
 
 .sc-rotate .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -1755,6 +1765,8 @@ pre[class*="language-"] {
 }
 
 .sc-autoplay .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -2169,6 +2181,8 @@ pre[class*="language-"] {
 }
 
 .sc-autoplay-js .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -2424,6 +2438,8 @@ pre[class*="language-"] {
 }
 
 .sc-autoheight .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   display: inline-block;
@@ -2682,6 +2698,8 @@ pre[class*="language-"] {
 }
 
 .sc-vertical .inner > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 0;
   display: block;
@@ -3142,6 +3160,8 @@ pre[class*="language-"] {
   width: 100%;
   font-size: 13px;
   text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 

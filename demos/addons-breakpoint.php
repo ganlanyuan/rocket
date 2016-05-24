@@ -16,17 +16,17 @@
   }
   @include bp(600 800) {
     &:before {
-      content: "600 ~ 800";
+      content: "600 - 800";
     }
   }
   @include bp(800 1000) {
     &:before {
-      content: "800 ~ 1000";
+      content: "800 - 1000";
     }
   }
   @include bp(1000 1200) {
     &:before {
-      content: "1000 ~ 1200";
+      content: "1000 - 1200";
     }
   }
   @include bp('min' 1200) {

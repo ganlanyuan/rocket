@@ -323,19 +323,19 @@ pre[class*="language-"] {
 
 @media screen and (min-width: 37.5em) and (max-width: 49.9375em) {
   .box:before {
-    content: "600 ~ 800";
+    content: "600 - 800";
   }
 }
 
 @media screen and (min-width: 50em) and (max-width: 62.4375em) {
   .box:before {
-    content: "800 ~ 1000";
+    content: "800 - 1000";
   }
 }
 
 @media screen and (min-width: 62.5em) and (max-width: 74.9375em) {
   .box:before {
-    content: "1000 ~ 1200";
+    content: "1000 - 1200";
   }
 }
 

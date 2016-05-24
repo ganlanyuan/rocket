@@ -31,6 +31,13 @@
     background: #56AFEE;
   }
 }
+.info {
+  color: #666;
+  font-size: 13px;
+  margin-left: 10px;
+  vertical-align: bottom;
+  span { color: #ff49a6; vertical-align: bottom; }
+}
 
 .at-least {
   @include at-least('.box' 4) {

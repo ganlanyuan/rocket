@@ -2,7 +2,7 @@
 
 ![SASS](https://img.shields.io/badge/sass-3.3.4-ff69b4.svg)
 ![Libsass](https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg)
-![Version](https://img.shields.io/badge/Version-3.3.4-blue.svg)  
+![Version](https://img.shields.io/badge/Version-3.4.0-blue.svg)  
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
 Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
 [demos](http://creatiointl.org/william/rocket/v3/layout-grid.php)   
@@ -585,6 +585,30 @@ $data2: (
 ````
 
 #### responsive-table
+Flip-scroll: 
+![IE 10+](https://img.shields.io/badge/IE-10+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 12.1+](https://img.shields.io/badge/Opera-12.1+-F94247.svg)    
+Scroll: 
+![IE 10+](https://img.shields.io/badge/IE-10+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)    
+Toggle: 
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)    
+Stack: 
+![IE 10+](https://img.shields.io/badge/IE-10+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)    
 [demo](http://creatiointl.org/william/rocket/v3/components-responsive-table.php)   
 Solutions for display a complex data table on small screen.
 Referance:     
@@ -623,11 +647,11 @@ https://github.com/nadangergeo/RWD-Table-Patterns
 }
 // pattern
 $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count);
-// $mode: 'slip-scroll' 'toggle' 'stack'
+// $mode: 'flip-scroll' 'scroll' 'toggle' 'stack'
 // $data: list, thead content
 // $count: thead > th length
 
-// slip-scroll: $breakpoint
+// flip-scroll: $breakpoint
 // toggle: $breakpoint and $count
 // stack: $data, $border-color and $th-width
 
@@ -637,6 +661,20 @@ $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count
     border-right-width: 1px;
     > tbody > tr:last-child > td { border-right-width: 0; }
   }
+}
+
+// scroll
+.scroll-wrapper { 
+  @include rp-table('scroll' bp 900) {
+    .table {
+      border-right-width: 1px;
+      th:last-child, td:last-child { border-right-width: 0; }
+      .lt-ie10 & { 
+        border-right-width: 0; 
+        th:last-child, td:last-child { border-right-width: 1px; }
+      }
+    }
+  } 
 }
 
 // toggle
@@ -654,6 +692,12 @@ $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count
 ```
 
 #### off-canvas
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-off-canvas.php)   
 Pure css off-canvas with multiple modes.  
 ```` html
 <!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
@@ -752,7 +796,6 @@ $map: (
 
 .page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-off-canvas.php)
 
 ## Pure CSS Sliders
 A pure CSS responsive slider with previous/next buttons, nav dots, autoplay(IE8- are not supported), autoheight and more. It works well on modern browsers and IE8+, but it doesn't support loop and lazyload for now.
@@ -800,6 +843,12 @@ In the example shows on the left, I used banner as my specific class.
 ````
 
 #### slider-carousel
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-slider-carousel.php)   
 ```` scss
 // basic
 @mixin slider-carousel($key)
@@ -844,9 +893,14 @@ Add `kit.min.js` to `html`, and then run `autoheightCarousel` function.
   });
 </script>
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-slider-carousel.php)
 
 #### slider-gallery
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-slider-gallery.php)   
 ```` scss
 // basic
 @include slider-gallery($key)
@@ -904,9 +958,14 @@ Add `kit.min.js` to `html`, and then run `autoheightGallery` function.
   });
 </script>
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-slider-gallery.php)
 
 #### validation
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-validation.php)   
 Html5 form validation using [H5F](https://github.com/ryanseddon/H5F). We already include H5F in `kit.js` (with a little bit modification), so you don't need download it again.     
 Set your customized alerts information through `<div data-info=""></div>`.
 ````html
@@ -943,9 +1002,14 @@ $key: $style $direction $shake $speed $duration default;
 // style: slide-in;
 // direction: right;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-validation.php)
 
 #### button
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-button.php)   
 ````html
 <!-- normal: you can use button on any tag -->
 <span class="button">button</span>
@@ -973,9 +1037,14 @@ $key: $padding ($border-radius | round) ($background-color $active-color) $hover
 // border-radius: 5px; 
 // hover: bubble;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-button.php)
 
 #### parallelogram
+![IE 9+](https://img.shields.io/badge/IE-9+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-parallelogram.php)   
 Create parallelogram style.
 ````html
 <div class="box"></div>
@@ -989,9 +1058,14 @@ $key: $background $angle
 // $background: #61A4DE; 
 // $angle: -30deg;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-parallelogram.php)
 
 #### drop-shadows
+![IE 9+](https://img.shields.io/badge/IE-9+-54c7f6.svg)
+![Firefox 4+](https://img.shields.io/badge/Firefox-4+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-drop-shadows.php)   
 Thanks [Nicolas Gallagher](http://nicolasgallagher.com/css-drop-shadows-without-images/) for the idea.
 ````html
 <div class="box"></div>
@@ -1008,9 +1082,14 @@ $key: $style $direction $color $shadow-size;
 // $direction: horizontal;
 // $shadow-size: 20px;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-drop-shadows.php)
 
 #### switch
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-switch.php)  
 Pure css switch.   
 ```` html
 <div class="switch">
@@ -1031,9 +1110,14 @@ $key: $style $size $active-color (text $text) (radius | round);
 // active-color: #399DE1;
 // round: true;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-switch.php)
 
 #### push-toggle
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-push-toggle.php)    
 Pure css push toggle.   
 ```` html
 <div class="push-toggle">
@@ -1062,9 +1146,14 @@ Pure css push toggle.
   }
  }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-push-toggle.php)    
 
 #### checkbox
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-checkbox.php)    
 Customize radios or checkboxes.
 ```` html
 <!-- make sure label right after radio or checkbox -->
@@ -1092,7 +1181,6 @@ Customize radios or checkboxes.
   }
 }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-checkbox.php)   
 
 #### checkbox-active
 Radios or checkboxes' active style.   
@@ -1108,9 +1196,14 @@ Radios or checkboxes' active style.
   }
 }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-checkbox.php)    
 
 #### input-file
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 22+](https://img.shields.io/badge/Firefox-22+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 12.1+](https://img.shields.io/badge/Opera-12.1+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-input-file.php)   
 Customize `input[type="file"]`. Thanks [Osvaldas Valutis](http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) for the idea.
 ```` html
 <div class="input-file">
@@ -1136,9 +1229,14 @@ Customize `input[type="file"]`. Thanks [Osvaldas Valutis](http://tympanus.net/co
   inputFile('#file');
 </script>
 ```
-[demo](http://creatiointl.org/william/rocket/v3/components-input-file.php)   
 
 #### tabs
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 12.1+](https://img.shields.io/badge/Opera-12.1+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)   
 Pure css tabs.   
 ```` html
 <!-- 
@@ -1177,7 +1275,6 @@ $key: $length $style
 // length: 3; (3 tabs)
 // style: carousel; (normal | carousel | customize)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)
 
 #### tabs-active
 Set tabs' active styles.   
@@ -1193,7 +1290,6 @@ $key: $length
 }
 // length: 3; (3 tabs)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)
 
 #### tabs-panel-active
 Set panels' active styles.   
@@ -1209,9 +1305,14 @@ $key: $length
 }
 // length: 3; (3 tabs)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-tabs.php)
 
 #### accordion
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-accordion.php)  
 Pure css accordion.   
 ```` html
 <div class="accordion">
@@ -1232,9 +1333,14 @@ $key: $content $max-height $transition-duration
 // $max-height: 200px;
 // $transition-duration: 0.4s;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-accordion.php)
 
 #### dropdown
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-dropdown.php)   
 ```` html
 <!-- 
   if you set $show: click, add these markup to your dropdown 
@@ -1265,9 +1371,14 @@ $key: $child $show $style $direction $duration default;
 // direction: right; 
 // default: true; (use default dropdown menu style)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-dropdown.php)
 
 #### tooltip
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-tooltip.php)   
 pure css `tooltip`.
 ````html
 <p>Hic, deleniti itaque expedita placeat in veritatis <a href="" class="tooltip" data-tooltip="Tooltip content">consectetur</a> explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.</p>
@@ -1283,9 +1394,14 @@ $key: $direction $color (width $width) (height $height) radius
 // background-color: #b02df3;
 // width: 300px; (for old browsers)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-tooltip.php)
 
 #### Media-list
+![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-media-list.php)   
 `media-list` displays a media object (images, video, audio) to the left or right of a block object.
 ````html
 <ul class="news">
@@ -1315,9 +1431,14 @@ $key: $role $gutter $direction
 .news .media-body { @include media-list('media-body'); }
 // role: 'media-body'; 
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-media-list.php)
 
 #### flex media
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 16+](https://img.shields.io/badge/Chrome-16+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/components-flex-media.php)   
 ````html
 <div class="video">
   <iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen></iframe>
@@ -1336,10 +1457,15 @@ $key: $ratio $child
 // ratio: 9/16;
 // child: svg; 
 ````
-[demo](http://creatiointl.org/william/rocket/v3/components-flex-media.php)
 
 #【 Addons 】
 #### type
+![IE 6+](https://img.shields.io/badge/IE-6+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/addons-type.php)   
 `type` is a shorthand mixin for type.
 ```` scss
 @mixin type($key)
@@ -1363,9 +1489,14 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 // $ro-text-aligns: left, right, center, justify, align-inherit !default;
 // $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 ````
-[demo](http://creatiointl.org/william/rocket/v3/addons-type.php)
 
 #### responsive-type (rp-type)
+![IE 6+](https://img.shields.io/badge/IE-6+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/addons-font-size.php)   
 Responsive type.     
 Everything you can do with `type` you can do with `responsive-type`.    
 ```` scss
@@ -1395,9 +1526,14 @@ $h3-font-sizes: (
 h3.example-font-size { @include rp-type($h3-font-sizes $bp); }
 p.example-font-size { @include rp-type($p-font-sizes $bp); }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/addons-font-size.php) 
 
 #### hide-text
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/addons-hide-text.php)   
 Visually hide a text element.
 ```html
   <h1 class="logo">Brand Name</h1>
@@ -1411,7 +1547,6 @@ Visually hide a text element.
   // or @include hide-text(); 
 }
 ````
-[demo](http://creatiointl.org/william/rocket/v3/addons-hide-text.php) 
 
 #### opacity
 Use `opacity` to set `opacity` property for old IE and modern browsers.
@@ -1440,6 +1575,12 @@ $key: $rgba
 ````
 
 #### ro-breakpoint (bp)
+![IE 6+](https://img.shields.io/badge/IE-6+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demo](http://creatiointl.org/william/rocket/v3/addons-breakpoint.php)   
 A shorthand @mixin for breakpoints.    
 Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). 
 ```` scss
@@ -1454,9 +1595,14 @@ $key: $condition $media $breakpoints ie8
 @include bp(400 767 1000 1200 1500) {};
 // output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};
 ````
-[demo](http://creatiointl.org/william/rocket/v3/addons-breakpoint.php)
 
 ## quantity-query
+![IE 7+](https://img.shields.io/badge/IE-7+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 5.1+](https://img.shields.io/badge/Safari-5.1+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demos](http://creatiointl.org/william/rocket/v3/addons-quantity-query.php)  
 #### at-least
 ```` scss
 @mixin at-least($key) {
@@ -1508,9 +1654,14 @@ $key: $selector number number
   @include between('li' 4 6) { width: 25%; }
 }
 ````
-[quantity-query demo](http://creatiointl.org/william/rocket/v3/addons-quantity-query.php)
 
 ## visibility
+![IE 6+](https://img.shields.io/badge/IE-6+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+[demos](http://creatiointl.org/william/rocket/v3/addons-visibility.php)   
 #### visible
 A shorthand @mixin for hide elements on some parts of viewport.
 ```` scss
@@ -1532,11 +1683,16 @@ $key: $media-type $breakpoints
 @include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
 ````
-[visibility demo](http://creatiointl.org/william/rocket/v3/addons-visibility.php)
 
 
 #【 Color Functions 】
-Please refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).   
+![IE 6+](https://img.shields.io/badge/IE-6+-54c7f6.svg)
+![Firefox 3.6+](https://img.shields.io/badge/Firefox-3.6+-e88e08.svg)
+![Chrome 15+](https://img.shields.io/badge/Chrome-15+-5CC15B.svg)
+![Safari 4+](https://img.shields.io/badge/Safari-4+-257BC8.svg)
+![Opera 10.6+](https://img.shields.io/badge/Opera-10.6+-F94247.svg)   
+Refer to [Adobe Kuler](https://color.adobe.com/create/color-wheel/) and [paletton](http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF).    
+[demo](http://creatiointl.org/william/rocket/v3/color-contrast.php)   
 
 #### contrast
 Get a contrast `font-color` based on the `background-color`.
@@ -1550,7 +1706,6 @@ $key: $color (light $light) (dark $dark)
 // light: #fff; (default)
 // dark: #000; (default)
 ````
-[demo](http://creatiointl.org/william/rocket/v3/color-contrast.php)
 
 #### adjacent
 `adjacent` is for creating adjacent colors.

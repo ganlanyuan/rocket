@@ -1,14 +1,17 @@
 # Changelog
 
-##### 3.4.0 beta
-- Added: many utility functions.
+##### 3.4.0
+- Added: utility functions.
 - Added: unit test for utility functions.
+- Improved: fully re-write `grid`, `liquid-2`, `liquid-3`, `gallery`, `responsive-type`, `breakpoint(bp)`.
+- Improved: test all `layout`, `components` and `addons` mixins.
 - Fixed: a quote warning in `get-slider-selector`.
 - Fixed: `liquid-2`.
 - Fixed: update parameters for `ro-transition` in `off-canvas` to prevent future syntax issues.
 - Fixed: a parameter issue in `responsive-type`.
-- Fixed: an issue in `grid` which cause IE8 broken layout.
+- Fixed: an issue in `grid` which cause broken layout on IE8.
 - Fixed: a flexbox issue in `sticky-footer` on Firefox 22.
+- Fixed: a breakpoint issue in `breakpoint (bp)` when the breakpoint is 0;
 
 ##### 3.3.4
 - Fixed `liquid-3`

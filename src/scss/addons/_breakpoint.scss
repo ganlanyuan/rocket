@@ -9,7 +9,7 @@
   @each $item in $key {
     @if type-of($item) == 'number' {
       @if strip-unit($item) == 0 {
-        $item: 0;
+        $item: 0em;
       } @else {
         $item: em($item);
       }
