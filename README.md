@@ -96,7 +96,7 @@ $key: $container (gutter $gutter) $align
 ```` scss
 @mixin grid($key)
 // pattern
-$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8 keep;
+$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep;
 // $condition: 'min' or 'max'
 // $media-type: screen, print, tv
 // $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
@@ -150,7 +150,7 @@ $main: (
 // scss
 @mixin liquid-2($key)
 // pattern
-$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8;
+$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL;
 // $condition: 'min' or 'max'
 // $media-type: screen, print, tv
 // $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
@@ -181,7 +181,7 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
 // scss
 @mixin liquid-3($key)
 // pattern
-$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL ie8;
+$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL;
 // $condition: 'min' or 'max'
 // $media-type: screen, print, tv
 // $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
@@ -1586,7 +1586,7 @@ Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g.
 ```` scss
 @mixin ro-breakpoint($key)
 // pattern
-$key: $condition $media $breakpoints ie8
+$key: $condition $media $breakpoints
 
 @include bp('min' 640) {};
 // output: @media (min-width: 40em) {};

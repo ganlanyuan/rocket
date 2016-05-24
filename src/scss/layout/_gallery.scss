@@ -64,19 +64,19 @@
       $this-per-row: map-get($map, $bp);
 
       @if $bp == null or $bp == 'default' {
-        @include make-gallery($this-per-row, $child, false);
+        @include make-gallery($this-per-row, $child);
       } @else if type-of($bp) == 'number' {
         @include bp($bp $condition) {
-          @include make-gallery($this-per-row, $child, false);
+          @include make-gallery($this-per-row, $child);
         }
       }
     }
   } @else {
-     @include make-gallery($per-row, $child, false);
+     @include make-gallery($per-row, $child);
   }
 }
 
-@mixin make-gallery($per-row, $child, $ie8) {
+@mixin make-gallery($per-row, $child) {
   > #{$child} { 
     width: percentage(1 / $per-row); 
     &:nth-child(n) { clear: none; }
