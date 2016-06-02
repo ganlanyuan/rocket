@@ -1,5 +1,8 @@
 # Changelog
 
+##### 3.4.2
+- Add this tag to fix bower version issue.
+
 ##### 3.4.1
 - Fixed: a layout issue in `grid`, `gallery` when "default" was not set.
 
