@@ -312,22 +312,23 @@ pre[class*="language-"] {
 
 .example-gallery > li {
   float: left;
+  width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 20px 20px 0;
 }
 
-.example-gallery > li {
-  width: 50%;
-}
-
-.example-gallery > li:nth-child(n) {
-  clear: none;
-}
-
-.example-gallery > li:nth-child(2n+1) {
-  clear: both;
+@media screen and (min-width: 37.5em) {
+  .example-gallery > li {
+    width: 50%;
+  }
+  .example-gallery > li:nth-child(n) {
+    clear: none;
+  }
+  .example-gallery > li:nth-child(2n+1) {
+    clear: both;
+  }
 }
 
 @media screen and (min-width: 43.75em) {

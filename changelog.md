@@ -1,7 +1,7 @@
 # Changelog
 
 ##### 3.4.1
-- Add this tag to fix an bower issue.
+- Fixed: a layout issue in `grid`, `gallery` when "default" was not set.
 
 ##### 3.4.0
 - Added: utility functions.

@@ -59,6 +59,7 @@
       @include clearfix();
       > #{$child} {
         float: $float;
+        clear: both;
         margin-#{opposite($float)}: -100%;
         padding-#{opposite($float)}: $gutter;
         box-sizing: border-box;
