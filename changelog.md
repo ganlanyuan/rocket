@@ -1,5 +1,8 @@
 # Changelog
 
+##### 3.4.1
+- Add this tag to fix an bower issue.
+
 ##### 3.4.0
 - Added: utility functions.
 - Added: unit test for utility functions.
