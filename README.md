@@ -16,7 +16,7 @@ Add many new sass mixins, components and javascript components.
 + Improved `ro-breakpoint`: use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`). You can set `$breakpoint-fix: false;` to turn off this feature.
 
 #### Requests
-+ <del>[Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`).</del> Update: not required from [v3.4.3](https://github.com/ganlanyuan/rocket/tree/v3.4.3).    
++ <del>[Modernizr](http://v3.modernizr.com/) (`csscolumns`, `csstransforms`, `cssanimations`, `flexbox`, `flexboxtweener`, `flexwrap`).</del> Update: not required from [v3.4.2](https://github.com/ganlanyuan/rocket/tree/v3.4.2).    
 + [Selectivizr](http://selectivizr.com/) and a Javascript library (if you're not using one).  
 + Please replace `<html>` with the markup below for better IE support.
 ``` html
