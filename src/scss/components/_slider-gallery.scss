@@ -278,9 +278,9 @@
     @at-root { @at-root (without: media) {
       #{$id}-autoplay:checked ~ {
         // animation
-        .outer li { @include ro-animation( #{$prefix} ($time-per-item * $items) ease infinite); }
+        .outer li { @include ro-animation( #{$prefix} #{($time-per-item * $items)} ease infinite); }
         @if $progress-bar {
-          .autoplay > .autoplay-progress { @include ro-animation( #{$prefix}-progress $time-per-item ease infinite); }
+          .autoplay > .autoplay-progress { @include ro-animation( #{$prefix}-progress #{$time-per-item} ease infinite); }
         }
 
         // delay

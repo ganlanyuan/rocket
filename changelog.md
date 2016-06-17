@@ -1,5 +1,8 @@
 # Changelog
 
+##### 3.4.3
+- Fixed: an animation parameter issue in `slider-gallery`.
+
 ##### 3.4.2
 - Add this tag to fix bower version issue.
 

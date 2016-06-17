@@ -634,9 +634,9 @@ pre[class*="language-"] {
 }
 
 #sg-autoplay-autoplay:checked ~ .outer li {
-  -webkit-animation: sg-autoplay20s ease infinite;
-  -moz-animation: sg-autoplay20s ease infinite;
-  animation: sg-autoplay20s ease infinite;
+  -webkit-animation: sg-autoplay 20s ease infinite;
+  -moz-animation: sg-autoplay 20s ease infinite;
+  animation: sg-autoplay 20s ease infinite;
 }
 
 #sg-autoplay-autoplay:checked ~ .autoplay > .autoplay-progress {
