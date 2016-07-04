@@ -471,6 +471,7 @@ input:checked + .nav-mode {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-slide-in input:checked ~ [data-submenu] {
@@ -571,6 +572,7 @@ input:checked ~ .page-slide-along {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-slide-along input:checked ~ [data-submenu] {
@@ -671,6 +673,7 @@ input:checked ~ .page-slide-out {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-slide-out input:checked ~ [data-submenu] {
@@ -785,6 +788,7 @@ input:checked ~ .page-rotate-in {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-rotate-in input:checked ~ [data-submenu] {
@@ -904,6 +908,7 @@ input:checked ~ .page-rotate-out {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-rotate-out input:checked ~ [data-submenu] {
@@ -1023,6 +1028,7 @@ input:checked ~ .page-rotate-in-reverse {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-rotate-in-reverse input:checked ~ [data-submenu] {
@@ -1139,6 +1145,7 @@ input:checked ~ .page-scale-down {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-scale-down input:checked ~ [data-submenu] {
@@ -1261,6 +1268,7 @@ input:checked ~ .nav-scale-up {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-scale-up input:checked ~ [data-submenu] {
@@ -1373,6 +1381,7 @@ input:checked ~ .page-open-door {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-open-door input:checked ~ [data-submenu] {
@@ -1568,6 +1577,7 @@ input:checked ~ .page-reveal {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-reveal input:checked ~ [data-submenu] {
@@ -1669,6 +1679,7 @@ input:checked ~ .page-reveal .page-overlay {
   top: 0;
   min-height: 100%;
   transition: left 0.5s;
+  overflow-x: hidden;
 }
 
 .nav-drawer input:checked ~ [data-submenu] {
