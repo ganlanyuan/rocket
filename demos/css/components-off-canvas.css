@@ -391,9 +391,8 @@ pre[class*="language-"] {
 }
 
 .nav-mode .page {
-  min-height: 700px;
+  min-height: 400px;
   background: #70CFFF;
-  background-size: cover;
 }
 
 .nav-mode .page header {
@@ -452,12 +451,7 @@ input:checked + .nav-mode {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
-}
-
-.nav-slide-in > ul {
-  position: relative;
 }
 
 .nav-slide-in [data-has-submenu]:after {
@@ -475,7 +469,7 @@ input:checked + .nav-mode {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -557,12 +551,7 @@ input:checked ~ .page-slide-along {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
-}
-
-.nav-slide-along > ul {
-  position: relative;
 }
 
 .nav-slide-along [data-has-submenu]:after {
@@ -580,7 +569,7 @@ input:checked ~ .page-slide-along {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -662,12 +651,7 @@ input:checked ~ .page-slide-out {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
-}
-
-.nav-slide-out > ul {
-  position: relative;
 }
 
 .nav-slide-out [data-has-submenu]:after {
@@ -685,7 +669,7 @@ input:checked ~ .page-slide-out {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -766,7 +750,6 @@ input:checked ~ .page-rotate-in {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
   -webkit-transform-origin: 100% 50% 0px;
   -moz-transform-origin: 100% 50% 0px;
@@ -785,10 +768,6 @@ input:checked ~ .page-rotate-in {
   transform: perspective(200px) rotateY(-90deg);
 }
 
-.nav-rotate-in > ul {
-  position: relative;
-}
-
 .nav-rotate-in [data-has-submenu]:after {
   clear: both;
   content: "";
@@ -804,7 +783,7 @@ input:checked ~ .page-rotate-in {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -890,7 +869,6 @@ input:checked ~ .page-rotate-out {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
   -webkit-transform-origin: 100% 50% 0px;
   -moz-transform-origin: 100% 50% 0px;
@@ -909,10 +887,6 @@ input:checked ~ .page-rotate-out {
   transform: perspective(200px) rotateY(90deg);
 }
 
-.nav-rotate-out > ul {
-  position: relative;
-}
-
 .nav-rotate-out [data-has-submenu]:after {
   clear: both;
   content: "";
@@ -928,7 +902,7 @@ input:checked ~ .page-rotate-out {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1014,7 +988,6 @@ input:checked ~ .page-rotate-in-reverse {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
   -webkit-transform-origin: 0 50% 0px;
   -moz-transform-origin: 0 50% 0px;
@@ -1033,10 +1006,6 @@ input:checked ~ .page-rotate-in-reverse {
   transform: perspective(200px) rotateY(90deg);
 }
 
-.nav-rotate-in-reverse > ul {
-  position: relative;
-}
-
 .nav-rotate-in-reverse [data-has-submenu]:after {
   clear: both;
   content: "";
@@ -1052,7 +1021,7 @@ input:checked ~ .page-rotate-in-reverse {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1150,12 +1119,7 @@ input:checked ~ .page-scale-down {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
-}
-
-.nav-scale-down > ul {
-  position: relative;
 }
 
 .nav-scale-down [data-has-submenu]:after {
@@ -1173,7 +1137,7 @@ input:checked ~ .page-scale-down {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1254,7 +1218,6 @@ input:checked ~ .page-scale-up {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
   -webkit-transform-origin: 0 50% 0px;
   -moz-transform-origin: 0 50% 0px;
@@ -1271,10 +1234,6 @@ input:checked ~ .page-scale-up {
   -ms-transform: perspective(1000px) translate3d(0px, 0px, -300px);
   -o-transform: perspective(1000px) translate3d(0px, 0px, -300px);
   transform: perspective(1000px) translate3d(0px, 0px, -300px);
-}
-
-.nav-scale-up > ul {
-  position: relative;
 }
 
 input:checked ~ .nav-scale-up {
@@ -1300,7 +1259,7 @@ input:checked ~ .nav-scale-up {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1394,12 +1353,7 @@ input:checked ~ .page-open-door {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
-}
-
-.nav-open-door > ul {
-  position: relative;
 }
 
 .nav-open-door [data-has-submenu]:after {
@@ -1417,7 +1371,7 @@ input:checked ~ .page-open-door {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1498,12 +1452,7 @@ input:checked ~ .page-push {
   height: 200px;
   left: 0;
   right: 0;
-  overflow-x: auto;
   overflow-y: hidden;
-}
-
-.nav-push > ul {
-  position: relative;
 }
 
 .nav-push [data-has-submenu]:after {
@@ -1599,12 +1548,7 @@ input:checked ~ .page-reveal {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 0;
-}
-
-.nav-reveal > ul {
-  position: relative;
 }
 
 .nav-reveal [data-has-submenu]:after {
@@ -1622,7 +1566,7 @@ input:checked ~ .page-reveal {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1687,12 +1631,7 @@ input:checked ~ .page-reveal .page-overlay {
   width: 200px;
   bottom: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   top: 50px;
-}
-
-.nav-drawer > ul {
-  position: relative;
 }
 
 @media screen and (max-width: 31.1875em) {
@@ -1713,10 +1652,6 @@ input:checked ~ .page-reveal .page-overlay {
   }
 }
 
-.lt-ie9 .nav-drawer {
-  top: 50px;
-}
-
 .nav-drawer [data-has-submenu]:after {
   clear: both;
   content: "";
@@ -1732,7 +1667,7 @@ input:checked ~ .page-reveal .page-overlay {
   left: 200px;
   width: 200px;
   top: 0;
-  height: 100%;
+  min-height: 100%;
   transition: left 0.5s;
 }
 
@@ -1791,10 +1726,6 @@ input:checked ~ .page-drawer .page-overlay {
   input:checked ~ .page-drawer .page-overlay {
     top: 40px;
   }
-}
-
-.lt-ie9 input:checked ~ .page-drawer .page-overlay {
-  top: 50px;
 }
 
 input:checked ~ .page-slide-along .page-overlay,

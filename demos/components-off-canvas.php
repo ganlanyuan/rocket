@@ -63,6 +63,22 @@ $bp: (
                   <ul data-submenu>
                     <li><label for="subnav' . $nav . '-1" data-back>Back</label></li>
                     <li><a href="">compare mode 1</a></li>
+                    <li><a href="">L.A. Now</a></li>
+                    <li><a href="">California</a></li>
+                    <li><a href="">El Niño</a></li>
+                    <li><a href="">Politics</a></li>
+                    <li><a href="">Education</a></li>
+                    <li><a href="">Crime</a></li>
+                    <li><a href="">Homicide Report</a></li>
+                    <li><a href="">Times Community News</a></li>
+                    <li><a href="">Arts & Culture</a></li>
+                    <li><a href="">Company Town</a></li>
+                    <li><a href="">Gossip</a></li>
+                    <li><a href="">Hero Complex</a></li>
+                    <li><a href="">Movies</a></li>
+                    <li><a href="">Music</a></li>
+                    <li><a href="">Television</a></li>
+                    <li><a href="">The Envelope</a></li>
                     <li data-has-submenu>
                       <input type="checkbox" id="subnav' . $nav . '-1-1" class="hidden-checkbox">
                       <label for="subnav' . $nav . '-1-1"><img src="images/arrow-r-w.png" alt=""></label>
@@ -72,6 +88,7 @@ $bp: (
                         <li><a href="">item 1</a></li>
                         <li><a href="">item 2</a></li>
                         <li><a href="">item 3</a></li>
+                        <li><a href="">Local</a></li>
                       </ul>
                     </li>
                     <li><a href="">compare mode 3</a></li>
@@ -90,6 +107,37 @@ $bp: (
                   </ul>
                 </li>
                 <li><a href="">Help</a></li>
+                <!--
+                <li><a href="">E-Newspaper</a></li>
+                <li><a href="">My Account</a></li>
+                <li><a href="">California</a></li>
+                <li><a href="">Entertainment</a></li>
+                <li><a href="">Sports</a></li>
+                <li><a href="">Business</a></li>
+                <li><a href="">Technology</a></li>
+                <li><a href="">Nation</a></li>
+                <li><a href="">Politics</a></li>
+                <li><a href="">World</a></li>
+                <li><a href="">Opinion</a></li>
+                <li><a href="">Obituaries</a></li>
+                <li><a href="">Travel</a></li>
+                <li><a href="">Life & Style</a></li>
+                <li><a href="">Food</a></li>
+                <li><a href="">Science</a></li>
+                <li><a href="">Autos</a></li>
+                <li><a href="">Real Estate</a></li>
+                <li><a href="">Photos & Video</a></li>
+                <li><a href="">CLASSIFIEDS</a></li>
+                <li><a href="">FIND A JOB</a></li>
+                <li><a href="">SHOP</a></li>
+                <li><a href="">ADVERTISING</a></li>
+                <li><a href="">CORRECTIONS</a></li>
+                <li><a href="">PRIVACY:Update</a></li>
+                <li><a href="">Terms:Update</a></li>
+                <li><a href="">SITE MAP</a></li>
+                <li><a href="">ABOUT US</a></li>
+                <li><a href="">CONTACT US</a></li>
+                -->
               </ul>
             </nav>
           </header>
@@ -137,6 +185,23 @@ $bp: (
                     <li><a href="">item 1</a></li>
                     <li><a href="">item 2</a></li>
                     <li><a href="">item 3</a></li>
+                    <li><a href="">Local</a></li>
+                    <li><a href="">L.A. Now</a></li>
+                    <li><a href="">California</a></li>
+                    <li><a href="">El Niño</a></li>
+                    <li><a href="">Politics</a></li>
+                    <li><a href="">Education</a></li>
+                    <li><a href="">Crime</a></li>
+                    <li><a href="">Homicide Report</a></li>
+                    <li><a href="">Times Community News</a></li>
+                    <li><a href="">Arts & Culture</a></li>
+                    <li><a href="">Company Town</a></li>
+                    <li><a href="">Gossip</a></li>
+                    <li><a href="">Hero Complex</a></li>
+                    <li><a href="">Movies</a></li>
+                    <li><a href="">Music</a></li>
+                    <li><a href="">Television</a></li>
+                    <li><a href="">The Envelope</a></li>
                   </ul>
                 </li>
                 <li><a href="">compare mode 3</a></li>
@@ -155,6 +220,35 @@ $bp: (
               </ul>
             </li>
             <li><a href="">Help</a></li>
+            <li><a href="">E-Newspaper</a></li>
+            <li><a href="">My Account</a></li>
+            <li><a href="">California</a></li>
+            <li><a href="">Entertainment</a></li>
+            <li><a href="">Sports</a></li>
+            <li><a href="">Business</a></li>
+            <li><a href="">Technology</a></li>
+            <li><a href="">Nation</a></li>
+            <li><a href="">Politics</a></li>
+            <li><a href="">World</a></li>
+            <li><a href="">Opinion</a></li>
+            <li><a href="">Obituaries</a></li>
+            <li><a href="">Travel</a></li>
+            <li><a href="">Life & Style</a></li>
+            <li><a href="">Food</a></li>
+            <li><a href="">Science</a></li>
+            <li><a href="">Autos</a></li>
+            <li><a href="">Real Estate</a></li>
+            <li><a href="">Photos & Video</a></li>
+            <li><a href="">CLASSIFIEDS</a></li>
+            <li><a href="">FIND A JOB</a></li>
+            <li><a href="">SHOP</a></li>
+            <li><a href="">ADVERTISING</a></li>
+            <li><a href="">CORRECTIONS</a></li>
+            <li><a href="">PRIVACY:Update</a></li>
+            <li><a href="">Terms:Update</a></li>
+            <li><a href="">SITE MAP</a></li>
+            <li><a href="">ABOUT US</a></li>
+            <li><a href="">CONTACT US</a></li>
           </ul>
         </nav>
         <div class="page page-' . $nav2 . '">

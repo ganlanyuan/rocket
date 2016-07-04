@@ -60,10 +60,8 @@ $map: (
   margin-top: 30px;
   display: none;
   .page {
-    min-height: 700px;
+    min-height: 400px;
     background: #70CFFF;
-    // background: #fff url('../images/nav/4.jpg') 50% 20% no-repeat;
-    background-size: cover;
     header { padding-top: 1px; }
   }
   input:checked + & {
