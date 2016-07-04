@@ -443,6 +443,7 @@ input:checked + .nav-mode {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: margin-left 0.5s;
   -moz-transition: margin-left 0.5s;
@@ -466,10 +467,11 @@ input:checked + .nav-mode {
 
 .nav-slide-in [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -544,6 +546,7 @@ input:checked ~ .page-slide-along {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: margin-left 0.5s;
   -moz-transition: margin-left 0.5s;
@@ -567,10 +570,11 @@ input:checked ~ .page-slide-along {
 
 .nav-slide-along [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -645,6 +649,7 @@ input:checked ~ .page-slide-out {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: margin-left 0.5s;
   -moz-transition: margin-left 0.5s;
@@ -668,10 +673,11 @@ input:checked ~ .page-slide-out {
 
 .nav-slide-out [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -745,6 +751,7 @@ input:checked ~ .page-rotate-in {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: transform 0.5s, margin-left 0.5s;
   -moz-transition: transform 0.5s, margin-left 0.5s;
@@ -783,10 +790,11 @@ input:checked ~ .page-rotate-in {
 
 .nav-rotate-in [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -865,6 +873,7 @@ input:checked ~ .page-rotate-out {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: transform 0.5s, margin-left 0.5s;
   -moz-transition: transform 0.5s, margin-left 0.5s;
@@ -903,10 +912,11 @@ input:checked ~ .page-rotate-out {
 
 .nav-rotate-out [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -985,6 +995,7 @@ input:checked ~ .page-rotate-in-reverse {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: transform 0.5s, margin-left 0.5s;
   -moz-transition: transform 0.5s, margin-left 0.5s;
@@ -1023,10 +1034,11 @@ input:checked ~ .page-rotate-in-reverse {
 
 .nav-rotate-in-reverse [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -1117,6 +1129,7 @@ input:checked ~ .page-scale-down {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: margin-left 0.5s;
   -moz-transition: margin-left 0.5s;
@@ -1140,10 +1153,11 @@ input:checked ~ .page-scale-down {
 
 .nav-scale-down [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -1218,6 +1232,7 @@ input:checked ~ .page-scale-up {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: transform 0.5s;
   -moz-transition: transform 0.5s;
@@ -1263,10 +1278,11 @@ input:checked ~ .nav-scale-up {
 
 .nav-scale-up [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -1353,6 +1369,7 @@ input:checked ~ .page-open-door {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: margin-left 0.5s;
   -moz-transition: margin-left 0.5s;
@@ -1376,10 +1393,11 @@ input:checked ~ .page-open-door {
 
 .nav-open-door [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -1453,6 +1471,7 @@ input:checked ~ .page-push {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   top: 0;
   -webkit-transition: margin-top 0.5s;
   -moz-transition: margin-top 0.5s;
@@ -1476,6 +1495,7 @@ input:checked ~ .page-push {
 
 .nav-push [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   top: 200px;
   height: 200px;
   left: 0;
@@ -1553,6 +1573,7 @@ input:checked ~ .page-reveal {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   right: 0;
   width: 200px;
   bottom: 0;
@@ -1572,10 +1593,11 @@ input:checked ~ .page-reveal {
 
 .nav-reveal [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }
@@ -1633,6 +1655,7 @@ input:checked ~ .page-reveal .page-overlay {
   display: block;
   z-index: 200;
   box-sizing: border-box;
+  overflow-x: hidden;
   left: 0;
   -webkit-transition: margin-left 0.5s;
   -moz-transition: margin-left 0.5s;
@@ -1674,10 +1697,11 @@ input:checked ~ .page-reveal .page-overlay {
 
 .nav-drawer [data-submenu] {
   position: absolute;
+  box-sizing: border-box;
   left: 200px;
   width: 200px;
   top: 0;
-  min-height: 100%;
+  height: 100%;
   transition: left 0.5s;
   overflow-x: hidden;
 }

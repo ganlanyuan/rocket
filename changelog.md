@@ -1,5 +1,8 @@
 # Changelog
 
+##### 3.4.4
+- Improved: `off-canvas` overflow.
+
 ##### 3.4.3
 - Fixed: an animation parameter issue in `slider-gallery`.
 

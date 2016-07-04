@@ -213,6 +213,7 @@
       display: block;
       z-index: map-get($ro-off-canvas-z-index, 'nav');
       box-sizing: border-box;
+      overflow-x: hidden;
       #{$direction}: 0;
       // > ul { position: relative; }
 
@@ -269,11 +270,12 @@
         }
         [data-submenu] {
           position: absolute;
+          box-sizing: border-box;
           @if $horizontal {
             left: $width;
             width: $width;
             top: 0;
-            min-height: 100%;
+            height: 100%;
             transition: left $duration;
             overflow-x: hidden;
           } @else if $vertical {
