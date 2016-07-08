@@ -1,5 +1,8 @@
 # Changelog
 
+##### 3.4.5
+- Fixed: an `grid` parameter issue.
+
 ##### 3.4.4
 - Fixed: an `off-canvas` sub menu overflow issue.
 
