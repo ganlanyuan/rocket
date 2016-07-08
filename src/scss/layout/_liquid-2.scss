@@ -43,7 +43,7 @@
     }
   }
   
-  @extend %clearfix; 
+  @include clearfix(); 
   
   // using map
   // (200px:1, null:0)

@@ -41,7 +41,7 @@
     }
   }
   
-  @extend %clearfix;
+  @include clearfix(); 
 
   // using map
   // ('auto':1, 300px:0)
