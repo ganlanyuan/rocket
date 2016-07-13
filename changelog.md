@@ -3,6 +3,7 @@
 ##### 3.4.5
 - Fixed: a `grid` parameter issue.
 - Fixed: an extend issue in `liquid-2`, `liquid-3` when compile with libsass.
+- Fixed: `off-canvas` submenu overflow issue.
 
 ##### 3.4.4
 - Fixed: an `off-canvas` sub menu overflow issue.

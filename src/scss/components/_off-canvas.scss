@@ -269,21 +269,19 @@
           }
         }
         [data-submenu] {
-          position: absolute;
+          position: fixed;
           box-sizing: border-box;
+          #{$direction}: - $width;
+          transition: unquote(#{$direction} #{$duration});
           @if $horizontal {
-            left: $width;
             width: $width;
             top: 0;
             height: 100%;
-            transition: left $duration;
             overflow-x: hidden;
           } @else if $vertical {
-            top: $width;
             height: $width;
             left: 0;
             right: 0;
-            transition: top $duration;
           }
         }
         input:checked ~ [data-submenu] {
