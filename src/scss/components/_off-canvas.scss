@@ -168,6 +168,7 @@
   @if $page-transform {
     @include ro-transition(unquote("transform #{$duration}"));
   }
+
   @if $page-push {
     @include ro-transition(unquote("#{$direction} #{$duration}"));
     position: relative;
@@ -177,14 +178,14 @@
       z-index: map-get($ro-off-canvas-z-index, 'page');
     }
 
-    input:checked ~ & {
-      #{$direction}: $width;
-    }
+    input:checked ~ & { #{$direction}: $width; }
   }
+
   @if $transform-origin and $page-transform {
     @include ro-transform-origin($transform-origin);
     @include ro-transform-style(preserve-3d);
   }
+
   @if $mode == 'scale-down' {
     @include ro-transform-style(preserve-3d);
     @include ro-transform($scale-default);
@@ -205,6 +206,12 @@
       }
     }
   }
+
+  @if $submenu {
+    // hide submenu on hide nav
+    input:not(:checked) ~ & #{$nav} [data-submenu] { #{$direction}: - $width; }
+  }
+  
 
   // nav
   @at-root {
@@ -285,11 +292,7 @@
           }
         }
         input:checked ~ [data-submenu] {
-          @if $horizontal {
-            left: 0;
-          } @else if $vertical {
-            top: 0;
-          }
+          #{$direction}: 0;
         }
       }
     }
