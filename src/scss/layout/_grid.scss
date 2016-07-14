@@ -57,9 +57,9 @@
 
     .lt-ie10 & {
       @include clearfix();
+      margin-#{opposite($float)}: 0; // remove minus margin
       > #{$child} {
         float: $float;
-        clear: both;
         margin-#{opposite($float)}: -100%;
         padding-#{opposite($float)}: $gutter;
         box-sizing: border-box;
@@ -72,6 +72,7 @@
     // ('default': (1 1 1), 800px: (3 4) 1)
     @if grid-has-breakpoints($map) {
       
+      .lt-ie10 & > #{$child} { clear: both; }
       // update breakpoints
       @if $global-bps {
         $map: map-update-breakpoints($map, $global-bps);
@@ -85,10 +86,8 @@
         } @else {
           @include bp($condition $media-type $bp) {
             // reset order, clear
-            > #{$child}:nth-child(n) { 
-              @include ro-order(0); 
-              .lt-ie10 & { clear: none; }
-            }
+            > #{$child}:nth-child(n) { @include ro-order(0); }
+            .lt-ie10 & > #{$child} { clear: none; }
             @include check-list(map-get($map, $bp), $gutter, $child, $float);
           }
         }

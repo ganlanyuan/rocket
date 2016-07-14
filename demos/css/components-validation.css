@@ -561,8 +561,8 @@ pre[class*="language-"] {
     transform: translate(-50%, -150%);
     top: 0;
   }
-  15.78947%,
-  84.21053% {
+  15.7895%,
+  84.2105% {
     transform: translate(-50%, 0);
     top: 10px;
   }
@@ -573,8 +573,8 @@ pre[class*="language-"] {
     transform: translate(-50%, -150%);
     top: 0;
   }
-  15.78947%,
-  84.21053% {
+  15.7895%,
+  84.2105% {
     transform: translate(-50%, 0);
     top: 10px;
   }
@@ -585,8 +585,8 @@ pre[class*="language-"] {
     transform: translate(-50%, -150%);
     top: 0;
   }
-  15.78947%,
-  84.21053% {
+  15.7895%,
+  84.2105% {
     transform: translate(-50%, 0);
     top: 10px;
   }
@@ -637,6 +637,9 @@ pre[class*="language-"] {
   }
   .validation-wrap > li {
     float: left;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 20px 20px 0;
   }

@@ -355,7 +355,7 @@ pre[class*="language-"] {
 .example-angled-edges .bottom {
   position: relative;
   overflow: hidden;
-  padding-bottom: 8.74887%;
+  padding-bottom: 8.7489%;
 }
 
 .example-angled-edges .bottom:after {
@@ -370,7 +370,7 @@ pre[class*="language-"] {
 
 .example-angled-edges .bottom:after {
   bottom: 0;
-  border-bottom: 437.44332px solid #B9E2FF;
+  border-bottom: 437.4433px solid #B9E2FF;
   left: 0;
   border-left-width: 5000px;
 }
@@ -378,8 +378,8 @@ pre[class*="language-"] {
 .example-angled-edges .both {
   position: relative;
   overflow: hidden;
-  padding-top: 8.74887%;
-  padding-bottom: 8.74887%;
+  padding-top: 8.7489%;
+  padding-bottom: 8.7489%;
   background-image: url("../images/angled-edges/2.jpg");
 }
 
@@ -395,14 +395,14 @@ pre[class*="language-"] {
 
 .example-angled-edges .both:before {
   top: 0;
-  border-top: 437.44332px solid #B9E2FF;
+  border-top: 437.4433px solid #B9E2FF;
   right: 0;
   border-right-width: 5000px;
 }
 
 .example-angled-edges .both:after {
   bottom: 0;
-  border-bottom: 437.44332px solid #FBDBF6;
+  border-bottom: 437.4433px solid #FBDBF6;
   right: 0;
   border-right-width: 5000px;
 }
@@ -410,7 +410,7 @@ pre[class*="language-"] {
 .example-angled-edges .top {
   position: relative;
   overflow: hidden;
-  padding-top: 8.74887%;
+  padding-top: 8.7489%;
   background-image: url("../images/angled-edges/3.jpg");
 }
 
@@ -426,7 +426,7 @@ pre[class*="language-"] {
 
 .example-angled-edges .top:before {
   top: 0;
-  border-top: 437.44332px solid #FBDBF6;
+  border-top: 437.4433px solid #FBDBF6;
   left: 0;
   border-left-width: 5000px;
 }

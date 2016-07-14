@@ -2,6 +2,7 @@
 
 ##### 3.4.5
 - Fixed: a `grid` parameter issue.
+- Fixed: a `grid` float issue on IE8-9.
 - Fixed: an extend issue in `liquid-2`, `liquid-3` when compile with libsass.
 - Fixed: `off-canvas` submenu overflow issue.
 

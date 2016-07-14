@@ -375,19 +375,19 @@ li {
     padding-bottom: 25%;
   }
   .outline > li:nth-child(3) {
-    width: 66.66667%;
+    width: 66.6667%;
     padding-bottom: 75%;
   }
   .outline > li:nth-child(4) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 75%;
   }
   .outline > li:nth-child(5) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
   .outline > li:nth-child(6) {
-    width: 66.66667%;
+    width: 66.6667%;
     padding-bottom: 25%;
   }
 }
@@ -467,15 +467,15 @@ li {
 
 @media screen and (min-width: 43.75em) {
   .g-1 > li:nth-child(1) {
-    width: 66.66667%;
+    width: 66.6667%;
     padding-bottom: 50%;
   }
   .g-1 > li:nth-child(2) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
   .g-1 > li:nth-child(3) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
 }
@@ -541,11 +541,11 @@ li {
 
 @media screen and (min-width: 43.75em) {
   .g-2 > li:nth-child(1) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
   .g-2 > li:nth-child(2) {
-    width: 66.66667%;
+    width: 66.6667%;
     padding-bottom: 25%;
   }
 }
@@ -632,23 +632,23 @@ li {
 
 @media screen and (min-width: 62.5em) {
   .g-3 > li:nth-child(1) {
-    width: 66.66667%;
+    width: 66.6667%;
     padding-bottom: 50%;
   }
   .g-3 > li:nth-child(2) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
   .g-3 > li:nth-child(3) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
   .g-3 > li:nth-child(4) {
-    width: 33.33333%;
+    width: 33.3333%;
     padding-bottom: 25%;
   }
   .g-3 > li:nth-child(5) {
-    width: 66.66667%;
+    width: 66.6667%;
     padding-bottom: 25%;
   }
 }

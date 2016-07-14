@@ -346,7 +346,7 @@ pre[class*="language-"] {
 }
 
 .charts1.active .item-1 > span:nth-of-type(1) {
-  width: 40.45455%;
+  width: 40.4545%;
 }
 
 .charts1.active .item-1 > span:nth-of-type(1):before {
@@ -354,7 +354,7 @@ pre[class*="language-"] {
 }
 
 .charts1.active .item-2 > span:nth-of-type(1) {
-  width: 47.72727%;
+  width: 47.7273%;
 }
 
 .charts1.active .item-2 > span:nth-of-type(1):before {
@@ -362,7 +362,7 @@ pre[class*="language-"] {
 }
 
 .charts1.active .item-3 > span:nth-of-type(1) {
-  width: 87.72727%;
+  width: 87.7273%;
 }
 
 .charts1.active .item-3 > span:nth-of-type(1):before {
@@ -409,7 +409,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-2 {
-  left: 9.09091%;
+  left: 9.0909%;
 }
 
 .charts1 .tick-2 span:before {
@@ -417,7 +417,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-3 {
-  left: 18.18182%;
+  left: 18.1818%;
 }
 
 .charts1 .tick-3 span:before {
@@ -425,7 +425,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-4 {
-  left: 27.27273%;
+  left: 27.2727%;
 }
 
 .charts1 .tick-4 span:before {
@@ -433,7 +433,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-5 {
-  left: 36.36364%;
+  left: 36.3636%;
 }
 
 .charts1 .tick-5 span:before {
@@ -441,7 +441,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-6 {
-  left: 45.45455%;
+  left: 45.4545%;
 }
 
 .charts1 .tick-6 span:before {
@@ -449,7 +449,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-7 {
-  left: 54.54545%;
+  left: 54.5455%;
 }
 
 .charts1 .tick-7 span:before {
@@ -457,7 +457,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-8 {
-  left: 63.63636%;
+  left: 63.6364%;
 }
 
 .charts1 .tick-8 span:before {
@@ -465,7 +465,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-9 {
-  left: 72.72727%;
+  left: 72.7273%;
 }
 
 .charts1 .tick-9 span:before {
@@ -473,7 +473,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-10 {
-  left: 81.81818%;
+  left: 81.8182%;
 }
 
 .charts1 .tick-10 span:before {
@@ -481,7 +481,7 @@ pre[class*="language-"] {
 }
 
 .charts1 .tick-11 {
-  left: 90.90909%;
+  left: 90.9091%;
 }
 
 .charts1 .tick-11 span:before {
@@ -597,7 +597,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-1 > span:nth-of-type(1) {
-  height: 37.08333%;
+  height: 37.0833%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(1):before {
@@ -605,7 +605,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-1 > span:nth-of-type(2) {
-  height: 20.83333%;
+  height: 20.8333%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(2):before {
@@ -613,7 +613,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-1 > span:nth-of-type(3) {
-  height: 44.58333%;
+  height: 44.5833%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(3):before {
@@ -629,7 +629,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-2 > span:nth-of-type(2) {
-  height: 41.66667%;
+  height: 41.6667%;
 }
 
 .charts2.active .item-2 > span:nth-of-type(2):before {
@@ -645,7 +645,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-3 > span:nth-of-type(1) {
-  height: 80.41667%;
+  height: 80.4167%;
 }
 
 .charts2.active .item-3 > span:nth-of-type(1):before {
@@ -653,7 +653,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-3 > span:nth-of-type(2) {
-  height: 66.66667%;
+  height: 66.6667%;
 }
 
 .charts2.active .item-3 > span:nth-of-type(2):before {
@@ -677,7 +677,7 @@ pre[class*="language-"] {
 }
 
 .charts2.active .item-4 > span:nth-of-type(2) {
-  height: 91.66667%;
+  height: 91.6667%;
 }
 
 .charts2.active .item-4 > span:nth-of-type(2):before {
@@ -724,7 +724,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-2 {
-  bottom: 8.33333%;
+  bottom: 8.3333%;
 }
 
 .charts2 .tick-2 span:before {
@@ -732,7 +732,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-3 {
-  bottom: 16.66667%;
+  bottom: 16.6667%;
 }
 
 .charts2 .tick-3 span:before {
@@ -748,7 +748,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-5 {
-  bottom: 33.33333%;
+  bottom: 33.3333%;
 }
 
 .charts2 .tick-5 span:before {
@@ -756,7 +756,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-6 {
-  bottom: 41.66667%;
+  bottom: 41.6667%;
 }
 
 .charts2 .tick-6 span:before {
@@ -772,7 +772,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-8 {
-  bottom: 58.33333%;
+  bottom: 58.3333%;
 }
 
 .charts2 .tick-8 span:before {
@@ -780,7 +780,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-9 {
-  bottom: 66.66667%;
+  bottom: 66.6667%;
 }
 
 .charts2 .tick-9 span:before {
@@ -796,7 +796,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-11 {
-  bottom: 83.33333%;
+  bottom: 83.3333%;
 }
 
 .charts2 .tick-11 span:before {
@@ -804,7 +804,7 @@ pre[class*="language-"] {
 }
 
 .charts2 .tick-12 {
-  bottom: 91.66667%;
+  bottom: 91.6667%;
 }
 
 .charts2 .tick-12 span:before {
@@ -873,7 +873,7 @@ pre[class*="language-"] {
 .charts2 li > span {
   position: absolute;
   bottom: 0;
-  width: 26.66667%;
+  width: 26.6667%;
   text-align: center;
 }
 
@@ -882,11 +882,11 @@ pre[class*="language-"] {
 }
 
 .charts2 li > span:nth-of-type(2) {
-  left: 36.66667%;
+  left: 36.6667%;
 }
 
 .charts2 li > span:nth-of-type(3) {
-  left: 63.33333%;
+  left: 63.3333%;
 }
 
 .charts2.active li > span {

@@ -1,9 +1,3 @@
-.example-liquid-2:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -304,6 +298,12 @@ pre[class*="language-"] {
   font-size: 12px;
   line-height: 1.3;
   color: #b1b1b1;
+}
+
+.example-liquid-2:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .lt-ie9 .example-liquid-2 {

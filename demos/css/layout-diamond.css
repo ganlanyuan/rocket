@@ -327,11 +327,11 @@ pre[class*="language-"] {
   width: 20%;
   padding-bottom: 20%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.70711);
-  -moz-transform: rotate(-45deg) scale(0.70711);
-  -ms-transform: rotate(-45deg) scale(0.70711);
-  -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711);
+  -webkit-transform: rotate(-45deg) scale(0.7071);
+  -moz-transform: rotate(-45deg) scale(0.7071);
+  -ms-transform: rotate(-45deg) scale(0.7071);
+  -o-transform: rotate(-45deg) scale(0.7071);
+  transform: rotate(-45deg) scale(0.7071);
 }
 
 .csstransforms .diamond:nth-child(n) {
@@ -361,11 +361,11 @@ pre[class*="language-"] {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.41421);
-  -moz-transform: rotate(45deg) scale(1.41421);
-  -ms-transform: rotate(45deg) scale(1.41421);
-  -o-transform: rotate(45deg) scale(1.41421);
-  transform: rotate(45deg) scale(1.41421);
+  -webkit-transform: rotate(45deg) scale(1.4142);
+  -moz-transform: rotate(45deg) scale(1.4142);
+  -ms-transform: rotate(45deg) scale(1.4142);
+  -o-transform: rotate(45deg) scale(1.4142);
+  transform: rotate(45deg) scale(1.4142);
 }
 
 .diamond > .diamond-content > * {
@@ -403,11 +403,11 @@ pre[class*="language-"] {
   width: 20%;
   padding-bottom: 20%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.70711);
-  -moz-transform: rotate(-45deg) scale(0.70711);
-  -ms-transform: rotate(-45deg) scale(0.70711);
-  -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711);
+  -webkit-transform: rotate(-45deg) scale(0.7071);
+  -moz-transform: rotate(-45deg) scale(0.7071);
+  -ms-transform: rotate(-45deg) scale(0.7071);
+  -o-transform: rotate(-45deg) scale(0.7071);
+  transform: rotate(-45deg) scale(0.7071);
 }
 
 .diamond-s > .diamond-content {
@@ -422,11 +422,11 @@ pre[class*="language-"] {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.41421);
-  -moz-transform: rotate(45deg) scale(1.41421);
-  -ms-transform: rotate(45deg) scale(1.41421);
-  -o-transform: rotate(45deg) scale(1.41421);
-  transform: rotate(45deg) scale(1.41421);
+  -webkit-transform: rotate(45deg) scale(1.4142);
+  -moz-transform: rotate(45deg) scale(1.4142);
+  -ms-transform: rotate(45deg) scale(1.4142);
+  -o-transform: rotate(45deg) scale(1.4142);
+  transform: rotate(45deg) scale(1.4142);
 }
 
 .diamond-s > .diamond-content > * {
@@ -459,11 +459,11 @@ pre[class*="language-"] {
   width: 60%;
   padding-bottom: 60%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.70711);
-  -moz-transform: rotate(-45deg) scale(0.70711);
-  -ms-transform: rotate(-45deg) scale(0.70711);
-  -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711);
+  -webkit-transform: rotate(-45deg) scale(0.7071);
+  -moz-transform: rotate(-45deg) scale(0.7071);
+  -ms-transform: rotate(-45deg) scale(0.7071);
+  -o-transform: rotate(-45deg) scale(0.7071);
+  transform: rotate(-45deg) scale(0.7071);
 }
 
 .diamond-m > .diamond-content {
@@ -478,11 +478,11 @@ pre[class*="language-"] {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.41421);
-  -moz-transform: rotate(45deg) scale(1.41421);
-  -ms-transform: rotate(45deg) scale(1.41421);
-  -o-transform: rotate(45deg) scale(1.41421);
-  transform: rotate(45deg) scale(1.41421);
+  -webkit-transform: rotate(45deg) scale(1.4142);
+  -moz-transform: rotate(45deg) scale(1.4142);
+  -ms-transform: rotate(45deg) scale(1.4142);
+  -o-transform: rotate(45deg) scale(1.4142);
+  transform: rotate(45deg) scale(1.4142);
 }
 
 .diamond-m > .diamond-content > * {

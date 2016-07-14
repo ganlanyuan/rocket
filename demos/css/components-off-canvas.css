@@ -438,6 +438,10 @@ input:checked + .nav-mode {
   left: -9999px;
 }
 
+input:not(:checked) ~ .page-slide-in .nav-slide-in [data-submenu] {
+  left: -200px;
+}
+
 .nav-slide-in {
   position: fixed;
   display: block;
@@ -466,13 +470,13 @@ input:checked + .nav-mode {
 }
 
 .nav-slide-in [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -541,6 +545,10 @@ input:checked ~ .page-slide-along {
   left: 200px;
 }
 
+input:not(:checked) ~ .page-slide-along .nav-slide-along [data-submenu] {
+  left: -200px;
+}
+
 .nav-slide-along {
   position: fixed;
   display: block;
@@ -569,13 +577,13 @@ input:checked ~ .page-slide-along {
 }
 
 .nav-slide-along [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -644,6 +652,10 @@ input:checked ~ .page-slide-out {
   left: 200px;
 }
 
+input:not(:checked) ~ .page-slide-out .nav-slide-out [data-submenu] {
+  left: -200px;
+}
+
 .nav-slide-out {
   position: fixed;
   display: block;
@@ -672,13 +684,13 @@ input:checked ~ .page-slide-out {
 }
 
 .nav-slide-out [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -746,6 +758,10 @@ input:checked ~ .page-rotate-in {
   left: 200px;
 }
 
+input:not(:checked) ~ .page-rotate-in .nav-rotate-in [data-submenu] {
+  left: -200px;
+}
+
 .nav-rotate-in {
   position: fixed;
   display: block;
@@ -789,13 +805,13 @@ input:checked ~ .page-rotate-in {
 }
 
 .nav-rotate-in [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -868,6 +884,10 @@ input:checked ~ .page-rotate-out {
   left: 200px;
 }
 
+input:not(:checked) ~ .page-rotate-out .nav-rotate-out [data-submenu] {
+  left: -200px;
+}
+
 .nav-rotate-out {
   position: fixed;
   display: block;
@@ -911,13 +931,13 @@ input:checked ~ .page-rotate-out {
 }
 
 .nav-rotate-out [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -990,6 +1010,10 @@ input:checked ~ .page-rotate-in-reverse {
   left: 200px;
 }
 
+input:not(:checked) ~ .page-rotate-in-reverse .nav-rotate-in-reverse [data-submenu] {
+  left: -200px;
+}
+
 .nav-rotate-in-reverse {
   position: fixed;
   display: block;
@@ -1033,13 +1057,13 @@ input:checked ~ .page-rotate-in-reverse {
 }
 
 .nav-rotate-in-reverse [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -1124,6 +1148,10 @@ input:checked ~ .page-scale-down {
   transform: perspective(1000px) translate3d(0px, 0px, -300px);
 }
 
+input:not(:checked) ~ .page-scale-down .nav-scale-down [data-submenu] {
+  left: -200px;
+}
+
 .nav-scale-down {
   position: fixed;
   display: block;
@@ -1152,13 +1180,13 @@ input:checked ~ .page-scale-down {
 }
 
 .nav-scale-down [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -1227,6 +1255,10 @@ input:checked ~ .page-scale-up {
   left: 200px;
 }
 
+input:not(:checked) ~ .page-scale-up .nav-scale-up [data-submenu] {
+  left: -200px;
+}
+
 .nav-scale-up {
   position: fixed;
   display: block;
@@ -1277,13 +1309,13 @@ input:checked ~ .nav-scale-up {
 }
 
 .nav-scale-up [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -1364,6 +1396,10 @@ input:checked ~ .page-open-door {
   transform: perspective(1000px) rotateY(-7deg);
 }
 
+input:not(:checked) ~ .page-open-door .nav-open-door [data-submenu] {
+  left: -200px;
+}
+
 .nav-open-door {
   position: fixed;
   display: block;
@@ -1392,13 +1428,13 @@ input:checked ~ .page-open-door {
 }
 
 .nav-open-door [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
@@ -1466,6 +1502,10 @@ input:checked ~ .page-push {
   top: 200px;
 }
 
+input:not(:checked) ~ .page-push .nav-push [data-submenu] {
+  top: -200px;
+}
+
 .nav-push {
   position: fixed;
   display: block;
@@ -1494,13 +1534,13 @@ input:checked ~ .page-push {
 }
 
 .nav-push [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  top: 200px;
+  top: -200px;
+  transition: top 0.5s;
   height: 200px;
   left: 0;
   right: 0;
-  transition: top 0.5s;
 }
 
 .nav-push input:checked ~ [data-submenu] {
@@ -1568,6 +1608,10 @@ input:checked ~ .page-reveal {
   right: 200px;
 }
 
+input:not(:checked) ~ .page-reveal .nav-reveal [data-submenu] {
+  right: -200px;
+}
+
 .nav-reveal {
   position: fixed;
   display: block;
@@ -1592,18 +1636,18 @@ input:checked ~ .page-reveal {
 }
 
 .nav-reveal [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  right: -200px;
+  transition: right 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 
 .nav-reveal input:checked ~ [data-submenu] {
-  left: 0;
+  right: 0;
 }
 
 .page-reveal .page-overlay {
@@ -1648,6 +1692,10 @@ input:checked ~ .page-reveal .page-overlay {
 .hidden-checkbox {
   position: absolute;
   left: -9999px;
+}
+
+input:not(:checked) ~ .page-drawer .nav-drawer [data-submenu] {
+  left: -200px;
 }
 
 .nav-drawer {
@@ -1696,13 +1744,13 @@ input:checked ~ .page-reveal .page-overlay {
 }
 
 .nav-drawer [data-submenu] {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
-  left: 200px;
+  left: -200px;
+  transition: left 0.5s;
   width: 200px;
   top: 0;
   height: 100%;
-  transition: left 0.5s;
   overflow-x: hidden;
 }
 

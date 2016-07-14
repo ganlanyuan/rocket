@@ -316,7 +316,7 @@ pre[class*="language-"] {
 
 .sc-normal .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -387,7 +387,7 @@ pre[class*="language-"] {
 }
 
 .sc-normal .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-normal-1:checked ~ .outer > .inner {
@@ -397,22 +397,22 @@ pre[class*="language-"] {
 
 #sc-normal-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-normal-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-normal-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-normal-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-normal #sc-normal-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -573,7 +573,7 @@ pre[class*="language-"] {
 
 .sc-bypage .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -644,7 +644,7 @@ pre[class*="language-"] {
 }
 
 .sc-bypage .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-bypage-1:checked ~ .outer > .inner {
@@ -654,22 +654,22 @@ pre[class*="language-"] {
 
 #sc-bypage-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-bypage-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-bypage-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-bypage-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-bypage #sc-bypage-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -845,7 +845,7 @@ pre[class*="language-"] {
 
 .sc-center .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
 }
 
 .sc-center .inner {
@@ -1101,7 +1101,7 @@ pre[class*="language-"] {
 
 .sc-scale .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -1172,7 +1172,7 @@ pre[class*="language-"] {
 }
 
 .sc-scale .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-scale-1:checked ~ .outer > .inner {
@@ -1182,22 +1182,22 @@ pre[class*="language-"] {
 
 #sc-scale-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-scale-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-scale-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-scale-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-scale .inner > li {
@@ -1404,7 +1404,7 @@ pre[class*="language-"] {
 
 .sc-rotate .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -1475,7 +1475,7 @@ pre[class*="language-"] {
 }
 
 .sc-rotate .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-rotate-1:checked ~ .outer > .inner {
@@ -1485,22 +1485,22 @@ pre[class*="language-"] {
 
 #sc-rotate-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-rotate-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-rotate-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-rotate-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-rotate .inner > li {
@@ -1747,7 +1747,7 @@ pre[class*="language-"] {
 
 .sc-autoplay .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -1822,7 +1822,7 @@ pre[class*="language-"] {
 }
 
 .sc-autoplay .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-autoplay-1:checked ~ .outer > .inner {
@@ -1832,22 +1832,22 @@ pre[class*="language-"] {
 
 #sc-autoplay-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-autoplay-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-autoplay-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-autoplay-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-autoplay #sc-autoplay-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -1958,13 +1958,13 @@ pre[class*="language-"] {
     left: 0%;
   }
   50% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   87.5% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   100% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   100% {
     left: 0;
@@ -1979,13 +1979,13 @@ pre[class*="language-"] {
     left: 0%;
   }
   50% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   87.5% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   100% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   100% {
     left: 0;
@@ -2000,13 +2000,13 @@ pre[class*="language-"] {
     left: 0%;
   }
   50% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   87.5% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   100% {
-    left: -66.66667%;
+    left: -66.6667%;
   }
   100% {
     left: 0;
@@ -2163,7 +2163,7 @@ pre[class*="language-"] {
 
 .sc-autoplay-js .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -2234,7 +2234,7 @@ pre[class*="language-"] {
 }
 
 .sc-autoplay-js .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-autoplay-js-1:checked ~ .outer > .inner {
@@ -2244,22 +2244,22 @@ pre[class*="language-"] {
 
 #sc-autoplay-js-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-autoplay-js-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-autoplay-js-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-autoplay-js-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-autoplay-js #sc-autoplay-js-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -2420,7 +2420,7 @@ pre[class*="language-"] {
 
 .sc-autoheight .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   margin: 0 -5px;
 }
 
@@ -2491,7 +2491,7 @@ pre[class*="language-"] {
 }
 
 .sc-autoheight .inner > li {
-  width: 33.33333%;
+  width: 33.3333%;
 }
 
 #sc-autoheight-1:checked ~ .outer > .inner {
@@ -2501,22 +2501,22 @@ pre[class*="language-"] {
 
 #sc-autoheight-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333%;
 }
 
 #sc-autoheight-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-autoheight-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 #sc-autoheight-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6667%;
 }
 
 .sc-autoheight #sc-autoheight-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -2679,7 +2679,7 @@ pre[class*="language-"] {
 
 .sc-vertical .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333s;
   height: 0;
   margin: 0;
   padding-bottom: 56.25%;

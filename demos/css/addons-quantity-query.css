@@ -369,7 +369,7 @@ pre[class*="language-"] {
 
 .info span {
   color: #ff49a6;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 .at-least .box:first-child:nth-last-child(n + 4),
