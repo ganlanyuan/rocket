@@ -146,6 +146,7 @@
   }
   
   // new row: clear float
+  .lt-ie10 & > #{$child}:nth-child(n) { clear: none; };
   @if $list-length > 0 {
     .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
   }
