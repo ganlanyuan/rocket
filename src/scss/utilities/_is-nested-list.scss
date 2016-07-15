@@ -1,6 +1,7 @@
 @function is-nested-list($list) {
   @if type-of($list) != 'list' {
     @warn '#{$list} is not a list';
+    @return false;
   } @else {
 
     $is-nested-list: false;

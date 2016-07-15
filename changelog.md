@@ -1,5 +1,10 @@
 # Changelog
 
+##### 3.4.6
+- Fixed: `is-nested-list`.
+- Fixed: `liquid-2`.
+- Fixed: `liquid-3`.
+
 ##### 3.4.5
 - Fixed: a `grid` parameter issue.
 - Fixed: a `grid` float issue on IE8-9.

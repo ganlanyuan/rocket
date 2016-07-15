@@ -95,6 +95,7 @@
 }
 
 @mixin make-holy-grail($columns, $order, $child, $gutter, $float) {
+  $gutter-ie8: if(unit($gutter) == % and $gutter != 0%, 0, $gutter);
   $child-list: ();
   $children-ie8: '';
   @if type-of($child) == 'string' {
@@ -133,12 +134,12 @@
           // float: left;
           // margin-right: -100%;
           width: 100%;
-          width: -webkit-calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
-          width: -moz-calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
-          width: calc(100% - #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
+          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+          width: calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter * 2});
 
           .lt-ie9 & {
-            padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2));
+            padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
             // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
             z-index: 0;
           }
@@ -149,7 +150,7 @@
           // float: right;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) (nth($new-columns, 3) +$gutter) $float -100%);
+            margin: get-TRBL(opposite($float) (nth($new-columns, 3) +$gutter-ie8) $float -100%);
             // margin-left: -100%;
             // margin-right: (nth($new-columns, 3) + $gutter);
           } @else {
@@ -189,15 +190,15 @@
 
           @if $i == 2 {
             width: 100%;
-            width: -webkit-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
-            width: -moz-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
-            width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 3) + $gutter * 2)});
-            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter));
+            width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+            width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+            width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
             // margin-right: -100%;
 
             .lt-ie9 & {
-              padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float (nth($new-columns, 1) + $gutter));
+              padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float (nth($new-columns, 1) + $gutter-ie8));
               // padding-left: #{(nth($new-columns, 1) + $gutter)};
               // padding-right: #{(nth($new-columns, 3) + $gutter)};
               margin: get-TRBL(opposite($float) -100%);
@@ -231,12 +232,12 @@
           // float: right;
           // margin-left: -100%;
           width: 100%;
-          width: -webkit-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
-          width: -moz-calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
-          width: calc(100% - #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
+          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
+          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
+          width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
           
           .lt-ie9 & {
-            padding: get-TRBL($float #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)});
+            padding: get-TRBL($float #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2)});
             // padding-left: #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)};
             z-index: 0;
           }
@@ -247,7 +248,7 @@
           // float: left;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) -100% $float #{(nth($new-columns, 1) + $gutter)});
+            margin: get-TRBL(opposite($float) -100% $float #{(nth($new-columns, 1) + $gutter-ie8)});
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
             // margin-right: -100%;
           } @else {
