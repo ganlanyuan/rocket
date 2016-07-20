@@ -13,6 +13,11 @@
 
   $keep: args-get($key, 'keep', false);
 
+  @if type-of($child) == 'list' {
+    @error 'Only one type of child element is acceptable. Now is (#{$child}).';
+  } @else if type-of($child) != 'string' {
+    @error 'Child should be a string. Now is "#{$child}".';
+  }
   // get map
   // (200px:1, null:0)
   @if length($maps) >= 1 {

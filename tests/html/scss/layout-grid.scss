@@ -1,0 +1,45 @@
+@import 'demo-base';
+
+@include bp('max' 1000) {
+  .row { 
+    margin-bottom: - map-get($ro-layout, 'gutter'); 
+    > div {
+      margin-bottom: map-get($ro-layout, 'gutter');
+    }
+  }
+}
+
+$grid-simple-list: 3 4;
+$grid-simple-list-child: (3 4) child ".child";
+$grid-simple-list-direction: 3 4;
+$grid-simple-list-gutter: (3 4) gutter 10px;
+$grid-nested-list: (3 4) 7;
+$grid-map: (3:0, 4:2, 7:1) 3;
+$grid-breakpoint-simple-list: (
+  600px: 5 7
+);
+$grid-breakpoint-nested-list: (
+  600px: (3 4) (2 5) 3
+);
+$grid-breakpoint-map: (
+  600px: (3:2, 4:1) (2 5) 3
+);
+$grid-breakpoint-default: (
+  'default': 3 4,
+  1000px: 2 7,
+);
+
+[id*='grid-'] {
+  margin-bottom: 50px;
+}
+
+#grid-simple-list { @include grid($grid-simple-list); }
+#grid-simple-list-child { @include grid($grid-simple-list-child); }
+#grid-simple-list-direction { @include grid($grid-simple-list-direction); }
+#grid-simple-list-gutter { @include grid($grid-simple-list-gutter); }
+#grid-nested-list { @include grid($grid-nested-list); }
+#grid-map { @include grid($grid-map); }
+#grid-breakpoint-simple-list { @include grid($grid-breakpoint-simple-list); }
+#grid-breakpoint-nested-list { @include grid($grid-breakpoint-nested-list); }
+#grid-breakpoint-map { @include grid($grid-breakpoint-map); }
+#grid-breakpoint-default { @include grid($grid-breakpoint-default); }

@@ -1,0 +1,19 @@
+@import 'demo-base';
+
+// *** addons: parallelogram *** //
+
+.example-parallelogram { 
+  text-align: center;
+  & li { display: inline-block; }
+  & a {
+    @include parallelogram(#1C6493 -20deg);
+    display: inline-block;
+    padding: 1em 1.5em;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    &:hover:before  {
+      background: darken(#32A8DE, 10%);
+    }
+  }
+}

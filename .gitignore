@@ -5,6 +5,8 @@
 *.sublime-workspace
 *.scssc
 *.swp
+*.jar
+chromedriver
 
 .sass-cache/
 /.codekit-cache/

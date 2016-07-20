@@ -1,0 +1,46 @@
+@import 'demo-base';
+
+// *** addons: breakpoint *** //
+
+.box { 
+  width: 300px;
+  height: 200px;
+  margin: 80px auto;
+  text-align: center;
+  background-color: #FF00FF;
+  &:before {
+    color: #fff;
+    font-size: 40px;
+    display: block;
+    padding: 20px;
+  }
+  @include bp('max' 600) {
+    &:before {
+      content: "< 600";
+    }
+  }
+  @include bp(600 800) {
+    &:before {
+      content: "600 - 800";
+    }
+  }
+  @include bp(800 1000) {
+    &:before {
+      content: "800 - 1000";
+    }
+  }
+  @include bp(1000 1200) {
+    &:before {
+      content: "1000 - 1200";
+    }
+  }
+  @include bp('min' 1200) {
+    &:before {
+      content: "> 1200";
+    }
+  }
+  @include bp(600 800 1000 1200) {
+    background-color: #0080FF;
+  }
+}
+

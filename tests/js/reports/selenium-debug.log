@@ -1,0 +1,30 @@
+16:08:50.104 INFO - Launching a standalone Selenium Server
+Setting system property webdriver.chrome.driver to ./tests/js/chromedriver
+16:08:50.138 INFO - Java: Oracle Corporation 25.102-b14
+16:08:50.138 INFO - OS: Mac OS X 10.11.5 x86_64
+16:08:50.148 INFO - v2.53.0, with Core v2.53.0. Built from revision 3da6b38
+16:08:50.212 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+16:08:50.212 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+16:08:50.213 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+16:08:50.213 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+16:08:50.214 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+16:08:50.215 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+16:08:50.265 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+16:08:50.265 INFO - Selenium Server is up and running
+16:08:50.514 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+16:08:50.523 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+16:08:53.109 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+16:08:53.126 INFO - Executing: [get: http://192.168.1.114:5757/tests/html/layout-grid.php])
+16:08:53.393 INFO - Done: [get: http://192.168.1.114:5757/tests/html/layout-grid.php]
+16:08:53.402 INFO - Executing: [find elements: By.cssSelector: body])
+16:08:53.461 INFO - Done: [find elements: By.cssSelector: body]
+16:08:53.465 INFO - Executing: [is displayed: 0 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: body]])
+16:08:53.475 INFO - Done: [is displayed: 0 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: body]]
+16:08:53.483 INFO - Executing: [find element: By.cssSelector: .main-heading])
+16:08:53.492 INFO - Done: [find element: By.cssSelector: .main-heading]
+16:08:53.495 INFO - Executing: [get text: 1 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: .main-heading]])
+16:08:53.509 INFO - Done: [get text: 1 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: .main-heading]]
+16:08:53.514 INFO - Executing: [delete session: e663bc97-3482-43f1-b0c4-3198d906d63d])
+16:08:53.596 INFO - Done: [delete session: e663bc97-3482-43f1-b0c4-3198d906d63d]

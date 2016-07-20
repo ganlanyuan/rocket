@@ -1,0 +1,47 @@
+@import 'demo-base';
+
+// *** addons: angled-edges *** //
+$bg1: #B9E2FF;
+$bg2: #FBDBF6;
+.example-angled-edges {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  .bottom,
+  .both,
+  .top,
+  .sibling {
+    padding: 50px;
+    h1,
+    p {
+      padding: 0;
+      color: #fff;
+    }
+    h1 { margin: 30px 0; }
+    p { 
+      max-width: none; 
+      font-size: 17px;
+    }
+  }
+  .sibling {
+    h1, p { color: #000; }
+  }
+  .bottom,
+  .both,
+  .top {
+    box-sizing: border-box;
+    background: #52ABFF url('../images/angled-edges/1.jpg') 0 0 no-repeat;
+    background-size: cover;
+  }
+  .bottom { @include angled-edges(bottom 5deg $bg1); }
+  .both { @include angled-edges(both 5deg flip $bg1 $bg2); 
+    background-image: url('../images/angled-edges/2.jpg');
+  }
+  .top { @include angled-edges(top -5deg $bg2); 
+    background-image: url('../images/angled-edges/3.jpg');
+  }
+  .sibling {
+    &-1 { background-color: $bg1; }
+    &-2 { background-color: $bg2; }
+  }
+}

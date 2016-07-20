@@ -1,0 +1,11 @@
+@import 'demo-base';
+
+// .wrapper { @include container(); }
+// .wrapper { @include container(900px); }
+// .wrapper { @include container(900px left); }
+// .wrapper { @include container(900px right); }
+// .wrapper { @include container(56.25em); }
+// .wrapper { @include container(80%); }
+// .wrapper { @include container(80% gutter 30px); }
+// .wrapper { @include container(56.25em gutter 20px); }
+.wrapper { @include container(900px gutter 30px); }
