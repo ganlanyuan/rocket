@@ -1,448 +1,292 @@
-/* # Functions ---------- */
-/* opposite [function] */
-[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return opposite direction.";
-}
-[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return opposite direction.";
-}
-[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return opposite direction.";
-}
-[data-module="Functions"] [data-test="opposite [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return opposite direction.";
-}
-
-/* # Functions ---------- */
-/* strip-unit [function] */
-[data-module="Functions"] [data-test="strip-unit [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return em length";
-}
-
-/* # trigonometric ---------- */
-/* sqrt [function] */
-[data-module="trigonometric"] [data-test="sqrt [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a square root of 9.";
-}
-[data-module="trigonometric"] [data-test="sqrt [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a square root of 0.";
-}
-[data-module="trigonometric"] [data-test="sqrt [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return false when value is negative.";
-}
-
-/* # Functions ---------- */
-/* to-length [function] */
-[data-module="Functions"] [data-test="to-length [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return length";
-}
-[data-module="Functions"] [data-test="to-length [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return length";
-}
-
-/* # Functions ---------- */
-/* to-number [function] */
-[data-module="Functions"] [data-test="to-number [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return number";
-}
-[data-module="Functions"] [data-test="to-number [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return number";
-}
-
-/* # Functions ---------- */
-/* to-string [function] */
-[data-module="Functions"] [data-test="to-string [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a string";
-}
-[data-module="Functions"] [data-test="to-string [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a string";
-}
-[data-module="Functions"] [data-test="to-string [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a string";
-}
-[data-module="Functions"] [data-test="to-string [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a string";
-}
-
-/* # Functions ---------- */
-/* pxto [function] */
-[data-module="Functions"] [data-test="pxto [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return em length";
-}
-[data-module="Functions"] [data-test="pxto [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return rem length";
-}
-
-/* # Functions ---------- */
-/* em [function] */
-[data-module="Functions"] [data-test="em [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return em length";
-}
-
-/* # Functions ---------- */
-/* rem [function] */
-[data-module="Functions"] [data-test="rem [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return rem length";
-}
-
-/* # String ---------- */
-/* string-slice-from [function] */
-[data-module="String"] [data-test="string-slice-from [function]"] .assert-equal {
-  -result: PASS;
-  -description: 'get string slice after "-".';
-}
-[data-module="String"] [data-test="string-slice-from [function]"] .assert-equal {
-  -result: PASS;
-  -description: 'get string slice before ".".';
-}
-
-/* # Functions ---------- */
-/* list-remove-duplicates [function] */
-[data-module="Functions"] [data-test="list-remove-duplicates [function]"] .assert-equal {
-  -result: PASS;
-  -description: "remove duplicate list items.";
-}
-
-/* # Functions ---------- */
-/* list-increase [function] */
-[data-module="Functions"] [data-test="list-increase [function]"] .assert-equal {
-  -result: PASS;
-  -description: "reorder number list: increase";
-}
-
-/* # Functions ---------- */
-/* list-decrease [function] */
-[data-module="Functions"] [data-test="list-decrease [function]"] .assert-equal {
-  -result: PASS;
-  -description: "reorder number list: decrease";
-}
-
-/* # List ---------- */
-/* is-nested-list [function] */
-[data-module="List"] [data-test="is-nested-list [function]"] .assert-false {
-  -result: PASS;
-  -description: "This is a simple list.";
-}
-[data-module="List"] [data-test="is-nested-list [function]"] .assert-true {
-  -result: PASS;
-  -description: "This list contains nested list.";
-}
-[data-module="List"] [data-test="is-nested-list [function]"] .assert-true {
-  -result: PASS;
-  -description: "This list contains map.";
-}
-
-/* # List ---------- */
-/* is-number-list [function] */
-[data-module="List"] [data-test="is-number-list [function]"] .assert-true {
-  -result: PASS;
-  -description: "This is a number list.";
-}
-[data-module="List"] [data-test="is-number-list [function]"] .assert-true {
-  -result: PASS;
-  -description: "This list is a number list.";
-}
-[data-module="List"] [data-test="is-number-list [function]"] .assert-false {
-  -result: PASS;
-  -description: "This list contains map.";
-}
-[data-module="List"] [data-test="is-number-list [function]"] .assert-false {
-  -result: PASS;
-  -description: "This list contains string.";
-}
-
-/* # Functions ---------- */
-/* map-update-breakpoints [function] */
-[data-module="Functions"] [data-test="map-update-breakpoints [function]"] .assert-equal {
-  -result: PASS;
-  -description: "update map";
-}
-
-/* # map ---------- */
-/* is-simple-map [function] */
-[data-module="map"] [data-test="is-simple-map [function]"] .assert-true {
-  -result: PASS;
-  -description: "This is a simple map.";
-}
-[data-module="map"] [data-test="is-simple-map [function]"] .assert-false {
-  -result: PASS;
-  -description: "This map containes lists.";
-}
-[data-module="map"] [data-test="is-simple-map [function]"] .assert-false {
-  -result: PASS;
-  -description: "This map contains nested map.";
-}
-
-/* # Arguments ---------- */
-/* args-get [function] */
-[data-module="Arguments"] [data-test="args-get [function]"] .assert-true {
-  -result: PASS;
-  -description: "get a value from arguments.";
-}
-[data-module="Arguments"] [data-test="args-get [function]"] .assert-false {
-  -result: PASS;
-  -description: "get a value from arguments.";
-}
-[data-module="Arguments"] [data-test="args-get [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a value from arguments.";
-}
-
-/* # Arguments ---------- */
-/* args-get-type [function] */
-[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a map.";
-}
-[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a color.";
-}
-[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a color.";
-}
-[data-module="Arguments"] [data-test="args-get-type [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a string.";
-}
-
-/* # Arguments ---------- */
-/* args-get-prev [function] */
-[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
-  -result: PASS;
-  -description: 'get prev item of "by".';
-}
-[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
-  -result: PASS;
-  -description: "\"child\" doesn't exists.";
-}
-[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
-  -result: PASS;
-  -description: '"map" is the first item in "$args4".';
-}
-[data-module="Arguments"] [data-test="args-get-prev [function]"] .assert-equal {
-  -result: PASS;
-  -description: "argment is not a list.";
-}
-
-/* # Arguments ---------- */
-/* args-get-next [function] */
-[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a map.";
-}
-[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a gutter.";
-}
-[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
-  -result: PASS;
-  -description: "\"child\" doesn't exists.";
-}
-[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
-  -result: PASS;
-  -description: 'Nothing after "gutter".';
-}
-[data-module="Arguments"] [data-test="args-get-next [function]"] .assert-equal {
-  -result: PASS;
-  -description: "argment is not a list.";
-}
-
-/* # Arguments ---------- */
-/* args-get-maps [function] */
-[data-module="Arguments"] [data-test="args-get-maps [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get a map.";
-}
-[data-module="Arguments"] [data-test="args-get-maps [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get the second map.";
-}
-[data-module="Arguments"] [data-test="args-get-maps [function]"] .assert-equal {
-  -result: PASS;
-  -description: "map doesn't found.";
-}
-
-/* # List ---------- */
-/* get-slider-id [function] */
-[data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get the last class.";
-}
-[data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get the last id.";
-}
-[data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
-  -result: PASS;
-  -description: "get the entire selector when there is no class or id.";
-}
-
-/* # trigonometric ---------- */
-/* get-TRBL [function] */
-[data-module="trigonometric"] [data-test="get-TRBL [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a TRBL value.";
-}
-[data-module="trigonometric"] [data-test="get-TRBL [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a TRBL value.";
-}
-
-/* # Colors ---------- */
-/* contrast [function] */
-[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the contrast color";
-}
-[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the contrast color";
-}
-[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the contrast color";
-}
-[data-module="Colors"] [data-test="contrast [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the contrast color";
-}
-
-/* # Colors ---------- */
-/* analogous [function] */
-[data-module="Colors"] [data-test="analogous [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the analogous color";
-}
-[data-module="Colors"] [data-test="analogous [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the analogous color";
-}
-
-/* # Colors ---------- */
-/* adjacent [function] */
-[data-module="Colors"] [data-test="adjacent [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the adjacent color";
-}
-[data-module="Colors"] [data-test="adjacent [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the adjacent color";
-}
-
-/* # Colors ---------- */
-/* complementary [function] */
-[data-module="Colors"] [data-test="complementary [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the complementary color";
-}
-
-/* # Colors ---------- */
-/* split-complementary [function] */
-[data-module="Colors"] [data-test="split-complementary [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the split-complementary color";
-}
-[data-module="Colors"] [data-test="split-complementary [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the split-complementary color";
-}
-
-/* # Colors ---------- */
-/* triad [function] */
-[data-module="Colors"] [data-test="triad [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the triad color";
-}
-[data-module="Colors"] [data-test="triad [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the triad color";
-}
-
-/* # Colors ---------- */
-/* rectangle [function] */
-[data-module="Colors"] [data-test="rectangle [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the rectangle color";
-}
-[data-module="Colors"] [data-test="rectangle [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the rectangle color";
-}
-[data-module="Colors"] [data-test="rectangle [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the rectangle color";
-}
-
-/* # Colors ---------- */
-/* square [function] */
-[data-module="Colors"] [data-test="square [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the square color";
-}
-[data-module="Colors"] [data-test="square [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the square color";
-}
-[data-module="Colors"] [data-test="square [function]"] .assert-equal {
-  -result: PASS;
-  -description: "Returns the square color";
-}
-
-/* # Functions ---------- */
-/* grid-get-columns [function] */
-[data-module="Functions"] [data-test="grid-get-columns [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a number";
-}
-[data-module="Functions"] [data-test="grid-get-columns [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a list";
-}
-[data-module="Functions"] [data-test="grid-get-columns [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a list";
-}
-
-/* grid-get-orders [function] */
-[data-module="Functions"] [data-test="grid-get-orders [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a list";
-}
-[data-module="Functions"] [data-test="grid-get-orders [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a list";
-}
-[data-module="Functions"] [data-test="grid-get-orders [function]"] .assert-equal {
-  -result: PASS;
-  -description: "return a list";
-}
-
+@charset "UTF-8";
+/* # Module: Functions */
+/* ------------------- */
+/* Test: opposite [function] */
+/*   ✔ return opposite direction. */
+/*   ✔ return opposite direction. */
+/*   ✔ return opposite direction. */
+/*   ✔ return opposite direction. */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: strip-unit [function] */
+/*   ✔ return em length */
+/*  */
+/*  */
+/* # Module: trigonometric */
+/* ----------------------- */
+/* Test: sqrt [function] */
+/*   ✔ return a square root of 9. */
+/*   ✔ return a square root of 0. */
+/*   ✔ return false when value is negative. */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: to-length [function] */
+/*   ✔ return length */
+/*   ✔ return length */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: to-number [function] */
+/*   ✔ return number */
+/*   ✔ return number */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: to-string [function] */
+/*   ✔ return a string */
+/*   ✔ return a string */
+/*   ✔ return a string */
+/*   ✔ return a string */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: pxto [function] */
+/*   ✔ return em length */
+/*   ✔ return rem length */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: em [function] */
+/*   ✔ return em length */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: rem [function] */
+/*   ✔ return rem length */
+/*  */
+/*  */
+/* # Module: String */
+/* ---------------- */
+/* Test: string-slice-from [function] */
+/*   ✔ get string slice after "-". */
+/*   ✔ get string slice before ".". */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: list-remove-duplicates [function] */
+/*   ✔ remove duplicate list items. */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: list-increase [function] */
+/*   ✔ reorder number list: increase */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: list-decrease [function] */
+/*   ✔ reorder number list: decrease */
+/*  */
+/*  */
+/* # Module: List */
+/* -------------- */
+/* Test: is-nested-list [function] */
+/*   ✔ This is a simple list. */
+/*   ✔ This list contains nested list. */
+/*   ✔ This list contains map. */
+/*  */
+/*  */
+/* # Module: List */
+/* -------------- */
+/* Test: is-number-list [function] */
+/*   ✔ This is a number list. */
+/*   ✔ This list is a number list. */
+/*   ✔ This list contains map. */
+/*   ✔ This list contains string. */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: map-update-breakpoints [function] */
+/*   ✔ update map */
+/*  */
+/*  */
+/* # Module: map */
+/* ------------- */
+/* Test: is-simple-map [function] */
+/*   ✔ This is a simple map. */
+/*   ✔ This map containes lists. */
+/*   ✔ This map contains nested map. */
+/*  */
+/*  */
+/* # Module: Arguments */
+/* ------------------- */
+/* Test: args-get [function] */
+/*   ✔ get a value from arguments. */
+/*   ✔ get a value from arguments. */
+/*   ✔ get a value from arguments. */
+/*  */
+/*  */
+/* # Module: Arguments */
+/* ------------------- */
+/* Test: args-get-type [function] */
+/*   ✔ get a map. */
+/*   ✔ get a color. */
+/*   ✔ get a color. */
+/*   ✔ get a string. */
+/*  */
+/*  */
+/* # Module: Arguments */
+/* ------------------- */
+/* Test: args-get-prev [function] */
+/*   ✔ get prev item of "by". */
+/*   ✔ "child" doesn't exists. */
+/*   ✔ "map" is the first item in "$args4". */
+/*   ✔ argment is not a list. */
+/*  */
+/*  */
+/* # Module: Arguments */
+/* ------------------- */
+/* Test: args-get-next [function] */
+/*   ✔ get a map. */
+/*   ✔ get a gutter. */
+/*   ✔ "child" doesn't exists. */
+/*   ✔ Nothing after "gutter". */
+/*   ✔ argment is not a list. */
+/*  */
+/*  */
+/* # Module: Arguments */
+/* ------------------- */
+/* Test: args-get-maps [function] */
+/*   ✔ get a map. */
+/*   ✔ get the second map. */
+/*   ✔ map doesn't found. */
+/*  */
+/*  */
+/* # Module: List */
+/* -------------- */
+/* Test: get-slider-id [function] */
+/*   ✔ get the last class. */
+/*   ✔ get the last id. */
+/*   ✖ FAILED [assert-equal]: get the entire selector when there is no class or id. */
+/*     - Output [string]: header" ">" "article */
+/*     - Expected [string]: header > article */
+/*  */
+/*  */
+/* # Module: trigonometric */
+/* ----------------------- */
+/* Test: get-TRBL [function] */
+/*   ✔ return a TRBL value. */
+/*   ✔ return a TRBL value. */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: contrast [function] */
+/*   ✔ Returns the contrast color */
+/*   ✔ Returns the contrast color */
+/*   ✔ Returns the contrast color */
+/*   ✔ Returns the contrast color */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: analogous [function] */
+/*   ✖ FAILED [assert-equal]: Returns the analogous color */
+/*     - Output [color]: #6f8db8 */
+/*     - Expected [color]: #6f8db8 */
+/*   ✖ FAILED [assert-equal]: Returns the analogous color */
+/*     - Output [color]: #8df3d5 */
+/*     - Expected [color]: #8df3d5 */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: adjacent [function] */
+/*   ✖ FAILED [assert-equal]: Returns the adjacent color */
+/*     - Output [color]: #d9268b */
+/*     - Expected [color]: #d9268b */
+/*   ✖ FAILED [assert-equal]: Returns the adjacent color */
+/*     - Output [color]: #d97726 */
+/*     - Expected [color]: #d97726 */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: complementary [function] */
+/*   ✖ FAILED [assert-equal]: Returns the complementary color */
+/*     - Output [color]: #26d926 */
+/*     - Expected [color]: #26d926 */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: split-complementary [function] */
+/*   ✖ FAILED [assert-equal]: Returns the split-complementary color */
+/*     - Output [color]: #9dd926 */
+/*     - Expected [color]: #9dd926 */
+/*   ✖ FAILED [assert-equal]: Returns the split-complementary color */
+/*     - Output [color]: #26d9d9 */
+/*     - Expected [color]: #26d9d9 */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: triad [function] */
+/*   ✖ FAILED [assert-equal]: Returns the triad color */
+/*     - Output [color]: #e6e619 */
+/*     - Expected [color]: #e6e619 */
+/*   ✖ FAILED [assert-equal]: Returns the triad color */
+/*     - Output [color]: #265cd9 */
+/*     - Expected [color]: #265cd9 */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: rectangle [function] */
+/*   ✖ FAILED [assert-equal]: Returns the rectangle color */
+/*     - Output [color]: #d97726 */
+/*     - Expected [color]: #d97726 */
+/*   ✖ FAILED [assert-equal]: Returns the rectangle color */
+/*     - Output [color]: #26d926 */
+/*     - Expected [color]: #26d926 */
+/*   ✖ FAILED [assert-equal]: Returns the rectangle color */
+/*     - Output [color]: #26d9d9 */
+/*     - Expected [color]: #26d9d9 */
+/*  */
+/*  */
+/* # Module: Colors */
+/* ---------------- */
+/* Test: square [function] */
+/*   ✖ FAILED [assert-equal]: Returns the square color */
+/*     - Output [color]: #d9bb26 */
+/*     - Expected [color]: #d9bb26 */
+/*   ✖ FAILED [assert-equal]: Returns the square color */
+/*     - Output [color]: #26d926 */
+/*     - Expected [color]: #26d926 */
+/*   ✖ FAILED [assert-equal]: Returns the square color */
+/*     - Output [color]: #5026d9 */
+/*     - Expected [color]: #5026d9 */
+/*  */
+/*  */
+/* # Module: Functions */
+/* ------------------- */
+/* Test: grid-get-columns [function] */
+/*   ✔ return a number */
+/*   ✔ return a list */
+/*   ✔ return a list */
+/*  */
+/* Test: grid-get-orders [function] */
+/*   ✔ return a list */
+/*   ✔ return a list */
+/*   ✔ return a list */
+/*  */
+/*  */
 /* # SUMMARY ---------- */
 /* 34 Tests: */
-/*  - 34 Passed */
-/*  - 0 Failed */
+/*  - 26 Passed */
+/*  - 8 Failed */
 /* -------------------- */
 
 /*# sourceMappingURL=tests.css.map */

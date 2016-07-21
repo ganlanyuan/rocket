@@ -5,7 +5,7 @@
 <!doctype html>
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js lt-ie" lang="en"><!--<![endif]-->
 <head>
 	<!-- Change this to match your local server hostname and path -->
 

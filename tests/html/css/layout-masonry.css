@@ -290,8 +290,8 @@ h5 {
   justify-content: space-between;
 }
 
-.masonry-cluster-h > div {
-  width: 100%;
+.lt-ie10 .masonry-cluster-h {
+  margin-right: -20px;
 }
 
 .lt-ie10 .masonry-cluster-h:after {
@@ -302,6 +302,7 @@ h5 {
 
 .lt-ie10 .masonry-cluster-h > div {
   float: left;
+  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -362,8 +363,8 @@ h5 {
   justify-content: space-between;
 }
 
-.masonry-cluster-h-2 > div {
-  width: 100%;
+.lt-ie10 .masonry-cluster-h-2 {
+  margin-right: -20px;
 }
 
 .lt-ie10 .masonry-cluster-h-2:after {
@@ -374,6 +375,7 @@ h5 {
 
 .lt-ie10 .masonry-cluster-h-2 > div {
   float: left;
+  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;

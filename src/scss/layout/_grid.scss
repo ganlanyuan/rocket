@@ -1,7 +1,5 @@
 @mixin grid($key:false){
-  $maps: args-get-maps($key);
   $map: false;
-  // $map: args-get-next($key, 'grid');
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
@@ -20,25 +18,21 @@
   }
 
   // get map
-  // (200px:1, null:0)
-  @if length($maps) >= 1 {
-    $map: nth($maps, 1);
-  }
-  @if length($maps) >= 2 {
-    $global-bps: nth($maps, 2);
-  }
-
-  // if no map, use list
-  // (200px null)
-
-  // get grid
-  @if length($maps) == 0 and type-of($key) == 'list' {
-
-    @if is-number-list($key) {
+  @if type-of($key) == map {
+    $map: $key;
+  } @else if type-of($key) == 'list' {
+    @if is-number-map-list($key) {
       $map: $key;
     } @else {
       @each $item in $key {
-        @if not $map and type-of($item) == 'list' and is-number-list($item) {
+        @if type-of($item) == 'map' {
+          @if not $map {
+            $map: $item;
+          } @else {
+            $global-bps: $item;
+          }
+        } @else if not $map and
+            type-of($item) == 'list' and is-number-map-list($item) {
           $map: $item;
         }
       }
@@ -48,7 +42,7 @@
   // *** output *** //
   // basis
   @if not $keep {
-    // flexbox
+    // use flexbox
     @include ro-flexbox; 
     @include ro-flex-wrap(wrap);
     @include ro-justify-content(space-between);
@@ -58,32 +52,27 @@
 
     // gutter: 2%
     @if unit($gutter) == % or $gutter == 0 {
-      > #{$child} {
-        // width: 100%;
-        // margin-#{opposite($float)}: $gutter;
-      }
       
+      // use float
       .lt-ie10 & {
         @include clearfix();
         > #{$child} {
           float: $float;
+          width: 100%;
           margin-#{opposite($float)}: $gutter;
         }
       }
 
     // gutter: 20px | 1em | 1rem
     } @else {
-      // margin-#{opposite($float)}: - $gutter;
-      > #{$child} {
-        width: 100%;
-        // margin-#{opposite($float)}: $gutter;
-      }
-      
+
+      // use float
       .lt-ie10 & {
         @include clearfix();
-        // margin-#{opposite($float)}: 0; // remove minus margin
+        margin-#{opposite($float)}: - $gutter;
         > #{$child} {
           float: $float;
+          width: 100%;
           margin-#{opposite($float)}: -100%;
           padding-#{opposite($float)}: $gutter;
           box-sizing: border-box;
@@ -170,7 +159,7 @@
   @each $item in $cols {
     $full-col: ($full-col + $item);
   }
-  
+
   // new row: clear float
   .lt-ie10 & > #{$child}:nth-child(n) { clear: none; };
   @if $list-length > 0 {
@@ -189,8 +178,11 @@
       $location: $i;
     }
 
-    > #{$child}:nth-child(#{$i + $list-length}) {
+    @if unit($gutter) == % or $gutter == 0 {
+      .lt-ie10 & > #{$child}:nth-child(n) { margin-right: $gutter; }
+    }
 
+    > #{$child}:nth-child(#{$i + $list-length}) {
       // gutter: 2%
       @if unit($gutter) == % or $gutter == 0 {
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
@@ -200,6 +192,10 @@
           @include ro-order((nth($orders, $i) + $max-order)); 
         } @else if $has-orders {
           @extend %same-order;
+        }
+
+        @if $i == length($cols) {
+          .lt-ie10 & { margin-right: 0; }
         }
 
       // gutter: 20px | 1em | 1rem

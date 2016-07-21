@@ -259,8 +259,8 @@ h5 {
   margin: 0 auto;
 }
 
-.sticky-grid > div {
-  width: 100%;
+.lt-ie10 .sticky-grid {
+  margin-right: -20px;
 }
 
 .lt-ie10 .sticky-grid:after {
@@ -271,6 +271,7 @@ h5 {
 
 .lt-ie10 .sticky-grid > div {
   float: left;
+  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -319,8 +320,8 @@ h5 {
   justify-content: space-between;
 }
 
-.inner-1 > div {
-  width: 100%;
+.lt-ie10 .inner-1 {
+  margin-right: -20px;
 }
 
 .lt-ie10 .inner-1:after {
@@ -331,6 +332,7 @@ h5 {
 
 .lt-ie10 .inner-1 > div {
   float: left;
+  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -379,8 +381,8 @@ h5 {
   justify-content: space-between;
 }
 
-.inner-2 > div {
-  width: 100%;
+.lt-ie10 .inner-2 {
+  margin-right: -20px;
 }
 
 .lt-ie10 .inner-2:after {
@@ -391,6 +393,7 @@ h5 {
 
 .lt-ie10 .inner-2 > div {
   float: left;
+  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;

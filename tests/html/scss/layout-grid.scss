@@ -16,7 +16,7 @@ $grid-simple-list-child: (3 4) child ".child";
 $grid-simple-list-direction: 3 4;
 $grid-simple-list-gutter: (3 4) gutter 5%;
 $grid-nested-list: (3 4) 7;
-$grid-map: (3:0, 4:2, 7:1) 3;
+$grid-map: ((3:0, 4:2, 7:1) 3);
 $grid-breakpoint-simple-list: (
   600px: 5 7
 );
