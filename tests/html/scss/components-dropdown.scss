@@ -1,6 +1,6 @@
 @import 'demo-base';
-
-// *** addons: dropdown *** //
+@import "../../../src/scss/addons/opacity";
+@import "../../../src/scss/components/dropdown"; 
 
 .example { 
   margin: 50px 0 200px;

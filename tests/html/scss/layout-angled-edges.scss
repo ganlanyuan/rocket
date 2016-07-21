@@ -1,6 +1,7 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/angled-edges"; 
 
-// *** addons: angled-edges *** //
 $bg1: #B9E2FF;
 $bg2: #FBDBF6;
 .example-angled-edges {

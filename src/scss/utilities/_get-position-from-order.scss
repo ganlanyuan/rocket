@@ -1,0 +1,14 @@
+@function get-position-from-order($order) {
+  $nums: list-increase(list-remove-duplicates($order)); // reordered values
+  $positions: ();
+
+  @each $num in $nums {
+    @for $i from 1 through length($order) {
+      @if nth($order, $i) == $num {
+        $positions: append($positions, $i);
+      }
+    }
+  }
+
+  @return $positions;
+}

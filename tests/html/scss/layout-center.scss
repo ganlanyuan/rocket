@@ -1,6 +1,6 @@
 @import 'demo-base';
-
-// *** layout: center *** //
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/center"; 
 
 .example-center { 
   @include center(div left);

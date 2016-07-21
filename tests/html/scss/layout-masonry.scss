@@ -1,5 +1,7 @@
 @import 'demo-base';
-// *** layout: masonry *** //
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/grid"; 
+@import "../../../src/scss/layout/masonry"; 
 
 $masonry: (
   'default': 1,

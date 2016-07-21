@@ -1,4 +1,5 @@
 @import 'demo-base';
+@import "../../../src/scss/layout/sticky-footer"; 
 
 .body {
   header, 
@@ -29,7 +30,7 @@
 }
 .container-inner {
   max-width: 900px;
-  @include bp(min 960) {
+  @media (min-width: 60em) {
     margin: 0 auto;
   }
 }

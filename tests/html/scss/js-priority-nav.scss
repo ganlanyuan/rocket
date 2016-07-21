@@ -1,6 +1,5 @@
 @import 'demo-base';
-
-// *** addons: priority-nav *** //
+@import "../../../src/scss/components/priority-nav"; 
 
 .nav {
   @include priority-nav();

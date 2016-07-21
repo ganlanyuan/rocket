@@ -1,4 +1,6 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/metro"; 
 
 // *** layout: metro *** //
 li { transition: width 0.3s, padding 0.3s; }

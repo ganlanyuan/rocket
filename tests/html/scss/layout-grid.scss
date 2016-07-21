@@ -1,4 +1,6 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/grid"; 
 
 @include bp('max' 1000) {
   .row { 
@@ -12,7 +14,7 @@
 $grid-simple-list: 3 4;
 $grid-simple-list-child: (3 4) child ".child";
 $grid-simple-list-direction: 3 4;
-$grid-simple-list-gutter: (3 4) gutter 10px;
+$grid-simple-list-gutter: (3 4) gutter 5%;
 $grid-nested-list: (3 4) 7;
 $grid-map: (3:0, 4:2, 7:1) 3;
 $grid-breakpoint-simple-list: (

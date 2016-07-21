@@ -1,6 +1,5 @@
 @import 'demo-base';
-
-// *** addons: breakpoint *** //
+@import "../../../src/scss/addons/breakpoint"; 
 
 .box { 
   width: 300px;

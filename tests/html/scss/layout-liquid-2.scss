@@ -1,4 +1,6 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/liquid-2"; 
 
 $list: (null 200px);
 $map1: (null:1, 200px:0);

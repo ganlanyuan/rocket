@@ -1,10 +1,6 @@
-// *** demo base *** //
-@charset "UTF-8";
-
-@import "../../../src/scss/rocket"; 
-
-$active: #FFBE39;
-$original: #d92626;
+@import "../../../src/scss/setting/setting";
+@import "../../../src/scss/utilities/utilities";
+@import "../../../src/scss/vendors/vendors";
 
 /* Android 2.3 :checked fix */
 @keyframes fake {
@@ -18,10 +14,7 @@ dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p { margin: 0; }
 dl,ul,ol { padding: 0; }
 ol,ul { list-style:none; }
 body { overflow-x: hidden; }
-[class^="icon-"]::before, 
-[class*=" icon-"]::before,
-[class^="icon-"]:before, 
-[class*=" icon-"]:before { display: none; } // reset chrome icon-font
+[class^="icon-"]::before, [class*=" icon-"]::before, [class^="icon-"]:before, [class*=" icon-"]:before { display: none; } // reset chrome icon-font
 label { cursor: pointer; }
 img { max-width: 100%; height: auto; }
 img.full { width: 100%; display: block; }
@@ -63,12 +56,6 @@ h5 {
   margin: 3em 0 1em; 
 }
 p {
-  code { 
-    padding: .2em .5em;
-    margin: 0 .3em 0 0; 
-    background-color: #F5F2F0;
-    border-radius: 2px;
-  }
   .topic & {
     font-size: 14px;
     line-height: 1.6;
@@ -77,7 +64,6 @@ p {
     color: #7d7d7d;
   }
 }
-pre { clear: both; }
 .container {
   max-width: 1400px;
   margin: 0 auto; 
@@ -137,7 +123,7 @@ pre { clear: both; }
   img { max-width: 100%; }
 }
 .color-box-original { 
-  background-color: $original; 
+  background-color: #d92626; 
   color: #fff;
 }
 

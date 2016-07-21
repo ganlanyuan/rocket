@@ -28,10 +28,7 @@ body {
   overflow-x: hidden;
 }
 
-[class^="icon-"]::before,
-[class*=" icon-"]::before,
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
+[class^="icon-"]::before, [class*=" icon-"]::before, [class^="icon-"]:before, [class*=" icon-"]:before {
   display: none;
 }
 
@@ -117,23 +114,12 @@ h5 {
   margin: 3em 0 1em;
 }
 
-p code {
-  padding: .2em .5em;
-  margin: 0 .3em 0 0;
-  background-color: #F5F2F0;
-  border-radius: 2px;
-}
-
 .topic p {
   font-size: 14px;
   line-height: 1.6;
   margin: 1.8em auto;
   max-width: 50em;
   color: #7d7d7d;
-}
-
-pre {
-  clear: both;
 }
 
 .container {
@@ -277,16 +263,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-simple-list > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-simple-list {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-simple-list:after {
@@ -308,8 +293,8 @@ pre {
 
 #grid-simple-list > div:nth-child(1) {
   width: 42.8571%;
-  width: -webkit-calc(42.8571% - 20px);
-  width: calc(42.8571% - 20px);
+  width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+  width: calc((100% + 20px) * 3 / 7 - 20px);
 }
 
 .lt-ie10 #grid-simple-list > div:nth-child(1) {
@@ -319,8 +304,8 @@ pre {
 
 #grid-simple-list > div:nth-child(2) {
   width: 57.1429%;
-  width: -webkit-calc(57.1429% - 20px);
-  width: calc(57.1429% - 20px);
+  width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+  width: calc((100% + 20px) * 4 / 7 - 20px);
 }
 
 .lt-ie10 #grid-simple-list > div:nth-child(2) {
@@ -338,16 +323,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-simple-list-child > .child {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-simple-list-child {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-simple-list-child:after {
@@ -369,8 +353,8 @@ pre {
 
 #grid-simple-list-child > .child:nth-child(1) {
   width: 42.8571%;
-  width: -webkit-calc(42.8571% - 20px);
-  width: calc(42.8571% - 20px);
+  width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+  width: calc((100% + 20px) * 3 / 7 - 20px);
 }
 
 .lt-ie10 #grid-simple-list-child > .child:nth-child(1) {
@@ -380,8 +364,8 @@ pre {
 
 #grid-simple-list-child > .child:nth-child(2) {
   width: 57.1429%;
-  width: -webkit-calc(57.1429% - 20px);
-  width: calc(57.1429% - 20px);
+  width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+  width: calc((100% + 20px) * 4 / 7 - 20px);
 }
 
 .lt-ie10 #grid-simple-list-child > .child:nth-child(2) {
@@ -399,16 +383,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-simple-list-direction > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-simple-list-direction {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-simple-list-direction:after {
@@ -430,8 +413,8 @@ pre {
 
 #grid-simple-list-direction > div:nth-child(1) {
   width: 42.8571%;
-  width: -webkit-calc(42.8571% - 20px);
-  width: calc(42.8571% - 20px);
+  width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+  width: calc((100% + 20px) * 3 / 7 - 20px);
 }
 
 .lt-ie10 #grid-simple-list-direction > div:nth-child(1) {
@@ -441,8 +424,8 @@ pre {
 
 #grid-simple-list-direction > div:nth-child(2) {
   width: 57.1429%;
-  width: -webkit-calc(57.1429% - 20px);
-  width: calc(57.1429% - 20px);
+  width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+  width: calc((100% + 20px) * 4 / 7 - 20px);
 }
 
 .lt-ie10 #grid-simple-list-direction > div:nth-child(2) {
@@ -460,16 +443,11 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -10px;
-}
-
-#grid-simple-list-gutter > div {
-  width: 100%;
-  margin-right: 10px;
-}
-
-.lt-ie10 #grid-simple-list-gutter {
-  margin-right: 0;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 .lt-ie10 #grid-simple-list-gutter:after {
@@ -480,9 +458,7 @@ pre {
 
 .lt-ie10 #grid-simple-list-gutter > div {
   float: left;
-  margin-right: -100%;
-  padding-right: 10px;
-  box-sizing: border-box;
+  margin-right: 5%;
 }
 
 .lt-ie10 #grid-simple-list-gutter > div:nth-child(n) {
@@ -490,25 +466,11 @@ pre {
 }
 
 #grid-simple-list-gutter > div:nth-child(1) {
-  width: 42.8571%;
-  width: -webkit-calc(42.8571% - 10px);
-  width: calc(42.8571% - 10px);
-}
-
-.lt-ie10 #grid-simple-list-gutter > div:nth-child(1) {
-  width: 42.8571%;
-  margin-left: 0;
+  width: 40%;
 }
 
 #grid-simple-list-gutter > div:nth-child(2) {
-  width: 57.1429%;
-  width: -webkit-calc(57.1429% - 10px);
-  width: calc(57.1429% - 10px);
-}
-
-.lt-ie10 #grid-simple-list-gutter > div:nth-child(2) {
-  width: 57.1429%;
-  margin-left: 42.8571%;
+  width: 55%;
 }
 
 #grid-nested-list {
@@ -521,16 +483,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-nested-list > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-nested-list {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-nested-list:after {
@@ -552,8 +513,8 @@ pre {
 
 #grid-nested-list > div:nth-child(1) {
   width: 42.8571%;
-  width: -webkit-calc(42.8571% - 20px);
-  width: calc(42.8571% - 20px);
+  width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+  width: calc((100% + 20px) * 3 / 7 - 20px);
 }
 
 .lt-ie10 #grid-nested-list > div:nth-child(1) {
@@ -563,8 +524,8 @@ pre {
 
 #grid-nested-list > div:nth-child(2) {
   width: 57.1429%;
-  width: -webkit-calc(57.1429% - 20px);
-  width: calc(57.1429% - 20px);
+  width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+  width: calc((100% + 20px) * 4 / 7 - 20px);
 }
 
 .lt-ie10 #grid-nested-list > div:nth-child(2) {
@@ -582,8 +543,8 @@ pre {
 
 #grid-nested-list > div:nth-child(3) {
   width: 100%;
-  width: -webkit-calc(100% - 20px);
-  width: calc(100% - 20px);
+  width: -webkit-calc((100% + 20px) * 7 / 7 - 20px);
+  width: calc((100% + 20px) * 7 / 7 - 20px);
 }
 
 .lt-ie10 #grid-nested-list > div:nth-child(3) {
@@ -609,16 +570,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-map > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-map {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-map:after {
@@ -640,8 +600,8 @@ pre {
 
 #grid-map > div:nth-child(1) {
   width: 21.4286%;
-  width: -webkit-calc(21.4286% - 20px);
-  width: calc(21.4286% - 20px);
+  width: -webkit-calc((100% + 20px) * 3 / 14 - 20px);
+  width: calc((100% + 20px) * 3 / 14 - 20px);
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -moz-order: 1;
@@ -656,8 +616,8 @@ pre {
 
 #grid-map > div:nth-child(2) {
   width: 28.5714%;
-  width: -webkit-calc(28.5714% - 20px);
-  width: calc(28.5714% - 20px);
+  width: -webkit-calc((100% + 20px) * 4 / 14 - 20px);
+  width: calc((100% + 20px) * 4 / 14 - 20px);
   -webkit-box-ordinal-group: 4;
   -webkit-order: 3;
   -moz-order: 3;
@@ -672,8 +632,8 @@ pre {
 
 #grid-map > div:nth-child(3) {
   width: 50%;
-  width: -webkit-calc(50% - 20px);
-  width: calc(50% - 20px);
+  width: -webkit-calc((100% + 20px) * 7 / 14 - 20px);
+  width: calc((100% + 20px) * 7 / 14 - 20px);
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
   -moz-order: 2;
@@ -696,16 +656,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-breakpoint-simple-list > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-breakpoint-simple-list {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-breakpoint-simple-list:after {
@@ -741,8 +700,8 @@ pre {
   }
   #grid-breakpoint-simple-list > div:nth-child(1) {
     width: 41.6667%;
-    width: -webkit-calc(41.6667% - 20px);
-    width: calc(41.6667% - 20px);
+    width: -webkit-calc((100% + 20px) * 5 / 12 - 20px);
+    width: calc((100% + 20px) * 5 / 12 - 20px);
   }
   .lt-ie10 #grid-breakpoint-simple-list > div:nth-child(1) {
     width: 41.6667%;
@@ -750,8 +709,8 @@ pre {
   }
   #grid-breakpoint-simple-list > div:nth-child(2) {
     width: 58.3333%;
-    width: -webkit-calc(58.3333% - 20px);
-    width: calc(58.3333% - 20px);
+    width: -webkit-calc((100% + 20px) * 7 / 12 - 20px);
+    width: calc((100% + 20px) * 7 / 12 - 20px);
   }
   .lt-ie10 #grid-breakpoint-simple-list > div:nth-child(2) {
     width: 58.3333%;
@@ -769,16 +728,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-breakpoint-nested-list > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-breakpoint-nested-list {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-breakpoint-nested-list:after {
@@ -814,8 +772,8 @@ pre {
   }
   #grid-breakpoint-nested-list > div:nth-child(1) {
     width: 42.8571%;
-    width: -webkit-calc(42.8571% - 20px);
-    width: calc(42.8571% - 20px);
+    width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+    width: calc((100% + 20px) * 3 / 7 - 20px);
   }
   .lt-ie10 #grid-breakpoint-nested-list > div:nth-child(1) {
     width: 42.8571%;
@@ -823,8 +781,8 @@ pre {
   }
   #grid-breakpoint-nested-list > div:nth-child(2) {
     width: 57.1429%;
-    width: -webkit-calc(57.1429% - 20px);
-    width: calc(57.1429% - 20px);
+    width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+    width: calc((100% + 20px) * 4 / 7 - 20px);
   }
   .lt-ie10 #grid-breakpoint-nested-list > div:nth-child(2) {
     width: 57.1429%;
@@ -838,8 +796,8 @@ pre {
   }
   #grid-breakpoint-nested-list > div:nth-child(3) {
     width: 28.5714%;
-    width: -webkit-calc(28.5714% - 20px);
-    width: calc(28.5714% - 20px);
+    width: -webkit-calc((100% + 20px) * 2 / 7 - 20px);
+    width: calc((100% + 20px) * 2 / 7 - 20px);
   }
   .lt-ie10 #grid-breakpoint-nested-list > div:nth-child(3) {
     width: 28.5714%;
@@ -847,8 +805,8 @@ pre {
   }
   #grid-breakpoint-nested-list > div:nth-child(4) {
     width: 71.4286%;
-    width: -webkit-calc(71.4286% - 20px);
-    width: calc(71.4286% - 20px);
+    width: -webkit-calc((100% + 20px) * 5 / 7 - 20px);
+    width: calc((100% + 20px) * 5 / 7 - 20px);
   }
   .lt-ie10 #grid-breakpoint-nested-list > div:nth-child(4) {
     width: 71.4286%;
@@ -862,8 +820,8 @@ pre {
   }
   #grid-breakpoint-nested-list > div:nth-child(5) {
     width: 100%;
-    width: -webkit-calc(100% - 20px);
-    width: calc(100% - 20px);
+    width: -webkit-calc((100% + 20px) * 3 / 3 - 20px);
+    width: calc((100% + 20px) * 3 / 3 - 20px);
   }
   .lt-ie10 #grid-breakpoint-nested-list > div:nth-child(5) {
     width: 100%;
@@ -888,16 +846,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-breakpoint-map > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-breakpoint-map {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-breakpoint-map:after {
@@ -933,8 +890,8 @@ pre {
   }
   #grid-breakpoint-map > div:nth-child(1) {
     width: 42.8571%;
-    width: -webkit-calc(42.8571% - 20px);
-    width: calc(42.8571% - 20px);
+    width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+    width: calc((100% + 20px) * 3 / 7 - 20px);
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
     -moz-order: 2;
@@ -947,8 +904,8 @@ pre {
   }
   #grid-breakpoint-map > div:nth-child(2) {
     width: 57.1429%;
-    width: -webkit-calc(57.1429% - 20px);
-    width: calc(57.1429% - 20px);
+    width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+    width: calc((100% + 20px) * 4 / 7 - 20px);
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -moz-order: 1;
@@ -967,8 +924,8 @@ pre {
   }
   #grid-breakpoint-map > div:nth-child(3) {
     width: 28.5714%;
-    width: -webkit-calc(28.5714% - 20px);
-    width: calc(28.5714% - 20px);
+    width: -webkit-calc((100% + 20px) * 2 / 7 - 20px);
+    width: calc((100% + 20px) * 2 / 7 - 20px);
   }
   .lt-ie10 #grid-breakpoint-map > div:nth-child(3) {
     width: 28.5714%;
@@ -976,8 +933,8 @@ pre {
   }
   #grid-breakpoint-map > div:nth-child(4) {
     width: 71.4286%;
-    width: -webkit-calc(71.4286% - 20px);
-    width: calc(71.4286% - 20px);
+    width: -webkit-calc((100% + 20px) * 5 / 7 - 20px);
+    width: calc((100% + 20px) * 5 / 7 - 20px);
   }
   .lt-ie10 #grid-breakpoint-map > div:nth-child(4) {
     width: 71.4286%;
@@ -991,8 +948,8 @@ pre {
   }
   #grid-breakpoint-map > div:nth-child(5) {
     width: 100%;
-    width: -webkit-calc(100% - 20px);
-    width: calc(100% - 20px);
+    width: -webkit-calc((100% + 20px) * 3 / 3 - 20px);
+    width: calc((100% + 20px) * 3 / 3 - 20px);
   }
   .lt-ie10 #grid-breakpoint-map > div:nth-child(5) {
     width: 100%;
@@ -1017,16 +974,15 @@ pre {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
 }
 
 #grid-breakpoint-default > div {
   width: 100%;
-  margin-right: 20px;
-}
-
-.lt-ie10 #grid-breakpoint-default {
-  margin-right: 0;
 }
 
 .lt-ie10 #grid-breakpoint-default:after {
@@ -1052,8 +1008,8 @@ pre {
 
 #grid-breakpoint-default > div:nth-child(1) {
   width: 42.8571%;
-  width: -webkit-calc(42.8571% - 20px);
-  width: calc(42.8571% - 20px);
+  width: -webkit-calc((100% + 20px) * 3 / 7 - 20px);
+  width: calc((100% + 20px) * 3 / 7 - 20px);
 }
 
 .lt-ie10 #grid-breakpoint-default > div:nth-child(1) {
@@ -1063,8 +1019,8 @@ pre {
 
 #grid-breakpoint-default > div:nth-child(2) {
   width: 57.1429%;
-  width: -webkit-calc(57.1429% - 20px);
-  width: calc(57.1429% - 20px);
+  width: -webkit-calc((100% + 20px) * 4 / 7 - 20px);
+  width: calc((100% + 20px) * 4 / 7 - 20px);
 }
 
 .lt-ie10 #grid-breakpoint-default > div:nth-child(2) {
@@ -1088,8 +1044,8 @@ pre {
   }
   #grid-breakpoint-default > div:nth-child(1) {
     width: 22.2222%;
-    width: -webkit-calc(22.2222% - 20px);
-    width: calc(22.2222% - 20px);
+    width: -webkit-calc((100% + 20px) * 2 / 9 - 20px);
+    width: calc((100% + 20px) * 2 / 9 - 20px);
   }
   .lt-ie10 #grid-breakpoint-default > div:nth-child(1) {
     width: 22.2222%;
@@ -1097,8 +1053,8 @@ pre {
   }
   #grid-breakpoint-default > div:nth-child(2) {
     width: 77.7778%;
-    width: -webkit-calc(77.7778% - 20px);
-    width: calc(77.7778% - 20px);
+    width: -webkit-calc((100% + 20px) * 7 / 9 - 20px);
+    width: calc((100% + 20px) * 7 / 9 - 20px);
   }
   .lt-ie10 #grid-breakpoint-default > div:nth-child(2) {
     width: 77.7778%;

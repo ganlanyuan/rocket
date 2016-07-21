@@ -137,9 +137,13 @@
       padding: 0.5em 0.8em;
       color: #fff;
       @if $style == 'slide-in' {
-        @include type(18px 1.3);
+        font-size: 18px;
+        font-size: 1.13rem;
+        line-height: 1.3;
       } @else {
-        @include type(14px 1.3);
+        font-size: 14px;
+        font-size: 0.88rem;
+        line-height: 1.3;
       }
     }
     @each $key, $value in $validation-background {

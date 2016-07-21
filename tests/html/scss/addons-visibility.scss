@@ -1,6 +1,6 @@
 @import 'demo-base';
-
-// *** addons: visibility *** //
+@import "../../../src/scss/addons/visible"; 
+@import "../../../src/scss/addons/hidden"; 
 
 .visibility-wrap { 
   padding: 50px 0; 

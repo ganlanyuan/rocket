@@ -1,8 +1,3 @@
-.slider .slider-labels label {
-  display: inline-block;
-  box-sizing: border-box;
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -33,10 +28,7 @@ body {
   overflow-x: hidden;
 }
 
-[class^="icon-"]::before,
-[class*=" icon-"]::before,
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
+[class^="icon-"]::before, [class*=" icon-"]::before, [class^="icon-"]:before, [class*=" icon-"]:before {
   display: none;
 }
 
@@ -122,23 +114,12 @@ h5 {
   margin: 3em 0 1em;
 }
 
-p code {
-  padding: .2em .5em;
-  margin: 0 .3em 0 0;
-  background-color: #F5F2F0;
-  border-radius: 2px;
-}
-
 .topic p {
   font-size: 14px;
   line-height: 1.6;
   margin: 1.8em auto;
   max-width: 50em;
   color: #7d7d7d;
-}
-
-pre {
-  clear: both;
 }
 
 .container {
@@ -166,15 +147,6 @@ pre {
 
 .cell {
   min-height: 200px;
-}
-
-pre[class*="language-"] > code[data-language] {
-  overflow: auto;
-  max-height: none;
-}
-
-pre[class*="language-"] {
-  padding: 0 1em;
 }
 
 .topic {
@@ -266,43 +238,6 @@ pre[class*="language-"] {
   display: block;
   margin-bottom: 10px;
   font-size: 24px;
-}
-
-.more-demos {
-  border-top: 1px solid #dbdbdb;
-}
-
-.demo-links {
-  margin: 10px 0 30px;
-}
-
-.demo-links a {
-  display: inline-block;
-  padding: 1.5em 2.5em;
-  margin-right: 7px;
-  margin-bottom: 10px;
-  border-radius: 0.3em;
-  background-color: #f2f2f2;
-  font-size: 14px;
-  -webkit-transition: 0.3s ease 0s;
-  transition: 0.3s ease 0s;
-}
-
-.demo-links a.current, .demo-links a:hover {
-  text-decoration: none;
-  background-color: #76abe9;
-  color: #fff;
-}
-
-.site-footer {
-  padding: 15px 0;
-  background-color: #0E1721;
-}
-
-.copy-right {
-  font-size: 12px;
-  line-height: 1.3;
-  color: #b1b1b1;
 }
 
 .sc-normal {
@@ -3130,19 +3065,17 @@ pre[class*="language-"] {
 
 .slider .slider-labels .title {
   font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 0.88rem;
   line-height: 1.3;
-  font-weight: bold;
   margin: 0 0 .3em;
 }
 
 .slider .slider-labels label {
+  margin: 0 10px 10px 0;
   padding: 12px 22px;
+  font-size: 13px;
   border-radius: 3px;
   background: #d2d2d2;
-  color: #000;
-  font-size: 13px;
-  margin: 0 10px 10px 0;
 }
 
 .slider .slider-labels label:hover {
@@ -3155,26 +3088,24 @@ pre[class*="language-"] {
 
 .slider .info {
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   padding: 10px;
   width: 100%;
   font-size: 13px;
   text-align: center;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 49.9375em) {
+@media (max-width: 49.94em) {
   .slider .info {
-    display: none !important;
+    display: none;
   }
 }
 
 .slider .info h3 {
   color: #fff;
   margin-bottom: 5px;
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .slider [id="sc-normal"]:checked ~ .slider-labels [for="sc-normal"], [id="sc-normal"]:checked ~ .slider-labels .slider [for="sc-normal"], .slider [id="sc-by-page"]:checked ~ .slider-labels [for="sc-by-page"], [id="sc-by-page"]:checked ~ .slider-labels .slider [for="sc-by-page"], .slider [id="sc-center"]:checked ~ .slider-labels [for="sc-center"], [id="sc-center"]:checked ~ .slider-labels .slider [for="sc-center"], .slider [id="sc-scale"]:checked ~ .slider-labels [for="sc-scale"], [id="sc-scale"]:checked ~ .slider-labels .slider [for="sc-scale"], .slider [id="sc-rotate"]:checked ~ .slider-labels [for="sc-rotate"], [id="sc-rotate"]:checked ~ .slider-labels .slider [for="sc-rotate"], .slider [id="sc-autoplay-css"]:checked ~ .slider-labels [for="sc-autoplay-css"], [id="sc-autoplay-css"]:checked ~ .slider-labels .slider [for="sc-autoplay-css"], .slider [id="sc-autoplay-js"]:checked ~ .slider-labels [for="sc-autoplay-js"], [id="sc-autoplay-js"]:checked ~ .slider-labels .slider [for="sc-autoplay-js"], .slider [id="sc-autoheight"]:checked ~ .slider-labels [for="sc-autoheight"], [id="sc-autoheight"]:checked ~ .slider-labels .slider [for="sc-autoheight"], .slider [id="sc-vertical"]:checked ~ .slider-labels [for="sc-vertical"], [id="sc-vertical"]:checked ~ .slider-labels .slider [for="sc-vertical"] {

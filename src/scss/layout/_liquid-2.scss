@@ -103,7 +103,7 @@
     $child-list: $child;
   } 
 
-  $positions: get-positions($order);
+  $positions: get-position-from-order($order);
   $new-columns: ();
   @for $i from 1 through 2 {
    $new-columns: append($new-columns, nth($columns, nth($positions, $i)));

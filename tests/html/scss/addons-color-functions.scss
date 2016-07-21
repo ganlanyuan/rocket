@@ -1,5 +1,7 @@
 @import 'demo-base';
+@import "../../../src/scss/color/color"; 
 
+$original: #d92626;
 
 // *** color: contrast *** //
 $contrast: #5173a3, #bbf8e6, #cb7d26;

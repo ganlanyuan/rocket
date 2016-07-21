@@ -1,6 +1,5 @@
 @import 'demo-base';
-
-// *** components: tabs *** //
+@import "../../../src/scss/components/tabs"; 
 
 .tabs {
   @include tabs-active(3) {

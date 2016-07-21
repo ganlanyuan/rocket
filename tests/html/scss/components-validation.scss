@@ -1,13 +1,26 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/opacity";
+@import "../../../src/scss/components/validation"; 
 
-// *** validation: validation *** //
 #form1 { @include validation(shake default); }
 #form2 { @include validation(fade-in right default); }
 #form3 { @include validation(fade-in bottom default); }
 #form4 { @include validation(slide-in top default); }
 .validation-wrap {
-  @include bp(min 600) {
-    @include gallery(2);
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  > li {
+    @media (min-width: 37.5em) {
+      float: left;
+      width: 50%;
+      padding: 0 20px 20px 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
   }
 }
 .myform {
@@ -37,8 +50,11 @@
     }
   }
   input[type="submit"] {
-    @include button('0.7em 1.2em' 0.3em);
+    padding: 0 1.2em;
+    height: 2.6em;
+    line-height: 2.6;
     border-width: 0;
+    border-radius: 0.3em;
     color: #fff;
     background-color: #3277FF;
   }

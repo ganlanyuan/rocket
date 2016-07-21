@@ -1,6 +1,6 @@
 @import 'demo-base';
-
-// *** js: sticky *** //
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/grid"; 
 
 .sticky-grid {
   @include grid((1 3));

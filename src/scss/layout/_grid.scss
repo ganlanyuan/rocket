@@ -18,6 +18,7 @@
   } @else if type-of($child) != 'string' {
     @error 'Child should be a string. Now is "#{$child}".';
   }
+
   // get map
   // (200px:1, null:0)
   @if length($maps) >= 1 {
@@ -50,26 +51,46 @@
     // flexbox
     @include ro-flexbox; 
     @include ro-flex-wrap(wrap);
+    @include ro-justify-content(space-between);
     @if $float == right {
       @include ro-flex-direction(row-reverse);
     }
 
-    margin-#{opposite($float)}: - $gutter;
-    > #{$child} {
-      width: 100%;
-      margin-#{opposite($float)}: $gutter;
-    }
-
-    .lt-ie10 & {
-      @include clearfix();
-      margin-#{opposite($float)}: 0; // remove minus margin
+    // gutter: 2%
+    @if unit($gutter) == % or $gutter == 0 {
       > #{$child} {
-        float: $float;
-        margin-#{opposite($float)}: -100%;
-        padding-#{opposite($float)}: $gutter;
-        box-sizing: border-box;
+        // width: 100%;
+        // margin-#{opposite($float)}: $gutter;
+      }
+      
+      .lt-ie10 & {
+        @include clearfix();
+        > #{$child} {
+          float: $float;
+          margin-#{opposite($float)}: $gutter;
+        }
+      }
+
+    // gutter: 20px | 1em | 1rem
+    } @else {
+      // margin-#{opposite($float)}: - $gutter;
+      > #{$child} {
+        width: 100%;
+        // margin-#{opposite($float)}: $gutter;
+      }
+      
+      .lt-ie10 & {
+        @include clearfix();
+        // margin-#{opposite($float)}: 0; // remove minus margin
+        > #{$child} {
+          float: $float;
+          margin-#{opposite($float)}: -100%;
+          padding-#{opposite($float)}: $gutter;
+          box-sizing: border-box;
+        }
       }
     }
+
   }
 
   @if $map {
@@ -161,7 +182,7 @@
     $new-orders: ();
     $location: 1;
     @if $orders {
-      $new-orders: get-positions($orders);
+      $new-orders: get-position-from-order($orders);
       $location: index($new-orders, $i);
     } @else {
       $new-orders: (1 2 3 4 5 6 7 8 9 10);
@@ -169,30 +190,45 @@
     }
 
     > #{$child}:nth-child(#{$i + $list-length}) {
-      width: percentage(nth($cols, $i) / $full-col);
-      // 1. Add calc support for chrome back to 19+.
-      // 2. No need to add -moz- because firefox already support css-calc form 28+ while it full supports flexbox.
-      width: -webkit-calc(#{percentage(nth($cols, $i) / $full-col)} - #{$gutter});
-      width: calc(#{percentage(nth($cols, $i) / $full-col)} - #{$gutter});
 
-      // flexbox
-      @if $orders { 
-        @include ro-order((nth($orders, $i) + $max-order)); 
-      } @else if $has-orders {
-        @extend %same-order;
-      }
+      // gutter: 2%
+      @if unit($gutter) == % or $gutter == 0 {
+        width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
 
-      .lt-ie10 & {
-        // reset width from calc value for IE9
+        // flexbox
+        @if $orders { 
+          @include ro-order((nth($orders, $i) + $max-order)); 
+        } @else if $has-orders {
+          @extend %same-order;
+        }
+
+      // gutter: 20px | 1em | 1rem
+      } @else {
         width: percentage(nth($cols, $i) / $full-col);
-        @if $location == 1 {
-          margin-#{$float}: 0;
-        } @else {
-          $val: 0;
-          @for $j from 1 to $location {
-            $val: ($val + nth($cols, nth($new-orders, $j)));
+        // 1. Add calc support for chrome back to 19+.
+        // 2. No need to add -moz- because firefox already support css-calc form 28+ while it full supports flexbox.
+        width: -webkit-calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});
+        width: calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});
+
+        // flexbox
+        @if $orders { 
+          @include ro-order((nth($orders, $i) + $max-order)); 
+        } @else if $has-orders {
+          @extend %same-order;
+        }
+
+        .lt-ie10 & {
+          // reset width from calc value for IE9
+          width: percentage(nth($cols, $i) / $full-col);
+          @if $location == 1 {
+            margin-#{$float}: 0;
+          } @else {
+            $val: 0;
+            @for $j from 1 to $location {
+              $val: ($val + nth($cols, nth($new-orders, $j)));
+            }
+            margin-#{$float}: percentage($val / $full-col);
           }
-          margin-#{$float}: percentage($val / $full-col);
         }
       }
     }

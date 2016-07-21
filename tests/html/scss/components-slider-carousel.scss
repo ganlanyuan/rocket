@@ -1,6 +1,8 @@
 @import 'demo-base';
+@import "../../../src/scss/components/slider-carousel"; 
 
-// *** slider: carousel *** //
+$active: #FFBE39;
+
 .sc-normal { @include slider-carousel(5 by 3); }
 .sc-bypage { @include slider-carousel(5 by 3 bypage); }
 .sc-center { @include slider-carousel(5 by 2 center); }
@@ -29,30 +31,37 @@
   .slider-labels {
     margin-bottom: 20px;
     text-align: center;
-    .title { @include type(14px bold 1.3); margin: 0 0 .3em; }
+    .title { 
+      font-size: 14px;
+      font-size: 0.88rem;
+      line-height: 1.3;
+      margin: 0 0 .3em; 
+    }
     label { 
-      @include button(3px '12px 22px' #d2d2d2); 
-      font-size: 13px;
       margin: 0 10px 10px 0;
+      padding: 12px 22px;
+      font-size: 13px;
+      border-radius: 3px;
+      background: #d2d2d2; 
       &:hover { background-color: $active;}
     }
   }
   .item { position: relative; }
   .info { 
-    @include visible(800px);
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     padding: 10px; 
     width: 100%;
     font-size: 13px;
     text-align: center;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
+    @media (max-width: 49.94em) {
+      display: none;
+    }
     h3 { 
       color: #fff;
       margin-bottom: 5px; 
-      font-size: 26px; 
+      font-size: 30px; 
     }
   }
   %label-active {background-color: $active;}

@@ -1,12 +1,13 @@
 @import 'demo-base';
-
-// *** addons: quantity-query *** //
+@import "../../../src/scss/addons/quantity-query"; 
 
 .control {
   margin-bottom: 20px;
   input {
-    @include button('0.6em 1.1em' #CBCBCB 3px highlight);
+    padding: 0.6em 1.1em;
     border-width: 0;
+    border-radius: 3px;
+    background: #cbcbcb;
   }
   .active { 
     color: #fff;
@@ -16,7 +17,7 @@
     }
   }
   .action {
-    @include button(#f2f2f2 highlight);
+    background: #f2f2f2;
   }
 }
 .show {

@@ -1,6 +1,6 @@
 @import 'demo-base';
-
-// *** layout: justify *** //
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/justify"; 
 
 .example-justify {
   @include justify();
@@ -10,7 +10,9 @@
   }
   a { display: block; }
   input {
-    @include button('0.6em 0.8em' #fff);
+    padding: 0 0.8em;
+    line-height: 2.4;
+    height: 2.4em;
     width: 150px;
     font-size: 14px;
     border: 1px solid #ddd;

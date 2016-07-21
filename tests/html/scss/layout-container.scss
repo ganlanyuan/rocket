@@ -1,4 +1,6 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/breakpoint"; 
+@import "../../../src/scss/layout/container"; 
 
 // .wrapper { @include container(); }
 // .wrapper { @include container(900px); }

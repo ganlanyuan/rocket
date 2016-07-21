@@ -1,5 +1,4 @@
 @import 'demo-base';
-
-// *** addons: flex media *** //
+@import "../../../src/scss/components/flex-media"; 
 
 .video { @include flex-media(iframe (315/560)); }

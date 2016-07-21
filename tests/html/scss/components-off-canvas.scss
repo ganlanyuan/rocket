@@ -1,6 +1,8 @@
 @import 'demo-base';
+@import "../../../src/scss/addons/breakpoint";
+@import "../../../src/scss/addons/opacity";
+@import "../../../src/scss/components/off-canvas"; 
 
-// *** addons: nav *** //
 $bp: (
   small: 600px,
   medium: 1000px,
@@ -13,10 +15,12 @@ $map: (
 );
 .has-bg { background-color: #000; }
 .btn {
-  @include button(5px '10px 15px' #0F2332 highlight);
-  font-size: 14px;
   margin-right: 10px;
   margin-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  background: #0F2332;
   &.active { background-color: #ddd; color: #000; }
 }
 .hidden-checkbox {

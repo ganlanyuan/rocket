@@ -1,15 +1,17 @@
 @import 'demo-base';
 
-// *** js: scrollTo *** //
-
 .scroll-to {
   padding: 40px 0;
   text-align: center;
 }
 .btn { 
-  @include button(#333 '0.8em 1.6em' highlight 5px); 
-  font-size: 14px;
   margin: 0 0 20px;
+  padding: 0 1.6em;
+  height: 2.6em;
+  line-height: 2.6;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #333;
 }
 .box {
   max-width: 800px;
