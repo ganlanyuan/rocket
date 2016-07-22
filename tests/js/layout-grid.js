@@ -1,14 +1,21 @@
 module.exports = {
   'Simple list grid' : function (client) {
     var url = client.launch_url + 'layout-grid.php';
+    var containerWidth;
 
     client
       .url(url)
-      .waitForElementVisible('body', 1000)
-      // .setValue('input[type=text]', 'nightwatch')
-      // .waitForElementVisible('button[name=btnG]', 1000)
-      // .click('button[name=btnG]')
-      .assert.containsText('.main-heading', 'Layout: Grid')
-      .end();
+      .pause(1000);
+
+    client.getElementSize('#grid-simple-list', function (result) {
+      containerWidth = result.value.width;
+    });
+
+    client.getElementSize('#grid-simple-list > div:first-child', function (result) {
+      containerWidth = result.value.width;
+      this.assert.equal(result.value.width, (containerWidth + 20) * 3 / 7);
+    });
+
+    client.end();
   }
 };

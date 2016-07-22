@@ -58,8 +58,8 @@
         @include clearfix();
         > #{$child} {
           float: $float;
+          clear: both;
           width: 100%;
-          margin-#{opposite($float)}: $gutter;
         }
       }
 
@@ -72,6 +72,7 @@
         margin-#{opposite($float)}: - $gutter;
         > #{$child} {
           float: $float;
+          clear: both;
           width: 100%;
           margin-#{opposite($float)}: -100%;
           padding-#{opposite($float)}: $gutter;
@@ -87,23 +88,18 @@
     // ('default': (1 1 1), 800px: (3 4) 1)
     @if grid-has-breakpoints($map) {
       
-      .lt-ie10 & > #{$child} { clear: both; }
       // update breakpoints
-      @if $global-bps {
-        $map: map-update-breakpoints($map, $global-bps);
-      }
+      @if $global-bps { $map: map-update-breakpoints($map, $global-bps); }
       $bps: map-keys($map);
 
       @each $bp in $bps {
-
         @if $bp == 'default' {
-          @include check-list(map-get($map, $bp), $gutter, $child, $float);
+          @include divide-rows(map-get($map, $bp), $gutter, $child, $float);
         } @else {
           @include bp($condition $media-type $bp) {
             // reset order, clear
             > #{$child}:nth-child(n) { @include ro-order(0); }
-            .lt-ie10 & > #{$child} { clear: none; }
-            @include check-list(map-get($map, $bp), $gutter, $child, $float);
+            @include divide-rows(map-get($map, $bp), $gutter, $child, $float);
           }
         }
       }
@@ -111,13 +107,13 @@
     // without breakpoints
     // (3 4 5: 1 0 2) (4 6)
     } @else {
-      @include check-list($map, $gutter, $child, $float);
+      @include divide-rows($map, $gutter, $child, $float);
     }
   }
 }
 
-// == check-list ==
-@mixin check-list($value, $gutter, $child, $float) {
+// == divide-rows ==
+@mixin divide-rows($value, $gutter, $child, $float) {
   $columns: false;
   $orders: false;
   $has-orders: false;
@@ -125,16 +121,24 @@
   $list-length: 0;
   $max-order: 0;
   
+  .lt-ie10 & > #{$child}:nth-child(n) { 
+    clear: none; 
+    @if unit($gutter) == % or $gutter == 0 { margin-#{opposite($float)}: $gutter; }
+  };
+
   @if is-nested-list($value) {
     @each $item in $value {
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
 
-      @include make-grid($columns, $orders, $child, $float, $gutter, $max-order, $list-length, $has-orders);
+      @include grid-row($columns, $orders, $child, $float, $gutter, $max-order, $list-length, $has-orders);
 
-      @if $orders { $has-orders: true; }
-      @if $columns { $list-length: ($list-length + length($columns)); }
+      @if $columns { 
+        $list-length: ($list-length + length($columns)); 
+        .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
+      }
       @if $orders {
+        $has-orders: true;
         $max-order: ($max-order + max($orders...));
       } @else {
         $max-order: $max-order + 1;
@@ -148,22 +152,16 @@
     $columns: grid-get-columns($value);
     $orders: grid-get-orders($value);
 
-    @include make-grid($columns, $orders, $child, $float, $gutter);
+    @include grid-row($columns, $orders, $child, $float, $gutter);
   }
 }
 
-// == make-grid ==
-@mixin make-grid($cols, $orders, $child, $float, $gutter, $max-order:0, $list-length:0, $has-orders:false) {
+// == grid-row ==
+@mixin grid-row($cols, $orders, $child, $float, $gutter, $max-order:0, $list-length:0, $has-orders:false) {
 
   $full-col: 0;
   @each $item in $cols {
     $full-col: ($full-col + $item);
-  }
-
-  // new row: clear float
-  .lt-ie10 & > #{$child}:nth-child(n) { clear: none; };
-  @if $list-length > 0 {
-    .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
   }
 
   @for $i from 1 through length($cols) {
@@ -178,9 +176,6 @@
       $location: $i;
     }
 
-    @if unit($gutter) == % or $gutter == 0 {
-      .lt-ie10 & > #{$child}:nth-child(n) { margin-right: $gutter; }
-    }
 
     > #{$child}:nth-child(#{$i + $list-length}) {
       // gutter: 2%
@@ -195,12 +190,11 @@
         }
 
         @if $i == length($cols) {
-          .lt-ie10 & { margin-right: 0; }
+          .lt-ie10 & { margin-#{opposite($float)}: 0; }
         }
 
       // gutter: 20px | 1em | 1rem
       } @else {
-        width: percentage(nth($cols, $i) / $full-col);
         // 1. Add calc support for chrome back to 19+.
         // 2. No need to add -moz- because firefox already support css-calc form 28+ while it full supports flexbox.
         width: -webkit-calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});

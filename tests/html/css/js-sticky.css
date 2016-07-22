@@ -146,7 +146,7 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
 }
 
 .topic {
@@ -271,6 +271,7 @@ h5 {
 
 .lt-ie10 .sticky-grid > div {
   float: left;
+  clear: both;
   width: 100%;
   margin-right: -100%;
   padding-right: 20px;
@@ -282,7 +283,6 @@ h5 {
 }
 
 .sticky-grid > div:nth-child(1) {
-  width: 25%;
   width: -webkit-calc((100% + 20px) * 1 / 4 - 20px);
   width: calc((100% + 20px) * 1 / 4 - 20px);
 }
@@ -293,7 +293,6 @@ h5 {
 }
 
 .sticky-grid > div:nth-child(2) {
-  width: 75%;
   width: -webkit-calc((100% + 20px) * 3 / 4 - 20px);
   width: calc((100% + 20px) * 3 / 4 - 20px);
 }
@@ -332,6 +331,7 @@ h5 {
 
 .lt-ie10 .inner-1 > div {
   float: left;
+  clear: both;
   width: 100%;
   margin-right: -100%;
   padding-right: 20px;
@@ -343,7 +343,6 @@ h5 {
 }
 
 .inner-1 > div:nth-child(1) {
-  width: 66.6667%;
   width: -webkit-calc((100% + 20px) * 2 / 3 - 20px);
   width: calc((100% + 20px) * 2 / 3 - 20px);
 }
@@ -354,7 +353,6 @@ h5 {
 }
 
 .inner-1 > div:nth-child(2) {
-  width: 33.3333%;
   width: -webkit-calc((100% + 20px) * 1 / 3 - 20px);
   width: calc((100% + 20px) * 1 / 3 - 20px);
 }
@@ -393,6 +391,7 @@ h5 {
 
 .lt-ie10 .inner-2 > div {
   float: left;
+  clear: both;
   width: 100%;
   margin-right: -100%;
   padding-right: 20px;
@@ -404,7 +403,6 @@ h5 {
 }
 
 .inner-2 > div:nth-child(1) {
-  width: 28.5714%;
   width: -webkit-calc((100% + 20px) * 2 / 7 - 20px);
   width: calc((100% + 20px) * 2 / 7 - 20px);
 }
@@ -415,7 +413,6 @@ h5 {
 }
 
 .inner-2 > div:nth-child(2) {
-  width: 71.4286%;
   width: -webkit-calc((100% + 20px) * 5 / 7 - 20px);
   width: calc((100% + 20px) * 5 / 7 - 20px);
 }

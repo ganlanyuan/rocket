@@ -1,30 +1,30 @@
-16:08:50.104 INFO - Launching a standalone Selenium Server
+16:41:25.965 INFO - Launching a standalone Selenium Server
 Setting system property webdriver.chrome.driver to ./tests/js/chromedriver
-16:08:50.138 INFO - Java: Oracle Corporation 25.102-b14
-16:08:50.138 INFO - OS: Mac OS X 10.11.5 x86_64
-16:08:50.148 INFO - v2.53.0, with Core v2.53.0. Built from revision 3da6b38
-16:08:50.212 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+16:41:26.004 INFO - Java: Oracle Corporation 25.102-b14
+16:41:26.004 INFO - OS: Mac OS X 10.11.5 x86_64
+16:41:26.013 INFO - v2.53.0, with Core v2.53.0. Built from revision 3da6b38
+16:41:26.084 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
 registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
-16:08:50.212 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+16:41:26.084 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
 registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
-16:08:50.213 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-16:08:50.213 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
-16:08:50.214 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
-16:08:50.215 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
-16:08:50.265 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-16:08:50.265 INFO - Selenium Server is up and running
-16:08:50.514 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
-16:08:50.523 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]
-16:08:53.109 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
-16:08:53.126 INFO - Executing: [get: http://192.168.1.114:5757/tests/html/layout-grid.php])
-16:08:53.393 INFO - Done: [get: http://192.168.1.114:5757/tests/html/layout-grid.php]
-16:08:53.402 INFO - Executing: [find elements: By.cssSelector: body])
-16:08:53.461 INFO - Done: [find elements: By.cssSelector: body]
-16:08:53.465 INFO - Executing: [is displayed: 0 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: body]])
-16:08:53.475 INFO - Done: [is displayed: 0 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: body]]
-16:08:53.483 INFO - Executing: [find element: By.cssSelector: .main-heading])
-16:08:53.492 INFO - Done: [find element: By.cssSelector: .main-heading]
-16:08:53.495 INFO - Executing: [get text: 1 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: .main-heading]])
-16:08:53.509 INFO - Done: [get text: 1 [[FirefoxDriver: firefox on MAC (15abb036-739c-7246-a1be-87068b5be6e2)] -> css selector: .main-heading]]
-16:08:53.514 INFO - Executing: [delete session: e663bc97-3482-43f1-b0c4-3198d906d63d])
-16:08:53.596 INFO - Done: [delete session: e663bc97-3482-43f1-b0c4-3198d906d63d]
+16:41:26.085 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+16:41:26.085 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+16:41:26.086 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+16:41:26.086 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+16:41:26.143 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+16:41:26.143 INFO - Selenium Server is up and running
+16:41:26.413 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Layout Grid, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+16:41:26.423 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Layout Grid, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+16:41:28.815 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Layout Grid, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+16:41:28.832 INFO - Executing: [get: http://192.168.1.114:5757/layout-grid.php])
+16:41:29.021 INFO - Done: [get: http://192.168.1.114:5757/layout-grid.php]
+16:41:30.032 INFO - Executing: [find element: By.cssSelector: #grid-simple-list])
+16:41:30.091 INFO - Done: [find element: By.cssSelector: #grid-simple-list]
+16:41:30.096 INFO - Executing: [get element size: 0 [[FirefoxDriver: firefox on MAC (45134e19-b93e-7f42-987d-f84fc46a50fe)] -> css selector: #grid-simple-list]])
+16:41:30.107 INFO - Done: [get element size: 0 [[FirefoxDriver: firefox on MAC (45134e19-b93e-7f42-987d-f84fc46a50fe)] -> css selector: #grid-simple-list]]
+16:41:30.112 INFO - Executing: [find element: By.cssSelector: #grid-simple-list > div:first-child])
+16:41:30.121 INFO - Done: [find element: By.cssSelector: #grid-simple-list > div:first-child]
+16:41:30.124 INFO - Executing: [get element size: 1 [[FirefoxDriver: firefox on MAC (45134e19-b93e-7f42-987d-f84fc46a50fe)] -> css selector: #grid-simple-list > div:first-child]])
+16:41:30.135 INFO - Done: [get element size: 1 [[FirefoxDriver: firefox on MAC (45134e19-b93e-7f42-987d-f84fc46a50fe)] -> css selector: #grid-simple-list > div:first-child]]
+16:41:30.144 INFO - Executing: [delete session: 514101c1-b6c8-4f1c-9c35-15d0f81858b5])
+16:41:30.206 INFO - Done: [delete session: 514101c1-b6c8-4f1c-9c35-15d0f81858b5]
