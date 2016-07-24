@@ -6,6 +6,8 @@
 *.scssc
 *.swp
 *.jar
+*.log
+*.xml
 chromedriver
 
 .sass-cache/
