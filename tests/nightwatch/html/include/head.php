@@ -46,5 +46,5 @@
 		<script src="cross-domain/respond.proxy.js"></script>	
 	<![endif]-->
 	<script src="js/Modernizr.js"></script>
-	<script src="../dist/kit.min.js"></script>
+	<script src="../../../dist/kit.min.js"></script>
 </head>

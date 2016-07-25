@@ -13,6 +13,7 @@ chromedriver
 .sass-cache/
 /.codekit-cache/
 /bower_components/
+/tests/nightwatch/screenshots/
 
 README.html
 changelog.html
