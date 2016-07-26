@@ -14,6 +14,7 @@ $grid-map: ((3:0, 4:2, 7:1) 3);
 $grid-breakpoint-simple-list: (
   600px: 5 7
 );
+$grid-breakpoint-outside-simple-list: (5 7);
 $grid-breakpoint-nested-list: (
   600px: (3 4) (2 5) 3
 );
@@ -22,7 +23,7 @@ $grid-breakpoint-map: (
 );
 $grid-breakpoint-default: (
   'default': 3 4,
-  1000px: 2 7,
+  900px: 2 7,
 );
 $grid-breakpoint-complex-list: (
   default: (3 4) (2 5) 3,
@@ -55,6 +56,12 @@ $grid-breakpoint-complex-list: (
 #grid-nested-list { @include grid($grid-nested-list); height: auto; }
 #grid-map { @include grid($grid-map); height: auto; }
 #grid-breakpoint-simple-list { @include grid($grid-breakpoint-simple-list); height: auto; }
+#grid-breakpoint-outside-simple-list { 
+  height: auto; 
+  @media screen and (min-width: 600px) {
+    @include grid($grid-breakpoint-simple-list); 
+  }
+}
 #grid-breakpoint-nested-list { @include grid($grid-breakpoint-nested-list); height: auto; }
 #grid-breakpoint-map { @include grid($grid-breakpoint-map); height: auto; }
 #grid-breakpoint-default { @include grid($grid-breakpoint-default); height: auto; }

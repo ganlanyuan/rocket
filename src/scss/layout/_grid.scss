@@ -17,6 +17,11 @@
     @error 'Child should be a string. Now is "#{$child}".';
   }
 
+  // strip unit when gutter == 0
+  @if $gutter and strip-unit($gutter) == 0 {
+    $gutter: 0;
+  }
+
   // get map
   @if type-of($key) == map {
     $map: $key;
@@ -49,6 +54,7 @@
     @if $float == right {
       @include ro-flex-direction(row-reverse);
     }
+    > #{$child} { width: 100%; }
 
     // gutter: 2%
     @if unit($gutter) == % or $gutter == 0 {
@@ -59,7 +65,6 @@
         > #{$child} {
           float: $float;
           clear: both;
-          width: 100%;
         }
       }
 

@@ -78,6 +78,13 @@
         <div><div class="example-content cell" data-content></div></div>
       </div>
   
+      <!-- grid-breakpoint-outside-simple-list -->
+      <div class="title">( 600px: (5 7) ) outside</div>
+      <div id="grid-breakpoint-outside-simple-list" data-margin>
+        <div><div class="example-content cell" data-content></div></div>
+        <div><div class="example-content cell" data-content></div></div>
+      </div>
+  
       <!-- grid-breakpoint-nested-list -->
       <div class="title">( 600px: (3 4) (2 5) 3 )</div>
       <div id="grid-breakpoint-nested-list" data-margin>
@@ -99,7 +106,7 @@
       </div>
   
       <!-- grid-breakpoint-default -->
-      <div class="title">( 'default': (3 4), 1000px: (2 7) )</div>
+      <div class="title">( 'default': (3 4), 900px: (2 7) )</div>
       <div id="grid-breakpoint-default" data-margin>
         <div><div class="example-content cell" data-content></div></div>
         <div><div class="example-content cell" data-content></div></div>
