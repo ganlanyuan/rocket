@@ -331,7 +331,6 @@ h5 {
 .lt-ie10 #grid-simple-list > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -396,7 +395,6 @@ h5 {
 .lt-ie10 #grid-simple-list-child > .child {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -467,7 +465,6 @@ h5 {
 .lt-ie10 #grid-simple-list-direction > div {
   float: right;
   clear: both;
-  width: 100%;
   margin-left: -100%;
   padding-left: 20px;
   box-sizing: border-box;
@@ -582,7 +579,6 @@ h5 {
 .lt-ie10 #grid-simple-list-gutter2 > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 3em;
   box-sizing: border-box;
@@ -647,7 +643,6 @@ h5 {
 .lt-ie10 #grid-simple-list-gutter3 > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 5rem;
   box-sizing: border-box;
@@ -712,7 +707,6 @@ h5 {
 .lt-ie10 #grid-simple-list-gutter4 > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 7vw;
   box-sizing: border-box;
@@ -777,7 +771,6 @@ h5 {
 .lt-ie10 #grid-nested-list > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -868,7 +861,6 @@ h5 {
 .lt-ie10 #grid-map > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -984,7 +976,6 @@ h5 {
 .lt-ie10 #grid-breakpoint-simple-list > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -1054,7 +1045,6 @@ h5 {
   .lt-ie10 #grid-breakpoint-outside-simple-list > div {
     float: left;
     clear: both;
-    width: 100%;
     margin-right: -100%;
     padding-right: 20px;
     box-sizing: border-box;
@@ -1125,7 +1115,6 @@ h5 {
 .lt-ie10 #grid-breakpoint-nested-list > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -1235,7 +1224,6 @@ h5 {
 .lt-ie10 #grid-breakpoint-map > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -1355,7 +1343,6 @@ h5 {
 .lt-ie10 #grid-breakpoint-default > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -1449,7 +1436,6 @@ h5 {
 .lt-ie10 #grid-breakpoint-complex-list > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;

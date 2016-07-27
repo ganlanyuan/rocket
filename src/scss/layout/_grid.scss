@@ -48,6 +48,8 @@
   // basis
   @if not $keep {
     // use flexbox
+    // calc-width + flex: space-between
+    // not need to calculate the gutter
     @include ro-flexbox; 
     @include ro-flex-wrap(wrap);
     @include ro-justify-content(space-between);
@@ -78,7 +80,6 @@
         > #{$child} {
           float: $float;
           clear: both;
-          width: 100%;
           margin-#{opposite($float)}: -100%;
           padding-#{opposite($float)}: $gutter;
           box-sizing: border-box;

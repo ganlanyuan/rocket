@@ -280,7 +280,6 @@ h5 {
 .lt-ie10 .sticky-grid > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -344,7 +343,6 @@ h5 {
 .lt-ie10 .inner-1 > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;
@@ -408,7 +406,6 @@ h5 {
 .lt-ie10 .inner-2 > div {
   float: left;
   clear: both;
-  width: 100%;
   margin-right: -100%;
   padding-right: 20px;
   box-sizing: border-box;

@@ -82,7 +82,7 @@ $key: $container (gutter $gutter) $align
 #### grid
 ![IE 8+](https://img.shields.io/badge/IE-8+-54c7f6.svg)
 ![Firefox 28+](https://img.shields.io/badge/Firefox-28+-e88e08.svg)
-![Chrome 22+](https://img.shields.io/badge/Chrome-22+-5CC15B.svg)
+![Chrome 21+](https://img.shields.io/badge/Chrome-22+-5CC15B.svg)
 ![Safari 6.2+](https://img.shields.io/badge/Safari-6.2+-257BC8.svg)
 ![Opera 15+](https://img.shields.io/badge/Opera-15+-F94247.svg)   
 [demo](http://creatiointl.org/william/rocket/v3/layout-grid.php)
