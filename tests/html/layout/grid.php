@@ -6,35 +6,35 @@
     <div class="example ovh">
   
 
-      <div id="grid-simple-list">
+      <div id="grid-list">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>
         </div>
       </div>
 
-      <div id="grid-simple-list-child">
+      <div id="grid-child">
         <div data-margin>
           <main class="child"><div class="example-content cell" data-content></div></main>
           <aside class="child"><div class="example-content cell" data-content></div></aside>
         </div>
       </div>
 
-      <div id="grid-simple-list-gutter1">
+      <div id="grid-gutter1">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>
         </div>
       </div>
 
-      <div id="grid-simple-list-gutter2">
+      <div id="grid-gutter2">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>
         </div>
       </div>
 
-      <div id="grid-simple-list-direction">
+      <div id="grid-list-direction">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>
@@ -58,14 +58,14 @@
         </div>
       </div>
 
-      <div id="grid-breakpoint-simple-list">
+      <div id="grid-breakpoint">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>
         </div>
       </div>
 
-      <div id="grid-breakpoint-outside-simple-list">
+      <div id="grid-breakpoint-outside">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>

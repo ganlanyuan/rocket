@@ -134,10 +134,8 @@
 @mixin divide-rows($value, $gutter, $child, $float) {
   $columns: false;
   $orders: false;
-  $has-orders: false;
-
   $list-length: 0;
-  $max-order: 0;
+  $max-order: false;
   
   // reset clear
   .lt-ie10 & > #{$child}:nth-child(n) { clear: none; };
@@ -150,19 +148,22 @@
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
 
-      @include grid-row($columns, $orders, $child, $float, $gutter, $max-order, $list-length, $has-orders);
+      @include grid-row($columns, $orders, $child, $float, $gutter, $max-order, $list-length);
 
+      // get list-length
       @if $columns { 
         $list-length: ($list-length + length($columns)); 
         // clear float on the first column of a new row
         .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
       }
 
+      // get max-order
       @if $orders {
-        $has-orders: true;
-        $max-order: ($max-order + max($orders...));
-      } @else {
-        $max-order: $max-order + 1;
+        @if $max-order {
+          $max-order: ($max-order + max($orders...));
+        } @else {
+          $max-order: max($orders...);
+        }
       }
     }
 
@@ -176,7 +177,7 @@
 }
 
 // == grid-row ==
-@mixin grid-row($cols, $orders, $child, $float, $gutter, $max-order:0, $list-length:0, $has-orders:false) {
+@mixin grid-row($cols, $orders, $child, $float, $gutter, $max-order:false, $list-length:0) {
 
   $full-col: 0;
   @each $item in $cols {
@@ -198,10 +199,16 @@
 
     > #{$child}:nth-child(#{$i + $list-length}) {
       // order
-      @if $orders { 
-        @include ro-order((nth($orders, $i) + $max-order)); 
-      } @else if $has-orders {
-        @include ro-order($max-order);
+      @if $orders or $max-order {
+        @if $orders { 
+          @if $max-order {
+            @include ro-order((nth($orders, $i) + $max-order)); 
+          } @else {
+            @include ro-order(nth($orders, $i)); 
+          }
+        } @else {
+          @include ro-order($max-order);
+        }
       }
 
       // gutter: %
