@@ -4,10 +4,8 @@
 
 $grid-simple-list: 3 4;
 $grid-simple-list-child: (3 4) child ".child";
-$grid-simple-list-gutter1: (3 4) gutter 5%;
-$grid-simple-list-gutter2: (3 4) gutter 3em;
-$grid-simple-list-gutter3: (3 4) gutter 5rem;
-$grid-simple-list-gutter4: (3 4) gutter 7vw;
+$grid-simple-list-gutter1: (3 4 : 2 1) gutter 5%;
+$grid-simple-list-gutter2: (3 4) gutter 5rem;
 $grid-simple-list-direction: (3 4) RTL;
 $grid-nested-list: (3 4) 7;
 $grid-map: ((3:0, 4:2, 7:1) 3);
@@ -28,7 +26,7 @@ $grid-breakpoint-default: (
 $grid-breakpoint-complex-list: (
   default: (3 4) (2 5) 3,
   600px: (3 4 2) (5 3),
-  900px: (5 2 3: 2 1 3) (1 1),
+  900px: (5 2: 2 1) 3 (1 1 : 2 1),
 );
 
 [id*='grid-'] {
@@ -51,8 +49,6 @@ $grid-breakpoint-complex-list: (
 #grid-simple-list-direction { @include grid($grid-simple-list-direction); height: auto; }
 #grid-simple-list-gutter1 { @include grid($grid-simple-list-gutter1); height: auto; }
 #grid-simple-list-gutter2 { @include grid($grid-simple-list-gutter2); height: auto; }
-#grid-simple-list-gutter3 { @include grid($grid-simple-list-gutter3); height: auto; }
-#grid-simple-list-gutter4 { @include grid($grid-simple-list-gutter4); height: auto; }
 #grid-nested-list { @include grid($grid-nested-list); height: auto; }
 #grid-map { @include grid($grid-map); height: auto; }
 #grid-breakpoint-simple-list { @include grid($grid-breakpoint-simple-list); height: auto; }

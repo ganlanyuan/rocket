@@ -20,29 +20,15 @@
       </div>
   
       <!-- grid-simple-list-gutter -->
-      <div class="title">(3 4) gutter 5%</div>
+      <div class="title">(3 4 : 2 1) gutter 5%</div>
       <div id="grid-simple-list-gutter1" data-margin>
         <div><div class="example-content cell" data-content></div></div>
         <div><div class="example-content cell" data-content></div></div>
       </div>
   
       <!-- grid-simple-list-gutter -->
-      <div class="title">(3 4) gutter 3em</div>
-      <div id="grid-simple-list-gutter2" data-margin>
-        <div><div class="example-content cell" data-content></div></div>
-        <div><div class="example-content cell" data-content></div></div>
-      </div>
-  
-      <!-- grid-simple-list-gutter -->
       <div class="title">(3 4) gutter 5rem</div>
-      <div id="grid-simple-list-gutter3" data-margin>
-        <div><div class="example-content cell" data-content></div></div>
-        <div><div class="example-content cell" data-content></div></div>
-      </div>
-  
-      <!-- grid-simple-list-gutter -->
-      <div class="title">(3 4) gutter 7vw</div>
-      <div id="grid-simple-list-gutter4" data-margin>
+      <div id="grid-simple-list-gutter2" data-margin>
         <div><div class="example-content cell" data-content></div></div>
         <div><div class="example-content cell" data-content></div></div>
       </div>
