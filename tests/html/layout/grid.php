@@ -72,6 +72,20 @@
         </div>
       </div>
 
+      <div id="grid-breakpoint-string">
+        <div data-margin>
+          <div><div class="example-content cell" data-content></div></div>
+          <div><div class="example-content cell" data-content></div></div>
+        </div>
+      </div>
+
+      <div id="grid-breakpoint-max">
+        <div data-margin>
+          <div><div class="example-content cell" data-content></div></div>
+          <div><div class="example-content cell" data-content></div></div>
+        </div>
+      </div>
+
       <div id="grid-breakpoint-nested-list">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>

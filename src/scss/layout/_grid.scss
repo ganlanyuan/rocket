@@ -1,4 +1,4 @@
-@mixin grid($key:false){
+@mixin grid($key){
   $map: false;
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));

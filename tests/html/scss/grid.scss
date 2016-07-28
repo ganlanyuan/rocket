@@ -90,6 +90,8 @@
   margin-bottom: 50px;
 }
 
+$grid-bps: ('sm': 600px, 'md': 900px, 'lg': 1200px);
+
 $grid-list: (3 4);
 $grid-child: (3 4) child '.child';
 $grid-gutter1: (3 4 : 2 1) gutter 5%;
@@ -98,6 +100,8 @@ $grid-list-direction: (3 4) RTL;
 $grid-nested-list: (3 4) 7;
 $grid-map: ( (3 4 7 : 0 2 1 ) 3 );
 $grid-breakpoint: ( 600px: 5 7 );
+$grid-breakpoint-string: ( ('sm': 1 1, 'md': 2 1, 'lg': 3 5) bp $grid-bps);
+$grid-breakpoint-max: ( (900px: 3 5, 600px: 2 1) max );
 $grid-breakpoint-outside: (5 7);
 $grid-breakpoint-nested-list: ( 600px: (3 4) (2 5) 3 );
 $grid-breakpoint-map: ( 600px: (3 4 : 2 1) (2 5) 3 );
@@ -150,6 +154,16 @@ $grid-breakpoint-complex-list: ( default: (3 4) (2 5) 3, 600px: (3 4 2) (5 3), 9
   @media screen and (min-width: 600px) {
     > div { @include grid($grid-breakpoint); }
   }
+}
+#grid-breakpoint-string {
+  @extend %grid-show;
+  &:before { content: '#{var-to-string($grid-breakpoint-string)}'; }
+  > div { @include grid($grid-breakpoint-string); }
+}
+#grid-breakpoint-max {
+  @extend %grid-show;
+  &:before { content: '#{var-to-string($grid-breakpoint-max)}'; }
+  > div { @include grid($grid-breakpoint-max); }
 }
 #grid-breakpoint-nested-list {
   @extend %grid-show;
