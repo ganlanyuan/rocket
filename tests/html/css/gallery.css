@@ -392,25 +392,18 @@ h5 {
 }
 
 .gallery-direction > ul {
-  letter-spacing: -0.31em;
-  text-rendering: optimizespeed;
-  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-  text-align: center;
   margin-right: -20px;
 }
 
-.gallery-direction > ul .opera-only :-o-prefocus, .gallery-direction > ul {
-  word-spacing: -0.43em;
+.gallery-direction > ul:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .gallery-direction > ul > li {
   width: 100%;
-  display: inline-block;
-  letter-spacing: normal;
-  word-spacing: normal;
-  vertical-align: top;
-  text-rendering: auto;
-  text-align: left;
+  float: right;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -419,6 +412,14 @@ h5 {
 
 .gallery-direction > ul > li {
   width: 25%;
+}
+
+.gallery-direction > ul > li:nth-child(n) {
+  clear: none;
+}
+
+.gallery-direction > ul > li:nth-child(4n+1) {
+  clear: both;
 }
 
 .gallery-center-align:before {

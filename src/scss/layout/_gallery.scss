@@ -4,7 +4,7 @@
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
   $center-align: args-get($key, 'center-align');
   $keep: args-get($key, 'keep');
-  @if $float == right { $center-align: flase; }
+  @if $float == right { $center-align: false; }
 
   $global-bps: args-get-global-breakpoints($key);
   @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
@@ -56,6 +56,7 @@
     } @else {
       @include clearfix(); 
     }
+
     @if unit($gutter) != '%' { margin-right: - $gutter; }
   }
 
