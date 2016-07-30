@@ -1,19 +1,17 @@
 @function is-simple-map($map) {
-  @if type-of($map) == 'map' {
-    $types: ();
-    $list: map-values($map);
-
-    @each $item in $list {
-      $type: type-of($item);
-      @if index(('string' 'number' 'null' 'bool'), $type) {
-        $types: append($types, true);
-      } @else {
-        $types: append($types, false);
-      }
-    }
-
-    @return if(index($types, false), false, true);
-  } @else {
-    @warn '"#{$map} is not a map."';
+  @if type-of($map) != 'map' {
+    @error '"#{$map}" is not a map.';
+    @return false;
   }
+  $is-simple-map: true;
+  $values: map-values($map);
+
+  @each $item in $values {
+    // no need for further check if false
+    @if $is-simple-map and not index(('string' 'number' 'null' 'bool'), type-of($item)) {
+      $is-simple-map: false;
+    }
+  }
+
+  @return $is-simple-map;
 }

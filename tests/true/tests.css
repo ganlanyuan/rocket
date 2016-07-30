@@ -188,6 +188,33 @@
   -description: "This list contains string.";
 }
 
+/* # List ---------- */
+/* is-number-map-list [function] */
+[data-module="List"] [data-test="is-number-map-list [function]"] .assert-true {
+  -result: PASS;
+  -description: "This is a number list.";
+}
+
+[data-module="List"] [data-test="is-number-map-list [function]"] .assert-true {
+  -result: PASS;
+  -description: "This is a number list.";
+}
+
+[data-module="List"] [data-test="is-number-map-list [function]"] .assert-false {
+  -result: PASS;
+  -description: "This is a number-map list.";
+}
+
+[data-module="List"] [data-test="is-number-map-list [function]"] .assert-false {
+  -result: PASS;
+  -description: "This list contains string.";
+}
+
+[data-module="List"] [data-test="is-number-map-list [function]"] .assert-false {
+  -result: PASS;
+  -description: "This list contains boolean value.";
+}
+
 /* # Functions ---------- */
 /* map-update-breakpoints [function] */
 [data-module="Functions"] [data-test="map-update-breakpoints [function]"] .assert-equal {
@@ -523,8 +550,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 34 Tests: */
-/*  - 26 Passed */
+/* 35 Tests: */
+/*  - 27 Passed */
 /*  - 8 Failed */
 /* -------------------- */
 

@@ -1,40 +1,22 @@
 @function is-number-map-list($list) {
   @if type-of($list) != 'list' {
-    @warn '"#{$list}" is not a list';
+    @error '"#{$list}" is not a list';
     @return false;
-  } @else {
+  }
 
-    $types: ();
-    @each $item in $list {
+  $is-number-map-list: true;
+  @each $item in $list {
+    // if $is-number-map-list: false, no need for further check
+    @if $is-number-map-list and
+        type-of($item) != 'number' or
+        type-of($item) != 'map' {
       @if type-of($item) == 'list' {
-
-        @each $sub-item in $item {
-          @if type-of($sub-item) == 'list' {
-            
-            @each $sub-sub-item in $sub-item {
-              @if type-of($sub-sub-item) != 'number' and type-of($sub-sub-item) != 'map' {
-                $types: append($types, false); 
-              } @else {
-                $types: append($types, true);
-              }
-            }
-          } @else {
-            @if type-of($sub-item) != 'number' and type-of($sub-item) != 'map' {
-              $types: append($types, false); 
-            } @else {
-              $types: append($types, true);
-            }
-          }
-        }
+        $is-number-map-list: is-number-map-list($item);
       } @else {
-        @if type-of($item) != 'number' and type-of($item) != 'map' {
-          $types: append($types, false); 
-        } @else {
-          $types: append($types, true);
-        }
+        $is-number-map-list: false;
       }
     }
-
-    @return if(index($types, false), false, true);
   }
+
+  @return $is-number-map-list;
 }

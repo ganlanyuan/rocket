@@ -1,27 +1,21 @@
 @function is-number-list($list) {
   @if type-of($list) != 'list' {
-    @warn '"#{$list}" is not a list';
-  } @else {
+    @error '"#{$list}" is not a list';
+    @return false;
+  } 
 
-    $types: ();
-    @each $item in $list {
+  $is-number-list: true;
+  @each $item in $list {
+    // if $is-number-list: false, no need to check anymore
+    @if $is-number-list and type-of($item) != 'number' {
+      // check sub list
       @if type-of($item) == 'list' {
-
-        @each $sub-item in $item {
-          @if type-of($sub-item) == 'list' {
-            
-            @each $sub-sub-item in $sub-item {
-              $types: if(type-of($sub-sub-item) != 'number', append($types, false), append($types, true));
-            }
-          } @else {
-            $types: if(type-of($sub-item) != 'number', append($types, false), append($types, true));
-          }
-        }
+        $is-number-list: is-number-list($item);
       } @else {
-        $types: if(type-of($item) != 'number', append($types, false), append($types, true));
+        $is-number-list: false;
       }
     }
-
-    @return if(index($types, false), false, true);
   }
+
+  @return $is-number-list;
 }
