@@ -42,6 +42,18 @@
             <li class="order"><div class="cell" data-content></div></li>
           </ul>
         </div>
+        <div class="gallery-center-align demo-container">
+          <ul data-margin>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+            <li class="order"><div class="cell" data-content></div></li>
+          </ul>
+        </div>
         <div class="gallery-percentage-gutter demo-container">
           <ul data-margin>
             <li class="order"><div class="cell" data-content></div></li>

@@ -312,7 +312,7 @@ h5 {
   margin-bottom: 5px;
 }
 
-.gallery-number, .gallery-child, .gallery-direction, .gallery-percentage-gutter, .gallery-rem-gutter, .gallery-map {
+.gallery-number, .gallery-child, .gallery-direction, .gallery-center-align, .gallery-percentage-gutter, .gallery-rem-gutter, .gallery-map {
   height: auto;
   margin-bottom: 50px;
 }
@@ -332,8 +332,8 @@ h5 {
 }
 
 .gallery-number > ul > li {
-  float: left;
   width: 100%;
+  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -363,8 +363,8 @@ h5 {
 }
 
 .gallery-child > div > div {
-  float: left;
   width: 100%;
+  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -394,8 +394,8 @@ h5 {
 }
 
 .gallery-direction > ul > li {
-  float: right;
   width: 100%;
+  float: right;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -410,6 +410,44 @@ h5 {
   clear: both;
 }
 
+.gallery-center-align:before {
+  content: "(  3  center-align  )";
+}
+
+.gallery-center-align > ul {
+  letter-spacing: -0.31em;
+  text-rendering: optimizespeed;
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin-right: -20px;
+}
+
+.gallery-center-align > ul .opera-only :-o-prefocus, .gallery-center-align > ul {
+  word-spacing: -0.43em;
+}
+
+.gallery-center-align > ul > li {
+  width: 100%;
+  display: inline-block;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  text-align: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 20px 20px 0;
+}
+
+.gallery-center-align > ul > li {
+  width: 33.3333333%;
+}
+
+.gallery-center-align > ul > li:nth-child(3n+1) {
+  clear: both;
+}
+
 .gallery-percentage-gutter:before {
   content: "(  4  gutter  5%  )";
 }
@@ -421,8 +459,8 @@ h5 {
 }
 
 .gallery-percentage-gutter > ul > li {
-  float: left;
   width: 100%;
+  float: left;
   margin: 0 5% 5% 0;
 }
 
@@ -453,8 +491,8 @@ h5 {
 }
 
 .gallery-rem-gutter > ul > li {
-  float: left;
   width: 100%;
+  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -484,8 +522,8 @@ h5 {
 }
 
 .gallery-map > ul > li {
-  float: left;
   width: 100%;
+  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

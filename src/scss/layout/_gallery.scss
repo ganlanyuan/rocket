@@ -2,6 +2,7 @@
   $child: args-get-next($key, 'child', 'li');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
+  $center-align: args-get($key, 'center-align');
   $keep: args-get($key, 'keep');
 
   $global-bps: args-get-global-breakpoints($key);
@@ -30,14 +31,48 @@
 
   // *** output *** //
   @if not $keep {
-    @include clearfix();
+    @if $center-align { 
+      // Webkit: collapse white-space between units
+      letter-spacing: -0.31em; 
+      // Webkit: fixes text-rendering: optimizeLegibility
+      text-rendering: optimizespeed; 
+      // Sets the font stack to fonts known to work properly with the above letter
+      // and word spacings. See: https://github.com/yahoo/pure/issues/41/
+      // The following font stack makes gallery work on all known environments.
+      // * FreeSans: Ships with many Linux distros, including Ubuntu
+      // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+      //   Arial to get picked up by the browser, even though neither is available
+      //   in Chrome OS.
+      // * Droid Sans: Ships with all versions of Android.
+      // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+      font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+      // Opera as of 12 on Windows needs word-spacing.
+      // The ".opera-only" selector is used to prevent actual prefocus styling
+      // and is not required in markup.
+      .opera-only :-o-prefocus, & { word-spacing: -0.43em; }
+      text-align: center;
+    } @else {
+      @include clearfix(); 
+    }
     @if unit($gutter) != '%' { margin-right: - $gutter; }
   }
 
   > #{$child} {
     @if not $keep {
-      float: $float;
       width: 100%;
+
+      @if $center-align {
+        display: inline-block;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: top;
+        text-rendering: auto;
+        text-align: left;
+      } @else {
+        float: $float;
+      }
+
       @if unit($gutter) == '%' {
         margin: get-TRBL(#{opposite($float)} $gutter bottom $gutter);
       } @else {

@@ -5,6 +5,7 @@
 $gallery-number: 3;
 $gallery-child: 4 child div;
 $gallery-direction: 4 RTL;
+$gallery-center-align: 3 'center-align';
 $gallery-percentage-gutter: 4 gutter 5%;
 $gallery-rem-gutter: 5 gutter 2rem;
 $gallery-map: ('dafault': 2, 600px: 3, 900px: 4);
@@ -23,6 +24,11 @@ $gallery-map: ('dafault': 2, 600px: 3, 900px: 4);
   @extend %demo-show;
   &:before { content: '#{var-to-string($gallery-direction)}'; }
   > ul { @include gallery($gallery-direction); }
+}
+.gallery-center-align { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-center-align)}'; }
+  > ul { @include gallery($gallery-center-align); }
 }
 .gallery-percentage-gutter { 
   @extend %demo-show;
