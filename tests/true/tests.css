@@ -344,6 +344,23 @@
   -description: "map doesn't found.";
 }
 
+/* # Arguments ---------- */
+/* args-get-global-breakpoints [function] */
+[data-module="Arguments"] [data-test="args-get-global-breakpoints [function]"] .assert-equal {
+  -result: PASS;
+  -description: "not global breakpoints.";
+}
+
+[data-module="Arguments"] [data-test="args-get-global-breakpoints [function]"] .assert-equal {
+  -result: PASS;
+  -description: "get the global breakpoints.";
+}
+
+[data-module="Arguments"] [data-test="args-get-global-breakpoints [function]"] .assert-equal {
+  -result: PASS;
+  -description: "more than one potential global breakpoints, get the last one.";
+}
+
 /* # List ---------- */
 /* get-slider-id [function] */
 [data-module="List"] [data-test="get-slider-id [function]"] .assert-equal {
@@ -550,8 +567,8 @@
 }
 
 /* # SUMMARY ---------- */
-/* 35 Tests: */
-/*  - 27 Passed */
+/* 36 Tests: */
+/*  - 28 Passed */
 /*  - 8 Failed */
 /* -------------------- */
 

@@ -1,0 +1,22 @@
+@include test-module('Arguments') {
+
+  @include test('args-get-global-breakpoints [function]') {
+    
+    // arg is a map
+    $args1: ('default': 3 4);
+    $test1: args-get-global-breakpoints($args1);
+    $expect1: false;
+    @include assert-equal($test1, $expect1, 'not global breakpoints.');
+    
+    // args contains 2 maps
+    $args2: ('default': (null 200px), 800px: (300px null)) ('small': 640px, 'medium': 768px);
+    $test2: args-get-global-breakpoints($args2);
+    $expect2: ('small': 640px, 'medium': 768px);
+    @include assert-equal($test2, $expect2, 'get the global breakpoints.');
+    
+    $args3: ('sm': 640px, 'md': 768px) ('lg': 1024px, 'xlg': 1400px);
+    $test3: args-get-global-breakpoints($args3);
+    $expect3: ('lg': 1024px, 'xlg': 1400px);
+    @include assert-equal($test3, $expect3, 'more than one potential global breakpoints, get the last one.');
+  };
+};

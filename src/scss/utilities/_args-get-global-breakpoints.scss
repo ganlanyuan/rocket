@@ -14,7 +14,7 @@
               type-of(nth($values, $i)) != 'number' { $bps: false; }
         }
 
-        @if $bps and not $global-bps { $global-bps: $item; }
+        @if $bps { $global-bps: $item; }
       }
     }
   }
