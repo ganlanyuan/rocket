@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -637,4 +641,4 @@ h5 {
   display: block;
 }
 
-/*# sourceMappingURL=components-dropdown.css.map */
+/*# sourceMappingURL=dropdown.css.map */

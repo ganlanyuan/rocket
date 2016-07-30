@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -286,7 +290,7 @@ h5 {
 }
 
 .charts1.active .item-1 > span:nth-of-type(1) {
-  width: 40.4545%;
+  width: 40.45455%;
 }
 
 .charts1.active .item-1 > span:nth-of-type(1):before {
@@ -294,7 +298,7 @@ h5 {
 }
 
 .charts1.active .item-2 > span:nth-of-type(1) {
-  width: 47.7273%;
+  width: 47.72727%;
 }
 
 .charts1.active .item-2 > span:nth-of-type(1):before {
@@ -302,7 +306,7 @@ h5 {
 }
 
 .charts1.active .item-3 > span:nth-of-type(1) {
-  width: 87.7273%;
+  width: 87.72727%;
 }
 
 .charts1.active .item-3 > span:nth-of-type(1):before {
@@ -349,7 +353,7 @@ h5 {
 }
 
 .charts1 .tick-2 {
-  left: 9.0909%;
+  left: 9.09091%;
 }
 
 .charts1 .tick-2 span:before {
@@ -357,7 +361,7 @@ h5 {
 }
 
 .charts1 .tick-3 {
-  left: 18.1818%;
+  left: 18.18182%;
 }
 
 .charts1 .tick-3 span:before {
@@ -365,7 +369,7 @@ h5 {
 }
 
 .charts1 .tick-4 {
-  left: 27.2727%;
+  left: 27.27273%;
 }
 
 .charts1 .tick-4 span:before {
@@ -373,7 +377,7 @@ h5 {
 }
 
 .charts1 .tick-5 {
-  left: 36.3636%;
+  left: 36.36364%;
 }
 
 .charts1 .tick-5 span:before {
@@ -381,7 +385,7 @@ h5 {
 }
 
 .charts1 .tick-6 {
-  left: 45.4545%;
+  left: 45.45455%;
 }
 
 .charts1 .tick-6 span:before {
@@ -389,7 +393,7 @@ h5 {
 }
 
 .charts1 .tick-7 {
-  left: 54.5455%;
+  left: 54.54545%;
 }
 
 .charts1 .tick-7 span:before {
@@ -397,7 +401,7 @@ h5 {
 }
 
 .charts1 .tick-8 {
-  left: 63.6364%;
+  left: 63.63636%;
 }
 
 .charts1 .tick-8 span:before {
@@ -405,7 +409,7 @@ h5 {
 }
 
 .charts1 .tick-9 {
-  left: 72.7273%;
+  left: 72.72727%;
 }
 
 .charts1 .tick-9 span:before {
@@ -413,7 +417,7 @@ h5 {
 }
 
 .charts1 .tick-10 {
-  left: 81.8182%;
+  left: 81.81818%;
 }
 
 .charts1 .tick-10 span:before {
@@ -421,7 +425,7 @@ h5 {
 }
 
 .charts1 .tick-11 {
-  left: 90.9091%;
+  left: 90.90909%;
 }
 
 .charts1 .tick-11 span:before {
@@ -537,7 +541,7 @@ h5 {
 }
 
 .charts2.active .item-1 > span:nth-of-type(1) {
-  height: 37.0833%;
+  height: 37.08333%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(1):before {
@@ -545,7 +549,7 @@ h5 {
 }
 
 .charts2.active .item-1 > span:nth-of-type(2) {
-  height: 20.8333%;
+  height: 20.83333%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(2):before {
@@ -553,7 +557,7 @@ h5 {
 }
 
 .charts2.active .item-1 > span:nth-of-type(3) {
-  height: 44.5833%;
+  height: 44.58333%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(3):before {
@@ -569,7 +573,7 @@ h5 {
 }
 
 .charts2.active .item-2 > span:nth-of-type(2) {
-  height: 41.6667%;
+  height: 41.66667%;
 }
 
 .charts2.active .item-2 > span:nth-of-type(2):before {
@@ -585,7 +589,7 @@ h5 {
 }
 
 .charts2.active .item-3 > span:nth-of-type(1) {
-  height: 80.4167%;
+  height: 80.41667%;
 }
 
 .charts2.active .item-3 > span:nth-of-type(1):before {
@@ -593,7 +597,7 @@ h5 {
 }
 
 .charts2.active .item-3 > span:nth-of-type(2) {
-  height: 66.6667%;
+  height: 66.66667%;
 }
 
 .charts2.active .item-3 > span:nth-of-type(2):before {
@@ -617,7 +621,7 @@ h5 {
 }
 
 .charts2.active .item-4 > span:nth-of-type(2) {
-  height: 91.6667%;
+  height: 91.66667%;
 }
 
 .charts2.active .item-4 > span:nth-of-type(2):before {
@@ -664,7 +668,7 @@ h5 {
 }
 
 .charts2 .tick-2 {
-  bottom: 8.3333%;
+  bottom: 8.33333%;
 }
 
 .charts2 .tick-2 span:before {
@@ -672,7 +676,7 @@ h5 {
 }
 
 .charts2 .tick-3 {
-  bottom: 16.6667%;
+  bottom: 16.66667%;
 }
 
 .charts2 .tick-3 span:before {
@@ -688,7 +692,7 @@ h5 {
 }
 
 .charts2 .tick-5 {
-  bottom: 33.3333%;
+  bottom: 33.33333%;
 }
 
 .charts2 .tick-5 span:before {
@@ -696,7 +700,7 @@ h5 {
 }
 
 .charts2 .tick-6 {
-  bottom: 41.6667%;
+  bottom: 41.66667%;
 }
 
 .charts2 .tick-6 span:before {
@@ -712,7 +716,7 @@ h5 {
 }
 
 .charts2 .tick-8 {
-  bottom: 58.3333%;
+  bottom: 58.33333%;
 }
 
 .charts2 .tick-8 span:before {
@@ -720,7 +724,7 @@ h5 {
 }
 
 .charts2 .tick-9 {
-  bottom: 66.6667%;
+  bottom: 66.66667%;
 }
 
 .charts2 .tick-9 span:before {
@@ -736,7 +740,7 @@ h5 {
 }
 
 .charts2 .tick-11 {
-  bottom: 83.3333%;
+  bottom: 83.33333%;
 }
 
 .charts2 .tick-11 span:before {
@@ -744,7 +748,7 @@ h5 {
 }
 
 .charts2 .tick-12 {
-  bottom: 91.6667%;
+  bottom: 91.66667%;
 }
 
 .charts2 .tick-12 span:before {
@@ -813,7 +817,7 @@ h5 {
 .charts2 li > span {
   position: absolute;
   bottom: 0;
-  width: 26.6667%;
+  width: 26.66667%;
   text-align: center;
 }
 
@@ -822,11 +826,11 @@ h5 {
 }
 
 .charts2 li > span:nth-of-type(2) {
-  left: 36.6667%;
+  left: 36.66667%;
 }
 
 .charts2 li > span:nth-of-type(3) {
-  left: 63.3333%;
+  left: 63.33333%;
 }
 
 .charts2.active li > span {
@@ -848,4 +852,4 @@ h5 {
   margin-right: 0;
 }
 
-/*# sourceMappingURL=components-charts.css.map */
+/*# sourceMappingURL=charts.css.map */

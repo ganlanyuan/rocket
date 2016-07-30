@@ -152,7 +152,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -267,11 +271,11 @@ h5 {
   width: 20%;
   padding-bottom: 20%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.7071);
-  -moz-transform: rotate(-45deg) scale(0.7071);
-  -ms-transform: rotate(-45deg) scale(0.7071);
-  -o-transform: rotate(-45deg) scale(0.7071);
-  transform: rotate(-45deg) scale(0.7071);
+  -webkit-transform: rotate(-45deg) scale(0.70711);
+  -moz-transform: rotate(-45deg) scale(0.70711);
+  -ms-transform: rotate(-45deg) scale(0.70711);
+  -o-transform: rotate(-45deg) scale(0.70711);
+  transform: rotate(-45deg) scale(0.70711);
 }
 
 .csstransforms .diamond:nth-child(n) {
@@ -301,11 +305,11 @@ h5 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.4142);
-  -moz-transform: rotate(45deg) scale(1.4142);
-  -ms-transform: rotate(45deg) scale(1.4142);
-  -o-transform: rotate(45deg) scale(1.4142);
-  transform: rotate(45deg) scale(1.4142);
+  -webkit-transform: rotate(45deg) scale(1.41421);
+  -moz-transform: rotate(45deg) scale(1.41421);
+  -ms-transform: rotate(45deg) scale(1.41421);
+  -o-transform: rotate(45deg) scale(1.41421);
+  transform: rotate(45deg) scale(1.41421);
 }
 
 .diamond > .diamond-content > * {
@@ -343,11 +347,11 @@ h5 {
   width: 20%;
   padding-bottom: 20%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.7071);
-  -moz-transform: rotate(-45deg) scale(0.7071);
-  -ms-transform: rotate(-45deg) scale(0.7071);
-  -o-transform: rotate(-45deg) scale(0.7071);
-  transform: rotate(-45deg) scale(0.7071);
+  -webkit-transform: rotate(-45deg) scale(0.70711);
+  -moz-transform: rotate(-45deg) scale(0.70711);
+  -ms-transform: rotate(-45deg) scale(0.70711);
+  -o-transform: rotate(-45deg) scale(0.70711);
+  transform: rotate(-45deg) scale(0.70711);
 }
 
 .diamond-s > .diamond-content {
@@ -362,11 +366,11 @@ h5 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.4142);
-  -moz-transform: rotate(45deg) scale(1.4142);
-  -ms-transform: rotate(45deg) scale(1.4142);
-  -o-transform: rotate(45deg) scale(1.4142);
-  transform: rotate(45deg) scale(1.4142);
+  -webkit-transform: rotate(45deg) scale(1.41421);
+  -moz-transform: rotate(45deg) scale(1.41421);
+  -ms-transform: rotate(45deg) scale(1.41421);
+  -o-transform: rotate(45deg) scale(1.41421);
+  transform: rotate(45deg) scale(1.41421);
 }
 
 .diamond-s > .diamond-content > * {
@@ -399,11 +403,11 @@ h5 {
   width: 60%;
   padding-bottom: 60%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.7071);
-  -moz-transform: rotate(-45deg) scale(0.7071);
-  -ms-transform: rotate(-45deg) scale(0.7071);
-  -o-transform: rotate(-45deg) scale(0.7071);
-  transform: rotate(-45deg) scale(0.7071);
+  -webkit-transform: rotate(-45deg) scale(0.70711);
+  -moz-transform: rotate(-45deg) scale(0.70711);
+  -ms-transform: rotate(-45deg) scale(0.70711);
+  -o-transform: rotate(-45deg) scale(0.70711);
+  transform: rotate(-45deg) scale(0.70711);
 }
 
 .diamond-m > .diamond-content {
@@ -418,11 +422,11 @@ h5 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.4142);
-  -moz-transform: rotate(45deg) scale(1.4142);
-  -ms-transform: rotate(45deg) scale(1.4142);
-  -o-transform: rotate(45deg) scale(1.4142);
-  transform: rotate(45deg) scale(1.4142);
+  -webkit-transform: rotate(45deg) scale(1.41421);
+  -moz-transform: rotate(45deg) scale(1.41421);
+  -ms-transform: rotate(45deg) scale(1.41421);
+  -o-transform: rotate(45deg) scale(1.41421);
+  transform: rotate(45deg) scale(1.41421);
 }
 
 .diamond-m > .diamond-content > * {
@@ -486,4 +490,4 @@ h5 {
   margin-left: 40%;
 }
 
-/*# sourceMappingURL=layout-diamond.css.map */
+/*# sourceMappingURL=diamond.css.map */

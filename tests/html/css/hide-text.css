@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -254,4 +258,4 @@ h5 {
   background: url("https://mozorg.cdn.mozilla.net/media/img/styleguide/identity/firefox/usage-logo.54fbc7b6231b.png") 0 0 no-repeat;
 }
 
-/*# sourceMappingURL=addons-hide-text.css.map */
+/*# sourceMappingURL=hide-text.css.map */

@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -496,8 +500,8 @@ h5 {
     transform: translate(-50%, -150%);
     top: 0;
   }
-  15.7895%,
-  84.2105% {
+  15.78947%,
+  84.21053% {
     transform: translate(-50%, 0);
     top: 10px;
   }
@@ -508,8 +512,8 @@ h5 {
     transform: translate(-50%, -150%);
     top: 0;
   }
-  15.7895%,
-  84.2105% {
+  15.78947%,
+  84.21053% {
     transform: translate(-50%, 0);
     top: 10px;
   }
@@ -520,8 +524,8 @@ h5 {
     transform: translate(-50%, -150%);
     top: 0;
   }
-  15.7895%,
-  84.2105% {
+  15.78947%,
+  84.21053% {
     transform: translate(-50%, 0);
     top: 10px;
   }
@@ -645,4 +649,4 @@ h5 {
   min-width: 5em;
 }
 
-/*# sourceMappingURL=components-validation.css.map */
+/*# sourceMappingURL=validation.css.map */

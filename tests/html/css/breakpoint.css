@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -291,4 +295,4 @@ h5 {
   }
 }
 
-/*# sourceMappingURL=addons-breakpoint.css.map */
+/*# sourceMappingURL=breakpoint.css.map */

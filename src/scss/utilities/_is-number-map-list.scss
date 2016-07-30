@@ -1,6 +1,6 @@
 @function is-number-map-list($list) {
   @if type-of($list) != 'list' {
-    @error '"#{$list}" is not a list';
+    @warn '"#{$list}" is not a list';
     @return false;
   }
 

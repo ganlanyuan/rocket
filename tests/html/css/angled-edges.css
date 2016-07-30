@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -295,7 +299,7 @@ h5 {
 .example-angled-edges .bottom {
   position: relative;
   overflow: hidden;
-  padding-bottom: 8.7489%;
+  padding-bottom: 8.74887%;
 }
 
 .example-angled-edges .bottom:after {
@@ -310,7 +314,7 @@ h5 {
 
 .example-angled-edges .bottom:after {
   bottom: 0;
-  border-bottom: 437.4433px solid #B9E2FF;
+  border-bottom: 437.44332px solid #B9E2FF;
   left: 0;
   border-left-width: 5000px;
 }
@@ -318,8 +322,8 @@ h5 {
 .example-angled-edges .both {
   position: relative;
   overflow: hidden;
-  padding-top: 8.7489%;
-  padding-bottom: 8.7489%;
+  padding-top: 8.74887%;
+  padding-bottom: 8.74887%;
   background-image: url("../images/angled-edges/2.jpg");
 }
 
@@ -335,14 +339,14 @@ h5 {
 
 .example-angled-edges .both:before {
   top: 0;
-  border-top: 437.4433px solid #B9E2FF;
+  border-top: 437.44332px solid #B9E2FF;
   right: 0;
   border-right-width: 5000px;
 }
 
 .example-angled-edges .both:after {
   bottom: 0;
-  border-bottom: 437.4433px solid #FBDBF6;
+  border-bottom: 437.44332px solid #FBDBF6;
   right: 0;
   border-right-width: 5000px;
 }
@@ -350,7 +354,7 @@ h5 {
 .example-angled-edges .top {
   position: relative;
   overflow: hidden;
-  padding-top: 8.7489%;
+  padding-top: 8.74887%;
   background-image: url("../images/angled-edges/3.jpg");
 }
 
@@ -366,7 +370,7 @@ h5 {
 
 .example-angled-edges .top:before {
   top: 0;
-  border-top: 437.4433px solid #FBDBF6;
+  border-top: 437.44332px solid #FBDBF6;
   left: 0;
   border-left-width: 5000px;
 }
@@ -379,4 +383,4 @@ h5 {
   background-color: #FBDBF6;
 }
 
-/*# sourceMappingURL=layout-angled-edges.css.map */
+/*# sourceMappingURL=angled-edges.css.map */

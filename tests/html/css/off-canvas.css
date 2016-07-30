@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -1763,4 +1767,4 @@ input:checked ~ .page-push .nav-push {
   margin-top: -200px;
 }
 
-/*# sourceMappingURL=components-off-canvas.css.map */
+/*# sourceMappingURL=off-canvas.css.map */

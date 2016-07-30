@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -312,4 +316,4 @@ h5 {
   z-index: 3;
 }
 
-/*# sourceMappingURL=js-priority-nav.css.map */
+/*# sourceMappingURL=priority-nav.css.map */

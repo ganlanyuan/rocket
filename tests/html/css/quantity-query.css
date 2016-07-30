@@ -152,7 +152,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -315,4 +319,4 @@ h5 {
   background-color: #FF49A6;
 }
 
-/*# sourceMappingURL=addons-quantity-query.css.map */
+/*# sourceMappingURL=quantity-query.css.map */

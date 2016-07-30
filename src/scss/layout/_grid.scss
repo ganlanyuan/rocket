@@ -1,5 +1,4 @@
 @mixin grid($key){
-  $map: false;
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
@@ -21,6 +20,7 @@
   @if $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
 
   // get map
+  $map: false;
   @if type-of($key) == map {
     $map: $key;
   } @else if type-of($key) == 'list' {

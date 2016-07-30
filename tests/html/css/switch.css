@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -269,8 +273,8 @@ h5 {
   line-height: 1.5625em;
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
-  padding: 0.1953em 1.3281em 0.1953em 0.1953em;
-  border-radius: 0.2604em;
+  padding: 0.19531em 1.32812em 0.19531em 0.19531em;
+  border-radius: 0.26042em;
 }
 
 .switch-group .switch-g > input ~ label:after {
@@ -279,12 +283,12 @@ h5 {
   height: 1.5625em;
   background: #fff;
   width: 1.5625em;
-  box-shadow: 0 0.1953em 0.1953em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0.2604em;
+  box-shadow: 0 0.19531em 0.19531em 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.26042em;
 }
 
 .switch-group .switch-g > input:checked ~ label {
-  padding: 0.1953em 0.1953em 0.1953em 1.3281em;
+  padding: 0.19531em 0.19531em 0.19531em 1.32812em;
   background: #CC412F;
 }
 
@@ -299,8 +303,8 @@ h5 {
   line-height: 1.25em;
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
-  padding: 0.1562em 1.0625em 0.1562em 0.1562em;
-  border-radius: 0.2083em;
+  padding: 0.15625em 1.0625em 0.15625em 0.15625em;
+  border-radius: 0.20833em;
 }
 
 .one > input ~ label:after {
@@ -309,12 +313,12 @@ h5 {
   height: 1.25em;
   background: #fff;
   width: 1.25em;
-  box-shadow: 0 0.1562em 0.1562em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0.2083em;
+  box-shadow: 0 0.15625em 0.15625em 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.20833em;
 }
 
 .one > input:checked ~ label {
-  padding: 0.1562em 0.1562em 0.1562em 1.0625em;
+  padding: 0.15625em 0.15625em 0.15625em 1.0625em;
   background: #3DD754;
 }
 
@@ -329,7 +333,7 @@ h5 {
   line-height: 3.125em;
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
-  padding: 0.3906em 2.6562em 0.3906em 0.3906em;
+  padding: 0.39062em 2.65625em 0.39062em 0.39062em;
   border-radius: 1000px;
 }
 
@@ -339,12 +343,12 @@ h5 {
   height: 3.125em;
   background: #fff;
   width: 3.125em;
-  box-shadow: 0 0.3906em 0.3906em 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.39062em 0.39062em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
 }
 
 .two > input:checked ~ label {
-  padding: 0.3906em 0.3906em 0.3906em 2.6562em;
+  padding: 0.39062em 0.39062em 0.39062em 2.65625em;
   background: #C06EE1;
 }
 
@@ -389,7 +393,7 @@ h5 {
   height: 1.5em;
   background: #fff;
   width: 1.5em;
-  box-shadow: 0 0.1442em 0.1875em 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.14423em 0.1875em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
 }
 
@@ -413,8 +417,8 @@ h5 {
 
 .text label > span {
   position: absolute;
-  left: 0.2812em;
-  top: 0.2812em;
+  left: 0.28125em;
+  top: 0.28125em;
   display: inline-block;
   white-space: nowrap;
   color: contrast(#ddd);
@@ -446,7 +450,7 @@ h5 {
   line-height: 2.25em;
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
-  padding: 0.2812em 1.9125em 0.2812em 0.2812em;
+  padding: 0.28125em 1.9125em 0.28125em 0.28125em;
   border-radius: 1000px;
   position: relative;
   width: 2.25em;
@@ -459,13 +463,13 @@ h5 {
   height: 2.25em;
   background: #fff;
   width: 2.25em;
-  box-shadow: 0 0.2812em 0.2812em 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.28125em 0.28125em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
   position: relative;
 }
 
 .text > input:checked ~ label {
-  padding: 0.2812em 0.2812em 0.2812em 1.9125em;
+  padding: 0.28125em 0.28125em 0.28125em 1.9125em;
   background: #399DE1;
   padding-left: 2.5875em;
 }
@@ -474,4 +478,4 @@ h5 {
   color: contrast(#399DE1);
 }
 
-/*# sourceMappingURL=components-switch.css.map */
+/*# sourceMappingURL=switch.css.map */

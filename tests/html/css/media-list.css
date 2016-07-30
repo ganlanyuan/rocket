@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -292,4 +296,4 @@ h5 {
   margin: 0 auto;
 }
 
-/*# sourceMappingURL=components-media-list.css.map */
+/*# sourceMappingURL=media-list.css.map */

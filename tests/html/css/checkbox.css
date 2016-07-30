@@ -146,7 +146,11 @@ h5 {
 }
 
 .cell {
-  min-height: 200px;
+  min-height: 100px;
+}
+
+.title {
+  margin-bottom: 1em;
 }
 
 .topic {
@@ -278,4 +282,4 @@ h5 {
   background-image: url("../images/checkbox-active.png");
 }
 
-/*# sourceMappingURL=components-checkbox.css.map */
+/*# sourceMappingURL=checkbox.css.map */
