@@ -123,13 +123,13 @@ h5 {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 40em;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 44em) {
   .container {
-    margin: 0 1.875em;
+    margin: 0 2em;
   }
 }
 
@@ -146,7 +146,64 @@ h5 {
 }
 
 .cell {
-  min-height: 100px;
+  min-height: 10em;
+}
+
+.cell:before {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.autoheight:nth-child(2n) > .cell {
+  height: 11em;
+}
+
+.autoheight:nth-child(3n+1) > .cell {
+  height: 12em;
+}
+
+.order:nth-child(1) > .cell:before {
+  content: "1";
+}
+
+.order:nth-child(2) > .cell:before {
+  content: "2";
+}
+
+.order:nth-child(3) > .cell:before {
+  content: "3";
+}
+
+.order:nth-child(4) > .cell:before {
+  content: "4";
+}
+
+.order:nth-child(5) > .cell:before {
+  content: "5";
+}
+
+.order:nth-child(6) > .cell:before {
+  content: "6";
+}
+
+.order:nth-child(7) > .cell:before {
+  content: "7";
+}
+
+.order:nth-child(8) > .cell:before {
+  content: "8";
+}
+
+.order:nth-child(9) > .cell:before {
+  content: "9";
+}
+
+.order:nth-child(10) > .cell:before {
+  content: "10";
 }
 
 .title {
@@ -242,6 +299,17 @@ h5 {
   display: block;
   margin-bottom: 10px;
   font-size: 24px;
+}
+
+.demo-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-container:before {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .example-center {

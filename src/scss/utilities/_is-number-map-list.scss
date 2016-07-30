@@ -8,7 +8,7 @@
   @each $item in $list {
     // if $is-number-map-list: false, no need for further check
     @if $is-number-map-list and
-        type-of($item) != 'number' or
+        type-of($item) != 'number' and
         type-of($item) != 'map' {
       @if type-of($item) == 'list' {
         $is-number-map-list: is-number-map-list($item);

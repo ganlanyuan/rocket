@@ -2,10 +2,40 @@
 @import "../../../src/scss/addons/breakpoint"; 
 @import "../../../src/scss/layout/gallery"; 
 
-$num: 3;
-$map: (
-  600: 2,
-  700: 3,
-  1000: 4,
-);
-.example-gallery { @include gallery($map); }
+$gallery-number: 3;
+$gallery-child: 4 child div;
+$gallery-direction: 4 RTL;
+$gallery-percentage-gutter: 4 gutter 5%;
+$gallery-rem-gutter: 5 gutter 2rem;
+$gallery-map: ('dafault': 2, 600px: 3, 900px: 4);
+
+.gallery-number { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-number)}'; }
+  > ul { @include gallery($gallery-number); }
+}
+.gallery-child { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-child)}'; }
+  > div { @include gallery($gallery-child); }
+}
+.gallery-direction { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-direction)}'; }
+  > ul { @include gallery($gallery-direction); }
+}
+.gallery-percentage-gutter { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-percentage-gutter)}'; }
+  > ul { @include gallery($gallery-percentage-gutter); }
+}
+.gallery-rem-gutter { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-rem-gutter)}'; }
+  > ul { @include gallery($gallery-rem-gutter); }
+}
+.gallery-map { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($gallery-map)}'; }
+  > ul { @include gallery($gallery-map); }
+}

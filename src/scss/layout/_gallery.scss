@@ -1,86 +1,93 @@
 @mixin gallery($key){
-  $maps: args-get-maps($key);
-  $map: false;
-  $per-row: 1;
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
   $child: args-get-next($key, 'child', 'li');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
+  $keep: args-get($key, 'keep');
 
-  $global-bps: false;
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $bps: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
-  $keep: args-get($key, 'keep');
-
-  // get map
-  @if length($maps) >= 1 {
-    $map: nth($maps, 1);
-  }
-  @if length($maps) >= 2 {
-    $global-bps: nth($maps, 2);
-  }
-
-  // get per-row
-  @if type-of($key) == 'number' and unitless($key) {
-    $per-row: $key;
-  } @else if type-of($key) == 'list' and not $map {
+  // get data
+  $data: false;
+  @if type-of($key) == 'number' and unitless($key) or 
+      type-of($key) == 'map' {
+    $data: $key;
+  } @else if type-of($key) == 'list' and not $data {
     @each $item in $key {
-      @if type-of($item) == 'number' {
-        @if unitless($item) {
-          $per-row: $item;
-        }
+      @if not $data and
+          type-of($item) == 'map' or
+          type-of($item) == 'number' and unitless($item) {
+        $data: $item;
       }
     }
   }
 
-  // update $map breakpoints
-  @if $global-bps {
-    $map: map-update-breakpoints($map, $global-bps);
-  }
-  @if $map {
-    $bps: map-keys($map);
-  }
+  // if not valuable data found
+  @if not $data { @error 'Parameters must include number or map.'; }
 
   // *** output *** //
   @if not $keep {
     @include clearfix();
-    margin-right: - $gutter;
+    @if unit($gutter) != '%' { margin-right: - $gutter; }
   }
 
   > #{$child} {
     @if not $keep {
       float: $float;
       width: 100%;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 0 $gutter $gutter 0;
+      @if unit($gutter) == '%' {
+        margin: get-TRBL(#{opposite($float)} $gutter bottom $gutter);
+      } @else {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 $gutter $gutter 0;
+      }
     }
   }
 
   // set col width
-  @if $bps {
+  @if type-of($data) == 'map' {
+    // update $data breakpoints
+    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
+    @if $data and type-of($data) == 'map' { $bps: map-keys($data); }
+
     @each $bp in $bps {
-      $this-per-row: map-get($map, $bp);
+      $this-per-row: map-get($data, $bp);
 
       @if $bp == null or $bp == 'default' {
-        @include make-gallery($this-per-row, $child);
+        @include make-gallery($this-per-row, $child, $gutter, $float);
+
       } @else if type-of($bp) == 'number' {
+        // reset clear float and margin in each breakpoint
+        > #{$child}:nth-child(n) { 
+          clear: none; 
+          @if unit($gutter) == '%' {
+            margin-#{opposite($float)}: $gutter;
+          }
+        }
+
         @include bp($bp $condition) {
-          @include make-gallery($this-per-row, $child);
+          @include make-gallery($this-per-row, $child, $gutter, $float);
         }
       }
     }
   } @else {
-     @include make-gallery($per-row, $child);
+     @include make-gallery($data, $child, $gutter, $float);
   }
 }
 
-@mixin make-gallery($per-row, $child) {
+@mixin make-gallery($columns, $child, $gutter, $float) {
   > #{$child} { 
-    width: percentage(1 / $per-row); 
-    &:nth-child(n) { clear: none; }
-    &:nth-child(#{$per-row}n+1) { clear: both; }
+    &:nth-child(#{$columns}n+1) { clear: both; }
+    @if unit($gutter) == '%' {
+      width: ((100% + $gutter) / $columns - $gutter); 
+      &:nth-child(#{$columns}n) { margin-#{opposite($float)}: 0; }
+    } @else {
+      width: percentage(1 / $columns); 
+    }
   }
 }

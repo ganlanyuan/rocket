@@ -2,96 +2,9 @@
 @import "../../../src/scss/addons/breakpoint"; 
 @import "../../../src/scss/layout/grid"; 
 
-@function var-list-to-string($value, $bracket: true) {
-  $return: '';
-  @if $bracket { $return: '( '; }
-  @each $item in $value {
-    @if type-of($item) == 'list' {
-      $return: $return + var-list-to-string($item);
-    } @else if type-of($item) == 'map' {
-      $return: $return + var-map-to-string($item);
-    } @else {
-      $return: $return + ' ' + to-string($item) + ' ';
-    }
-  }
-  @if $bracket { $return: $return + ' )'; }
-
-  @return $return;
-}
-
-@function var-map-to-string($value) {
-  $keys: map-keys($value);
-  $vals: map-values($value);
-  
-  $return: '( ';
-  @for $i from 1 through length($keys) {
-    $return: $return + to-string(nth($keys, $i)) + ' : ';
-
-    $val: nth($vals, $i);
-    @if type-of($val) == 'list' {
-      @if is-nested-list($val) {
-        $return: $return + var-list-to-string($val, false);
-      } @else {
-        $return: $return + to-string($val);
-      }
-    } @else if type-of($val) == 'map' {
-      $return: $return + var-map-to-string($val);
-    } @else {
-      $return: $return + ' ' + to-string($val) + ' ';
-    }
-    
-    @if $i != length($keys) {
-      $return: $return + ', ';
-    }
-  }
-  $return: $return + ' )';
-  
-  @return $return;
-}
-
-@function var-to-string($value) {
-  $return: '';
-  @if type-of($value) == 'list' {
-    $return: var-list-to-string($value);
-  } @else if type-of($value) == 'map' {
-    $return: var-map-to-string($value);
-  } @else {
-    $return: to-string($value);
-  }
-  
-  @return $return;
-}
-
-[id*='grid-'] {
-  height: 0;
-  overflow: hidden;
-  &:before {
-    text-align: center;
-    display: block;
-    margin-bottom: 5px;
-  }
-  .cell:before { 
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 60px;
-    font-weight: 100;
-    color: hsla(0, 0%, 100%, 1);
-  }
-  @for $i from 1 through 6 {
-    > div > *:nth-child(#{$i}) .cell:before { content: '#{$i}'; }
-  }
-  [data-margin] > * {
-    &:nth-child(1) .cell { height: 140px; }
-    &:nth-child(3) .cell { height: 120px; }
-  }
-}
-.cell { margin-bottom: 20px; }
-%grid-show {
-  height: auto;
-  margin-bottom: 50px;
-}
+[class*='grid-'] .cell { margin-bottom: 20px; }
 
 $grid-bps: ('sm': 600px, 'md': 900px, 'lg': 1200px);
-
 $grid-list: (3 4);
 $grid-child: (3 4) child '.child';
 $grid-gutter1: (3 4 : 2 1) gutter 5%;
@@ -108,80 +21,80 @@ $grid-breakpoint-map: ( 600px: (3 4 : 2 1) (2 5) 3 );
 $grid-breakpoint-default: ( 'default': 3 4, 900px: 2 7 );
 $grid-breakpoint-complex-list: ( default: (3 4) (2 5) 3, 600px: (3 4 2) (5 3), 900px: (5 2: 2 1) 3 (1 1 : 2 1) );
 
-#grid-list {
-  @extend %grid-show;
+.grid-list {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-list)}'; }
   > div { @include grid($grid-list); }
 }
-#grid-child {
-  @extend %grid-show;
+.grid-child {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-child)}'; }
   > div { @include grid($grid-child); }
 }
-#grid-list-direction {
-  @extend %grid-show;
+.grid-list-direction {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-list-direction)}'; }
   > div { @include grid($grid-list-direction); }
 }
-#grid-gutter1 {
-  @extend %grid-show;
+.grid-gutter1 {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-gutter1)}'; }
   > div { @include grid($grid-gutter1); }
 }
-#grid-gutter2 {
-  @extend %grid-show;
+.grid-gutter2 {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-gutter2)}'; }
   > div { @include grid($grid-gutter2); }
 }
-#grid-nested-list {
-  @extend %grid-show;
+.grid-nested-list {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-nested-list)}'; }
   > div { @include grid($grid-nested-list); }
 }
-#grid-map {
-  @extend %grid-show;
+.grid-map {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-map)}'; }
   > div { @include grid($grid-map); }
 }
-#grid-breakpoint {
-  @extend %grid-show;
+.grid-breakpoint {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-breakpoint)}'; }
   > div { @include grid($grid-breakpoint); }
 }
-#grid-breakpoint-outside {
-  @extend %grid-show;
+.grid-breakpoint-outside {
+  @extend %demo-show;
   &:before { content: '@media (min-width: 600px) { #{var-to-string($grid-breakpoint-outside)} }'; }
   @media screen and (min-width: 600px) {
     > div { @include grid($grid-breakpoint); }
   }
 }
-#grid-global-breakpoints {
-  @extend %grid-show;
+.grid-global-breakpoints {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-global-breakpoints)}'; }
   > div { @include grid($grid-global-breakpoints); }
 }
-#grid-breakpoint-max {
-  @extend %grid-show;
+.grid-breakpoint-max {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-breakpoint-max)}'; }
   > div { @include grid($grid-breakpoint-max); }
 }
-#grid-breakpoint-nested-list {
-  @extend %grid-show;
+.grid-breakpoint-nested-list {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-breakpoint-nested-list)}'; }
   > div { @include grid($grid-breakpoint-nested-list); }
 }
-#grid-breakpoint-map {
-  @extend %grid-show;
+.grid-breakpoint-map {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-breakpoint-map)}'; }
   > div { @include grid($grid-breakpoint-map); }
 }
-#grid-breakpoint-default {
-  @extend %grid-show;
+.grid-breakpoint-default {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-breakpoint-default)}'; }
   > div { @include grid($grid-breakpoint-default); }
 }
-#grid-breakpoint-complex-list {
-  @extend %grid-show;
+.grid-breakpoint-complex-list {
+  @extend %demo-show;
   &:before { content: '#{var-to-string($grid-breakpoint-complex-list)}'; }
   > div { @include grid($grid-breakpoint-complex-list); }
 }

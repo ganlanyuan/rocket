@@ -123,13 +123,13 @@ h5 {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 40em;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 44em) {
   .container {
-    margin: 0 1.875em;
+    margin: 0 2em;
   }
 }
 
@@ -146,7 +146,64 @@ h5 {
 }
 
 .cell {
-  min-height: 100px;
+  min-height: 10em;
+}
+
+.cell:before {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.autoheight:nth-child(2n) > .cell {
+  height: 11em;
+}
+
+.autoheight:nth-child(3n+1) > .cell {
+  height: 12em;
+}
+
+.order:nth-child(1) > .cell:before {
+  content: "1";
+}
+
+.order:nth-child(2) > .cell:before {
+  content: "2";
+}
+
+.order:nth-child(3) > .cell:before {
+  content: "3";
+}
+
+.order:nth-child(4) > .cell:before {
+  content: "4";
+}
+
+.order:nth-child(5) > .cell:before {
+  content: "5";
+}
+
+.order:nth-child(6) > .cell:before {
+  content: "6";
+}
+
+.order:nth-child(7) > .cell:before {
+  content: "7";
+}
+
+.order:nth-child(8) > .cell:before {
+  content: "8";
+}
+
+.order:nth-child(9) > .cell:before {
+  content: "9";
+}
+
+.order:nth-child(10) > .cell:before {
+  content: "10";
 }
 
 .title {
@@ -244,6 +301,17 @@ h5 {
   font-size: 24px;
 }
 
+.demo-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-container:before {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .example-switch {
   text-align: center;
 }
@@ -273,8 +341,8 @@ h5 {
   line-height: 1.5625em;
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
-  padding: 0.19531em 1.32812em 0.19531em 0.19531em;
-  border-radius: 0.26042em;
+  padding: 0.1953125em 1.328125em 0.1953125em 0.1953125em;
+  border-radius: 0.2604167em;
 }
 
 .switch-group .switch-g > input ~ label:after {
@@ -283,12 +351,12 @@ h5 {
   height: 1.5625em;
   background: #fff;
   width: 1.5625em;
-  box-shadow: 0 0.19531em 0.19531em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0.26042em;
+  box-shadow: 0 0.1953125em 0.1953125em 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.2604167em;
 }
 
 .switch-group .switch-g > input:checked ~ label {
-  padding: 0.19531em 0.19531em 0.19531em 1.32812em;
+  padding: 0.1953125em 0.1953125em 0.1953125em 1.328125em;
   background: #CC412F;
 }
 
@@ -304,7 +372,7 @@ h5 {
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
   padding: 0.15625em 1.0625em 0.15625em 0.15625em;
-  border-radius: 0.20833em;
+  border-radius: 0.2083333em;
 }
 
 .one > input ~ label:after {
@@ -314,7 +382,7 @@ h5 {
   background: #fff;
   width: 1.25em;
   box-shadow: 0 0.15625em 0.15625em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0.20833em;
+  border-radius: 0.2083333em;
 }
 
 .one > input:checked ~ label {
@@ -333,7 +401,7 @@ h5 {
   line-height: 3.125em;
   transition: padding 0.3s, background 0.3s;
   background: #ddd;
-  padding: 0.39062em 2.65625em 0.39062em 0.39062em;
+  padding: 0.390625em 2.65625em 0.390625em 0.390625em;
   border-radius: 1000px;
 }
 
@@ -343,12 +411,12 @@ h5 {
   height: 3.125em;
   background: #fff;
   width: 3.125em;
-  box-shadow: 0 0.39062em 0.39062em 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.390625em 0.390625em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
 }
 
 .two > input:checked ~ label {
-  padding: 0.39062em 0.39062em 0.39062em 2.65625em;
+  padding: 0.390625em 0.390625em 0.390625em 2.65625em;
   background: #C06EE1;
 }
 
@@ -393,7 +461,7 @@ h5 {
   height: 1.5em;
   background: #fff;
   width: 1.5em;
-  box-shadow: 0 0.14423em 0.1875em 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1442308em 0.1875em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
 }
 

@@ -129,13 +129,13 @@ h5 {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 40em;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 44em) {
   .container {
-    margin: 0 1.875em;
+    margin: 0 2em;
   }
 }
 
@@ -152,7 +152,64 @@ h5 {
 }
 
 .cell {
-  min-height: 100px;
+  min-height: 10em;
+}
+
+.cell:before {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.autoheight:nth-child(2n) > .cell {
+  height: 11em;
+}
+
+.autoheight:nth-child(3n+1) > .cell {
+  height: 12em;
+}
+
+.order:nth-child(1) > .cell:before {
+  content: "1";
+}
+
+.order:nth-child(2) > .cell:before {
+  content: "2";
+}
+
+.order:nth-child(3) > .cell:before {
+  content: "3";
+}
+
+.order:nth-child(4) > .cell:before {
+  content: "4";
+}
+
+.order:nth-child(5) > .cell:before {
+  content: "5";
+}
+
+.order:nth-child(6) > .cell:before {
+  content: "6";
+}
+
+.order:nth-child(7) > .cell:before {
+  content: "7";
+}
+
+.order:nth-child(8) > .cell:before {
+  content: "8";
+}
+
+.order:nth-child(9) > .cell:before {
+  content: "9";
+}
+
+.order:nth-child(10) > .cell:before {
+  content: "10";
 }
 
 .title {
@@ -250,6 +307,17 @@ h5 {
   font-size: 24px;
 }
 
+.demo-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-container:before {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .example-diamond {
   max-width: 900px;
   margin: 80px auto 20px;
@@ -271,11 +339,11 @@ h5 {
   width: 20%;
   padding-bottom: 20%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.70711);
-  -moz-transform: rotate(-45deg) scale(0.70711);
-  -ms-transform: rotate(-45deg) scale(0.70711);
-  -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711);
+  -webkit-transform: rotate(-45deg) scale(0.7071068);
+  -moz-transform: rotate(-45deg) scale(0.7071068);
+  -ms-transform: rotate(-45deg) scale(0.7071068);
+  -o-transform: rotate(-45deg) scale(0.7071068);
+  transform: rotate(-45deg) scale(0.7071068);
 }
 
 .csstransforms .diamond:nth-child(n) {
@@ -305,11 +373,11 @@ h5 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.41421);
-  -moz-transform: rotate(45deg) scale(1.41421);
-  -ms-transform: rotate(45deg) scale(1.41421);
-  -o-transform: rotate(45deg) scale(1.41421);
-  transform: rotate(45deg) scale(1.41421);
+  -webkit-transform: rotate(45deg) scale(1.4142136);
+  -moz-transform: rotate(45deg) scale(1.4142136);
+  -ms-transform: rotate(45deg) scale(1.4142136);
+  -o-transform: rotate(45deg) scale(1.4142136);
+  transform: rotate(45deg) scale(1.4142136);
 }
 
 .diamond > .diamond-content > * {
@@ -347,11 +415,11 @@ h5 {
   width: 20%;
   padding-bottom: 20%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.70711);
-  -moz-transform: rotate(-45deg) scale(0.70711);
-  -ms-transform: rotate(-45deg) scale(0.70711);
-  -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711);
+  -webkit-transform: rotate(-45deg) scale(0.7071068);
+  -moz-transform: rotate(-45deg) scale(0.7071068);
+  -ms-transform: rotate(-45deg) scale(0.7071068);
+  -o-transform: rotate(-45deg) scale(0.7071068);
+  transform: rotate(-45deg) scale(0.7071068);
 }
 
 .diamond-s > .diamond-content {
@@ -366,11 +434,11 @@ h5 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.41421);
-  -moz-transform: rotate(45deg) scale(1.41421);
-  -ms-transform: rotate(45deg) scale(1.41421);
-  -o-transform: rotate(45deg) scale(1.41421);
-  transform: rotate(45deg) scale(1.41421);
+  -webkit-transform: rotate(45deg) scale(1.4142136);
+  -moz-transform: rotate(45deg) scale(1.4142136);
+  -ms-transform: rotate(45deg) scale(1.4142136);
+  -o-transform: rotate(45deg) scale(1.4142136);
+  transform: rotate(45deg) scale(1.4142136);
 }
 
 .diamond-s > .diamond-content > * {
@@ -403,11 +471,11 @@ h5 {
   width: 60%;
   padding-bottom: 60%;
   height: 0;
-  -webkit-transform: rotate(-45deg) scale(0.70711);
-  -moz-transform: rotate(-45deg) scale(0.70711);
-  -ms-transform: rotate(-45deg) scale(0.70711);
-  -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711);
+  -webkit-transform: rotate(-45deg) scale(0.7071068);
+  -moz-transform: rotate(-45deg) scale(0.7071068);
+  -ms-transform: rotate(-45deg) scale(0.7071068);
+  -o-transform: rotate(-45deg) scale(0.7071068);
+  transform: rotate(-45deg) scale(0.7071068);
 }
 
 .diamond-m > .diamond-content {
@@ -422,11 +490,11 @@ h5 {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  -webkit-transform: rotate(45deg) scale(1.41421);
-  -moz-transform: rotate(45deg) scale(1.41421);
-  -ms-transform: rotate(45deg) scale(1.41421);
-  -o-transform: rotate(45deg) scale(1.41421);
-  transform: rotate(45deg) scale(1.41421);
+  -webkit-transform: rotate(45deg) scale(1.4142136);
+  -moz-transform: rotate(45deg) scale(1.4142136);
+  -ms-transform: rotate(45deg) scale(1.4142136);
+  -o-transform: rotate(45deg) scale(1.4142136);
+  transform: rotate(45deg) scale(1.4142136);
 }
 
 .diamond-m > .diamond-content > * {

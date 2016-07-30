@@ -123,13 +123,13 @@ h5 {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 40em;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 44em) {
   .container {
-    margin: 0 1.875em;
+    margin: 0 2em;
   }
 }
 
@@ -146,7 +146,64 @@ h5 {
 }
 
 .cell {
-  min-height: 100px;
+  min-height: 10em;
+}
+
+.cell:before {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.autoheight:nth-child(2n) > .cell {
+  height: 11em;
+}
+
+.autoheight:nth-child(3n+1) > .cell {
+  height: 12em;
+}
+
+.order:nth-child(1) > .cell:before {
+  content: "1";
+}
+
+.order:nth-child(2) > .cell:before {
+  content: "2";
+}
+
+.order:nth-child(3) > .cell:before {
+  content: "3";
+}
+
+.order:nth-child(4) > .cell:before {
+  content: "4";
+}
+
+.order:nth-child(5) > .cell:before {
+  content: "5";
+}
+
+.order:nth-child(6) > .cell:before {
+  content: "6";
+}
+
+.order:nth-child(7) > .cell:before {
+  content: "7";
+}
+
+.order:nth-child(8) > .cell:before {
+  content: "8";
+}
+
+.order:nth-child(9) > .cell:before {
+  content: "9";
+}
+
+.order:nth-child(10) > .cell:before {
+  content: "10";
 }
 
 .title {
@@ -244,6 +301,17 @@ h5 {
   font-size: 24px;
 }
 
+.demo-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-container:before {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .example-angled-edges {
   max-width: 950px;
   margin-left: auto;
@@ -299,7 +367,7 @@ h5 {
 .example-angled-edges .bottom {
   position: relative;
   overflow: hidden;
-  padding-bottom: 8.74887%;
+  padding-bottom: 8.7488664%;
 }
 
 .example-angled-edges .bottom:after {
@@ -314,7 +382,7 @@ h5 {
 
 .example-angled-edges .bottom:after {
   bottom: 0;
-  border-bottom: 437.44332px solid #B9E2FF;
+  border-bottom: 437.4433176px solid #B9E2FF;
   left: 0;
   border-left-width: 5000px;
 }
@@ -322,8 +390,8 @@ h5 {
 .example-angled-edges .both {
   position: relative;
   overflow: hidden;
-  padding-top: 8.74887%;
-  padding-bottom: 8.74887%;
+  padding-top: 8.7488664%;
+  padding-bottom: 8.7488664%;
   background-image: url("../images/angled-edges/2.jpg");
 }
 
@@ -339,14 +407,14 @@ h5 {
 
 .example-angled-edges .both:before {
   top: 0;
-  border-top: 437.44332px solid #B9E2FF;
+  border-top: 437.4433176px solid #B9E2FF;
   right: 0;
   border-right-width: 5000px;
 }
 
 .example-angled-edges .both:after {
   bottom: 0;
-  border-bottom: 437.44332px solid #FBDBF6;
+  border-bottom: 437.4433176px solid #FBDBF6;
   right: 0;
   border-right-width: 5000px;
 }
@@ -354,7 +422,7 @@ h5 {
 .example-angled-edges .top {
   position: relative;
   overflow: hidden;
-  padding-top: 8.74887%;
+  padding-top: 8.7488664%;
   background-image: url("../images/angled-edges/3.jpg");
 }
 
@@ -370,7 +438,7 @@ h5 {
 
 .example-angled-edges .top:before {
   top: 0;
-  border-top: 437.44332px solid #FBDBF6;
+  border-top: 437.4433176px solid #FBDBF6;
   left: 0;
   border-left-width: 5000px;
 }

@@ -123,13 +123,13 @@ h5 {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 40em;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 44em) {
   .container {
-    margin: 0 1.875em;
+    margin: 0 2em;
   }
 }
 
@@ -146,7 +146,64 @@ h5 {
 }
 
 .cell {
-  min-height: 100px;
+  min-height: 10em;
+}
+
+.cell:before {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.autoheight:nth-child(2n) > .cell {
+  height: 11em;
+}
+
+.autoheight:nth-child(3n+1) > .cell {
+  height: 12em;
+}
+
+.order:nth-child(1) > .cell:before {
+  content: "1";
+}
+
+.order:nth-child(2) > .cell:before {
+  content: "2";
+}
+
+.order:nth-child(3) > .cell:before {
+  content: "3";
+}
+
+.order:nth-child(4) > .cell:before {
+  content: "4";
+}
+
+.order:nth-child(5) > .cell:before {
+  content: "5";
+}
+
+.order:nth-child(6) > .cell:before {
+  content: "6";
+}
+
+.order:nth-child(7) > .cell:before {
+  content: "7";
+}
+
+.order:nth-child(8) > .cell:before {
+  content: "8";
+}
+
+.order:nth-child(9) > .cell:before {
+  content: "9";
+}
+
+.order:nth-child(10) > .cell:before {
+  content: "10";
 }
 
 .title {
@@ -244,6 +301,17 @@ h5 {
   font-size: 24px;
 }
 
+.demo-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-container:before {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .sc-normal {
   position: relative;
 }
@@ -255,7 +323,7 @@ h5 {
 
 .sc-normal .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -326,7 +394,7 @@ h5 {
 }
 
 .sc-normal .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-normal-1:checked ~ .outer > .inner {
@@ -336,22 +404,22 @@ h5 {
 
 #sc-normal-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-normal-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-normal-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-normal-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-normal #sc-normal-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -512,7 +580,7 @@ h5 {
 
 .sc-bypage .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -583,7 +651,7 @@ h5 {
 }
 
 .sc-bypage .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-bypage-1:checked ~ .outer > .inner {
@@ -593,22 +661,22 @@ h5 {
 
 #sc-bypage-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-bypage-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-bypage-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-bypage-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-bypage #sc-bypage-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -784,7 +852,7 @@ h5 {
 
 .sc-center .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
 }
 
 .sc-center .inner {
@@ -1040,7 +1108,7 @@ h5 {
 
 .sc-scale .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -1111,7 +1179,7 @@ h5 {
 }
 
 .sc-scale .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-scale-1:checked ~ .outer > .inner {
@@ -1121,22 +1189,22 @@ h5 {
 
 #sc-scale-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-scale-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-scale-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-scale-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-scale .inner > li {
@@ -1343,7 +1411,7 @@ h5 {
 
 .sc-rotate .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -1414,7 +1482,7 @@ h5 {
 }
 
 .sc-rotate .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-rotate-1:checked ~ .outer > .inner {
@@ -1424,22 +1492,22 @@ h5 {
 
 #sc-rotate-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-rotate-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-rotate-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-rotate-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-rotate .inner > li {
@@ -1686,7 +1754,7 @@ h5 {
 
 .sc-autoplay .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -1761,7 +1829,7 @@ h5 {
 }
 
 .sc-autoplay .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-autoplay-1:checked ~ .outer > .inner {
@@ -1771,22 +1839,22 @@ h5 {
 
 #sc-autoplay-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-autoplay-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-autoplay-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-autoplay-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-autoplay #sc-autoplay-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -1897,13 +1965,13 @@ h5 {
     left: 0%;
   }
   50% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   87.5% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   100% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   100% {
     left: 0;
@@ -1918,13 +1986,13 @@ h5 {
     left: 0%;
   }
   50% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   87.5% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   100% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   100% {
     left: 0;
@@ -1939,13 +2007,13 @@ h5 {
     left: 0%;
   }
   50% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   87.5% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   100% {
-    left: -66.66667%;
+    left: -66.6666667%;
   }
   100% {
     left: 0;
@@ -2102,7 +2170,7 @@ h5 {
 
 .sc-autoplay-js .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -2173,7 +2241,7 @@ h5 {
 }
 
 .sc-autoplay-js .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-autoplay-js-1:checked ~ .outer > .inner {
@@ -2183,22 +2251,22 @@ h5 {
 
 #sc-autoplay-js-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-autoplay-js-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-autoplay-js-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-autoplay-js-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-autoplay-js #sc-autoplay-js-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -2359,7 +2427,7 @@ h5 {
 
 .sc-autoheight .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   margin: 0 -5px;
 }
 
@@ -2430,7 +2498,7 @@ h5 {
 }
 
 .sc-autoheight .inner > li {
-  width: 33.33333%;
+  width: 33.3333333%;
 }
 
 #sc-autoheight-1:checked ~ .outer > .inner {
@@ -2440,22 +2508,22 @@ h5 {
 
 #sc-autoheight-2:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -33.33333%;
+  left: -33.3333333%;
 }
 
 #sc-autoheight-3:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-autoheight-4:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 #sc-autoheight-5:checked ~ .outer > .inner {
   margin-top: 0;
-  left: -66.66667%;
+  left: -66.6666667%;
 }
 
 .sc-autoheight #sc-autoheight-1:checked ~ .outer > .inner > li:nth-child(n) {
@@ -2618,7 +2686,7 @@ h5 {
 
 .sc-vertical .outer {
   overflow: hidden;
-  transition: height 0.33333s;
+  transition: height 0.3333333s;
   height: 0;
   margin: 0;
   padding-bottom: 56.25%;
