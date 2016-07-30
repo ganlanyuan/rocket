@@ -1,0 +1,23 @@
+@function args-get-global-breakpoints($arg){
+  $global-bps: false;
+
+  // map: return map
+  @if type-of($arg) == 'list' {
+    @each $item in $arg {
+      @if type-of($item) == 'map' {
+        $keys: map-keys($item);
+        $values: map-values($item);
+        $bps: true;
+
+        @for $i from 1 through length($keys) {
+          @if type-of(nth($keys, $i)) != 'string' or 
+              type-of(nth($values, $i)) != 'number' { $bps: false; }
+        }
+
+        @if $bps and not $global-bps { $global-bps: $item; }
+      }
+    }
+  }
+
+  @return $global-bps;
+}

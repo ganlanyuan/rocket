@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div id="grid-breakpoint-string">
+      <div id="grid-global-breakpoints">
         <div data-margin>
           <div><div class="example-content cell" data-content></div></div>
           <div><div class="example-content cell" data-content></div></div>

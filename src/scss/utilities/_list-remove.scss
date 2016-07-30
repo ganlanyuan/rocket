@@ -12,5 +12,8 @@
     }
   }
 
+  // return the only item in list
+  @if length($result) == 1 { $result: nth($result, 1); }
+
   @return $result;
 }

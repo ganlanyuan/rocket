@@ -358,7 +358,7 @@ h5 {
 }
 
 .lt-ie10 .inner-1 > div:nth-child(1) {
-  width: 66.6667%;
+  width: 66.66667%;
   margin-left: 0;
 }
 
@@ -368,8 +368,8 @@ h5 {
 }
 
 .lt-ie10 .inner-1 > div:nth-child(2) {
-  width: 33.3333%;
-  margin-left: 66.6667%;
+  width: 33.33333%;
+  margin-left: 66.66667%;
 }
 
 .inner-2 {
@@ -421,7 +421,7 @@ h5 {
 }
 
 .lt-ie10 .inner-2 > div:nth-child(1) {
-  width: 28.5714%;
+  width: 28.57143%;
   margin-left: 0;
 }
 
@@ -431,8 +431,8 @@ h5 {
 }
 
 .lt-ie10 .inner-2 > div:nth-child(2) {
-  width: 71.4286%;
-  margin-left: 28.5714%;
+  width: 71.42857%;
+  margin-left: 28.57143%;
 }
 
 .wrapper,
