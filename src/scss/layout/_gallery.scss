@@ -4,6 +4,7 @@
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
   $center-align: args-get($key, 'center-align');
   $keep: args-get($key, 'keep');
+  @if $float == right { $center-align: flase; }
 
   $global-bps: args-get-global-breakpoints($key);
   @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
@@ -94,35 +95,38 @@
       $this-per-row: map-get($data, $bp);
 
       @if $bp == null or $bp == 'default' {
-        @include make-gallery($this-per-row, $child, $gutter, $float);
+        @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
 
       } @else if type-of($bp) == 'number' {
-        // reset clear float and margin in each breakpoint
-        > #{$child}:nth-child(n) { 
-          clear: none; 
-          @if unit($gutter) == '%' {
-            margin-#{opposite($float)}: $gutter;
-          }
-        }
 
         @include bp($bp $condition) {
-          @include make-gallery($this-per-row, $child, $gutter, $float);
+          @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
         }
       }
     }
   } @else {
-     @include make-gallery($data, $child, $gutter, $float);
+     @include make-gallery($data, $child, $gutter, $float, $center-align);
   }
 }
 
-@mixin make-gallery($columns, $child, $gutter, $float) {
+@mixin make-gallery($columns, $child, $gutter, $float, $center-align) {
   > #{$child} { 
-    &:nth-child(#{$columns}n+1) { clear: both; }
     @if unit($gutter) == '%' {
       width: ((100% + $gutter) / $columns - $gutter); 
+      
+      // reset margin in each breakpoint
+      &:nth-child(n) { margin-#{opposite($float)}: $gutter; }
       &:nth-child(#{$columns}n) { margin-#{opposite($float)}: 0; }
+
     } @else {
       width: percentage(1 / $columns); 
     }
+    
+    // reset clear in each breakpoint
+    @if not $center-align {
+      &:nth-child(n) { clear: none; }
+      &:nth-child(#{$columns}n+1) { clear: both; }
+    }
+
   }
 }
