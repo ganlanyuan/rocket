@@ -1505,26 +1505,26 @@ Everything you can do with `type` you can do with `responsive-type`.
 $key: $map, $breakpoints: $bp
 
 $bp: (
-  small : 480px,
-  medium: 700px,
-  large : 1024px
+  'small' : 480px,
+  'medium': 700px,
+  'large' : 1024px
 );
 $p-font-sizes: (
-  null  : (15px 1.3 right uppercase),
-  small : 16px
-  medium: (17px 1.4),
+  'dafault'  : (15px 1.3 right uppercase),
+  'small' : 16px
+  'medium': (17px 1.4),
   900px : 18px
-  large : (19px 1.45),
+  'large' : (19px 1.45),
   1440px: 20px
 );
 $h3-font-sizes: (
-  null  : (18px 1.3 weight-normal),
+  'default'  : (18px 1.3 weight-normal),
   900px : 22px
-  large : (30px 1.2),
+  'large' : (30px 1.2),
 );
 
-h3.example-font-size { @include rp-type($h3-font-sizes $bp); }
-p.example-font-size { @include rp-type($p-font-sizes $bp); }
+h3 { @include rp-type($h3-font-sizes $bp); }
+p { @include rp-type($p-font-sizes $bp); }
 ````
 
 #### hide-text
