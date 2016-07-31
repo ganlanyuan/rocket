@@ -1500,7 +1500,7 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 Responsive type.     
 Everything you can do with `type` you can do with `responsive-type`.    
 ```` scss
-@mixin font-size($key)
+@mixin responsive-type($key) // or rp-type()
 // pattern
 $key: $map, $breakpoints: $bp
 
