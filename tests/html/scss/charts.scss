@@ -1,16 +1,14 @@
 @import 'demo-base';
 @import "../../../src/scss/components/charts"; 
 
-$color1: #5AB5E1;
 $data1: (
-  $color1: 8.9 10.5 19.3 21.45,
+  #FF6666: 8.9 10.5 19.3 21.45,
 );
 
-$color2: #E44B22;
 $data2: (
-  $color2: 8.9 10.5 19.3 21.45,
-  rectangle($color2 1): 5 10 16 22,
-  rectangle($color2 3): 10.7 12 12 18,
+  #0080FF: 8.9 10.5 19.3 21.45,
+  #FF8000: 5 10 16 22,
+  #666666: 10.7 12 12 18,
 );
 .charts {
   &-wrap {

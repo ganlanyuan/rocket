@@ -93,6 +93,7 @@ textarea:focus {outline: 0; }
 button { border: none; }
 .hidden { display:none; }
 .ovh { overflow: hidden; }
+.clearfix { @include clearfix(); }
 
 h1,h2,h3,h4,h5,h6,strong { font-family: 'Roboto', sans-serif;}
 h2, h3, h4 { text-transform: capitalize; }
@@ -171,35 +172,6 @@ p {
   .topic {
     > section { margin: 0 0 5em; }
   }
-}
-// color-box
-.color-box {
-  float: left;
-  text-align: center;
-  padding: 3em 2em;
-  font-size: 14px;
-  // border-radius: .3em;
-  color: #fff;
-  max-width: 200px;
-  text-transform: capitalize;
-  .example-complementary & { width: 47%; }
-  .example-adjacent &,
-  .example-split-complementary &,
-  .example-triad & { width: 30%; }
-  .example-rectangle &,
-  .example-square & { width: 22%; }
-}
-.color-pattern {
-  clear: both;
-  max-width: 300px;
-  padding: 10px 0px;
-  border-right: .33em;
-  overflow: hidden;
-  img { max-width: 100%; }
-}
-.color-box-original { 
-  background-color: #d92626; 
-  color: #fff;
 }
 
 // example

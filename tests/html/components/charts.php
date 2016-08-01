@@ -101,12 +101,18 @@
     
   </div>
   <script>
-  ready(function () {
-    winLoad(function () {
-      var chart = kit('.charts1, .charts2');
-      chart.addClass('active');
-    })
-  });
+  window.onload = function () {
+    var charts = document.querySelectorAll('.charts');
+    for (var i = charts.length; i--;) {
+      charts[i].className += ' active';
+    }
+  }
+  // ready(function () {
+  //   winLoad(function () {
+  //     var chart = kit('.charts1, .charts2');
+  //     chart.addClass('active');
+  //   })
+  // });
   </script>
 </div>
 </body>

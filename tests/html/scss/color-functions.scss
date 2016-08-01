@@ -5,11 +5,39 @@ $original: #d92626;
 
 // *** color: contrast *** //
 $contrast: #5173a3, #bbf8e6, #cb7d26;
+
+// color-box
+.color-box {
+  float: left;
+  text-align: center;
+  padding: 3em 2em;
+  font-size: 14px;
+  color: #fff;
+  text-transform: capitalize;
+  box-sizing: -webkit-border-box;
+  box-sizing: -moz-border-box;
+  box-sizing: border-box;
+}
+.color-pattern {
+  max-width: 300px;
+  padding: 10px 0px;
+  border-right: .33em;
+  overflow: hidden;
+  img { max-width: 100%; }
+}
+.color-box-original { 
+  background-color: #d92626; 
+  color: #fff;
+}
+
+.two > div { width: 50%; }
+.three > div { width: 33.333333333%; }
+.four > div { width: 25%; }
+
 @for $i from 1 through 3 {
   .color-box-contrast-#{$i} { 
     background-color: nth($contrast, $i); 
     color: contrast(nth($contrast, $i) 'light' #eee 'dark' #333);
-    width: 30%;
   }
 }
 

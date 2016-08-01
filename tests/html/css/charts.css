@@ -80,6 +80,12 @@ button {
   overflow: hidden;
 }
 
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 h1, h2, h3, h4, h5, h6, strong {
   font-family: 'Roboto', sans-serif;
 }
@@ -235,48 +241,6 @@ h5 {
   }
 }
 
-.color-box {
-  float: left;
-  text-align: center;
-  padding: 3em 2em;
-  font-size: 14px;
-  color: #fff;
-  max-width: 200px;
-  text-transform: capitalize;
-}
-
-.example-complementary .color-box {
-  width: 47%;
-}
-
-.example-adjacent .color-box,
-.example-split-complementary .color-box,
-.example-triad .color-box {
-  width: 30%;
-}
-
-.example-rectangle .color-box,
-.example-square .color-box {
-  width: 22%;
-}
-
-.color-pattern {
-  clear: both;
-  max-width: 300px;
-  padding: 10px 0px;
-  border-right: .33em;
-  overflow: hidden;
-}
-
-.color-pattern img {
-  max-width: 100%;
-}
-
-.color-box-original {
-  background-color: #d92626;
-  color: #fff;
-}
-
 .example:after {
   content: '';
   display: table;
@@ -354,11 +318,11 @@ h5 {
 }
 
 .charts1 li > span:nth-of-type(1) {
-  background: #5AB5E1;
+  background: #FF6666;
 }
 
 .charts1.active .item-1 > span:nth-of-type(1) {
-  width: 40.4545455%;
+  width: 40.4545%;
 }
 
 .charts1.active .item-1 > span:nth-of-type(1):before {
@@ -366,7 +330,7 @@ h5 {
 }
 
 .charts1.active .item-2 > span:nth-of-type(1) {
-  width: 47.7272727%;
+  width: 47.7273%;
 }
 
 .charts1.active .item-2 > span:nth-of-type(1):before {
@@ -374,7 +338,7 @@ h5 {
 }
 
 .charts1.active .item-3 > span:nth-of-type(1) {
-  width: 87.7272727%;
+  width: 87.7273%;
 }
 
 .charts1.active .item-3 > span:nth-of-type(1):before {
@@ -421,7 +385,7 @@ h5 {
 }
 
 .charts1 .tick-2 {
-  left: 9.0909091%;
+  left: 9.0909%;
 }
 
 .charts1 .tick-2 span:before {
@@ -429,7 +393,7 @@ h5 {
 }
 
 .charts1 .tick-3 {
-  left: 18.1818182%;
+  left: 18.1818%;
 }
 
 .charts1 .tick-3 span:before {
@@ -437,7 +401,7 @@ h5 {
 }
 
 .charts1 .tick-4 {
-  left: 27.2727273%;
+  left: 27.2727%;
 }
 
 .charts1 .tick-4 span:before {
@@ -445,7 +409,7 @@ h5 {
 }
 
 .charts1 .tick-5 {
-  left: 36.3636364%;
+  left: 36.3636%;
 }
 
 .charts1 .tick-5 span:before {
@@ -453,7 +417,7 @@ h5 {
 }
 
 .charts1 .tick-6 {
-  left: 45.4545455%;
+  left: 45.4545%;
 }
 
 .charts1 .tick-6 span:before {
@@ -461,7 +425,7 @@ h5 {
 }
 
 .charts1 .tick-7 {
-  left: 54.5454545%;
+  left: 54.5455%;
 }
 
 .charts1 .tick-7 span:before {
@@ -469,7 +433,7 @@ h5 {
 }
 
 .charts1 .tick-8 {
-  left: 63.6363636%;
+  left: 63.6364%;
 }
 
 .charts1 .tick-8 span:before {
@@ -477,7 +441,7 @@ h5 {
 }
 
 .charts1 .tick-9 {
-  left: 72.7272727%;
+  left: 72.7273%;
 }
 
 .charts1 .tick-9 span:before {
@@ -485,7 +449,7 @@ h5 {
 }
 
 .charts1 .tick-10 {
-  left: 81.8181818%;
+  left: 81.8182%;
 }
 
 .charts1 .tick-10 span:before {
@@ -493,7 +457,7 @@ h5 {
 }
 
 .charts1 .tick-11 {
-  left: 90.9090909%;
+  left: 90.9091%;
 }
 
 .charts1 .tick-11 span:before {
@@ -529,7 +493,7 @@ h5 {
 }
 
 .charts1 .label-1:before {
-  background: #5AB5E1;
+  background: #FF6666;
 }
 
 .charts1 li {
@@ -597,19 +561,19 @@ h5 {
 }
 
 .charts2 li > span:nth-of-type(1) {
-  background: #E44B22;
+  background: #0080FF;
 }
 
 .charts2 li > span:nth-of-type(2) {
-  background: rectangle(#E44B22 1);
+  background: #FF8000;
 }
 
 .charts2 li > span:nth-of-type(3) {
-  background: rectangle(#E44B22 3);
+  background: #666666;
 }
 
 .charts2.active .item-1 > span:nth-of-type(1) {
-  height: 37.0833333%;
+  height: 37.0833%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(1):before {
@@ -617,7 +581,7 @@ h5 {
 }
 
 .charts2.active .item-1 > span:nth-of-type(2) {
-  height: 20.8333333%;
+  height: 20.8333%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(2):before {
@@ -625,7 +589,7 @@ h5 {
 }
 
 .charts2.active .item-1 > span:nth-of-type(3) {
-  height: 44.5833333%;
+  height: 44.5833%;
 }
 
 .charts2.active .item-1 > span:nth-of-type(3):before {
@@ -641,7 +605,7 @@ h5 {
 }
 
 .charts2.active .item-2 > span:nth-of-type(2) {
-  height: 41.6666667%;
+  height: 41.6667%;
 }
 
 .charts2.active .item-2 > span:nth-of-type(2):before {
@@ -657,7 +621,7 @@ h5 {
 }
 
 .charts2.active .item-3 > span:nth-of-type(1) {
-  height: 80.4166667%;
+  height: 80.4167%;
 }
 
 .charts2.active .item-3 > span:nth-of-type(1):before {
@@ -665,7 +629,7 @@ h5 {
 }
 
 .charts2.active .item-3 > span:nth-of-type(2) {
-  height: 66.6666667%;
+  height: 66.6667%;
 }
 
 .charts2.active .item-3 > span:nth-of-type(2):before {
@@ -689,7 +653,7 @@ h5 {
 }
 
 .charts2.active .item-4 > span:nth-of-type(2) {
-  height: 91.6666667%;
+  height: 91.6667%;
 }
 
 .charts2.active .item-4 > span:nth-of-type(2):before {
@@ -736,7 +700,7 @@ h5 {
 }
 
 .charts2 .tick-2 {
-  bottom: 8.3333333%;
+  bottom: 8.3333%;
 }
 
 .charts2 .tick-2 span:before {
@@ -744,7 +708,7 @@ h5 {
 }
 
 .charts2 .tick-3 {
-  bottom: 16.6666667%;
+  bottom: 16.6667%;
 }
 
 .charts2 .tick-3 span:before {
@@ -760,7 +724,7 @@ h5 {
 }
 
 .charts2 .tick-5 {
-  bottom: 33.3333333%;
+  bottom: 33.3333%;
 }
 
 .charts2 .tick-5 span:before {
@@ -768,7 +732,7 @@ h5 {
 }
 
 .charts2 .tick-6 {
-  bottom: 41.6666667%;
+  bottom: 41.6667%;
 }
 
 .charts2 .tick-6 span:before {
@@ -784,7 +748,7 @@ h5 {
 }
 
 .charts2 .tick-8 {
-  bottom: 58.3333333%;
+  bottom: 58.3333%;
 }
 
 .charts2 .tick-8 span:before {
@@ -792,7 +756,7 @@ h5 {
 }
 
 .charts2 .tick-9 {
-  bottom: 66.6666667%;
+  bottom: 66.6667%;
 }
 
 .charts2 .tick-9 span:before {
@@ -808,7 +772,7 @@ h5 {
 }
 
 .charts2 .tick-11 {
-  bottom: 83.3333333%;
+  bottom: 83.3333%;
 }
 
 .charts2 .tick-11 span:before {
@@ -816,7 +780,7 @@ h5 {
 }
 
 .charts2 .tick-12 {
-  bottom: 91.6666667%;
+  bottom: 91.6667%;
 }
 
 .charts2 .tick-12 span:before {
@@ -852,15 +816,15 @@ h5 {
 }
 
 .charts2 .label-1:before {
-  background: #E44B22;
+  background: #0080FF;
 }
 
 .charts2 .label-2:before {
-  background: rectangle(#E44B22 1);
+  background: #FF8000;
 }
 
 .charts2 .label-3:before {
-  background: rectangle(#E44B22 3);
+  background: #666666;
 }
 
 .charts2:after {
@@ -885,7 +849,7 @@ h5 {
 .charts2 li > span {
   position: absolute;
   bottom: 0;
-  width: 26.6666667%;
+  width: 26.6667%;
   text-align: center;
 }
 
@@ -894,11 +858,11 @@ h5 {
 }
 
 .charts2 li > span:nth-of-type(2) {
-  left: 36.6666667%;
+  left: 36.6667%;
 }
 
 .charts2 li > span:nth-of-type(3) {
-  left: 63.3333333%;
+  left: 63.3333%;
 }
 
 .charts2.active li > span {
