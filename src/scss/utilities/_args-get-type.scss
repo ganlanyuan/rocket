@@ -1,7 +1,8 @@
 @function args-get-type($key, $arg, $check:false, $def:false) {
   $result: $def;
 
-  // @error $key;
+  @if not $key { @return $result; }
+  
   @if type-of($key) == $arg {
     $result: $key;
   } @else if type-of($key) == 'list' {

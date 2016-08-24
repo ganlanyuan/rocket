@@ -94,6 +94,12 @@ button {
   overflow: hidden;
 }
 
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 h1, h2, h3, h4, h5, h6, strong {
   font-family: 'Roboto', sans-serif;
 }
@@ -247,48 +253,6 @@ h5 {
   .topic > section {
     margin: 0 0 5em;
   }
-}
-
-.color-box {
-  float: left;
-  text-align: center;
-  padding: 3em 2em;
-  font-size: 14px;
-  color: #fff;
-  max-width: 200px;
-  text-transform: capitalize;
-}
-
-.example-complementary .color-box {
-  width: 47%;
-}
-
-.example-adjacent .color-box,
-.example-split-complementary .color-box,
-.example-triad .color-box {
-  width: 30%;
-}
-
-.example-rectangle .color-box,
-.example-square .color-box {
-  width: 22%;
-}
-
-.color-pattern {
-  clear: both;
-  max-width: 300px;
-  padding: 10px 0px;
-  border-right: .33em;
-  overflow: hidden;
-}
-
-.color-pattern img {
-  max-width: 100%;
-}
-
-.color-box-original {
-  background-color: #d92626;
-  color: #fff;
 }
 
 .example:after {

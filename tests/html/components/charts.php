@@ -6,7 +6,7 @@
     <div class="topic">
       <h2 class="main-heading"><span>components: </span>Charts</h2>
       <div class="charts-wrap">
-        <h4>Population of Largest U.S. Cities</h4>
+        <h4>Sales report</h4>
         <div class="charts charts1">
           <ul class="items">
             <li class="item-1">
@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="charts-wrap">
-        <h4>Population of Largest U.S. Cities</h4>
+        <h4>Sales report</h4>
         <div class="charts charts2">
           <ul class="items">
             <li class="item-1">
