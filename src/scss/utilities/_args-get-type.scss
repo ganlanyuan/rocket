@@ -17,8 +17,6 @@
         }
       }
     }
-  } @else {
-    @warn '"#{$key}" should be a #{$arg} or list.'
   }
 
   @return $result;
