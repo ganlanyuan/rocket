@@ -95,7 +95,7 @@
 }
 
 @mixin make-liquid-2($columns, $order, $child, $gutter, $float) {
-  $gutter-ie8: if(unit($gutter) == % and $gutter != 0%, 0, $gutter);
+  $gutter-ie8: if(unit($gutter) == '%' and $gutter != 0%, 0, $gutter);
   $child-list: ();
   @if type-of($child) == 'string' {
     $child-list: ('#{$child}:nth-child(1)', '#{$child}:nth-child(2)');

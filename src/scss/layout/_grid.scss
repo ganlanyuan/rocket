@@ -83,14 +83,14 @@
     .lt-ie10 & {
       @include clearfix();
       // gutter: px | em | rem | vw
-      @if $gutter != 0 and unit($gutter) != % { margin-#{opposite($float)}: - $gutter; }
+      @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
 
       > #{$child} {
         float: $float;
         clear: both; // default: single column
         margin-#{opposite($float)}: -100%; // each column is isolated with each other
         // gutter: px | em | rem | vw
-        @if $gutter != 0 and unit($gutter) != % {
+        @if $gutter != 0 and unit($gutter) != '%' {
           padding-#{opposite($float)}: $gutter;
           box-sizing: border-box;
         }
@@ -207,7 +207,7 @@
       }
 
       // gutter: %
-      @if unit($gutter) == % or $gutter == 0 {
+      @if unit($gutter) == '%' or $gutter == 0 {
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
 
       // gutter: px | em | rem | vw
@@ -220,7 +220,7 @@
 
       .lt-ie10 & {
         // gutter: px | em | rem | vw
-        @if $gutter != 0 and unit($gutter) != % { width: percentage(nth($cols, $i) / $full-col); }
+        @if $gutter != 0 and unit($gutter) != '%' { width: percentage(nth($cols, $i) / $full-col); }
 
         @if $location == 1 {
           margin-#{$float}: 0;
@@ -231,7 +231,7 @@
           }
 
           // gutter: %
-          @if unit($gutter) == % or $gutter == 0 {
+          @if unit($gutter) == '%' or $gutter == 0 {
             margin-#{$float}: ((100% + $gutter) * $val / $full-col);
           // gutter: px | em | rem | vw
           } @else {

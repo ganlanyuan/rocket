@@ -32,7 +32,7 @@
   @extend %clearfix;
 
   // pecentage container: 80%
-  @if unit($container) == % {
+  @if unit($container) == '%' {
     padding: 0 (50% - ($container / 2));
 
   // px or em container: 1000px 

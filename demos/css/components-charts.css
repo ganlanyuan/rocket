@@ -1,201 +1,153 @@
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
-    opacity: 1;
-  }
+    opacity: 1; }
   to {
-    opacity: 1;
-  }
-}
+    opacity: 1; } }
 
 body {
-  animation: fake 1s infinite;
-}
+  animation: fake 1s infinite; }
 
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-}
+  margin: 0; }
 
 dl, ul, ol {
-  padding: 0;
-}
+  padding: 0; }
 
 ol, ul {
-  list-style: none;
-}
+  list-style: none; }
 
 body {
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
 
 [class^="icon-"]::before,
 [class*=" icon-"]::before,
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  display: none;
-}
+  display: none; }
 
 label {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 img {
   max-width: 100%;
-  height: auto;
-}
+  height: auto; }
 
 img.full {
   width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+  color: inherit; }
+  a:hover {
+    text-decoration: underline; }
 
 button,
 input,
 select {
-  line-height: normal !important;
-}
+  line-height: normal !important; }
 
 button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 0;
-}
+  outline: 0; }
 
 button {
-  border: none;
-}
+  border: none; }
 
 .hidden {
-  display: none;
-}
+  display: none; }
 
 .ovh {
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 h1, h2, h3, h4, h5, h6, strong {
-  font-family: 'Roboto', sans-serif;
-}
+  font-family: 'Roboto', sans-serif; }
 
 h2, h3, h4 {
-  text-transform: capitalize;
-}
+  text-transform: capitalize; }
 
 h3[id], h4[id] {
-  text-align: center;
-}
+  text-align: center; }
 
 .main-heading {
   font-size: 33.1667px;
   font-size: 2.07252rem;
   font-weight: 700;
   margin: .5em 0 1.5em;
-  text-align: center;
-}
-
-.main-heading span {
-  font-weight: 300;
-  color: #999;
-}
+  text-align: center; }
+  .main-heading span {
+    font-weight: 300;
+    color: #999; }
 
 h4 {
-  margin: 1.5em 0 0.5em;
-}
+  margin: 1.5em 0 0.5em; }
 
 h5 {
   font-size: 13px;
-  margin: 3em 0 1em;
-}
+  margin: 3em 0 1em; }
 
 p code {
   padding: .2em .5em;
   margin: 0 .3em 0 0;
   background-color: #F5F2F0;
-  border-radius: 2px;
-}
+  border-radius: 2px; }
 
 .topic p {
   font-size: 14px;
   line-height: 1.6;
   margin: 1.8em auto;
   max-width: 50em;
-  color: #7d7d7d;
-}
+  color: #7d7d7d; }
 
 pre {
-  clear: both;
-}
+  clear: both; }
 
 .container {
   max-width: 1400px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 @media screen and (max-width: 1399px) {
   .container {
-    margin: 0 1.875em;
-  }
-}
+    margin: 0 1.875em; } }
 
 [data-margin] {
-  background-color: #E698CC;
-}
+  background-color: #E698CC; }
 
 [data-padding] {
-  background-color: #C2EBBA;
-}
+  background-color: #C2EBBA; }
 
 [data-content] {
-  background-color: #CDEEFF;
-}
+  background-color: #CDEEFF; }
 
 .cell {
-  min-height: 200px;
-}
+  min-height: 200px; }
 
 pre[class*="language-"] > code[data-language] {
   overflow: auto;
-  max-height: none;
-}
+  max-height: none; }
 
 pre[class*="language-"] {
-  padding: 0 1em;
-}
+  padding: 0 1em; }
 
 .topic {
-  padding: 2em 0 4em;
-}
-
-.topic > section {
-  margin: 2em 0;
-}
+  padding: 2em 0 4em; }
+  .topic > section {
+    margin: 2em 0; }
 
 @media screen and (min-width: 1024px) {
   .main-heading:before, .main-heading:after {
     display: inline-block;
     vertical-align: 7px;
-    margin: 0 15px;
-  }
+    margin: 0 15px; }
   .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
+    content: url("../images/title-prev.png"); }
   .main-heading:after {
-    content: url("../images/title-next.png");
-  }
+    content: url("../images/title-next.png"); }
   .topic > section {
-    margin: 0 0 5em;
-  }
-}
+    margin: 0 0 5em; } }
 
 .color-box {
   float: left;
@@ -204,708 +156,418 @@ pre[class*="language-"] {
   font-size: 14px;
   color: #fff;
   max-width: 200px;
-  text-transform: capitalize;
-}
-
-.example-complementary .color-box {
-  width: 47%;
-}
-
-.example-adjacent .color-box,
-.example-split-complementary .color-box,
-.example-triad .color-box {
-  width: 30%;
-}
-
-.example-rectangle .color-box,
-.example-square .color-box {
-  width: 22%;
-}
+  text-transform: capitalize; }
+  .example-complementary .color-box {
+    width: 47%; }
+  .example-adjacent .color-box,
+  .example-split-complementary .color-box,
+  .example-triad .color-box {
+    width: 30%; }
+  .example-rectangle .color-box,
+  .example-square .color-box {
+    width: 22%; }
 
 .color-pattern {
   clear: both;
   max-width: 300px;
   padding: 10px 0px;
   border-right: .33em;
-  overflow: hidden;
-}
-
-.color-pattern img {
-  max-width: 100%;
-}
+  overflow: hidden; }
+  .color-pattern img {
+    max-width: 100%; }
 
 .color-box-original {
   background-color: #d92626;
-  color: #fff;
-}
+  color: #fff; }
 
 .example:after {
   content: '';
   display: table;
-  clear: both;
-}
+  clear: both; }
 
 .example-content {
   padding: 15px;
   font-size: 13px;
   line-height: 1.4;
   letter-spacing: normal;
-  cursor: pointer;
-}
-
-.example-content:hover {
-  background: #484848;
-}
-
-.example-content strong {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 24px;
-}
+  cursor: pointer; }
+  .example-content:hover {
+    background: #484848; }
+  .example-content strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 24px; }
 
 .more-demos {
-  border-top: 1px solid #dbdbdb;
-}
+  border-top: 1px solid #dbdbdb; }
 
 .demo-links {
-  margin: 10px 0 30px;
-}
-
-.demo-links a {
-  display: inline-block;
-  padding: 1.5em 2.5em;
-  margin-right: 7px;
-  margin-bottom: 10px;
-  border-radius: 0.3em;
-  background-color: #f2f2f2;
-  font-size: 14px;
-  -webkit-transition: 0.3s ease 0s;
-  transition: 0.3s ease 0s;
-}
-
-.demo-links a.current, .demo-links a:hover {
-  text-decoration: none;
-  background-color: #76abe9;
-  color: #fff;
-}
+  margin: 10px 0 30px; }
+  .demo-links a {
+    display: inline-block;
+    padding: 1.5em 2.5em;
+    margin-right: 7px;
+    margin-bottom: 10px;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    -webkit-transition: 0.3s ease 0s;
+    transition: 0.3s ease 0s; }
+    .demo-links a.current, .demo-links a:hover {
+      text-decoration: none;
+      background-color: #76abe9;
+      color: #fff; }
 
 .site-footer {
   padding: 15px 0;
-  background-color: #0E1721;
-}
+  background-color: #0E1721; }
 
 .copy-right {
   font-size: 12px;
   line-height: 1.3;
-  color: #b1b1b1;
-}
+  color: #b1b1b1; }
 
 .charts {
-  margin: 50px 0;
-}
-
-.charts-wrap {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-
-.charts-wrap h4 {
-  font-size: 24px;
-  margin-left: 4em;
-}
-
-.charts li span {
-  font-size: 14px;
-}
-
-.charts1 {
-  position: relative;
-  margin-left: 6em !important;
-}
-
-.charts1 li {
-  position: relative;
-}
-
-.charts1 li strong {
-  position: absolute;
-}
-
-.charts1 li > span {
-  display: block;
-  color: #fff;
-  box-sizing: border-box;
-  width: 0;
-  padding: 0;
-  transition: width 0.6s ease, padding 0.6s ease;
-}
-
-.charts1 li > span:nth-of-type(1) {
-  background: #5AB5E1;
-}
-
-.charts1.active .item-1 > span:nth-of-type(1) {
-  width: 40.4545%;
-}
-
-.charts1.active .item-1 > span:nth-of-type(1):before {
-  content: "8.9";
-}
-
-.charts1.active .item-2 > span:nth-of-type(1) {
-  width: 47.7273%;
-}
-
-.charts1.active .item-2 > span:nth-of-type(1):before {
-  content: "10.5";
-}
-
-.charts1.active .item-3 > span:nth-of-type(1) {
-  width: 87.7273%;
-}
-
-.charts1.active .item-3 > span:nth-of-type(1):before {
-  content: "19.3";
-}
-
-.charts1.active .item-4 > span:nth-of-type(1) {
-  width: 97.5%;
-}
-
-.charts1.active .item-4 > span:nth-of-type(1):before {
-  content: "21.45";
-}
-
-.charts1 .ticks {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.charts1 .ticks > div {
-  position: absolute;
-  width: 0;
-  height: 100%;
-  font-size: 0.7em;
-  color: #9b9b9b;
-  border-right: 1px solid #e7e7e7;
-}
-
-.charts1 .ticks span {
-  display: block;
-  width: 3em;
-}
-
-.charts1 .tick-1 {
-  left: 0%;
-}
-
-.charts1 .tick-1 span:before {
-  content: "0";
-}
-
-.charts1 .tick-2 {
-  left: 9.0909%;
-}
-
-.charts1 .tick-2 span:before {
-  content: "2";
-}
-
-.charts1 .tick-3 {
-  left: 18.1818%;
-}
-
-.charts1 .tick-3 span:before {
-  content: "4";
-}
-
-.charts1 .tick-4 {
-  left: 27.2727%;
-}
-
-.charts1 .tick-4 span:before {
-  content: "6";
-}
-
-.charts1 .tick-5 {
-  left: 36.3636%;
-}
-
-.charts1 .tick-5 span:before {
-  content: "8";
-}
-
-.charts1 .tick-6 {
-  left: 45.4545%;
-}
-
-.charts1 .tick-6 span:before {
-  content: "10";
-}
-
-.charts1 .tick-7 {
-  left: 54.5455%;
-}
-
-.charts1 .tick-7 span:before {
-  content: "12";
-}
-
-.charts1 .tick-8 {
-  left: 63.6364%;
-}
-
-.charts1 .tick-8 span:before {
-  content: "14";
-}
-
-.charts1 .tick-9 {
-  left: 72.7273%;
-}
-
-.charts1 .tick-9 span:before {
-  content: "16";
-}
-
-.charts1 .tick-10 {
-  left: 81.8182%;
-}
-
-.charts1 .tick-10 span:before {
-  content: "18";
-}
-
-.charts1 .tick-11 {
-  left: 90.9091%;
-}
-
-.charts1 .tick-11 span:before {
-  content: "20";
-}
-
-.charts1 .tick-12 {
-  left: 100%;
-}
-
-.charts1 .tick-12 span:before {
-  content: "22";
-}
-
-.charts1 .labels {
-  position: absolute;
-}
-
-.charts1 .labels div {
-  display: inline-block;
-  margin-right: 0.5em;
-  font-size: 0.8em;
-  text-transform: capitalize;
-}
-
-.charts1 .labels div:before {
-  content: '';
-  width: 1em;
-  height: 1em;
-  margin-right: 0.25em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.charts1 .label-1:before {
-  background: #5AB5E1;
-}
-
-.charts1 li {
-  padding: 10px 0;
-}
-
-.charts1 li > strong {
-  top: 0;
-  width: 5em;
-  left: -6em;
-  line-height: 40px;
-  text-align: right;
-  margin: 10px 0;
-}
-
-.charts1 li > span {
-  height: 40px;
-  line-height: 40px;
-  text-align: right;
-}
-
-.charts1.active li > span {
-  padding-right: 0.8em;
-}
-
-.charts1 .ticks:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.charts1 .ticks > div {
-  text-align: right;
-}
-
-.charts1 .ticks span {
-  margin-top: -1.2em;
-  margin-left: -1.5em;
-  text-align: center;
-}
-
-.charts1 .labels {
-  margin-top: 1em;
-}
-
-.charts2 {
-  position: relative;
-}
-
-.charts2 li {
-  position: relative;
-}
-
-.charts2 li strong {
-  position: absolute;
-}
-
-.charts2 li > span {
-  display: block;
-  color: #fff;
-  box-sizing: border-box;
-  height: 0;
-  padding: 0;
-  transition: height 0.6s ease, padding 0.6s ease;
-}
-
-.charts2 li > span:nth-of-type(1) {
-  background: #E44B22;
-}
-
-.charts2 li > span:nth-of-type(2) {
-  background: #e48a22;
-}
-
-.charts2 li > span:nth-of-type(3) {
-  background: #22a1e4;
-}
-
-.charts2.active .item-1 > span:nth-of-type(1) {
-  height: 37.0833%;
-}
-
-.charts2.active .item-1 > span:nth-of-type(1):before {
-  content: "8.9";
-}
-
-.charts2.active .item-1 > span:nth-of-type(2) {
-  height: 20.8333%;
-}
-
-.charts2.active .item-1 > span:nth-of-type(2):before {
-  content: "5";
-}
-
-.charts2.active .item-1 > span:nth-of-type(3) {
-  height: 44.5833%;
-}
-
-.charts2.active .item-1 > span:nth-of-type(3):before {
-  content: "10.7";
-}
-
-.charts2.active .item-2 > span:nth-of-type(1) {
-  height: 43.75%;
-}
-
-.charts2.active .item-2 > span:nth-of-type(1):before {
-  content: "10.5";
-}
-
-.charts2.active .item-2 > span:nth-of-type(2) {
-  height: 41.6667%;
-}
-
-.charts2.active .item-2 > span:nth-of-type(2):before {
-  content: "10";
-}
-
-.charts2.active .item-2 > span:nth-of-type(3) {
-  height: 50%;
-}
-
-.charts2.active .item-2 > span:nth-of-type(3):before {
-  content: "12";
-}
-
-.charts2.active .item-3 > span:nth-of-type(1) {
-  height: 80.4167%;
-}
-
-.charts2.active .item-3 > span:nth-of-type(1):before {
-  content: "19.3";
-}
-
-.charts2.active .item-3 > span:nth-of-type(2) {
-  height: 66.6667%;
-}
-
-.charts2.active .item-3 > span:nth-of-type(2):before {
-  content: "16";
-}
-
-.charts2.active .item-3 > span:nth-of-type(3) {
-  height: 50%;
-}
-
-.charts2.active .item-3 > span:nth-of-type(3):before {
-  content: "12";
-}
-
-.charts2.active .item-4 > span:nth-of-type(1) {
-  height: 89.375%;
-}
-
-.charts2.active .item-4 > span:nth-of-type(1):before {
-  content: "21.45";
-}
-
-.charts2.active .item-4 > span:nth-of-type(2) {
-  height: 91.6667%;
-}
-
-.charts2.active .item-4 > span:nth-of-type(2):before {
-  content: "22";
-}
-
-.charts2.active .item-4 > span:nth-of-type(3) {
-  height: 75%;
-}
-
-.charts2.active .item-4 > span:nth-of-type(3):before {
-  content: "18";
-}
-
-.charts2 .ticks {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.charts2 .ticks > div {
-  position: absolute;
-  height: 0;
-  width: 100%;
-  font-size: 0.7em;
-  color: #9b9b9b;
-  border-top: 1px solid #e7e7e7;
-}
-
-.charts2 .ticks span {
-  display: block;
-  width: 3em;
-}
-
-.charts2 .tick-1 {
-  bottom: 0%;
-}
-
-.charts2 .tick-1 span:before {
-  content: "0";
-}
-
-.charts2 .tick-2 {
-  bottom: 8.3333%;
-}
-
-.charts2 .tick-2 span:before {
-  content: "2";
-}
-
-.charts2 .tick-3 {
-  bottom: 16.6667%;
-}
-
-.charts2 .tick-3 span:before {
-  content: "4";
-}
-
-.charts2 .tick-4 {
-  bottom: 25%;
-}
-
-.charts2 .tick-4 span:before {
-  content: "6";
-}
-
-.charts2 .tick-5 {
-  bottom: 33.3333%;
-}
-
-.charts2 .tick-5 span:before {
-  content: "8";
-}
-
-.charts2 .tick-6 {
-  bottom: 41.6667%;
-}
-
-.charts2 .tick-6 span:before {
-  content: "10";
-}
-
-.charts2 .tick-7 {
-  bottom: 50%;
-}
-
-.charts2 .tick-7 span:before {
-  content: "12";
-}
-
-.charts2 .tick-8 {
-  bottom: 58.3333%;
-}
-
-.charts2 .tick-8 span:before {
-  content: "14";
-}
-
-.charts2 .tick-9 {
-  bottom: 66.6667%;
-}
-
-.charts2 .tick-9 span:before {
-  content: "16";
-}
-
-.charts2 .tick-10 {
-  bottom: 75%;
-}
-
-.charts2 .tick-10 span:before {
-  content: "18";
-}
-
-.charts2 .tick-11 {
-  bottom: 83.3333%;
-}
-
-.charts2 .tick-11 span:before {
-  content: "20";
-}
-
-.charts2 .tick-12 {
-  bottom: 91.6667%;
-}
-
-.charts2 .tick-12 span:before {
-  content: "22";
-}
-
-.charts2 .tick-13 {
-  bottom: 100%;
-}
-
-.charts2 .tick-13 span:before {
-  content: "24";
-}
-
-.charts2 .labels {
-  position: absolute;
-}
-
-.charts2 .labels div {
-  display: inline-block;
-  margin-right: 0.5em;
-  font-size: 0.8em;
-  text-transform: capitalize;
-}
-
-.charts2 .labels div:before {
-  content: '';
-  width: 1em;
-  height: 1em;
-  margin-right: 0.25em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.charts2 .label-1:before {
-  background: #E44B22;
-}
-
-.charts2 .label-2:before {
-  background: #e48a22;
-}
-
-.charts2 .label-3:before {
-  background: #22a1e4;
-}
-
-.charts2:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.charts2 li {
-  float: left;
-  padding-top: 60%;
-  width: 25%;
-}
-
-.charts2 li > strong {
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  margin-bottom: -2em;
-}
-
-.charts2 li > span {
-  position: absolute;
-  bottom: 0;
-  width: 26.6667%;
-  text-align: center;
-}
-
-.charts2 li > span:nth-of-type(1) {
-  left: 10%;
-}
-
-.charts2 li > span:nth-of-type(2) {
-  left: 36.6667%;
-}
-
-.charts2 li > span:nth-of-type(3) {
-  left: 63.3333%;
-}
-
-.charts2.active li > span {
-  padding-top: 0.8em;
-}
-
-.charts2 .ticks span {
-  margin-top: -0.5em;
-  margin-left: -3.5em;
-  text-align: right;
-}
-
-.charts2 .labels {
-  right: 0;
-  top: -1.5em;
-}
-
-.charts2 .labels > div:last-child {
-  margin-right: 0;
-}
-
-/*# sourceMappingURL=components-charts.css.map */
+  margin: 50px 0; }
+  .charts-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0; }
+    .charts-wrap h4 {
+      font-size: 24px;
+      margin-left: 4em; }
+  .charts li span {
+    font-size: 14px; }
+  .charts1 {
+    position: relative;
+    margin-left: 6em !important; }
+    .charts1 li {
+      position: relative; }
+      .charts1 li strong {
+        position: absolute; }
+      .charts1 li > span {
+        display: block;
+        color: #fff;
+        box-sizing: border-box;
+        width: 0;
+        padding: 0;
+        transition: width 0.6s ease, padding 0.6s ease; }
+        .charts1 li > span:nth-of-type(1) {
+          background: #5AB5E1; }
+    .charts1.active .item-1 > span:nth-of-type(1) {
+      width: 40.45455%; }
+      .charts1.active .item-1 > span:nth-of-type(1):before {
+        content: "8.9"; }
+    .charts1.active .item-2 > span:nth-of-type(1) {
+      width: 47.72727%; }
+      .charts1.active .item-2 > span:nth-of-type(1):before {
+        content: "10.5"; }
+    .charts1.active .item-3 > span:nth-of-type(1) {
+      width: 87.72727%; }
+      .charts1.active .item-3 > span:nth-of-type(1):before {
+        content: "19.3"; }
+    .charts1.active .item-4 > span:nth-of-type(1) {
+      width: 97.5%; }
+      .charts1.active .item-4 > span:nth-of-type(1):before {
+        content: "21.45"; }
+    .charts1 .ticks {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1; }
+      .charts1 .ticks > div {
+        position: absolute;
+        width: 0;
+        height: 100%;
+        font-size: 0.7em;
+        color: #9b9b9b;
+        border-right: 1px solid #e7e7e7; }
+      .charts1 .ticks span {
+        display: block;
+        width: 3em; }
+    .charts1 .tick-1 {
+      left: 0%; }
+      .charts1 .tick-1 span:before {
+        content: "0"; }
+    .charts1 .tick-2 {
+      left: 9.09091%; }
+      .charts1 .tick-2 span:before {
+        content: "2"; }
+    .charts1 .tick-3 {
+      left: 18.18182%; }
+      .charts1 .tick-3 span:before {
+        content: "4"; }
+    .charts1 .tick-4 {
+      left: 27.27273%; }
+      .charts1 .tick-4 span:before {
+        content: "6"; }
+    .charts1 .tick-5 {
+      left: 36.36364%; }
+      .charts1 .tick-5 span:before {
+        content: "8"; }
+    .charts1 .tick-6 {
+      left: 45.45455%; }
+      .charts1 .tick-6 span:before {
+        content: "10"; }
+    .charts1 .tick-7 {
+      left: 54.54545%; }
+      .charts1 .tick-7 span:before {
+        content: "12"; }
+    .charts1 .tick-8 {
+      left: 63.63636%; }
+      .charts1 .tick-8 span:before {
+        content: "14"; }
+    .charts1 .tick-9 {
+      left: 72.72727%; }
+      .charts1 .tick-9 span:before {
+        content: "16"; }
+    .charts1 .tick-10 {
+      left: 81.81818%; }
+      .charts1 .tick-10 span:before {
+        content: "18"; }
+    .charts1 .tick-11 {
+      left: 90.90909%; }
+      .charts1 .tick-11 span:before {
+        content: "20"; }
+    .charts1 .tick-12 {
+      left: 100%; }
+      .charts1 .tick-12 span:before {
+        content: "22"; }
+    .charts1 .labels {
+      position: absolute; }
+      .charts1 .labels div {
+        display: inline-block;
+        margin-right: 0.5em;
+        font-size: 0.8em;
+        text-transform: capitalize; }
+        .charts1 .labels div:before {
+          content: '';
+          width: 1em;
+          height: 1em;
+          margin-right: 0.25em;
+          display: inline-block;
+          vertical-align: middle; }
+    .charts1 .label-1:before {
+      background: #5AB5E1; }
+    .charts1 li {
+      padding: 10px 0; }
+      .charts1 li > strong {
+        top: 0;
+        width: 5em;
+        left: -6em;
+        line-height: 40px;
+        text-align: right;
+        margin: 10px 0; }
+      .charts1 li > span {
+        height: 40px;
+        line-height: 40px;
+        text-align: right; }
+    .charts1.active li > span {
+      padding-right: 0.8em; }
+    .charts1 .ticks:after {
+      clear: both;
+      content: "";
+      display: table; }
+    .charts1 .ticks > div {
+      text-align: right; }
+    .charts1 .ticks span {
+      margin-top: -1.2em;
+      margin-left: -1.5em;
+      text-align: center; }
+    .charts1 .labels {
+      margin-top: 1em; }
+  .charts2 {
+    position: relative; }
+    .charts2 li {
+      position: relative; }
+      .charts2 li strong {
+        position: absolute; }
+      .charts2 li > span {
+        display: block;
+        color: #fff;
+        box-sizing: border-box;
+        height: 0;
+        padding: 0;
+        transition: height 0.6s ease, padding 0.6s ease; }
+        .charts2 li > span:nth-of-type(1) {
+          background: #E44B22; }
+        .charts2 li > span:nth-of-type(2) {
+          background: #e48a22; }
+        .charts2 li > span:nth-of-type(3) {
+          background: #22a1e4; }
+    .charts2.active .item-1 > span:nth-of-type(1) {
+      height: 37.08333%; }
+      .charts2.active .item-1 > span:nth-of-type(1):before {
+        content: "8.9"; }
+    .charts2.active .item-1 > span:nth-of-type(2) {
+      height: 20.83333%; }
+      .charts2.active .item-1 > span:nth-of-type(2):before {
+        content: "5"; }
+    .charts2.active .item-1 > span:nth-of-type(3) {
+      height: 44.58333%; }
+      .charts2.active .item-1 > span:nth-of-type(3):before {
+        content: "10.7"; }
+    .charts2.active .item-2 > span:nth-of-type(1) {
+      height: 43.75%; }
+      .charts2.active .item-2 > span:nth-of-type(1):before {
+        content: "10.5"; }
+    .charts2.active .item-2 > span:nth-of-type(2) {
+      height: 41.66667%; }
+      .charts2.active .item-2 > span:nth-of-type(2):before {
+        content: "10"; }
+    .charts2.active .item-2 > span:nth-of-type(3) {
+      height: 50%; }
+      .charts2.active .item-2 > span:nth-of-type(3):before {
+        content: "12"; }
+    .charts2.active .item-3 > span:nth-of-type(1) {
+      height: 80.41667%; }
+      .charts2.active .item-3 > span:nth-of-type(1):before {
+        content: "19.3"; }
+    .charts2.active .item-3 > span:nth-of-type(2) {
+      height: 66.66667%; }
+      .charts2.active .item-3 > span:nth-of-type(2):before {
+        content: "16"; }
+    .charts2.active .item-3 > span:nth-of-type(3) {
+      height: 50%; }
+      .charts2.active .item-3 > span:nth-of-type(3):before {
+        content: "12"; }
+    .charts2.active .item-4 > span:nth-of-type(1) {
+      height: 89.375%; }
+      .charts2.active .item-4 > span:nth-of-type(1):before {
+        content: "21.45"; }
+    .charts2.active .item-4 > span:nth-of-type(2) {
+      height: 91.66667%; }
+      .charts2.active .item-4 > span:nth-of-type(2):before {
+        content: "22"; }
+    .charts2.active .item-4 > span:nth-of-type(3) {
+      height: 75%; }
+      .charts2.active .item-4 > span:nth-of-type(3):before {
+        content: "18"; }
+    .charts2 .ticks {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1; }
+      .charts2 .ticks > div {
+        position: absolute;
+        height: 0;
+        width: 100%;
+        font-size: 0.7em;
+        color: #9b9b9b;
+        border-top: 1px solid #e7e7e7; }
+      .charts2 .ticks span {
+        display: block;
+        width: 3em; }
+    .charts2 .tick-1 {
+      bottom: 0%; }
+      .charts2 .tick-1 span:before {
+        content: "0"; }
+    .charts2 .tick-2 {
+      bottom: 8.33333%; }
+      .charts2 .tick-2 span:before {
+        content: "2"; }
+    .charts2 .tick-3 {
+      bottom: 16.66667%; }
+      .charts2 .tick-3 span:before {
+        content: "4"; }
+    .charts2 .tick-4 {
+      bottom: 25%; }
+      .charts2 .tick-4 span:before {
+        content: "6"; }
+    .charts2 .tick-5 {
+      bottom: 33.33333%; }
+      .charts2 .tick-5 span:before {
+        content: "8"; }
+    .charts2 .tick-6 {
+      bottom: 41.66667%; }
+      .charts2 .tick-6 span:before {
+        content: "10"; }
+    .charts2 .tick-7 {
+      bottom: 50%; }
+      .charts2 .tick-7 span:before {
+        content: "12"; }
+    .charts2 .tick-8 {
+      bottom: 58.33333%; }
+      .charts2 .tick-8 span:before {
+        content: "14"; }
+    .charts2 .tick-9 {
+      bottom: 66.66667%; }
+      .charts2 .tick-9 span:before {
+        content: "16"; }
+    .charts2 .tick-10 {
+      bottom: 75%; }
+      .charts2 .tick-10 span:before {
+        content: "18"; }
+    .charts2 .tick-11 {
+      bottom: 83.33333%; }
+      .charts2 .tick-11 span:before {
+        content: "20"; }
+    .charts2 .tick-12 {
+      bottom: 91.66667%; }
+      .charts2 .tick-12 span:before {
+        content: "22"; }
+    .charts2 .tick-13 {
+      bottom: 100%; }
+      .charts2 .tick-13 span:before {
+        content: "24"; }
+    .charts2 .labels {
+      position: absolute; }
+      .charts2 .labels div {
+        display: inline-block;
+        margin-right: 0.5em;
+        font-size: 0.8em;
+        text-transform: capitalize; }
+        .charts2 .labels div:before {
+          content: '';
+          width: 1em;
+          height: 1em;
+          margin-right: 0.25em;
+          display: inline-block;
+          vertical-align: middle; }
+    .charts2 .label-1:before {
+      background: #E44B22; }
+    .charts2 .label-2:before {
+      background: #e48a22; }
+    .charts2 .label-3:before {
+      background: #22a1e4; }
+    .charts2:after {
+      clear: both;
+      content: "";
+      display: table; }
+    .charts2 li {
+      float: left;
+      padding-top: 60%;
+      width: 25%; }
+      .charts2 li > strong {
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: -2em; }
+      .charts2 li > span {
+        position: absolute;
+        bottom: 0;
+        width: 26.66667%;
+        text-align: center; }
+        .charts2 li > span:nth-of-type(1) {
+          left: 10%; }
+        .charts2 li > span:nth-of-type(2) {
+          left: 36.66667%; }
+        .charts2 li > span:nth-of-type(3) {
+          left: 63.33333%; }
+    .charts2.active li > span {
+      padding-top: 0.8em; }
+    .charts2 .ticks span {
+      margin-top: -0.5em;
+      margin-left: -3.5em;
+      text-align: right; }
+    .charts2 .labels {
+      right: 0;
+      top: -1.5em; }
+      .charts2 .labels > div:last-child {
+        margin-right: 0; }
+
+/*# sourceMappingURL=sourcemaps/components-charts.css.map */

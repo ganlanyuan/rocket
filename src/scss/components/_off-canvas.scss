@@ -279,7 +279,7 @@
           position: fixed;
           box-sizing: border-box;
           #{$direction}: - $width;
-          transition: unquote(#{$direction} #{$duration});
+          transition: #{$direction} #{$duration};
           @if $horizontal {
             width: $width;
             top: 0;

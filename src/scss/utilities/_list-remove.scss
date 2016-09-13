@@ -3,7 +3,6 @@
 
   @if type-of($list) != 'list' {
     $result: $list;
-    @warn '"#{$list}" is not a list.'
   }
 
   @each $item in $list {

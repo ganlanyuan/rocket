@@ -126,9 +126,9 @@ p {
   }
 }
 .container {
-  max-width: 40em;
+  max-width: 70em;
   margin: 0 auto; 
-  @media screen and (max-width: 44em) {
+  @media screen and (max-width: 74em) {
     margin: 0 2em;
   }
 }
@@ -186,7 +186,7 @@ p {
   line-height: 1.4; 
   letter-spacing: normal;
   cursor: pointer; 
-  &:hover { background: #484848; }
+  &:hover { opacity: 0.9; }
   strong { 
     display: block;
     margin-bottom: 10px;

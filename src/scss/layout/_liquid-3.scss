@@ -95,7 +95,7 @@
 }
 
 @mixin make-holy-grail($columns, $order, $child, $gutter, $float) {
-  $gutter-ie8: if(unit($gutter) == % and $gutter != 0%, 0, $gutter);
+  $gutter-ie8: if(unit($gutter) == '%' and $gutter != 0%, 0, $gutter);
   $child-list: ();
   $children-ie8: '';
   @if type-of($child) == 'string' {

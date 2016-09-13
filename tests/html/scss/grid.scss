@@ -98,7 +98,3 @@ $grid-breakpoint-complex-list: ( default: (3 4) (2 5) 3, 600px: (3 4 2) (5 3), 9
   &:before { content: '#{var-to-string($grid-breakpoint-complex-list)}'; }
   > div { @include grid($grid-breakpoint-complex-list); }
 }
-
-
-
-
