@@ -1,8 +1,8 @@
 @function is-simple-map($map) {
   @if type-of($map) != 'map' {
-    @warn '"#{$map}" is not a map.';
     @return false;
   }
+  
   $is-simple-map: true;
   $values: map-values($map);
 

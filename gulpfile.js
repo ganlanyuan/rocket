@@ -146,9 +146,9 @@ gulp.task('watch', function () {
   gulp.watch(['tests/html/scss/*.scss', 'demos/scss/*.scss'], function (e) {
     var src = e.path.replace('/www/web/', ''), dest;
     if (e.path.indexOf('tests/') !== -1) {
-      dest = config.sass_tests.dest;
+      dest = config.sass.dest[0];
     } else {
-      dest = config.sass_demos.dest;
+      dest = config.sass.dest[1];
     }
     
     if (config.sassLang === 'libsass') {

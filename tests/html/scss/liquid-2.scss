@@ -2,11 +2,76 @@
 @import "../../../src/scss/addons/breakpoint"; 
 @import "../../../src/scss/layout/liquid-2"; 
 
-$list: (null 200px);
-$map1: (null:1, 200px:0);
-$map2: (
-  'default': (150px null),
-  750px: (150px:1, null:0),
-  900px: (150px:0, null:1)
-);
-.example-liquid-2 { @include liquid-2($map2); }
+$global-bps: ('sm': 600px, 'md': 900px, 'lg': 1200px);
+$liquid2-list: ('auto' 200px);
+$liquid2-order: ('auto': 2, 200px: 1);
+$liquid2-RTL: ('auto' 200px) RTL;
+$liquid2-child1: (('auto' 200px) child '.child');
+$liquid2-child2: (('auto' 200px) child (main aside));
+$liquid2-gutter-sameunit: (('auto' 200px) gutter 40px);
+$liquid2-gutter-percentage: (('auto' 200px) gutter 3%);
+$liquid2-gutter-differentunit: (('auto' 12.5em) gutter 20rem);
+$liquid2-breakpoint: (750px: (150px:1, 'auto':0));
+$liquid2-breakpoint-max: (750px: (150px:1, 'auto':0)) max;
+$liquid2-global-breakpoints: (
+  'default': (150px 'auto'),
+  'sm': (150px:1, 'auto':0),
+  'md': (150px:0, 'auto':1)
+) $global-bps;
+
+
+.liquid2-list {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid2-list)}'; }
+  > div { @include liquid-2($liquid2-list); }
+}
+.liquid2-order {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid2-order)}'; }
+  > div { @include liquid-2($liquid2-order); }
+}
+.liquid2-RTL {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid2-RTL)}'; }
+  > div { @include liquid-2($liquid2-RTL); }
+}
+.liquid2-child1 {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid2-child1)}'; }
+  > div { @include liquid-2($liquid2-child1); }
+}
+.liquid2-child2 {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid2-child2)}'; }
+  > div { @include liquid-2($liquid2-child2); }
+}
+.liquid2-gutter-sameunit {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid2-gutter-sameunit)}'; }
+  > div { @include liquid-2($liquid2-gutter-sameunit); }
+}
+// .liquid2-gutter-percentage {
+//   @extend %demo-show;
+//   &:before { content: '#{var-to-string($liquid2-gutter-percentage)}'; }
+//   > div { @include liquid-2($liquid2-gutter-percentage); }
+// }
+// .liquid2-gutter-differentunit {
+//   @extend %demo-show;
+//   &:before { content: '#{var-to-string($liquid2-gutter-differentunit)}'; }
+//   > div { @include liquid-2($liquid2-gutter-differentunit); }
+// }
+// .liquid2-breakpoint {
+//   @extend %demo-show;
+//   &:before { content: '#{var-to-string($liquid2-breakpoint)}'; }
+//   > div { @include liquid-2($liquid2-breakpoint); }
+// }
+// .liquid2-breakpoint-max {
+//   @extend %demo-show;
+//   &:before { content: '#{var-to-string($liquid2-breakpoint-max)}'; }
+//   > div { @include liquid-2($liquid2-breakpoint-max); }
+// }
+// .liquid2-global-breakpoints {
+//   @extend %demo-show;
+//   &:before { content: '#{var-to-string($liquid2-global-breakpoints)}'; }
+//   > div { @include liquid-2($liquid2-global-breakpoints); }
+// }

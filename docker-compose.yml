@@ -10,7 +10,7 @@ services:
       - .:/www/web/
     working_dir: /www/web
     # container_name: web
-    command: sh
-    # entrypoint: sh /www/docker-start.sh
+    # command: sh
+    entrypoint: sh /www/docker-start.sh
     stdin_open: true
     tty: true

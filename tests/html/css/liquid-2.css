@@ -194,58 +194,158 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.example-liquid-2:after {
+.liquid2-list, .liquid2-order, .liquid2-RTL, .liquid2-child1, .liquid2-child2, .liquid2-gutter-sameunit {
+  height: auto;
+  margin-bottom: 50px; }
+
+.liquid2-list:before {
+  content: "(  auto  200px  )"; }
+
+.liquid2-list > div:after {
   clear: both;
   content: "";
   display: table; }
 
-.lt-ie9 .example-liquid-2 {
-  padding: 0 0 0 170px;
+.lt-ie9 .liquid2-list > div {
+  padding: 0 220px 0 0;
   box-sizing: border-box; }
 
-.example-liquid-2 > div:nth-child(1) {
+.liquid2-list > div > div:nth-child(1) {
   float: left;
-  width: 150px; }
-  .lt-ie9 .example-liquid-2 > div:nth-child(1) {
-    margin: 0 0 0 -170px; }
+  width: 100%;
+  width: -webkit-calc(100% - 220px);
+  width: -moz-calc(100% - 220px);
+  width: calc(100% - 220px); }
 
-.example-liquid-2 > div:nth-child(2) {
+.liquid2-list > div > div:nth-child(2) {
+  float: right;
+  width: 200px; }
+  .lt-ie9 .liquid2-list > div > div:nth-child(2) {
+    margin: 0 -220px 0 0; }
+
+.liquid2-order:before {
+  content: "( auto :  2 , 200px :  1  )"; }
+
+.liquid2-order > div:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.lt-ie9 .liquid2-order > div {
+  padding: 0 0 0 220px;
+  box-sizing: border-box; }
+
+.liquid2-order > div > div:nth-child(2) {
+  float: left;
+  width: 200px; }
+  .lt-ie9 .liquid2-order > div > div:nth-child(2) {
+    margin: 0 0 0 -220px; }
+
+.liquid2-order > div > div:nth-child(1) {
   float: right;
   width: 100%;
-  width: -webkit-calc(100% - 150px - 20px);
-  width: -moz-calc(100% - 150px - 20px);
-  width: calc(100% - 150px - 20px); }
+  width: -webkit-calc(100% - 200px - 20px);
+  width: -moz-calc(100% - 200px - 20px);
+  width: calc(100% - 200px - 20px); }
 
-@media screen and (min-width: 46.875em) {
-  .lt-ie9 .example-liquid-2 {
-    padding: 0 170px 0 0;
-    box-sizing: border-box; }
-  .example-liquid-2 > div:nth-child(2) {
-    float: left;
-    width: 100%;
-    width: -webkit-calc(100% - 170px);
-    width: -moz-calc(100% - 170px);
-    width: calc(100% - 170px); }
-  .example-liquid-2 > div:nth-child(1) {
-    float: right;
-    width: 150px; }
-    .lt-ie9 .example-liquid-2 > div:nth-child(1) {
-      margin: 0 -170px 0 0; } }
+.liquid2-RTL:before {
+  content: "( (  auto  200px  ) RTL  )"; }
 
-@media screen and (min-width: 56.25em) {
-  .lt-ie9 .example-liquid-2 {
-    padding: 0 0 0 170px;
-    box-sizing: border-box; }
-  .example-liquid-2 > div:nth-child(1) {
-    float: left;
-    width: 150px; }
-    .lt-ie9 .example-liquid-2 > div:nth-child(1) {
-      margin: 0 0 0 -170px; }
-  .example-liquid-2 > div:nth-child(2) {
-    float: right;
-    width: 100%;
-    width: -webkit-calc(100% - 150px - 20px);
-    width: -moz-calc(100% - 150px - 20px);
-    width: calc(100% - 150px - 20px); } }
+.liquid2-RTL > div:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.lt-ie9 .liquid2-RTL > div {
+  padding: 0 0 0 220px;
+  box-sizing: border-box; }
+
+.liquid2-RTL > div > div:nth-child(1) {
+  float: right;
+  width: 100%;
+  width: -webkit-calc(100% - 220px);
+  width: -moz-calc(100% - 220px);
+  width: calc(100% - 220px); }
+
+.liquid2-RTL > div > div:nth-child(2) {
+  float: left;
+  width: 200px; }
+  .lt-ie9 .liquid2-RTL > div > div:nth-child(2) {
+    margin: 0 0 0 -220px; }
+
+.liquid2-child1:before {
+  content: "( (  auto  200px  ) child  .child  )"; }
+
+.liquid2-child1 > div:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.lt-ie9 .liquid2-child1 > div {
+  padding: 0 220px 0 0;
+  box-sizing: border-box; }
+
+.liquid2-child1 > div > .child:nth-child(1) {
+  float: left;
+  width: 100%;
+  width: -webkit-calc(100% - 220px);
+  width: -moz-calc(100% - 220px);
+  width: calc(100% - 220px); }
+
+.liquid2-child1 > div > .child:nth-child(2) {
+  float: right;
+  width: 200px; }
+  .lt-ie9 .liquid2-child1 > div > .child:nth-child(2) {
+    margin: 0 -220px 0 0; }
+
+.liquid2-child2:before {
+  content: "( (  auto  200px  ) child (  main  aside  ) )"; }
+
+.liquid2-child2 > div:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.lt-ie9 .liquid2-child2 > div {
+  padding: 0 220px 0 0;
+  box-sizing: border-box; }
+
+.liquid2-child2 > div > main {
+  float: left;
+  width: 100%;
+  width: -webkit-calc(100% - 220px);
+  width: -moz-calc(100% - 220px);
+  width: calc(100% - 220px); }
+
+.liquid2-child2 > div > aside {
+  float: right;
+  width: 200px; }
+  .lt-ie9 .liquid2-child2 > div > aside {
+    margin: 0 -220px 0 0; }
+
+.liquid2-gutter-sameunit:before {
+  content: "( (  auto  200px  ) gutter  40px  )"; }
+
+.liquid2-gutter-sameunit > div:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.lt-ie9 .liquid2-gutter-sameunit > div {
+  padding: 0 240px 0 0;
+  box-sizing: border-box; }
+
+.liquid2-gutter-sameunit > div > div:nth-child(1) {
+  float: left;
+  width: 100%;
+  width: -webkit-calc(100% - 240px);
+  width: -moz-calc(100% - 240px);
+  width: calc(100% - 240px); }
+
+.liquid2-gutter-sameunit > div > div:nth-child(2) {
+  float: right;
+  width: 200px; }
+  .lt-ie9 .liquid2-gutter-sameunit > div > div:nth-child(2) {
+    margin: 0 -240px 0 0; }
 
 /*# sourceMappingURL=sourcemaps/liquid-2.css.map */
