@@ -1,9 +1,11 @@
 # Changelog
 
 ##### 3.4.6
-- Fixed: `is-nested-list`.
-- Fixed: `liquid-2`.
-- Fixed: `liquid-3`.
+- Fixed: `is-nested-list`, `args-get-type` warnings.
+- Fixed: `liquid-2`, `liquid-3`.
+- Fixed: a unit issue when compile with ruby sass.
+- Added: `center-align` option in `gallery`.
+- Added: `is-number-map-list`, `get-global-breakpoints`.
 
 ##### 3.4.5
 - Fixed: a `grid` parameter issue.
