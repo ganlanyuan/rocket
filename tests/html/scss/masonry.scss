@@ -3,28 +3,52 @@
 @import "../../../src/scss/layout/grid"; 
 @import "../../../src/scss/layout/masonry"; 
 
-$masonry: (
-  'default': 1,
-      600px: 2,
-      768px: 3,
-);
+$masonry-number: 3;
+$masonry-child: 4 child '.masonry-item';
+$masonry-percentage-gutter: 4 gutter 3%;
+$masonry-condition: (900px: 3) max;
+$masonry-breakpoints: ('default': 1, 600px: 2, 900px: 3);
+$masonry-global-breakpoints: ('default': 1, 'sm': 2, 'md': 3) $global-bps;
 
-.masonry { @include masonry($masonry gutter 20px); }
-.masonry-cluster-h { @include grid( (1024px: (1 2)) child div gutter 20px); }
-.masonry-cluster-h-2 { @include grid( (1024px: (2 1)) child div gutter 20px); }
-.masonry-cluster-v {
-  > div:first-child { margin-bottom: 20px; }
+.masonry-number {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-number)}'; }
+  > ul { @include masonry($masonry-number); }
+}
+.masonry-child {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-child)}'; }
+  > ul { @include masonry($masonry-child); }
+}
+.masonry-percentage-gutter {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-percentage-gutter)}'; }
+  > ul { @include masonry($masonry-percentage-gutter); }
+}
+.masonry-condition {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-condition)}'; }
+  > ul { @include masonry($masonry-condition); }
+}
+.masonry-breakpoints {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-breakpoints)}'; }
+  > ul { @include masonry($masonry-breakpoints); }
+}
+.masonry-global-breakpoints {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-global-breakpoints)}'; }
+  > ul { @include masonry($masonry-global-breakpoints); }
 }
 
 // other styles
-.masonry img {
-  overflow: hidden;
-  border-radius: 5px;
+[class*= "masonry-"] img { 
+  display: block; 
+  width: 100%; 
 }
 .masonry-content {
   padding: 15px;
   overflow: hidden;
-  border-radius: 5px;
   background: #f2f2f2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -43,7 +67,7 @@ $masonry: (
 
 // fallback
 .lt-ie10 {
-  .masonry {
+  [class*= "masonry-"] {
     text-align: center;
     > li {
       display: inline-block;

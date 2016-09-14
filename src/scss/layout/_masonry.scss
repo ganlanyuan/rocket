@@ -1,71 +1,73 @@
 // *** masonry *** //
 @mixin masonry ($key) {
   $map: false;
-  $map-keys: false;
   $count: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
   $child: args-get-next($key, 'child', 'li');
-
   $gutter: args-get-next($key, 'gutter');
-  @if not $gutter { $gutter: 0; }
 
-  // get map
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
+  $bps: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+
+  // get map or count
   @if type-of($key) == 'map' {
     $map: $key;
+  } @else if type-of($key) == 'number' and unitless($key) { 
+    $count: $key;
   } @else if type-of($key) == 'list' {
     @each $item in $key {
-      @if type-of($item) == 'map' {
-        @if not $map {
-          $map: $item;
-        }
+      @if not $map and type-of($item) == 'map' {
+        $map: $item;
+      } @else if not $count and type-of($item) == 'number' and unitless($item) {
+        $count: $item;
       }
     }
   } 
 
-  // get count
-  @if not $map {
-    @if type-of($key) == 'number' {
-      @if unitless($key) { $count: $key; }
-    } @else if type-of($key) == 'list' {
-      @each $item in $key {
-        @if type-of($item) == 'number' {
-          @if not $count and unitless($item) { $count: $item; }
-        }
-      }
-    }
+  // transfer % to em
+  @if $gutter and strip-unit($gutter) != 0 and 
+      index(('%', 'vw', 'vmax'), unit($gutter)) != null{
+    $gutter: to-length((strip-unit($gutter) * 10 / 16), em);
   }
 
   // *** output *** //
   overflow: hidden; // fix an chrome overflow
-  -webkit-column-gap: $gutter;
-     -moz-column-gap: $gutter;
-          column-gap: $gutter;
+  @if $gutter {
+    -webkit-column-gap: $gutter;
+       -moz-column-gap: $gutter;
+            column-gap: $gutter;
+  }
   > #{$child} {
-    padding-bottom: $gutter;
+    @if $gutter {
+      padding-bottom: $gutter;
+    } @else {
+      padding-bottom: 1em;
+    }
+
     -webkit-column-break-inside: avoid;
               page-break-inside: avoid;
                    break-inside: avoid;
   }
 
   @if $map {
-    $map-keys: map-keys($map);
+    @if $global-bps { $map: map-update-breakpoints($map, $global-bps); }
+    $bps: map-keys($map);
 
-    @each $item in $map-keys {
-      @if type-of($item) == 'number' {
-        @include bp($item $condition) {
-          -webkit-column-count: map-get($map, $item);
-             -moz-column-count: map-get($map, $item);
-                  column-count: map-get($map, $item);
-        }
-      } @else if $item == 'null' or $item == 'default' {
-        -webkit-column-count: map-get($map, $item);
-           -moz-column-count: map-get($map, $item);
-                column-count: map-get($map, $item);
-      } @else if $breakpoints {
-        @include bp(map-get($breakpoints, $item) $condition) { 
-          -webkit-column-count: map-get($map, $item);
-             -moz-column-count: map-get($map, $item);
-                  column-count: map-get($map, $item);
+    @each $bp in $bps {
+      $new-count: map-get($map, $bp);
+
+      @if $bp == 'default' or $bp == null {
+        -webkit-column-count: $new-count;
+           -moz-column-count: $new-count;
+                column-count: $new-count;
+
+      } @else if type-of($bp) == 'number' {
+        @include bp($condition $media-type $bp) {
+          -webkit-column-count: $new-count;
+             -moz-column-count: $new-count;
+                  column-count: $new-count;
         }
       }
     }
@@ -74,5 +76,4 @@
        -moz-column-count: $count;
             column-count: $count;
   }
-
 }
