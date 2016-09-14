@@ -1,78 +1,50 @@
 @mixin liquid-2($key){
-  $maps: args-get-maps($key);
-  $map: false;
   $columns: false;
   $order: false; 
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
 
-  $global-bps: false;
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $bps: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
-  // get map
-  // (200px:1, null:0)
-  @if length($maps) >= 1 {
-    $map: nth($maps, 1);
-  }
-  @if length($maps) >= 2 {
-    $global-bps: nth($maps, 2);
-  }
+  // strip unit when gutter == 0
+  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0px; }
 
-  // if no map, use list
-  // (200px null)
-  @if length($maps) == 0 and type-of($key) == 'list' {
-    @if not is-nested-list($key) {
-      @if is-liquid-list($key) {
-        $columns: $key;
-      } @else {
-        $child: $key;
-      }
-    } @else {
-      @each $item in $key {
-        @if type-of($item) == 'list' and not is-nested-list($item) {
-          @if is-liquid-list($item) {
-            $columns: $item;
-          } @else {
-            $child: $item;
-          }
-        }
-      }
-    }
-  }
-  
+  // get data
+  $data: args-get-liquid-data($key, 2);
+
   @include clearfix(); 
   
   // using map
-  // (200px:1, null:0)
-  @if $map {
+  @if type-of($data) == 'map' {
+
     // simple map, without media querys
-    // (200px:1, null:0)
-    @if is-simple-map($map) {
-      $columns: map-keys($map);
-      $order: map-values($map);
+    @if is-simple-map($data) {
+      $columns: map-keys($data);
+      $order: map-values($data);
       @include make-liquid-2($columns, $order, $child, $gutter, $float);
 
     // complex map, with media querys
-    // ('default': (200px:1, null:0), 800px: (null 300px))
     } @else {
       @if $global-bps {
-        $map: map-update-breakpoints($map, $global-bps);
+        $data: map-update-breakpoints($data, $global-bps);
       }
-      $bps: map-keys($map);
+      $bps: map-keys($data);
 
       @for $i from 1 through length($bps) {
         $bp: nth($bps, $i);
-        $layout: map-get($map, $bp);
+        $layout: map-get($data, $bp);
 
         @if type-of($layout) == 'list' {
           $columns: $layout;
           @if not $order { $order: (1, 2); }
         } @else if type-of($layout) == 'map' {
           $columns: map-keys($layout);
-          $order: map-values(map-get($map, $bp));
+          $order: map-values(map-get($data, $bp));
         }
 
         @if $bp == 'default' or $bp == null {
@@ -86,16 +58,22 @@
     }
     
   // using list
-  // (200px null)
-  } @else {
-    @if not $order { $order: (1, 2); }
+  } @else if type-of($data) == 'list' {
+    $columns: $data;
+    $order: (1, 2);
+
     @include make-liquid-2($columns, $order, $child, $gutter, $float);
   }
 
 }
 
 @mixin make-liquid-2($columns, $order, $child, $gutter, $float) {
-  $gutter-ie8: if(unit($gutter) == '%' and $gutter != 0%, 0, $gutter);
+  $column-unit: if(nth($columns, 1) == null or nth($columns, 1) == 'auto',
+    unit(nth($columns, 2)),
+    unit(nth($columns, 1))
+  );
+  $gutter-ie8: if($column-unit != unit($gutter) , gutter-fallback(20, $column-unit), $gutter);
+
   $child-list: ();
   @if type-of($child) == 'string' {
     $child-list: ('#{$child}:nth-child(1)', '#{$child}:nth-child(2)');
@@ -125,9 +103,9 @@
           float: $float;
           // float: left;
           width: 100%;
-          width: -webkit-calc(100% - #{(nth($new-columns, 2) + $gutter)});
-          width: -moz-calc(100% - #{(nth($new-columns, 2) + $gutter)});
-          width: calc(100% - #{(nth($new-columns, 2) + $gutter)});
+          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{$gutter});
+          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{$gutter});
+          width: calc(100% - #{nth($new-columns, 2)} - #{$gutter});
         } @else {
           float: opposite($float);
           width: nth($new-columns, 2);
@@ -175,18 +153,4 @@
     }
   }
 
-}
-
-// == is-liquid-list ==
-@function is-liquid-list($key) {
-  $is-liquid-list: ();
-
-  @each $item in $key {
-    $is-liquid-list: if(
-      type-of($item) != 'number' and $item != null and $item != 'auto',
-      append($is-liquid-list, false),
-      append($is-liquid-list, true) );
-  }
-
-  @return if(index($is-liquid-list, false), false, true);
 }

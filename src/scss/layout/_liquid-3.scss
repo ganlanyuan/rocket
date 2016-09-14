@@ -1,78 +1,50 @@
 @mixin holy-grail($key){
-  $maps: args-get-maps($key);
-  $map: false;
   $columns: false;
   $order: false;
   $child: args-get-next($key, 'child', 'div');
   $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
 
-  $global-bps: false;
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $bps: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
-  // get map
-  @if length($maps) >= 1 {
-    $map: nth($maps, 1);
-  }
-  @if length($maps) >= 2 {
-    $global-bps: nth($maps, 2);
-  }
+  // strip unit when gutter == 0
+  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0px; }
 
-  // if no map, use list
-  @if not $map and type-of($key) == 'list' {
-    @if not is-nested-list($key) {
-      @if is-liquid-list($key) {
-        $columns: $key;
-      } @else {
-        $child: $key;
-      }
-    } @else {
-      @each $item in $key {
-        @if type-of($item) == 'list' and not is-nested-list($item) {
-          @if is-liquid-list($item) {
-            $columns: $item;
-          } @else {
-            $child: $item;
-          }
-        }
-      }
-    }
-  }
-  
+  // get data
+  $data: args-get-liquid-data($key, 3);
+
   @include clearfix(); 
 
   // using map
-  // ('auto':1, 300px:0)
-  // ('default': ('auto' 300px), 800px: ('auto':1, 300px:0));
-  @if $map {
+  @if type-of($data) == 'map' {
 
     // simple map: without breakpoint
-    // ('auto':1, 300px:0)
-    @if is-simple-map($map) {
-      $columns: map-keys($map);
-      $order: map-values($map);
+    @if is-simple-map($data) {
+      $columns: map-keys($data);
+      $order: map-values($data);
       @include make-holy-grail($columns, $order, $child, $gutter, $float);
 
     // complex map: with breakpoints
-    // ('default': ('auto' 300px), 800px: ('auto':1, 300px:0));
     } @else {
       @if $global-bps {
-        $map: map-update-breakpoints($map, $global-bps);
+        $data: map-update-breakpoints($data, $global-bps);
       }
-      $bps: map-keys($map);
+      $bps: map-keys($data);
 
       @for $i from 1 through length($bps) {
         $bp: nth($bps, $i);
-        $layout: map-get($map, $bp);
+        $layout: map-get($data, $bp);
 
         @if type-of($layout) == 'list' {
           $columns: $layout;
           @if not $order { $order: (1, 2, 3); }
         } @else if type-of($layout) == 'map' {
           $columns: map-keys($layout);
-          $order: map-values(map-get($map, $bp));
+          $order: map-values(map-get($data, $bp));
         }
 
         @if $bp == 'default' or $bp == null {
@@ -86,16 +58,28 @@
     }
     
   // using list
-  // ('auto' 300px)
   } @else {
-    @if not $order { $order: (1, 2, 3); }
+    $columns: $data;
+    $order: (1, 2, 3);
     @include make-holy-grail($columns, $order, $child, $gutter, $float);
   }
 
 }
 
 @mixin make-holy-grail($columns, $order, $child, $gutter, $float) {
-  $gutter-ie8: if(unit($gutter) == '%' and $gutter != 0%, 0, $gutter);
+  $columns-num: ();
+  @each $item in $columns {
+    @if type-of($item) == 'number' { $columns-num: append($columns-num, $item); }
+  }
+
+  $column-unit: false;
+  @if unit(nth($columns-num, 1)) == unit(nth($columns-num, 2)) {
+    $column-unit: unit(nth($columns-num, 1));
+  } @else {
+    @error 'Please match the units. You passed "#{$columns}".'
+  }
+  $gutter-ie8: if($column-unit != unit($gutter) , gutter-fallback(20, $column-unit), $gutter);
+
   $child-list: ();
   $children-ie8: '';
   @if type-of($child) == 'string' {
@@ -118,9 +102,6 @@
     box-sizing: border-box;
     position: relative;
   }
-
-  // check gutter 
-  @if unit($gutter) == '%' { $gutter: 0; }
 
   // flexible-column is on the left
   @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
@@ -150,7 +131,8 @@
           // float: right;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) (nth($new-columns, 3) +$gutter-ie8) $float -100%);
+            margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float -100%);
+            margin: get-TRBL(opposite($float) calc(#{nth($new-columns, 3)} + #{$gutter}) $float -100%);
             // margin-left: -100%;
             // margin-right: (nth($new-columns, 3) + $gutter);
           } @else {
@@ -193,12 +175,12 @@
             width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
             width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
             width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
-            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
+            margin: get-TRBL(opposite($float) -100% $float calc(#{nth($new-columns, 1)} + #{$gutter}));
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
             // margin-right: -100%;
 
             .lt-ie9 & {
-              padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter) $float (nth($new-columns, 1) + $gutter-ie8));
+              padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float (nth($new-columns, 1) + $gutter-ie8));
               // padding-left: #{(nth($new-columns, 1) + $gutter)};
               // padding-right: #{(nth($new-columns, 3) + $gutter)};
               margin: get-TRBL(opposite($float) -100%);
@@ -237,8 +219,8 @@
           width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
           
           .lt-ie9 & {
-            padding: get-TRBL($float #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2)});
-            // padding-left: #{(nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2)};
+            padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));
+            // padding-left: (nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2);
             z-index: 0;
           }
 
@@ -248,7 +230,8 @@
           // float: left;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) -100% $float #{(nth($new-columns, 1) + $gutter-ie8)});
+            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
+            margin: get-TRBL(opposite($float) -100% $float calc(#{nth($new-columns, 1)} + #{$gutter}));
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
             // margin-right: -100%;
           } @else {

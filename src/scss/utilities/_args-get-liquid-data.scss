@@ -1,0 +1,17 @@
+@function args-get-liquid-data($key, $length) {
+  $data: false;
+
+  @if type-of($key) == map or 
+      type-of($key) == 'list' and length($key) == $length and is-liquid-list($key) {
+    $data: $key; 
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+
+      @if not $data {
+        $data: args-get-liquid-data($item, $length);
+      }
+    }
+  }
+
+  @return $data;
+}

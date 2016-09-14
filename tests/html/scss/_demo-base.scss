@@ -63,6 +63,7 @@
 }
 
 /* Android 2.3 :checked fix */
+$global-bps: ('sm': 600px, 'md': 900px, 'lg': 1200px);
 @keyframes fake {
   from { opacity: 1; }
   to { opacity: 1 }
@@ -146,6 +147,7 @@ p {
     color: hsla(0, 0%, 100%, 1);
     display: block;
     text-align: center;
+    line-height: 2.5;
   }
   .autoheight:nth-child(2n) > & { height: 11em; }
   .autoheight:nth-child(3n+1) > & { height: 12em; }

@@ -1,0 +1,13 @@
+@function gutter-fallback ($width, $unit) {
+  $return: 0;
+
+  @if index(('px', 'pt'), $unit) != null {
+    $return: to-length($width, $unit);
+  } @else if index(('em', 'rem'), $unit) != null{
+    $return: to-length(($width / 16), $unit);
+  } @else if index(('%', 'vw', 'vmax'), $unit) != null{
+    $return: to-length(($width / 1000), $unit);
+  }
+
+  @return $return;
+}

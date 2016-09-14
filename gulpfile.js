@@ -174,8 +174,8 @@ gulp.task('watch', function () {
 
 // Default Task
 gulp.task('default', [
-  'sass', 
-  'js',
+  // 'sass', 
+  // 'js',
   'sync', 
   'watch',
 ]); 

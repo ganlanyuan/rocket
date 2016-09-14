@@ -1,5 +1,9 @@
 # Changelog
 
+<!-- ##### 3.4.7
+- Fixed `liquid-2`, `liquid-3` parameter issues.
+- Added: `args-get-liquid-data`, `gutter-fallback`, `is-liquid-list`,
+ -->
 ##### 3.4.6
 - Fixed: `is-nested-list`, `args-get-type` warnings.
 - Fixed: `liquid-2`, `liquid-3`.

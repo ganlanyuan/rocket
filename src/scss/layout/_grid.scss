@@ -17,7 +17,7 @@
   }
 
   // strip unit when gutter == 0
-  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
+  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0px; }
 
   // get data
   $data: false;

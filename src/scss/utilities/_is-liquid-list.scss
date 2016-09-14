@@ -1,0 +1,12 @@
+@function is-liquid-list($key) {
+  @if type-of($key) != 'list' { @return false; }
+
+  $is-liquid-list: true;
+  @each $item in $key {
+    @if $is_liquid-list and type-of($item) != 'number' and not index((null 'auto'), $item) {
+      $is-liquid-list: false;
+    }
+  }
+
+  @return $is-liquid-list;
+}
