@@ -78,7 +78,7 @@
   } @else {
     @error 'Please match the units. You passed "#{$columns}".'
   }
-  $gutter-ie8: if($column-unit != unit($gutter) , gutter-fallback(20, $column-unit), $gutter);
+  $gutter-ie8: gutter-fallback($gutter, $column-unit);
 
   $child-list: ();
   $children-ie8: '';

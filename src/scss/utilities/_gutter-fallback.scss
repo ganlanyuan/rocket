@@ -1,12 +1,23 @@
-@function gutter-fallback ($width, $unit) {
-  $return: 0;
+@function gutter-fallback ($gutter, $unit) {
+  $width: false;
+  $return: $gutter;
 
-  @if index(('px', 'pt'), $unit) != null {
-    $return: to-length($width, $unit);
-  } @else if index(('em', 'rem'), $unit) != null{
-    $return: to-length(($width / 16), $unit);
-  } @else if index(('%', 'vw', 'vmax'), $unit) != null{
-    $return: to-length(($width / 1000), $unit);
+  @if $unit != unit($gutter) {
+    @if index(('px', 'pt'), unit($gutter)) != null {
+      $width: strip-unit($gutter);
+    } @else if index(('em', 'rem'), unit($gutter)) != null{
+      $width: (strip-unit($gutter) * 16);
+    } @else if index(('%', 'vw', 'vmax'), unit($gutter)) != null{
+      $width: (strip-unit($gutter) * 10);
+    }
+
+    @if index(('px', 'pt'), $unit) != null {
+      $return: to-length($width, $unit);
+    } @else if index(('em', 'rem'), $unit) != null{
+      $return: to-length(($width / 16), $unit);
+    } @else if index(('%', 'vw', 'vmax'), $unit) != null{
+      $return: to-length(($width / 1000), $unit);
+    }
   }
 
   @return $return;

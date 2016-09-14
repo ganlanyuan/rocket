@@ -358,7 +358,7 @@ h5 {
   display: table; }
 
 .lt-ie9 .liquid2-gutter-percentage > div {
-  padding: 0 220px 0 0;
+  padding: 0 230px 0 0;
   box-sizing: border-box; }
 
 .liquid2-gutter-percentage > div > div:nth-child(1) {
@@ -372,7 +372,7 @@ h5 {
   float: right;
   width: 200px; }
   .lt-ie9 .liquid2-gutter-percentage > div > div:nth-child(2) {
-    margin: 0 -220px 0 0; }
+    margin: 0 -230px 0 0; }
 
 .liquid2-gutter-differentunit:before {
   content: "( (  auto  12.5em  ) gutter  3rem  )"; }
@@ -383,7 +383,7 @@ h5 {
   display: table; }
 
 .lt-ie9 .liquid2-gutter-differentunit > div {
-  padding: 0 13.75em 0 0;
+  padding: 0 15.5em 0 0;
   box-sizing: border-box; }
 
 .liquid2-gutter-differentunit > div > div:nth-child(1) {
@@ -397,7 +397,7 @@ h5 {
   float: right;
   width: 12.5em; }
   .lt-ie9 .liquid2-gutter-differentunit > div > div:nth-child(2) {
-    margin: 0 -13.75em 0 0; }
+    margin: 0 -15.5em 0 0; }
 
 .liquid2-breakpoint:before {
   content: "( 750px : ( 150px :  1 , auto :  0  ) )"; }

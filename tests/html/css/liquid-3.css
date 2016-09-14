@@ -619,13 +619,13 @@ h5 {
   width: -moz-calc(100% - 100px - 250px - 6%);
   width: calc(100% - 100px - 250px - 6%); }
   .lt-ie9 .liquid3-gutter-percentage > div > div:nth-child(1) {
-    padding: 0 390px 0 0;
+    padding: 0 410px 0 0;
     z-index: 0; }
 
 .liquid3-gutter-percentage > div > div:nth-child(2) {
   float: right;
   width: 100px;
-  margin: 0 270px 0 -100%;
+  margin: 0 280px 0 -100%;
   margin: 0 calc(250px + 3%) 0 -100%; }
   .lt-ie9 .liquid3-gutter-percentage > div > div:nth-child(2) {
     padding: 0;
@@ -659,13 +659,13 @@ h5 {
   width: -moz-calc(100% - 100px - 250px - 6rem);
   width: calc(100% - 100px - 250px - 6rem); }
   .lt-ie9 .liquid3-gutter-differentunit > div > div:nth-child(1) {
-    padding: 0 390px 0 0;
+    padding: 0 446px 0 0;
     z-index: 0; }
 
 .liquid3-gutter-differentunit > div > div:nth-child(2) {
   float: right;
   width: 100px;
-  margin: 0 270px 0 -100%;
+  margin: 0 298px 0 -100%;
   margin: 0 calc(250px + 3rem) 0 -100%; }
   .lt-ie9 .liquid3-gutter-differentunit > div > div:nth-child(2) {
     padding: 0;

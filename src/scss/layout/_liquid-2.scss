@@ -72,7 +72,7 @@
     unit(nth($columns, 2)),
     unit(nth($columns, 1))
   );
-  $gutter-ie8: if($column-unit != unit($gutter) , gutter-fallback(20, $column-unit), $gutter);
+  $gutter-ie8: gutter-fallback($gutter, $column-unit);
 
   $child-list: ();
   @if type-of($child) == 'string' {
