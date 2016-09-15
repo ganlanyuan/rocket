@@ -388,7 +388,7 @@ IE 8+, Firefox 3.6+, Chrome 18+, Safari 6+, Opera 10.6+
 ```` scss
 @mixin angled-edges($key);
 // pattern
-$key: $edges $angle flip;
+$key: $edges $angle $edge-color flip;
 // $edges: top | bottom | both
 
 .main { @include angled-edges("bottom" -5deg); }
@@ -397,8 +397,8 @@ $key: $edges $angle flip;
 ````
 
 #### sticky-footer
-Create `sticky-footer` to prevent layout collapse when content is less, like on 404 page.   
-IE 7+, Firefox 22+, Chrome 22+, Safari 6+, Opera 15+    
+Create `sticky-footer` to prevent layout collapse when content is less, e.g. 404 page.   
+IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-sticky-footer.php)   
 ````html
 <body>
@@ -416,7 +416,7 @@ body { @include sticky-footer('.main'); }
 ````
 
 #### justify
-IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+    
+IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-justify.php)   
 `justify` is for creating `justify` layout.
 ````html
@@ -438,7 +438,7 @@ $key: (child $child)
 
 #### center
 `center` is for creating both horizontal and vertical center aligned layout.   
-IE 8+, Firefox 3.6+, Chrome 15+, Safari 6.2+, Opera 12.1+    
+IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-center.php)   
 ````html
 <div class="popup">

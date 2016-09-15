@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -198,40 +199,26 @@ h5 {
   max-width: 950px;
   margin-left: auto;
   margin-right: auto; }
-  .example-angled-edges .bottom,
-  .example-angled-edges .both,
-  .example-angled-edges .top,
-  .example-angled-edges .sibling {
+  .example-angled-edges .bottom, .example-angled-edges .both, .example-angled-edges .top, .example-angled-edges .sibling {
     padding: 50px; }
-    .example-angled-edges .bottom h1,
-    .example-angled-edges .bottom p,
-    .example-angled-edges .both h1,
-    .example-angled-edges .both p,
-    .example-angled-edges .top h1,
-    .example-angled-edges .top p,
-    .example-angled-edges .sibling h1,
-    .example-angled-edges .sibling p {
+    .example-angled-edges .bottom h1, .example-angled-edges .bottom p, .example-angled-edges .both h1, .example-angled-edges .both p, .example-angled-edges .top h1, .example-angled-edges .top p, .example-angled-edges .sibling h1, .example-angled-edges .sibling p {
       padding: 0;
       color: #fff; }
-    .example-angled-edges .bottom h1,
-    .example-angled-edges .both h1,
-    .example-angled-edges .top h1,
-    .example-angled-edges .sibling h1 {
+    .example-angled-edges .bottom h1, .example-angled-edges .both h1, .example-angled-edges .top h1, .example-angled-edges .sibling h1 {
       margin: 30px 0; }
-    .example-angled-edges .bottom p,
-    .example-angled-edges .both p,
-    .example-angled-edges .top p,
-    .example-angled-edges .sibling p {
+    .example-angled-edges .bottom p, .example-angled-edges .both p, .example-angled-edges .top p, .example-angled-edges .sibling p {
       max-width: none;
       font-size: 17px; }
   .example-angled-edges .sibling h1, .example-angled-edges .sibling p {
     color: #000; }
-  .example-angled-edges .bottom,
-  .example-angled-edges .both,
-  .example-angled-edges .top {
+  .example-angled-edges .bottom, .example-angled-edges .both, .example-angled-edges .top {
     box-sizing: border-box;
     background: #52ABFF url("../images/angled-edges/1.jpg") 0 0 no-repeat;
     background-size: cover; }
+  .example-angled-edges .sibling-1 {
+    background-color: #B9E2FF; }
+  .example-angled-edges .sibling-2 {
+    background-color: #FBDBF6; }
   .example-angled-edges .bottom {
     position: relative;
     overflow: hidden;
@@ -242,13 +229,12 @@ h5 {
       position: absolute;
       width: 0;
       height: 0;
-      border-style: solid;
-      border-color: transparent; }
+      border: 0px solid transparent; }
     .example-angled-edges .bottom:after {
       bottom: 0;
-      border-bottom: 437.44332px solid #B9E2FF;
+      border-bottom: 874.88664px solid #B9E2FF;
       left: 0;
-      border-left-width: 5000px; }
+      border-left-width: 10000px; }
   .example-angled-edges .both {
     position: relative;
     overflow: hidden;
@@ -261,18 +247,17 @@ h5 {
       position: absolute;
       width: 0;
       height: 0;
-      border-style: solid;
-      border-color: transparent; }
+      border: 0px solid transparent; }
     .example-angled-edges .both:before {
       top: 0;
-      border-top: 437.44332px solid #B9E2FF;
+      border-top: 874.88664px solid #B9E2FF;
       right: 0;
-      border-right-width: 5000px; }
+      border-right-width: 10000px; }
     .example-angled-edges .both:after {
       bottom: 0;
-      border-bottom: 437.44332px solid #FBDBF6;
+      border-bottom: 874.88664px solid #FBDBF6;
       right: 0;
-      border-right-width: 5000px; }
+      border-right-width: 10000px; }
   .example-angled-edges .top {
     position: relative;
     overflow: hidden;
@@ -284,16 +269,11 @@ h5 {
       position: absolute;
       width: 0;
       height: 0;
-      border-style: solid;
-      border-color: transparent; }
+      border: 0px solid transparent; }
     .example-angled-edges .top:before {
       top: 0;
-      border-top: 437.44332px solid #FBDBF6;
+      border-top: 874.88664px solid #FBDBF6;
       left: 0;
-      border-left-width: 5000px; }
-  .example-angled-edges .sibling-1 {
-    background-color: #B9E2FF; }
-  .example-angled-edges .sibling-2 {
-    background-color: #FBDBF6; }
+      border-left-width: 10000px; }
 
 /*# sourceMappingURL=sourcemaps/angled-edges.css.map */

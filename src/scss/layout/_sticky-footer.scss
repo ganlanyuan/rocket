@@ -4,22 +4,20 @@
 
   @include ro-flexbox;
   @include ro-flex-direction(column);
-
-  $selector: &;
-  @if $selector == 'body' {
-    // IE10, 11 don't support flex-grow when flex-flow: column;
-    // this will fixed IE10 if apply to body element, but IE11 still doesn't work
-    height: 100vh;
-  } @else {
-    min-height: 100vh; 
+  -webkit-box-orient: vertical; // for Chrome, Safari
+     -moz-box-orient: vertical; // for Firefox
+  min-height: 700px; // vh fallback
+  min-height: 100vh;
+  // fallback for IE10
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { height: 100vh; }
+  > #{$main} { 
+    @include ro-flex-grow(1);
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
   }
-  @if $main {
-    > #{$main} { 
-      @include ro-flex-grow(1); 
-      .lt-ie10 & {
-        min-height: 500px; // for IE8
-        min-height: 80vh; // for IE9
-      }
-    }
+
+  .lt-ie10 & {
+    min-height: 0;
+    > #{$main} { min-height: 500px; }
   }
 }

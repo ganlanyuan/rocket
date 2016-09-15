@@ -10,8 +10,9 @@
           <header>Header</header>
           <div class="main">
             Main <br>
-            <input type="checkbox" name="" id="content-toggle" checked=""> 
+            <input type="checkbox" name="" id="content-toggle"> 
             <label for="content-toggle">toggle content</label>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto iste explicabo dolorum inventore iure, sint maxime deleniti pariatur saepe aut?</div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, adipisci tempore vitae harum delectus incidunt id ex earum soluta nobis a suscipit architecto dolore, officiis autem ratione quas dicta consequuntur voluptas? Vitae nihil, repudiandae suscipit, dignissimos libero iure incidunt, nemo adipisci quia a ipsum nobis perspiciatis eius, minima ut quam!</p>
             <p>Accusamus quos quia, ullam assumenda ratione nostrum ab dolor quam voluptatem ipsa porro aut, deleniti, dolores labore aspernatur voluptatum magni excepturi eos minus. Quam nam odio voluptatum deleniti eos quis quas praesentium aliquam accusamus, aspernatur aperiam commodi repellendus maxime maiores voluptas id similique blanditiis sed. Dolore dignissimos optio fugiat laborum.</p>
             <p>Ipsa nostrum quos nobis provident eligendi et laborum, eveniet possimus a, porro sit quo ratione, quam. Dolorem totam soluta dignissimos, quibusdam non iure quia adipisci ad earum neque, natus molestias inventore pariatur porro sed quae eaque modi eum sapiente? Vero necessitatibus hic in vel voluptates autem ad ipsa excepturi facere.</p>

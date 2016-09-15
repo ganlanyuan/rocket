@@ -33,8 +33,7 @@
       @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
       $bps: map-keys($data);
 
-      @for $i from 1 through length($bps) {
-        $bp: nth($bps, $i);
+      @each $bp in $bps {
         $layout: map-get($data, $bp);
 
         @if type-of($layout) == 'list' {
