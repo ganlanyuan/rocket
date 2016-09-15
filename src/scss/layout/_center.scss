@@ -1,16 +1,25 @@
 // *** center *** //
 @mixin center($key: false){
   $check: (left right center 'child');
-
   $child: args-get-type($key, 'string', $check, '*');
-  $align: args-get($key, (left right center), center);
 
   // *** output *** //
-  @include ro-flexbox;
-  -ms-flex-align: center; // for IE10
-  > #{$child} { margin: auto; }
+  // 1. for Chrome 15-20, Safri 4-6
+  // 2. for Firefox 3.6-21
+  // 3. for IE 10
+  // 4. for IE 8-9
 
-  // for non-flex browsers
+  @include ro-flexbox;
+   -webkit-box-pack: center; // 1
+  -webkit-box-align: center; // 1
+      -moz-box-pack: center; // 2
+     -moz-box-align: center; // 2
+     -ms-flex-align: center; // 3
+  width: 100%; // 2
+
+  > #{$child} { margin: auto; } // for modern browsers
+
+  // 4
   .lt-ie10 & {
     text-align: center; 
     white-space: nowrap;
@@ -25,7 +34,7 @@
       display: inline-block;
       vertical-align: middle;
       white-space: normal;
-      @if $align != center { text-align: $align; }
+      text-align: left;
     }
   }
 }

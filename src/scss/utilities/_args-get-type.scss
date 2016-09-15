@@ -1,23 +1,29 @@
-@function args-get-type($key, $arg, $check:false, $def:false) {
+@function args-get-type($key, $type, $check:false, $def:false) {
   $result: $def;
 
   @if not $key { @return $result; }
   
-  @if type-of($key) == $arg {
-    $result: $key;
+  @if type-of($key) == $type {
+    $result: not-exist-check($check, $key, $def);
   } @else if type-of($key) == 'list' {
     @each $item in $key {
-      @if type-of($item) == $arg {
-        @if $check {
-          @if not index($check, $item) {
-            $result: $item;
-          }
-        } @else {
-          $result: $item;
-        }
+      @if type-of($item) == $type {
+        $result: not-exist-check($check, $item, $def);
       }
     }
   }
 
   @return $result;
+}
+
+@function not-exist-check($collection, $key, $def) {
+  @if $collection {
+    @if index($collection, $key) == null {
+      @return $key;
+    } @else {
+      @return $def;
+    }
+  } @else {
+    @return $key;
+  }
 }

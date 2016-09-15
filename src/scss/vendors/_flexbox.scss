@@ -61,6 +61,7 @@
 
 @mixin ro-flexbox {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;

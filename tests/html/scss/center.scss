@@ -3,12 +3,26 @@
 @import "../../../src/scss/layout/center"; 
 
 .example-center { 
-  @include center(div left);
-  height: 500px;
-  &:after { display: none; }
-  > div { 
-    padding: 10px; 
-    max-width: 100%;
+  height: 400px;
+  @include center();
+  > main { 
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 640px;
+    padding: 20px; 
     box-sizing: border-box;
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    img {
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #000;
+    }
   }
 }

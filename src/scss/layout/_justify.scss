@@ -1,14 +1,18 @@
 // *** justify *** //
 @mixin justify($key: li){
-  $child: args-get-next($key, 'child', 'li');
-  @if type-of($key) == 'string' { $child: $key; }
+  $child: args-get-type($key, 'string', ('child'), 'li');
 
   // *** output *** //
   @include ro-flexbox;
-  @include ro-justify-content(space-between);
-  @include ro-align-items(center);
+  // @include ro-justify-content(space-between);
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
 
-  // for non-flex browsers
+  // for IE8-9
   .lt-ie10 & {
     text-align: justify;
     line-height: 0;

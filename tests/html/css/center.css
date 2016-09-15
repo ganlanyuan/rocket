@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -195,14 +196,20 @@ h5 {
     margin-bottom: 5px; }
 
 .example-center {
+  height: 400px;
+  display: -moz-box;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-  height: 500px; }
-  .example-center > div {
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  -ms-flex-align: center; }
+  .example-center > * {
     margin: auto; }
   .lt-ie10 .example-center {
     text-align: center;
@@ -213,16 +220,26 @@ h5 {
       height: 100%;
       vertical-align: middle;
       margin-right: -.25em; }
-    .lt-ie10 .example-center > div {
+    .lt-ie10 .example-center > * {
       display: inline-block;
       vertical-align: middle;
       white-space: normal;
       text-align: left; }
-  .example-center:after {
-    display: none; }
-  .example-center > div {
-    padding: 10px;
-    max-width: 100%;
+  .example-center > main {
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 640px;
+    padding: 20px;
     box-sizing: border-box; }
+    .example-center > main:after {
+      content: '';
+      display: table;
+      clear: both; }
+    .example-center > main img {
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 10px; }
+    .example-center > main p {
+      color: #000; }
 
 /*# sourceMappingURL=sourcemaps/center.css.map */

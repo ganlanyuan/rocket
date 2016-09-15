@@ -416,7 +416,7 @@ body { @include sticky-footer('.main'); }
 ````
 
 #### justify
-IE 8+, Firefox 22+, Chrome 21+, Safari 6+, Opera 12.1+    
+IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-justify.php)   
 `justify` is for creating `justify` layout.
 ````html
@@ -438,7 +438,7 @@ $key: (child $child)
 
 #### center
 `center` is for creating both horizontal and vertical center aligned layout.   
-IE 8+, Firefox 22+, Chrome 21+, Safari 6.2+, Opera 12.1+    
+IE 8+, Firefox 3.6+, Chrome 15+, Safari 6.2+, Opera 12.1+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-center.php)   
 ````html
 <div class="popup">
@@ -448,11 +448,10 @@ IE 8+, Firefox 22+, Chrome 21+, Safari 6.2+, Opera 12.1+
 ```` scss
 @mixin center($key)
 // pattern
-$key: $child $align
+$key: $child 
 
-.popup { @include center('div' left); }
+.popup { @include center('div'); }
 // child: div;
-// align: left; (left | right | center, for old browser)
 ````
 
 
