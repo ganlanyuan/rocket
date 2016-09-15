@@ -43,9 +43,9 @@
     @if $gutter {
       padding-bottom: $gutter;
     } @else {
+      // default column-gap: 1em
       padding-bottom: 1em;
     }
-
     -webkit-column-break-inside: avoid;
               page-break-inside: avoid;
                    break-inside: avoid;
@@ -69,6 +69,8 @@
              -moz-column-count: $new-count;
                   column-count: $new-count;
         }
+      } @else {
+        @warn '"#{$bp}" is not a valid breakpoint.';
       }
     }
   } @else if $count {
