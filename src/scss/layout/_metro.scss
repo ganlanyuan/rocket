@@ -1,132 +1,159 @@
 // *** metro *** //
 @mixin metro($key) {
+  $ratio: args-get-next($key, 'ratio', 1);
+  $gutter: args-get-next($key, 'gutter', 0);
+  $child: args-get-next($key, 'child', '*');
+  $keep: args-get($key, 'keep', false);
+
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
+  $bps: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
-  $ratio: args-get-next($key, 'ratio', map-get($ro-metro, 'ratio'));
-  $gutter: args-get-next($key, 'gutter', map-get($ro-metro, 'gutter'));
-  $child: args-get-next($key, 'child', map-get($ro-metro, 'child'));
 
-  // $is-map: true;
-  $map: false;
-  $breakpoints: false;
-  $data: false;
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    $map: args-get-type($key, 'map');
+  @if type-of($child) == 'list' {
+    @error 'Only one type of child element is acceptable. You passed (#{$child}).';
+  } @else if type-of($child) != 'string' {
+    @error 'Child should be a string. You passed "#{$child}".';
   }
 
-  @if $map {
-    $breakpoints: map-keys($map);
-    $data: map-values($map);
-
-    // *** output *** // 
-    @include clearfix();
-    @if $gutter { margin: - ($gutter / 2); }
-    > #{$child} {
-      position: relative;
-      float: left;
-      height: 0;
-    }
-    .metro-item {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      overflow: hidden;
-      @if $gutter { margin: ($gutter / 2); }
-    }
-
-    @for $i from 1 through length($breakpoints) {
-      $this-bp: nth($breakpoints, $i);
-      $this-data: nth($data, $i);
-      $this-full: args-get-next($this-data, 'of');
-      @if $this-bp == null {
-        @for $j from 1 through (length($this-data) - 2) {
-          $width: percentage(1 / $this-full);
-          $height: percentage($ratio / $this-full);
-          $w-position: false;
-          $h-position: false;
-          $cell-num: nth($this-data, $j);
-          $cell-str: to-string($cell-num);
-          $cell-len: str-length($cell-str);
-          @if str-index($cell-str, 'w') and str-index($cell-str, 'h') {
-            $w-position: (str-index($cell-str, 'w') + 1);
-            $h-position: (str-index($cell-str, 'h') + 1);
-            @if $h-position > $w-position {
-              // format: w8h4
-              $width: percentage(to-number(str-slice($cell-str, $w-position, ($h-position - 2))) / $this-full);
-              $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
-            } @else {
-              // format: h4w8
-              $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
-              $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, ($w-position - 2))) / $this-full);
-            }
-          } @else if str-index($cell-str, 'w') {
-            // format: w8
-            $w-position: (str-index($cell-str, 'w') + 1);
-            $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
-          } @else if str-index($cell-str, 'h') {
-            // format: h4
-            $h-position: (str-index($cell-str, 'h') + 1);
-            $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
-          } @else if type-of($cell-num) == 'number' and $cell-num > 1 {
-            // format: 4
-            $width: percentage($cell-num / $this-full);
-            $height: percentage($ratio * $cell-num / $this-full);
-          }
-
-          > #{$child}:nth-child(#{$j}) {
-            width: $width;
-            padding-bottom: $height;
+  // get data
+  $data: false;
+  @if type-of($key) == map {
+    $data: $key;
+  } @else if type-of($key) == 'list' {
+    @if is-metro-list($key) {
+      $data: $key;
+    } @else {
+      @each $item in $key {
+        @if not $data {
+          @if type-of($item) == 'map' or 
+              type-of($item) == 'list' and is-metro-list($item) {
+            $data: $item;
           }
         }
-      } @else {
-        @include bp($condition $this-bp) {
-          @for $j from 1 through (length($this-data) - 2) {
-            $width: percentage(1 / $this-full);
-            $height: percentage($ratio / $this-full);
-            $w-position: false;
-            $h-position: false;
-            $cell-num: nth($this-data, $j);
-            $cell-str: to-string($cell-num);
-            $cell-len: str-length($cell-str);
-            @if str-index($cell-str, 'w') and str-index($cell-str, 'h') {
-              $w-position: (str-index($cell-str, 'w') + 1);
-              $h-position: (str-index($cell-str, 'h') + 1);
-              @if $h-position > $w-position {
-                // format: w8h4
-                $width: percentage(to-number(str-slice($cell-str, $w-position, ($h-position - 2))) / $this-full);
-                $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
-              } @else {
-                // format: h4w8
-                $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
-                $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, ($w-position - 2))) / $this-full);
-              }
-            } @else if str-index($cell-str, 'w') {
-              // format: w8
-              $w-position: (str-index($cell-str, 'w') + 1);
-              $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $this-full);
-            } @else if str-index($cell-str, 'h') {
-              // format: h4
-              $h-position: (str-index($cell-str, 'h') + 1);
-              $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $this-full);
-            } @else if type-of($cell-num) == 'number' and $cell-num > 1 {
-              // format: 4
-              $width: percentage($cell-num / $this-full);
-              $height: percentage($ratio * $cell-num / $this-full);
-            }
+      }
+    }
+  }
 
-            > #{$child}:nth-child(#{$j}) {
-              width: $width;
-              padding-bottom: $height;
-            }
+  // if not valuable data found
+  @if not $data { @error 'Parameters must include list or map.'; }
+
+  @if type-of($data) == 'map' {
+    // update breakpoints
+    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
+    $bps: map-keys($data);
+
+    @if index($bps, null) != null or index($bps, 'default') != null { 
+      $keep: false; 
+    }
+
+    @each $bp in $bps {
+      $list: map-get($data, $bp);
+      $full: args-get-next($list, 'of');
+
+      @if $bp == null or $bp == 'default' {
+        @include metro-base($child, $gutter);
+        $keep: true;
+
+        @include make-metro($list, $full, $ratio, $child);
+      } @else {
+        @include bp($condition $bp) {
+          @if not $keep {
+            @include metro-base($child, $gutter);
+            $keep: true;
           }
+
+          @include make-metro($list, $full, $ratio, $child);
         }
       }
 
     }
+  } @else {
+    $full: args-get-next($data, 'of');
+
+    @include metro-base($child, $gutter);
+    @include make-metro($data, $full, $ratio, $child);
   }
 }
 
+@mixin metro-base($child, $gutter){
+  @include clearfix();
+  @if $gutter { margin: 0 (-$gutter / 2); }
+  > #{$child} {
+    position: relative;
+    float: left;
+    height: 0;
+  }
+  .metro-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    @if $gutter { margin: ($gutter / 2); }
+  }
+}
+
+@mixin make-metro($list, $full, $ratio, $child) {
+  @for $j from 1 through (length($list) - 2) {
+    $width: percentage(1 / $full);
+    $height: percentage($ratio / $full);
+    $w-position: false;
+    $h-position: false;
+    $cell-num: nth($list, $j);
+    $cell-str: to-string($cell-num);
+    $cell-len: str-length($cell-str);
+    @if str-index($cell-str, 'w') and str-index($cell-str, 'h') {
+      $w-position: (str-index($cell-str, 'w') + 1);
+      $h-position: (str-index($cell-str, 'h') + 1);
+      @if $h-position > $w-position {
+        // format: w8h4
+        $width: percentage(to-number(str-slice($cell-str, $w-position, ($h-position - 2))) / $full);
+        $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $full);
+      } @else {
+        // format: h4w8
+        $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $full);
+        $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, ($w-position - 2))) / $full);
+      }
+    } @else if str-index($cell-str, 'w') {
+      // format: w8
+      $w-position: (str-index($cell-str, 'w') + 1);
+      $width: percentage(to-number(str-slice($cell-str, $w-position, $cell-len)) / $full);
+    } @else if str-index($cell-str, 'h') {
+      // format: h4
+      $h-position: (str-index($cell-str, 'h') + 1);
+      $height: percentage($ratio * to-number(str-slice($cell-str, $h-position, $cell-len)) / $full);
+    } @else if type-of($cell-num) == 'number' and $cell-num > 1 {
+      // format: 4
+      $width: percentage($cell-num / $full);
+      $height: percentage($ratio * $cell-num / $full);
+    }
+
+    > #{$child}:nth-child(#{$j}) {
+      width: $width;
+      padding-bottom: $height;
+    }
+  }
+}
+
+@function is-metro-list($key){
+  @if type-of($key) != 'list' { @return false; }
+
+  $result: true;
+  $types: ('number', 'string');
+  $strs: ('w', 'h');
+  $nums: ('1', '2', '3', '4', '5', '6', '7', '8', '9');
+  @each $item in $key {
+    @if $result and
+        index($types, type-of($item)) == null or
+        type-of($item) == 'number' and not unitless($item) or
+        type-of($item) == 'string' and $item != 'of' and index($strs, str-slice($item, 1, 1)) == null or 
+        type-of($item) == 'string' and $item != 'of' and index($nums, str-slice($item, 2, 2)) == null {
+          $result: false;
+        }
+  }
+
+  @return $result;
+}

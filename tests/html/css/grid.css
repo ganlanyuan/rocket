@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -206,6 +207,7 @@ h5 {
 
 .grid-list > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -253,6 +255,7 @@ h5 {
 
 .grid-child > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -300,6 +303,7 @@ h5 {
 
 .grid-list-direction > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -353,6 +357,7 @@ h5 {
 
 .grid-gutter1 > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -402,6 +407,7 @@ h5 {
 
 .grid-gutter2 > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -449,6 +455,7 @@ h5 {
 
 .grid-nested-list > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -506,6 +513,7 @@ h5 {
 
 .grid-map > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -589,6 +597,7 @@ h5 {
 
 .grid-breakpoint > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -644,6 +653,7 @@ h5 {
 @media screen and (min-width: 600px) {
   .grid-breakpoint-outside > div {
     display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
@@ -698,6 +708,7 @@ h5 {
 
 .grid-global-breakpoints > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -794,6 +805,7 @@ h5 {
 
 .grid-breakpoint-max > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -869,6 +881,7 @@ h5 {
 
 .grid-breakpoint-nested-list > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -947,6 +960,7 @@ h5 {
 
 .grid-breakpoint-map > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -1050,6 +1064,7 @@ h5 {
 
 .grid-breakpoint-default > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -1118,6 +1133,7 @@ h5 {
 
 .grid-breakpoint-complex-list > div {
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;

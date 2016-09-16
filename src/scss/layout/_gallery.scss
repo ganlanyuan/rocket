@@ -30,11 +30,6 @@
   // if not valuable data found
   @if not $data { @error 'Parameters must include number or map.'; }
 
-  // *** output *** //
-  @if not $keep {
-  }
-
-
   // set col width
   @if type-of($data) == 'map' {
     // update $data breakpoints

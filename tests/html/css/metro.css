@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -194,285 +195,228 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-li {
-  transition: width 0.3s, padding 0.3s; }
+.metro-list, .metro-child, .metro-ratio, .metro-breakpoint, .metro-breakpoint-condition, .metro-global-breakpoints {
+  height: auto;
+  margin-bottom: 50px; }
 
-.metro-wrapper {
-  max-width: 800px;
-  margin: 50px auto; }
+.container {
+  max-width: 800px; }
 
-.outline {
-  margin: -10px; }
-  .outline:after {
+.metro-list:before {
+  content: "( (  w1  w3  h2  w4  of  5  ) gutter  10px  )"; }
+
+.metro-list > ul {
+  margin: 0 -5px; }
+  .metro-list > ul:after {
     clear: both;
     content: "";
     display: table; }
-  .outline > li {
+  .metro-list > ul > * {
     position: relative;
     float: left;
     height: 0; }
-  .outline .metro-item {
+  .metro-list > ul .metro-item {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     overflow: hidden;
-    margin: 10px; }
-  .outline > li:nth-child(1) {
-    width: 100%;
-    padding-bottom: 112.5%; }
-  .outline > li:nth-child(2) {
-    width: 100%;
-    padding-bottom: 37.5%; }
-  .outline > li:nth-child(3) {
-    width: 100%;
-    padding-bottom: 150%; }
-  .outline > li:nth-child(4) {
-    width: 100%;
-    padding-bottom: 37.5%; }
-  .outline > li:nth-child(5) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  .outline > li:nth-child(6) {
-    width: 50%;
-    padding-bottom: 75%; }
-  @media screen and (min-width: 43.75em) {
-    .outline > li:nth-child(1) {
+    margin: 5px; }
+  .metro-list > ul > *:nth-child(1) {
+    width: 20%;
+    padding-bottom: 20%; }
+  .metro-list > ul > *:nth-child(2) {
+    width: 60%;
+    padding-bottom: 20%; }
+  .metro-list > ul > *:nth-child(3) {
+    width: 20%;
+    padding-bottom: 40%; }
+  .metro-list > ul > *:nth-child(4) {
+    width: 80%;
+    padding-bottom: 20%; }
+
+.metro-child:before {
+  content: "( (  w2h3  w3h1  w3h2  of  5  ) child  .child  gutter  5%  )"; }
+
+.metro-child > ul {
+  margin: 0 -2.5%; }
+  .metro-child > ul:after {
+    clear: both;
+    content: "";
+    display: table; }
+  .metro-child > ul > .child {
+    position: relative;
+    float: left;
+    height: 0; }
+  .metro-child > ul .metro-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    margin: 2.5%; }
+  .metro-child > ul > .child:nth-child(1) {
+    width: 40%;
+    padding-bottom: 60%; }
+  .metro-child > ul > .child:nth-child(2) {
+    width: 60%;
+    padding-bottom: 20%; }
+  .metro-child > ul > .child:nth-child(3) {
+    width: 60%;
+    padding-bottom: 40%; }
+
+.metro-ratio:before {
+  content: "( (  w1  w3  w3  w1  of  4  ) ratio  0.5625  gutter  10px  )"; }
+
+.metro-ratio > ul {
+  margin: 0 -5px; }
+  .metro-ratio > ul:after {
+    clear: both;
+    content: "";
+    display: table; }
+  .metro-ratio > ul > * {
+    position: relative;
+    float: left;
+    height: 0; }
+  .metro-ratio > ul .metro-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    margin: 5px; }
+  .metro-ratio > ul > *:nth-child(1) {
+    width: 25%;
+    padding-bottom: 14.0625%; }
+  .metro-ratio > ul > *:nth-child(2) {
+    width: 75%;
+    padding-bottom: 14.0625%; }
+  .metro-ratio > ul > *:nth-child(3) {
+    width: 75%;
+    padding-bottom: 14.0625%; }
+  .metro-ratio > ul > *:nth-child(4) {
+    width: 25%;
+    padding-bottom: 14.0625%; }
+
+.metro-breakpoint:before {
+  content: "( ( 600px : w6h1 w2h2 w4h2 of 6 ) gutter  10px  )"; }
+
+@media screen and (min-width: 37.5em) {
+  .metro-breakpoint > ul {
+    margin: 0 -5px; }
+    .metro-breakpoint > ul:after {
+      clear: both;
+      content: "";
+      display: table; }
+    .metro-breakpoint > ul > * {
+      position: relative;
+      float: left;
+      height: 0; }
+    .metro-breakpoint > ul .metro-item {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      margin: 5px; }
+    .metro-breakpoint > ul > *:nth-child(1) {
       width: 100%;
+      padding-bottom: 16.66667%; }
+    .metro-breakpoint > ul > *:nth-child(2) {
+      width: 33.33333%;
+      padding-bottom: 33.33333%; }
+    .metro-breakpoint > ul > *:nth-child(3) {
+      width: 66.66667%;
+      padding-bottom: 33.33333%; } }
+
+.metro-breakpoint-condition:before {
+  content: "( ( 900px : w2h2 w2 w2 of 4 ) gutter  10px  max  screen  )"; }
+
+@media screen and (max-width: 56.1875em) {
+  .metro-breakpoint-condition > ul {
+    margin: 0 -5px; }
+    .metro-breakpoint-condition > ul:after {
+      clear: both;
+      content: "";
+      display: table; }
+    .metro-breakpoint-condition > ul > * {
+      position: relative;
+      float: left;
+      height: 0; }
+    .metro-breakpoint-condition > ul .metro-item {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      margin: 5px; }
+    .metro-breakpoint-condition > ul > *:nth-child(1) {
+      width: 50%;
       padding-bottom: 50%; }
-    .outline > li:nth-child(2) {
-      width: 100%;
+    .metro-breakpoint-condition > ul > *:nth-child(2) {
+      width: 50%;
       padding-bottom: 25%; }
-    .outline > li:nth-child(3) {
-      width: 66.66667%;
-      padding-bottom: 75%; }
-    .outline > li:nth-child(4) {
-      width: 33.33333%;
-      padding-bottom: 75%; }
-    .outline > li:nth-child(5) {
-      width: 33.33333%;
-      padding-bottom: 25%; }
-    .outline > li:nth-child(6) {
-      width: 66.66667%;
+    .metro-breakpoint-condition > ul > *:nth-child(3) {
+      width: 50%;
       padding-bottom: 25%; } }
-  @media screen and (min-width: 62.5em) {
-    .outline > li:nth-child(1) {
-      width: 50%;
-      padding-bottom: 56.25%; }
-    .outline > li:nth-child(2) {
-      width: 50%;
-      padding-bottom: 56.25%; }
-    .outline > li:nth-child(3) {
-      width: 75%;
-      padding-bottom: 56.25%; }
-    .outline > li:nth-child(4) {
-      width: 25%;
-      padding-bottom: 56.25%; }
-    .outline > li:nth-child(5) {
-      width: 25%;
-      padding-bottom: 18.75%; }
-    .outline > li:nth-child(6) {
-      width: 75%;
-      padding-bottom: 18.75%; } }
 
-.g-1 {
-  margin: -10px; }
-  .g-1:after {
+.metro-global-breakpoints:before {
+  content: "( ( default : w6 w2 w4 of 6, sm : w2h3 w4 w4h2 of 6, md : w3h2 w3 w3 of 6 )( sm :  600px , md :  900px , lg :  1200px  ) gutter  10px  )"; }
+
+.metro-global-breakpoints > ul {
+  margin: 0 -5px; }
+  .metro-global-breakpoints > ul:after {
     clear: both;
     content: "";
     display: table; }
-  .g-1 > li {
+  .metro-global-breakpoints > ul > * {
     position: relative;
     float: left;
     height: 0; }
-  .g-1 .metro-item {
+  .metro-global-breakpoints > ul .metro-item {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     overflow: hidden;
-    margin: 10px; }
-  .g-1 > li:nth-child(1) {
-    width: 50%;
-    padding-bottom: 75%; }
-  .g-1 > li:nth-child(2) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  .g-1 > li:nth-child(3) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  .g-1 > li:nth-child(4) {
+    margin: 5px; }
+  .metro-global-breakpoints > ul > *:nth-child(1) {
     width: 100%;
-    padding-bottom: 37.5%; }
-  @media screen and (min-width: 43.75em) {
-    .g-1 > li:nth-child(1) {
-      width: 66.66667%;
+    padding-bottom: 16.66667%; }
+  .metro-global-breakpoints > ul > *:nth-child(2) {
+    width: 33.33333%;
+    padding-bottom: 16.66667%; }
+  .metro-global-breakpoints > ul > *:nth-child(3) {
+    width: 66.66667%;
+    padding-bottom: 16.66667%; }
+  @media screen and (min-width: 37.5em) {
+    .metro-global-breakpoints > ul > *:nth-child(1) {
+      width: 33.33333%;
       padding-bottom: 50%; }
-    .g-1 > li:nth-child(2) {
-      width: 33.33333%;
-      padding-bottom: 25%; }
-    .g-1 > li:nth-child(3) {
-      width: 33.33333%;
-      padding-bottom: 25%; } }
-  @media screen and (min-width: 62.5em) {
-    .g-1 > li:nth-child(1) {
-      width: 50%;
-      padding-bottom: 37.5%; }
-    .g-1 > li:nth-child(2) {
-      width: 50%;
-      padding-bottom: 37.5%; }
-    .g-1 > li:nth-child(3) {
-      width: 50%;
-      padding-bottom: 75%; }
-    .g-1 > li:nth-child(4) {
-      width: 50%;
-      padding-bottom: 37.5%; }
-    .g-1 > li:nth-child(5) {
-      width: 50%;
-      padding-bottom: 37.5%; } }
-
-.g-2 {
-  margin: -10px; }
-  .g-2:after {
-    clear: both;
-    content: "";
-    display: table; }
-  .g-2 > li {
-    position: relative;
-    float: left;
-    height: 0; }
-  .g-2 .metro-item {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    margin: 10px; }
-  .g-2 > li:nth-child(1) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  .g-2 > li:nth-child(2) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  @media screen and (min-width: 43.75em) {
-    .g-2 > li:nth-child(1) {
-      width: 33.33333%;
-      padding-bottom: 25%; }
-    .g-2 > li:nth-child(2) {
+    .metro-global-breakpoints > ul > *:nth-child(2) {
       width: 66.66667%;
-      padding-bottom: 25%; } }
-  @media screen and (min-width: 62.5em) {
-    .g-2 > li:nth-child(1) {
-      width: 100%;
-      padding-bottom: 75%; }
-    .g-2 > li:nth-child(2) {
-      width: 100%;
-      padding-bottom: 37.5%; } }
-
-.g-3 {
-  margin: -10px; }
-  .g-3:after {
-    clear: both;
-    content: "";
-    display: table; }
-  .g-3 > li {
-    position: relative;
-    float: left;
-    height: 0; }
-  .g-3 .metro-item {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    margin: 10px; }
-  .g-3 > li:nth-child(1) {
-    width: 100%;
-    padding-bottom: 75%; }
-  .g-3 > li:nth-child(2) {
-    width: 50%;
-    padding-bottom: 75%; }
-  .g-3 > li:nth-child(3) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  .g-3 > li:nth-child(4) {
-    width: 50%;
-    padding-bottom: 37.5%; }
-  @media screen and (min-width: 43.75em) {
-    .g-3 > li:nth-child(1) {
-      width: 50%;
-      padding-bottom: 75%; }
-    .g-3 > li:nth-child(2) {
-      width: 50%;
-      padding-bottom: 37.5%; }
-    .g-3 > li:nth-child(3) {
-      width: 50%;
-      padding-bottom: 37.5%; }
-    .g-3 > li:nth-child(4) {
-      width: 50%;
-      padding-bottom: 37.5%; }
-    .g-3 > li:nth-child(5) {
-      width: 50%;
-      padding-bottom: 37.5%; } }
-  @media screen and (min-width: 62.5em) {
-    .g-3 > li:nth-child(1) {
+      padding-bottom: 16.66667%; }
+    .metro-global-breakpoints > ul > *:nth-child(3) {
       width: 66.66667%;
-      padding-bottom: 50%; }
-    .g-3 > li:nth-child(2) {
-      width: 33.33333%;
-      padding-bottom: 25%; }
-    .g-3 > li:nth-child(3) {
-      width: 33.33333%;
-      padding-bottom: 25%; }
-    .g-3 > li:nth-child(4) {
-      width: 33.33333%;
-      padding-bottom: 25%; }
-    .g-3 > li:nth-child(5) {
-      width: 66.66667%;
-      padding-bottom: 25%; } }
+      padding-bottom: 33.33333%; } }
+  @media screen and (min-width: 56.25em) {
+    .metro-global-breakpoints > ul > *:nth-child(1) {
+      width: 50%;
+      padding-bottom: 33.33333%; }
+    .metro-global-breakpoints > ul > *:nth-child(2) {
+      width: 50%;
+      padding-bottom: 16.66667%; }
+    .metro-global-breakpoints > ul > *:nth-child(3) {
+      width: 50%;
+      padding-bottom: 16.66667%; } }
 
-.g-4 {
-  margin: -10px; }
-  .g-4:after {
-    clear: both;
-    content: "";
-    display: table; }
-  .g-4 > li {
-    position: relative;
-    float: left;
-    height: 0; }
-  .g-4 .metro-item {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    margin: 10px; }
-  .g-4 > li:nth-child(1) {
-    width: 100%;
-    padding-bottom: 37.5%; }
-  @media screen and (min-width: 43.75em) {
-    .g-4 > li:nth-child(1) {
-      width: 100%;
-      padding-bottom: 75%; }
-    .g-4 > li:nth-child(2) {
-      width: 100%;
-      padding-bottom: 150%; } }
-  @media screen and (min-width: 62.5em) {
-    .g-4 > li:nth-child(1) {
-      width: 100%;
-      padding-bottom: 75%; }
-    .g-4 > li:nth-child(2) {
-      width: 100%;
-      padding-bottom: 150%; } }
-
-@media (min-width: 1000px) {
-  .g-3 > li:nth-child(4) {
-    clear: left; } }
+.metro-list ul li:nth-child(3) {
+  float: right; }
 
 /*# sourceMappingURL=sourcemaps/metro.css.map */

@@ -4,7 +4,6 @@
 
 [class*='grid-'] .cell { margin-bottom: 20px; }
 
-$grid-bps: ('sm': 600px, 'md': 900px, 'lg': 1200px);
 $grid-list: (3 4);
 $grid-child: (3 4) child '.child';
 $grid-gutter1: (3 4 : 2 1) gutter 5%;
@@ -13,7 +12,7 @@ $grid-list-direction: (3 4) RTL;
 $grid-nested-list: (3 4) 7;
 $grid-map: ( (3 4 7 : 0 2 1 ) 3 );
 $grid-breakpoint: ( 600px: 5 7 );
-$grid-global-breakpoints: ( ('sm': 1 1, 'md': 2 1, 'lg': 3 5) $grid-bps);
+$grid-global-breakpoints: ( ('sm': 1 1, 'md': 2 1, 'lg': 3 5) $global-bps);
 $grid-breakpoint-max: ( (900px: 3 5, 600px: 2 1) max );
 $grid-breakpoint-outside: (5 7);
 $grid-breakpoint-nested-list: ( 600px: (3 4) (2 5) 3 );

@@ -2,50 +2,43 @@
 @import "../../../src/scss/addons/breakpoint"; 
 @import "../../../src/scss/layout/metro"; 
 
-// *** layout: metro *** //
-li { transition: width 0.3s, padding 0.3s; }
-.metro-wrapper { 
-  max-width: 800px; 
-  margin: 50px auto;
+$metro-list: (w1 w3 h2 w4 of 5) gutter 10px;
+$metro-child: (w2h3 w3h1 w3h2 of 5) child '.child' gutter 5%;
+$metro-ratio: (w1 w3 w3 w1 of 4) ratio (9/16) gutter 10px;
+$metro-breakpoint: (600px: w6h1 w2h2 w4h2 of 6) gutter 10px;
+$metro-breakpoint-condition: ( (900px: w2h2 w2 w2 of 4) gutter 10px max screen);
+$metro-global-breakpoints: (('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h2 of 6, 'md': w3h2 w3 w3 of 6) $global-bps gutter 10px);
+
+.container { max-width: 800px; }
+.metro-list {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-list)}'; }
+  > ul { @include metro($metro-list); }
+}
+.metro-child {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-child)}'; }
+  > ul { @include metro($metro-child); }
+}
+.metro-ratio {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-ratio)}'; }
+  > ul { @include metro($metro-ratio); }
+}
+.metro-breakpoint {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-breakpoint)}'; }
+  > ul { @include metro($metro-breakpoint); }
+}
+.metro-breakpoint-condition {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-breakpoint-condition)}'; }
+  > ul { @include metro($metro-breakpoint-condition); }
+}
+.metro-global-breakpoints {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-global-breakpoints)}'; }
+  > ul { @include metro($metro-global-breakpoints); }
 }
 
-$ro-metro: (
-  'gutter': 20px,
-  'ratio': (3 / 4),
-  'child': 'li',
-);
-
-$outline: (
-  null: w2h3 w2 w2h4 w2 1 h2 of 2,
-  700: w3h2 w3 w2h3 h3 1 w2 of 3,
-  1000: w2h3 w2h3 w3h3 h3 1 w3 of 4,
-);
-$g-1: (
-  null: h2 1 1 w2 of 2,
-  700: w2h2 1 1 of 3,
-  1000: 1 1 h2 1 1 of 2,
-);
-$g-2: (
-  null: 1 1 of 2,
-  700: 1 w2 of 3,
-  1000: w2h2 w2 of 2,
-);
-$g-3: (
-  null: w2h2 h2 1 1 of 2,
-  700: h2 1 1 1 1 of 2,
-  1000: w2h2 1 1 1 w2 of 3,
-);
-$g-4: (
-  null: w2 of 2,
-  700: 1 h2 of 1,
-  1000: 1 h2 of 1,
-);
-
-.outline { @include metro($outline); }
-.g-1 { @include metro($g-1); }
-.g-2 { @include metro($g-2); }
-.g-3 { @include metro($g-3); }
-.g-4 { @include metro($g-4); }
-@media (min-width: 1000px) {
-  .g-3 > li:nth-child(4) { clear: left; }
-}
+.metro-list ul li:nth-child(3) { float: right; }
