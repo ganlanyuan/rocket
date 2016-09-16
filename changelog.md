@@ -1,6 +1,6 @@
 # Changelog
 
-<!-- ##### 3.4.7
+##### 3.4.7
 - Added: helper functions `args-get-liquid-data`, `gutter-fallback`, `is-liquid-list`,
 - Improved: add supports to `center`, `justify`, `sticky-footer` on Chrome 15-20, Safri 4-6, Firefox 3.6-21.
 - Improved: add supports to `angled-edges` on Chrome 15-17.
@@ -9,7 +9,7 @@
 - Update: remove 'align' option from `center` parameters.
 - Fixed: `liquid-2`, `liquid-3`, `masonry` parameter issues.
 - Fixed: an `args-get-type` issue which return the argument without further checking when the argument is the expected type.
- -->
+
 ##### 3.4.6
 - Fixed: `is-nested-list`, `args-get-type` warnings.
 - Fixed: `liquid-2`, `liquid-3`.
