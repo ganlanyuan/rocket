@@ -195,6 +195,63 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
+.bottom {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 8.74887%; }
+  .bottom:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0px solid transparent; }
+  .bottom:after {
+    bottom: 0;
+    border-bottom: 157.47959px solid #B9E2FF;
+    right: 0;
+    border-right-width: 1800px; }
+
+.both {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8.74887%;
+  padding-bottom: 8.74887%; }
+  .both:before, .both:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0px solid transparent; }
+  .both:before {
+    top: 0;
+    border-top: 157.47959px solid #B9E2FF;
+    left: 0;
+    border-left-width: 1800px; }
+  .both:after {
+    bottom: 0;
+    border-bottom: 157.47959px solid #FBDBF6;
+    left: 0;
+    border-left-width: 1800px; }
+
+.top {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8.74887%; }
+  .top:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0px solid transparent; }
+  .top:before {
+    top: 0;
+    border-top: 157.47959px solid #FBDBF6;
+    right: 0;
+    border-right-width: 1800px; }
+
 .example-angled-edges {
   max-width: 950px;
   margin-left: auto;
@@ -213,67 +270,17 @@ h5 {
     color: #000; }
   .example-angled-edges .bottom, .example-angled-edges .both, .example-angled-edges .top {
     box-sizing: border-box;
-    background: #52ABFF url("../images/angled-edges/1.jpg") 0 0 no-repeat;
+    background: #52ABFF 0 0 no-repeat;
     background-size: cover; }
   .example-angled-edges .sibling-1 {
     background-color: #B9E2FF; }
   .example-angled-edges .sibling-2 {
     background-color: #FBDBF6; }
   .example-angled-edges .bottom {
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 8.74887%; }
-    .example-angled-edges .bottom:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 0;
-      height: 0;
-      border: 0px solid transparent; }
-    .example-angled-edges .bottom:after {
-      bottom: 0;
-      border-bottom: 874.88664px solid #B9E2FF;
-      left: 0;
-      border-left-width: 10000px; }
+    background-image: url("../images/angled-edges/1.jpg"); }
   .example-angled-edges .both {
-    position: relative;
-    overflow: hidden;
-    padding-top: 8.74887%;
-    padding-bottom: 8.74887%;
     background-image: url("../images/angled-edges/2.jpg"); }
-    .example-angled-edges .both:before, .example-angled-edges .both:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 0;
-      height: 0;
-      border: 0px solid transparent; }
-    .example-angled-edges .both:before {
-      top: 0;
-      border-top: 874.88664px solid #B9E2FF;
-      right: 0;
-      border-right-width: 10000px; }
-    .example-angled-edges .both:after {
-      bottom: 0;
-      border-bottom: 874.88664px solid #FBDBF6;
-      right: 0;
-      border-right-width: 10000px; }
   .example-angled-edges .top {
-    position: relative;
-    overflow: hidden;
-    padding-top: 8.74887%;
     background-image: url("../images/angled-edges/3.jpg"); }
-    .example-angled-edges .top:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 0;
-      height: 0;
-      border: 0px solid transparent; }
-    .example-angled-edges .top:before {
-      top: 0;
-      border-top: 874.88664px solid #FBDBF6;
-      left: 0;
-      border-left-width: 10000px; }
 
 /*# sourceMappingURL=sourcemaps/angled-edges.css.map */

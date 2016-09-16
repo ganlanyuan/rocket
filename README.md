@@ -326,7 +326,7 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
 ````
 
 #### diamond
-IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+    
+IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-diamond.php)   
 ````html
 <div class="wrapper"> <!-- 'wrapper' could be any valid class name -->
@@ -378,7 +378,7 @@ $key: ($per-row / $size) $shape 'combined' $selector-type 'keep';
 
 #### angled-edges
 Create `angled-edges` layout. `background` could be image, gradient or pure color, but the background of sibling elements must be pure color.   
-IE 8+, Firefox 3.6+, Chrome 18+, Safari 6+, Opera 10.6+    
+IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+    
 [demo](http://creatiointl.org/william/rocket/v3/layout-angled-edges.php)   
 ````html
 <div class="main">

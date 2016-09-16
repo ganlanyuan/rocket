@@ -3,7 +3,45 @@
 @import "../../../src/scss/layout/center"; 
 @import "../../../src/scss/layout/diamond"; 
 
-.example-diamond {
+$diamond-count: 3 diamond;
+$diamond-count-combined: 3 diamond combined;
+$diamond-size: 25%;
+$diamond-breakpoints: (600px:3, 800px:4) diamond;
+$octagon-count: 4 octagon;
+$octagon-size: 300px octagon;
+
+.diamond-count { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($diamond-count)}'; }
+  > div { @include diamond($diamond-count); }
+}
+.diamond-count-combined { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($diamond-count-combined)}'; }
+  > div { @include diamond($diamond-count-combined); }
+}
+.diamond-size { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($diamond-size)}'; }
+  > div { @include diamond($diamond-size); }
+}
+.diamond-breakpoints { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($diamond-breakpoints)}'; }
+  > div { @include diamond($diamond-breakpoints); }
+}
+.octagon-count { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($octagon-count)}'; }
+  > div { @include diamond($octagon-count); }
+}
+.octagon-size { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($octagon-size)}'; }
+  > div { @include diamond($octagon-size); }
+}
+
+.demo-container {
   @extend %clearfix;
   max-width: 900px;
   margin: 80px auto 20px;
@@ -15,37 +53,17 @@
     width: inherit;
   }
 }
-.diamond {
-  @include diamond(5 'combined'); 
-  &-s,
-  &-m {
-    outline: 1px solid #fff;
-    cursor: pointer;
-  }
-  &-s { @include diamond(20%); }
-  &-m { @include diamond(60%); }
-}
-.s1 { 
-  margin-top: 30%; 
+.order span:after {
+  display: block;
   position: relative;
-  left: 10%;
+  top: -180px;
+  top: -16vw;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  font-size: 60px;
+  font-family: 'Helvetica Neue',Arial,sans-serif;
 }
-.s2 { margin-top: 20%; }
-.b2 {
-  margin-top: -30%;
-  margin-left: 10%;
-}
-.s3 {
-  margin-top: -20%;
-  margin-left: 10%;
-}
-.s4 { margin-top: -10%; }
-.s5 {
-  margin-left: 20%;
-  margin-top: -10%;
-}
-.s6 { margin-left: -30%; }
-.b3 {
-  margin-top: -40%;
-  margin-left: 40%;
+@for $i from 1 through 8 {
+  .order:nth-child(#{$i}) span:after { content: '#{$i}'; }
 }

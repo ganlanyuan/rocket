@@ -20,8 +20,8 @@
   } @else if type-of($key) == 'list' and not $data {
     @each $item in $key {
       @if not $data and
-          type-of($item) == 'map' or
-          type-of($item) == 'number' and unitless($item) {
+          type-of($item) == 'number' and unitless($item) or
+          type-of($item) == 'map' {
         $data: $item;
       }
     }
@@ -32,59 +32,8 @@
 
   // *** output *** //
   @if not $keep {
-    @if $center-align { 
-      // Webkit: collapse white-space between units
-      letter-spacing: -0.31em; 
-      // Webkit: fixes text-rendering: optimizeLegibility
-      text-rendering: optimizespeed; 
-      // Sets the font stack to fonts known to work properly with the above letter
-      // and word spacings. See: https://github.com/yahoo/pure/issues/41/
-      // The following font stack makes gallery work on all known environments.
-      // * FreeSans: Ships with many Linux distros, including Ubuntu
-      // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
-      //   Arial to get picked up by the browser, even though neither is available
-      //   in Chrome OS.
-      // * Droid Sans: Ships with all versions of Android.
-      // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
-      font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-
-      // Opera as of 12 on Windows needs word-spacing.
-      // The ".opera-only" selector is used to prevent actual prefocus styling
-      // and is not required in markup.
-      .opera-only :-o-prefocus, & { word-spacing: -0.43em; }
-      text-align: center;
-    } @else {
-      @include clearfix(); 
-    }
-
-    @if unit($gutter) != '%' { margin-right: - $gutter; }
   }
 
-  > #{$child} {
-    @if not $keep {
-      width: 100%;
-
-      @if $center-align {
-        display: inline-block;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-        text-align: left;
-      } @else {
-        float: $float;
-      }
-
-      @if unit($gutter) == '%' {
-        margin: get-TRBL(#{opposite($float)} $gutter bottom $gutter);
-      } @else {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 0 $gutter $gutter 0;
-      }
-    }
-  }
 
   // set col width
   @if type-of($data) == 'map' {
@@ -92,21 +41,86 @@
     @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
     @if $data and type-of($data) == 'map' { $bps: map-keys($data); }
 
+    @if index($bps, null) != null or index($bps, 'default') != null { 
+      $keep: false; 
+    }
+
     @each $bp in $bps {
       $this-per-row: map-get($data, $bp);
 
       @if $bp == null or $bp == 'default' {
+        @include gallery-base($child, $gutter, $float, $center-align);
+        $keep: true;
+
         @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
 
       } @else if type-of($bp) == 'number' {
-
         @include bp($bp $condition) {
+          @if not $keep {
+            @include gallery-base($child, $gutter, $float, $center-align);
+            $keep: true;
+          }
+
           @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
         }
       }
     }
   } @else {
-     @include make-gallery($data, $child, $gutter, $float, $center-align);
+    @include gallery-base($child, $gutter, $float, $center-align);
+    @include make-gallery($data, $child, $gutter, $float, $center-align);
+  }
+}
+
+@mixin gallery-base($child, $gutter, $float, $center-align){
+  @if $center-align { 
+    // Webkit: collapse white-space between units
+    letter-spacing: -0.31em; 
+    // Webkit: fixes text-rendering: optimizeLegibility
+    text-rendering: optimizespeed; 
+    // Sets the font stack to fonts known to work properly with the above letter
+    // and word spacings. See: https://github.com/yahoo/pure/issues/41/
+    // The following font stack makes gallery work on all known environments.
+    // * FreeSans: Ships with many Linux distros, including Ubuntu
+    // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+    //   Arial to get picked up by the browser, even though neither is available
+    //   in Chrome OS.
+    // * Droid Sans: Ships with all versions of Android.
+    // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+    // Opera as of 12 on Windows needs word-spacing.
+    // The ".opera-only" selector is used to prevent actual prefocus styling
+    // and is not required in markup.
+    .opera-only :-o-prefocus, & { word-spacing: -0.43em; }
+    text-align: center;
+  } @else {
+    @include clearfix(); 
+  }
+
+  @if unit($gutter) != '%' { margin-right: - $gutter; }
+  
+  > #{$child} {
+    width: 100%;
+
+    @if $center-align {
+      display: inline-block;
+      letter-spacing: normal;
+      word-spacing: normal;
+      vertical-align: top;
+      text-rendering: auto;
+      text-align: left;
+    } @else {
+      float: $float;
+    }
+
+    @if unit($gutter) == '%' {
+      margin: get-TRBL(#{opposite($float)} $gutter bottom $gutter);
+    } @else {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 0 $gutter $gutter 0;
+    }
   }
 }
 

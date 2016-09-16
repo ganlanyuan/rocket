@@ -1,116 +1,169 @@
 // *** diamond *** //
 @mixin diamond($key){
-  $per-row: false;
-  $size: false;
   $shape: args-get($key, $ro-diamond-shape, 'diamond');
-  $combined: args-get($key, 'combined');
+  $tight: args-get($key, ('tight', 'combined'), false);
   $selector-type: args-get($key, ('nth' 'type'), 'nth');
   $keep: args-get($key, 'keep');
-
   // nth-child & nth-of-type
   @if $selector-type == 'type' {
     $selector-type: 'nth-of-type';
   } @else {
     $selector-type: 'nth-child';
   }
-  
-  // per-row & size
-  @if type-of($key) == 'number' {
-    @if unitless($key) {
-      $per-row: $key; 
-    } @else {
-      $size: $key;
-    }
-  } @else if type-of($key) == 'list' {
+
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
+  $bps: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+
+  // get data
+  $data: false;
+  @if type-of($key) == 'number' or type-of($key) == 'map' {
+    $data: $key;
+  } @else if type-of($key) == 'list' and not $data {
     @each $item in $key {
+      @if not $data and type-of($item) == 'number' or type-of($item) == 'map' {
+        $data: $item;
+      }
+    }
+  }
+
+  // if not valuable data found
+  @if not $data { @error 'Parameters must include number or map.'; }
+  
+  // *** output *** //
+  @if not $keep {
+    
+  }
+
+  // set col width
+  @if type-of($data) == 'map' {
+    // update $data breakpoints
+    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
+    @if $data and type-of($data) == 'map' { $bps: map-keys($data); }
+
+    @if index($bps, null) != null or index($bps, 'default') != null { 
+      $keep: false; 
+    } 
+
+    @each $bp in $bps {
+      $num: map-get($data, $bp);
+
+      @if $bp == null or $bp == 'default' {
+        @include diamond-base($shape);
+        $keep: true;
+
+        @include make-diamond($num, $shape, $tight, $selector-type);
+
+      } @else if type-of($bp) == 'number' {
+        @include bp($bp $condition) {
+          @if not $keep {
+            @include diamond-base($shape);
+            $keep: true;
+          }
+
+          @include make-diamond($num, $shape, $tight, $selector-type);
+        }
+      }
+    }
+  } @else {
+    @include diamond-base($shape);
+    @include make-diamond($data, $shape, $tight, $selector-type);
+  }
+}
+
+@mixin diamond-base($shape){
+  position: relative;
+  float: left;
+  overflow: hidden;
+
+  @if $shape == 'diamond' { 
+    @include ro-transform( rotate(-45deg) scale((1/sqrt(2))) ); 
+  } @else if $shape == 'octagon' {
+    @include ro-transform(rotate(-45deg));
+  }
+  > .diamond-content {
+    @include center();
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    @if $shape == 'diamond' {
+      @include ro-transform( rotate(45deg) scale( sqrt(2) ) );
+    } @else if $shape == 'octagon' {
+      @include ro-transform(rotate(45deg));
+      overflow: inherit;
+    }
+  }
+}
+
+@mixin make-diamond($data, $shape, $tight, $selector-type) {
+  $count: false;
+  $size: false;
+
+  // count & size
+  @if type-of($data) == 'number' {
+    @if unitless($data) {
+      $count: $data; 
+    } @else {
+      $size: $data;
+    }
+  } @else if type-of($data) == 'list' {
+    @each $item in $data {
       @if type-of($item) == 'number' {
         @if unitless($item) {
-          $per-row: $item;
+          $count: $item;
         } @else {
           $size: $item;
         }
       }
     }
   }
-  @if $size and unit($size) == '%' and $per-row {
-    $per-row: floor(100% / $size);
+  @if $size and unit($size) == '%' and $count {
+    $count: floor(100% / $size);
   }
   @if not $size {
-    @if $per-row {
-      $size: percentage(1 / $per-row);
+    @if $count {
+      $size: percentage(1 / $count);
     }
   } 
-  @if not $per-row {
+  @if not $count {
     @if $size and unit($size) == '%' {
-      $per-row: floor(100% / $size);
+      $count: floor(100% / $size);
     }
   } 
 
-  // *** output *** //
   @if $size {
-    @if not $keep {
-      position: relative;
-      float: left;
-      overflow: hidden;
-    }
     width: $size;
-
-    @if not unitless($size) {
-      @if unit($size) == '%' {
-        padding-bottom: $size;
-        height: 0;
-      } @else {
-        height: $size;
-      }
-    } 
+    @if unit($size) == '%' {
+      height: 0;
+      padding-bottom: $size;
+    } @else {
+      height: $size;
+    }
 
     @if $shape == 'diamond' {
-      @if not $keep {
-        @include ro-transform( rotate(-45deg) scale( (1/sqrt(2)) ) );
-      }
-
-      @if $per-row {
-        .csstransforms & {
-          @if $combined {
-            &:#{$selector-type}(n) {
-              margin-left: 0;
-              margin-top: 0;
-              clear: none;
-            }
-            &:#{$selector-type}(#{$per-row * 2 - 1}n + #{($per-row + 1)}) {
-              margin-left: ($size / 2);
-              clear: both;
-            }
-            &:#{$selector-type}(n + #{($per-row + 1)}) {
-              margin-top: (- $size / 2);
-            }
-          }
+      @if $count and $tight {
+        &:#{$selector-type}(n) {
+          margin: 0;
+          clear: none;
+        }
+        &:#{$selector-type}(#{$count * 2 - 1}n + #{($count + 1)}) {
+          margin-left: ($size / 2);
+          clear: both;
+        }
+        &:#{$selector-type}(n + #{($count + 1)}) {
+          margin-top: (- $size / 2);
+        }
+        .lt-ie9 &:#{$selector-type}(n) { 
+          margin: 0; 
+          clear: none;
         }
       }
-
-    } @else if $shape == 'octagon' {
-      @if not $keep {
-        @include ro-transform(rotate(-45deg));
-      }
-    }
-
-    // content
-    @if not $keep {
-      > .diamond-content {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        @include center();
-
-        @if $shape == 'diamond' {
-          @include ro-transform( rotate(45deg) scale( sqrt(2) ) );
-        } @else if $shape == 'octagon' {
-          @include ro-transform(rotate(45deg));
-          overflow: inherit;
-        }
-      }
-    }
+    } 
   }
+
 }

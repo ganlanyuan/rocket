@@ -1,4 +1,4 @@
-.example-diamond:after {
+.demo-container:after {
   clear: both;
   content: "";
   display: table; }
@@ -127,7 +127,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -199,188 +200,401 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.example-diamond {
-  max-width: 900px;
-  margin: 80px auto 20px; }
-  .example-diamond span {
-    display: block;
-    width: 100%; }
-  .example-diamond img {
-    width: inherit; }
+.diamond-count, .diamond-count-combined, .diamond-size, .diamond-breakpoints, .octagon-count, .octagon-size {
+  height: auto;
+  margin-bottom: 50px; }
 
-.diamond {
+.diamond-count:before {
+  content: "(  3  diamond  )"; }
+
+.diamond-count > div {
   position: relative;
   float: left;
   overflow: hidden;
-  width: 20%;
-  padding-bottom: 20%;
-  height: 0;
   -webkit-transform: rotate(-45deg) scale(0.70711);
   -moz-transform: rotate(-45deg) scale(0.70711);
   -ms-transform: rotate(-45deg) scale(0.70711);
   -o-transform: rotate(-45deg) scale(0.70711);
-  transform: rotate(-45deg) scale(0.70711); }
-  .csstransforms .diamond:nth-child(n) {
-    margin-left: 0;
-    margin-top: 0;
-    clear: none; }
-  .csstransforms .diamond:nth-child(9n + 6) {
-    margin-left: 10%;
-    clear: both; }
-  .csstransforms .diamond:nth-child(n + 6) {
-    margin-top: -10%; }
-  .diamond > .diamond-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  transform: rotate(-45deg) scale(0.70711);
+  width: 33.33333%;
+  height: 0;
+  padding-bottom: 33.33333%; }
+  .diamond-count > div > .diamond-content {
     display: -webkit-box;
+    display: -moz-box;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
     -ms-flex-align: center;
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
     -webkit-transform: rotate(45deg) scale(1.41421);
     -moz-transform: rotate(45deg) scale(1.41421);
     -ms-transform: rotate(45deg) scale(1.41421);
     -o-transform: rotate(45deg) scale(1.41421);
     transform: rotate(45deg) scale(1.41421); }
-    .diamond > .diamond-content > * {
+    .diamond-count > div > .diamond-content > * {
       margin: auto; }
-    .lt-ie10 .diamond > .diamond-content {
+    .lt-ie10 .diamond-count > div > .diamond-content {
       text-align: center;
       white-space: nowrap; }
-      .lt-ie10 .diamond > .diamond-content:before {
+      .lt-ie10 .diamond-count > div > .diamond-content:before {
         content: '';
         display: inline-block;
         height: 100%;
         vertical-align: middle;
         margin-right: -.25em; }
-      .lt-ie10 .diamond > .diamond-content > * {
+      .lt-ie10 .diamond-count > div > .diamond-content > * {
         display: inline-block;
         vertical-align: middle;
-        white-space: normal; }
-  .diamond-s, .diamond-m {
-    outline: 1px solid #fff;
-    cursor: pointer; }
-  .diamond-s {
-    position: relative;
-    float: left;
-    overflow: hidden;
-    width: 20%;
-    padding-bottom: 20%;
-    height: 0;
-    -webkit-transform: rotate(-45deg) scale(0.70711);
-    -moz-transform: rotate(-45deg) scale(0.70711);
-    -ms-transform: rotate(-45deg) scale(0.70711);
-    -o-transform: rotate(-45deg) scale(0.70711);
-    transform: rotate(-45deg) scale(0.70711); }
-    .diamond-s > .diamond-content {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      -webkit-transform: rotate(45deg) scale(1.41421);
-      -moz-transform: rotate(45deg) scale(1.41421);
-      -ms-transform: rotate(45deg) scale(1.41421);
-      -o-transform: rotate(45deg) scale(1.41421);
-      transform: rotate(45deg) scale(1.41421); }
-      .diamond-s > .diamond-content > * {
-        margin: auto; }
-      .lt-ie10 .diamond-s > .diamond-content {
-        text-align: center;
-        white-space: nowrap; }
-        .lt-ie10 .diamond-s > .diamond-content:before {
-          content: '';
-          display: inline-block;
-          height: 100%;
-          vertical-align: middle;
-          margin-right: -.25em; }
-        .lt-ie10 .diamond-s > .diamond-content > * {
-          display: inline-block;
-          vertical-align: middle;
-          white-space: normal; }
-  .diamond-m {
-    position: relative;
-    float: left;
-    overflow: hidden;
-    width: 60%;
-    padding-bottom: 60%;
-    height: 0;
-    -webkit-transform: rotate(-45deg) scale(0.70711);
-    -moz-transform: rotate(-45deg) scale(0.70711);
-    -ms-transform: rotate(-45deg) scale(0.70711);
-    -o-transform: rotate(-45deg) scale(0.70711);
-    transform: rotate(-45deg) scale(0.70711); }
-    .diamond-m > .diamond-content {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      -webkit-transform: rotate(45deg) scale(1.41421);
-      -moz-transform: rotate(45deg) scale(1.41421);
-      -ms-transform: rotate(45deg) scale(1.41421);
-      -o-transform: rotate(45deg) scale(1.41421);
-      transform: rotate(45deg) scale(1.41421); }
-      .diamond-m > .diamond-content > * {
-        margin: auto; }
-      .lt-ie10 .diamond-m > .diamond-content {
-        text-align: center;
-        white-space: nowrap; }
-        .lt-ie10 .diamond-m > .diamond-content:before {
-          content: '';
-          display: inline-block;
-          height: 100%;
-          vertical-align: middle;
-          margin-right: -.25em; }
-        .lt-ie10 .diamond-m > .diamond-content > * {
-          display: inline-block;
-          vertical-align: middle;
-          white-space: normal; }
+        white-space: normal;
+        text-align: left; }
 
-.s1 {
-  margin-top: 30%;
+.diamond-count-combined:before {
+  content: "(  3  diamond  combined  )"; }
+
+.diamond-count-combined > div {
   position: relative;
-  left: 10%; }
+  float: left;
+  overflow: hidden;
+  -webkit-transform: rotate(-45deg) scale(0.70711);
+  -moz-transform: rotate(-45deg) scale(0.70711);
+  -ms-transform: rotate(-45deg) scale(0.70711);
+  -o-transform: rotate(-45deg) scale(0.70711);
+  transform: rotate(-45deg) scale(0.70711);
+  width: 33.33333%;
+  height: 0;
+  padding-bottom: 33.33333%; }
+  .diamond-count-combined > div > .diamond-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(45deg) scale(1.41421);
+    -moz-transform: rotate(45deg) scale(1.41421);
+    -ms-transform: rotate(45deg) scale(1.41421);
+    -o-transform: rotate(45deg) scale(1.41421);
+    transform: rotate(45deg) scale(1.41421); }
+    .diamond-count-combined > div > .diamond-content > * {
+      margin: auto; }
+    .lt-ie10 .diamond-count-combined > div > .diamond-content {
+      text-align: center;
+      white-space: nowrap; }
+      .lt-ie10 .diamond-count-combined > div > .diamond-content:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -.25em; }
+      .lt-ie10 .diamond-count-combined > div > .diamond-content > * {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+        text-align: left; }
+  .diamond-count-combined > div:nth-child(n) {
+    margin: 0;
+    clear: none; }
+  .diamond-count-combined > div:nth-child(5n + 4) {
+    margin-left: 16.66667%;
+    clear: both; }
+  .diamond-count-combined > div:nth-child(n + 4) {
+    margin-top: -16.66667%; }
+  .lt-ie9 .diamond-count-combined > div:nth-child(n) {
+    margin: 0;
+    clear: none; }
 
-.s2 {
-  margin-top: 20%; }
+.diamond-size:before {
+  content: "25%"; }
 
-.b2 {
-  margin-top: -30%;
-  margin-left: 10%; }
+.diamond-size > div {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  -webkit-transform: rotate(-45deg) scale(0.70711);
+  -moz-transform: rotate(-45deg) scale(0.70711);
+  -ms-transform: rotate(-45deg) scale(0.70711);
+  -o-transform: rotate(-45deg) scale(0.70711);
+  transform: rotate(-45deg) scale(0.70711);
+  width: 25%;
+  height: 0;
+  padding-bottom: 25%; }
+  .diamond-size > div > .diamond-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(45deg) scale(1.41421);
+    -moz-transform: rotate(45deg) scale(1.41421);
+    -ms-transform: rotate(45deg) scale(1.41421);
+    -o-transform: rotate(45deg) scale(1.41421);
+    transform: rotate(45deg) scale(1.41421); }
+    .diamond-size > div > .diamond-content > * {
+      margin: auto; }
+    .lt-ie10 .diamond-size > div > .diamond-content {
+      text-align: center;
+      white-space: nowrap; }
+      .lt-ie10 .diamond-size > div > .diamond-content:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -.25em; }
+      .lt-ie10 .diamond-size > div > .diamond-content > * {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+        text-align: left; }
 
-.s3 {
-  margin-top: -20%;
-  margin-left: 10%; }
+.diamond-breakpoints:before {
+  content: "( ( 600px :  3 , 800px :  4  ) diamond  )"; }
 
-.s4 {
-  margin-top: -10%; }
+@media screen and (min-width: 37.5em) {
+  .diamond-breakpoints > div {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    -webkit-transform: rotate(-45deg) scale(0.70711);
+    -moz-transform: rotate(-45deg) scale(0.70711);
+    -ms-transform: rotate(-45deg) scale(0.70711);
+    -o-transform: rotate(-45deg) scale(0.70711);
+    transform: rotate(-45deg) scale(0.70711);
+    width: 33.33333%;
+    height: 0;
+    padding-bottom: 33.33333%; }
+    .diamond-breakpoints > div > .diamond-content {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-box-align: center;
+      -moz-box-pack: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      width: 100%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      -webkit-transform: rotate(45deg) scale(1.41421);
+      -moz-transform: rotate(45deg) scale(1.41421);
+      -ms-transform: rotate(45deg) scale(1.41421);
+      -o-transform: rotate(45deg) scale(1.41421);
+      transform: rotate(45deg) scale(1.41421); }
+      .diamond-breakpoints > div > .diamond-content > * {
+        margin: auto; }
+      .lt-ie10 .diamond-breakpoints > div > .diamond-content {
+        text-align: center;
+        white-space: nowrap; }
+        .lt-ie10 .diamond-breakpoints > div > .diamond-content:before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+          margin-right: -.25em; }
+        .lt-ie10 .diamond-breakpoints > div > .diamond-content > * {
+          display: inline-block;
+          vertical-align: middle;
+          white-space: normal;
+          text-align: left; } }
 
-.s5 {
-  margin-left: 20%;
-  margin-top: -10%; }
+@media screen and (min-width: 50em) {
+  .diamond-breakpoints > div {
+    width: 25%;
+    height: 0;
+    padding-bottom: 25%; } }
 
-.s6 {
-  margin-left: -30%; }
+.octagon-count:before {
+  content: "(  4  octagon  )"; }
 
-.b3 {
-  margin-top: -40%;
-  margin-left: 40%; }
+.octagon-count > div {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 25%;
+  height: 0;
+  padding-bottom: 25%; }
+  .octagon-count > div > .diamond-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    overflow: inherit; }
+    .octagon-count > div > .diamond-content > * {
+      margin: auto; }
+    .lt-ie10 .octagon-count > div > .diamond-content {
+      text-align: center;
+      white-space: nowrap; }
+      .lt-ie10 .octagon-count > div > .diamond-content:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -.25em; }
+      .lt-ie10 .octagon-count > div > .diamond-content > * {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+        text-align: left; }
+
+.octagon-size:before {
+  content: "(  300px  octagon  )"; }
+
+.octagon-size > div {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 300px;
+  height: 300px; }
+  .octagon-size > div > .diamond-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    overflow: inherit; }
+    .octagon-size > div > .diamond-content > * {
+      margin: auto; }
+    .lt-ie10 .octagon-size > div > .diamond-content {
+      text-align: center;
+      white-space: nowrap; }
+      .lt-ie10 .octagon-size > div > .diamond-content:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -.25em; }
+      .lt-ie10 .octagon-size > div > .diamond-content > * {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+        text-align: left; }
+
+.demo-container {
+  max-width: 900px;
+  margin: 80px auto 20px; }
+  .demo-container span {
+    display: block;
+    width: 100%; }
+  .demo-container img {
+    width: inherit; }
+
+.order span:after {
+  display: block;
+  position: relative;
+  top: -180px;
+  top: -16vw;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  font-size: 60px;
+  font-family: 'Helvetica Neue',Arial,sans-serif; }
+
+.order:nth-child(1) span:after {
+  content: "1"; }
+
+.order:nth-child(2) span:after {
+  content: "2"; }
+
+.order:nth-child(3) span:after {
+  content: "3"; }
+
+.order:nth-child(4) span:after {
+  content: "4"; }
+
+.order:nth-child(5) span:after {
+  content: "5"; }
+
+.order:nth-child(6) span:after {
+  content: "6"; }
+
+.order:nth-child(7) span:after {
+  content: "7"; }
+
+.order:nth-child(8) span:after {
+  content: "8"; }
 
 /*# sourceMappingURL=sourcemaps/diamond.css.map */
