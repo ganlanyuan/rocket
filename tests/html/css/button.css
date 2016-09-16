@@ -313,11 +313,11 @@ h5 {
     opacity: 0; } }
       .lt-ie9 .example-button .ripple:before {
         display: none; }
-    .example-button .ripple:hover:before {
+    .example-button .ripple:active:before {
       -webkit-animation: button-ripple 1s 1;
       -moz-animation: button-ripple 1s 1;
       animation: button-ripple 1s 1; }
-      .lt-ie9 .example-button .ripple:hover:before {
+      .lt-ie9 .example-button .ripple:active:before {
         display: block; }
   .example-button .veil {
     padding: 1em 2em;

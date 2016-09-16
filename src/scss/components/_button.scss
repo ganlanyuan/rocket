@@ -1,13 +1,14 @@
 // *** button *** //
 @mixin button ($key: '0.5em 0.8em'){
-  $check: append(join($ro-button-hover, $ro-button-direction), 'round');
+  $check: append(join(join($ro-button-style, $ro-button-direction), $ro-button-action), 'round');
 
   $padding: false;
   $round: args-get($key, 'round');
   $border-radius: false;
 
   $direction: args-get($key, $ro-button-direction);
-  $hover: args-get($key, $ro-button-hover);
+  $style: args-get($key, $ro-button-style);
+  $action: args-get($key, $ro-button-action, 'hover');
 
   $colors: ();
   $color-1: #f2f2f2;
@@ -51,7 +52,7 @@
   // *** output *** //
   @extend %button-style;
   @if $padding {
-    @if not index(('push'), $hover) {
+    @if not index(('push'), $style) {
       padding: $padding;
     }
   }
@@ -61,13 +62,13 @@
   @if $round {
     border-radius: $ro-button-round;
   }
-  @if not index(('simple' 'veil' 'line-drawing'), $hover) {
+  @if not index(('simple' 'veil' 'line-drawing'), $style) {
     background: $color-1;
     color: contrast($color-1);
   }
   @if $colors {
-    @if $hover {
-      @if $hover == 'slide' {
+    @if $style {
+      @if $style == 'slide' {
         @include button-pos-r();
         &:before {
           @include button-pos-a();
@@ -83,31 +84,31 @@
           background: $color-2;
           transition: #{$direction} $duration $timing-function;
         }
-        &:hover {
+        &:#{$action} {
           @if contrast($color-1) != contrast($color-2) {
             color: contrast($color-2);
           }
           &:before { #{$direction}: 0px; }
         }
-      } @else if $hover == 'highlight' {
+      } @else if $style == 'highlight' {
         transition: background $duration $timing-function, color $duration $timing-function;
-        &:hover {
+        &:#{$action} {
           background: $color-2;
           @if contrast($color-1) != contrast($color-2) {
             color: contrast($color-2);
           }
         }
-      } @else if $hover == 'simple' {
+      } @else if $style == 'simple' {
         color: $color-1;
         border: 1px solid $color-1;
         background: transparent;
         transition: background $duration $timing-function, color $duration $timing-function;
-        &:hover {
+        &:#{$action} {
           color: contrast($color-1);
           border-color: $color-1;
           background: $color-1;
         }
-      } @else if $hover == 'ripple' {
+      } @else if $style == 'ripple' {
         @include button-pos-r();
         &:before {
           @include button-pos-a();
@@ -132,11 +133,11 @@
           }
           .lt-ie9 & { display: none; }
         }
-        &:hover:before {
+        &:#{$action}:before {
           @include ro-animation(button-ripple 1s 1);
           .lt-ie9 & { display: block; }
         }
-      } @else if $hover == 'veil' {
+      } @else if $style == 'veil' {
         @include button-pos-r();
         color: $color-1;
         border: 1px solid currentColor;
@@ -159,7 +160,7 @@
           transition: transform $duration $timing-function, opacity $duration $timing-function;
           .lt-ie9 & { display: none; }
         }
-        &:hover {
+        &:#{$action} {
           color: contrast($color-1);
           &:before {
             @include opacity(1);
@@ -171,7 +172,7 @@
             .lt-ie9 & { display: block; }
           }
         }
-      } @else if $hover == 'push' {
+      } @else if $style == 'push' {
         @include button-pos-r();
         span, &:before {
           @if $padding {
@@ -207,7 +208,7 @@
           .lt-ie9 & { display: none; }
           content: attr(data-text);
         }
-        &:hover {
+        &:#{$action} {
           span {
             @include opacity(0);
             @if $direction == bottom {
@@ -226,7 +227,7 @@
             .lt-ie9 & { display: block; }
           }
         }
-      } @else if $hover == 'cut' {
+      } @else if $style == 'cut' {
         @include button-pos-r;
         transition: color $duration $timing-function;
         &:before {
@@ -241,13 +242,13 @@
           transition: transform $duration $timing-function;
           .lt-ie9 & { display: none; }
         }
-        &:hover {
+        &:#{$action} {
           &:before {
             @include ro-transform(rotate3d(0, 0, 1, 0deg));
             .lt-ie9 & { display: block; }
           }
         }
-      } @else if $hover == 'bubble' {
+      } @else if $style == 'bubble' {
         @include button-pos-r();
         overflow: visible;
         &:before {
@@ -277,8 +278,8 @@
             }
           }
         }
-        &:hover:before { @include ro-animation(button-bubble 0.7s 1); }
-      } @else if $hover == 'line-drawing' {
+        &:#{$action}:before { @include ro-animation(button-bubble 0.7s 1); }
+      } @else if $style == 'line-drawing' {
         @include button-pos-r();
         span {
           position: absolute;
@@ -313,7 +314,7 @@
             height: 0px;
           }
         }
-        &:hover {
+        &:#{$action} {
           span {
             &:nth-child(1),
             &:nth-child(2) { width: 100%; }
@@ -321,7 +322,7 @@
             &:nth-child(4) { height: 100%; }
           }
         }
-      } @else if $hover == 'new' {
+      } @else if $style == 'new' {
       }
     } 
   }

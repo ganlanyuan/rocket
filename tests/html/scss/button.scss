@@ -21,7 +21,7 @@ $padding: '1em 2em';
   .highlight { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px highlight); }
   .simple { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px simple); }
   .slide { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px slide); }
-  .ripple { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px ripple); }
+  .ripple { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px active ripple); }
   .veil { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px veil); }
   .cut { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px cut); }
   .push { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px push); }

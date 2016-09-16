@@ -12,7 +12,7 @@
           <span class="round">round</span> <br>
           <span class="highlight">highlight</span>
           <span class="slide">slide</span>
-          <span class="ripple">ripple</span>
+          <button class="ripple">ripple</button>
           <span class="cut">cut</span>
           <span class="push" data-text="star"><span>push</span></span>
           <span class="bubble">bubble</span>
