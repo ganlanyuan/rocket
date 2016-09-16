@@ -7,8 +7,8 @@ $masonry-number: 3;
 $masonry-child: 4 child '.masonry-item';
 $masonry-percentage-gutter: 4 gutter 3%;
 $masonry-condition: (900px: 3) max;
-$masonry-breakpoints: ('default': 1, 600px: 2, 900px: 3);
-$masonry-global-breakpoints: ('default': 1, 'sm': 2, 'md': 3) $global-bps;
+$masonry-breakpoints: (600px: 2, 900px: 3);
+$masonry-global-breakpoints: ('sm': 2, 'md': 3) $global-bps;
 
 .masonry-number {
   @extend %demo-show;

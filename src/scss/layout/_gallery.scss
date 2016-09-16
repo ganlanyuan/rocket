@@ -30,7 +30,6 @@
   // if not valuable data found
   @if not $data { @error 'Parameters must include number or map.'; }
 
-  // set col width
   @if type-of($data) == 'map' {
     // update $data breakpoints
     @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
