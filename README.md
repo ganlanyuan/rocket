@@ -234,7 +234,7 @@ IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+
 ```` scss
 @mixin masonry($key);
 //pattern
-$key: ($map / $count) (gutter $gutter) (child $child) $condition;
+$key: ($map / $count) (gutter $gutter) (child $child) $breakpoints $condition;
 // $map: ( $breakpoint-1: $count-1, $breakpoint-2: $count-2, ...)
 // $count: num;
 // $condition: 'min' | 'max'
@@ -282,47 +282,25 @@ IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
 [demo](http://creatiointl.org/william/rocket/v3/layout-metro.php)   
 ````html
 <ul class="main">
-  <li>
-    <div class="metro-item"></div>
-  </li>
-  <li>
-    <div class="metro-item"></div>
-  </li>
-  <li>
-    <div class="metro-item"></div>
-  </li>
-  <li>
-    <div class="metro-item"></div>
-  </li>
-  <li>
-    <div class="metro-item"></div>
-  </li>
+  <li><div class="metro-item"></div></li>
+  <li><div class="metro-item"></div></li>
+  <li><div class="metro-item"></div></li>
+  <li><div class="metro-item"></div></li>
+  <li><div class="metro-item"></div></li>
 </ul>
 ````
 ```` scss
-// global metro setting
-$ro-metro: (
-  'gutter': 0,
-  'ratio': 1,
-  'child': '*',
-);
-
-@mixin metro($key)
 //pattern
-$key: $map (ratio $ratio) (gutter $gutter) (child $child) $condition $media-type
+@mixin metro($key)
+$key: $map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep
 
-.main { @include metro( (null: 3 1 h2 1 w3 of 3, 800: 3 1 h2 1 w3 of 4) ); }
-// null 800: media query, null -> default, 800 -> 800px and up;
+.main { @include metro(3 1 h2 1 w3 of 3); }
 // 3: 1st child -> 3 blocks width x 3 blocks height
 // 1: 2nd child -> 1 blocks width x 1 blocks height
 // h2: 3rd child -> 1 blocks width x 2 blocks height
 // 1: 4th child -> 1 blocks width x 1 blocks height
 // w3: 5th child -> 3 blocks width x 1 blocks height
 // "of 3": totaly 3 blocks width;
-
-// condition: media query condition 'min' or 'max';
-// media-type: media type like 'screen', 'print'
-
 ````
 
 #### diamond
@@ -365,12 +343,12 @@ IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+
 ```` scss
 @mixin diamond($key)
 //pattern
-$key: ($per-row / $size) $shape 'combined' $selector-type 'keep';
+$key: ($count / $size) $shape 'combined' $selector-type 'keep';
 // $shape: 'diamond' | 'octagon'
 // $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)
 
 .diamond { @include diamond(5 'combined'); }
-// per-row: 5 (5 diamonds per row)
+// count: 5 (5 diamonds per row)
 
 .diamond { @include diamond(20%); }
 // diamond size: 20% (could be fixed value like 200px too)

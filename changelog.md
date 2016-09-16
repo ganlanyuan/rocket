@@ -4,7 +4,7 @@
 - Added: helper functions `args-get-liquid-data`, `gutter-fallback`, `is-liquid-list`,
 - Improved: add supports to `center`, `justify`, `sticky-footer` on Chrome 15-20, Safri 4-6, Firefox 3.6-21.
 - Improved: add supports to `angled-edges` on Chrome 15-17.
-- Improved: add media query support to `diamond`.
+- Improved: add media query support to `diamond`, `metro`.
 - Fixed: `gallery` will not generate base styles unless needed.
 - Update: remove 'align' option from `center` parameters.
 - Fixed: `liquid-2`, `liquid-3`, `masonry` parameter issues.
