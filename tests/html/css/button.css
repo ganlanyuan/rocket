@@ -126,7 +126,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -209,26 +210,26 @@ h5 {
   .example-button .normal {
     padding: 1em 2em;
     background: #46A736;
-    color: contrast(#46A736); }
+    color: #fff; }
   .example-button .radius {
     padding: 1em 2em;
     border-radius: 0.4em;
     background: #FF851B;
-    color: contrast(#FF851B); }
+    color: #000; }
   .example-button .round {
     padding: 1em 2em;
     border-radius: 1000px;
     background: #B61EFF;
-    color: contrast(#B61EFF); }
+    color: #fff; }
   .example-button .highlight {
     padding: 1em 2em;
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF);
+    color: #fff;
     transition: background 0.3s ease, color 0.3s ease; }
     .example-button .highlight:hover {
       background: #52cfdb;
-      color: contrast(#52cfdb); }
+      color: #000; }
   .example-button .simple {
     padding: 1em 2em;
     border-radius: 5px;
@@ -237,14 +238,14 @@ h5 {
     background: transparent;
     transition: background 0.3s ease, color 0.3s ease; }
     .example-button .simple:hover {
-      color: contrast(#2B8ACF);
+      color: #fff;
       border-color: #2B8ACF;
       background: #2B8ACF; }
   .example-button .slide {
     padding: 1em 2em;
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF);
+    color: #fff;
     position: relative;
     overflow: hidden;
     z-index: 1; }
@@ -259,14 +260,14 @@ h5 {
       background: #52cfdb;
       transition: left 0.3s ease; }
     .example-button .slide:hover {
-      color: contrast(#52cfdb); }
+      color: #000; }
       .example-button .slide:hover:before {
         left: 0px; }
   .example-button .ripple {
     padding: 1em 2em;
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF);
+    color: #fff;
     position: relative;
     overflow: hidden;
     z-index: 1; }
@@ -350,7 +351,7 @@ h5 {
       .lt-ie9 .example-button .veil:before {
         display: none; }
     .example-button .veil:hover {
-      color: contrast(#2B8ACF); }
+      color: #fff; }
       .example-button .veil:hover:before {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -365,7 +366,7 @@ h5 {
     padding: 1em 2em;
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF);
+    color: #fff;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -403,7 +404,7 @@ h5 {
   .example-button .push {
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF);
+    color: #fff;
     position: relative;
     overflow: hidden;
     z-index: 1; }
@@ -459,7 +460,7 @@ h5 {
     padding: 1em 2em;
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF);
+    color: #fff;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -526,7 +527,7 @@ h5 {
     padding: 1em 2em;
     border-radius: 5px;
     background: #2B8ACF;
-    color: contrast(#2B8ACF); }
+    color: #fff; }
     .example-button .shake:hover {
       -webkit-animation: button-shake 0.3s 1;
       -moz-animation: button-shake 0.3s 1;
