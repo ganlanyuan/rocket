@@ -55,7 +55,7 @@
     }
     
   // using list
-  } @else if type-of($data) == 'list' {
+  } @else {
     $columns: $data;
     $order: (1, 2);
 
