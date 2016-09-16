@@ -63,41 +63,6 @@
   //   2-2. gutter with other units
   //        gutter: minus margin of the container element, padding of child elements
 
-  // *** output *** //
-  // basis
-  @if not $keep {
-    // 1. Modern browser:
-    // flex/space-between
-    @include ro-flexbox; 
-    @include ro-flex-wrap(wrap);
-    @include ro-justify-content(space-between);
-    // change direction
-    @if $float == right {
-      @include ro-flex-direction(row-reverse);
-    }
-
-    // default 100% width
-    > #{$child} { width: 100%; }
-
-    // 2. IE9-:
-    .lt-ie10 & {
-      @include clearfix();
-      // gutter: px | em | rem | vw
-      @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
-
-      > #{$child} {
-        float: $float;
-        clear: both; // default: single column
-        margin-#{opposite($float)}: -100%; // each column is isolated with each other
-        // gutter: px | em | rem | vw
-        @if $gutter != 0 and unit($gutter) != '%' {
-          padding-#{opposite($float)}: $gutter;
-          box-sizing: border-box;
-        }
-      }
-    }
-  }
-
   // has breakpoints
   @if grid-has-breakpoints($data) {
     
@@ -105,12 +70,24 @@
     @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
     $bps: map-keys($data);
 
+    @if index($bps, null) != null or index($bps, 'default') != null { 
+      $keep: false; 
+    }
+
     // divide rows within each breakpoints
     @each $bp in $bps {
       @if $bp == 'default' {
+        @include grid-base($child, $float, $gutter);
+        $keep: true;
+
         @include divide-rows(map-get($data, $bp), $gutter, $child, $float);
       } @else {
         @include bp($condition $media-type $bp) {
+          @if not $keep {
+            @include grid-base($child, $float, $gutter);
+            $keep: true;
+          }
+
           // reset order
           // * only needed within media query condition
           > #{$child}:nth-child(n) { @include ro-order(0); }
@@ -121,7 +98,41 @@
 
   // no breakpoints
   } @else {
+    @include grid-base($child, $float, $gutter);
     @include divide-rows($data, $gutter, $child, $float);
+  }
+}
+
+@mixin grid-base($child, $float, $gutter){
+  // 1. Modern browser:
+  // flex/space-between
+  @include ro-flexbox; 
+  @include ro-flex-wrap(wrap);
+  @include ro-justify-content(space-between);
+  // change direction
+  @if $float == right {
+    @include ro-flex-direction(row-reverse);
+  }
+
+  // default 100% width
+  > #{$child} { width: 100%; }
+
+  // 2. IE9-:
+  .lt-ie10 & {
+    @include clearfix();
+    // gutter: px | em | rem | vw
+    @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
+
+    > #{$child} {
+      float: $float;
+      clear: both; // default: single column
+      margin-#{opposite($float)}: -100%; // each column is isolated with each other
+      // gutter: px | em | rem | vw
+      @if $gutter != 0 and unit($gutter) != '%' {
+        padding-#{opposite($float)}: $gutter;
+        box-sizing: border-box;
+      }
+    }
   }
 }
 

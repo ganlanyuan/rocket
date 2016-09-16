@@ -595,37 +595,37 @@ h5 {
 .grid-breakpoint:before {
   content: "( 600px : 5 7 )"; }
 
-.grid-breakpoint > div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between; }
-  .grid-breakpoint > div > div {
-    width: 100%; }
-  .lt-ie10 .grid-breakpoint > div {
-    margin-right: -20px; }
-    .lt-ie10 .grid-breakpoint > div:after {
-      clear: both;
-      content: "";
-      display: table; }
-    .lt-ie10 .grid-breakpoint > div > div {
-      float: left;
-      clear: both;
-      margin-right: -100%;
-      padding-right: 20px;
-      box-sizing: border-box; }
-  @media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5em) {
+  .grid-breakpoint > div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; }
+    .grid-breakpoint > div > div {
+      width: 100%; }
+    .lt-ie10 .grid-breakpoint > div {
+      margin-right: -20px; }
+      .lt-ie10 .grid-breakpoint > div:after {
+        clear: both;
+        content: "";
+        display: table; }
+      .lt-ie10 .grid-breakpoint > div > div {
+        float: left;
+        clear: both;
+        margin-right: -100%;
+        padding-right: 20px;
+        box-sizing: border-box; }
     .grid-breakpoint > div > div:nth-child(n) {
       -webkit-box-ordinal-group: 1;
       -webkit-order: 0;
@@ -650,7 +650,7 @@ h5 {
 .grid-breakpoint-outside:before {
   content: "@media (min-width: 600px) { (  5  7  ) }"; }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) and (min-width: 37.5em) {
   .grid-breakpoint-outside > div {
     display: -webkit-box;
     display: -moz-box;
@@ -680,8 +680,7 @@ h5 {
         clear: both;
         margin-right: -100%;
         padding-right: 20px;
-        box-sizing: border-box; } }
-  @media screen and (min-width: 600px) and (min-width: 37.5em) {
+        box-sizing: border-box; }
     .grid-breakpoint-outside > div > div:nth-child(n) {
       -webkit-box-ordinal-group: 1;
       -webkit-order: 0;
@@ -706,37 +705,37 @@ h5 {
 .grid-global-breakpoints:before {
   content: "( ( sm : 1 1, md : 2 1, lg : 3 5 )( sm :  600px , md :  900px , lg :  1200px  ) )"; }
 
-.grid-global-breakpoints > div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between; }
-  .grid-global-breakpoints > div > div {
-    width: 100%; }
-  .lt-ie10 .grid-global-breakpoints > div {
-    margin-right: -20px; }
-    .lt-ie10 .grid-global-breakpoints > div:after {
-      clear: both;
-      content: "";
-      display: table; }
-    .lt-ie10 .grid-global-breakpoints > div > div {
-      float: left;
-      clear: both;
-      margin-right: -100%;
-      padding-right: 20px;
-      box-sizing: border-box; }
-  @media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5em) {
+  .grid-global-breakpoints > div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; }
+    .grid-global-breakpoints > div > div {
+      width: 100%; }
+    .lt-ie10 .grid-global-breakpoints > div {
+      margin-right: -20px; }
+      .lt-ie10 .grid-global-breakpoints > div:after {
+        clear: both;
+        content: "";
+        display: table; }
+      .lt-ie10 .grid-global-breakpoints > div > div {
+        float: left;
+        clear: both;
+        margin-right: -100%;
+        padding-right: 20px;
+        box-sizing: border-box; }
     .grid-global-breakpoints > div > div:nth-child(n) {
       -webkit-box-ordinal-group: 1;
       -webkit-order: 0;
@@ -757,83 +756,85 @@ h5 {
       .lt-ie10 .grid-global-breakpoints > div > div:nth-child(2) {
         width: 50%;
         margin-left: 50%; } }
-  @media screen and (min-width: 56.25em) {
-    .grid-global-breakpoints > div > div:nth-child(n) {
-      -webkit-box-ordinal-group: 1;
-      -webkit-order: 0;
-      -moz-order: 0;
-      -ms-flex-order: 0;
-      order: 0; }
-    .lt-ie10 .grid-global-breakpoints > div > div:nth-child(n) {
-      clear: none; }
-    .grid-global-breakpoints > div > div:nth-child(1) {
-      width: -webkit-calc((100% + 20px) * 2 / 3 - 20px);
-      width: calc((100% + 20px) * 2 / 3 - 20px); }
-      .lt-ie10 .grid-global-breakpoints > div > div:nth-child(1) {
-        width: 66.66667%;
-        margin-left: 0; }
-    .grid-global-breakpoints > div > div:nth-child(2) {
-      width: -webkit-calc((100% + 20px) * 1 / 3 - 20px);
-      width: calc((100% + 20px) * 1 / 3 - 20px); }
-      .lt-ie10 .grid-global-breakpoints > div > div:nth-child(2) {
-        width: 33.33333%;
-        margin-left: 66.66667%; } }
-  @media screen and (min-width: 75em) {
-    .grid-global-breakpoints > div > div:nth-child(n) {
-      -webkit-box-ordinal-group: 1;
-      -webkit-order: 0;
-      -moz-order: 0;
-      -ms-flex-order: 0;
-      order: 0; }
-    .lt-ie10 .grid-global-breakpoints > div > div:nth-child(n) {
-      clear: none; }
-    .grid-global-breakpoints > div > div:nth-child(1) {
-      width: -webkit-calc((100% + 20px) * 3 / 8 - 20px);
-      width: calc((100% + 20px) * 3 / 8 - 20px); }
-      .lt-ie10 .grid-global-breakpoints > div > div:nth-child(1) {
-        width: 37.5%;
-        margin-left: 0; }
-    .grid-global-breakpoints > div > div:nth-child(2) {
-      width: -webkit-calc((100% + 20px) * 5 / 8 - 20px);
-      width: calc((100% + 20px) * 5 / 8 - 20px); }
-      .lt-ie10 .grid-global-breakpoints > div > div:nth-child(2) {
-        width: 62.5%;
-        margin-left: 37.5%; } }
+
+@media screen and (min-width: 56.25em) {
+  .grid-global-breakpoints > div > div:nth-child(n) {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -moz-order: 0;
+    -ms-flex-order: 0;
+    order: 0; }
+  .lt-ie10 .grid-global-breakpoints > div > div:nth-child(n) {
+    clear: none; }
+  .grid-global-breakpoints > div > div:nth-child(1) {
+    width: -webkit-calc((100% + 20px) * 2 / 3 - 20px);
+    width: calc((100% + 20px) * 2 / 3 - 20px); }
+    .lt-ie10 .grid-global-breakpoints > div > div:nth-child(1) {
+      width: 66.66667%;
+      margin-left: 0; }
+  .grid-global-breakpoints > div > div:nth-child(2) {
+    width: -webkit-calc((100% + 20px) * 1 / 3 - 20px);
+    width: calc((100% + 20px) * 1 / 3 - 20px); }
+    .lt-ie10 .grid-global-breakpoints > div > div:nth-child(2) {
+      width: 33.33333%;
+      margin-left: 66.66667%; } }
+
+@media screen and (min-width: 75em) {
+  .grid-global-breakpoints > div > div:nth-child(n) {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -moz-order: 0;
+    -ms-flex-order: 0;
+    order: 0; }
+  .lt-ie10 .grid-global-breakpoints > div > div:nth-child(n) {
+    clear: none; }
+  .grid-global-breakpoints > div > div:nth-child(1) {
+    width: -webkit-calc((100% + 20px) * 3 / 8 - 20px);
+    width: calc((100% + 20px) * 3 / 8 - 20px); }
+    .lt-ie10 .grid-global-breakpoints > div > div:nth-child(1) {
+      width: 37.5%;
+      margin-left: 0; }
+  .grid-global-breakpoints > div > div:nth-child(2) {
+    width: -webkit-calc((100% + 20px) * 5 / 8 - 20px);
+    width: calc((100% + 20px) * 5 / 8 - 20px); }
+    .lt-ie10 .grid-global-breakpoints > div > div:nth-child(2) {
+      width: 62.5%;
+      margin-left: 37.5%; } }
 
 .grid-breakpoint-max:before {
   content: "( ( 900px : 3 5, 600px : 2 1 ) max  )"; }
 
-.grid-breakpoint-max > div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between; }
-  .grid-breakpoint-max > div > div {
-    width: 100%; }
-  .lt-ie10 .grid-breakpoint-max > div {
-    margin-right: -20px; }
-    .lt-ie10 .grid-breakpoint-max > div:after {
-      clear: both;
-      content: "";
-      display: table; }
-    .lt-ie10 .grid-breakpoint-max > div > div {
-      float: left;
-      clear: both;
-      margin-right: -100%;
-      padding-right: 20px;
-      box-sizing: border-box; }
-  @media screen and (max-width: 56.1875em) {
+@media screen and (max-width: 56.1875em) {
+  .grid-breakpoint-max > div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; }
+    .grid-breakpoint-max > div > div {
+      width: 100%; }
+    .lt-ie10 .grid-breakpoint-max > div {
+      margin-right: -20px; }
+      .lt-ie10 .grid-breakpoint-max > div:after {
+        clear: both;
+        content: "";
+        display: table; }
+      .lt-ie10 .grid-breakpoint-max > div > div {
+        float: left;
+        clear: both;
+        margin-right: -100%;
+        padding-right: 20px;
+        box-sizing: border-box; }
     .grid-breakpoint-max > div > div:nth-child(n) {
       -webkit-box-ordinal-group: 1;
       -webkit-order: 0;
@@ -854,62 +855,63 @@ h5 {
       .lt-ie10 .grid-breakpoint-max > div > div:nth-child(2) {
         width: 62.5%;
         margin-left: 37.5%; } }
-  @media screen and (max-width: 37.4375em) {
-    .grid-breakpoint-max > div > div:nth-child(n) {
-      -webkit-box-ordinal-group: 1;
-      -webkit-order: 0;
-      -moz-order: 0;
-      -ms-flex-order: 0;
-      order: 0; }
-    .lt-ie10 .grid-breakpoint-max > div > div:nth-child(n) {
-      clear: none; }
-    .grid-breakpoint-max > div > div:nth-child(1) {
-      width: -webkit-calc((100% + 20px) * 2 / 3 - 20px);
-      width: calc((100% + 20px) * 2 / 3 - 20px); }
-      .lt-ie10 .grid-breakpoint-max > div > div:nth-child(1) {
-        width: 66.66667%;
-        margin-left: 0; }
-    .grid-breakpoint-max > div > div:nth-child(2) {
-      width: -webkit-calc((100% + 20px) * 1 / 3 - 20px);
-      width: calc((100% + 20px) * 1 / 3 - 20px); }
-      .lt-ie10 .grid-breakpoint-max > div > div:nth-child(2) {
-        width: 33.33333%;
-        margin-left: 66.66667%; } }
+
+@media screen and (max-width: 37.4375em) {
+  .grid-breakpoint-max > div > div:nth-child(n) {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -moz-order: 0;
+    -ms-flex-order: 0;
+    order: 0; }
+  .lt-ie10 .grid-breakpoint-max > div > div:nth-child(n) {
+    clear: none; }
+  .grid-breakpoint-max > div > div:nth-child(1) {
+    width: -webkit-calc((100% + 20px) * 2 / 3 - 20px);
+    width: calc((100% + 20px) * 2 / 3 - 20px); }
+    .lt-ie10 .grid-breakpoint-max > div > div:nth-child(1) {
+      width: 66.66667%;
+      margin-left: 0; }
+  .grid-breakpoint-max > div > div:nth-child(2) {
+    width: -webkit-calc((100% + 20px) * 1 / 3 - 20px);
+    width: calc((100% + 20px) * 1 / 3 - 20px); }
+    .lt-ie10 .grid-breakpoint-max > div > div:nth-child(2) {
+      width: 33.33333%;
+      margin-left: 66.66667%; } }
 
 .grid-breakpoint-nested-list:before {
   content: "( 600px : (  3  4  )(  2  5  ) 3  )"; }
 
-.grid-breakpoint-nested-list > div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between; }
-  .grid-breakpoint-nested-list > div > div {
-    width: 100%; }
-  .lt-ie10 .grid-breakpoint-nested-list > div {
-    margin-right: -20px; }
-    .lt-ie10 .grid-breakpoint-nested-list > div:after {
-      clear: both;
-      content: "";
-      display: table; }
-    .lt-ie10 .grid-breakpoint-nested-list > div > div {
-      float: left;
-      clear: both;
-      margin-right: -100%;
-      padding-right: 20px;
-      box-sizing: border-box; }
-  @media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5em) {
+  .grid-breakpoint-nested-list > div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; }
+    .grid-breakpoint-nested-list > div > div {
+      width: 100%; }
+    .lt-ie10 .grid-breakpoint-nested-list > div {
+      margin-right: -20px; }
+      .lt-ie10 .grid-breakpoint-nested-list > div:after {
+        clear: both;
+        content: "";
+        display: table; }
+      .lt-ie10 .grid-breakpoint-nested-list > div > div {
+        float: left;
+        clear: both;
+        margin-right: -100%;
+        padding-right: 20px;
+        box-sizing: border-box; }
     .grid-breakpoint-nested-list > div > div:nth-child(n) {
       -webkit-box-ordinal-group: 1;
       -webkit-order: 0;
@@ -958,37 +960,37 @@ h5 {
 .grid-breakpoint-map:before {
   content: "( 600px : ( 3 4 : 2 1 )(  2  5  ) 3  )"; }
 
-.grid-breakpoint-map > div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between; }
-  .grid-breakpoint-map > div > div {
-    width: 100%; }
-  .lt-ie10 .grid-breakpoint-map > div {
-    margin-right: -20px; }
-    .lt-ie10 .grid-breakpoint-map > div:after {
-      clear: both;
-      content: "";
-      display: table; }
-    .lt-ie10 .grid-breakpoint-map > div > div {
-      float: left;
-      clear: both;
-      margin-right: -100%;
-      padding-right: 20px;
-      box-sizing: border-box; }
-  @media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5em) {
+  .grid-breakpoint-map > div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; }
+    .grid-breakpoint-map > div > div {
+      width: 100%; }
+    .lt-ie10 .grid-breakpoint-map > div {
+      margin-right: -20px; }
+      .lt-ie10 .grid-breakpoint-map > div:after {
+        clear: both;
+        content: "";
+        display: table; }
+      .lt-ie10 .grid-breakpoint-map > div > div {
+        float: left;
+        clear: both;
+        margin-right: -100%;
+        padding-right: 20px;
+        box-sizing: border-box; }
     .grid-breakpoint-map > div > div:nth-child(n) {
       -webkit-box-ordinal-group: 1;
       -webkit-order: 0;
