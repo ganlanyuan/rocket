@@ -4,7 +4,9 @@
   @if not $key { @return $result; }
   
   @if type-of($key) == $type {
-    $result: not-exist-check($check, $key, $def);
+    @if index($check, $key) == null {
+      $result: $key;
+    }
   } @else if type-of($key) == 'list' {
     @each $item in $key {
       @if $result == $def and type-of($item) == $type {
