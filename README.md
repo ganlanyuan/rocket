@@ -1,8 +1,8 @@
 # Rocket v3
 
+![Version](https://img.shields.io/badge/Version-3.4.8-blue.svg)  
 ![SASS](https://img.shields.io/badge/sass-3.3.4-ff69b4.svg)
 ![Libsass](https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg)
-![Version](https://img.shields.io/badge/Version-3.4.7-blue.svg)  
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
 Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
 [demos](http://creatiointl.org/william/rocket/v3/layout-grid.php)   

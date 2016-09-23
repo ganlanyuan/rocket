@@ -1,9 +1,8 @@
 # Changelog
 
-<!-- ##### 3.4.8
-- Fixed: `grid`, `masonry` will not generate base styles unless needed.
+##### 3.4.8
 - Fixed: `args-get-type`.
- -->
+
 ##### 3.4.7
 - Added: helper functions `args-get-liquid-data`, `gutter-fallback`, `is-liquid-list`,
 - Improved: add supports to `center`, `justify`, `sticky-footer` on Chrome 15-20, Safri 4-6, Firefox 3.6-21.
