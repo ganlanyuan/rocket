@@ -2,6 +2,7 @@
 
 <!-- ##### 3.4.8
 - Fixed: `grid`, `masonry` will not generate base styles unless needed.
+- Fixed: `args-get-type`.
  -->
 ##### 3.4.7
 - Added: helper functions `args-get-liquid-data`, `gutter-fallback`, `is-liquid-list`,

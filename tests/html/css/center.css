@@ -197,9 +197,8 @@ h5 {
 
 .example-center {
   height: 400px;
-  display: -moz-box;
-  width: 100%;
   display: -webkit-box;
+  display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -208,7 +207,8 @@ h5 {
   -webkit-box-align: center;
   -moz-box-pack: center;
   -moz-box-align: center;
-  -ms-flex-align: center; }
+  -ms-flex-align: center;
+  width: 100%; }
   .example-center > * {
     margin: auto; }
   .lt-ie10 .example-center {

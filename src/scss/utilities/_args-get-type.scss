@@ -7,23 +7,13 @@
     $result: not-exist-check($check, $key, $def);
   } @else if type-of($key) == 'list' {
     @each $item in $key {
-      @if type-of($item) == $type {
-        $result: not-exist-check($check, $item, $def);
+      @if $result == $def and type-of($item) == $type {
+        @if index($check, $item) == null {
+          $result: $item;
+        }
       }
     }
   }
 
   @return $result;
-}
-
-@function not-exist-check($collection, $key, $def) {
-  @if $collection {
-    @if index($collection, $key) == null {
-      @return $key;
-    } @else {
-      @return $def;
-    }
-  } @else {
-    @return $key;
-  }
 }
