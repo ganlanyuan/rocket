@@ -219,6 +219,7 @@
 
       // gutter: %
       @if unit($gutter) == '%' or $gutter == 0 {
+        @if unit($gutter) != '%' { $gutter: 0; }
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
 
       // gutter: px | em | rem | vw
