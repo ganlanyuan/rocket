@@ -14,6 +14,14 @@
             <li><div class="metro-item" data-content></div></li>
           </ul>
         </div>
+        <div class="metro-list-0px demo-container">
+          <ul data-margin>
+            <li><div class="metro-item" data-content></div></li>
+            <li><div class="metro-item" data-content></div></li>
+            <li><div class="metro-item" data-content></div></li>
+            <li><div class="metro-item" data-content></div></li>
+          </ul>
+        </div>
         <div class="metro-child demo-container">
           <ul data-margin>
             <li class="child"><div class="metro-item" data-content></div></li>

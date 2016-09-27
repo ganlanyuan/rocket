@@ -195,7 +195,7 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.metro-list, .metro-child, .metro-ratio, .metro-breakpoint, .metro-breakpoint-condition, .metro-global-breakpoints {
+.metro-list, .metro-list-0px, .metro-child, .metro-ratio, .metro-breakpoint, .metro-breakpoint-condition, .metro-global-breakpoints {
   height: auto;
   margin-bottom: 50px; }
 
@@ -235,6 +235,43 @@ h5 {
   .metro-list > ul > *:nth-child(4) {
     width: 80%;
     padding-bottom: 20%; }
+
+.metro-list-0px:before {
+  content: "( (  w1  w3  h2  w4  of  5  ) gutter  0px  )"; }
+
+.metro-list-0px > ul:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.metro-list-0px > ul > * {
+  position: relative;
+  float: left;
+  height: 0; }
+
+.metro-list-0px > ul .metro-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; }
+
+.metro-list-0px > ul > *:nth-child(1) {
+  width: 20%;
+  padding-bottom: 20%; }
+
+.metro-list-0px > ul > *:nth-child(2) {
+  width: 60%;
+  padding-bottom: 20%; }
+
+.metro-list-0px > ul > *:nth-child(3) {
+  width: 20%;
+  padding-bottom: 40%; }
+
+.metro-list-0px > ul > *:nth-child(4) {
+  width: 80%;
+  padding-bottom: 20%; }
 
 .metro-child:before {
   content: "( (  w2h3  w3h1  w3h2  of  5  ) child  .child  gutter  5%  )"; }
@@ -416,7 +453,10 @@ h5 {
       width: 50%;
       padding-bottom: 16.66667%; } }
 
-.metro-list ul li:nth-child(3) {
+.metro-list li:nth-child(3) {
+  float: right; }
+
+.metro-list-0px li:nth-child(3) {
   float: right; }
 
 /*# sourceMappingURL=sourcemaps/metro.css.map */

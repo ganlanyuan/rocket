@@ -1,5 +1,5 @@
 @function gutter-fallback ($gutter, $unit) {
-  $width: false;
+  $width: 0;
   $return: $gutter;
 
   @if $unit != unit($gutter) {

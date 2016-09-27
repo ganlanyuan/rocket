@@ -1,11 +1,14 @@
 // *** breakpoint *** //
 @mixin ro-breakpoint($key){
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type, 'screen');
+  $media-type: args-get($key, $ro-media-type);
+  $media-feature: args-get($key, $ro-media-features, 'width');
+
+  $media-string: if($media-type, '#{$media-type} and ', '');
   $selector: '';
+  $bps-em: ();
 
   // get breakpoints
-  $key-em: ();
   @each $item in $key {
     @if type-of($item) == 'number' {
       @if strip-unit($item) == 0 {
@@ -14,78 +17,28 @@
         $item: em($item);
       }
 
-      $key-em: append($key-em, $item);
+      $bps-em: append($bps-em, $item);
     }
   }
+  $length: length($bps-em);
 
-  $only: false;
-  $min-1: false;
-  $max-1: false;
-  $min-2: false;
-  $max-2: false;
-  $min-3: false;
-  $max-3: false;
-  $length: length($key-em);
   @if $length == 1 {
-    $only: nth($key-em, 1);
-    // breakpoint-fix
-    @if $condition == 'max' and $breakpoint-fix {
-      $only: ($only - em(1));
+    $bp: if($breakpoint-fix and $condition == 'max', (nth($bps-em, 1) - em(1)), nth($bps-em, 1));
+    $selector: $media-string + '(#{$condition}-#{$media-feature}: #{$bp})';
+  } @else if $length >= 2 {
+    @for $i from 1 through $length {
+      @if number-odd-even($i) == 'odd' {
+        $selector: $selector + ', ' + $media-string + ' (min-#{$media-feature}: #{nth($bps-em, $i)})';
+      } @else if number-odd-even($i) == 'even' {
+        $bp-max: if($breakpoint-fix, (nth($bps-em, $i) - em(1)), nth($bps-em, $i));
+        $selector: $selector + 'and (max-#{$media-feature}: #{$bp-max})';
+      }
     }
-  } 
-  @if $length >= 2 {
-    $min-1: nth($key-em, 1);
-    $max-1: nth($key-em, 2);
-    // breakpoint-fix
-    @if $breakpoint-fix {
-      $max-1: (nth($key-em, 2) - em(1));
-    }
-  } 
-  @if $length >= 3 {
-    $min-2: nth($key-em, 3);
-  } 
-  @if $length >= 4 {
-    $max-2: nth($key-em, 4);
-    // breakpoint-fix
-    @if $breakpoint-fix {
-      $max-2: (nth($key-em, 4) - em(1));
-    }
-  } 
-  @if $length >= 5 {
-    $min-3: nth($key-em, 5);
-  } 
-  @if $length >= 6 {
-    $max-3: nth($key-em, 6);
-    // breakpoint-fix
-    @if $breakpoint-fix {
-      $max-3: (nth($key-em, 6) - em(1));
-    }
-  }
-  @if $length > 6 {
-    @warn 'You are passing more than 6 breakpoints, they are too many for me ^^';
+    // remove the first ', '
+    @if str-index($selector, ', ') == 1 { $selector: str-slice($selector, 3); }
   }
 
   // *** output *** //
-  @if $length == 1 {
-    $selector: '#{$media-type} and (#{$condition}-width: #{$only})';
-  } 
-  @if $length == 2 {
-    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1})';
-  } 
-  @if $length == 3 {
-    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2})';
-  } 
-  @if $length == 4 {
-    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2}) and (max-width: #{$max-2})';
-  } 
-  @if $length == 5 {
-    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2}) and (max-width: #{$max-2}), #{$media-type} and (min-width: #{$min-3})';
-  } 
-  @if $length == 6 {
-    $selector: '#{$media-type} and (min-width: #{$min-1}) and (max-width: #{$max-1}), #{$media-type} and (min-width: #{$min-2}) and (max-width: #{$max-2}), #{$media-type} and (min-width: #{$min-3}) and (max-width: #{$max-3})';
-  }
-
-  // output
   @media #{unquote($selector)} { @content; }
 }
 

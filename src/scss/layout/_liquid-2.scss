@@ -12,7 +12,7 @@
   $media-type: args-get($key, $ro-media-type);
 
   // strip unit when gutter == 0
-  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0px; }
+  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
 
   // get data
   $data: args-get-liquid-data($key, 2);
@@ -69,6 +69,7 @@
     unit(nth($columns, 2)),
     unit(nth($columns, 1))
   );
+  $gutter-calc: if($gutter == 0, 0px, $gutter);
   $gutter-ie8: gutter-fallback($gutter, $column-unit);
 
   $child-list: ();
@@ -100,9 +101,9 @@
           float: $float;
           // float: left;
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{$gutter});
-          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{$gutter});
-          width: calc(100% - #{nth($new-columns, 2)} - #{$gutter});
+          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{$gutter-calc});
+          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{$gutter-calc});
+          width: calc(100% - #{nth($new-columns, 2)} - #{$gutter-calc});
         } @else {
           float: opposite($float);
           width: nth($new-columns, 2);
@@ -142,9 +143,9 @@
           float: opposite($float);
           // float: right;
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{$gutter});
-          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{$gutter});
-          width: calc(100% - #{nth($new-columns, 1)} - #{$gutter});
+          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{$gutter-calc});
+          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{$gutter-calc});
+          width: calc(100% - #{nth($new-columns, 1)} - #{$gutter-calc});
         }
       }
     }

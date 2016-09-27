@@ -12,6 +12,9 @@
         <div class="masonry-child demo-container">
           <ul><?php include '../part/masonry-content.php'; ?></ul>
         </div>
+        <div class="masonry-0px demo-container">
+          <ul><?php include '../part/masonry-content.php'; ?></ul>
+        </div>
         <div class="masonry-percentage-gutter demo-container">
           <ul><?php include '../part/masonry-content.php'; ?></ul>
         </div>

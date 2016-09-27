@@ -36,6 +36,12 @@
             <aside class="order"><div class="cell" data-content=""></div></aside>
           </div>
         </div>
+        <div class="liquid2-gutter-0px demo-container">
+          <div data-margin="">
+            <div class="order"><div class="cell" data-content=""></div></div>
+            <div class="order"><div class="cell" data-content=""></div></div>
+          </div>
+        </div>
         <div class="liquid2-gutter-sameunit demo-container">
           <div data-margin="">
             <div class="order"><div class="cell" data-content=""></div></div>

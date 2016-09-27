@@ -79,7 +79,7 @@
 
 @mixin metro-base($child, $gutter){
   @include clearfix();
-  @if $gutter { margin: 0 (-$gutter / 2); }
+  @if $gutter and strip-unit($gutter) != 0 { margin: 0 (-$gutter / 2); }
   > #{$child} {
     position: relative;
     float: left;
@@ -92,7 +92,7 @@
     top: 0;
     bottom: 0;
     overflow: hidden;
-    @if $gutter { margin: ($gutter / 2); }
+    @if $gutter and strip-unit($gutter) != 0 { margin: ($gutter / 2); }
   }
 }
 

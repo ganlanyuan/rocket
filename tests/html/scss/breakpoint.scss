@@ -1,45 +1,45 @@
 @import 'demo-base';
 @import "../../../src/scss/addons/breakpoint"; 
 
-.box { 
-  width: 300px;
-  height: 200px;
-  margin: 80px auto;
-  text-align: center;
-  background-color: #FF00FF;
-  &:before {
-    color: #fff;
-    font-size: 40px;
-    display: block;
-    padding: 20px;
-  }
-  @include bp('max' 600) {
-    &:before {
-      content: "< 600";
-    }
-  }
-  @include bp(600 800) {
-    &:before {
-      content: "600 - 800";
-    }
-  }
-  @include bp(800 1000) {
-    &:before {
-      content: "800 - 1000";
-    }
-  }
-  @include bp(1000 1200) {
-    &:before {
-      content: "1000 - 1200";
-    }
-  }
-  @include bp('min' 1200) {
-    &:before {
-      content: "> 1200";
-    }
-  }
-  @include bp(600 800 1000 1200) {
-    background-color: #0080FF;
-  }
+$bp-default: #eee;
+$bp-active: #FF66FF;
+
+$num: 600;
+$num-max: 'max' 600;
+$num-2-max: 600 900 'max';
+$num-print: 600 'print';
+$height: 600 'height';
+$num-9: 300 400 500 600 700 800 900 1000 1100;
+
+.num {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($num)}'; }
+  > div { @include bp($num) { background: $bp-active; } }
+}
+.num-max {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($num-max)}'; }
+  > div { @include bp($num-max) { background: $bp-active; } }
+}
+.num-2-max {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($num-2-max)}'; }
+  > div { @include bp($num-2-max) { background: $bp-active; } }
+}
+.num-print {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($num-print)}'; }
+  > div { @include bp($num-print) { background: $bp-active; } }
+}
+.height {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($height)}'; }
+  > div { @include bp($height) { background: $bp-active; } }
+}
+.num-9 {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($num-9)}'; }
+  > div { @include bp($num-9) { background: $bp-active; } }
 }
 
+[data-bp-default] { background: $bp-default; }

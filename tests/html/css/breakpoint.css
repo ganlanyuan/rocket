@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -194,34 +195,53 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.box {
-  width: 300px;
-  height: 200px;
-  margin: 80px auto;
-  text-align: center;
-  background-color: #FF00FF; }
-  .box:before {
-    color: #fff;
-    font-size: 40px;
-    display: block;
-    padding: 20px; }
-  @media screen and (max-width: 37.4375em) {
-    .box:before {
-      content: "< 600"; } }
-  @media screen and (min-width: 37.5em) and (max-width: 49.9375em) {
-    .box:before {
-      content: "600 - 800"; } }
-  @media screen and (min-width: 50em) and (max-width: 62.4375em) {
-    .box:before {
-      content: "800 - 1000"; } }
-  @media screen and (min-width: 62.5em) and (max-width: 74.9375em) {
-    .box:before {
-      content: "1000 - 1200"; } }
-  @media screen and (min-width: 75em) {
-    .box:before {
-      content: "> 1200"; } }
-  @media screen and (min-width: 37.5em) and (max-width: 49.9375em), screen and (min-width: 62.5em) and (max-width: 74.9375em) {
-    .box {
-      background-color: #0080FF; } }
+.num, .num-max, .num-2-max, .num-print, .height, .num-9 {
+  height: auto;
+  margin-bottom: 50px; }
+
+.num:before {
+  content: "600"; }
+
+@media (min-width: 37.5em) {
+  .num > div {
+    background: #FF66FF; } }
+
+.num-max:before {
+  content: "(  max  600  )"; }
+
+@media (max-width: 37.4375em) {
+  .num-max > div {
+    background: #FF66FF; } }
+
+.num-2-max:before {
+  content: "(  600  900  max  )"; }
+
+@media (min-width: 37.5em) and (max-width: 56.1875em) {
+  .num-2-max > div {
+    background: #FF66FF; } }
+
+.num-print:before {
+  content: "(  600  print  )"; }
+
+@media print and (min-width: 37.5em) {
+  .num-print > div {
+    background: #FF66FF; } }
+
+.height:before {
+  content: "(  600  height  )"; }
+
+@media (min-height: 37.5em) {
+  .height > div {
+    background: #FF66FF; } }
+
+.num-9:before {
+  content: "(  300  400  500  600  700  800  900  1000  1100  )"; }
+
+@media (min-width: 18.75em) and (max-width: 24.9375em), (min-width: 31.25em) and (max-width: 37.4375em), (min-width: 43.75em) and (max-width: 49.9375em), (min-width: 56.25em) and (max-width: 62.4375em), (min-width: 68.75em) {
+  .num-9 > div {
+    background: #FF66FF; } }
+
+[data-bp-default] {
+  background: #eee; }
 
 /*# sourceMappingURL=sourcemaps/breakpoint.css.map */

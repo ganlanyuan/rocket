@@ -195,7 +195,7 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.liquid2-list, .liquid2-order, .liquid2-RTL, .liquid2-child1, .liquid2-child2, .liquid2-gutter-sameunit, .liquid2-gutter-percentage, .liquid2-gutter-differentunit, .liquid2-breakpoint, .liquid2-breakpoint-conditions, .liquid2-global-breakpoints {
+.liquid2-list, .liquid2-order, .liquid2-RTL, .liquid2-child1, .liquid2-child2, .liquid2-gutter-0px, .liquid2-gutter-sameunit, .liquid2-gutter-percentage, .liquid2-gutter-differentunit, .liquid2-breakpoint, .liquid2-breakpoint-conditions, .liquid2-global-breakpoints {
   height: auto;
   margin-bottom: 50px; }
 
@@ -323,6 +323,31 @@ h5 {
   width: 200px; }
   .lt-ie9 .liquid2-child2 > div > aside {
     margin: 0 -220px 0 0; }
+
+.liquid2-gutter-0px:before {
+  content: "( (  auto  200px  ) gutter  0px  )"; }
+
+.liquid2-gutter-0px > div:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.lt-ie9 .liquid2-gutter-0px > div {
+  padding: 0 200px 0 0;
+  box-sizing: border-box; }
+
+.liquid2-gutter-0px > div > div:nth-child(1) {
+  float: left;
+  width: 100%;
+  width: -webkit-calc(100% - 200px - 0px);
+  width: -moz-calc(100% - 200px - 0px);
+  width: calc(100% - 200px - 0px); }
+
+.liquid2-gutter-0px > div > div:nth-child(2) {
+  float: right;
+  width: 200px; }
+  .lt-ie9 .liquid2-gutter-0px > div > div:nth-child(2) {
+    margin: 0 -200px 0 0; }
 
 .liquid2-gutter-sameunit:before {
   content: "( (  auto  200px  ) gutter  40px  )"; }

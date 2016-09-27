@@ -11,6 +11,7 @@ $liquid3-order3: (100px:2, 'auto':3, 250px:2);
 $liquid3-RTL: ('auto' 100px 250px) RTL;
 $liquid3-child1: (('auto' 100px 250px) child '.child');
 $liquid3-child2: ((100px 'auto' 250px) child (nav main aside));
+$liquid3-gutter-0px: (('auto' 100px 250px) gutter 0px);
 $liquid3-gutter-sameunit: (('auto' 100px 250px) gutter 40px);
 $liquid3-gutter-percentage: (('auto' 100px 250px) gutter 3%);
 $liquid3-gutter-differentunit: (('auto' 100px 250px) gutter 3rem);
@@ -67,6 +68,11 @@ $liquid3-global-breakpoints: (
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-child2)}'; }
   > div { @include liquid-3($liquid3-child2); }
+}
+.liquid3-gutter-0px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($liquid3-gutter-0px)}'; }
+  > div { @include liquid-3($liquid3-gutter-0px); }
 }
 .liquid3-gutter-sameunit {
   @extend %demo-show;

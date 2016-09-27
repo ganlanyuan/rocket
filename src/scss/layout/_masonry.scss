@@ -29,8 +29,7 @@
   @if not $data { @error 'Parameters must include number or map.'; }
 
   // transfer % to em
-  @if $gutter and strip-unit($gutter) != 0 and 
-      index(('%', 'vw', 'vmax'), unit($gutter)) != null{
+  @if $gutter and strip-unit($gutter) != 0 and index(('%', 'vw', 'vmax'), unit($gutter)) != null{
     $gutter: to-length((strip-unit($gutter) * 10 / 16), em);
   }
 
@@ -76,11 +75,11 @@
             column-gap: $gutter;
   }
   > #{$child} {
-    @if $gutter {
-      padding-bottom: $gutter;
-    } @else {
+    @if not $gutter {
       // default column-gap: 1em
       padding-bottom: 1em;
+    } @else if $gutter != 0 {
+      padding-bottom: $gutter;
     }
     -webkit-column-break-inside: avoid;
               page-break-inside: avoid;

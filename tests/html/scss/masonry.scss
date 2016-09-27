@@ -5,6 +5,7 @@
 
 $masonry-number: 3;
 $masonry-child: 4 child '.masonry-item';
+$masonry-0px: 4 gutter 0px;
 $masonry-percentage-gutter: 4 gutter 3%;
 $masonry-condition: (900px: 3) max;
 $masonry-breakpoints: (600px: 2, 900px: 3);
@@ -19,6 +20,11 @@ $masonry-global-breakpoints: ('sm': 2, 'md': 3) $global-bps;
   @extend %demo-show;
   &:before { content: '#{var-to-string($masonry-child)}'; }
   > ul { @include masonry($masonry-child); }
+}
+.masonry-0px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($masonry-0px)}'; }
+  > ul { @include masonry($masonry-0px); }
 }
 .masonry-percentage-gutter {
   @extend %demo-show;

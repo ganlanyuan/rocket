@@ -24,9 +24,7 @@
   @if not $container { $container: map-get($ro-layout, container); }
 
   // strip unit when gutter == 0
-  @if $gutter and strip-unit($gutter) == 0 {
-    $gutter: 0;
-  }
+  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
 
   // *** output *** //
   @extend %clearfix;

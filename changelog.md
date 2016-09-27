@@ -1,5 +1,9 @@
 # Changelog
 
+<!-- ##### 3.4.9
+- Improved: `bp` (`ro-breakpoint`) now accept `height` media feature beside `width`. The breakpoint number limitation is also removed, now you can pass as many breakpoints as you want.
+- Fixed: an unit issue in `grid`, `gallery`, `liquid-2`, `liquid-3`, `masonry` and `metro` when the gutter is 0px.
+ -->
 ##### 3.4.8
 - Fixed: `args-get-type`.
 

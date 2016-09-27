@@ -2,46 +2,52 @@
 @import "../../../src/scss/addons/breakpoint"; 
 @import "../../../src/scss/layout/gallery"; 
 
-$gallery-number: 3;
-$gallery-child: 4 child div;
-$gallery-direction: 4 RTL;
-$gallery-center-align: 3 'center-align';
-$gallery-percentage-gutter: 4 gutter 5%;
-$gallery-rem-gutter: 5 gutter 2rem;
-$gallery-map: ('dafault': 2, 600px: 3, 900px: 4);
+$num: 3;
+$num-0px: 3 gutter 0px;
+$child: 4 child div;
+$direction: 4 RTL;
+$center-align: 3 'center-align';
+$percentage-gutter: 4 gutter 5%;
+$rem-gutter: 5 gutter 2rem;
+$map: ('dafault': 2, 600px: 3, 900px: 4);
 
-.gallery-number { 
+.num { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-number)}'; }
-  > ul { @include gallery($gallery-number); }
+  &:before { content: '#{var-to-string($num)}'; }
+  > ul { @include gallery($num); }
 }
-.gallery-child { 
+.num-0px { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-child)}'; }
-  > div { @include gallery($gallery-child); }
+  &:before { content: '#{var-to-string($num-0px)}'; }
+  > ul { @include gallery($num-0px); }
 }
-.gallery-direction { 
+.child { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-direction)}'; }
-  > ul { @include gallery($gallery-direction); }
+  &:before { content: '#{var-to-string($child)}'; }
+  > div { @include gallery($child); }
 }
-.gallery-center-align { 
+.direction { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-center-align)}'; }
-  > ul { @include gallery($gallery-center-align); }
+  &:before { content: '#{var-to-string($direction)}'; }
+  > ul { @include gallery($direction); }
 }
-.gallery-percentage-gutter { 
+.center-align { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-percentage-gutter)}'; }
-  > ul { @include gallery($gallery-percentage-gutter); }
+  &:before { content: '#{var-to-string($center-align)}'; }
+  > ul { @include gallery($center-align); }
 }
-.gallery-rem-gutter { 
+.percentage-gutter { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-rem-gutter)}'; }
-  > ul { @include gallery($gallery-rem-gutter); }
+  &:before { content: '#{var-to-string($percentage-gutter)}'; }
+  > ul { @include gallery($percentage-gutter); }
 }
-.gallery-map { 
+.rem-gutter { 
   @extend %demo-show;
-  &:before { content: '#{var-to-string($gallery-map)}'; }
-  > ul { @include gallery($gallery-map); }
+  &:before { content: '#{var-to-string($rem-gutter)}'; }
+  > ul { @include gallery($rem-gutter); }
+}
+.map { 
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($map)}'; }
+  > ul { @include gallery($map); }
 }

@@ -2,12 +2,57 @@
 @import "../../../src/scss/addons/breakpoint"; 
 @import "../../../src/scss/layout/container"; 
 
-// .wrapper { @include container(); }
-// .wrapper { @include container(900px); }
-// .wrapper { @include container(900px left); }
-// .wrapper { @include container(900px right); }
-// .wrapper { @include container(56.25em); }
-// .wrapper { @include container(80%); }
-// .wrapper { @include container(80% gutter 30px); }
-// .wrapper { @include container(56.25em gutter 20px); }
-.wrapper { @include container(900px gutter 30px); }
+$px-left: 900px left;
+$px-right: 900px right;
+$px-px: 900px gutter 30px;
+$px-0px: 900px gutter 0px;
+$em: 56.25em;
+$em-px: 56.25em gutter 20px;
+$percentage: 80%;
+$percentage-px: 80% gutter 30px;
+
+.default {
+  @extend %demo-show;
+  &:before { content: '()'; }
+  > div { @include container(); }
+}
+.px-left {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($px-left)}'; }
+  > div { @include container($px-left); }
+}
+.px-right {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($px-right)}'; }
+  > div { @include container($px-right); }
+}
+.px-px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($px-px)}'; }
+  > div { @include container($px-px); }
+}
+.px-0px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($px-0px)}'; }
+  > div { @include container($px-0px); }
+}
+.em {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($em)}'; }
+  > div { @include container($em); }
+}
+.em-px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($em-px)}'; }
+  > div { @include container($em-px); }
+}
+.percentage {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($percentage)}'; }
+  > div { @include container($percentage); }
+}
+.percentage-px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($percentage-px)}'; }
+  > div { @include container($percentage-px); }
+}

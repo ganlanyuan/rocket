@@ -1,0 +1,18 @@
+@function number-odd-even($num) {
+  $return: false;
+
+  @if type-of($num) == 'number' {
+    $num-unitless: abs(strip-unit($num));
+
+    @if $num-unitless == round($num-unitless) {
+      $half-num-unitless: ($num-unitless / 2);
+      @if $half-num-unitless == round($half-num-unitless) {
+        $return: 'even';
+      } @else {
+        $return: 'odd';
+      }
+    }
+  }
+  
+  @return $return;
+}

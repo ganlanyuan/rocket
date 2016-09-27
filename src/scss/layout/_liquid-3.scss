@@ -12,7 +12,7 @@
   $media-type: args-get($key, $ro-media-type);
 
   // strip unit when gutter == 0
-  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0px; }
+  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
 
   // get data
   $data: args-get-liquid-data($key, 3);
@@ -77,6 +77,7 @@
   } @else {
     @error 'Please match the units. You passed "#{$columns}".'
   }
+  $gutter-calc: if($gutter == 0, 0px, $gutter);
   $gutter-ie8: gutter-fallback($gutter, $column-unit);
 
   $child-list: ();
@@ -114,9 +115,9 @@
           // float: left;
           // margin-right: -100%;
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter * 2});
-          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter * 2});
-          width: calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
+          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
+          width: calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
 
           .lt-ie9 & {
             padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
@@ -171,9 +172,9 @@
 
           @if $i == 2 {
             width: 100%;
-            width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
-            width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
-            width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter * 2});
+            width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
+            width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
+            width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
             margin: get-TRBL(opposite($float) -100% $float calc(#{nth($new-columns, 1)} + #{$gutter}));
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
             // margin-right: -100%;
@@ -213,9 +214,9 @@
           // float: right;
           // margin-left: -100%;
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
-          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
-          width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter * 2});
+          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter-calc * 2});
+          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter-calc * 2});
+          width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter-calc * 2});
           
           .lt-ie9 & {
             padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));

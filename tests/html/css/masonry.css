@@ -195,7 +195,7 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.masonry-number, .masonry-child, .masonry-percentage-gutter, .masonry-condition, .masonry-breakpoints, .masonry-global-breakpoints {
+.masonry-number, .masonry-child, .masonry-0px, .masonry-percentage-gutter, .masonry-condition, .masonry-breakpoints, .masonry-global-breakpoints {
   height: auto;
   margin-bottom: 50px; }
 
@@ -223,6 +223,22 @@ h5 {
   column-count: 4; }
   .masonry-child > ul > .masonry-item {
     padding-bottom: 1em;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid; }
+
+.masonry-0px:before {
+  content: "(  4  gutter  0px  )"; }
+
+.masonry-0px > ul {
+  overflow: hidden;
+  -webkit-column-gap: 0px;
+  -moz-column-gap: 0px;
+  column-gap: 0px;
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4; }
+  .masonry-0px > ul > li {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid; }

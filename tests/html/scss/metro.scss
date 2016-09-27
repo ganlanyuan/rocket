@@ -3,6 +3,7 @@
 @import "../../../src/scss/layout/metro"; 
 
 $metro-list: (w1 w3 h2 w4 of 5) gutter 10px;
+$metro-list-0px: (w1 w3 h2 w4 of 5) gutter 0px;
 $metro-child: (w2h3 w3h1 w3h2 of 5) child '.child' gutter 5%;
 $metro-ratio: (w1 w3 w3 w1 of 4) ratio (9/16) gutter 10px;
 $metro-breakpoint: (600px: w6h1 w2h2 w4h2 of 6) gutter 10px;
@@ -14,6 +15,11 @@ $metro-global-breakpoints: (('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h2 of 6, 
   @extend %demo-show;
   &:before { content: '#{var-to-string($metro-list)}'; }
   > ul { @include metro($metro-list); }
+}
+.metro-list-0px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-list-0px)}'; }
+  > ul { @include metro($metro-list-0px); }
 }
 .metro-child {
   @extend %demo-show;
@@ -41,4 +47,5 @@ $metro-global-breakpoints: (('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h2 of 6, 
   > ul { @include metro($metro-global-breakpoints); }
 }
 
-.metro-list ul li:nth-child(3) { float: right; }
+.metro-list li:nth-child(3) { float: right; }
+.metro-list-0px li:nth-child(3) { float: right; }

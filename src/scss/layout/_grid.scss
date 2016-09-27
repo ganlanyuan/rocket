@@ -17,7 +17,7 @@
   }
 
   // strip unit when gutter == 0
-  @if $gutter and strip-unit($gutter) == 0 { $gutter: 0px; }
+  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
 
   // get data
   $data: false;
@@ -219,7 +219,6 @@
 
       // gutter: %
       @if unit($gutter) == '%' or $gutter == 0 {
-        @if unit($gutter) != '%' { $gutter: 0; }
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
 
       // gutter: px | em | rem | vw
