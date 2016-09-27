@@ -47,12 +47,11 @@ $ro-off-canvas-z-index: (
 
 // button
 $ro-button-style: 'highlight', 'simple', 'slide', 'ripple', 'veil', 'push', 'cut', 'bubble', 'line-drawing' !default;
-$ro-button-action: 'link', 'visited', 'hover', 'active', 'focus', 'target' !default;
 $ro-button-direction: left, right, top, bottom, 'horizontal', 'vertical' !default;
 $ro-button-round: 1000px !default;
 $ro-lightness: 10% !default; 
 $ro-timing-function: linear, ease, ease-in, ease-out, ease-in-out !default;
-$ro-unit: 'em', 'ex', '%', 'px', 'cm', 'mm', 'pt', 'pc', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax' !default; // without in
+$ro-unit: 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax' !default; 
 
 // tooltip
 $ro-tooltip-direction: 'left', 'right', 'top', 'bottom' !default;

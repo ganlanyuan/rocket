@@ -1,6 +1,6 @@
 // *** button *** //
 @mixin button ($key: '0.5em 0.8em'){
-  $check: append(join(join($ro-button-style, $ro-button-direction), $ro-button-action), 'round');
+  $check: append(join($ro-button-style, $ro-button-direction), 'round');
 
   $padding: false;
   $round: args-get($key, 'round');
@@ -8,7 +8,7 @@
 
   $direction: args-get($key, $ro-button-direction);
   $style: args-get($key, $ro-button-style);
-  $action: args-get($key, $ro-button-action, 'hover');
+  $active-selector: ':hover';
 
   $colors: ();
   $color-1: #f2f2f2;
@@ -33,17 +33,17 @@
     @if type-of($item) == 'number' {
       @if unit($item) == 's' {
         $duration: $item;
-      } @else if unit($item) == 'px' or unit($item) == 'em' or unit($item) == 'rem' or unit($item) == 'vw' {
+      } @else if index($ro-unit, unit($item)) != null {
         $border-radius: $item;
       }
     } @else if type-of($item) == 'string' {
       @if index($ro-timing-function, $item) or str-index($item, 'cubic-bezier') {
         $timing-function: unquote($item);
+      } @else if index(('.', '#', ':', '['), str-slice($item, 1, 1)) {
+        $active-selector: $item;
       } @else if not index($check, $item) {
         @each $u in $ro-unit {
-          @if str-index($item, $u) {
-            $padding: unquote($item);
-          }
+          @if str-index($item, $u) { $padding: unquote($item); }
         }
       }
     }
@@ -84,7 +84,7 @@
           background: $color-2;
           transition: #{$direction} $duration $timing-function;
         }
-        &:#{$action} {
+        &#{$active-selector} {
           @if contrast($color-1) != contrast($color-2) {
             color: contrast($color-2);
           }
@@ -92,7 +92,7 @@
         }
       } @else if $style == 'highlight' {
         transition: background $duration $timing-function, color $duration $timing-function;
-        &:#{$action} {
+        &#{$active-selector} {
           background: $color-2;
           @if contrast($color-1) != contrast($color-2) {
             color: contrast($color-2);
@@ -103,7 +103,7 @@
         border: 1px solid $color-1;
         background: transparent;
         transition: background $duration $timing-function, color $duration $timing-function;
-        &:#{$action} {
+        &#{$active-selector} {
           color: contrast($color-1);
           border-color: $color-1;
           background: $color-1;
@@ -133,7 +133,7 @@
           }
           .lt-ie9 & { display: none; }
         }
-        &:#{$action}:before {
+        &#{$active-selector}:before {
           @include ro-animation(button-ripple 1s 1);
           .lt-ie9 & { display: block; }
         }
@@ -160,7 +160,7 @@
           transition: transform $duration $timing-function, opacity $duration $timing-function;
           .lt-ie9 & { display: none; }
         }
-        &:#{$action} {
+        &#{$active-selector} {
           color: contrast($color-1);
           &:before {
             @include opacity(1);
@@ -208,7 +208,7 @@
           .lt-ie9 & { display: none; }
           content: attr(data-text);
         }
-        &:#{$action} {
+        &#{$active-selector} {
           span {
             @include opacity(0);
             @if $direction == bottom {
@@ -242,7 +242,7 @@
           transition: transform $duration $timing-function;
           .lt-ie9 & { display: none; }
         }
-        &:#{$action} {
+        &#{$active-selector} {
           &:before {
             @include ro-transform(rotate3d(0, 0, 1, 0deg));
             .lt-ie9 & { display: block; }
@@ -278,7 +278,7 @@
             }
           }
         }
-        &:#{$action}:before { @include ro-animation(button-bubble 0.7s 1); }
+        &#{$active-selector}:before { @include ro-animation(button-bubble 0.7s 1); }
       } @else if $style == 'line-drawing' {
         @include button-pos-r();
         span {
@@ -314,7 +314,7 @@
             height: 0px;
           }
         }
-        &:#{$action} {
+        &#{$active-selector} {
           span {
             &:nth-child(1),
             &:nth-child(2) { width: 100%; }

@@ -26,5 +26,15 @@
     
   </div>
 </div>
+<script>
+  var ripple = document.querySelector('.ripple');
+  ripple.onclick = function () {
+    if (ripple.className.indexOf('active') === -1) {
+      ripple.className += ' active';
+    } else {
+      ripple.className = 'ripple';
+    }
+  };
+</script>
 </body>
 </html>
