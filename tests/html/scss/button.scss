@@ -101,8 +101,9 @@ $style-line-drawing: $padding $color1 line-drawing;
   vertical-align: top;
   &:before { 
     font-size: 13px; 
-    opacity: 0.4; 
+    opacity: 0.66; 
     margin-bottom: 7px;
   }
   &.style-bubble { overflow: visible; }
 }
+.btn { min-width: 10em; }

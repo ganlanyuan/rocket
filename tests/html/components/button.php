@@ -54,6 +54,9 @@
           <div class="style-shake demo-container">
             <div class="btn">shake</div>
           </div>
+          <div class=" demo-container">
+            <div class="btn"></div>
+          </div>
         </div>
       </div>
     </div>

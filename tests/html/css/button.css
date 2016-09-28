@@ -645,9 +645,12 @@ h5 {
   vertical-align: top; }
   .demo-container:before {
     font-size: 13px;
-    opacity: 0.4;
+    opacity: 0.66;
     margin-bottom: 7px; }
   .demo-container.style-bubble {
     overflow: visible; }
+
+.btn {
+  min-width: 10em; }
 
 /*# sourceMappingURL=sourcemaps/button.css.map */
