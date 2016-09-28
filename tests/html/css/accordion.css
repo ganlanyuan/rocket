@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -194,31 +195,85 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.example-accordion {
-  max-width: 700px;
-  margin: 50px auto; }
+.string, .string-height, .string-duration, .string-height-duration {
+  height: auto;
+  margin-bottom: 50px; }
 
-.accordion {
-  margin-bottom: -1px; }
-  .accordion > input {
-    position: absolute;
-    left: -9999px; }
-    .accordion > input:checked ~ div {
-      max-height: 200px; }
-  .accordion > div {
-    -webkit-transition: max-height 0.4s;
-    -moz-transition: max-height 0.4s;
-    transition: max-height 0.4s;
-    max-height: 0;
-    overflow: hidden; }
-  .accordion label {
+.string:before {
+  content: '"div"'; }
+
+.string > div > input {
+  position: absolute;
+  left: -9999px; }
+  .string > div > input:checked ~ div {
+    max-height: 1000px; }
+
+.string > div > div {
+  -webkit-transition: max-height 0.3s;
+  -moz-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+  max-height: 0;
+  overflow: hidden; }
+
+.string-height:before {
+  content: '(  "div"  200px  )'; }
+
+.string-height > div > input {
+  position: absolute;
+  left: -9999px; }
+  .string-height > div > input:checked ~ div {
+    max-height: 200px; }
+
+.string-height > div > div {
+  -webkit-transition: max-height 0.3s;
+  -moz-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+  max-height: 0;
+  overflow: hidden; }
+
+.string-duration:before {
+  content: '(  "div"  0.4s  )'; }
+
+.string-duration > div > input {
+  position: absolute;
+  left: -9999px; }
+  .string-duration > div > input:checked ~ div {
+    max-height: 1000px; }
+
+.string-duration > div > div {
+  -webkit-transition: max-height 0.4s;
+  -moz-transition: max-height 0.4s;
+  transition: max-height 0.4s;
+  max-height: 0;
+  overflow: hidden; }
+
+.string-height-duration:before {
+  content: '(  ".nav"  200px  0.4s  )'; }
+
+.string-height-duration > div > input {
+  position: absolute;
+  left: -9999px; }
+  .string-height-duration > div > input:checked ~ .nav {
+    max-height: 200px; }
+
+.string-height-duration > div > .nav {
+  -webkit-transition: max-height 0.4s;
+  -moz-transition: max-height 0.4s;
+  transition: max-height 0.4s;
+  max-height: 0;
+  overflow: hidden; }
+
+label {
+  display: block;
+  border: 1px solid #BABABA; }
+  label strong {
     display: block;
-    border: 1px solid #BABABA; }
-    .accordion label strong {
-      display: block;
-      font-size: 13px;
-      margin: 0;
-      padding: 10px; }
+    font-size: 13px;
+    margin: 0;
+    padding: 10px; }
+
+.container {
+  max-width: 800px; }
 
 .acc-1 label {
   background-color: #F8F0E2;
@@ -238,7 +293,8 @@ h5 {
   background-color: #E7435C; }
   .header .menu-icon {
     display: block;
-    width: 21px; }
+    width: 21px;
+    border-width: 0; }
     .header .menu-icon:before, .header .menu-icon:after {
       content: ''; }
     .header .menu-icon span, .header .menu-icon:before, .header .menu-icon:after {
@@ -255,18 +311,5 @@ h5 {
     padding: 10px 0; }
   .header a {
     color: #fff; }
-
-.nav-wrap > input {
-  position: absolute;
-  left: -9999px; }
-  .nav-wrap > input:checked ~ .nav {
-    max-height: 130px; }
-
-.nav-wrap > .nav {
-  -webkit-transition: max-height 0.3s;
-  -moz-transition: max-height 0.3s;
-  transition: max-height 0.3s;
-  max-height: 0;
-  overflow: hidden; }
 
 /*# sourceMappingURL=sourcemaps/accordion.css.map */

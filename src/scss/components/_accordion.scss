@@ -1,27 +1,36 @@
 // *** accordion *** //
 @mixin accordion($key){
-  $ac-content: args-get-type($key, 'string');
+  $child: args-get-type($key, 'string');
   $max-height: 1000px;
   $duration: 0.3s;
-  @each $item in $key {
-    @if type-of($item) == 'number' {
-      @if unitless($item) {
-        $max-height: $item + 'px';
-      } @else if unit($item) == 's' {
-        $duration: $item;
-      } @else {
-        $max-height: $item;
+
+  @if type-of($key) == 'number' {
+    @if not unitless($item) and unit($item) == 's' {
+      $duration: $item;
+    } @else {
+      @if unitless($item) { $item: $item * 1px; }
+      $max-height: $item;
+    }
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if not unitless($item) and unit($item) == 's' {
+          $duration: $item;
+        } @else {
+          @if unitless($item) { $item: $item * 1px; }
+          $max-height: $item;
+        }
       }
     }
   }
   > input {
     position: absolute;
     left: -9999px;
-    &:checked ~ #{$ac-content} {
+    &:checked ~ #{$child} {
       max-height: $max-height;
     }
   }
-  > #{$ac-content} {
+  > #{$child} {
     @include ro-transition(max-height $duration);
     max-height: 0;
     overflow: hidden;

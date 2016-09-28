@@ -1,4 +1,4 @@
-@function args-get-type($key, $type, $check:false, $def:false) {
+@function args-get-type($key, $type, $check:null, $def:false) {
   $result: $def;
 
   @if not $key { @return $result; }
