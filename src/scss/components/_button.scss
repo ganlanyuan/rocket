@@ -322,6 +322,8 @@
             &:nth-child(4) { height: 100%; }
           }
         }
+      } @else if $style == 'shake' {
+        &#{$active-selector} { @include shake(); }
       } @else if $style == 'new' {
       }
     } 

@@ -46,7 +46,7 @@ $ro-off-canvas-z-index: (
 ) !default;
 
 // button
-$ro-button-style: 'highlight', 'simple', 'slide', 'ripple', 'veil', 'push', 'cut', 'bubble', 'line-drawing' !default;
+$ro-button-style: 'highlight', 'simple', 'slide', 'ripple', 'veil', 'push', 'cut', 'bubble', 'line-drawing', 'shake' !default;
 $ro-button-direction: left, right, top, bottom, 'horizontal', 'vertical' !default;
 $ro-button-round: 1000px !default;
 $ro-lightness: 10% !default; 

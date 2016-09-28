@@ -205,7 +205,7 @@ h5 {
   margin-bottom: 50px; }
 
 .diamond-count:before {
-  content: "(  3  diamond  )"; }
+  content: '(  3  "diamond"  )'; }
 
 .diamond-count > div {
   position: relative;
@@ -260,7 +260,7 @@ h5 {
         text-align: left; }
 
 .diamond-count-combined:before {
-  content: "(  3  diamond  combined  )"; }
+  content: '(  3  "diamond"  "combined"  )'; }
 
 .diamond-count-combined > div {
   position: relative;
@@ -381,9 +381,9 @@ h5 {
         text-align: left; }
 
 .diamond-breakpoints:before {
-  content: "( ( 600px :  3 , 800px :  4  ) diamond  )"; }
+  content: '( ( 600px :  3 , 800px :  4  ) "diamond"  )'; }
 
-@media screen and (min-width: 37.5em) {
+@media (min-width: 37.5em) {
   .diamond-breakpoints > div {
     position: relative;
     float: left;
@@ -436,14 +436,14 @@ h5 {
           white-space: normal;
           text-align: left; } }
 
-@media screen and (min-width: 50em) {
+@media (min-width: 50em) {
   .diamond-breakpoints > div {
     width: 25%;
     height: 0;
     padding-bottom: 25%; } }
 
 .octagon-count:before {
-  content: "(  4  octagon  )"; }
+  content: '(  4  "octagon"  )'; }
 
 .octagon-count > div {
   position: relative;
@@ -499,7 +499,7 @@ h5 {
         text-align: left; }
 
 .octagon-size:before {
-  content: "(  300px  octagon  )"; }
+  content: '(  300px  "octagon"  )'; }
 
 .octagon-size > div {
   position: relative;

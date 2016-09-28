@@ -10,6 +10,8 @@
       $return: $return + var-list-to-string($item);
     } @else if type-of($item) == 'map' {
       $return: $return + var-map-to-string($item);
+    } @else if type-of($item) == 'string' {
+      $return: $return + ' "' + to-string($item) + '" ';
     } @else {
       $return: $return + ' ' + to-string($item) + ' ';
     }
@@ -55,6 +57,8 @@
     $return: var-list-to-string($value);
   } @else if type-of($value) == 'map' {
     $return: var-map-to-string($value);
+  } @else if type-of($value) == 'string' {
+    $return: '"' + to-string($value) + '"';
   } @else {
     $return: to-string($value);
   }

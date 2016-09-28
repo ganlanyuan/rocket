@@ -3,33 +3,106 @@
 @import "../../../src/scss/addons/opacity";
 @import "../../../src/scss/components/button"; 
 
-$color: #2B8ACF;
+$color1: #2B8ACF;
+$color2: #52cfdb;
 $padding: '1em 2em';
 
-.example-button {
-  margin: 50px 0;
-  font-size: 14px;
-  text-align: center;
-  > * { 
-    margin: 0 7px 14px; 
-    vertical-align: top;
-    cursor: pointer;
-  }
-  .normal { @include button($padding #46A736); }
-  .radius { @include button($padding #FF851B 0.4em); }
-  .round { @include button($padding #B61EFF round); }
-  .highlight { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px highlight); }
-  .simple { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px simple); }
-  .slide { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px slide); }
-  .ripple { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px '.active' ripple); }
-  .veil { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px veil); }
-  .cut { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px cut); }
-  .push { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px push); }
-  .bubble { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px bubble); }
-  .shake { 
-    @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) 5px 0.4s); 
-    &:hover { @include shake(); }
-  }
-  .line-drawing { @include button($padding $color lighten(adjust-hue($color, -20deg), 10%) line-drawing); }
+$default: $padding;
+$color: $padding #46A736;
+$radius: $padding #FF851B 0.4em;
+$round: $padding #FF851B round;
+$style-highlight: $padding $color1 $color2 highlight;
+$style-simple: $padding $color1 simple;
+$style-slide: $padding $color1 $color2 slide;
+$style-ripple: $padding $color1 $color2 '.active' ripple;
+$style-veil: $padding $color1 veil;
+$style-cut: $padding $color1 $color2 cut;
+$style-push: $padding $color1 push;
+$style-bubble: $padding $color1 bubble;
+$style-line-drawing: $padding $color1 line-drawing;
+$style-shake: $padding $color1 shake;
+
+.default {
+  @extend %demo-show;
+  &:before { content: '"#{var-to-string($default)}"'; }
+  > .btn { @include button($default); }
+}
+.color {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($color)}'; }
+  > .btn { @include button($color); }
+}
+.radius {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($radius)}'; }
+  > .btn { @include button($radius); }
+}
+.round {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($round)}'; }
+  > .btn { @include button($round); }
+}
+.style-highlight {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-highlight)}'; }
+  > .btn { @include button($style-highlight); }
+}
+.style-simple {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-simple)}'; }
+  > .btn { @include button($style-simple); }
+}
+.style-slide {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-slide)}'; }
+  > .btn { @include button($style-slide); }
+}
+.style-ripple {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-ripple)}'; }
+  > .btn { @include button($style-ripple); }
+}
+.style-veil {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-veil)}'; }
+  > .btn { @include button($style-veil); }
+}
+.style-cut {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-cut)}'; }
+  > .btn { @include button($style-cut); }
+}
+.style-push {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-push)}'; }
+  > .btn { @include button($style-push); }
+}
+.style-bubble {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-bubble)}'; }
+  > .btn { @include button($style-bubble); }
+}
+.style-line-drawing {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-line-drawing)}'; }
+  > .btn { @include button($style-line-drawing); }
+}
+.style-shake {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($style-shake)}'; }
+  > .btn { @include button($style-shake); }
 }
 
+.example-button { text-align: center; }
+.demo-container { 
+  display: inline-block;
+  width: 300px;
+  margin: 0 50px 50px 0;
+  vertical-align: top;
+  &:before { 
+    font-size: 13px; 
+    opacity: 0.4; 
+    margin-bottom: 7px;
+  }
+  &.style-bubble { overflow: visible; }
+}

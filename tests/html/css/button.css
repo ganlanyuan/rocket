@@ -1,4 +1,4 @@
-.example-button .normal, .example-button .radius, .example-button .round, .example-button .highlight, .example-button .simple, .example-button .slide, .example-button .ripple, .example-button .veil, .example-button .cut, .example-button .push, .example-button .bubble, .example-button .shake, .example-button .line-drawing {
+.default > .btn, .color > .btn, .radius > .btn, .round > .btn, .style-highlight > .btn, .style-simple > .btn, .style-slide > .btn, .style-ripple > .btn, .style-veil > .btn, .style-cut > .btn, .style-push > .btn, .style-bubble > .btn, .style-line-drawing > .btn, .style-shake > .btn {
   display: inline-block;
   box-sizing: border-box; }
 
@@ -199,99 +199,126 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.example-button {
-  margin: 50px 0;
-  font-size: 14px;
-  text-align: center; }
-  .example-button > * {
-    margin: 0 7px 14px;
-    vertical-align: top;
-    cursor: pointer; }
-  .example-button .normal {
-    padding: 1em 2em;
-    background: #46A736;
-    color: #fff; }
-  .example-button .radius {
-    padding: 1em 2em;
-    border-radius: 0.4em;
-    background: #FF851B;
+.default, .color, .radius, .round, .style-highlight, .style-simple, .style-slide, .style-ripple, .style-veil, .style-cut, .style-push, .style-bubble, .style-line-drawing, .style-shake {
+  height: auto;
+  margin-bottom: 50px; }
+
+.default:before {
+  content: '"1em 2em"'; }
+
+.default > .btn {
+  padding: 1em 2em;
+  background: #f2f2f2;
+  color: #000; }
+
+.color:before {
+  content: '(  "1em 2em"  #46A736  )'; }
+
+.color > .btn {
+  padding: 1em 2em;
+  background: #46A736;
+  color: #fff; }
+
+.radius:before {
+  content: '(  "1em 2em"  #FF851B  0.4em  )'; }
+
+.radius > .btn {
+  padding: 1em 2em;
+  border-radius: 0.4em;
+  background: #FF851B;
+  color: #000; }
+
+.round:before {
+  content: '(  "1em 2em"  #FF851B  "round"  )'; }
+
+.round > .btn {
+  padding: 1em 2em;
+  border-radius: 1000px;
+  background: #FF851B;
+  color: #000; }
+
+.style-highlight:before {
+  content: '(  "1em 2em"  #2B8ACF  #52cfdb  "highlight"  )'; }
+
+.style-highlight > .btn {
+  padding: 1em 2em;
+  background: #2B8ACF;
+  color: #fff;
+  transition: background 0.3s ease, color 0.3s ease; }
+  .style-highlight > .btn:hover {
+    background: #52cfdb;
     color: #000; }
-  .example-button .round {
-    padding: 1em 2em;
-    border-radius: 1000px;
-    background: #B61EFF;
-    color: #fff; }
-  .example-button .highlight {
-    padding: 1em 2em;
-    border-radius: 5px;
-    background: #2B8ACF;
+
+.style-simple:before {
+  content: '(  "1em 2em"  #2B8ACF  "simple"  )'; }
+
+.style-simple > .btn {
+  padding: 1em 2em;
+  color: #2B8ACF;
+  border: 1px solid #2B8ACF;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease; }
+  .style-simple > .btn:hover {
     color: #fff;
-    transition: background 0.3s ease, color 0.3s ease; }
-    .example-button .highlight:hover {
-      background: #52cfdb;
-      color: #000; }
-  .example-button .simple {
-    padding: 1em 2em;
-    border-radius: 5px;
-    color: #2B8ACF;
-    border: 1px solid #2B8ACF;
-    background: transparent;
-    transition: background 0.3s ease, color 0.3s ease; }
-    .example-button .simple:hover {
-      color: #fff;
-      border-color: #2B8ACF;
-      background: #2B8ACF; }
-  .example-button .slide {
-    padding: 1em 2em;
-    border-radius: 5px;
-    background: #2B8ACF;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    z-index: 1; }
-    .example-button .slide:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      top: 0px;
-      left: -100%;
-      background: #52cfdb;
-      transition: left 0.3s ease; }
-    .example-button .slide:hover {
-      color: #000; }
-      .example-button .slide:hover:before {
-        left: 0px; }
-  .example-button .ripple {
-    padding: 1em 2em;
-    border-radius: 5px;
-    background: #2B8ACF;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    z-index: 1; }
-    .example-button .ripple:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      -webkit-transform: scale(0);
-      -moz-transform: scale(0);
-      -ms-transform: scale(0);
-      -o-transform: scale(0);
-      transform: scale(0);
-      opacity: 1;
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      z-index: -1;
-      width: 10em;
-      height: 10em;
-      margin-left: -5em;
-      margin-top: -5em;
-      border-radius: 50%;
-      background: #52cfdb; }
+    border-color: #2B8ACF;
+    background: #2B8ACF; }
+
+.style-slide:before {
+  content: '(  "1em 2em"  #2B8ACF  #52cfdb  "slide"  )'; }
+
+.style-slide > .btn {
+  padding: 1em 2em;
+  background: #2B8ACF;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; }
+  .style-slide > .btn:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: -100%;
+    background: #52cfdb;
+    transition: left 0.3s ease; }
+  .style-slide > .btn:hover {
+    color: #000; }
+    .style-slide > .btn:hover:before {
+      left: 0px; }
+
+.style-ripple:before {
+  content: '(  "1em 2em"  #2B8ACF  #52cfdb  ".active"  "ripple"  )'; }
+
+.style-ripple > .btn {
+  padding: 1em 2em;
+  background: #2B8ACF;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; }
+  .style-ripple > .btn:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    width: 10em;
+    height: 10em;
+    margin-left: -5em;
+    margin-top: -5em;
+    border-radius: 50%;
+    background: #52cfdb; }
 
 @-webkit-keyframes button-ripple {
   to {
@@ -311,172 +338,183 @@ h5 {
     -o-transform: scale(1);
     transform: scale(1);
     opacity: 0; } }
-      .lt-ie9 .example-button .ripple:before {
-        display: none; }
-    .example-button .ripple.active:before {
-      -webkit-animation: button-ripple 1s 1;
-      -moz-animation: button-ripple 1s 1;
-      animation: button-ripple 1s 1; }
-      .lt-ie9 .example-button .ripple.active:before {
-        display: block; }
-  .example-button .veil {
-    padding: 1em 2em;
-    border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    color: #2B8ACF;
-    border: 1px solid currentColor;
-    background: transparent;
-    transition: background 0.3s ease, color 0.3s ease; }
-    .lt-ie9 .example-button .veil {
-      border: 1px solid #2B8ACF; }
-    .example-button .veil:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-      filter: alpha(opacity=0);
-      -webkit-transform: scaleX(0.7);
-      -moz-transform: scaleX(0.7);
-      -ms-transform: scaleX(0.7);
-      -o-transform: scaleX(0.7);
-      transform: scaleX(0.7);
-      left: 0px;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      background: #2B8ACF;
-      transition: transform 0.3s ease, opacity 0.3s ease; }
-      .lt-ie9 .example-button .veil:before {
-        display: none; }
-    .example-button .veil:hover {
-      color: #fff; }
-      .example-button .veil:hover:before {
-        opacity: 1;
-        filter: alpha(opacity=100);
-        -webkit-transform: scaleX(1);
-        -moz-transform: scaleX(1);
-        -ms-transform: scaleX(1);
-        -o-transform: scaleX(1);
-        transform: scaleX(1); }
-        .lt-ie9 .example-button .veil:hover:before {
-          display: block; }
-  .example-button .cut {
-    padding: 1em 2em;
-    border-radius: 5px;
-    background: #2B8ACF;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.3s ease; }
-    .example-button .cut:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
-      -moz-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
-      -ms-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
-      -o-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
-      transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
-      -webkit-transform-origin: 0% 100% 0px;
-      -moz-transform-origin: 0% 100% 0px;
-      -ms-transform-origin: 0% 100% 0px;
-      -o-transform-origin: 0% 100% 0px;
-      transform-origin: 0% 100% 0px;
-      left: 0px;
-      top: 0px;
-      width: 150%;
-      height: 100%;
-      background: #52cfdb;
-      transition: transform 0.3s ease; }
-      .lt-ie9 .example-button .cut:before {
-        display: none; }
-    .example-button .cut:hover:before {
-      -webkit-transform: rotate3d(0, 0, 1, 0deg);
-      -moz-transform: rotate3d(0, 0, 1, 0deg);
-      -ms-transform: rotate3d(0, 0, 1, 0deg);
-      -o-transform: rotate3d(0, 0, 1, 0deg);
-      transform: rotate3d(0, 0, 1, 0deg); }
-      .lt-ie9 .example-button .cut:hover:before {
-        display: block; }
-  .example-button .push {
-    border-radius: 5px;
-    background: #2B8ACF;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    z-index: 1; }
-    .example-button .push span, .example-button .push:before {
-      padding: 1em 2em;
-      transition: transform 0.3s ease, opacity 0.3s ease; }
-    .example-button .push span {
-      opacity: 1;
-      filter: alpha(opacity=100);
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0);
+    .lt-ie9 .style-ripple > .btn:before {
+      display: none; }
+  .style-ripple > .btn.active:before {
+    -webkit-animation: button-ripple 1s 1;
+    -moz-animation: button-ripple 1s 1;
+    animation: button-ripple 1s 1; }
+    .lt-ie9 .style-ripple > .btn.active:before {
       display: block; }
-    .example-button .push:before {
-      opacity: 0;
-      filter: alpha(opacity=0);
-      -webkit-transform: translateY(20%);
-      -moz-transform: translateY(20%);
-      -ms-transform: translateY(20%);
-      -o-transform: translateY(20%);
-      transform: translateY(20%);
-      padding: 1em 2em;
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      content: attr(data-text); }
-      .lt-ie9 .example-button .push:before {
-        display: none; }
-    .example-button .push:hover span {
-      opacity: 0;
-      filter: alpha(opacity=0);
-      -webkit-transform: translateY(-20%);
-      -moz-transform: translateY(-20%);
-      -ms-transform: translateY(-20%);
-      -o-transform: translateY(-20%);
-      transform: translateY(-20%); }
-    .example-button .push:hover:before {
+
+.style-veil:before {
+  content: '(  "1em 2em"  #2B8ACF  "veil"  )'; }
+
+.style-veil > .btn {
+  padding: 1em 2em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #2B8ACF;
+  border: 1px solid currentColor;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease; }
+  .lt-ie9 .style-veil > .btn {
+    border: 1px solid #2B8ACF; }
+  .style-veil > .btn:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: scaleX(0.7);
+    -moz-transform: scaleX(0.7);
+    -ms-transform: scaleX(0.7);
+    -o-transform: scaleX(0.7);
+    transform: scaleX(0.7);
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: #2B8ACF;
+    transition: transform 0.3s ease, opacity 0.3s ease; }
+    .lt-ie9 .style-veil > .btn:before {
+      display: none; }
+  .style-veil > .btn:hover {
+    color: #fff; }
+    .style-veil > .btn:hover:before {
       opacity: 1;
       filter: alpha(opacity=100);
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0); }
-      .lt-ie9 .example-button .push:hover:before {
+      -webkit-transform: scaleX(1);
+      -moz-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      -o-transform: scaleX(1);
+      transform: scaleX(1); }
+      .lt-ie9 .style-veil > .btn:hover:before {
         display: block; }
-  .example-button .bubble {
+
+.style-cut:before {
+  content: '(  "1em 2em"  #2B8ACF  #52cfdb  "cut"  )'; }
+
+.style-cut > .btn {
+  padding: 1em 2em;
+  background: #2B8ACF;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease; }
+  .style-cut > .btn:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
+    -moz-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
+    -ms-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
+    -o-transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
+    transform: rotate3d(0, 0, 1, -45deg) translate3d(0px, -3em, 0px);
+    -webkit-transform-origin: 0% 100% 0px;
+    -moz-transform-origin: 0% 100% 0px;
+    -ms-transform-origin: 0% 100% 0px;
+    -o-transform-origin: 0% 100% 0px;
+    transform-origin: 0% 100% 0px;
+    left: 0px;
+    top: 0px;
+    width: 150%;
+    height: 100%;
+    background: #52cfdb;
+    transition: transform 0.3s ease; }
+    .lt-ie9 .style-cut > .btn:before {
+      display: none; }
+  .style-cut > .btn:hover:before {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    -moz-transform: rotate3d(0, 0, 1, 0deg);
+    -ms-transform: rotate3d(0, 0, 1, 0deg);
+    -o-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg); }
+    .lt-ie9 .style-cut > .btn:hover:before {
+      display: block; }
+
+.style-push:before {
+  content: '(  "1em 2em"  #2B8ACF  "push"  )'; }
+
+.style-push > .btn {
+  background: #2B8ACF;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; }
+  .style-push > .btn span, .style-push > .btn:before {
     padding: 1em 2em;
-    border-radius: 5px;
-    background: #2B8ACF;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    overflow: visible; }
-    .example-button .bubble:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      left: 0px;
-      right: 0px;
-      top: 0px;
-      bottom: 0px;
-      opacity: 0;
-      border: 1px solid #2B8ACF;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      border-radius: 6.5px; }
+    transition: transform 0.3s ease, opacity 0.3s ease; }
+  .style-push > .btn span {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    display: block; }
+  .style-push > .btn:before {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translateY(20%);
+    -moz-transform: translateY(20%);
+    -ms-transform: translateY(20%);
+    -o-transform: translateY(20%);
+    transform: translateY(20%);
+    padding: 1em 2em;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    content: attr(data-text); }
+    .lt-ie9 .style-push > .btn:before {
+      display: none; }
+  .style-push > .btn:hover span {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: translateY(-20%);
+    -moz-transform: translateY(-20%);
+    -ms-transform: translateY(-20%);
+    -o-transform: translateY(-20%);
+    transform: translateY(-20%); }
+  .style-push > .btn:hover:before {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+    .lt-ie9 .style-push > .btn:hover:before {
+      display: block; }
+
+.style-bubble:before {
+  content: '(  "1em 2em"  #2B8ACF  "bubble"  )'; }
+
+.style-bubble > .btn {
+  padding: 1em 2em;
+  background: #2B8ACF;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  overflow: visible; }
+  .style-bubble > .btn:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    opacity: 0;
+    border: 1px solid #2B8ACF;
+    transition: transform 0.3s ease, opacity 0.3s ease; }
 
 @-webkit-keyframes button-bubble {
   60% {
@@ -519,19 +557,59 @@ h5 {
     top: -1em;
     bottom: -1em;
     opacity: 0; } }
-    .example-button .bubble:hover:before {
-      -webkit-animation: button-bubble 0.7s 1;
-      -moz-animation: button-bubble 0.7s 1;
-      animation: button-bubble 0.7s 1; }
-  .example-button .shake {
-    padding: 1em 2em;
-    border-radius: 5px;
+  .style-bubble > .btn:hover:before {
+    -webkit-animation: button-bubble 0.7s 1;
+    -moz-animation: button-bubble 0.7s 1;
+    animation: button-bubble 0.7s 1; }
+
+.style-line-drawing:before {
+  content: '(  "1em 2em"  #2B8ACF  "line-drawing"  )'; }
+
+.style-line-drawing > .btn {
+  padding: 1em 2em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; }
+  .style-line-drawing > .btn span {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
     background: #2B8ACF;
-    color: #fff; }
-    .example-button .shake:hover {
-      -webkit-animation: button-shake 0.3s 1;
-      -moz-animation: button-shake 0.3s 1;
-      animation: button-shake 0.3s 1; }
+    transition: width 0.3s ease, height 0.3s ease; }
+    .style-line-drawing > .btn span:nth-child(1) {
+      left: 0px;
+      top: 0px; }
+    .style-line-drawing > .btn span:nth-child(2) {
+      right: 0px;
+      bottom: 0px; }
+    .style-line-drawing > .btn span:nth-child(3) {
+      top: 0px;
+      right: 0px; }
+    .style-line-drawing > .btn span:nth-child(4) {
+      left: 0px;
+      bottom: 0px; }
+    .style-line-drawing > .btn span:nth-child(1), .style-line-drawing > .btn span:nth-child(2) {
+      width: 0px;
+      height: 1px; }
+    .style-line-drawing > .btn span:nth-child(3), .style-line-drawing > .btn span:nth-child(4) {
+      width: 1px;
+      height: 0px; }
+  .style-line-drawing > .btn:hover span:nth-child(1), .style-line-drawing > .btn:hover span:nth-child(2) {
+    width: 100%; }
+  .style-line-drawing > .btn:hover span:nth-child(3), .style-line-drawing > .btn:hover span:nth-child(4) {
+    height: 100%; }
+
+.style-shake:before {
+  content: '(  "1em 2em"  #2B8ACF  "shake"  )'; }
+
+.style-shake > .btn {
+  padding: 1em 2em;
+  background: #2B8ACF;
+  color: #fff; }
+  .style-shake > .btn:hover {
+    -webkit-animation: button-shake 0.3s 1;
+    -moz-animation: button-shake 0.3s 1;
+    animation: button-shake 0.3s 1; }
 
 @-webkit-keyframes button-shake {
   0%, 100% {
@@ -556,38 +634,20 @@ h5 {
     transform: translateX(-0.6em); }
   33.3%, 66.6% {
     transform: translateX(0.6em); } }
-  .example-button .line-drawing {
-    padding: 1em 2em;
-    position: relative;
-    overflow: hidden;
-    z-index: 1; }
-    .example-button .line-drawing span {
-      position: absolute;
-      display: block;
-      box-sizing: border-box;
-      background: #2B8ACF;
-      transition: width 0.3s ease, height 0.3s ease; }
-      .example-button .line-drawing span:nth-child(1) {
-        left: 0px;
-        top: 0px; }
-      .example-button .line-drawing span:nth-child(2) {
-        right: 0px;
-        bottom: 0px; }
-      .example-button .line-drawing span:nth-child(3) {
-        top: 0px;
-        right: 0px; }
-      .example-button .line-drawing span:nth-child(4) {
-        left: 0px;
-        bottom: 0px; }
-      .example-button .line-drawing span:nth-child(1), .example-button .line-drawing span:nth-child(2) {
-        width: 0px;
-        height: 1px; }
-      .example-button .line-drawing span:nth-child(3), .example-button .line-drawing span:nth-child(4) {
-        width: 1px;
-        height: 0px; }
-    .example-button .line-drawing:hover span:nth-child(1), .example-button .line-drawing:hover span:nth-child(2) {
-      width: 100%; }
-    .example-button .line-drawing:hover span:nth-child(3), .example-button .line-drawing:hover span:nth-child(4) {
-      height: 100%; }
+
+.example-button {
+  text-align: center; }
+
+.demo-container {
+  display: inline-block;
+  width: 300px;
+  margin: 0 50px 50px 0;
+  vertical-align: top; }
+  .demo-container:before {
+    font-size: 13px;
+    opacity: 0.4;
+    margin-bottom: 7px; }
+  .demo-container.style-bubble {
+    overflow: visible; }
 
 /*# sourceMappingURL=sourcemaps/button.css.map */
