@@ -282,9 +282,13 @@
           transition: #{$direction} #{$duration};
           @if $horizontal {
             width: $width;
-            top: 0;
             height: 100%;
             overflow-x: hidden;
+            @if $mode == 'drawer' {
+              @include nav-map(top, $map); // set top value
+            } @else {
+              top: 0;
+            }
           } @else if $vertical {
             height: $width;
             left: 0;
@@ -335,7 +339,6 @@
           background: opacify($overlay-color, 1);
           @include opacity(opacity($overlay-color));
         }
-        // drawer top
         @if $mode == 'drawer' {
           @include nav-map(top, $map); // set top value
         } 

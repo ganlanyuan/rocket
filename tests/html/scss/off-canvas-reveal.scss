@@ -1,0 +1,8 @@
+@import 'off-canvas-base';
+
+$reveal: reveal '.nav' right rgba(#000, 0.1) 200px 0.5s submenu;
+.reveal {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($reveal)}'; }
+  @include off-canvas($reveal);
+}

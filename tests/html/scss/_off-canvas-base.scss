@@ -1,0 +1,61 @@
+@import 'demo-base';
+@import "../../../src/scss/addons/breakpoint";
+@import "../../../src/scss/addons/opacity";
+@import "../../../src/scss/components/off-canvas"; 
+
+.container { max-width: 800px; }
+.has-bg { background-color: #000; }
+.hidden-checkbox {
+  position: absolute;
+  left: -99999px;
+}
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+.code {
+  background: #dbdbdb;
+  padding: 5px 10px;
+  margin-bottom: 60px;
+}
+.menu-icon {
+  display: block;
+  margin: 20px;
+  margin-left: 0;
+  width: 21px;
+  padding: 12px 10px;
+  background-color: #dbdbdb;
+  &:before, &:after {
+    content: '';
+  }
+  span, &:before, &:after {
+    display: block;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 4px;
+  }
+  &:after { margin-bottom: 0; }
+}
+.nav {
+  background-color: #1975B8;
+  a, label {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+  a, [data-back] {
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  a { color: #fff; }
+  li:last-child > a { border-bottom-width: 0; }
+  [data-submenu] { 
+    background-color: #1975B8; 
+  }
+}
+.page {
+  background: #f2f2f2;
+  margin-bottom: 0 !important;
+  header { padding-top: 1px; }
+}
+.main { padding-bottom: 1px; }

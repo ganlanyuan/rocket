@@ -1,0 +1,8 @@
+@import 'off-canvas-base';
+
+$slide-along: slide-along '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+.slide-along {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($slide-along)}'; }
+  @include off-canvas($slide-along);
+}

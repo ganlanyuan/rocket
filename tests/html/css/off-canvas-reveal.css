@@ -195,16 +195,138 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
+.reveal {
+  height: auto;
+  margin-bottom: 50px; }
+
 .container {
   max-width: 800px; }
 
-h3 {
-  margin-bottom: 10px; }
+.has-bg {
+  background-color: #000; }
 
-iframe {
-  width: 100%;
-  min-height: 340px;
-  margin-bottom: 50px;
-  overflow: hidden; }
+.hidden-checkbox {
+  position: absolute;
+  left: -99999px; }
 
-/*# sourceMappingURL=sourcemaps/off-canvas.css.map */
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1.5em; }
+
+.code {
+  background: #dbdbdb;
+  padding: 5px 10px;
+  margin-bottom: 60px; }
+
+.menu-icon {
+  display: block;
+  margin: 20px;
+  margin-left: 0;
+  width: 21px;
+  padding: 12px 10px;
+  background-color: #dbdbdb; }
+  .menu-icon:before, .menu-icon:after {
+    content: ''; }
+  .menu-icon span, .menu-icon:before, .menu-icon:after {
+    display: block;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 4px; }
+  .menu-icon:after {
+    margin-bottom: 0; }
+
+.nav {
+  background-color: #1975B8; }
+  .nav a, .nav label {
+    font-size: 14px;
+    padding: 12px 15px; }
+  .nav a, .nav [data-back] {
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+  .nav a {
+    color: #fff; }
+  .nav li:last-child > a {
+    border-bottom-width: 0; }
+  .nav [data-submenu] {
+    background-color: #1975B8; }
+
+.page {
+  background: #f2f2f2;
+  margin-bottom: 0 !important; }
+  .page header {
+    padding-top: 1px; }
+
+.main {
+  padding-bottom: 1px; }
+
+.reveal {
+  -webkit-transition: right 0.5s;
+  -moz-transition: right 0.5s;
+  transition: right 0.5s;
+  position: relative;
+  right: 0;
+  z-index: 201; }
+  .reveal .code:before {
+    content: '(  "reveal"  ".nav"  "right"  rgba(0, 0, 0, 0.1)  200px  0.5s  "submenu"  )'; }
+  .hidden-checkbox {
+    position: absolute;
+    left: -9999px; }
+  input:checked ~ .reveal {
+    right: 200px; }
+  input:not(:checked) ~ .reveal .nav [data-submenu] {
+    right: -200px; }
+  .nav {
+    position: fixed;
+    display: block;
+    z-index: 200;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    right: 0;
+    width: 200px;
+    bottom: 0;
+    overflow-x: hidden;
+    top: 0; }
+    .nav [data-has-submenu]:after {
+      clear: both;
+      content: "";
+      display: table; }
+    .nav [data-has-submenu] > label {
+      float: right; }
+    .nav [data-submenu] {
+      position: fixed;
+      box-sizing: border-box;
+      right: -200px;
+      transition: right 0.5s;
+      width: 200px;
+      top: 0;
+      height: 100%;
+      overflow-x: hidden; }
+    .nav input:checked ~ [data-submenu] {
+      right: 0; }
+  .reveal .page-overlay {
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    transition: background 0.5s;
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    background: transparent;
+    z-index: 199;
+    -webkit-transition: right 0.5s;
+    -moz-transition: right 0.5s;
+    transition: right 0.5s; }
+    input:checked ~ .reveal .page-overlay {
+      background: rgba(0, 0, 0, 0.1);
+      left: 0;
+      right: 200px; }
+      .lt-ie9 input:checked ~ .reveal .page-overlay {
+        background: black;
+        opacity: 0.1;
+        filter: alpha(opacity=10); }
+
+/*# sourceMappingURL=sourcemaps/off-canvas-reveal.css.map */

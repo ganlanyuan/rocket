@@ -1,0 +1,19 @@
+@import 'off-canvas-base';
+
+$push: push '.nav' top rgba(#000, 0.1) 50px 0.5s submenu;
+.push {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($push)}'; }
+  @include off-canvas($push);
+}
+
+li { 
+  display: inline-block; 
+  vertical-align: top; 
+  white-space: nowrap;
+  // > ul {
+  //   white-space: normal;
+  // }
+}
+[data-has-submenu] > a { margin-right: 30px; }
+.nav a, .nav [data-back] { border-bottom-width: 0; }

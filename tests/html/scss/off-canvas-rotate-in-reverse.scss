@@ -1,0 +1,8 @@
+@import 'off-canvas-base';
+
+$rotate-in-reverse: rotate-in-reverse '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+.rotate-in-reverse {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($rotate-in-reverse)}'; }
+  @include off-canvas($rotate-in-reverse);
+}

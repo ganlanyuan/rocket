@@ -1,0 +1,18 @@
+@import 'off-canvas-base';
+
+$bp: (
+  small: 600px,
+  medium: 900px,
+);
+$map: (
+  500px: 20px, 
+  small: 30px, 
+  medium: 40px, 
+  null: 70px
+);
+$drawer: drawer '.nav' rgba(#000, 0.1) 200px 0.5s submenu $map $bp;
+.drawer {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($drawer)}'; }
+  @include off-canvas($drawer);
+}

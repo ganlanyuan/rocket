@@ -1,0 +1,8 @@
+@import 'off-canvas-base';
+
+$scale-up: scale-up '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+.scale-up {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($scale-up)}'; }
+  @include off-canvas($scale-up);
+}

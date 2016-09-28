@@ -7,20 +7,20 @@ $color1: #2B8ACF;
 $color2: #52cfdb;
 $padding: '1em 2em';
 
-$default: $padding;
-$color: $padding #46A736;
-$radius: $padding #FF851B 0.4em;
-$round: $padding #FF851B round;
-$style-highlight: $padding $color1 $color2 highlight;
-$style-simple: $padding $color1 simple;
-$style-slide: $padding $color1 $color2 slide;
-$style-ripple: $padding $color1 $color2 '.active' ripple;
-$style-veil: $padding $color1 veil;
-$style-cut: $padding $color1 $color2 cut;
-$style-push: $padding $color1 push;
-$style-bubble: $padding $color1 bubble;
+           $default: $padding;
+             $color: $padding #46A736;
+            $radius: $padding #FF851B 0.4em;
+             $round: $padding #FF851B round;
+   $style-highlight: $padding $color1 $color2 highlight;
+      $style-simple: $padding $color1 simple;
+       $style-slide: $padding $color1 $color2 slide;
+      $style-ripple: $padding $color1 $color2 '.active' ripple;
+        $style-veil: $padding $color1 veil;
+         $style-cut: $padding $color1 $color2 cut;
+        $style-push: $padding $color1 push;
+      $style-bubble: $padding $color1 bubble;
 $style-line-drawing: $padding $color1 line-drawing;
-$style-shake: $padding $color1 shake;
+       $style-shake: $padding $color1 shake;
 
 .default {
   @extend %demo-show;

@@ -1,0 +1,8 @@
+@import 'off-canvas-base';
+
+$rotate-out: rotate-out '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+.rotate-out {
+  @extend %demo-show;
+  .code:before { content: '#{var-to-string($rotate-out)}'; }
+  @include off-canvas($rotate-out);
+}
