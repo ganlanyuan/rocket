@@ -1,6 +1,7 @@
 // *** checkbox *** //
 @mixin checkbox(){
-  > input { 
+  > [type="checkbox"],
+  > [type="radio"] { 
     @include opacity(0); 
     float: left;
   }

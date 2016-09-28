@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -194,7 +195,8 @@ h5 {
     display: block;
     margin-bottom: 5px; }
 
-.radio > input {
+.radio > [type="checkbox"],
+.radio > [type="radio"] {
   opacity: 0;
   filter: alpha(opacity=0);
   float: left; }
@@ -210,7 +212,8 @@ h5 {
 .radio > input:checked + label {
   background-image: url("../images/radio-active.png"); }
 
-.checkbox > input {
+.checkbox > [type="checkbox"],
+.checkbox > [type="radio"] {
   opacity: 0;
   filter: alpha(opacity=0);
   float: left; }
