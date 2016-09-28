@@ -297,9 +297,9 @@ input:not(:checked) ~ .slide-in .nav [data-submenu] {
     left: -200px;
     transition: left 0.5s;
     width: 200px;
-    top: 0;
     height: 100%;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    top: 0; }
   .nav input:checked ~ [data-submenu] {
     left: 0; }
 
