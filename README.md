@@ -1,6 +1,6 @@
 # Rocket v3
 
-![Version](https://img.shields.io/badge/Version-3.4.8-blue.svg)  
+![Version](https://img.shields.io/badge/Version-3.4.9-blue.svg)  
 ![SASS](https://img.shields.io/badge/sass-3.3.4-ff69b4.svg)
 ![Libsass](https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg)
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
@@ -915,16 +915,18 @@ IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
 ````scss
 @mixin button($key)
 // pattern
-$key: $padding ($border-radius | round) ($background-color $active-color) $hover $direction $duration $timing-function;
-// hover: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
+$key: $padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function;
+// style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
 // direction: left, right, top, bottom, 'horizontal', 'vertical'
+// active-selector: . | # | [] | :
 
-.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble); }
+.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
 // padding: 1em 2em; (padding must be quoted)
 // background-color: #2B8ACF;
 // active-color: #52CFDB;
 // border-radius: 5px; 
-// hover: bubble;
+// style: bubble;
+// active-selector: '.active'; Final selector will be .button.active;
 ````
 
 #### parallelogram
@@ -1411,10 +1413,12 @@ IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
 ```` scss
 @mixin ro-breakpoint($key)
 // pattern
-$key: $condition $media $breakpoints
+$key: $condition $media-type $media-feature $breakpoints
 
 @include bp('min' 640) {};
 // output: @media (min-width: 40em) {};
+@include bp('min' 'height' 640) {};
+// output: @media (min-height: 40em) {};
 @include bp('max' 640 screen) {};
 // output: @media screen and (max-width: 40em) {};
 @include bp(400 767 1000 1200 1500) {};
