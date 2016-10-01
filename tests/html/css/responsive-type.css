@@ -122,7 +122,8 @@ h5 {
     font-weight: 100;
     color: white;
     display: block;
-    text-align: center; }
+    text-align: center;
+    line-height: 2.5; }
   .autoheight:nth-child(2n) > .cell {
     height: 11em; }
   .autoheight:nth-child(3n+1) > .cell {
@@ -205,25 +206,25 @@ p.example-responsive-type {
   font-size: 13px;
   font-size: 0.8125rem;
   line-height: 1.7; }
-  @media screen and (min-width: 30em) {
+  @media (min-width: 30em) {
     p.example-responsive-type {
       font-size: 20px;
       font-size: 1.25rem; } }
-  @media screen and (min-width: 43.75em) {
+  @media (min-width: 43.75em) {
     p.example-responsive-type {
       font-size: 30px;
       font-size: 1.875rem;
       line-height: 1.5; } }
-  @media screen and (min-width: 56.25em) {
+  @media (min-width: 56.25em) {
     p.example-responsive-type {
       font-size: 40px;
       font-size: 2.5rem; } }
-  @media screen and (min-width: 64em) {
+  @media (min-width: 64em) {
     p.example-responsive-type {
       font-size: 50px;
       font-size: 3.125rem;
       line-height: 1.2; } }
-  @media screen and (min-width: 90em) {
+  @media (min-width: 90em) {
     p.example-responsive-type {
       font-size: 60px;
       font-size: 3.75rem; } }

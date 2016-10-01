@@ -37,7 +37,7 @@
   }
 
   // update map breakpoints
-  @if $global-bps { $map: map-update-breakpoints($map, $global-bps); }
+  @if $global-bps and $map { $map: map-update-breakpoints($map, $global-bps); }
 
   // define modules
   $page-push: false;

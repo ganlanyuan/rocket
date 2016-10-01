@@ -1,26 +1,19 @@
 // *** responsive-type *** //
 @mixin responsive-type($key) {
-  $maps: args-get-maps($key);
-  $map: false;
-
-  $global-bps: false;
+  $global-bps: args-get-global-breakpoints($key);
+  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
+  $bps: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media-type: args-get($key, $ro-media-type);
 
   // get map
-  @if length($maps) >= 1 {
-    $map: nth($maps, 1);
-  }
-  @if length($maps) >= 2 {
-    $global-bps: nth($maps, 2);
-  }
+  $map: args-get-type($key, 'map');
 
   // *** output *** //
-  @if $global-bps {
-    $map: map-update-breakpoints($map, $global-bps);
-  }
-
   @if $map {
+    // update breakpoints
+    @if $global-bps { $map: map-update-breakpoints($map, $global-bps); }
+
     @each $bp, $type in $map {
       @if $bp == 'default' or $bp == null {
         @include type($type);
