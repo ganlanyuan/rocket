@@ -4,8 +4,6 @@
   @include test('complementary [function]') {
     $original: #d92626;
 
-    $test1: complementary($original -1);
-    $expect1: #26d926;
-    @include assert-equal($test1, $expect1, 'Returns the complementary color');
+    @include assert-equal(quote(complementary($original -1)), quote(#26d926), 'Returns the complementary color');
   }
 }

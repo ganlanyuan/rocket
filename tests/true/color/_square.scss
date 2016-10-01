@@ -4,16 +4,8 @@
   @include test('square [function]') {
     $original: #d92626;
 
-    $test1: square($original 1);
-    $expect1: #d9bb26;
-    @include assert-equal($test1, $expect1, 'Returns the square color');
-
-    $test2: square($original 2);
-    $expect2: #26d926;
-    @include assert-equal($test2, $expect2, 'Returns the square color');
-
-    $test3: square($original 3);
-    $expect3: #5026d9;
-    @include assert-equal($test3, $expect3, 'Returns the square color');
+    @include assert-equal(quote(square($original 1)), quote(#d9bb26), 'Returns the square color');
+    @include assert-equal(quote(square($original 2)), quote(#26d926), 'Returns the square color');
+    @include assert-equal(quote(square($original 3)), quote(#5026d9), 'Returns the square color');
   }
 }

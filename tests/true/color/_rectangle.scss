@@ -4,16 +4,8 @@
   @include test('rectangle [function]') {
     $original: #d92626;
 
-    $test1: rectangle($original 1);
-    $expect1: #d97726;
-    @include assert-equal($test1, $expect1, 'Returns the rectangle color');
-
-    $test2: rectangle($original 2);
-    $expect2: #26d926;
-    @include assert-equal($test2, $expect2, 'Returns the rectangle color');
-
-    $test3: rectangle($original 3);
-    $expect3: #26d9d9;
-    @include assert-equal($test3, $expect3, 'Returns the rectangle color');
+    @include assert-equal(quote(rectangle($original 1)), quote(#d97726), 'Returns the rectangle color');
+    @include assert-equal(quote(rectangle($original 2)), quote(#26d926), 'Returns the rectangle color');
+    @include assert-equal(quote(rectangle($original 3)), quote(#26d9d9), 'Returns the rectangle color');
   }
 }

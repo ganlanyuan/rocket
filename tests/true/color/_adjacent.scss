@@ -4,12 +4,7 @@
   @include test('adjacent [function]') {
     $original: #d92626;
 
-    $test1: adjacent($original -1);
-    $expect1: #d9268b;
-    @include assert-equal($test1, $expect1, 'Returns the adjacent color');
-
-    $test2: adjacent($original 1);
-    $expect2: #d97726;
-    @include assert-equal($test2, $expect2, 'Returns the adjacent color');
+    @include assert-equal(quote(adjacent($original -1)), quote(#d9268b), 'Returns the adjacent color');
+    @include assert-equal(quote(adjacent($original 1)), quote(#d97726), 'Returns the adjacent color');
   }
 }

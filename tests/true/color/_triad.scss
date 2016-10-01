@@ -4,12 +4,7 @@
   @include test('triad [function]') {
     $original: #d92626;
 
-    $test1: triad($original 1 saturation 10%);
-    $expect1: #e6e619;
-    @include assert-equal($test1, $expect1, 'Returns the triad color');
-
-    $test2: triad($original 2);
-    $expect2: #265cd9;
-    @include assert-equal($test2, $expect2, 'Returns the triad color');
+    @include assert-equal(quote(triad($original 1 saturation 10%)), quote(#e6e619), 'Returns the triad color');
+    @include assert-equal(quote(triad($original 2)), quote(#265cd9), 'Returns the triad color');
   }
 }

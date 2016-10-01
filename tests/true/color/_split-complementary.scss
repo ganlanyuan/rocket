@@ -4,12 +4,7 @@
   @include test('split-complementary [function]') {
     $original: #d92626;
 
-    $test1: split-complementary($original 1);
-    $expect1: #9dd926;
-    @include assert-equal($test1, $expect1, 'Returns the split-complementary color');
-
-    $test2: split-complementary($original 2);
-    $expect2: #26d9d9;
-    @include assert-equal($test2, $expect2, 'Returns the split-complementary color');
+    @include assert-equal(quote(split-complementary($original 1)), quote(#9dd926), 'Returns the split-complementary color');
+    @include assert-equal(quote(split-complementary($original 2)), quote(#26d9d9), 'Returns the split-complementary color');
   }
 }

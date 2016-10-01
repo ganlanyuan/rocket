@@ -210,81 +210,51 @@
 /* # Module: Colors */
 /* ---------------- */
 /* Test: analogous [function] */
-/*   ✖ FAILED [assert-equal]: Returns the analogous color */
-/*     - Output [color]: #6f8db8 */
-/*     - Expected [color]: #6f8db8 */
-/*   ✖ FAILED [assert-equal]: Returns the analogous color */
-/*     - Output [color]: #8df3d5 */
-/*     - Expected [color]: #8df3d5 */
+/*   ✔ Returns the analogous color */
+/*   ✔ Returns the analogous color */
 /*  */
 /*  */
 /* # Module: Colors */
 /* ---------------- */
 /* Test: adjacent [function] */
-/*   ✖ FAILED [assert-equal]: Returns the adjacent color */
-/*     - Output [color]: #d9268b */
-/*     - Expected [color]: #d9268b */
-/*   ✖ FAILED [assert-equal]: Returns the adjacent color */
-/*     - Output [color]: #d97726 */
-/*     - Expected [color]: #d97726 */
+/*   ✔ Returns the adjacent color */
+/*   ✔ Returns the adjacent color */
 /*  */
 /*  */
 /* # Module: Colors */
 /* ---------------- */
 /* Test: complementary [function] */
-/*   ✖ FAILED [assert-equal]: Returns the complementary color */
-/*     - Output [color]: #26d926 */
-/*     - Expected [color]: #26d926 */
+/*   ✔ Returns the complementary color */
 /*  */
 /*  */
 /* # Module: Colors */
 /* ---------------- */
 /* Test: split-complementary [function] */
-/*   ✖ FAILED [assert-equal]: Returns the split-complementary color */
-/*     - Output [color]: #9dd926 */
-/*     - Expected [color]: #9dd926 */
-/*   ✖ FAILED [assert-equal]: Returns the split-complementary color */
-/*     - Output [color]: #26d9d9 */
-/*     - Expected [color]: #26d9d9 */
+/*   ✔ Returns the split-complementary color */
+/*   ✔ Returns the split-complementary color */
 /*  */
 /*  */
 /* # Module: Colors */
 /* ---------------- */
 /* Test: triad [function] */
-/*   ✖ FAILED [assert-equal]: Returns the triad color */
-/*     - Output [color]: #e6e619 */
-/*     - Expected [color]: #e6e619 */
-/*   ✖ FAILED [assert-equal]: Returns the triad color */
-/*     - Output [color]: #265cd9 */
-/*     - Expected [color]: #265cd9 */
+/*   ✔ Returns the triad color */
+/*   ✔ Returns the triad color */
 /*  */
 /*  */
 /* # Module: Colors */
 /* ---------------- */
 /* Test: rectangle [function] */
-/*   ✖ FAILED [assert-equal]: Returns the rectangle color */
-/*     - Output [color]: #d97726 */
-/*     - Expected [color]: #d97726 */
-/*   ✖ FAILED [assert-equal]: Returns the rectangle color */
-/*     - Output [color]: #26d926 */
-/*     - Expected [color]: #26d926 */
-/*   ✖ FAILED [assert-equal]: Returns the rectangle color */
-/*     - Output [color]: #26d9d9 */
-/*     - Expected [color]: #26d9d9 */
+/*   ✔ Returns the rectangle color */
+/*   ✔ Returns the rectangle color */
+/*   ✔ Returns the rectangle color */
 /*  */
 /*  */
 /* # Module: Colors */
 /* ---------------- */
 /* Test: square [function] */
-/*   ✖ FAILED [assert-equal]: Returns the square color */
-/*     - Output [color]: #d9bb26 */
-/*     - Expected [color]: #d9bb26 */
-/*   ✖ FAILED [assert-equal]: Returns the square color */
-/*     - Output [color]: #26d926 */
-/*     - Expected [color]: #26d926 */
-/*   ✖ FAILED [assert-equal]: Returns the square color */
-/*     - Output [color]: #5026d9 */
-/*     - Expected [color]: #5026d9 */
+/*   ✔ Returns the square color */
+/*   ✔ Returns the square color */
+/*   ✔ Returns the square color */
 /*  */
 /*  */
 /* # Module: Functions */
@@ -302,8 +272,8 @@
 /*  */
 /* # SUMMARY ---------- */
 /* 36 Tests: */
-/*  - 29 Passed */
-/*  - 7 Failed */
+/*  - 36 Passed */
+/*  - 0 Failed */
 /* -------------------- */
 
 /*# sourceMappingURL=sourcemaps/tests.css.map */

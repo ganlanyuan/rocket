@@ -3,29 +3,19 @@
   $color: false;
   $lightness: false;
   
-  @if type-of($key) == 'color' {
-    $color: $key;
-  } @else if type-of($key) == number {
-    $lightness: $key;
-  } @else if type-of($key) == list {
-    @for $i from 1 through length($key) {
-      $val: nth($key, $i);
-
-      @if type-of($val) == color {
-        $color: $val;
-      } @else if type-of($val) == number {
-        $lightness: $val;
-      }
-
+  @each $item in $key {
+    @if type-of($item) == color and not $color {
+      $color: $item;
+    } @else if type-of($item) == number and not $lightness {
+      $lightness: $item;
     }
   }
 
-  @if $color and $lightness {
-    @if lightness($color) >= 50% { 
-      @return darken($color, $lightness); 
+  @if $color {
+    @if $lightness {
+      @return if(lightness($color) >= 50%, darken($color, $lightness), lighten($color, $lightness)); 
     } @else { 
-      @return lighten($color, $lightness); 
+      @return $color; 
     }
   }
-
 }
