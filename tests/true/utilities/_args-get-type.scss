@@ -21,5 +21,10 @@
     $test4: args-get-type($args4, 'string', (map left gutter));
     $expect4: 'div';
     @include assert-equal($test4, $expect4, 'get a string.');
+
+    $args5: div;
+    $test5: args-get-type($args5, 'string');
+    $expect5: 'div';
+    @include assert-equal($test5, $expect5, 'get the only parameter string.');
   };
 };

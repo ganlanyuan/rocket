@@ -24,8 +24,8 @@ var config = {
   
   // styles
   sass: {
-    src: ['tests/html/scss/*.scss', 'demos/scss/*.scss'],
-    dest: ['tests/html/css', 'demos/css'],
+    src: ['tests/html/scss/*.scss', 'tests/true/*.scss', 'demos/scss/*.scss'],
+    dest: ['tests/html/css', 'tests/true', 'demos/css'],
   },
 
   // scripts
@@ -143,12 +143,14 @@ gulp.task('sync', ['server'], function() {
 
 // watch
 gulp.task('watch', function () {
-  gulp.watch(['tests/html/scss/*.scss', 'demos/scss/*.scss'], function (e) {
+  gulp.watch(config.sass.src, function (e) {
     var src = e.path.replace('/www/web/', ''), dest;
-    if (e.path.indexOf('tests/') !== -1) {
+    if (e.path.indexOf('html/') !== -1) {
       dest = config.sass.dest[0];
-    } else {
+    } else if (e.path.indexOf('true/')) {
       dest = config.sass.dest[1];
+    } else {
+      dest = config.sass.dest[2];
     }
     
     if (config.sassLang === 'libsass') {

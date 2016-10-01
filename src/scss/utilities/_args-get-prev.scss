@@ -1,23 +1,9 @@
 @function args-get-prev($list, $val, $default:false) {
-  @if type-of($list) == 'list' {
-    $index: index($list, $val);
+  $index: index($list, $val);
 
-    @if $index {
-      @if $index >= 2 {
-        @return nth($list, ($index - 1));
-      } @else {
-        
-        @return $default;
-        @warn '"#{$val}" is the first item in "#{$list}".';
-      }
-    } @else {
-
-      @return $default;
-      @warn '"#{val}" doesn\'t exists.';
-    }
+  @if type-of($list) == 'list' and $index and $index >= 2 {
+    @return nth($list, ($index - 1));
   } @else {
-
     @return $default;
-    @warn '"#{$list}" is not a list.';
   }
 }

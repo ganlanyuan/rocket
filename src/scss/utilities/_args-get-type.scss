@@ -3,16 +3,11 @@
 
   @if not $key { @return $result; }
   
-  @if type-of($key) == $type {
-    @if index($check, $key) == null {
-      $result: $key;
-    }
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if $result == $def and type-of($item) == $type {
-        @if index($check, $item) == null {
-          $result: $item;
-        }
+  @each $item in $key {
+    @if $result == $def and type-of($item) == $type {
+      @if index($check, $item) == false or 
+          index($check, $item) == null {
+        $result: $item;
       }
     }
   }

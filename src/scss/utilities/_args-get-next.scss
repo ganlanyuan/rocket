@@ -1,23 +1,9 @@
 @function args-get-next($list, $val, $default:false) {
-  @if type-of($list) == 'list' {
-    $index: index($list, $val);
-
-    @if $index {
-      @if length($list) >= ($index + 1) {
-        @return nth($list, ($index + 1));
-      } @else {
-        
-        @return $default;
-        @warn 'Nothing found after "#{$val}".';
-      }
-    } @else {
-
-      @return $default;
-      @warn '"#{val}" doesn\'t exists.';
-    }
+  $index: index($list, $val);
+  
+  @if type-of($list) == 'list' and $index and length($list) >= ($index + 1) {
+    @return nth($list, ($index + 1));
   } @else {
-
     @return $default;
-    @warn '"#{$list}" is not a list.';
   }
 }
