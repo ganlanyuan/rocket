@@ -188,9 +188,7 @@
 /* Test: get-slider-id [function] */
 /*   ✔ get the last class. */
 /*   ✔ get the last id. */
-/*   ✖ FAILED [assert-equal]: get the entire selector when there is no class or id. */
-/*     - Output [string]: header" ">" "article */
-/*     - Expected [string]: header > article */
+/*   ✔ get the entire selector when there is no class or id. */
 /*  */
 /*  */
 /* # Module: trigonometric */
@@ -304,8 +302,8 @@
 /*  */
 /* # SUMMARY ---------- */
 /* 36 Tests: */
-/*  - 28 Passed */
-/*  - 8 Failed */
+/*  - 29 Passed */
+/*  - 7 Failed */
 /* -------------------- */
 
 /*# sourceMappingURL=sourcemaps/tests.css.map */
