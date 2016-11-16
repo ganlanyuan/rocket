@@ -1,6 +1,6 @@
 # Rocket v3
 
-![Version](https://img.shields.io/badge/Version-3.4.9-blue.svg)  
+![Version](https://img.shields.io/badge/Version-3.4.10-blue.svg)  
 ![SASS](https://img.shields.io/badge/sass-3.3.4-ff69b4.svg)
 ![Libsass](https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg)
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   
@@ -1329,11 +1329,24 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
 // $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 ````
 
+#### fluid-type
+Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec, more on [https://blog.codepen.io/2016/10/31/fluid-type-blogs/].  
+<!-- IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+     -->
+[demo](http://creatiointl.org/william/rocket/v3/fluid-type.php)   
+```` scss
+@mixin fluid-type($properties, $data)
+// pattern
+$properties: properties which have the same fluid value
+$data: a map with two pairs of viewwidth and value
+
+h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
+````
+
 #### responsive-type (rp-type)
 Responsive type.     
 Everything you can do with `type` you can do with `responsive-type`.    
 IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+    
-[demo](http://creatiointl.org/william/rocket/v3/addons-font-size.php)   
+[demo](http://creatiointl.org/william/rocket/v3/responsive-type.php)   
 ```` scss
 @mixin responsive-type($key) // or rp-type()
 // pattern

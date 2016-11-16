@@ -1,5 +1,9 @@
 # Changelog
 
+##### 3.4.10
+- Added: `fluid-type`. Thanks [Indrek Paas](http://www.sassmeister.com/gist/7f22e44ace49b5124eec).
+- Fixed: a `container` issue in IE bowsers due to a IE `calc` bug.
+
 ##### 3.4.9
 - Improved: `bp` (`ro-breakpoint`) now accept `height` media feature beside `width`. The breakpoint number limitation is also removed, now you can pass as many breakpoints as you want.
 - Improved: `button` now accept customized active selector(`.`, `#`, `[]`, ':'), default `:hover`;

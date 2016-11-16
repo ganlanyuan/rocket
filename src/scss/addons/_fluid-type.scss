@@ -1,0 +1,31 @@
+// stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec 
+// https://blog.codepen.io/2016/10/31/fluid-type-blogs/
+
+// *** fluid-type *** //
+@mixin fluid-type($properties, $data) {
+  @if type of $data == 'map' {
+    $keys: map-keys($data);
+    $values: map-values($data);
+
+    $min-vw: nth($keys, 1); 
+    $max-vw: nth($keys, 2);
+    $min-value: nth($values, 1);
+    $max-value: nth($values, 2);
+
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @include bp('min' $min-vw) {
+      @each $property in $properties {
+        #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+      }
+    }
+
+    @include bp('min' $max-vw) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
