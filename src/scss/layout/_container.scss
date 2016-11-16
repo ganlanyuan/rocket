@@ -24,40 +24,29 @@
   @if not $container { $container: map-get($ro-layout, container); }
 
   // strip unit when gutter == 0
-  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
+  @if not $gutter or 
+      type-of($gutter) != 'number' or 
+      $gutter and strip-unit($gutter) == 0 { 
+        $gutter: 0; 
+      }
 
   // *** output *** //
   @extend %clearfix;
 
   // pecentage container: 80%
   @if unit($container) == '%' {
-    padding: 0 (50% - ($container / 2));
+    padding: 0 ((100% - $container) / 2);
 
   // px or em container: 1000px 
   } @else {
-    @if unit($gutter) != '%' and unit($container) == unit($gutter) {
-      $breakpoint: ( $container + $gutter );
-    } @else {
-      $breakpoint: (em($container) + em(20));
-    }
-
-    padding: 0 ($gutter / 2);
-    .lt-ie9 & {
-      max-width: $container;
-      margin: 0 auto;
-    }
-    
-    // for big screen
-    @include bp('min' $breakpoint) { 
-      @if $align == center {
-        padding: 0 -webkit-calc(50% - #{$container / 2});
-        padding: 0 -moz-calc(50% - #{$container / 2});
-        padding: 0 calc(50% - #{$container / 2});
-      } @else {
-        padding-#{opposite($align)}: -webkit-calc(100% - #{$container + $gutter});
-        padding-#{opposite($align)}: -moz-calc(100% - #{$container + $gutter});
-        padding-#{opposite($align)}: calc(100% - #{$container + $gutter});
-      } 
+    max-width: $container;
+    @if $gutter != 0 { padding: 0 ($gutter / 2); }
+    @if $align == center {
+      margin-left: auto;
+      margin-right: auto;
+    } @else if {
+      margin-#{$align}: 0;
+      margin-#{opposite($align)}: auto;
     }
   }
 }
