@@ -299,9 +299,9 @@ p {
       right: -200px;
       transition: right 0.5s;
       width: 200px;
-      top: 0;
       height: 100%;
-      overflow-x: hidden; }
+      overflow-x: hidden;
+      top: 0; }
     .nav input:checked ~ [data-submenu] {
       right: 0; }
   .reveal .page-overlay {
@@ -317,9 +317,9 @@ p {
     left: auto;
     background: transparent;
     z-index: 199;
-    -webkit-transition: right 0.5s;
-    -moz-transition: right 0.5s;
-    transition: right 0.5s; }
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s; }
     input:checked ~ .reveal .page-overlay {
       background: rgba(0, 0, 0, 0.1);
       left: 0;

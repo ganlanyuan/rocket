@@ -1,7 +1,7 @@
 @mixin container($key: false){
   $container: false;
   $breakpoint: false;
-  $gutter: args-get-next($key, 'gutter');
+  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
   $align: args-get($key, (left right center), center);
 
   // get container & gutter

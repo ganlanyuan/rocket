@@ -201,25 +201,33 @@ h5 {
 .example h2 {
   text-align: center;
   margin: 1.5em 0;
-  font-size: 24px; }
+  font-size: 24px;
+  font-size: 1.5rem; }
   @media (min-width: 20em) {
     .example h2 {
-      font-size: calc(24px + 16 * (100vw - 320px) / 704); } }
+      font-size: calc(1.5rem + 16 * (100vw - 20rem) / 704); }
+      .example h2 else {
+        font-size: calc(24px + 16 * (100vw - 320px) / 704); } }
   @media (min-width: 64em) {
     .example h2 {
-      font-size: 40px; } }
+      font-size: 40px;
+      font-size: 2.5rem; } }
 
 .example p {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 2.2;
   text-align: center;
-  font-size: 18px; }
+  font-size: 18px;
+  font-size: 1.125rem; }
   @media (min-width: 20em) {
     .example p {
-      font-size: calc(18px + 6 * (100vw - 320px) / 704); } }
+      font-size: calc(1.125rem + 6 * (100vw - 20rem) / 704); }
+      .example p else {
+        font-size: calc(18px + 6 * (100vw - 320px) / 704); } }
   @media (min-width: 64em) {
     .example p {
-      font-size: 24px; } }
+      font-size: 24px;
+      font-size: 1.5rem; } }
 
 /*# sourceMappingURL=sourcemaps/fluid-type.css.map */

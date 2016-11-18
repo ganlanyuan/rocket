@@ -209,6 +209,7 @@ h5 {
 
 .default > div {
   max-width: 1024px;
+  padding: 0 10px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -217,6 +218,7 @@ h5 {
 
 .px-left > div {
   max-width: 900px;
+  padding: 0 10px;
   margin-left: 0;
   margin-right: auto; }
 
@@ -225,6 +227,7 @@ h5 {
 
 .px-right > div {
   max-width: 900px;
+  padding: 0 10px;
   margin-right: 0;
   margin-left: auto; }
 
@@ -250,6 +253,7 @@ h5 {
 
 .em > div {
   max-width: 56.25em;
+  padding: 0 10px;
   margin-left: auto;
   margin-right: auto; }
 

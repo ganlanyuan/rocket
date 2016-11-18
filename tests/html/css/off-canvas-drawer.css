@@ -337,9 +337,9 @@ input:checked ~ .drawer .nav {
   right: auto;
   background: transparent;
   z-index: 199;
-  -webkit-transition: left 0.5s;
-  -moz-transition: left 0.5s;
-  transition: left 0.5s; }
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s; }
   input:checked ~ .drawer .page-overlay {
     background: rgba(0, 0, 0, 0.1);
     top: 70px;

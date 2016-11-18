@@ -1,5 +1,10 @@
 # Changelog
 
+##### 3.4.11
+- Improved: `off-canvas` overlay transition.
+- Improved: add rem unit for `font-size` in `fluid-type`.
+- Fixed: `container` default gutter.
+
 ##### 3.4.10
 - Added: `fluid-type`. Thanks [Indrek Paas](http://www.sassmeister.com/gist/7f22e44ace49b5124eec).
 - Fixed: a `container` issue in IE bowsers due to a IE `calc` bug.

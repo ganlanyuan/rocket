@@ -321,9 +321,9 @@ p {
     bottom: auto;
     background: transparent;
     z-index: 199;
-    -webkit-transition: top 0.5s;
-    -moz-transition: top 0.5s;
-    transition: top 0.5s; }
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s; }
     input:checked ~ .push .page-overlay {
       background: rgba(0, 0, 0, 0.1);
       bottom: 0;

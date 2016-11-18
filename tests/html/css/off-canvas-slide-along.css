@@ -303,9 +303,9 @@ p {
       left: -200px;
       transition: left 0.5s;
       width: 200px;
-      top: 0;
       height: 100%;
-      overflow-x: hidden; }
+      overflow-x: hidden;
+      top: 0; }
     .nav input:checked ~ [data-submenu] {
       left: 0; }
   input:checked ~ .nav {
@@ -323,9 +323,9 @@ p {
     right: auto;
     background: transparent;
     z-index: 199;
-    -webkit-transition: left 0.5s;
-    -moz-transition: left 0.5s;
-    transition: left 0.5s; }
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s; }
     input:checked ~ .slide-along .page-overlay {
       background: rgba(0, 0, 0, 0.1);
       right: 0;

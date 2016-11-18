@@ -330,7 +330,7 @@
       #{opposite($direction)}: auto;
       background: transparent;
       z-index: map-get($ro-off-canvas-z-index, 'page-overlay');
-      @include ro-transition(unquote("#{$direction} #{$duration}"));
+      @include ro-transition(all #{$duration});
       input:checked ~ & {
         // background
         background: $overlay-color;
