@@ -268,9 +268,6 @@ p {
   top: 0; }
   .push .code:before {
     content: '(  "push"  ".nav"  "top"  rgba(0, 0, 0, 0.1)  50px  0.5s  "submenu"  )'; }
-  .hidden-checkbox {
-    position: absolute;
-    left: -9999px; }
   input:checked ~ .push {
     top: 50px; }
   input:not(:checked) ~ .push .nav [data-submenu] {
@@ -327,7 +324,7 @@ p {
     input:checked ~ .push .page-overlay {
       background: rgba(0, 0, 0, 0.1);
       bottom: 0;
-      top: 0; }
+      top: 50px; }
       .lt-ie9 input:checked ~ .push .page-overlay {
         background: black;
         opacity: 0.1;

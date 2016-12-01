@@ -63,7 +63,9 @@
       }
     }
   } @else {
-    @include gallery-base($child, $gutter, $float, $center-align);
+    @if not $keep {
+      @include gallery-base($child, $gutter, $float, $center-align);
+    }
     @include make-gallery($data, $child, $gutter, $float, $center-align);
   }
 }

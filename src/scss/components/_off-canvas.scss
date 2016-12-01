@@ -92,7 +92,7 @@
   @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'scale-up', 'push', 'drawer'), $mode) {
     $overlay: true;
   }
-  @if index(('slide-along', 'slide-out', 'rotate-in', 'rotate-in-reverse', 'rotate-out', 'reveal', 'scale-up'), $mode) {
+  @if index(('slide-along', 'slide-out', 'rotate-in', 'rotate-in-reverse', 'rotate-out', 'reveal', 'scale-up', 'push'), $mode) {
     $overlay-push: true;
   }
 
@@ -156,13 +156,6 @@
   }
 
   // *** output *** //
-  @at-root (without: media) { @at-root {
-    .hidden-checkbox {
-      position: absolute;
-      left: -9999px;
-    }
-  }}
-
   // page
   @if $page-transform {
     @include ro-transition(unquote("transform #{$duration}"));
