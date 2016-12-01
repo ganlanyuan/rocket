@@ -1,6 +1,6 @@
 # Rocket v3
 
-![Version](https://img.shields.io/badge/Version-3.4.11-blue.svg)  
+![Version](https://img.shields.io/badge/Version-3.4.12-blue.svg)  
 ![SASS](https://img.shields.io/badge/sass-3.3.4-ff69b4.svg)
 ![Libsass](https://img.shields.io/badge/Libsass-3.2.0-b6f07e.svg)
 Rocket is a powerful SASS library to help web developers handle layout, color and build components.   

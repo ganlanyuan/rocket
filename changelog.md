@@ -1,5 +1,9 @@
 # Changelog
 
+##### 3.4.12
+- Fixed: `off-canvas` push overlay position.
+- Fixed: `gallery` keep option.
+
 ##### 3.4.11
 - Improved: `off-canvas` overlay transition.
 - Improved: add rem unit for `font-size` in `fluid-type`.
