@@ -1,21 +1,13 @@
 *.css.map
 *.DS_Store
-*.codekit
-*.sublime-project
-*.sublime-workspace
 *.scssc
 *.swp
 *.jar
 *.log
 *.xml
-chromedriver
 
 .sass-cache/
-/.codekit-cache/
-/bower_components/
-/tests/nightwatch/screenshots/
-
-README.html
-changelog.html
+bower_components/
+node_modules/
+tests/nightwatch/screenshots/
 LICENSE
-package.json
