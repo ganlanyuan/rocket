@@ -1,0 +1,62 @@
+{% set pagename = 'home' %}
+{% extends "partials/layout.njk" %}
+
+{% block main %}
+{# Intro #}
+<section class="intro section">
+  <div class="container">
+    <p><strong>Rocket is a powerful SASS framework to help web developers handle layout and build components easily.</strong></p>
+  </div>
+</section>
+
+{# Features #}
+<section class="features section">
+  <div class="container">
+    <ul>
+      <li>
+        <svg role="img" title="desktop-mobile" width="115" height="75" class="svg-responsive">
+          <use xlink:href="{{ svgSpritesPath + '#desktop-mobile' }}" />
+        </svg>
+        <h4>Responsive</h4>
+        <p>The Sass grid mixins have been made smartly to give you even more flexibility to customize the grids with any number of columns. Four column grid inside a five column grid inside a twelve? Go for it!</p>
+      </li>
+      <li>
+        <svg role="img" title="tools" width="81" height="81" class="svg-customizable" >
+          <use xlink:href="{{ svgSpritesPath + '#tools' }}" />
+        </svg>
+        <h4>Customizable</h4>
+        <p>The Sass grid mixins have been made smartly to give you even more flexibility to customize the grids with any number of columns. Four column grid inside a five column grid inside a twelve? Go for it!</p>
+      </li>
+      <li>
+        <svg role="img" title="feather" width="105" height="59" class="svg-light-weight">
+          <use xlink:href="{{ svgSpritesPath + '#feather' }}" />
+        </svg>
+        <h4>light weight</h4>
+        <p>The Sass grid mixins have been made smartly to give you even more flexibility to customize the grids with any number of columns. Four column grid inside a five column grid inside a twelve? Go for it!</p>
+      </li>
+      <li>
+        <svg role="img" title="wheel-chair" width="82" height="100" class="svg-accessible">
+          <use xlink:href="{{ svgSpritesPath + '#wheel-chair' }}" />
+        </svg>
+        <h4>Accessible</h4>
+        <p>The Sass grid mixins have been made smartly to give you even more flexibility to customize the grids with any number of columns. Four column grid inside a five column grid inside a twelve? Go for it!</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{# get started #}
+<section class="get-started section">
+  <div class="container">
+    <h2>Get started</h2>
+    <ol>
+      <li>
+        <div class="media"><img src="assets/img/download-tools.png" alt="download tools"></div>
+        <div class="media-body"></div>
+      </li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+</section>
+{% endblock %}

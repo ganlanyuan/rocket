@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="100px" viewBox="0 0 82 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>wheel-chair</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-1130.000000, -881.000000)">
+            <g id="features" transform="translate(0.000000, 831.000000)">
+                <g id="wheel-chair" transform="translate(1133.000000, 50.000000)">
+                    <polyline id="Path-2" stroke="#7ED321" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" points="29 24.5 31 54 59 53.5"></polyline>
+                    <path d="M61,52.5 L74,76" id="Path-2" stroke="#7ED321" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M44.90072,97 C53.3901143,91.4634912 59,81.8936355 59,71.0158845 C59,53.8862845 45.0886194,40 27.9280617,40 C15.6589445,40 5.05070327,47.0982272 0,57.4050493" id="Oval-4" stroke="#7ED321" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" transform="translate(29.500000, 68.500000) rotate(-180.000000) translate(-29.500000, -68.500000) "></path>
+                    <path d="M30.0157604,38.1018635 L52.9842396,36.8981365" id="Path-3" stroke="#7ED321" stroke-width="7" stroke-linecap="round"></path>
+                    <circle id="Oval-3" fill="#7ED321" cx="27.5" cy="7.5" r="7.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

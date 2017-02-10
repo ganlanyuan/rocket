@@ -1,0 +1,46 @@
+// reset
+// ========
+
+// reset html font family, to prevent a layout issue in some language system (e.g. korean system)
+html { font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; touch-action: manipulation; }
+
+// set min-width to 320
+html, body { min-width: 320px; overflow-x: hidden; }
+
+// make images & videos flexible
+img, video { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+
+// remove the padding under img
+figure img { display: block; }
+
+// full width image
+img.full { width: 100%; display: block; }
+
+// prevent an image issue on IE 8
+@media \0screen {
+  img { width: auto; }
+}
+
+// reset chrome icon-font
+[class^="icon-"]::before, 
+[class*=" icon-"]::before,
+[class^="icon-"]:before, 
+[class*=" icon-"]:before { display: none; } 
+
+// reset form styles
+button:focus,input:focus,select:focus,textarea:focus {outline: 0; }
+label { cursor: pointer; }
+select { -webkit-appearance: none; }
+
+// remove margin and padding
+figure,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p { margin: 0; }
+dl,ul,ol { padding: 0; }
+
+// reset list styles
+li { list-style:none; }
+
+// reset link style
+a { text-decoration: none; color: inherit; }
+
+.hidden-checkbox { position: fixed; left: -10000px; }
