@@ -57,7 +57,7 @@ gulp.task('nunjucks', function() {
   let imageCount = 0;
   data.getImageCount = function () { return imageCount += 1; };
 
-  return gulp.src(PATHS.templates_docs + '**/*.njk')
+  return gulp.src(PATHS.templates_docs + '*.njk')
     .pipe(nunjucks.compile(data), {
       watch: true,
       noCache: true,

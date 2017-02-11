@@ -85,7 +85,7 @@
       <nav class="site-nav">
         <ul>
           {% for item in mainNav %}
-            <li {{ 'class=active' if item === pagename }}><a href="{{ '/docs/' + item + '.html' if item !== 'github' else 'https://github.com/ganlanyuan/rocket'}}" {{ 'target=_blank' if item === 'github'}}>{{ item | capitalize }}</a></li>
+            <li {{ 'class=active' if item === pagename }}><a href="{{ 'docs/' + item + '.html' if item !== 'github' else 'https://github.com/ganlanyuan/rocket'}}" {{ 'target=_blank' if item === 'github'}}>{{ item | capitalize }}</a></li>
           {% endfor %}
         </ul>
       </nav>
