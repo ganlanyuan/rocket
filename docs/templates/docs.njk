@@ -1,0 +1,70 @@
+{% set pagename = 'docs' %}
+{% extends "partials/layout.njk" %}
+
+{% block main %}
+
+<div class="docs-wrapper section">
+
+  {# main #}
+  <main>
+
+    {% for main, sub in docs %}
+    <h2>{{ main | capitalize }}</h2>
+    <ul>
+      
+      {% for title, subObj in sub %}
+      <li>
+        <h4>{{ title | capitalize }}</h4>
+
+        {% for tag, content in subObj %}
+
+          {% if tag === 'p' %}
+          <p>{{ content }}</p>
+          {% elif tag === 'small' %}
+          <p><small>{{ content }}</small></p>
+          {% elif tag === 'bold' %}
+          <p><strong>{{ content }}</strong></p>
+          {% elif tag === 'code' %}
+          <div class="code-wrapper">
+            <ul>
+              
+              {% for type, codeContent in content %}
+              <li>
+                <header>{{ type }}</header>
+                <pre><code class="language-{{ type }}">{{ codeContent }}</code></pre>
+              </li>
+              {% endfor %}
+            
+            </ul>
+          </div>
+          {% endif %}
+
+        {% endfor %}
+
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% endfor %}
+
+  </main>
+
+  {# docs nav #}
+  <nav class="docs-nav">
+    <button class="docs-nav__toggle"><svg class="arrow" role="img" title="arrow" width="14" height="28"><use xlink:href="{{ svgSpritesPath + '#rightarrow'}}" /></svg></button>
+
+    {% for main, sub in docs %}
+    <h4>{{ main | capitalize }}</h4>
+    <ul>
+
+      {% for title, content in sub %}
+      <li class="nav-{{ title }}"><a href="#{{ title }}">{{ title | capitalize }}</a></li>
+      {% endfor %}
+
+    </ul>
+    {% endfor %}
+
+  </nav>
+</div>
+
+{% endblock %}

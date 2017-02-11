@@ -1,0 +1,20 @@
+.docs-wrapper {
+  main {
+    h2, h4, p { 
+      @include container(770px); 
+      margin-bottom: 20px;
+    }
+    > ul > li { padding: 20px 0; }
+  }
+}
+.code-wrapper { 
+  @include container(); 
+  li {
+    width: 50%;
+    float: left;
+  }
+  ul {
+    @extend %clearfix;
+    @include at-least('li' 3) { width: calc(100% / 3); }
+  }
+}

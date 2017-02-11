@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Rocket - docs
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="/docs/assets/css/prism.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script type="text/javascript" src="/docs/assets/js/prism.js">
+    </script>
+    <script>
+    /* svg4everybody:js */
+    !function(e,t){"function"==typeof define&&define.amd?define([],function(){return e.svg4everybody=t()}):"object"==typeof exports?module.exports=t():e.svg4everybody=t()}(this,function(){function e(e,t){if(t){var n=document.createDocumentFragment(),i=!e.getAttribute("viewBox")&&t.getAttribute("viewBox");i&&e.setAttribute("viewBox",i);for(var r=t.cloneNode(!0);r.childNodes.length;)n.appendChild(r.firstChild);e.appendChild(n)}}function t(t){t.onreadystatechange=function(){if(4===t.readyState){var n=t._cachedDocument;n||(n=t._cachedDocument=document.implementation.createHTMLDocument(""),n.body.innerHTML=t.responseText,t._cachedTarget={}),t._embeds.splice(0).map(function(i){var r=t._cachedTarget[i.id];r||(r=t._cachedTarget[i.id]=n.getElementById(i.id)),e(i.svg,r)})}},t.onreadystatechange()}function n(n){function i(){for(var n=0;n<h.length;){var d=h[n],s=d.parentNode;if(s&&/svg/i.test(s.nodeName)){var u=d.getAttribute("xlink:href")||d.getAttribute("href");if(r){var l=document.createElement("img");l.style.cssText="display:inline-block;",l.setAttribute("width",s.getAttribute("width")||s.clientWidth),l.setAttribute("height",s.getAttribute("height")||s.clientHeight),l.src=a(u,s,d),s.replaceChild(l,d)}else if(c&&(!o.validate||o.validate(u,s,d))){s.removeChild(d);var v=u.split("#"),b=v.shift(),f=v.join("#");if(b.length){var p=g[b];p||(p=g[b]=new XMLHttpRequest,p.open("GET",b),p.send(),p._embeds=[]),p._embeds.push({svg:s,id:f}),t(p)}else e(s,document.getElementById(f))}}else++n}m(i,67)}var r,a,o=Object(n);a=o.fallback||function(e){return e.replace(/\?[^#]+/,"").replace("#",".").replace(/^\./,"")+".png"+(/\?[^#]+/.exec(e)||[""])[0]},r="nosvg"in o?o.nosvg:/\bMSIE [1-8]\b/.test(navigator.userAgent),r&&(document.createElement("svg"),document.createElement("use"));var c,d=/\bMSIE [1-8]\.0\b/,s=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,u=/\bAppleWebKit\/(\d+)\b/,l=/\bEdge\/12\.(\d+)\b/;c="polyfill"in o?o.polyfill:d.test(navigator.userAgent)||s.test(navigator.userAgent)||(navigator.userAgent.match(l)||[])[1]<10547||(navigator.userAgent.match(u)||[])[1]<537;var g={},m=window.requestAnimationFrame||setTimeout,h=document.getElementsByTagName("use");c&&i()}return n});
+    /* endinject */
+    svg4everybody({
+      polyfill: true,
+      fallback: function (src, svg, use) {
+        // src: current xlink:href String 
+        // svg: current SVG Element 
+        // use: current USE Element 
+
+       var path = use.getAttribute('data-fallback');
+       if (path) {
+         return 'assets/svg/fallback/' + path + '.png';
+       } else {
+         return src.replace('sprites.svg#', 'fallback/') + '.png';
+       }
+      }
+    });
+
+    /* modernizr:js */
+    /* endinject */
+    </script>
+  </head>
+  <body>
+    <noscript>
+    <p class="enable-js">
+      To enjoy our website, you'll need to enable <b>JavaScript</b> in your web browser. Please <a href="http://enable-javascript.com/" target="_blank"><b>click here</b></a> to learn how.
+    </p></noscript> 
+    <header class="site-header site-header--sub">
+      <div class="container">
+        <div class="logo">
+          <a href="/rocket"><svg class="svg-logo" role="img" title="Rocket" width="54" height="56">
+          <use xlink:href="assets/svg/sprites.svg#logo"></use></svg> <svg class="svg-logo-text" role="img" title="Rocket" width="449" height="100">
+          <use xlink:href="assets/svg/sprites.svg#logo-text"></use></svg></a>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li class="active">
+              <a href="/docs/docs.html">Docs</a>
+            </li>
+            <li>
+              <a href="https://github.com/ganlanyuan/rocket" target="_blank">Github</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="docs-wrapper section">
+      <main>
+        <h2>
+          Layout
+        </h2>
+        <ul>
+          <li>
+            <h4>
+              Container
+            </h4>
+            <p>
+              The container of the main content. It can be center, left or right aligned.
+            </p>
+            <p>
+              <small>IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html">&lt;div class="header container"&gt;
+  &lt;!-- other elements --&gt;
+&lt;/div&gt;</code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Grid
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Liquid-2
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Liquid-3
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Gallery
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Masonry
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Metro
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Diamond
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Angled-edges
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Sticky-footer
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Justify
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Center
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          Components
+        </h2>
+        <ul>
+          <li>
+            <h4>
+              Charts
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Responsive-table
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Off-canvas
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Markup
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Slider-carousel
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Slider-gallery
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Validation
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Button
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Parallelogram
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Drop-shadows
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Switch
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Push-toggle
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Checkbox
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Checkbox-active
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Input-file
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Tabs
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Tabs-active
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Tabs-panel-active
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Accordion
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Dropdown
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Tooltip
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Media-list
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Flex media
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          Addons
+        </h2>
+        <ul>
+          <li>
+            <h4>
+              Type
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Fluid-type
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Responsive-type (rp-type)
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Hide-text
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Opacity
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Ie-rgba
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Ro-breakpoint (bp)
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              At-least
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              At-most
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Equal-to
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Between
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Visible
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Hidden
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <h2>
+          Color functions
+        </h2>
+        <ul>
+          <li>
+            <h4>
+              Contrast
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Adjacent
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Complementary
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Split-complementary
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Triad
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Rectangle
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <h4>
+              Square
+            </h4>
+            <p></p>
+            <p>
+              <small></small>
+            </p>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header>
+                    html
+                  </header>
+                  <pre>
+<code class="language-html"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    scss
+                  </header>
+                  <pre>
+<code class="language-scss"></code>
+</pre>
+                </li>
+                <li>
+                  <header>
+                    javascript
+                  </header>
+                  <pre>
+<code class="language-javascript"></code>
+</pre>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </main>
+      <nav class="docs-nav">
+        <button class="docs-nav__toggle"><svg class="arrow" role="img" title="arrow" width="14" height="28">
+        <use xlink:href="assets/svg/sprites.svg#rightarrow"></use></svg></button>
+        <h4>
+          Layout
+        </h4>
+        <ul>
+          <li class="nav-container">
+            <a href="#container">Container</a>
+          </li>
+          <li class="nav-grid">
+            <a href="#grid">Grid</a>
+          </li>
+          <li class="nav-liquid-2">
+            <a href="#liquid-2">Liquid-2</a>
+          </li>
+          <li class="nav-liquid-3">
+            <a href="#liquid-3">Liquid-3</a>
+          </li>
+          <li class="nav-gallery">
+            <a href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-masonry">
+            <a href="#masonry">Masonry</a>
+          </li>
+          <li class="nav-metro">
+            <a href="#metro">Metro</a>
+          </li>
+          <li class="nav-diamond">
+            <a href="#diamond">Diamond</a>
+          </li>
+          <li class="nav-angled-edges">
+            <a href="#angled-edges">Angled-edges</a>
+          </li>
+          <li class="nav-sticky-footer">
+            <a href="#sticky-footer">Sticky-footer</a>
+          </li>
+          <li class="nav-justify">
+            <a href="#justify">Justify</a>
+          </li>
+          <li class="nav-center">
+            <a href="#center">Center</a>
+          </li>
+        </ul>
+        <h4>
+          Components
+        </h4>
+        <ul>
+          <li class="nav-charts">
+            <a href="#charts">Charts</a>
+          </li>
+          <li class="nav-responsive-table">
+            <a href="#responsive-table">Responsive-table</a>
+          </li>
+          <li class="nav-off-canvas">
+            <a href="#off-canvas">Off-canvas</a>
+          </li>
+          <li class="nav-markup">
+            <a href="#markup">Markup</a>
+          </li>
+          <li class="nav-slider-carousel">
+            <a href="#slider-carousel">Slider-carousel</a>
+          </li>
+          <li class="nav-slider-gallery">
+            <a href="#slider-gallery">Slider-gallery</a>
+          </li>
+          <li class="nav-validation">
+            <a href="#validation">Validation</a>
+          </li>
+          <li class="nav-button">
+            <a href="#button">Button</a>
+          </li>
+          <li class="nav-parallelogram">
+            <a href="#parallelogram">Parallelogram</a>
+          </li>
+          <li class="nav-drop-shadows">
+            <a href="#drop-shadows">Drop-shadows</a>
+          </li>
+          <li class="nav-switch">
+            <a href="#switch">Switch</a>
+          </li>
+          <li class="nav-push-toggle">
+            <a href="#push-toggle">Push-toggle</a>
+          </li>
+          <li class="nav-checkbox">
+            <a href="#checkbox">Checkbox</a>
+          </li>
+          <li class="nav-checkbox-active">
+            <a href="#checkbox-active">Checkbox-active</a>
+          </li>
+          <li class="nav-input-file">
+            <a href="#input-file">Input-file</a>
+          </li>
+          <li class="nav-tabs">
+            <a href="#tabs">Tabs</a>
+          </li>
+          <li class="nav-tabs-active">
+            <a href="#tabs-active">Tabs-active</a>
+          </li>
+          <li class="nav-tabs-panel-active">
+            <a href="#tabs-panel-active">Tabs-panel-active</a>
+          </li>
+          <li class="nav-accordion">
+            <a href="#accordion">Accordion</a>
+          </li>
+          <li class="nav-dropdown">
+            <a href="#dropdown">Dropdown</a>
+          </li>
+          <li class="nav-tooltip">
+            <a href="#tooltip">Tooltip</a>
+          </li>
+          <li class="nav-Media-list">
+            <a href="#Media-list">Media-list</a>
+          </li>
+          <li class="nav-flex media">
+            <a href="#flex%20media">Flex media</a>
+          </li>
+        </ul>
+        <h4>
+          Addons
+        </h4>
+        <ul>
+          <li class="nav-type">
+            <a href="#type">Type</a>
+          </li>
+          <li class="nav-fluid-type">
+            <a href="#fluid-type">Fluid-type</a>
+          </li>
+          <li class="nav-responsive-type (rp-type)">
+            <a href="#responsive-type%20(rp-type)">Responsive-type (rp-type)</a>
+          </li>
+          <li class="nav-hide-text">
+            <a href="#hide-text">Hide-text</a>
+          </li>
+          <li class="nav-opacity">
+            <a href="#opacity">Opacity</a>
+          </li>
+          <li class="nav-ie-rgba">
+            <a href="#ie-rgba">Ie-rgba</a>
+          </li>
+          <li class="nav-ro-breakpoint (bp)">
+            <a href="#ro-breakpoint%20(bp)">Ro-breakpoint (bp)</a>
+          </li>
+          <li class="nav-at-least">
+            <a href="#at-least">At-least</a>
+          </li>
+          <li class="nav-at-most">
+            <a href="#at-most">At-most</a>
+          </li>
+          <li class="nav-equal-to">
+            <a href="#equal-to">Equal-to</a>
+          </li>
+          <li class="nav-between">
+            <a href="#between">Between</a>
+          </li>
+          <li class="nav-visible">
+            <a href="#visible">Visible</a>
+          </li>
+          <li class="nav-hidden">
+            <a href="#hidden">Hidden</a>
+          </li>
+        </ul>
+        <h4>
+          Color functions
+        </h4>
+        <ul>
+          <li class="nav-contrast">
+            <a href="#contrast">Contrast</a>
+          </li>
+          <li class="nav-adjacent">
+            <a href="#adjacent">Adjacent</a>
+          </li>
+          <li class="nav-complementary">
+            <a href="#complementary">Complementary</a>
+          </li>
+          <li class="nav-split-complementary">
+            <a href="#split-complementary">Split-complementary</a>
+          </li>
+          <li class="nav-triad">
+            <a href="#triad">Triad</a>
+          </li>
+          <li class="nav-rectangle">
+            <a href="#rectangle">Rectangle</a>
+          </li>
+          <li class="nav-square">
+            <a href="#square">Square</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <footer class="site-footer">
+      <div class="container">
+        <p class="copyright">
+          Rocket is licensed MIT.
+        </p>
+        <ul class="site-footer__links">
+          <li>
+            <a href="https://github.com/ganlanyuan/rocket" target="_blank">github</a>
+          </li>
+          <li>
+            <a href="https://github.com/ganlanyuan/rocket/issues" target="_blank">Fire an issue</a>
+          </li>
+          <li>
+            <a href="mailto:ganlanyuan@gmail.com" target="_blank">email me</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script src="assets/js/script.js">
+    </script>
+  </body>
+</html>

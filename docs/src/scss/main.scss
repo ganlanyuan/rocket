@@ -12,11 +12,23 @@ $lightblue: #84DBFF;
 $gray: #4a4a4a;
 $lightgray: #F7F7F7;
 
+$border: 1px solid #ccc;
+$section-gap: calc(3% + 10px);
+$get-started-media-width: 32%;
+
 // utilities
 .container { @include container(); }
-.section .container {
-  @include fluid-type(margin-top, (320px: 20px, map-get($ro-layout, 'container'): 50px));
-  @include fluid-type(margin-bottom, (320px: 20px, map-get($ro-layout, 'container'): 50px));
+.section {
+  margin: #{$section-gap} 0;
+  @include bp(min map-get($ro-layout, 'container')) { 
+    margin: 46px 0; 
+  }
+}
+h4 { margin-bottom: 1.5em; }
+p { 
+  @include type(14px 1.5); 
+  margin-bottom: 1.5em;
+  &:last-child { margin-bottom: 0; }
 }
 svg { 
   display: block;
@@ -25,11 +37,12 @@ svg {
 
 // header
 .header-wrapper {
-  color: #fff;
   background: $blue linear-gradient(to bottom, $blue, $lightblue) no-repeat;
 }
 .site-header {
   @extend %clearfix;
+  color: #fff;
+  .container { max-width: none; }
   &--sub { background-color: $blue; }
 }
 .logo {
@@ -70,33 +83,12 @@ svg {
   .site-nav li { line-height: (200px * 100 / 449 + 40px); }
 }
 
-.features {
-  background-color: $lightgray;
-  padding: 1px 0;
-  text-align: center;
-  ul { margin-right: -30px; }
-  li {
-    display: inline-block;
-    max-width: 270px;
-    margin-right: 30px;
-  }
-  h4 { margin-bottom: 20px; }
-  p { @include type(14px 1.5); }
-  svg {
-    margin: 20px auto 50px;
-  }
-  .svg {
-    &-responsive { width: 115px; }
-    &-tools { width: 80px; }
-    &-light-weight { width: 100px; }
-    &-accessible { width: 74px; }
-  }
-}
 // footer
 .site-footer {
   color: #fff;
   background: $black;
   .container { 
+    max-width: none;
     padding-top: 1px; 
     padding-bottom: 1px; 
   }
@@ -117,3 +109,6 @@ svg {
     &__links { text-align: right; }
   }
 }
+
+@import 'home';
+@import 'docs';
