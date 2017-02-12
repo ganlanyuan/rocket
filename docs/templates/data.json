@@ -15,501 +15,1475 @@
         "p": "The container of the main content. It can be center, left or right aligned.",
         "small": "IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "code": {
-          "html": "<div class=\"header container\">\n  <!-- other elements -->\n</div>",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"header container\">",
+            "  <!-- contents -->",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin container($key)",
+            "// pattern",
+            "$key: $container (gutter $gutter) $align",
+            "",
+            ".container { @include container(); }",
+            "// container: 1024px;",
+            "// gutter: 20px; (default)",
+            "// align: center; (default)",
+            "",
+            ".container { @include container(1200px gutter 2% left); }",
+            "// container: 1200px",
+            "// gutter: 2%;",
+            "// align: left;"
+          ]
         }
       }, 
       "grid": {
-        "p": "",
-        "small": "",
+        "small": "IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"row\">",
+            "  <div></div>",
+            "  <div></div>",
+            "  <div></div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin grid($key)",
+            "// pattern",
+            "$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep;",
+            "// $condition: 'min' or 'max'",
+            "// $media-type: screen, print, tv",
+            "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)",
+            "",
+            ".row { @include grid( (3 7 4) ); }",
+            "// 1st child: 3 columns;",
+            "// 2nd child: 7 columns;",
+            "// 3rd child: 4 columns;",
+            "// full width: 3 + 7 + 4 = 14 columns;",
+            "",
+            "// change orders",
+            ".row { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)",
+            "// children orders: 1 0 0; ",
+            "// elements with smaller order will go to the front, with equal orders will go with the origin order in markup.",
+            "// more detail about orders please refer to http://the-echoplex.net/flexyboxes/?fixed-height=on&legacy=on&display=flex&flex-direction=row&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=stretch&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto&order[]=0&flex-grow[]=0&flex-shrink[]=1&flex-basis[]=auto&align-self[]=auto",
+            "",
+            "// several rows",
+            "$main: ( (3 7 4) (2 5) );",
+            ".row { @include grid($main); }",
+            "// The first row: (3 7 4)",
+            "// The second row: (2 5)",
+            "",
+            "// with mediaquery",
+            "$breakpoints: (",
+            "  medium: 800px,",
+            "  large: 1200px,",
+            ");",
+            "$main: (",
+            "  'default': (3 4) ( 2 5) 1,",
+            "  medium: (2 7 3: 1 0 1) (1 1: 1 0),",
+            "  1000px: (2 7 3 4 4),",
+            ");",
+            ".row { @include grid($main $breakpoints); }"
+          ]
         }
       }, 
       "liquid-2": {
-        "p": "",
-        "small": "",
+        "p": "`liquid-2` is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.",
+        "small": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"wrapper\">",
+            "  <div></div>",
+            "  <div></div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin liquid-2($key)",
+            "// pattern",
+            "$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL;",
+            "// $condition: 'min' or 'max'",
+            "// $media-type: screen, print, tv",
+            "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)",
+            " ",
+            ".wrapper { @include liquid-2( ('auto' 200px) ); }",
+            "// 1st column: fluid;",
+            "// 2nd column: 200px;",
+            " ",
+            ".wrapper { @include liquid-2( ('auto':2, 200px:1) ); }",
+            "// columns' order: 2 1;"
+          ]
         }
       }, 
       "liquid-3": {
-        "p": "",
-        "small": "",
+        "p": "`liquid-3` is for creating a holy-grail layout: a fluid column with 2 fixed columns.",
+        "small": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"wrapper\">",
+            "  <div></div>",
+            "  <div></div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin liquid-3($key)",
+            "// pattern",
+            "$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL;",
+            "// $condition: 'min' or 'max'",
+            "// $media-type: screen, print, tv",
+            "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)",
+            " ",
+            ".wrapper { @include liquid-3( (150px 'auto' 200px) ); }",
+            "// 1st column: 150px;",
+            "// 2nd column: fluid;",
+            "// 3rd column: 200px;",
+            " ",
+            ".wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }",
+            "// columns' order: 0 2 1;"
+          ]
         }
       }, 
       "gallery": {
-        "p": "",
-        "small": "",
+        "p": "`gallery` is for creating picture galleries.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<ul class=\"gallery\">",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "</ul>"
+          ],
+          "scss": [
+            "@mixin gallery($key);",
+            "//pattern",
+            "$key: ($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep;",
+            "// $condition: 'min' or 'max'",
+            "// $media-type: screen, print, tv",
+            "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)",
+            " ",
+            "// *** case 1 *** //",
+            ".gallery { @include gallery(3); }",
+            "// 3 items per row",
+            " ",
+            "// *** case 2: change gutter and direction *** //",
+            ".gallery { @include gallery(4 gutter 2% RTL); }",
+            "// 4 items per row",
+            "// gutter: 2%;",
+            "// RTL: right-to-left",
+            " ",
+            "// *** case 3: with breakpoints *** //",
+            "$map: (",
+            "  'default': 2, ",
+            "  600: 3,",
+            "  800: 4,",
+            ");",
+            ".gallery { @include gallery($map); }",
+            "// default: 2 items per row",
+            "// 600px and up: 3 items per row",
+            "// 800px and up: 4 items per row"
+          ]
         }
       }, 
       "masonry": {
-        "p": "",
-        "small": "",
+        "p": "`masonry` is for creating masonry layouts with pure css.",
+        "small": "IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<ul class=\"masonry\">",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "</ul>"
+          ],
+          "scss": [
+            "@mixin masonry($key);",
+            "//pattern",
+            "$key: ($map / $count) (gutter $gutter) (child $child) $breakpoints $condition;",
+            "// $map: ( $breakpoint-1: $count-1, $breakpoint-2: $count-2, ...)",
+            "// $count: num;",
+            "// $condition: 'min' | 'max'",
+            " ",
+            "// *** case 1 *** //",
+            ".masonry { @include masonry(3); }",
+            "// count: 3;",
+            " ",
+            "// *** case 2: with gutter *** //",
+            ".masonry { @include masonry(4 gutter 20px); }",
+            "// count: 4;",
+            "// gutter: 20px;",
+            " ",
+            "// *** case 3: with breakpoints *** //",
+            "$map: (",
+            "  'default': 1, ",
+            "  600px: 2,",
+            "  768px: 3,",
+            "  1024px: 4",
+            ");",
+            ".masonry { @include masonry($map gutter 20px child '.panel'); }",
+            "// default: 1 items per row",
+            "// 600px and up: 2 items per row",
+            "// 768px and up: 3 items per row",
+            "// 1024px and up: 4 items per row",
+            " ",
+            "// *** fallback: IE9- *** //",
+            ".no-csscolumns {",
+            "  .masonry {",
+            "    text-align: center;",
+            "    > li {",
+            "      display: inline-block;",
+            "      vertical-align: top;",
+            "      width: 250px;",
+            "      margin: 0 20px 20px 0;",
+            "      text-align: left;",
+            "    }",
+            "  }",
+            "}"
+          ]
         }
       }, 
       "metro": {
-        "p": "",
-        "small": "",
+        "p": "`metro` is for creating block layout inspired by Windows 8. Use nested `metro` to make complex layout.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<ul class=\"main\">",
+            "  <li><div class=\"metro-item\"></div></li>",
+            "  <li><div class=\"metro-item\"></div></li>",
+            "  <li><div class=\"metro-item\"></div></li>",
+            "  <li><div class=\"metro-item\"></div></li>",
+            "  <li><div class=\"metro-item\"></div></li>",
+            "</ul>"
+          ],
+          "scss": [
+            "//pattern",
+            "@mixin metro($key)",
+            "$key: $map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep",
+            " ",
+            ".main { @include metro(3 1 h2 1 w3 of 3); }",
+            "// 3: 1st child -> 3 blocks width x 3 blocks height",
+            "// 1: 2nd child -> 1 blocks width x 1 blocks height",
+            "// h2: 3rd child -> 1 blocks width x 2 blocks height",
+            "// 1: 4th child -> 1 blocks width x 1 blocks height",
+            "// w3: 5th child -> 3 blocks width x 1 blocks height",
+            "// \"of 3\": totaly 3 blocks width;"
+          ]
         }
       }, 
       "diamond": {
-        "p": "",
-        "small": "",
+        "small": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"wrapper\">",
+            "  <!-- 'wrapper' could be any valid class name -->",
+            "  <div class=\"diamond\">",
+            "    <!-- 'diamond' could be any valid class name -->",
+            "    <div class=\"diamond-content\">",
+            "      <!-- class 'diamond-content' is required -->",
+            "      <div>content</div>",
+            "    </div>",
+            "  </div>",
+            "  <div class=\"diamond\">",
+            "    <div class=\"diamond-content\">",
+            "      <div>content</div>",
+            "    </div>",
+            "  </div>",
+            "  <div class=\"diamond\">",
+            "    <div class=\"diamond-content\">",
+            "      <div>content</div>",
+            "    </div>",
+            "  </div>",
+            "  <div class=\"diamond\">",
+            "    <div class=\"diamond-content\">",
+            "      <div>content</div>",
+            "    </div>",
+            "  </div>",
+            "  <div class=\"diamond\">",
+            "    <div class=\"diamond-content\">",
+            "      <div>content</div>",
+            "    </div>",
+            "  </div>",
+            "  <div class=\"diamond\">",
+            "    <div class=\"diamond-content\">",
+            "      <div>content</div>",
+            "    </div>",
+            "  </div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin diamond($key)",
+            "//pattern",
+            "$key: ($count / $size) $shape 'combined' $selector-type 'keep';",
+            "// $shape: 'diamond' | 'octagon'",
+            "// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)",
+            " ",
+            ".diamond { @include diamond(5 'combined'); }",
+            "// count: 5 (5 diamonds per row)",
+            " ",
+            ".diamond { @include diamond(20%); }",
+            "// diamond size: 20% (could be fixed value like 200px too)"
+          ]
         }
       }, 
       "angled-edges": {
-        "p": "",
-        "small": "",
+        "p": "Create `angled-edges` layout. `background` could be image, gradient or pure color, but the background of sibling elements must be pure color.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"main\">",
+            "  <!-- Content goes here -->",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin angled-edges($key);",
+            "// pattern",
+            "$key: $edges $angle $edge-color flip;",
+            "// $edges: top | bottom | both",
+            " ",
+            ".main { @include angled-edges(\"bottom\" -5deg); }",
+            "// edge: bottom;",
+            "// angle: -5deg;"
+          ]
         }
       }, 
       "sticky-footer": {
-        "p": "",
-        "small": "",
+        "p": "Create `sticky-footer` to prevent layout collapse when content is less, e.g. 404 page.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<body>",
+            "  <header>header</header>",
+            "  <div class=\"main\">main</div>",
+            "  <footer>footer</footer>",
+            "</body>"
+          ],
+          "scss": [
+            "@mixin sticky-footer($key);",
+            "// pattern",
+            "$key: $main;",
+            " ",
+            "body { @include sticky-footer('.main'); }"
+          ]
         }
       }, 
       "justify": {
-        "p": "",
-        "small": "",
+        "p": "`justify` is for creating `justify` layout.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<ul class=\"justify\">",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "  <li></li>",
+            "</ul>"
+          ],
+          "scss": [
+            "@mixin justify($key);",
+            "// pattern",
+            "$key: (child $child)",
+            " ",
+            ".justify { @include justify(); }"
+          ]
         }
       }, 
       "center": {
-        "p": "",
-        "small": "",
+        "p": "`center` is for creating both horizontal and vertical center aligned layout.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"popup\">",
+            "  <div></div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin center($key)",
+            "// pattern",
+            "$key: $child ",
+            " ",
+            ".popup { @include center('div'); }",
+            "// child: div;"
+          ]
         }
       }
     },
     "Components": {
       "charts": {
-        "p": "",
-        "small": "",
+        "p": "Pure css responsive charts. Currently only include `bar` and `column`, more types will be added soon.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"charts\">",
+            "  <!-- items: charts body -->",
+            "  <ul class=\"items\">",
+            "    <li class=\"item-1\">",
+            "      <strong>Copper</strong>",
+            "      <!-- title -->",
+            "      <span></span>",
+            "      <!-- graphic -->",
+            "    </li>",
+            "    <li class=\"item-2\">",
+            "      <strong>Silver</strong>",
+            "      <span></span>",
+            "    </li>",
+            "    <li class=\"item-3\">",
+            "      <strong>Gold</strong>",
+            "      <span></span>",
+            "    </li>",
+            "    <li class=\"item-4\">",
+            "      <strong>Platinum</strong>",
+            "      <span></span>",
+            "    </li>",
+            "  </ul>",
+            "  <!-- ticks: charts grid -->",
+            "  <div class=\"ticks\">",
+            "    <div class=\"tick-1\"><span></span></div>",
+            "    <div class=\"tick-2\"><span></span></div>",
+            "    <div class=\"tick-3\"><span></span></div>",
+            "    <div class=\"tick-4\"><span></span></div>",
+            "    <div class=\"tick-5\"><span></span></div>",
+            "    <div class=\"tick-6\"><span></span></div>",
+            "    <div class=\"tick-7\"><span></span></div>",
+            "    <div class=\"tick-8\"><span></span></div>",
+            "    <div class=\"tick-9\"><span></span></div>",
+            "    <div class=\"tick-10\"><span></span></div>",
+            "    <div class=\"tick-11\"><span></span></div>",
+            "    <div class=\"tick-12\"><span></span></div>",
+            "    <div class=\"tick-13\"><span></span></div>",
+            "  </div>",
+            "  <!-- labels: charts label -->",
+            "  <div class=\"labels\">",
+            "    <div class=\"label-1\">sales</div>",
+            "  </div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin charts($key)",
+            "// pattern",
+            "$key: ($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide)",
+            " ",
+            "$data1: (",
+            "  #5AB5E1: 8.9 10.5 19.3 21.45,",
+            ");",
+            ".charts { @include charts($data1 'bar' 'steps' (2 22) animation (0.6s)); }",
+            "// single factor bar charts",
+            "// steps: unit 2, total 22",
+            "// animation: 0.6s ease (add class '.active' to charts to show animation)",
+            " ",
+            "$data2: (",
+            "  #E44B22: 8.9 10.5 19.3 21.45,",
+            "  #E48A22: 5 10 16 22,",
+            "  #22A1E4: 10.7 12 12 18,",
+            ");",
+            ".charts { @include charts($data2 'column' 'steps' (2 24) 'hide' ('numbers' 'labels')); }",
+            "// multiply factors column charts",
+            "// steps: unit 2, total 24",
+            "// hide: numbers and labels"
+          ]
         }
       },
       "responsive-table": {
-        "p": "",
-        "small": "",
+        "p": "Solutions for display a complex data table on small screen.",
+        "p": "Referance: http://dbushell.com/2012/01/05/responsive-tables-2/, https://github.com/nadangergeo/RWD-Table-Patterns",
+        "small": "Flip-scroll: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
+        "small": "Scroll: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
+        "small": "Toggle: IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
+        "small": "Stack: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<!-- modes: flip-scroll, stack -->",
+            "<table class=\"your-table\">",
+            "  <!-- table content goes here -->",
+            "</table>",
+            " ",
+            "<!-- modes: scroll -->",
+            "<div class=\"scroll-wrapper\">",
+            "  <table>",
+            " <!-- table content goes here -->",
+            "  </table>",
+            "</div>",
+            " ",
+            "<!-- modes: toggle -->",
+            "<div class=\"table-wrapper\">",
+            "  <input type=\"checkbox\" name=\"\" id=\"toggle-1\" checked=\"\">",
+            "  <input type=\"checkbox\" name=\"\" id=\"toggle-2\">",
+            "  <input type=\"checkbox\" name=\"\" id=\"toggle-3\">",
+            "  …",
+            "  <input type=\"checkbox\" name=\"\" id=\"control-panel\"> <!-- required -->",
+            "  <input type=\"checkbox\" name=\"\" id=\"display-all\"> <!-- required -->",
+            "  <label for=\"control-panel\">Display</label> <!-- required -->",
+            "  <label for=\"display-all\">Display All</label> <!-- required -->",
+            "  <div class=\"control-panel\"> <!-- required -->",
+            " <label for=\"toggle-1\">First Name</label>",
+            " <label for=\"toggle-2\">Last Name</label>",
+            " <label for=\"toggle-3\">Job Title</label>",
+            " …",
+            "  </div>",
+            "  <table>",
+            " <!-- table content goes here -->",
+            "  </table>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin responsive-table($key) { // rp-table() for shorthand",
+            "  @content;",
+            "}",
+            "// pattern",
+            "$key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count);",
+            "// $mode: 'flip-scroll' 'scroll' 'toggle' 'stack'",
+            "// $data: list, thead content",
+            "// $count: thead > th length",
+            " ",
+            "// flip-scroll: $breakpoint",
+            "// toggle: $breakpoint and $count",
+            "// stack: $data, $border-color and $th-width",
+            " ",
+            "// flip-scroll",
+            ".table { ",
+            "  @include rp-table('flip-scroll' 'bp' 900) {",
+            " border-right-width: 1px;",
+            " > tbody > tr:last-child > td { border-right-width: 0; }",
+            "  }",
+            "}",
+            " ",
+            "// scroll",
+            ".scroll-wrapper { ",
+            "  @include rp-table('scroll' bp 900) {",
+            "    .table {",
+            "      border-right-width: 1px;",
+            "      th:last-child, td:last-child { border-right-width: 0; }",
+            "      .lt-ie10 & { ",
+            "        border-right-width: 0; ",
+            "        th:last-child, td:last-child { border-right-width: 1px; }",
+            "      }",
+            "    }",
+            "  } ",
+            "}",
+            " ",
+            "// toggle",
+            ".table {",
+            "  @include rp-table('toggle' 'bp' 900 'count' 10);",
+            "}",
+            " ",
+            "// stack",
+            ".table {",
+            "  @include rp-table('stack' 'bp' 900 #dbdbdb 'data' (\"First Name\", \"Last Name\", \"Job Title\", \"Favorite Color\", \"Wars or Trek?\", \"Porn Name\", \"Date of Birth\", \"Dream Vacation City\", \"GPA\", \"Arbitrary Data\")) {",
+            " tr:nth-of-type(2n) { background-color: #f5f5f5; }",
+            " td:before { margin-right: 7px; }",
+            "  }",
+            "}"
+          ]
         }
       },
       "off-canvas": {
-        "p": "",
-        "small": "",
+        "p": "Pure css off-canvas with multiple modes.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
-        }
-      },
-      "markup": {
-        "p": "",
-        "small": "",
-        "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
-        }
-      },
-      "slider-carousel": {
-        "p": "",
-        "small": "",
-        "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
-        }
-      },
-      "slider-gallery": {
-        "p": "",
-        "small": "",
-        "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->",
+            "<input type=\"checkbox\" name=\"\" id=\"nav-toggle\">",
+            "<div class=\"page\">",
+            "  <header>",
+            " <label for=\"nav-toggle\">Menu</label>",
+            " <label for=\"nav-toggle\" class=\"page-overlay\"></label>",
+            " <nav class=\"nav\">",
+            "<ul>",
+            "  <li><a href=\"\">How It Works</a></li>",
+            "  <li><a href=\"\">Compare</a></li>",
+            "  <li><a href=\"\">Technology</a></li>",
+            "  <li><a href=\"\">Careers</a></li>",
+            "  <li><a href=\"\">Help</a></li>",
+            "</ul>",
+            " </nav>",
+            "  </header>",
+            "  <div>Other content</div>",
+            "</div>",
+            " ",
+            "<!-- modes: slide-along, slide-out, scale-down, scale-up, open-door, reveal -->",
+            "<input type=\"checkbox\" name=\"\" id=\"nav-toggle\">",
+            "<nav class=\"nav\">",
+            "  <ul>",
+            " <li><a href=\"\">How It Works</a></li>",
+            " <li><a href=\"\">Compare</a></li>",
+            " <li><a href=\"\">Technology</a></li>",
+            " <li><a href=\"\">Careers</a></li>",
+            " <li><a href=\"\">Help</a></li>",
+            "  </ul>",
+            "</nav>",
+            "<div class=\"page\">",
+            "  <header>",
+            " <label for=\"nav-toggle\">Menu</label>",
+            " <label for=\"nav-toggle\" class=\"page-overlay\"></label>",
+            "  </header>",
+            "  <div>Other content</div>",
+            "</div>",
+            " ",
+            "<!-- Sub menu -->",
+            "<!-- 1. Add [data-has-submenu] to parent item, [data-submenu] to submenu. -->",
+            "<!-- 2. Place a checkbox and label before submenu, connect them by [for] and [id]. -->",
+            "<nav class=\"nav\">",
+            "  <ul>",
+            " <li><a href=\"\">How It Works</a></li>",
+            " <li><a href=\"\">Compare</a></li>",
+            " <li><a href=\"\">Technology</a></li>",
+            " <li><a href=\"\">Careers</a></li>",
+            " <li data-has-submenu>",
+            "<input type=\"checkbox\" id=\"subnav-1-1\" class=\"hidden-checkbox\">",
+            "<label for=\"subnav-1-1\">&gt;</label>",
+            "<a href=\"\">Careers</a>",
+            "<ul data-submenu>",
+            "  <li><label for=\"subnav-1-1\" data-back>Back</label></li>",
+            "  <li><a href=\"\">sub item 1</a></li>",
+            "  <li><a href=\"\">sub item 2</a></li>",
+            "  <li><a href=\"\">sub item 3</a></li>",
+            "</ul>",
+            " </li>",
+            " <li><a href=\"\">Help</a></li>",
+            "  </ul>",
+            "</nav>"
+          ],
+          "scss": [
+            "@mixin off-canvas($key)",
+            "// pattern",
+            "$key: $mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration",
+            " ",
+            "// normal",
+            ".page { @include off-canvas('slide-in' left 'submenu' '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }",
+            "// mode: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)",
+            "// direction: left; (left | right | top | bottom)",
+            "// nav: .nav;",
+            "// nav-width(or height): 200px; (default 240px)",
+            "// submenu: has sub menu;",
+            "// overlay-background-color: rgba(0, 0, 0, 0.1);",
+            "// duration: 0.5s;",
+            " ",
+            "// For mode \"drawer\": ",
+            "// you need set a dynamic gutter between the nav and the top edge of the window.",
+            "// The format is map: $keys => break points, values => gutters.",
+            "// You can use the keys form your $breakpoints.",
+            "$breakpoints: (",
+            "  small: 600px,",
+            "  medium: 1000px,",
+            ");",
+            "$map: (",
+            "  500px: 20px, ",
+            "  small: 30px, ",
+            "  medium: 40px, ",
+            "  null: 50px ",
+            ");",
+            "// null means default (without media query)",
+            " ",
+            ".page { @include off-canvas(\"drawer\" \".nav\" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }"
+          ]
         }
       },
       "validation": {
-        "p": "",
-        "small": "",
+        "p": "Html5 form validation using [H5F](https://github.com/ryanseddon/H5F). We already include H5F in `kit.js` (with a little bit modification), so you don't need download it again.",
+        "p": "Set your customized alerts information through `<div data-info=\"\"></div>`.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<form action=\"\" class=\"myform\">",
+            "  <ol>",
+            "    <li>",
+            "      <label for=\"name\">Name</label>",
+            "      <input type=\"text\" id=\"name\" pattern=\"[a-zA-Z]{6,}\" required>",
+            "      <!-- alerts -->",
+            "      <div data-info=\"valid\">User name is valid.</div>",
+            "      <div data-info=\"required\">Valid user name required.</div>",
+            "      <div data-info=\"error\">User name must be at least 6 characters.</div>",
+            "    </li>",
+            "    <li> … </li>",
+            "    <li> … </li>",
+            "    <li>",
+            "      <input type=\"submit\" value=\"Submit\">",
+            "    </li>",
+            "  </ol>",
+            "</form>"
+          ],
+          "scss": [
+            "@mixin validation($key)",
+            "// pattern",
+            "$key: $style $direction $shake $speed $duration default;",
+            "// style: 'normal' | 'fade-in' | 'slide-in'",
+            " ",
+            ".myform { @include validation(slide-in right default); }",
+            "// style: slide-in;",
+            "// direction: right;"
+          ],
+          "javascript": [
+            "// run form validation",
+            "window.onload = function () {",
+            "  H5F.setup(document.querySelectorAll(\".myform\"));",
+            "}"
+          ]
         }
       },
       "button": {
-        "p": "",
-        "small": "",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<!-- normal: you can use button on any tag -->",
+            "<span class=\"button\">button</span>",
+            "<!-- push: inner span tag, data-text attribute -->",
+            "<span class=\"push\" data-text=\"star\"><span>push</span></span>",
+            "<!-- line-drawing: 4 empty span tags -->",
+            "<span class=\"line-drawing\">line-drawing",
+            "  <span></span>",
+            "  <span></span>",
+            "  <span></span>",
+            "  <span></span>",
+            "</span>"
+          ],
+          "scss": [
+            "@mixin button($key)",
+            "// pattern",
+            "$key: $padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function;",
+            "// style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'",
+            "// direction: left, right, top, bottom, 'horizontal', 'vertical'",
+            "// active-selector: . | # | [] | :",
+            " ",
+            ".button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }",
+            "// padding: 1em 2em; (padding must be quoted)",
+            "// background-color: #2B8ACF;",
+            "// active-color: #52CFDB;",
+            "// border-radius: 5px; ",
+            "// style: bubble;",
+            "// active-selector: '.active'; Final selector will be .button.active;"
+          ]
         }
       },
       "parallelogram": {
-        "p": "",
-        "small": "",
+        "p": "Create parallelogram style.",
+        "small": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"box\"></div>"
+          ],
+          "scss": [
+            "@mixin parallelogram($key);",
+            "// pattern",
+            "$key: $background $angle",
+            " ",
+            ".box { @include parallelogram(#61A4DE -30deg); }",
+            "// $background: #61A4DE; ",
+            "// $angle: -30deg;"
+          ]
         }
       },
       "drop-shadows": {
-        "p": "",
-        "small": "",
+        "p": "Thanks [Nicolas Gallagher](http://nicolasgallagher.com/css-drop-shadows-without-images/) for the idea.",
+        "small": "IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"box\"></div>"
+          ],
+          "scss": [
+            "@mixin drop-shadows($key);",
+            "// pattern",
+            "$key: $style $direction $color $shadow-size;",
+            "// $style: 'lifted' | 'raised' | 'perspective' | 'curve'",
+            "// $direction: left | right | top | bottom | 'horizontal' | 'vertical'",
+            " ",
+            ".box { @include drop-shadows(curve horizontal 20px); }",
+            "// $style: 'curve'; ",
+            "// $direction: horizontal;",
+            "// $shadow-size: 20px;"
+          ]
         }
       },
       "switch": {
-        "p": "",
-        "small": "",
+        "p": "Pure css switch.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"switch\">",
+            "  <input type=\"checkbox\" id=\"switch1\" name=\"switch\">",
+            "  <label for=\"switch1\"></label>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin switch($key)",
+            "//pattern",
+            "$key: $style $size $active-color (text $text) (radius | round);",
+            "// $style: 'toggle' | 'slider'",
+            " ",
+            ".switch { @include switch(round text (\"on\" \"off\") 36px #399DE1); }",
+            "// style: toggle; (default)",
+            "// text: on off;",
+            "// size: 36px;",
+            "// active-color: #399DE1;",
+            "// round: true;"
+          ]
         }
       },
       "push-toggle": {
-        "p": "",
-        "small": "",
+        "p": "Pure css push toggle.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"push-toggle\">",
+            "  <input type=\"radio\" id=\"male\" name=\"gender\" checked=\"\">",
+            "  <label for=\"male\">Male</label>",
+            "  <input type=\"radio\" id=\"female\" name=\"gender\">",
+            "  <label for=\"female\">Female</label>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin push-toggle()",
+            ".your-tab-class { ",
+            " ",
+            "  // default style",
+            "  label {",
+            "    padding: 1em 1.5em;",
+            "    background-image: linear-gradient(to bottom, #fff, #e1e1e1);",
+            "    border: 1px solid #ccc;",
+            "  }",
+            " ",
+            "  // active style",
+            "  @include push-toggle(){",
+            "    background-image: linear-gradient(to bottom, #ebebeb, #fff);",
+            "    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;",
+            "  }",
+            "}"
+          ]
         }
       },
       "checkbox": {
-        "p": "",
-        "small": "",
+        "p": "Customize radios or checkboxes.",
+        "small": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<!-- make sure label right after radio or checkbox -->",
+            "<div class=\"radio\">",
+            "  <input type=\"radio\" name=\"my-radio-name\" id=\"my-radio-id-1\" checked>",
+            "  <label for=\"my-radio-id-1\">item 1</label>",
+            "  <br />",
+            "  <input type=\"radio\" name=\"my-radio-name\" id=\"my-radio-id-2\">",
+            "  <label for=\"my-radio-id-2\">item 2</label>",
+            "  <br />",
+            "  <input type=\"radio\" name=\"my-radio-name\" id=\"my-radio-id-3\">",
+            "  <label for=\"my-radio-id-3\">item 3</label>",
+            "  <br />",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin checkbox() {",
+            "  @content;",
+            "}",
+            " ",
+            ".radio {",
+            "  @include checkbox() {",
+            " padding: 4px 0 4px 26px;",
+            " background: url('../images/radio.png') 0 50% no-repeat;",
+            "  }",
+            "}"
+          ]
         }
       },
       "checkbox-active": {
-        "p": "",
-        "small": "",
+        "p": "Radios or checkboxes' active style.",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin checkbox-active() {",
+            "  @content;",
+            "}",
+            " ",
+            ".radio {",
+            "  @include checkbox-active() {",
+            " background-image: url('../images/radio-active.png');",
+            "  }",
+            "}"
+          ]
         }
       },
       "input-file": {
-        "p": "",
-        "small": "",
+        "p": "Customize `input[type=\"file\"]`. Thanks [Osvaldas Valutis](http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) for the idea.",
+        "small": "IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"input-file\">",
+            "  <input type=\"file\" name=\"file\" id=\"file\" class=\"inputfile\" data-multiple-caption=\"{count} files selected\" multiple />",
+            "  <label for=\"file\"><span>Choose a file</span></label>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin input-file() {",
+            "  @content;",
+            "}",
+            " ",
+            ".radio {",
+            "  @include input-file() {",
+            "  // customized style goes here",
+            "  }",
+            "}"
+          ],
+          "javascript": [
+            "// link input-file.js to your page",
+            "<script src=\"path/to/input-file.js\"></script>",
+            "<script type=\"text/javascript\">",
+            "  inputFile('#file');",
+            "</script>"
+          ]
         }
       },
       "tabs": {
-        "p": "",
-        "small": "",
+        "p": "Pure css tabs.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<!-- .ro-tabs and .ro-panels are required -->",
+            "<div class=\"your-tab-class\">",
+            "  <input type=\"radio\" name=\"your-radio-name\" id=\"your-radio-id-1\" checked>",
+            "  <input type=\"radio\" name=\"your-radio-name\" id=\"your-radio-id-2\">",
+            "  <input type=\"radio\" name=\"your-radio-name\" id=\"your-radio-id-3\">",
+            "  <!-- ... -->",
+            "  <div class=\"ro-tabs\">",
+            "    <label for=\"your-radio-id-1\">tab 1</label>",
+            "    <label for=\"your-radio-id-2\">tab 2</label>",
+            "    <label for=\"your-radio-id-3\">tab 3</label>",
+            "    <!-- ... -->",
+            "  </div>",
+            "  <div class=\"ro-panels\">",
+            "    <div>",
+            "      <!-- Your tab-panels 1 -->",
+            "    </div>",
+            "    <div>",
+            "      <!-- Your tab-panels 2 -->",
+            "    </div>",
+            "    <div>",
+            "      <!-- Your tab-panels 3 -->",
+            "    </div>",
+            "  </div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin tabs($key)",
+            "// pattern",
+            "$key: $length $style",
+            " ",
+            ".your-tab-class { @include tabs(3 'carousel'); }",
+            "// length: 3; (3 tabs)",
+            "// style: carousel; (normal | carousel | customize)"
+          ]
         }
       },
       "tabs-active": {
-        "p": "",
-        "small": "",
+        "p": "Set tabs' active styles.",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin tabs-active($key)",
+            "// pattern",
+            "$key: $length",
+            " ",
+            ".your-tab-class { ",
+            "  @include tabs-active(3) {",
+            " // tab active style",
+            "  } ",
+            "}",
+            "// length: 3; (3 tabs)"
+          ]
         }
       },
       "tabs-panel-active": {
-        "p": "",
-        "small": "",
+        "p": "Set panels' active styles.",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin tabs-panel-active($key)",
+            "// pattern",
+            "$key: $length",
+            " ",
+            ".your-tab-class { ",
+            "  @include tabs-panel-active(3) {",
+            "    // panel active style",
+            "  } ",
+            "}",
+            "// length: 3; (3 tabs)"
+          ]
         }
       },
       "accordion": {
-        "p": "",
-        "small": "",
+        "p": "Pure css accordion.",
+        "small": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"accordion\">",
+            "  <input type=\"checkbox\" name=\"\" id=\"accordion-checkbox-1\">",
+            "  <label for=\"accordion-checkbox-1\"><strong>About Us</strong></label>",
+            "  <div>",
+            "    <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>",
+            "  </div>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin accordion($key)",
+            "//pattern",
+            "$key: $content $max-height $transition-duration",
+            " ",
+            ".accordion { @include accordion(div 200px 0.4s); }",
+            "// $content: div;",
+            "// $max-height: 200px;",
+            "// $transition-duration: 0.4s;"
+          ]
         }
       },
       "dropdown": {
-        "p": "",
-        "small": "",
+        "small": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<!-- if you set $show: click, add these markup to your dropdown make sure the value of \"for\" match the checkbox id -->",
+            "<div class=\"dropdown\">",
+            "  <span>dropdown</span>",
+            "  <input type=\"checkbox\" name=\"\" id=\"dropdown\">",
+            "  <label for=\"dropdown\">▼</label>",
+            "  <ul>",
+            "    <li><a href=\"\">item01</a></li>",
+            "    <li><a href=\"\">item02</a></li>",
+            "    <li><a href=\"\">item03</a></li>",
+            "  </ul>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin dropdown($key)",
+            "// pattern",
+            "$key: $child $show $style $direction $duration default;",
+            "// $show: 'hover' | 'click'",
+            "// $style: 'display' | 'scale' | 'rotate'",
+            " ",
+            ".dropdown { @include dropdown(ul hover display right default); }",
+            "// child: ul;",
+            "// show: hover;",
+            "// style: display;",
+            "// direction: right; ",
+            "// default: true; (use default dropdown menu style)"
+          ]
         }
       },
       "tooltip": {
-        "p": "",
-        "small": "",
+        "p": "pure css `tooltip`.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<p>Hic, deleniti itaque expedita placeat in veritatis <a href=\"\" class=\"tooltip\" data-tooltip=\"Tooltip content\">consectetur</a> explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.</p>"
+          ],
+          "scss": [
+            "@mixin tooltip($key)",
+            "// pattern",
+            "$key: $direction $color (width $width) (height $height) radius",
+            " ",
+            ".tooltip { @include tooltip(radius right #b02df3 width 300px); }",
+            "// radius: 0.22em; (This can be custmized by changing \"$ro-tooltip-radius: 0.22em !default;\")",
+            "// direction: right;",
+            "// background-color: #b02df3;",
+            "// width: 300px; (for old browsers)"
+          ]
         }
       },
       "Media-list": {
-        "p": "",
-        "small": "",
+        "p": "`media-list` displays a media object (images, video, audio) to the left or right of a block object.",
+        "small": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<ul class=\"news\">",
+            "  <li>",
+            "    <figure class=\"media\"><a href=\"\"><img src=\"http://placehold.it/120x80\" alt=\"\"></a></figure>",
+            "    <div class=\"media-body\">",
+            "      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.</p>",
+            "    </div>",
+            "  </li>",
+            "</ul>"
+          ],
+          "scss": [
+            "@mixin media-list($key)",
+            "// pattern",
+            "$key: $role $gutter $direction",
+            " ",
+            ".news .media { @include media-list(); } ",
+            "// role: 'media'; (media:default | media-body)",
+            "// gutter: 10px; (default)",
+            "// direction: left; (default)",
+            " ",
+            ".news .media { @include media-list('media' 15px right); }",
+            "// role: 'media';",
+            "// gutter: 15px;",
+            "// direction: right;",
+            " ",
+            ".news .media-body { @include media-list('media-body'); }",
+            "// role: 'media-body'; "
+          ]
         }
       },
       "flex media": {
-        "p": "",
-        "small": "",
+        "small": "IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<div class=\"video\">",
+            "  <iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/Rb0UmrCXxVA\" frameborder=\"0\" allowfullscreen></iframe>",
+            "</div>"
+          ],
+          "scss": [
+            "@mixin flex-media($key)",
+            "// pattern",
+            "$key: $ratio $child",
+            " ",
+            ".video { @include flex-media(3/4); }",
+            "// ratio: 3/4;",
+            "// child: iframe, object, embed; (default)",
+            " ",
+            ".svg-wrapper { @include flex-media(9/16 svg); }",
+            "// ratio: 9/16;",
+            "// child: svg; "
+          ]
         }
       }
     },
     "Addons": {
       "type": {
-        "p": "",
-        "small": "",
+        "p": "`type` is a shorthand mixin for type.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin type($key)",
+            "// pattern",
+            "$key: $font-size $font-weight $font-style $line-height $font-family $text-align $text-transform ",
+            " ",
+            "h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }",
+            "// font-size: 20px;",
+            "// font-weight: bold; ",
+            "// font-style: italic; ",
+            "// font-family: 'Georgia, Helvetica, sans-serif';",
+            "// text-align: center;",
+            "// line-height: 1.4;",
+            " ",
+            "// Tips: to set 'font-weight', 'font-style', 'text-align' or 'text-transform' value ",
+            "// to 'inherit' or 'normal', ",
+            "// you need add prefix 'weight-', 'style-' or 'transform-'.",
+            " ",
+            "// $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;",
+            "// $ro-font-styles: italic, oblique, style-normal, style-inherit !default;",
+            "// $ro-text-aligns: left, right, center, justify, align-inherit !default;",
+            "// $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;"
+          ]
         }
       },
       "fluid-type": {
-        "p": "",
-        "small": "",
+        "p": "Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec, more on [https://blog.codepen.io/2016/10/31/fluid-type-blogs/].",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin fluid-type($properties, $data)",
+            "// pattern",
+            "$properties: properties which have the same fluid value",
+            "$data: a map with two pairs of viewwidth and value",
+            " ",
+            "h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }"
+          ]
         }
       },
       "responsive-type (rp-type)": {
-        "p": "",
-        "small": "",
+        "p": "Responsive type.",
+        "p": "Everything you can do with `type` you can do with `responsive-type`.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin responsive-type($key) // or rp-type()",
+            "// pattern",
+            "$key: $map, $breakpoints: $bp",
+            " ",
+            "$bp: (",
+            "  'small' : 480px,",
+            "  'medium': 700px,",
+            "  'large' : 1024px",
+            ");",
+            "$p-font-sizes: (",
+            "  'dafault'  : (15px 1.3 right uppercase),",
+            "  'small' : 16px",
+            "  'medium': (17px 1.4),",
+            "  900px : 18px",
+            "  'large' : (19px 1.45),",
+            "  1440px: 20px",
+            ");",
+            "$h3-font-sizes: (",
+            "  'default'  : (18px 1.3 weight-normal),",
+            "  900px : 22px",
+            "  'large' : (30px 1.2),",
+            ");",
+            " ",
+            "h3 { @include rp-type($h3-font-sizes $bp); }",
+            "p { @include rp-type($p-font-sizes $bp); }"
+          ]
         }
       },
       "hide-text": {
-        "p": "",
-        "small": "",
+        "p": "Visually hide a text element.",
+        "small": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "html": [
+            "<h1 class=\"logo\">Brand Name</h1>"
+          ],
+          "scss": [
+            "@mixin hide-text();",
+            "%hide-text {};",
+            " ",
+            ".logo { ",
+            "  @extend %hide-text; ",
+            "  // or @include hide-text(); ",
+            "}"
+          ]
         }
       },
       "opacity": {
-        "p": "",
-        "small": "",
+        "p": "Use `opacity` to set `opacity` property for old IE and modern browsers.",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin opacity($key)",
+            "// pattern",
+            "$key: $opacity",
+            " ",
+            ".example { @include opacity(0.3); }"
+          ]
         }
       },
       "ie-rgba": {
-        "p": "",
-        "small": "",
+        "p": "`ie-rgba` is for getting rgba property for IE8.",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin ie-rgba($key)",
+            "// pattern",
+            "$key: $rgba",
+            " ",
+            ".lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }",
+            "// output:",
+            "// .lt-ie9 .example {",
+            "//   background: none;",
+            "//   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000);",
+            "//   zoom: 1;",
+            "// }"
+          ]
         }
       },
       "ro-breakpoint (bp)": {
-        "p": "",
-        "small": "",
+        "p": "A shorthand @mixin for breakpoints.",
+        "p": "Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`).",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin ro-breakpoint($key)",
+            "// pattern",
+            "$key: $condition $media-type $media-feature $breakpoints",
+            " ",
+            "@include bp('min' 640) {};",
+            "// output: @media (min-width: 40em) {};",
+            "@include bp('min' 'height' 640) {};",
+            "// output: @media (min-height: 40em) {};",
+            "@include bp('max' 640 screen) {};",
+            "// output: @media screen and (max-width: 40em) {};",
+            "@include bp(400 767 1000 1200 1500) {};",
+            "// output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};"
+          ]
         }
       },
       "at-least": {
-        "p": "",
-        "small": "",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin at-least($key) {",
+            "  @content;",
+            "}",
+            "// pattern",
+            "$key: $selector number",
+            " ",
+            ".nav {",
+            "  @include at-least('li' 4) { width: 25%; }",
+            "}"
+          ]
         }
       },
       "at-most": {
-        "p": "",
-        "small": "",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin at-most($key) {",
+            "  @content;",
+            "}",
+            "// pattern",
+            "$key: $selector number",
+            " ",
+            ".nav {",
+            "  @include at-most('li' 4) { width: 25%; }",
+            "}"
+          ]
         }
       },
       "equal-to": {
-        "p": "",
-        "small": "",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin equal-to($key) {",
+            "  @content;",
+            "}",
+            "// pattern",
+            "$key: $selector number",
+            " ",
+            ".nav {",
+            "  @include equal-to('li' 4) { width: 25%; }",
+            "}"
+          ]
         }
       },
       "between": {
-        "p": "",
-        "small": "",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin between($key) {",
+            "  @content;",
+            "}",
+            "// pattern",
+            "$key: $selector number number",
+            " ",
+            ".nav {",
+            "  @include between('li' 4 6) { width: 25%; }",
+            "}"
+          ]
         }
       },
       "visible": {
-        "p": "",
-        "small": "",
+        "p": "A shorthand @mixin for hide elements on some parts of viewport.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin visible($key)",
+            "// pattern",
+            "$key: $media-type $breakpoints",
+            " ",
+            "@include visible(500)",
+            "// visible on 500px up on all media"
+          ]
         }
       },
       "hidden": {
-        "p": "",
-        "small": "",
+        "p": "A shorthand @mixin for hide elements on some parts of viewport.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin hidden($key)",
+            "// pattern",
+            "$key: $media-type $breakpoints",
+            " ",
+            "@include hidden(screen 300 500 700)",
+            "// hidden between 300px and 500px, and 700px up on screen"
+          ]
         }
       }
     },
     "Color Functions": {
       "contrast": {
-        "p": "",
-        "small": "",
+        "p": "Get a contrast `font-color` based on the `background-color`.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin contrast($key)",
+            "// pattern",
+            "$key: $color (light $light) (dark $dark)",
+            " ",
+            ".main { color: contrast(#a6e36e); }",
+            "// color: #a6e36e;",
+            "// light: #fff; (default)",
+            "// dark: #000; (default)"
+          ]
         }
       },
       "adjacent": {
-        "p": "",
-        "small": "",
+        "p": "`adjacent` is for creating adjacent colors.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin adjacent($key)",
+            "// pattern",
+            "$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)",
+            " ",
+            ".main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }",
+            "// color: #a6e36e;",
+            "// order: -1;",
+            "// saturation: 10%;",
+            "// lightness -20%;",
+            "// distribution: 20;"
+          ]
         }
       },
       "complementary": {
-        "p": "",
-        "small": "",
+        "p": "`complementary` is for getting a complementary color.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin complementary($key)",
+            "// pattern",
+            "$key: $color (saturation $saturation) (lightness $lightness) (dist $dist)",
+            " ",
+            ".main { color: complementary(#a6e36e saturation 20%); }",
+            "// color: #a6e36e;",
+            "// saturation: 20%;"
+          ]
         }
       },
       "split-complementary": {
-        "p": "",
-        "small": "",
+        "p": "`split-complementary` is for getting split-complementary colors based on a given color.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin split-complementary($key)",
+            "// pattern",
+            "$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)",
+            " ",
+            ".main { color: split-complementary(#a6e36e 2); }",
+            "// color: #a6e36e;",
+            "// order: 2; (-2 | -1 | 1 | 2)"
+          ]
         }
       },
       "triad": {
-        "p": "",
-        "small": "",
+        "p": "`triad` is for getting triad colors based on a given color.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin triad($key)",
+            "// pattern",
+            "$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)",
+            " ",
+            ".main { color: triad(#a6e36e, 2); }",
+            "// color: #a6e36e;",
+            "// order: 2; (-2 | -1 | 1 | 2)"
+          ]
         }
       },
       "rectangle": {
-        "p": "",
-        "small": "",
+        "p": "`rectangle` is for getting rectangle colors based on a given color.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin rectangle($key)",
+            "// pattern",
+            "$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)",
+            " ",
+            ".main { color: rectangle(#a6e36e, -3); }",
+            "// color: #a6e36e;",
+            "// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)"
+          ]
         }
       },
       "square": {
-        "p": "",
-        "small": "",
+        "p": "`square` is for getting square colors based on a given color.",
+        "small": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "code": {
-          "html": "",
-          "scss": "",
-          "javascript": ""
+          "scss": [
+            "@mixin square($key)",
+            "// pattern",
+            "$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)",
+            " ",
+            ".main { color: square(#a6e36e, 3); }",
+            "// color: #a6e36e;",
+            "// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)"
+          ]
         }
       }
     }

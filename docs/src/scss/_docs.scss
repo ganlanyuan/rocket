@@ -7,14 +7,70 @@
     > ul > li { padding: 20px 0; }
   }
 }
+.docs-nav {
+  position: fixed;
+  left: -16em;
+  top: 0;
+  bottom: 0;
+  width: 16em;
+  &__toggle {
+    position: absolute;
+    top: 8em;
+    right: -3.5em;
+    width: 3.5em;
+    text-align: center;
+    border: none;
+    background-color: $blue;
+    padding: 0.5em 0;
+    cursor: pointer;
+    > svg { margin: 0 auto; }
+  }
+  &__content {
+    @include type(15px);
+    padding-top: 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
+    ul {
+      margin-bottom: 3em;
+    }
+    h4, a {
+      line-height: 2.4;
+    }
+    h4 {
+      margin-bottom: 0;
+      padding-left: 2em;
+    }
+    a {
+      display: block;
+      padding-left: 3em;
+      &:hover { background-color: $lightgray; }
+    }
+    .active a { background-color: $lightblue; }
+  }
+}
 .code-wrapper { 
   @include container(); 
+  header {
+    line-height: 2;
+    padding: 0 1em;
+    color: #fff;
+    background-color: $black;
+  }
   li {
-    width: 50%;
+    width: 100%;
     float: left;
   }
   ul {
     @extend %clearfix;
+    @include at-least('li' 2) { width: calc(100% / 2); }
     @include at-least('li' 3) { width: calc(100% / 3); }
+    background-color: #f5f2f0;
   }
 }

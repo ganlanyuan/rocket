@@ -5,6 +5,25 @@
 
 <div class="docs-wrapper section">
 
+  {# docs nav #}
+  <nav class="docs-nav">
+    <button class="docs-nav__toggle"><svg class="arrow" role="img" title="arrow" width="14" height="28"><use xlink:href="{{ svgSpritesPath + '#rightarrow'}}" /></svg></button>
+    <div class="docs-nav__content">
+    
+      {% for main, sub in docs %}
+      <h4>{{ main | capitalize }}</h4>
+      <ul>
+
+        {% for title, content in sub %}
+        <li class="nav-{{ title }}"><a href="#{{ title }}">{{ title | capitalize }}</a></li>
+        {% endfor %}
+
+      </ul>
+      {% endfor %}
+
+    </div>
+  </nav>
+
   {# main #}
   <main>
 
@@ -31,7 +50,11 @@
               {% for type, codeContent in content %}
               <li>
                 <header>{{ type }}</header>
-                <pre><code class="language-{{ type }}">{{ codeContent }}</code></pre>
+                <pre><code class="language-{{ type }}">
+                  
+                {%- for row in codeContent %}{{ row + '\n' }}{% endfor -%}
+
+                </code></pre>
               </li>
               {% endfor %}
             
@@ -49,22 +72,6 @@
 
   </main>
 
-  {# docs nav #}
-  <nav class="docs-nav">
-    <button class="docs-nav__toggle"><svg class="arrow" role="img" title="arrow" width="14" height="28"><use xlink:href="{{ svgSpritesPath + '#rightarrow'}}" /></svg></button>
-
-    {% for main, sub in docs %}
-    <h4>{{ main | capitalize }}</h4>
-    <ul>
-
-      {% for title, content in sub %}
-      <li class="nav-{{ title }}"><a href="#{{ title }}">{{ title | capitalize }}</a></li>
-      {% endfor %}
-
-    </ul>
-    {% endfor %}
-
-  </nav>
 </div>
 
 {% endblock %}
