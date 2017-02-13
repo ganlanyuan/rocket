@@ -34,32 +34,13 @@
   <!-- <link href="http://mydomain.com/my-next-page.htm" rel="prerender"> -->
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/prism.css"/>
   <link rel="stylesheet" href="assets/css/main.css">
   <script type="text/javascript" src="assets/js/prism.js"></script>
   <script>
     /* svg4everybody:js */
     !function(e,t){"function"==typeof define&&define.amd?define([],function(){return e.svg4everybody=t()}):"object"==typeof exports?module.exports=t():e.svg4everybody=t()}(this,function(){function e(e,t){if(t){var n=document.createDocumentFragment(),i=!e.getAttribute("viewBox")&&t.getAttribute("viewBox");i&&e.setAttribute("viewBox",i);for(var r=t.cloneNode(!0);r.childNodes.length;)n.appendChild(r.firstChild);e.appendChild(n)}}function t(t){t.onreadystatechange=function(){if(4===t.readyState){var n=t._cachedDocument;n||(n=t._cachedDocument=document.implementation.createHTMLDocument(""),n.body.innerHTML=t.responseText,t._cachedTarget={}),t._embeds.splice(0).map(function(i){var r=t._cachedTarget[i.id];r||(r=t._cachedTarget[i.id]=n.getElementById(i.id)),e(i.svg,r)})}},t.onreadystatechange()}function n(n){function i(){for(var n=0;n<h.length;){var d=h[n],s=d.parentNode;if(s&&/svg/i.test(s.nodeName)){var u=d.getAttribute("xlink:href")||d.getAttribute("href");if(r){var l=document.createElement("img");l.style.cssText="display:inline-block;",l.setAttribute("width",s.getAttribute("width")||s.clientWidth),l.setAttribute("height",s.getAttribute("height")||s.clientHeight),l.src=a(u,s,d),s.replaceChild(l,d)}else if(c&&(!o.validate||o.validate(u,s,d))){s.removeChild(d);var v=u.split("#"),b=v.shift(),f=v.join("#");if(b.length){var p=g[b];p||(p=g[b]=new XMLHttpRequest,p.open("GET",b),p.send(),p._embeds=[]),p._embeds.push({svg:s,id:f}),t(p)}else e(s,document.getElementById(f))}}else++n}m(i,67)}var r,a,o=Object(n);a=o.fallback||function(e){return e.replace(/\?[^#]+/,"").replace("#",".").replace(/^\./,"")+".png"+(/\?[^#]+/.exec(e)||[""])[0]},r="nosvg"in o?o.nosvg:/\bMSIE [1-8]\b/.test(navigator.userAgent),r&&(document.createElement("svg"),document.createElement("use"));var c,d=/\bMSIE [1-8]\.0\b/,s=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,u=/\bAppleWebKit\/(\d+)\b/,l=/\bEdge\/12\.(\d+)\b/;c="polyfill"in o?o.polyfill:d.test(navigator.userAgent)||s.test(navigator.userAgent)||(navigator.userAgent.match(l)||[])[1]<10547||(navigator.userAgent.match(u)||[])[1]<537;var g={},m=window.requestAnimationFrame||setTimeout,h=document.getElementsByTagName("use");c&&i()}return n});
     /* endinject */
-    svg4everybody({
-      polyfill: true,
-      fallback: function (src, svg, use) {
-        // src: current xlink:href String 
-        // svg: current SVG Element 
-        // use: current USE Element 
-
-       var path = use.getAttribute('data-fallback');
-       if (path) {
-         return 'assets/svg/fallback/' + path + '.png';
-       } else {
-         return src.replace('sprites.svg#', 'fallback/') + '.png';
-       }
-      }
-    });
-    
-    /* modernizr:js */
-    /* endinject */
+    svg4everybody({ polyfill: true, fallback: false });
   </script>
 </head>
 <body>

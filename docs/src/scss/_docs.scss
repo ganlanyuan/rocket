@@ -1,12 +1,17 @@
-pre[class*="language-"] { margin: 0; }
+pre[class*="language-"] { 
+  margin: 0; 
+  overflow: hidden;
+}
 pre > code[class*="language-"] {
   margin: 0 0 -1em 0;
   display: block;
+  overflow: auto;
 }
 .docs-wrapper {
   main {
-    h2, h4, p { 
-      @include container(770px); 
+    h2, h4, p, .code-wrapper { 
+      @include container(1600px left); 
+      @include bp(min 700) { padding-left: ($nav-toggle-width + 20px); }
       margin-bottom: 20px;
     }
     > ul > li { padding: 20px 0; }
@@ -14,6 +19,9 @@ pre > code[class*="language-"] {
       font-style: italic;
       color: $blue;
     }
+    h2 { @include type(32px uppercase); }
+    h4 { @include type(22px); }
+    p { max-width: 46em; }
     a { 
       color: darken($lightblue, 30); 
       text-decoration: underline;
@@ -24,20 +32,30 @@ pre > code[class*="language-"] {
 }
 .docs-nav {
   position: fixed;
-  left: -16em;
+  left: - $nav-width;
   top: 0;
   bottom: 0;
-  width: 16em;
+  z-index: $zi-docs-nav;
+  width: $nav-width;
+  transition: transform 0.25s;
+  &.expanded { 
+    transform: translateX($nav-width);
+    .docs-nav__content {
+      box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
+    }
+    .docs-nav__toggle svg { transform: rotate(180deg); }
+  }
   &__toggle {
     position: absolute;
-    top: 8em;
-    right: -3.5em;
-    width: 3.5em;
+    bottom: 4em;
+    right: -$nav-toggle-width;
+    width: $nav-toggle-width;
     text-align: center;
     border: none;
-    background-color: $blue;
-    padding: 0.5em 0;
+    background-color: rgba($blue, 0.85);
+    padding: 0.8em 0;
     cursor: pointer;
+    border-radius: 0;
     > svg { margin: 0 auto; }
   }
   &__content {
@@ -51,7 +69,6 @@ pre > code[class*="language-"] {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #fff;
-    box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
     ul {
       margin-bottom: 3em;
     }
@@ -65,13 +82,13 @@ pre > code[class*="language-"] {
     a {
       display: block;
       padding-left: 3em;
+      transition: background-color 0.25s;
       &:hover { background-color: $lightgray; }
     }
     .active a { background-color: $lightblue; }
   }
 }
 .code-wrapper { 
-  @include container(); 
   header {
     line-height: 2;
     padding: 0 1em;
@@ -85,8 +102,12 @@ pre > code[class*="language-"] {
   }
   ul {
     @extend %clearfix;
-    @include at-least('li' 2) { width: calc(100% / 2); }
-    @include at-least('li' 3) { width: calc(100% / 3); }
     background-color: #f5f2f0;
+    @include bp(min 1024) {
+      @include at-least('li' 2) { width: calc(100% / 2); }
+    }
+    @include bp(min 1300) {
+      @include at-least('li' 3) { width: calc(100% / 3); }
+    }
   }
 }

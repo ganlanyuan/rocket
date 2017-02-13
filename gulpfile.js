@@ -194,7 +194,7 @@ gulp.task('watch', function () {
   gulp.watch(PATHS.src_docs + 'scss/**/*.scss', ['sass-docs']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);
-  gulp.watch('**/*.html').on('change', browserSync.reload);
+  gulp.watch(['**/*.html', 'docs/assets/js/*.js']).on('change', browserSync.reload);
 });
 
 // Default Task

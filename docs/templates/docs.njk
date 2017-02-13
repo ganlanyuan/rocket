@@ -32,13 +32,16 @@
     <ul>
       
       {% for title, subObj in sub %}
-      <li>
+      <li id="{{ title }}">
         <h4>{{ title | capitalize }}</h4>
 
         {% for tag, content in subObj %}
 
           {% if tag === 'p' %}
-          <p>{{ content | replace('^', '<code class="language-html">') | replace('$', '</code>') | urlize | safe }}</p>
+            {% for p in content %}
+              <p>{{ p | replace('^', '<code class="language-html">') | replace('$', '</code>') | urlize | nl2br | safe }}</p>
+            {% endfor %}
+
           {% elif tag === 'capability' %}
           <p class="browser-capability">{{ content }}</p>
           {% elif tag === 'bold' %}
@@ -69,6 +72,7 @@
             
             </ul>
           </div>
+          {% else %}
           {% endif %}
 
         {% endfor %}

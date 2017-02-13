@@ -12,7 +12,9 @@
   "docs": {
     "Layout": {
       "container": {
-        "p": "The container of the main content. It can be center, left or right aligned.",
+        "p": [
+          "The container of the main content. It can be center, left or right aligned."
+        ],
         "capability": "IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
           "@mixin container($container (gutter $gutter) $align)"
@@ -86,7 +88,9 @@
         }
       },
       "liquid-2": {
-        "p": "^liquid-2$ is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.",
+        "p": [
+          "^liquid-2$ is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout."
+        ],
         "capability": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
           "@mixin liquid-2($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL)",
@@ -112,7 +116,9 @@
         }
       },
       "liquid-3": {
-        "p": "^liquid-3$ is for creating a holy-grail layout: a fluid column with 2 fixed columns.",
+        "p": [
+          "^liquid-3$ is for creating a holy-grail layout: a fluid column with 2 fixed columns."
+        ],
         "capability": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
           "@mixin liquid-3($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL)",
@@ -139,7 +145,9 @@
         }
       },
       "gallery": {
-        "p": "^gallery$ is for creating picture galleries.",
+        "p": [
+          "^gallery$ is for creating picture galleries."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+",
         "syntax": [
           "@mixin gallery(($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep);",
@@ -182,7 +190,9 @@
         }
       },
       "masonry": {
-        "p": "^masonry$ is for creating masonry layouts with pure css.",
+        "p": [
+          "^masonry$ is for creating masonry layouts with pure css."
+        ],
         "capability": "IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+",
         "syntax": [
           "@mixin masonry(($map / $count) (gutter $gutter) (child $child) $breakpoints $condition);",
@@ -240,7 +250,9 @@
         }
       },
       "metro": {
-        "p": "^metro$ is for creating block layout inspired by Windows 8. Use nested ^metro$ to make complex layout.",
+        "p": [
+          "^metro$ is for creating block layout inspired by Windows 8. Use nested ^metro$ to make complex layout."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin metro($map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)"
@@ -321,7 +333,9 @@
         }
       },
       "angled-edges": {
-        "p": "Create ^angled-edges$ layout. ^background$ could be image, gradient or pure color, but the background of sibling elements must be pure color.",
+        "p": [
+          "Create ^angled-edges$ layout. ^background$ could be image, gradient or pure color, but the background of sibling elements must be pure color."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+",
         "syntax": [
           "@mixin angled-edges($edges $angle $edge-color flip);",
@@ -341,7 +355,9 @@
         }
       },
       "sticky-footer": {
-        "p": "Create ^sticky-footer$ to prevent layout collapse when content is less, e.g. 404 page.",
+        "p": [
+          "Create ^sticky-footer$ to prevent layout collapse when content is less, e.g. 404 page."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin sticky-footer($main);"
@@ -360,7 +376,9 @@
         }
       },
       "justify": {
-        "p": "^justify$ is for creating ^justify$ layout.",
+        "p": [
+          "^justify$ is for creating ^justify$ layout."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin justify((child $child));"
@@ -381,7 +399,9 @@
         }
       },
       "center": {
-        "p": "^center$ is for creating both horizontal and vertical center aligned layout.",
+        "p": [
+          "^center$ is for creating both horizontal and vertical center aligned layout."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin center($child)"
@@ -401,7 +421,9 @@
     },
     "Components": {
       "charts": {
-        "p": "Pure css responsive charts. Currently only include ^bar$ and ^column$, more types will be added soon.",
+        "p": [
+          "Pure css responsive charts. Currently only include ^bar$ and ^column$, more types will be added soon."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin charts(($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))"
@@ -474,8 +496,10 @@
         }
       },
       "responsive-table": {
-        "p": "Solutions for display a complex data table on small screen.",
-        "p": "Referance: \t http://dbushell.com/2012/01/05/responsive-tables-2/, https://github.com/nadangergeo/RWD-Table-Patterns",
+        "p": [
+          "Solutions for display a complex data table on small screen.",
+        "Referance: \n http://dbushell.com/2012/01/05/responsive-tables-2/, \n https://github.com/nadangergeo/RWD-Table-Patterns"
+        ],
         "capability": "Flip-scroll: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "capability": "Scroll: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "capability": "Toggle: IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
@@ -566,7 +590,9 @@
         }
       },
       "off-canvas": {
-        "p": "Pure css off-canvas with multiple modes.",
+        "p": [
+          "Pure css off-canvas with multiple modes."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": [
           "@mixin off-canvas($mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration)"
@@ -667,8 +693,10 @@
         }
       },
       "validation": {
-        "p": "Html5 form validation using [H5F](https://github.com/ryanseddon/H5F). We already include H5F in ^kit.js$ (with a little bit modification), so you don't need download it again.",
-        "p": "Set your customized alerts information through ^<div data-info=\"\"></div>$.",
+        "p": [
+          "Html5 form validation using H5F https://github.com/ryanseddon/H5F. We already include H5F in ^kit.js$ (with a little bit modification), so you don't need download it again.",
+          "Set your customized alerts information through ^&lt;div data-info=\"\"&gt;&lt;/div&gt;$."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin validation($style $direction $shake $speed $duration default)",
@@ -741,7 +769,9 @@
         }
       },
       "parallelogram": {
-        "p": "Create parallelogram style.",
+        "p": [
+          "Create parallelogram style."
+        ],
         "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin parallelogram($background $angle);"
@@ -758,7 +788,9 @@
         }
       },
       "drop-shadows": {
-        "p": "Thanks Nicolas Gallagher http://nicolasgallagher.com/css-drop-shadows-without-images/ for the idea.",
+        "p": [
+          "Thanks Nicolas Gallagher http://nicolasgallagher.com/css-drop-shadows-without-images/ for the idea."
+        ],
         "capability": "IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": [
           "@mixin drop-shadows($style $direction $color $shadow-size);",
@@ -778,7 +810,9 @@
         }
       },
       "switch": {
-        "p": "Pure css switch.",
+        "p": [
+          "Pure css switch."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": [
           "@mixin switch($style $size $active-color (text $text) (radius | round))",
@@ -802,7 +836,9 @@
         }
       },
       "push-toggle": {
-        "p": "Pure css push toggle.",
+        "p": [
+          "Pure css push toggle."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin push-toggle()"
@@ -835,7 +871,9 @@
         }
       },
       "checkbox": {
-        "p": "Customize radios or checkboxes.",
+        "p": [
+          "Customize radios or checkboxes."
+        ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin checkbox() {",
@@ -868,7 +906,9 @@
         }
       },
       "checkbox-active": {
-        "p": "Radios or checkboxes' active style.",
+        "p": [
+          "Radios or checkboxes' active style."
+        ],
         "syntax": [
           "@mixin checkbox-active() {",
           "  @content;",
@@ -885,7 +925,9 @@
         }
       },
       "input-file": {
-        "p": "Customize ^input[type=\"file\"]$. Thanks Osvaldas Valutis http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ for the idea.",
+        "p": [
+          "Customize ^input[type=\"file\"]$. \n Thanks Osvaldas Valutis http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ for the idea."
+        ],
         "capability": "IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin input-file() {",
@@ -916,7 +958,9 @@
         }
       },
       "tabs": {
-        "p": "Pure css tabs.",
+        "p": [
+          "Pure css tabs."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+",
         "syntax": [
           "@mixin tabs($length $style)"
@@ -956,7 +1000,9 @@
         }
       },
       "tabs-active": {
-        "p": "Set tabs' active styles.",
+        "p": [
+          "Set tabs' active styles."
+        ],
         "syntax": [
           "@mixin tabs-active($length)"
         ],
@@ -972,7 +1018,9 @@
         }
       },
       "tabs-panel-active": {
-        "p": "Set panels' active styles.",
+        "p": [
+          "Set panels' active styles."
+        ],
         "syntax": [
           "@mixin tabs-panel-active($length)"
         ],
@@ -988,7 +1036,9 @@
         }
       },
       "accordion": {
-        "p": "Pure css accordion.",
+        "p": [
+          "Pure css accordion."
+        ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": [
           "@mixin accordion($content $max-height $transition-duration)"
@@ -1043,7 +1093,9 @@
         }
       },
       "tooltip": {
-        "p": "pure css ^tooltip$.",
+        "p": [
+          "pure css ^tooltip$."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin tooltip($direction $color (width $width) (height $height) radius)"
@@ -1062,7 +1114,9 @@
         }
       },
       "Media-list": {
-        "p": "^media-list$ displays a media object (images, video, audio) to the left or right of a block object.",
+        "p": [
+          "^media-list$ displays a media object (images, video, audio) to the left or right of a block object."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin media-list($role $gutter $direction)"
@@ -1119,7 +1173,9 @@
     },
     "Addons": {
       "type": {
-        "p": "^type$ is a shorthand mixin for type.",
+        "p": [
+          "^type$ is a shorthand mixin for type."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)"
@@ -1146,7 +1202,9 @@
         }
       },
       "fluid-type": {
-        "p": "Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec, more on [https://blog.codepen.io/2016/10/31/fluid-type-blogs/].",
+        "p": [
+          "Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec \n More on https://blog.codepen.io/2016/10/31/fluid-type-blogs/."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin fluid-type($properties, $data);",
@@ -1160,8 +1218,10 @@
         }
       },
       "responsive-type (rp-type)": {
-        "p": "Responsive type.",
-        "p": "Everything you can do with ^type$ you can do with ^responsive-type$.",
+        "p": [
+          "Responsive type.",
+          "Everything you can do with ^type$ you can do with ^responsive-type$."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin responsive-type($map, $breakpoints: $bp) // or rp-type();"
@@ -1193,7 +1253,9 @@
         }
       },
       "hide-text": {
-        "p": "Visually hide a text element.",
+        "p": [
+          "Visually hide a text element."
+        ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin hide-text();",
@@ -1212,7 +1274,9 @@
         }
       },
       "opacity": {
-        "p": "Use ^opacity$ to set ^opacity$ property for old IE and modern browsers.",
+        "p": [
+          "Use ^opacity$ to set ^opacity$ property for old IE and modern browsers."
+        ],
         "syntax": [
           "@mixin opacity($opacity)"
         ],
@@ -1223,7 +1287,9 @@
         }
       },
       "ie-rgba": {
-        "p": "^ie-rgba$ is for getting rgba property for IE8.",
+        "p": [
+          "^ie-rgba$ is for getting rgba property for IE8."
+        ],
         "syntax": [
           "@mixin ie-rgba($rgba)"
         ],
@@ -1240,8 +1306,10 @@
         }
       },
       "ro-breakpoint (bp)": {
-        "p": "A shorthand @mixin for breakpoints.",
-        "p": "Use a single breakpoint (e.g. 800) for both ^min$ and ^max$ instead of two (e.g. 799 for ^max$, 800 for ^min$).",
+        "p": [
+          "A shorthand @mixin for breakpoints.",
+          "Use a single breakpoint (e.g. 800) for both ^min$ and ^max$ instead of two (e.g. 799 for ^max$, 800 for ^min$)."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin ro-breakpoint($condition $media-type $media-feature $breakpoints)"
@@ -1316,7 +1384,9 @@
         }
       },
       "visible": {
-        "p": "A shorthand @mixin for hide elements on some parts of viewport.",
+        "p": [
+          "A shorthand @mixin for hide elements on some parts of viewport."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin visible($media-type $breakpoints)"
@@ -1329,7 +1399,9 @@
         }
       },
       "hidden": {
-        "p": "A shorthand @mixin for hide elements on some parts of viewport.",
+        "p": [
+          "A shorthand @mixin for hide elements on some parts of viewport."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin hidden($media-type $breakpoints)"
@@ -1344,7 +1416,9 @@
     },
     "Color Functions": {
       "contrast": {
-        "p": "Get a contrast ^font-color$ based on the ^background-color$.",
+        "p": [
+          "Get a contrast ^font-color$ based on the ^background-color$."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin contrast($color (light $light) (dark $dark));"
@@ -1359,7 +1433,9 @@
         }
       },
       "adjacent": {
-        "p": "^adjacent$ is for creating adjacent colors.",
+        "p": [
+          "^adjacent$ is for creating adjacent colors."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
@@ -1376,7 +1452,9 @@
         }
       },
       "complementary": {
-        "p": "^complementary$ is for getting a complementary color.",
+        "p": [
+          "^complementary$ is for getting a complementary color."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))"
@@ -1390,7 +1468,9 @@
         }
       },
       "split-complementary": {
-        "p": "^split-complementary$ is for getting split-complementary colors based on a given color.",
+        "p": [
+          "^split-complementary$ is for getting split-complementary colors based on a given color."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist));"
@@ -1404,7 +1484,9 @@
         }
       },
       "triad": {
-        "p": "^triad$ is for getting triad colors based on a given color.",
+        "p": [
+          "^triad$ is for getting triad colors based on a given color."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
@@ -1418,7 +1500,9 @@
         }
       },
       "rectangle": {
-        "p": "^rectangle$ is for getting rectangle colors based on a given color.",
+        "p": [
+          "^rectangle$ is for getting rectangle colors based on a given color."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
@@ -1433,7 +1517,9 @@
         }
       },
       "square": {
-        "p": "^square$ is for getting square colors based on a given color.",
+        "p": [
+          "^square$ is for getting square colors based on a given color."
+        ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"

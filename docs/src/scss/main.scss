@@ -1,9 +1,14 @@
 @import 'reset';
+@import 'normalize';
+@import 'prism';
 @import '../../../src/scss/rocket';
 $ro-layout: (
   'container': 1200px,
   'gutter': 30px,
 );
+
+// z-index
+$zi-docs-nav: 10;
 
 // colors
 $black: #222;
@@ -15,6 +20,9 @@ $lightgray: #F7F7F7;
 $border: 1px solid #ccc;
 $section-gap: calc(3% + 10px);
 $get-started-media-width: 32%;
+
+$nav-width: 240px;
+$nav-toggle-width: 45px;
 
 // utilities
 .container { @include container(); }

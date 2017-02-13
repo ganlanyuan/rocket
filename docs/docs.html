@@ -14,8 +14,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script type="text/javascript" src="assets/js/prism.js">
     </script>
@@ -23,24 +21,7 @@
     /* svg4everybody:js */
     !function(e,t){"function"==typeof define&&define.amd?define([],function(){return e.svg4everybody=t()}):"object"==typeof exports?module.exports=t():e.svg4everybody=t()}(this,function(){function e(e,t){if(t){var n=document.createDocumentFragment(),i=!e.getAttribute("viewBox")&&t.getAttribute("viewBox");i&&e.setAttribute("viewBox",i);for(var r=t.cloneNode(!0);r.childNodes.length;)n.appendChild(r.firstChild);e.appendChild(n)}}function t(t){t.onreadystatechange=function(){if(4===t.readyState){var n=t._cachedDocument;n||(n=t._cachedDocument=document.implementation.createHTMLDocument(""),n.body.innerHTML=t.responseText,t._cachedTarget={}),t._embeds.splice(0).map(function(i){var r=t._cachedTarget[i.id];r||(r=t._cachedTarget[i.id]=n.getElementById(i.id)),e(i.svg,r)})}},t.onreadystatechange()}function n(n){function i(){for(var n=0;n<h.length;){var d=h[n],s=d.parentNode;if(s&&/svg/i.test(s.nodeName)){var u=d.getAttribute("xlink:href")||d.getAttribute("href");if(r){var l=document.createElement("img");l.style.cssText="display:inline-block;",l.setAttribute("width",s.getAttribute("width")||s.clientWidth),l.setAttribute("height",s.getAttribute("height")||s.clientHeight),l.src=a(u,s,d),s.replaceChild(l,d)}else if(c&&(!o.validate||o.validate(u,s,d))){s.removeChild(d);var v=u.split("#"),b=v.shift(),f=v.join("#");if(b.length){var p=g[b];p||(p=g[b]=new XMLHttpRequest,p.open("GET",b),p.send(),p._embeds=[]),p._embeds.push({svg:s,id:f}),t(p)}else e(s,document.getElementById(f))}}else++n}m(i,67)}var r,a,o=Object(n);a=o.fallback||function(e){return e.replace(/\?[^#]+/,"").replace("#",".").replace(/^\./,"")+".png"+(/\?[^#]+/.exec(e)||[""])[0]},r="nosvg"in o?o.nosvg:/\bMSIE [1-8]\b/.test(navigator.userAgent),r&&(document.createElement("svg"),document.createElement("use"));var c,d=/\bMSIE [1-8]\.0\b/,s=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,u=/\bAppleWebKit\/(\d+)\b/,l=/\bEdge\/12\.(\d+)\b/;c="polyfill"in o?o.polyfill:d.test(navigator.userAgent)||s.test(navigator.userAgent)||(navigator.userAgent.match(l)||[])[1]<10547||(navigator.userAgent.match(u)||[])[1]<537;var g={},m=window.requestAnimationFrame||setTimeout,h=document.getElementsByTagName("use");c&&i()}return n});
     /* endinject */
-    svg4everybody({
-      polyfill: true,
-      fallback: function (src, svg, use) {
-        // src: current xlink:href String 
-        // svg: current SVG Element 
-        // use: current USE Element 
-
-       var path = use.getAttribute('data-fallback');
-       if (path) {
-         return 'assets/svg/fallback/' + path + '.png';
-       } else {
-         return src.replace('sprites.svg#', 'fallback/') + '.png';
-       }
-      }
-    });
-
-    /* modernizr:js */
-    /* endinject */
+    svg4everybody({ polyfill: true, fallback: false });
     </script>
   </head>
   <body>
@@ -255,7 +236,7 @@
           Layout
         </h2>
         <ul>
-          <li>
+          <li id="container">
             <h4>
               Container
             </h4>
@@ -307,7 +288,7 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li id="grid">
             <h4>
               Grid
             </h4>
@@ -381,7 +362,7 @@ $main: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="liquid-2">
             <h4>
               Liquid-2
             </h4>
@@ -434,7 +415,7 @@ $main: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="liquid-3">
             <h4>
               Liquid-3
             </h4>
@@ -488,7 +469,7 @@ $main: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="gallery">
             <h4>
               Gallery
             </h4>
@@ -558,7 +539,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="masonry">
             <h4>
               Masonry
             </h4>
@@ -643,7 +624,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="metro">
             <h4>
               Metro
             </h4>
@@ -697,7 +678,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="diamond">
             <h4>
               Diamond
             </h4>
@@ -776,7 +757,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="angled-edges">
             <h4>
               Angled-edges
             </h4>
@@ -823,7 +804,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="sticky-footer">
             <h4>
               Sticky-footer
             </h4>
@@ -869,7 +850,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="justify">
             <h4>
               Justify
             </h4>
@@ -917,7 +898,7 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="center">
             <h4>
               Center
             </h4>
@@ -967,7 +948,7 @@ $map: (
           Components
         </h2>
         <ul>
-          <li>
+          <li id="charts">
             <h4>
               Charts
             </h4>
@@ -1067,12 +1048,17 @@ $data2: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="responsive-table">
             <h4>
               Responsive-table
             </h4>
             <p>
-              Referance: <a href="http://dbushell.com/2012/01/05/responsive-tables-2/">http://dbushell.com/2012/01/05/responsive-tables-2/</a> <a href="https://github.com/nadangergeo/RWD-Table-Patterns">https://github.com/nadangergeo/RWD-Table-Patterns</a>
+              Solutions for display a complex data table on small screen.
+            </p>
+            <p>
+              Referance:<br>
+              <a href="http://dbushell.com/2012/01/05/responsive-tables-2/">http://dbushell.com/2012/01/05/responsive-tables-2/</a><br>
+              <a href="https://github.com/nadangergeo/RWD-Table-Patterns">https://github.com/nadangergeo/RWD-Table-Patterns</a>
             </p>
             <p class="browser-capability">
               Stack: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -1182,7 +1168,7 @@ $data2: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="off-canvas">
             <h4>
               Off-canvas
             </h4>
@@ -1310,17 +1296,16 @@ $map: (
               </ul>
             </div>
           </li>
-          <li>
+          <li id="validation">
             <h4>
               Validation
             </h4>
             <p>
-              Set your customized alerts information through <code class="language-html"></code>
+              Html5 form validation using H5F <a href="https://github.com/ryanseddon/H5F">https://github.com/ryanseddon/H5F</a> We already include H5F in <code class="language-html">kit.js</code> (with a little bit modification), so you don't need download it again.
             </p>
-            <div data-info="">
-              <code class="language-html"></code>
-            </div>.
-            <p></p>
+            <p>
+              Set your customized alerts information through <code class="language-html">&lt;div data-info=""&gt;&lt;/div&gt;</code>.
+            </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
@@ -1387,7 +1372,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="button">
             <h4>
               Button
             </h4>
@@ -1445,7 +1430,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="parallelogram">
             <h4>
               Parallelogram
             </h4>
@@ -1489,7 +1474,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="drop-shadows">
             <h4>
               Drop-shadows
             </h4>
@@ -1536,7 +1521,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="switch">
             <h4>
               Switch
             </h4>
@@ -1587,7 +1572,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="push-toggle">
             <h4>
               Push-toggle
             </h4>
@@ -1647,7 +1632,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="checkbox">
             <h4>
               Checkbox
             </h4>
@@ -1707,7 +1692,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="checkbox-active">
             <h4>
               Checkbox-active
             </h4>
@@ -1743,12 +1728,13 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="input-file">
             <h4>
               Input-file
             </h4>
             <p>
-              Customize <code class="language-html">input[type="file"]</code>. Thanks Osvaldas Valutis <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a> for the idea.
+              Customize <code class="language-html">input[type="file"]</code>.<br>
+              Thanks Osvaldas Valutis <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a> for the idea.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+
@@ -1807,7 +1793,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="tabs">
             <h4>
               Tabs
             </h4>
@@ -1874,7 +1860,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="tabs-active">
             <h4>
               Tabs-active
             </h4>
@@ -1909,7 +1895,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="tabs-panel-active">
             <h4>
               Tabs-panel-active
             </h4>
@@ -1944,7 +1930,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="accordion">
             <h4>
               Accordion
             </h4>
@@ -1995,7 +1981,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="dropdown">
             <h4>
               Dropdown
             </h4>
@@ -2051,7 +2037,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="tooltip">
             <h4>
               Tooltip
             </h4>
@@ -2097,7 +2083,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="Media-list">
             <h4>
               Media-list
             </h4>
@@ -2157,7 +2143,7 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="flex media">
             <h4>
               Flex media
             </h4>
@@ -2209,7 +2195,7 @@ window.onload = function () {
           Addons
         </h2>
         <ul>
-          <li>
+          <li id="type">
             <h4>
               Type
             </h4>
@@ -2257,12 +2243,13 @@ window.onload = function () {
               </ul>
             </div>
           </li>
-          <li>
+          <li id="fluid-type">
             <h4>
               Fluid-type
             </h4>
             <p>
-              Stolen from <a href="http://www.sassmeister.com/gist/7f22e44ace49b5124eec">http://www.sassmeister.com/gist/7f22e44ace49b5124eec</a> more on [https://blog.codepen.io/2016/10/31/fluid-type-blogs/].
+              Stolen from <a href="http://www.sassmeister.com/gist/7f22e44ace49b5124eec">http://www.sassmeister.com/gist/7f22e44ace49b5124eec</a><br>
+              More on <a href="https://blog.codepen.io/2016/10/31/fluid-type-blogs/">https://blog.codepen.io/2016/10/31/fluid-type-blogs/</a>
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -2292,10 +2279,13 @@ $data: a map with two pairs of viewwidth and value
               </ul>
             </div>
           </li>
-          <li>
+          <li id="responsive-type (rp-type)">
             <h4>
               Responsive-type (rp-type)
             </h4>
+            <p>
+              Responsive type.
+            </p>
             <p>
               Everything you can do with <code class="language-html">type</code> you can do with <code class="language-html">responsive-type</code>.
             </p>
@@ -2345,7 +2335,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="hide-text">
             <h4>
               Hide-text
             </h4>
@@ -2391,7 +2381,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="opacity">
             <h4>
               Opacity
             </h4>
@@ -2421,7 +2411,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="ie-rgba">
             <h4>
               Ie-rgba
             </h4>
@@ -2457,10 +2447,13 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="ro-breakpoint (bp)">
             <h4>
               Ro-breakpoint (bp)
             </h4>
+            <p>
+              A shorthand @mixin for breakpoints.
+            </p>
             <p>
               Use a single breakpoint (e.g. 800) for both <code class="language-html">min</code> and <code class="language-html">max</code> instead of two (e.g. 799 for <code class="language-html">max</code>, 800 for <code class="language-html">min</code>).
             </p>
@@ -2497,7 +2490,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="at-least">
             <h4>
               At-least
             </h4>
@@ -2528,7 +2521,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="at-most">
             <h4>
               At-most
             </h4>
@@ -2559,7 +2552,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="equal-to">
             <h4>
               Equal-to
             </h4>
@@ -2590,7 +2583,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="between">
             <h4>
               Between
             </h4>
@@ -2621,7 +2614,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="visible">
             <h4>
               Visible
             </h4>
@@ -2655,7 +2648,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="hidden">
             <h4>
               Hidden
             </h4>
@@ -2694,7 +2687,7 @@ p { @include rp-type($p-font-sizes $bp); }
           Color functions
         </h2>
         <ul>
-          <li>
+          <li id="contrast">
             <h4>
               Contrast
             </h4>
@@ -2730,7 +2723,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="adjacent">
             <h4>
               Adjacent
             </h4>
@@ -2768,7 +2761,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="complementary">
             <h4>
               Complementary
             </h4>
@@ -2803,7 +2796,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="split-complementary">
             <h4>
               Split-complementary
             </h4>
@@ -2838,7 +2831,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="triad">
             <h4>
               Triad
             </h4>
@@ -2873,7 +2866,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="rectangle">
             <h4>
               Rectangle
             </h4>
@@ -2909,7 +2902,7 @@ p { @include rp-type($p-font-sizes $bp); }
               </ul>
             </div>
           </li>
-          <li>
+          <li id="square">
             <h4>
               Square
             </h4>
