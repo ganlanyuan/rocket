@@ -5,7 +5,7 @@
 {# Intro #}
 <section class="intro section">
   <div class="container">
-    <p><strong>Rocket is a powerful SASS framework to help web developers handle layout and build components easily.</strong></p>
+    <p><strong>Rocket is a powerful Sass framework to help web developers handle layout and build components easily.</strong></p>
   </div>
 </section>
 
@@ -53,23 +53,32 @@
       <li>
         <div class="media"><img src="assets/img/download-tools.png" alt="download tools"></div>
         <div class="media-body">
-          <h4>Download and import Rocket in your sass file</h4>
-          <p>You could download rocket via npm, bower or manually download it by click the “Clone or download” button on the github page, then click the “Download ZIP” button.</p>
-          <p>Use “@import ‘path/to/rocket.scss’;” to import Rocket into your sass file. More details about Sass import function, please visit http://sass-lang.com/guide#topic-5.</p>
+          <h4>Download Rocket</h4>
+          <p>Download <code class="language-">Rocket</code> via npm, bower or download the source files directly from the <a href="https://github.com/ganlanyuan/rocket" target="_blank">github page</a>.</p>
         </div>
       </li>
       <li>
-        <div class="media"><img src="assets/img/download-tools.png" alt="download tools"></div>
+        <div class="media">
+          <div class="code-wrapper">
+            <header>scss</header>
+<pre><code class="language-scss">@import "path/to/rocket.scss";
+
+.wrapper {
+  @include grid(3 7);
+}</code></pre>
+          </div>
+        </div>
         <div class="media-body">
-          <h4>Start using Rocket Mixins and Functions</h4>
-          <p>After import rocket into your sass file, you can now use all the mixins and functions. View them now on Docs page.</p>
+          <h4>Import Rocket and Start using Rocket Mixins and Functions</h4>
+          <p>Use <code class="language-scss">@import ‘path/to/rocket.scss’;</code> to import Rocket into your sass file. More details about Sass import, visit <a href="http://sass-lang.com/guide#topic-5" target="_blank">http://sass-lang.com/guide#topic-5</a>.</p>
+          <p>You can now use all the <a href="docs.html">mixins and functions</a>.</p>
         </div>
       </li>
       <li>
         <div class="media"><img src="assets/img/compile-tools.png" alt="download tools"></div>
         <div class="media-body">
-          <h4>Compile it to css</h4>
-          <p>You could use one of the tools listed on the Sass website “install” page, Command line tool or a Task runner (recommended, e.g. Gulp, Grunt) to compile your sass files to css files.</p>
+          <h4>Compile sass to css</h4>
+          <p>Use one of <a href="http://sass-lang.com/install" target="_blank">these tools</a> or a Task runner to compile your sass files to css files.</p>
         </div>
       </li>
     </ol>

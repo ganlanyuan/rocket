@@ -22,12 +22,6 @@ pre > code[class*="language-"] {
     h2 { @include type(32px uppercase); }
     h4 { @include type(22px); }
     p { max-width: 46em; }
-    a { 
-      color: darken($lightblue, 30); 
-      text-decoration: underline;
-      transition: color 0.25s;
-      &:hover { color: $lightblue; }
-    }
   }
 }
 .docs-nav {
@@ -52,8 +46,8 @@ pre > code[class*="language-"] {
     width: $nav-toggle-width;
     text-align: center;
     border: none;
-    background-color: rgba($blue, 0.85);
-    padding: 0.8em 0;
+    background-color: $black;
+    padding: 0.5em 0;
     cursor: pointer;
     border-radius: 0;
     > svg { margin: 0 auto; }

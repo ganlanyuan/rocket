@@ -75,7 +75,7 @@
 
   {# video #}
   {% if pagename === 'home' %}
-  <div class="video">
+  <div class="video" style="padding-bottom: 56.25%;">
   </div>
   {% endif %}
 
@@ -91,7 +91,7 @@
     <p class="copyright">Rocket is licensed MIT.</p>
     <ul class="site-footer__links">
       {% for title, link in footerNav %}
-      <li><a href="{{ link }}" target="_blank">{{ title }}</a></li>
+      <li><a href="{{ link }}" target="_blank">{{ title | capitalize }}</a></li>
       {% endfor %}
     </ul>
   </div>

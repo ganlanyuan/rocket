@@ -1421,7 +1421,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin contrast($color (light $light) (dark $dark));"
+          "@function contrast($color (light $light) (dark $dark));"
         ],
         "code": {
           "scss": [
@@ -1438,7 +1438,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
         "code": {
           "scss": [
@@ -1457,7 +1457,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
         "code": {
           "scss": [
@@ -1473,7 +1473,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist));"
+          "@function split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist));"
         ],
         "code": {
           "scss": [
@@ -1489,7 +1489,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
         "code": {
           "scss": [
@@ -1505,7 +1505,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
         "code": {
           "scss": [
@@ -1522,7 +1522,7 @@
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
         "code": {
           "scss": [
