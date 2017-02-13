@@ -1,3 +1,8 @@
+pre[class*="language-"] { margin: 0; }
+pre > code[class*="language-"] {
+  margin: 0 0 -1em 0;
+  display: block;
+}
 .docs-wrapper {
   main {
     h2, h4, p { 
@@ -5,6 +10,16 @@
       margin-bottom: 20px;
     }
     > ul > li { padding: 20px 0; }
+    .browser-capability {
+      font-style: italic;
+      color: $blue;
+    }
+    a { 
+      color: darken($lightblue, 30); 
+      text-decoration: underline;
+      transition: color 0.25s;
+      &:hover { color: $lightblue; }
+    }
   }
 }
 .docs-nav {
@@ -62,6 +77,7 @@
     padding: 0 1em;
     color: #fff;
     background-color: $black;
+    span { color: $lightblue; }
   }
   li {
     width: 100%;

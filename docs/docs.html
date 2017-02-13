@@ -262,9 +262,18 @@
             <p>
               The container of the main content. It can be center, left or right aligned.
             </p>
-            <p>
-              <small>IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</small>
+            <p class="browser-capability">
+              IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin container($container (gutter $gutter) $align)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -283,11 +292,7 @@
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin container($key)
-// pattern
-$key: $container (gutter $gutter) $align
-
-.container { @include container(); }
+<code class="language-scss">.container { @include container(); }
 // container: 1024px;
 // gutter: 20px; (default)
 // align: center; (default)
@@ -306,9 +311,21 @@ $key: $container (gutter $gutter) $align
             <h4>
               Grid
             </h4>
-            <p>
-              <small>IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin grid($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -329,14 +346,7 @@ $key: $container (gutter $gutter) $align
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin grid($key)
-// pattern
-$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep;
-// $condition: 'min' or 'max'
-// $media-type: screen, print, tv
-// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
-
-.row { @include grid( (3 7 4) ); }
+<code class="language-scss">.row { @include grid( (3 7 4) ); }
 // 1st child: 3 columns;
 // 2nd child: 7 columns;
 // 3rd child: 4 columns;
@@ -376,11 +386,23 @@ $main: (
               Liquid-2
             </h4>
             <p>
-              `liquid-2` is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.
+              <code class="language-html">liquid-2</code> is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout.
             </p>
-            <p>
-              <small>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin liquid-2($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL)
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -400,14 +422,7 @@ $main: (
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin liquid-2($key)
-// pattern
-$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL;
-// $condition: 'min' or 'max'
-// $media-type: screen, print, tv
-// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
- 
-.wrapper { @include liquid-2( ('auto' 200px) ); }
+<code class="language-scss">.wrapper { @include liquid-2( ('auto' 200px) ); }
 // 1st column: fluid;
 // 2nd column: 200px;
  
@@ -424,11 +439,23 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
               Liquid-3
             </h4>
             <p>
-              `liquid-3` is for creating a holy-grail layout: a fluid column with 2 fixed columns.
+              <code class="language-html">liquid-3</code> is for creating a holy-grail layout: a fluid column with 2 fixed columns.
             </p>
-            <p>
-              <small>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin liquid-3($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL)
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -448,14 +475,7 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin liquid-3($key)
-// pattern
-$key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL;
-// $condition: 'min' or 'max'
-// $media-type: screen, print, tv
-// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
- 
-.wrapper { @include liquid-3( (150px 'auto' 200px) ); }
+<code class="language-scss">.wrapper { @include liquid-3( (150px 'auto' 200px) ); }
 // 1st column: 150px;
 // 2nd column: fluid;
 // 3rd column: 200px;
@@ -473,11 +493,23 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
               Gallery
             </h4>
             <p>
-              `gallery` is for creating picture galleries.
+              <code class="language-html">gallery</code> is for creating picture galleries.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin gallery(($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep);
+// $condition: 'min' or 'max'
+// $media-type: screen, print, tv
+// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -500,14 +532,7 @@ $key: $list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin gallery($key);
-//pattern
-$key: ($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep;
-// $condition: 'min' or 'max'
-// $media-type: screen, print, tv
-// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
- 
-// *** case 1 *** //
+<code class="language-scss">// *** case 1 *** //
 .gallery { @include gallery(3); }
 // 3 items per row
  
@@ -538,11 +563,23 @@ $map: (
               Masonry
             </h4>
             <p>
-              `masonry` is for creating masonry layouts with pure css.
+              <code class="language-html">masonry</code> is for creating masonry layouts with pure css.
             </p>
-            <p>
-              <small>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+</small>
+            <p class="browser-capability">
+              IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin masonry(($map / $count) (gutter $gutter) (child $child) $breakpoints $condition);
+// $map: ( $breakpoint-1: $count-1, $breakpoint-2: $count-2, ...)
+// $count: num;
+// $condition: 'min' | 'max'
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -565,14 +602,7 @@ $map: (
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin masonry($key);
-//pattern
-$key: ($map / $count) (gutter $gutter) (child $child) $breakpoints $condition;
-// $map: ( $breakpoint-1: $count-1, $breakpoint-2: $count-2, ...)
-// $count: num;
-// $condition: 'min' | 'max'
- 
-// *** case 1 *** //
+<code class="language-scss">// *** case 1 *** //
 .masonry { @include masonry(3); }
 // count: 3;
  
@@ -618,11 +648,20 @@ $map: (
               Metro
             </h4>
             <p>
-              `metro` is for creating block layout inspired by Windows 8. Use nested `metro` to make complex layout.
+              <code class="language-html">metro</code> is for creating block layout inspired by Windows 8. Use nested <code class="language-html">metro</code> to make complex layout.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin metro($map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -645,11 +684,7 @@ $map: (
                     scss
                   </header>
                   <pre>
-<code class="language-scss">//pattern
-@mixin metro($key)
-$key: $map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep
- 
-.main { @include metro(3 1 h2 1 w3 of 3); }
+<code class="language-scss">.main { @include metro(3 1 h2 1 w3 of 3); }
 // 3: 1st child -&gt; 3 blocks width x 3 blocks height
 // 1: 2nd child -&gt; 1 blocks width x 1 blocks height
 // h2: 3rd child -&gt; 1 blocks width x 2 blocks height
@@ -666,9 +701,20 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $conditio
             <h4>
               Diamond
             </h4>
-            <p>
-              <small>IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+</small>
+            <p class="browser-capability">
+              IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin diamond(($count / $size) $shape 'combined' $selector-type 'keep')
+// $shape: 'diamond' | 'octagon'
+// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -719,13 +765,7 @@ $key: $map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $conditio
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin diamond($key)
-//pattern
-$key: ($count / $size) $shape 'combined' $selector-type 'keep';
-// $shape: 'diamond' | 'octagon'
-// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)
- 
-.diamond { @include diamond(5 'combined'); }
+<code class="language-scss">.diamond { @include diamond(5 'combined'); }
 // count: 5 (5 diamonds per row)
  
 .diamond { @include diamond(20%); }
@@ -741,11 +781,21 @@ $key: ($count / $size) $shape 'combined' $selector-type 'keep';
               Angled-edges
             </h4>
             <p>
-              Create `angled-edges` layout. `background` could be image, gradient or pure color, but the background of sibling elements must be pure color.
+              Create <code class="language-html">angled-edges</code> layout. <code class="language-html">background</code> could be image, gradient or pure color, but the background of sibling elements must be pure color.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin angled-edges($edges $angle $edge-color flip);
+// $edges: top | bottom | both
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -764,12 +814,7 @@ $key: ($count / $size) $shape 'combined' $selector-type 'keep';
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin angled-edges($key);
-// pattern
-$key: $edges $angle $edge-color flip;
-// $edges: top | bottom | both
- 
-.main { @include angled-edges("bottom" -5deg); }
+<code class="language-scss">.main { @include angled-edges("bottom" -5deg); }
 // edge: bottom;
 // angle: -5deg;
 </code>
@@ -783,11 +828,20 @@ $key: $edges $angle $edge-color flip;
               Sticky-footer
             </h4>
             <p>
-              Create `sticky-footer` to prevent layout collapse when content is less, e.g. 404 page.
+              Create <code class="language-html">sticky-footer</code> to prevent layout collapse when content is less, e.g. 404 page.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin sticky-footer($main);
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -808,11 +862,7 @@ $key: $edges $angle $edge-color flip;
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin sticky-footer($key);
-// pattern
-$key: $main;
- 
-body { @include sticky-footer('.main'); }
+<code class="language-scss">body { @include sticky-footer('.main'); }
 </code>
 </pre>
                 </li>
@@ -824,11 +874,20 @@ body { @include sticky-footer('.main'); }
               Justify
             </h4>
             <p>
-              `justify` is for creating `justify` layout.
+              <code class="language-html">justify</code> is for creating <code class="language-html">justify</code> layout.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin justify((child $child));
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -851,11 +910,7 @@ body { @include sticky-footer('.main'); }
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin justify($key);
-// pattern
-$key: (child $child)
- 
-.justify { @include justify(); }
+<code class="language-scss">.justify { @include justify(); }
 </code>
 </pre>
                 </li>
@@ -867,11 +922,20 @@ $key: (child $child)
               Center
             </h4>
             <p>
-              `center` is for creating both horizontal and vertical center aligned layout.
+              <code class="language-html">center</code> is for creating both horizontal and vertical center aligned layout.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin center($child)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -890,11 +954,7 @@ $key: (child $child)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin center($key)
-// pattern
-$key: $child 
- 
-.popup { @include center('div'); }
+<code class="language-scss">.popup { @include center('div'); }
 // child: div;
 </code>
 </pre>
@@ -912,11 +972,20 @@ $key: $child
               Charts
             </h4>
             <p>
-              Pure css responsive charts. Currently only include `bar` and `column`, more types will be added soon.
+              Pure css responsive charts. Currently only include <code class="language-html">bar</code> and <code class="language-html">column</code>, more types will be added soon.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin charts(($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -975,11 +1044,7 @@ $key: $child
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin charts($key)
-// pattern
-$key: ($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide)
- 
-$data1: (
+<code class="language-scss">$data1: (
   #5AB5E1: 8.9 10.5 19.3 21.45,
 );
 .charts { @include charts($data1 'bar' 'steps' (2 22) animation (0.6s)); }
@@ -1007,11 +1072,29 @@ $data2: (
               Responsive-table
             </h4>
             <p>
-              Referance: http://dbushell.com/2012/01/05/responsive-tables-2/, https://github.com/nadangergeo/RWD-Table-Patterns
+              Referance: <a href="http://dbushell.com/2012/01/05/responsive-tables-2/">http://dbushell.com/2012/01/05/responsive-tables-2/</a> <a href="https://github.com/nadangergeo/RWD-Table-Patterns">https://github.com/nadangergeo/RWD-Table-Patterns</a>
             </p>
-            <p>
-              <small>Stack: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              Stack: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin responsive-table($mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count)) { // rp-table() for shorthand
+  @content;
+}
+// $mode: 'flip-scroll' 'scroll' 'toggle' 'stack'
+// $data: list, thead content
+// $count: thead &gt; th length
+ 
+// flip-scroll: $breakpoint
+// toggle: $breakpoint and $count
+// stack: $data, $border-color and $th-width
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1059,20 +1142,7 @@ $data2: (
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin responsive-table($key) { // rp-table() for shorthand
-  @content;
-}
-// pattern
-$key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count);
-// $mode: 'flip-scroll' 'scroll' 'toggle' 'stack'
-// $data: list, thead content
-// $count: thead &gt; th length
- 
-// flip-scroll: $breakpoint
-// toggle: $breakpoint and $count
-// stack: $data, $border-color and $th-width
- 
-// flip-scroll
+<code class="language-scss">// flip-scroll
 .table { 
   @include rp-table('flip-scroll' 'bp' 900) {
  border-right-width: 1px;
@@ -1119,9 +1189,18 @@ $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count
             <p>
               Pure css off-canvas with multiple modes.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin off-canvas($mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1198,11 +1277,7 @@ $key: $mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin off-canvas($key)
-// pattern
-$key: $mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration
- 
-// normal
+<code class="language-scss">// normal
 .page { @include off-canvas('slide-in' left 'submenu' '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 // mode: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
 // direction: left; (left | right | top | bottom)
@@ -1240,11 +1315,25 @@ $map: (
               Validation
             </h4>
             <p>
-              Set your customized alerts information through `&lt;div data-info=""&gt;&lt;/div&gt;`.
+              Set your customized alerts information through <code class="language-html"></code>
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <div data-info="">
+              <code class="language-html"></code>
+            </div>.
+            <p></p>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin validation($style $direction $shake $speed $duration default)
+// style: 'normal' | 'fade-in' | 'slide-in'
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1277,12 +1366,7 @@ $map: (
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin validation($key)
-// pattern
-$key: $style $direction $shake $speed $duration default;
-// style: 'normal' | 'fade-in' | 'slide-in'
- 
-.myform { @include validation(slide-in right default); }
+<code class="language-scss">.myform { @include validation(slide-in right default); }
 // style: slide-in;
 // direction: right;
 </code>
@@ -1307,9 +1391,21 @@ window.onload = function () {
             <h4>
               Button
             </h4>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin button($padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function)
+// style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
+// direction: left, right, top, bottom, 'horizontal', 'vertical'
+// active-selector: . | # | [] | :
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1336,14 +1432,7 @@ window.onload = function () {
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin button($key)
-// pattern
-$key: $padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function;
-// style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
-// direction: left, right, top, bottom, 'horizontal', 'vertical'
-// active-selector: . | # | [] | :
- 
-.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
+<code class="language-scss">.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
 // padding: 1em 2em; (padding must be quoted)
 // background-color: #2B8ACF;
 // active-color: #52CFDB;
@@ -1363,9 +1452,18 @@ $key: $padding ($border-radius | round) ($background-color $active-color) $style
             <p>
               Create parallelogram style.
             </p>
-            <p>
-              <small>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin parallelogram($background $angle);
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1382,11 +1480,7 @@ $key: $padding ($border-radius | round) ($background-color $active-color) $style
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin parallelogram($key);
-// pattern
-$key: $background $angle
- 
-.box { @include parallelogram(#61A4DE -30deg); }
+<code class="language-scss">.box { @include parallelogram(#61A4DE -30deg); }
 // $background: #61A4DE; 
 // $angle: -30deg;
 </code>
@@ -1400,11 +1494,22 @@ $key: $background $angle
               Drop-shadows
             </h4>
             <p>
-              Thanks [Nicolas Gallagher](http://nicolasgallagher.com/css-drop-shadows-without-images/) for the idea.
+              Thanks Nicolas Gallagher <a href="http://nicolasgallagher.com/css-drop-shadows-without-images/">http://nicolasgallagher.com/css-drop-shadows-without-images/</a> for the idea.
             </p>
-            <p>
-              <small>IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin drop-shadows($style $direction $color $shadow-size);
+// $style: 'lifted' | 'raised' | 'perspective' | 'curve'
+// $direction: left | right | top | bottom | 'horizontal' | 'vertical'
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1421,13 +1526,7 @@ $key: $background $angle
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin drop-shadows($key);
-// pattern
-$key: $style $direction $color $shadow-size;
-// $style: 'lifted' | 'raised' | 'perspective' | 'curve'
-// $direction: left | right | top | bottom | 'horizontal' | 'vertical'
- 
-.box { @include drop-shadows(curve horizontal 20px); }
+<code class="language-scss">.box { @include drop-shadows(curve horizontal 20px); }
 // $style: 'curve'; 
 // $direction: horizontal;
 // $shadow-size: 20px;
@@ -1444,9 +1543,19 @@ $key: $style $direction $color $shadow-size;
             <p>
               Pure css switch.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin switch($style $size $active-color (text $text) (radius | round))
+// $style: 'toggle' | 'slider'
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1466,12 +1575,7 @@ $key: $style $direction $color $shadow-size;
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin switch($key)
-//pattern
-$key: $style $size $active-color (text $text) (radius | round);
-// $style: 'toggle' | 'slider'
- 
-.switch { @include switch(round text ("on" "off") 36px #399DE1); }
+<code class="language-scss">.switch { @include switch(round text ("on" "off") 36px #399DE1); }
 // style: toggle; (default)
 // text: on off;
 // size: 36px;
@@ -1490,9 +1594,18 @@ $key: $style $size $active-color (text $text) (radius | round);
             <p>
               Pure css push toggle.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin push-toggle()
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1514,9 +1627,7 @@ $key: $style $size $active-color (text $text) (radius | round);
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin push-toggle()
-.your-tab-class { 
- 
+<code class="language-scss">.your-tab-class { 
   // default style
   label {
     padding: 1em 1.5em;
@@ -1543,9 +1654,20 @@ $key: $style $size $active-color (text $text) (radius | round);
             <p>
               Customize radios or checkboxes.
             </p>
-            <p>
-              <small>IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin checkbox() {
+  @content;
+}
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1573,11 +1695,7 @@ $key: $style $size $active-color (text $text) (radius | round);
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin checkbox() {
-  @content;
-}
- 
-.radio {
+<code class="language-scss">.radio {
   @include checkbox() {
  padding: 4px 0 4px 26px;
  background: url('../images/radio.png') 0 50% no-repeat;
@@ -1597,17 +1715,24 @@ $key: $style $size $active-color (text $text) (radius | round);
               Radios or checkboxes' active style.
             </p>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin checkbox-active() {
+  @content;
+}
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin checkbox-active() {
-  @content;
-}
- 
-.radio {
+<code class="language-scss">.radio {
   @include checkbox-active() {
  background-image: url('../images/radio-active.png');
   }
@@ -1623,11 +1748,22 @@ $key: $style $size $active-color (text $text) (radius | round);
               Input-file
             </h4>
             <p>
-              Customize `input[type="file"]`. Thanks [Osvaldas Valutis](http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) for the idea.
+              Customize <code class="language-html">input[type="file"]</code>. Thanks Osvaldas Valutis <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a> for the idea.
             </p>
-            <p>
-              <small>IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin input-file() {
+  @content;
+}
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1647,11 +1783,7 @@ $key: $style $size $active-color (text $text) (radius | round);
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin input-file() {
-  @content;
-}
- 
-.radio {
+<code class="language-scss">.radio {
   @include input-file() {
   // customized style goes here
   }
@@ -1682,9 +1814,18 @@ $key: $style $size $active-color (text $text) (radius | round);
             <p>
               Pure css tabs.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin tabs($length $style)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1724,11 +1865,7 @@ $key: $style $size $active-color (text $text) (radius | round);
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin tabs($key)
-// pattern
-$key: $length $style
- 
-.your-tab-class { @include tabs(3 'carousel'); }
+<code class="language-scss">.your-tab-class { @include tabs(3 'carousel'); }
 // length: 3; (3 tabs)
 // style: carousel; (normal | carousel | customize)
 </code>
@@ -1745,17 +1882,22 @@ $key: $length $style
               Set tabs' active styles.
             </p>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin tabs-active($length)
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin tabs-active($key)
-// pattern
-$key: $length
- 
-.your-tab-class { 
+<code class="language-scss">.your-tab-class { 
   @include tabs-active(3) {
  // tab active style
   } 
@@ -1775,17 +1917,22 @@ $key: $length
               Set panels' active styles.
             </p>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin tabs-panel-active($length)
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin tabs-panel-active($key)
-// pattern
-$key: $length
- 
-.your-tab-class { 
+<code class="language-scss">.your-tab-class { 
   @include tabs-panel-active(3) {
     // panel active style
   } 
@@ -1804,9 +1951,18 @@ $key: $length
             <p>
               Pure css accordion.
             </p>
-            <p>
-              <small>IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin accordion($content $max-height $transition-duration)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1829,11 +1985,7 @@ $key: $length
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin accordion($key)
-//pattern
-$key: $content $max-height $transition-duration
- 
-.accordion { @include accordion(div 200px 0.4s); }
+<code class="language-scss">.accordion { @include accordion(div 200px 0.4s); }
 // $content: div;
 // $max-height: 200px;
 // $transition-duration: 0.4s;
@@ -1847,9 +1999,20 @@ $key: $content $max-height $transition-duration
             <h4>
               Dropdown
             </h4>
-            <p>
-              <small>IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin dropdown($child $show $style $direction $duration default)
+// $show: 'hover' | 'click'
+// $style: 'display' | 'scale' | 'rotate'
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1876,13 +2039,7 @@ $key: $content $max-height $transition-duration
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin dropdown($key)
-// pattern
-$key: $child $show $style $direction $duration default;
-// $show: 'hover' | 'click'
-// $style: 'display' | 'scale' | 'rotate'
- 
-.dropdown { @include dropdown(ul hover display right default); }
+<code class="language-scss">.dropdown { @include dropdown(ul hover display right default); }
 // child: ul;
 // show: hover;
 // style: display;
@@ -1899,11 +2056,20 @@ $key: $child $show $style $direction $duration default;
               Tooltip
             </h4>
             <p>
-              pure css `tooltip`.
+              pure css <code class="language-html">tooltip</code>.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin tooltip($direction $color (width $width) (height $height) radius)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1920,11 +2086,7 @@ $key: $child $show $style $direction $duration default;
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin tooltip($key)
-// pattern
-$key: $direction $color (width $width) (height $height) radius
- 
-.tooltip { @include tooltip(radius right #b02df3 width 300px); }
+<code class="language-scss">.tooltip { @include tooltip(radius right #b02df3 width 300px); }
 // radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
 // direction: right;
 // background-color: #b02df3;
@@ -1940,11 +2102,20 @@ $key: $direction $color (width $width) (height $height) radius
               Media-list
             </h4>
             <p>
-              `media-list` displays a media object (images, video, audio) to the left or right of a block object.
+              <code class="language-html">media-list</code> displays a media object (images, video, audio) to the left or right of a block object.
             </p>
-            <p>
-              <small>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin media-list($role $gutter $direction)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -1968,11 +2139,7 @@ $key: $direction $color (width $width) (height $height) radius
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin media-list($key)
-// pattern
-$key: $role $gutter $direction
- 
-.news .media { @include media-list(); } 
+<code class="language-scss">.news .media { @include media-list(); } 
 // role: 'media'; (media:default | media-body)
 // gutter: 10px; (default)
 // direction: left; (default)
@@ -1994,9 +2161,18 @@ $key: $role $gutter $direction
             <h4>
               Flex media
             </h4>
-            <p>
-              <small>IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin flex-media($ratio $child)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2015,11 +2191,7 @@ $key: $role $gutter $direction
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin flex-media($key)
-// pattern
-$key: $ratio $child
- 
-.video { @include flex-media(3/4); }
+<code class="language-scss">.video { @include flex-media(3/4); }
 // ratio: 3/4;
 // child: iframe, object, embed; (default)
  
@@ -2042,11 +2214,20 @@ $key: $ratio $child
               Type
             </h4>
             <p>
-              `type` is a shorthand mixin for type.
+              <code class="language-html">type</code> is a shorthand mixin for type.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2054,11 +2235,7 @@ $key: $ratio $child
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin type($key)
-// pattern
-$key: $font-size $font-weight $font-style $line-height $font-family $text-align $text-transform 
- 
-h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }
+<code class="language-scss">h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }
 // font-size: 20px;
 // font-weight: bold; 
 // font-style: italic; 
@@ -2085,11 +2262,22 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
               Fluid-type
             </h4>
             <p>
-              Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec, more on [https://blog.codepen.io/2016/10/31/fluid-type-blogs/].
+              Stolen from <a href="http://www.sassmeister.com/gist/7f22e44ace49b5124eec">http://www.sassmeister.com/gist/7f22e44ace49b5124eec</a> more on [https://blog.codepen.io/2016/10/31/fluid-type-blogs/].
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin fluid-type($properties, $data);
+$properties: properties which have the same fluid value
+$data: a map with two pairs of viewwidth and value
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2097,12 +2285,7 @@ h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin fluid-type($properties, $data)
-// pattern
-$properties: properties which have the same fluid value
-$data: a map with two pairs of viewwidth and value
- 
-h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
+<code class="language-scss">h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
 </code>
 </pre>
                 </li>
@@ -2114,11 +2297,20 @@ h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
               Responsive-type (rp-type)
             </h4>
             <p>
-              Everything you can do with `type` you can do with `responsive-type`.
+              Everything you can do with <code class="language-html">type</code> you can do with <code class="language-html">responsive-type</code>.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin responsive-type($map, $breakpoints: $bp) // or rp-type();
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2126,11 +2318,7 @@ h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin responsive-type($key) // or rp-type()
-// pattern
-$key: $map, $breakpoints: $bp
- 
-$bp: (
+<code class="language-scss">$bp: (
   'small' : 480px,
   'medium': 700px,
   'large' : 1024px
@@ -2164,9 +2352,19 @@ p { @include rp-type($p-font-sizes $bp); }
             <p>
               Visually hide a text element.
             </p>
-            <p>
-              <small>IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin hide-text();
+%hide-text {};
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2183,10 +2381,7 @@ p { @include rp-type($p-font-sizes $bp); }
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin hide-text();
-%hide-text {};
- 
-.logo { 
+<code class="language-scss">.logo { 
   @extend %hide-text; 
   // or @include hide-text(); 
 }
@@ -2201,8 +2396,17 @@ p { @include rp-type($p-font-sizes $bp); }
               Opacity
             </h4>
             <p>
-              Use `opacity` to set `opacity` property for old IE and modern browsers.
+              Use <code class="language-html">opacity</code> to set <code class="language-html">opacity</code> property for old IE and modern browsers.
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin opacity($opacity)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2210,11 +2414,7 @@ p { @include rp-type($p-font-sizes $bp); }
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin opacity($key)
-// pattern
-$key: $opacity
- 
-.example { @include opacity(0.3); }
+<code class="language-scss">.example { @include opacity(0.3); }
 </code>
 </pre>
                 </li>
@@ -2226,8 +2426,17 @@ $key: $opacity
               Ie-rgba
             </h4>
             <p>
-              `ie-rgba` is for getting rgba property for IE8.
+              <code class="language-html">ie-rgba</code> is for getting rgba property for IE8.
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin ie-rgba($rgba)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2235,11 +2444,7 @@ $key: $opacity
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin ie-rgba($key)
-// pattern
-$key: $rgba
- 
-.lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }
+<code class="language-scss">.lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }
 // output:
 // .lt-ie9 .example {
 //   background: none;
@@ -2257,11 +2462,20 @@ $key: $rgba
               Ro-breakpoint (bp)
             </h4>
             <p>
-              Use a single breakpoint (e.g. 800) for both `min` and `max` instead of two (e.g. 799 for `max`, 800 for `min`).
+              Use a single breakpoint (e.g. 800) for both <code class="language-html">min</code> and <code class="language-html">max</code> instead of two (e.g. 799 for <code class="language-html">max</code>, 800 for <code class="language-html">min</code>).
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin ro-breakpoint($condition $media-type $media-feature $breakpoints)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2269,11 +2483,7 @@ $key: $rgba
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin ro-breakpoint($key)
-// pattern
-$key: $condition $media-type $media-feature $breakpoints
- 
-@include bp('min' 640) {};
+<code class="language-scss">@include bp('min' 640) {};
 // output: @media (min-width: 40em) {};
 @include bp('min' 'height' 640) {};
 // output: @media (min-height: 40em) {};
@@ -2292,19 +2502,24 @@ $key: $condition $media-type $media-feature $breakpoints
               At-least
             </h4>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin at-least($selector number) {
+  @content;
+}
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin at-least($key) {
-  @content;
-}
-// pattern
-$key: $selector number
- 
-.nav {
+<code class="language-scss">.nav {
   @include at-least('li' 4) { width: 25%; }
 }
 </code>
@@ -2318,19 +2533,24 @@ $key: $selector number
               At-most
             </h4>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin at-most($selector number) {
+  @content;
+}
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin at-most($key) {
-  @content;
-}
-// pattern
-$key: $selector number
- 
-.nav {
+<code class="language-scss">.nav {
   @include at-most('li' 4) { width: 25%; }
 }
 </code>
@@ -2344,19 +2564,24 @@ $key: $selector number
               Equal-to
             </h4>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin equal-to($selector number) {
+  @content;
+}
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin equal-to($key) {
-  @content;
-}
-// pattern
-$key: $selector number
- 
-.nav {
+<code class="language-scss">.nav {
   @include equal-to('li' 4) { width: 25%; }
 }
 </code>
@@ -2370,19 +2595,24 @@ $key: $selector number
               Between
             </h4>
             <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin between($selector number number) {
+  @content;
+}
+</code>
+</pre>
+            </div>
+            <div class="code-wrapper">
               <ul>
                 <li>
                   <header>
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin between($key) {
-  @content;
-}
-// pattern
-$key: $selector number number
- 
-.nav {
+<code class="language-scss">.nav {
   @include between('li' 4 6) { width: 25%; }
 }
 </code>
@@ -2398,9 +2628,18 @@ $key: $selector number number
             <p>
               A shorthand @mixin for hide elements on some parts of viewport.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin visible($media-type $breakpoints)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2408,11 +2647,7 @@ $key: $selector number number
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin visible($key)
-// pattern
-$key: $media-type $breakpoints
- 
-@include visible(500)
+<code class="language-scss">@include visible(500)
 // visible on 500px up on all media
 </code>
 </pre>
@@ -2427,9 +2662,18 @@ $key: $media-type $breakpoints
             <p>
               A shorthand @mixin for hide elements on some parts of viewport.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin hidden($media-type $breakpoints)
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2437,11 +2681,7 @@ $key: $media-type $breakpoints
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin hidden($key)
-// pattern
-$key: $media-type $breakpoints
- 
-@include hidden(screen 300 500 700)
+<code class="language-scss">@include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
 </code>
 </pre>
@@ -2459,11 +2699,20 @@ $key: $media-type $breakpoints
               Contrast
             </h4>
             <p>
-              Get a contrast `font-color` based on the `background-color`.
+              Get a contrast <code class="language-html">font-color</code> based on the <code class="language-html">background-color</code>.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin contrast($color (light $light) (dark $dark));
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2471,11 +2720,7 @@ $key: $media-type $breakpoints
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin contrast($key)
-// pattern
-$key: $color (light $light) (dark $dark)
- 
-.main { color: contrast(#a6e36e); }
+<code class="language-scss">.main { color: contrast(#a6e36e); }
 // color: #a6e36e;
 // light: #fff; (default)
 // dark: #000; (default)
@@ -2490,11 +2735,20 @@ $key: $color (light $light) (dark $dark)
               Adjacent
             </h4>
             <p>
-              `adjacent` is for creating adjacent colors.
+              <code class="language-html">adjacent</code> is for creating adjacent colors.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2502,11 +2756,7 @@ $key: $color (light $light) (dark $dark)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin adjacent($key)
-// pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
- 
-.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
+<code class="language-scss">.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
 // color: #a6e36e;
 // order: -1;
 // saturation: 10%;
@@ -2523,11 +2773,20 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
               Complementary
             </h4>
             <p>
-              `complementary` is for getting a complementary color.
+              <code class="language-html">complementary</code> is for getting a complementary color.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2535,11 +2794,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin complementary($key)
-// pattern
-$key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
- 
-.main { color: complementary(#a6e36e saturation 20%); }
+<code class="language-scss">.main { color: complementary(#a6e36e saturation 20%); }
 // color: #a6e36e;
 // saturation: 20%;
 </code>
@@ -2553,11 +2808,20 @@ $key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
               Split-complementary
             </h4>
             <p>
-              `split-complementary` is for getting split-complementary colors based on a given color.
+              <code class="language-html">split-complementary</code> is for getting split-complementary colors based on a given color.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist));
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2565,11 +2829,7 @@ $key: $color (saturation $saturation) (lightness $lightness) (dist $dist)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin split-complementary($key)
-// pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
- 
-.main { color: split-complementary(#a6e36e 2); }
+<code class="language-scss">.main { color: split-complementary(#a6e36e 2); }
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
 </code>
@@ -2583,11 +2843,20 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
               Triad
             </h4>
             <p>
-              `triad` is for getting triad colors based on a given color.
+              <code class="language-html">triad</code> is for getting triad colors based on a given color.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2595,11 +2864,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin triad($key)
-// pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
- 
-.main { color: triad(#a6e36e, 2); }
+<code class="language-scss">.main { color: triad(#a6e36e, 2); }
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
 </code>
@@ -2613,11 +2878,20 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
               Rectangle
             </h4>
             <p>
-              `rectangle` is for getting rectangle colors based on a given color.
+              <code class="language-html">rectangle</code> is for getting rectangle colors based on a given color.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2625,10 +2899,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin rectangle($key)
-// pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
- 
+<code class="language-scss"> 
 .main { color: rectangle(#a6e36e, -3); }
 // color: #a6e36e;
 // order: -3; (-3 | -2 | -1 | 1 | 2 | 3)
@@ -2643,11 +2914,20 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
               Square
             </h4>
             <p>
-              `square` is for getting square colors based on a given color.
+              <code class="language-html">square</code> is for getting square colors based on a given color.
             </p>
-            <p>
-              <small>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</small>
+            <p class="browser-capability">
+              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">@mixin square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+</code>
+</pre>
+            </div>
             <div class="code-wrapper">
               <ul>
                 <li>
@@ -2655,11 +2935,7 @@ $key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
                     scss
                   </header>
                   <pre>
-<code class="language-scss">@mixin square($key)
-// pattern
-$key: $color $order (saturation $saturation) (lightness $lightness) (dist $dist)
- 
-.main { color: square(#a6e36e, 3); }
+<code class="language-scss">.main { color: square(#a6e36e, 3); }
 // color: #a6e36e;
 // order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
 </code>

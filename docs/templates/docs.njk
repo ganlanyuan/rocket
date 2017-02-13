@@ -38,11 +38,20 @@
         {% for tag, content in subObj %}
 
           {% if tag === 'p' %}
-          <p>{{ content }}</p>
-          {% elif tag === 'small' %}
-          <p><small>{{ content }}</small></p>
+          <p>{{ content | replace('^', '<code class="language-html">') | replace('$', '</code>') | urlize | safe }}</p>
+          {% elif tag === 'capability' %}
+          <p class="browser-capability">{{ content }}</p>
           {% elif tag === 'bold' %}
           <p><strong>{{ content }}</strong></p>
+          {% elif tag === 'syntax' %}
+          <div class="code-wrapper">
+            <header>scss: <span>{{ tag }}</span></header>
+            <pre><code class="language-scss">
+              
+            {%- for row in content %}{{ row + '\n' }}{% endfor -%}
+
+            </code></pre>
+          </div>
           {% elif tag === 'code' %}
           <div class="code-wrapper">
             <ul>
