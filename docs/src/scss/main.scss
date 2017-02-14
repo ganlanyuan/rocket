@@ -25,6 +25,7 @@ $nav-width: 240px;
 $nav-toggle-width: 40px;
 
 // utilities
+body { min-width: 320px; }
 .container { @include container(); }
 .section {
   margin: #{$section-gap} 0;
@@ -98,14 +99,14 @@ svg {
 
 // footer
 .site-footer {
-  color: #fff;
+  color: #ccc;
   background: $black;
   .container { 
     max-width: none;
-    padding-top: 1px; 
-    padding-bottom: 1px; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
   }
-  p, li { @include type(14px); }
+  p, li { @include type(12px); }
   p, ul { margin: 1.6% 0; }
   &__links {
     li { display: inline-block; 

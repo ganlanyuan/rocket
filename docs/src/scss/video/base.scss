@@ -1,7 +1,10 @@
 @import "../normalize";
 @import "../reset";
-body {
-  padding: 50px;
+body { padding: 50px 10px; }
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .box {
   min-height: 200px;

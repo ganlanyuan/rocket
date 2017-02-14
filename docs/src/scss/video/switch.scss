@@ -2,4 +2,5 @@
 
 .switch {
   @include switch(slider round red 30px);
+  text-align: center;
 }
