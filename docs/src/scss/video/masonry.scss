@@ -1,0 +1,9 @@
+@import '../../../../src/scss/rocket';
+
+.masonry {
+  @include masonry(2);
+  .box { 
+    margin-bottom: 20px; 
+    overflow: hidden;
+  }
+}

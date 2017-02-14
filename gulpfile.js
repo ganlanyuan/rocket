@@ -5,6 +5,7 @@ const browserSync = require('browser-sync').create();
 const rename = require('gulp-rename');
 const libsass = require('gulp-sass');
 const rubysass = require('gulp-ruby-sass');
+const cache = require('gulp-cached');
 const sourcemaps = require('gulp-sourcemaps');
 const modernizr = require('gulp-modernizr');
 const concat = require('gulp-concat');
@@ -95,8 +96,22 @@ gulp.task('sass-docs', function () {
         outputStyle: 'compressed', 
         precision: 7
       }).on('error', libsass.logError))  
+      .pipe(cache('sass-docs'))
       .pipe(sourcemaps.write(sourcemapDest))
       .pipe(gulp.dest(PATHS.assets_docs + 'css'))
+      .pipe(browserSync.stream());
+});  
+
+gulp.task('sass-video', function () {  
+  return gulp.src(PATHS.src_docs + 'scss/video/*.scss')  
+      .pipe(sourcemaps.init())
+      .pipe(libsass({
+        outputStyle: 'compressed', 
+        precision: 7
+      }).on('error', libsass.logError))  
+      .pipe(cache('sass-video'))
+      .pipe(sourcemaps.write(sourcemapDest))
+      .pipe(gulp.dest(PATHS.assets_docs + '/css/video'))
       .pipe(browserSync.stream());
 });  
 
@@ -192,6 +207,7 @@ gulp.task('server', function() {
 gulp.task('watch', function () {
   gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['nunjucks']);
   gulp.watch(PATHS.src_docs + 'scss/**/*.scss', ['sass-docs']);
+  // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);
   gulp.watch(['**/*.html', 'docs/assets/js/*.js']).on('change', browserSync.reload);

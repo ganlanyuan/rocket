@@ -1,0 +1,5 @@
+@import '../../../../src/scss/rocket';
+
+.grid {
+  @include grid (5 2 5);
+}

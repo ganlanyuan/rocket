@@ -1,0 +1,5 @@
+@import '../../../../src/scss/rocket';
+
+.switch {
+  @include switch(slider round red 30px);
+}

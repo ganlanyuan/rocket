@@ -1,0 +1,5 @@
+@import '../../../../src/scss/rocket';
+
+.liquid-2 {
+  @include liquid-2( (100px 'auto') );
+}

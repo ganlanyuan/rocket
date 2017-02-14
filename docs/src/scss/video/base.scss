@@ -1,0 +1,32 @@
+@import "../normalize";
+@import "../reset";
+body {
+  padding: 50px;
+}
+.box {
+  min-height: 200px;
+  &:nth-child(1) { background-color: #E87688; }
+  &:nth-child(2) { background-color: #E5E9F2; }
+  &:nth-child(3) { background-color: #2D71BA; }
+  &:nth-child(4) { background-color: #F2B28C; }
+  &:nth-child(5) { background-color: #D95B5B; }
+  &:nth-child(6) { background-color: #4A8383; }
+  &:nth-child(7) { background-color: #52C4C7; }
+  &:nth-child(8) { background-color: #f5f5f5; }
+  &:nth-child(9) { background-color: #97C49F; }
+  &:nth-child(10) { background-color: #FCE0B2; }
+  .masonry & {
+    min-height: 100px;
+    background-color: #ccc;
+    &:nth-child(1) { height: 200px; }
+    &:nth-child(2) { height: 300px; }
+    &:nth-child(3) { height: 150px; }
+    &:nth-child(4) { height: 400px; }
+    &:nth-child(5) { height: 100px; }
+    &:nth-child(6) { height: 200px; }
+    &:nth-child(7) { height: 220px; }
+    &:nth-child(8) { height: 400px; }
+    &:nth-child(9) { height: 100px; }
+    &:nth-child(10) { height: 200px; }
+  }
+}
