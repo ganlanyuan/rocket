@@ -15,14 +15,18 @@ $black: #222;
 $blue: #155485;
 $lightblue: #84DBFF;
 $gray: #4a4a4a;
-$lightgray: #F7F7F7;
+$lightgray: #f5f5f5;
 
 $border: 1px solid #eee;
 $section-gap: calc(3% + 10px);
 $get-started-media-width: 32%;
 
-$nav-width: 240px;
-$nav-toggle-width: 40px;
+$nav-width: 200px;
+$logo-width-sm: 50px;
+$logo-width-lg: 200px;
+
+$bp-header: 600;
+$bp-docs: 900;
 
 // utilities
 body { min-width: 320px; }
@@ -82,16 +86,16 @@ svg {
   }
   .active a { color: $lightblue; }
 }
-@include bp(max 600) {
+@include bp(max $bp-header) {
   .logo {
-    svg { width: 50px; }
+    svg { width: $logo-width-sm; }
     .svg-logo-text { display: none; }
   }
   .site-nav li { line-height: (50px * 56 / 54 + 20px); }
 }
-@include bp(min 600) {
+@include bp(min $bp-header) {
   .logo {
-    svg { width: 200px; padding: 20px 0; }
+    svg { width: $logo-width-lg; padding: 20px 0; }
     .svg-logo { display: none; }
   }
   .site-nav li { line-height: (200px * 100 / 449 + 40px); }
@@ -116,6 +120,7 @@ svg {
     a {
       display: block;
       padding: 0 0.5em;
+      &:hover { text-decoration: underline; }
     }
   }
   @include bp(500) {

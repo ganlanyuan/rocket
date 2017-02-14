@@ -43,7 +43,7 @@ var rocketSite = {
           
       for (var i = docLists.length; i--;) {
         var rect = docLists[i].getBoundingClientRect(),
-            target = winHeight  * 0.2;
+            target = winHeight  * 0.4;
         if (rect.top < target && rect.bottom >= target) {
           navLists[i].classList.add('active');
         } else {

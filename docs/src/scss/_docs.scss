@@ -1,3 +1,4 @@
+:not(pre) > code[class*="language-"], pre[class*="language-"] { background-color: $lightgray; }
 pre[class*="language-"] { 
   margin: 0; 
   overflow: hidden;
@@ -8,10 +9,11 @@ pre > code[class*="language-"] {
   overflow: auto;
 }
 .docs-wrapper {
+  @include container(1600px left); 
+  padding-left: ($logo-width-sm + 20px);
+  @include bp(min $bp-docs) { padding-left: 0; }
   main {
     h2, h4, p, .code-wrapper { 
-      @include container(1600px left); 
-      @include bp(min 700) { padding-left: ($nav-toggle-width + 20px); }
       margin-bottom: 20px;
     }
     > ul > li { padding: 20px 0; }
@@ -23,17 +25,14 @@ pre > code[class*="language-"] {
     h4 { @include type(22px); }
     p { max-width: 46em; }
   }
+  @include bp(min $bp-docs) {
+    @include liquid-2(($nav-width 'auto') child (nav main));
+  }
 }
 .docs-nav {
-  position: fixed;
-  left: - $nav-width;
-  top: 0;
-  bottom: 0;
-  z-index: $zi-docs-nav;
   width: $nav-width;
-  transition: transform 0.25s;
   &.expanded { 
-    transform: translateX($nav-width);
+    transform: translateX(0);
     .docs-nav__content {
       box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
     }
@@ -42,11 +41,11 @@ pre > code[class*="language-"] {
   &__toggle {
     position: absolute;
     bottom: 4em;
-    right: -$nav-toggle-width;
-    width: $nav-toggle-width;
+    right: -$logo-width-sm;
+    width: $logo-width-sm;
     text-align: center;
     border: none;
-    background-color: $black;
+    background-color: $blue;
     padding: 0.5em 0;
     cursor: pointer;
     border-radius: 0;
@@ -55,14 +54,6 @@ pre > code[class*="language-"] {
   &__content {
     @include type(15px);
     padding-top: 1em;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #fff;
     ul {
       margin-bottom: 3em;
     }
@@ -81,13 +72,41 @@ pre > code[class*="language-"] {
     }
     .active a { background-color: $lightblue; }
   }
+  @include bp(max $bp-docs) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(- $nav-width);
+    transition: transform 0.25s;
+    z-index: $zi-docs-nav;
+    &__content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: #fff;
+    }
+  }
+  @include bp(min $bp-docs) {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow: auto;
+    &__toggle { display: none; }
+  }
 }
 .code-wrapper { 
+  > ul, > pre { border-radius: 0 0  3px 3px; }
   header {
     line-height: 2;
     padding: 0 1em;
     color: #fff;
-    background-color: $black;
+    background-color: $blue;
+    border-radius: 3px 3px 0 0;
     span { color: $lightblue; }
   }
   li {
@@ -96,7 +115,7 @@ pre > code[class*="language-"] {
   }
   ul {
     @extend %clearfix;
-    background-color: #f5f2f0;
+    background-color: $lightgray;
     @include bp(min 1024) {
       @include at-least('li' 2) { width: calc(100% / 2); }
     }

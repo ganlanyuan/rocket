@@ -1,5 +1,5 @@
 @import '../../../../src/scss/rocket';
 
 .gallery {
-  @include gallery(3 gutter 10px);
+  @include gallery(3);
 }

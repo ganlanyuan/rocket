@@ -1,12 +1,15 @@
 // video
 .video-wrapper {
-  padding: 4% 4% 1.5%;
+  padding: 3% 3% 2.5%;
 }
 #video-home {
   display: block;
   margin: auto;
   max-width: 100%;
   height: auto;
+  @include bp(800) {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
 }
 
 // intro

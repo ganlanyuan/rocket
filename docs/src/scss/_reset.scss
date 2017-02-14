@@ -5,7 +5,7 @@
 html { font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; touch-action: manipulation; }
 
 // set min-width to 320
-html, body { min-width: 320px; overflow-x: hidden; }
+html, body { min-width: 320px; }
 
 // make images & videos flexible
 img, video { max-width: 100%; height: auto; }
