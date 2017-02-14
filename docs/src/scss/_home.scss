@@ -1,5 +1,11 @@
 // intro
-.intro { text-align: center; }
+.intro { 
+  p {
+    @include fluid-type(font-size, (300px: 24px, 1024px: 36px));
+    text-align: center; 
+    font-weight: 300;
+  }
+}
 
 // features
 .features {
@@ -36,10 +42,7 @@
     border-top: $border;
     &:last-child { padding-bottom: 0; }
     @include bp(max 600px) {
-      .media { 
-        margin-bottom: 30px; 
-        text-align: center;
-      }
+      .media { display: none; }
     }
     @include bp(min 600px) {
       .media { width: $get-started-media-width; }
