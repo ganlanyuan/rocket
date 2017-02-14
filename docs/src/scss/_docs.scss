@@ -94,6 +94,7 @@ pre > code[class*="language-"] {
     top: 0;
     max-height: 100vh;
     overflow: auto;
+    box-shadow: 4px 12px 10px rgba(0, 0, 0, 0.15);
     &__toggle { display: none; }
   }
 }
