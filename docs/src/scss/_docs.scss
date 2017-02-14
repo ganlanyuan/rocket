@@ -19,7 +19,7 @@ pre > code[class*="language-"] {
     > ul > li { padding: 20px 0; }
     .browser-capability {
       font-style: italic;
-      color: $blue;
+      color: #999;
     }
     h2 { @include type(32px uppercase); }
     h4 { @include type(22px); }
@@ -45,7 +45,7 @@ pre > code[class*="language-"] {
     width: $logo-width-sm;
     text-align: center;
     border: none;
-    background-color: $blue;
+    background-color: $color-code-header;
     padding: 0.5em 0;
     cursor: pointer;
     border-radius: 0;
@@ -53,13 +53,8 @@ pre > code[class*="language-"] {
   }
   &__content {
     @include type(15px);
-    padding-top: 1em;
-    ul {
-      margin-bottom: 3em;
-    }
-    h4, a {
-      line-height: 2.4;
-    }
+    ul { margin-bottom: 3em; }
+    h4, a { line-height: 2.4; }
     h4 {
       margin-bottom: 0;
       padding-left: 2em;
@@ -68,9 +63,12 @@ pre > code[class*="language-"] {
       display: block;
       padding-left: 3em;
       transition: background-color 0.25s;
-      &:hover { background-color: $lightgray; }
+      &:hover { background-color: #eee; }
     }
-    .active a { background-color: $lightblue; }
+    .active a { 
+      color: #fff;
+      background-color: $color-code-header; 
+    }
   }
   @include bp(max $bp-docs) {
     position: fixed;
@@ -105,7 +103,7 @@ pre > code[class*="language-"] {
     line-height: 2;
     padding: 0 1em;
     color: #fff;
-    background-color: $blue;
+    background-color: $color-code-header;
     border-radius: 3px 3px 0 0;
     span { color: $lightblue; }
   }

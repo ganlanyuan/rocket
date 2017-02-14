@@ -59,7 +59,10 @@
       .media { display: none; }
     }
     @include bp(min 600px) {
-      .media { width: $get-started-media-width; }
+      .media { 
+        width: $get-started-media-width; 
+        text-align: center;
+      }
       .media-body {
         width: calc(100% - #{$get-started-media-width} - 20px);
       }
