@@ -3,6 +3,11 @@ pre[class*="language-"] {
   margin: 0; 
   overflow: hidden;
 }
+pre[class*="language-"] > code[data-language] {
+  max-height: none;
+  overflow: auto;
+}
+pre[class*="language-"] > code[data-language]::before { display: none; }
 pre > code[class*="language-"] {
   margin: 0 0 -1em 0;
   display: block;

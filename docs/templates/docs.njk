@@ -37,7 +37,8 @@
 
         {% for tag, content in subObj %}
 
-          {% if tag === 'p' %}
+          {% if tag.indexOf('p-') !== -1 %}
+
             {% for p in content %}
               <p>{{ p | replace('^', '<code class="language-html">') | replace('$', '</code>') | urlize | nl2br | safe }}</p>
             {% endfor %}
@@ -55,7 +56,7 @@
 
             </code></pre>
           </div>
-          {% elif tag === 'code' %}
+          {% elif tag.indexOf('code-') !== -1 %}
           <div class="code-wrapper">
             <ul>
               

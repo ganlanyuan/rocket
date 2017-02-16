@@ -1,6 +1,16 @@
 {% set pagename = 'home' %}
 {% extends "partials/layout.njk" %}
 
+{% block video %}
+<div class="video-wrapper">
+  <video id="video-home" poster="assets/videos/video.png" autoplay loop>
+    <source src="assets/videos/video.mp4" type="video/mp4">
+    {# <source src="assets/videos/video.ogg" type="video/ogg"> #}
+    Your browser does not support the video tag.
+  </video> 
+</div>
+{% endblock %}
+
 {% block main %}
 {# Intro #}
 <section class="intro section">
@@ -25,14 +35,14 @@
           <use xlink:href="{{ svgSpritesPath + '#tools' }}" />
         </svg>
         <h4>Customizable</h4>
-        <p>Rocket is fully customizable. No required class or id names. <code class="language-scss">@include</code> the components with your customized options.</p>
+        <p>Rocket components are <code class="language-">mixins</code> and <code class="language-">functions</code>, therefore you can use them with your customise options. No required class or id names.</p>
       </li>
       <li>
         <svg role="img" title="feather" width="105" height="59" class="svg-light-weight">
           <use xlink:href="{{ svgSpritesPath + '#feather' }}" />
         </svg>
         <h4>light weight</h4>
-        <p>Unlike other frameworks which give you a lot of code that you will never use, Rocket gives you only the part you request. No request, no code!</p>
+        <p>Unlike other frameworks which give you a bunch of code and most of them you will never use, Rocket gives you only the part your project really needs. No request, no code!</p>
       </li>
       <li>
         <svg role="img" title="wheel-chair" width="82" height="100" class="svg-accessible">

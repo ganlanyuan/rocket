@@ -15,8 +15,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
-    <script type="text/javascript" src="assets/js/prism.js">
-    </script>
     <script>
     /* svg4everybody:js */
     !function(e,t){"function"==typeof define&&define.amd?define([],function(){return e.svg4everybody=t()}):"object"==typeof exports?module.exports=t():e.svg4everybody=t()}(this,function(){function e(e,t){if(t){var n=document.createDocumentFragment(),i=!e.getAttribute("viewBox")&&t.getAttribute("viewBox");i&&e.setAttribute("viewBox",i);for(var r=t.cloneNode(!0);r.childNodes.length;)n.appendChild(r.firstChild);e.appendChild(n)}}function t(t){t.onreadystatechange=function(){if(4===t.readyState){var n=t._cachedDocument;n||(n=t._cachedDocument=document.implementation.createHTMLDocument(""),n.body.innerHTML=t.responseText,t._cachedTarget={}),t._embeds.splice(0).map(function(i){var r=t._cachedTarget[i.id];r||(r=t._cachedTarget[i.id]=n.getElementById(i.id)),e(i.svg,r)})}},t.onreadystatechange()}function n(n){function i(){for(var n=0;n<h.length;){var d=h[n],s=d.parentNode;if(s&&/svg/i.test(s.nodeName)){var u=d.getAttribute("xlink:href")||d.getAttribute("href");if(r){var l=document.createElement("img");l.style.cssText="display:inline-block;",l.setAttribute("width",s.getAttribute("width")||s.clientWidth),l.setAttribute("height",s.getAttribute("height")||s.clientHeight),l.src=a(u,s,d),s.replaceChild(l,d)}else if(c&&(!o.validate||o.validate(u,s,d))){s.removeChild(d);var v=u.split("#"),b=v.shift(),f=v.join("#");if(b.length){var p=g[b];p||(p=g[b]=new XMLHttpRequest,p.open("GET",b),p.send(),p._embeds=[]),p._embeds.push({svg:s,id:f}),t(p)}else e(s,document.getElementById(f))}}else++n}m(i,67)}var r,a,o=Object(n);a=o.fallback||function(e){return e.replace(/\?[^#]+/,"").replace("#",".").replace(/^\./,"")+".png"+(/\?[^#]+/.exec(e)||[""])[0]},r="nosvg"in o?o.nosvg:/\bMSIE [1-8]\b/.test(navigator.userAgent),r&&(document.createElement("svg"),document.createElement("use"));var c,d=/\bMSIE [1-8]\.0\b/,s=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,u=/\bAppleWebKit\/(\d+)\b/,l=/\bEdge\/12\.(\d+)\b/;c="polyfill"in o?o.polyfill:d.test(navigator.userAgent)||s.test(navigator.userAgent)||(navigator.userAgent.match(l)||[])[1]<10547||(navigator.userAgent.match(u)||[])[1]<537;var g={},m=window.requestAnimationFrame||setTimeout,h=document.getElementsByTagName("use");c&&i()}return n});
@@ -259,10 +257,10 @@
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="header container"&gt;
+<code class="language-markup">&lt;div class="header container"&gt;
   &lt;!-- contents --&gt;
 &lt;/div&gt;
 </code>
@@ -311,10 +309,10 @@
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="row"&gt;
+<code class="language-markup">&lt;div class="row"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -388,10 +386,10 @@ $main: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="wrapper"&gt;
+<code class="language-markup">&lt;div class="wrapper"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -441,10 +439,10 @@ $main: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="wrapper"&gt;
+<code class="language-markup">&lt;div class="wrapper"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -495,10 +493,10 @@ $main: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;ul class="gallery"&gt;
+<code class="language-markup">&lt;ul class="gallery"&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -565,10 +563,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;ul class="masonry"&gt;
+<code class="language-markup">&lt;ul class="masonry"&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -647,10 +645,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;ul class="main"&gt;
+<code class="language-markup">&lt;ul class="main"&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
@@ -700,10 +698,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="wrapper"&gt;
+<code class="language-markup">&lt;div class="wrapper"&gt;
   &lt;!-- 'wrapper' could be any valid class name --&gt;
   &lt;div class="diamond"&gt;
     &lt;!-- 'diamond' could be any valid class name --&gt;
@@ -781,10 +779,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="main"&gt;
+<code class="language-markup">&lt;div class="main"&gt;
   &lt;!-- Content goes here --&gt;
 &lt;/div&gt;
 </code>
@@ -827,10 +825,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;body&gt;
+<code class="language-markup">&lt;body&gt;
   &lt;header&gt;header&lt;/header&gt;
   &lt;div class="main"&gt;main&lt;/div&gt;
   &lt;footer&gt;footer&lt;/footer&gt;
@@ -873,10 +871,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;ul class="justify"&gt;
+<code class="language-markup">&lt;ul class="justify"&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -921,10 +919,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="popup"&gt;
+<code class="language-markup">&lt;div class="popup"&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
@@ -971,10 +969,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="charts"&gt;
+<code class="language-markup">&lt;div class="charts"&gt;
   &lt;!-- items: charts body --&gt;
   &lt;ul class="items"&gt;
     &lt;li class="item-1"&gt;
@@ -1085,10 +1083,10 @@ $data2: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;!-- modes: flip-scroll, stack --&gt;
+<code class="language-markup">&lt;!-- modes: flip-scroll, stack --&gt;
 &lt;table class="your-table"&gt;
   &lt;!-- table content goes here --&gt;
 &lt;/table&gt;
@@ -1191,10 +1189,10 @@ $data2: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer --&gt;
+<code class="language-markup">&lt;!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer --&gt;
 &lt;input type="checkbox" name="" id="nav-toggle"&gt;
 &lt;div class="page"&gt;
   &lt;header&gt;
@@ -1323,10 +1321,10 @@ $map: (
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;form action="" class="myform"&gt;
+<code class="language-markup">&lt;form action="" class="myform"&gt;
   &lt;ol&gt;
     &lt;li&gt;
       &lt;label for="name"&gt;Name&lt;/label&gt;
@@ -1395,10 +1393,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;!-- normal: you can use button on any tag --&gt;
+<code class="language-markup">&lt;!-- normal: you can use button on any tag --&gt;
 &lt;span class="button"&gt;button&lt;/span&gt;
 &lt;!-- push: inner span tag, data-text attribute --&gt;
 &lt;span class="push" data-text="star"&gt;&lt;span&gt;push&lt;/span&gt;&lt;/span&gt;
@@ -1453,10 +1451,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="box"&gt;&lt;/div&gt;
+<code class="language-markup">&lt;div class="box"&gt;&lt;/div&gt;
 </code>
 </pre>
                 </li>
@@ -1499,10 +1497,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="box"&gt;&lt;/div&gt;
+<code class="language-markup">&lt;div class="box"&gt;&lt;/div&gt;
 </code>
 </pre>
                 </li>
@@ -1545,10 +1543,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="switch"&gt;
+<code class="language-markup">&lt;div class="switch"&gt;
   &lt;input type="checkbox" id="switch1" name="switch"&gt;
   &lt;label for="switch1"&gt;&lt;/label&gt;
 &lt;/div&gt;
@@ -1595,10 +1593,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="push-toggle"&gt;
+<code class="language-markup">&lt;div class="push-toggle"&gt;
   &lt;input type="radio" id="male" name="gender" checked=""&gt;
   &lt;label for="male"&gt;Male&lt;/label&gt;
   &lt;input type="radio" id="female" name="gender"&gt;
@@ -1657,10 +1655,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;!-- make sure label right after radio or checkbox --&gt;
+<code class="language-markup">&lt;!-- make sure label right after radio or checkbox --&gt;
 &lt;div class="radio"&gt;
   &lt;input type="radio" name="my-radio-name" id="my-radio-id-1" checked&gt;
   &lt;label for="my-radio-id-1"&gt;item 1&lt;/label&gt;
@@ -1754,10 +1752,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="input-file"&gt;
+<code class="language-markup">&lt;div class="input-file"&gt;
   &lt;input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple /&gt;
   &lt;label for="file"&gt;&lt;span&gt;Choose a file&lt;/span&gt;&lt;/label&gt;
 &lt;/div&gt;
@@ -1816,10 +1814,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;!-- .ro-tabs and .ro-panels are required --&gt;
+<code class="language-markup">&lt;!-- .ro-tabs and .ro-panels are required --&gt;
 &lt;div class="your-tab-class"&gt;
   &lt;input type="radio" name="your-radio-name" id="your-radio-id-1" checked&gt;
   &lt;input type="radio" name="your-radio-name" id="your-radio-id-2"&gt;
@@ -1953,10 +1951,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="accordion"&gt;
+<code class="language-markup">&lt;div class="accordion"&gt;
   &lt;input type="checkbox" name="" id="accordion-checkbox-1"&gt;
   &lt;label for="accordion-checkbox-1"&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/label&gt;
   &lt;div&gt;
@@ -2003,10 +2001,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;!-- if you set $show: click, add these markup to your dropdown make sure the value of "for" match the checkbox id --&gt;
+<code class="language-markup">&lt;!-- if you set $show: click, add these markup to your dropdown make sure the value of "for" match the checkbox id --&gt;
 &lt;div class="dropdown"&gt;
   &lt;span&gt;dropdown&lt;/span&gt;
   &lt;input type="checkbox" name="" id="dropdown"&gt;
@@ -2060,10 +2058,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;p&gt;Hic, deleniti itaque expedita placeat in veritatis &lt;a href="" class="tooltip" data-tooltip="Tooltip content"&gt;consectetur&lt;/a&gt; explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.&lt;/p&gt;
+<code class="language-markup">&lt;p&gt;Hic, deleniti itaque expedita placeat in veritatis &lt;a href="" class="tooltip" data-tooltip="Tooltip content"&gt;consectetur&lt;/a&gt; explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.&lt;/p&gt;
 </code>
 </pre>
                 </li>
@@ -2106,10 +2104,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;ul class="news"&gt;
+<code class="language-markup">&lt;ul class="news"&gt;
   &lt;li&gt;
     &lt;figure class="media"&gt;&lt;a href=""&gt;&lt;img src="http://placehold.it/120x80" alt=""&gt;&lt;/a&gt;&lt;/figure&gt;
     &lt;div class="media-body"&gt;
@@ -2163,10 +2161,10 @@ window.onload = function () {
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;div class="video"&gt;
+<code class="language-markup">&lt;div class="video"&gt;
   &lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 </code>
@@ -2359,10 +2357,10 @@ p { @include rp-type($p-font-sizes $bp); }
               <ul>
                 <li>
                   <header>
-                    html
+                    markup
                   </header>
                   <pre>
-<code class="language-html">&lt;h1 class="logo"&gt;Brand Name&lt;/h1&gt;
+<code class="language-markup">&lt;h1 class="logo"&gt;Brand Name&lt;/h1&gt;
 </code>
 </pre>
                 </li>

@@ -12,15 +12,15 @@
   "docs": {
     "Layout": {
       "container": {
-        "p": [
+        "p-1": [
           "The container of the main content. It can be center, left or right aligned."
         ],
         "capability": "IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
           "@mixin container($container (gutter $gutter) $align)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"header container\">",
             "  <!-- contents -->",
             "</div>"
@@ -46,8 +46,8 @@
           "// $media-type: screen, print, tv",
           "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"row\">",
             "  <div></div>",
             "  <div></div>",
@@ -88,7 +88,7 @@
         }
       },
       "liquid-2": {
-        "p": [
+        "p-1": [
           "^liquid-2$ is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout."
         ],
         "capability": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
@@ -98,8 +98,8 @@
           "// $media-type: screen, print, tv",
           "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"wrapper\">",
             "  <div></div>",
             "  <div></div>",
@@ -116,7 +116,7 @@
         }
       },
       "liquid-3": {
-        "p": [
+        "p-1": [
           "^liquid-3$ is for creating a holy-grail layout: a fluid column with 2 fixed columns."
         ],
         "capability": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
@@ -126,8 +126,8 @@
           "// $media-type: screen, print, tv",
           "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"wrapper\">",
             "  <div></div>",
             "  <div></div>",
@@ -145,7 +145,7 @@
         }
       },
       "gallery": {
-        "p": [
+        "p-1": [
           "^gallery$ is for creating picture galleries."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+",
@@ -155,8 +155,8 @@
           "// $media-type: screen, print, tv",
           "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<ul class=\"gallery\">",
             "  <li></li>",
             "  <li></li>",
@@ -190,7 +190,7 @@
         }
       },
       "masonry": {
-        "p": [
+        "p-1": [
           "^masonry$ is for creating masonry layouts with pure css."
         ],
         "capability": "IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+",
@@ -200,8 +200,8 @@
           "// $count: num;",
           "// $condition: 'min' | 'max'"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<ul class=\"masonry\">",
             "  <li></li>",
             "  <li></li>",
@@ -250,15 +250,15 @@
         }
       },
       "metro": {
-        "p": [
+        "p-1": [
           "^metro$ is for creating block layout inspired by Windows 8. Use nested ^metro$ to make complex layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin metro($map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<ul class=\"main\">",
             "  <li><div class=\"metro-item\"></div></li>",
             "  <li><div class=\"metro-item\"></div></li>",
@@ -285,8 +285,8 @@
           "// $shape: 'diamond' | 'octagon'",
           "// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"wrapper\">",
             "  <!-- 'wrapper' could be any valid class name -->",
             "  <div class=\"diamond\">",
@@ -333,7 +333,7 @@
         }
       },
       "angled-edges": {
-        "p": [
+        "p-1": [
           "Create ^angled-edges$ layout. ^background$ could be image, gradient or pure color, but the background of sibling elements must be pure color."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+",
@@ -341,8 +341,8 @@
           "@mixin angled-edges($edges $angle $edge-color flip);",
           "// $edges: top | bottom | both"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"main\">",
             "  <!-- Content goes here -->",
             "</div>"
@@ -355,15 +355,15 @@
         }
       },
       "sticky-footer": {
-        "p": [
+        "p-1": [
           "Create ^sticky-footer$ to prevent layout collapse when content is less, e.g. 404 page."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin sticky-footer($main);"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<body>",
             "  <header>header</header>",
             "  <div class=\"main\">main</div>",
@@ -376,15 +376,15 @@
         }
       },
       "justify": {
-        "p": [
+        "p-1": [
           "^justify$ is for creating ^justify$ layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin justify((child $child));"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<ul class=\"justify\">",
             "  <li></li>",
             "  <li></li>",
@@ -399,15 +399,15 @@
         }
       },
       "center": {
-        "p": [
+        "p-1": [
           "^center$ is for creating both horizontal and vertical center aligned layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
           "@mixin center($child)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"popup\">",
             "  <div></div>",
             "</div>"
@@ -421,15 +421,15 @@
     },
     "Components": {
       "charts": {
-        "p": [
+        "p-1": [
           "Pure css responsive charts. Currently only include ^bar$ and ^column$, more types will be added soon."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin charts(($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"charts\">",
             "  <!-- items: charts body -->",
             "  <ul class=\"items\">",
@@ -496,7 +496,7 @@
         }
       },
       "responsive-table": {
-        "p": [
+        "p-1": [
           "Solutions for display a complex data table on small screen.",
         "Referance: \n http://dbushell.com/2012/01/05/responsive-tables-2/, \n https://github.com/nadangergeo/RWD-Table-Patterns"
         ],
@@ -516,8 +516,8 @@
           "// toggle: $breakpoint and $count",
           "// stack: $data, $border-color and $th-width"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<!-- modes: flip-scroll, stack -->",
             "<table class=\"your-table\">",
             "  <!-- table content goes here -->",
@@ -590,15 +590,15 @@
         }
       },
       "off-canvas": {
-        "p": [
+        "p-1": [
           "Pure css off-canvas with multiple modes."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": [
           "@mixin off-canvas($mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->",
             "<input type=\"checkbox\" name=\"\" id=\"nav-toggle\">",
             "<div class=\"page\">",
@@ -693,7 +693,7 @@
         }
       },
       "validation": {
-        "p": [
+        "p-1": [
           "Html5 form validation using H5F https://github.com/ryanseddon/H5F. We already include H5F in ^kit.js$ (with a little bit modification), so you don't need download it again.",
           "Set your customized alerts information through ^&lt;div data-info=\"\"&gt;&lt;/div&gt;$."
         ],
@@ -702,8 +702,8 @@
           "@mixin validation($style $direction $shake $speed $duration default)",
           "// style: 'normal' | 'fade-in' | 'slide-in'"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<form action=\"\" class=\"myform\">",
             "  <ol>",
             "    <li>",
@@ -743,8 +743,8 @@
           "// direction: left, right, top, bottom, 'horizontal', 'vertical'",
           "// active-selector: . | # | [] | :"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<!-- normal: you can use button on any tag -->",
             "<span class=\"button\">button</span>",
             "<!-- push: inner span tag, data-text attribute -->",
@@ -769,15 +769,15 @@
         }
       },
       "parallelogram": {
-        "p": [
+        "p-1": [
           "Create parallelogram style."
         ],
         "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin parallelogram($background $angle);"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"box\"></div>"
           ],
           "scss": [
@@ -788,7 +788,7 @@
         }
       },
       "drop-shadows": {
-        "p": [
+        "p-1": [
           "Thanks Nicolas Gallagher http://nicolasgallagher.com/css-drop-shadows-without-images/ for the idea."
         ],
         "capability": "IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+",
@@ -797,8 +797,8 @@
           "// $style: 'lifted' | 'raised' | 'perspective' | 'curve'",
           "// $direction: left | right | top | bottom | 'horizontal' | 'vertical'"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"box\"></div>"
           ],
           "scss": [
@@ -810,7 +810,7 @@
         }
       },
       "switch": {
-        "p": [
+        "p-1": [
           "Pure css switch."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
@@ -818,8 +818,8 @@
           "@mixin switch($style $size $active-color (text $text) (radius | round))",
           "// $style: 'toggle' | 'slider'"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"switch\">",
             "  <input type=\"checkbox\" id=\"switch1\" name=\"switch\">",
             "  <label for=\"switch1\"></label>",
@@ -836,15 +836,15 @@
         }
       },
       "push-toggle": {
-        "p": [
+        "p-1": [
           "Pure css push toggle."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin push-toggle()"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"push-toggle\">",
             "  <input type=\"radio\" id=\"male\" name=\"gender\" checked=\"\">",
             "  <label for=\"male\">Male</label>",
@@ -871,7 +871,7 @@
         }
       },
       "checkbox": {
-        "p": [
+        "p-1": [
           "Customize radios or checkboxes."
         ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
@@ -880,8 +880,8 @@
           "  @content;",
           "}"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<!-- make sure label right after radio or checkbox -->",
             "<div class=\"radio\">",
             "  <input type=\"radio\" name=\"my-radio-name\" id=\"my-radio-id-1\" checked>",
@@ -906,7 +906,7 @@
         }
       },
       "checkbox-active": {
-        "p": [
+        "p-1": [
           "Radios or checkboxes' active style."
         ],
         "syntax": [
@@ -914,7 +914,7 @@
           "  @content;",
           "}"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".radio {",
             "  @include checkbox-active() {",
@@ -925,7 +925,7 @@
         }
       },
       "input-file": {
-        "p": [
+        "p-1": [
           "Customize ^input[type=\"file\"]$. \n Thanks Osvaldas Valutis http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ for the idea."
         ],
         "capability": "IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+",
@@ -934,8 +934,8 @@
           "  @content;",
           "}"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"input-file\">",
             "  <input type=\"file\" name=\"file\" id=\"file\" class=\"inputfile\" data-multiple-caption=\"{count} files selected\" multiple />",
             "  <label for=\"file\"><span>Choose a file</span></label>",
@@ -958,15 +958,15 @@
         }
       },
       "tabs": {
-        "p": [
+        "p-1": [
           "Pure css tabs."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+",
         "syntax": [
           "@mixin tabs($length $style)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<!-- .ro-tabs and .ro-panels are required -->",
             "<div class=\"your-tab-class\">",
             "  <input type=\"radio\" name=\"your-radio-name\" id=\"your-radio-id-1\" checked>",
@@ -1000,13 +1000,13 @@
         }
       },
       "tabs-active": {
-        "p": [
+        "p-1": [
           "Set tabs' active styles."
         ],
         "syntax": [
           "@mixin tabs-active($length)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".your-tab-class { ",
             "  @include tabs-active(3) {",
@@ -1018,13 +1018,13 @@
         }
       },
       "tabs-panel-active": {
-        "p": [
+        "p-1": [
           "Set panels' active styles."
         ],
         "syntax": [
           "@mixin tabs-panel-active($length)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".your-tab-class { ",
             "  @include tabs-panel-active(3) {",
@@ -1036,15 +1036,15 @@
         }
       },
       "accordion": {
-        "p": [
+        "p-1": [
           "Pure css accordion."
         ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": [
           "@mixin accordion($content $max-height $transition-duration)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"accordion\">",
             "  <input type=\"checkbox\" name=\"\" id=\"accordion-checkbox-1\">",
             "  <label for=\"accordion-checkbox-1\"><strong>About Us</strong></label>",
@@ -1068,8 +1068,8 @@
           "// $show: 'hover' | 'click'",
           "// $style: 'display' | 'scale' | 'rotate'"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<!-- if you set $show: click, add these markup to your dropdown make sure the value of \"for\" match the checkbox id -->",
             "<div class=\"dropdown\">",
             "  <span>dropdown</span>",
@@ -1093,15 +1093,15 @@
         }
       },
       "tooltip": {
-        "p": [
+        "p-1": [
           "pure css ^tooltip$."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin tooltip($direction $color (width $width) (height $height) radius)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<p>Hic, deleniti itaque expedita placeat in veritatis <a href=\"\" class=\"tooltip\" data-tooltip=\"Tooltip content\">consectetur</a> explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.</p>"
           ],
           "scss": [
@@ -1114,15 +1114,15 @@
         }
       },
       "Media-list": {
-        "p": [
+        "p-1": [
           "^media-list$ displays a media object (images, video, audio) to the left or right of a block object."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin media-list($role $gutter $direction)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<ul class=\"news\">",
             "  <li>",
             "    <figure class=\"media\"><a href=\"\"><img src=\"http://placehold.it/120x80\" alt=\"\"></a></figure>",
@@ -1153,8 +1153,8 @@
         "syntax": [
           "@mixin flex-media($ratio $child)"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<div class=\"video\">",
             "  <iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/Rb0UmrCXxVA\" frameborder=\"0\" allowfullscreen></iframe>",
             "</div>"
@@ -1173,14 +1173,14 @@
     },
     "Addons": {
       "type": {
-        "p": [
+        "p-1": [
           "^type$ is a shorthand mixin for type."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             "h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }",
             "// font-size: 20px;",
@@ -1202,7 +1202,7 @@
         }
       },
       "fluid-type": {
-        "p": [
+        "p-1": [
           "Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec \n More on https://blog.codepen.io/2016/10/31/fluid-type-blogs/."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
@@ -1211,14 +1211,14 @@
           "$properties: properties which have the same fluid value",
           "$data: a map with two pairs of viewwidth and value"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             "h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }"
           ]
         }
       },
       "responsive-type (rp-type)": {
-        "p": [
+        "p-1": [
           "Responsive type.",
           "Everything you can do with ^type$ you can do with ^responsive-type$."
         ],
@@ -1226,7 +1226,7 @@
         "syntax": [
           "@mixin responsive-type($map, $breakpoints: $bp) // or rp-type();"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             "$bp: (",
             "  'small' : 480px,",
@@ -1253,7 +1253,7 @@
         }
       },
       "hide-text": {
-        "p": [
+        "p-1": [
           "Visually hide a text element."
         ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
@@ -1261,8 +1261,8 @@
           "@mixin hide-text();",
           "%hide-text {};"
         ],
-        "code": {
-          "html": [
+        "code-1": {
+          "markup": [
             "<h1 class=\"logo\">Brand Name</h1>"
           ],
           "scss": [
@@ -1274,26 +1274,26 @@
         }
       },
       "opacity": {
-        "p": [
+        "p-1": [
           "Use ^opacity$ to set ^opacity$ property for old IE and modern browsers."
         ],
         "syntax": [
           "@mixin opacity($opacity)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".example { @include opacity(0.3); }"
           ]
         }
       },
       "ie-rgba": {
-        "p": [
+        "p-1": [
           "^ie-rgba$ is for getting rgba property for IE8."
         ],
         "syntax": [
           "@mixin ie-rgba($rgba)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }",
             "// output:",
@@ -1306,7 +1306,7 @@
         }
       },
       "ro-breakpoint (bp)": {
-        "p": [
+        "p-1": [
           "A shorthand @mixin for breakpoints.",
           "Use a single breakpoint (e.g. 800) for both ^min$ and ^max$ instead of two (e.g. 799 for ^max$, 800 for ^min$)."
         ],
@@ -1314,7 +1314,7 @@
         "syntax": [
           "@mixin ro-breakpoint($condition $media-type $media-feature $breakpoints)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             "@include bp('min' 640) {};",
             "// output: @media (min-width: 40em) {};",
@@ -1333,7 +1333,7 @@
           "  @content;",
           "}"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".nav {",
             "  @include at-least('li' 4) { width: 25%; }",
@@ -1347,7 +1347,7 @@
           "  @content;",
           "}"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".nav {",
             "  @include at-most('li' 4) { width: 25%; }",
@@ -1361,7 +1361,7 @@
           "  @content;",
           "}"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".nav {",
             "  @include equal-to('li' 4) { width: 25%; }",
@@ -1375,7 +1375,7 @@
           "  @content;",
           "}"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".nav {",
             "  @include between('li' 4 6) { width: 25%; }",
@@ -1384,14 +1384,14 @@
         }
       },
       "visible": {
-        "p": [
+        "p-1": [
           "A shorthand @mixin for hide elements on some parts of viewport."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin visible($media-type $breakpoints)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             "@include visible(500)",
             "// visible on 500px up on all media"
@@ -1399,14 +1399,14 @@
         }
       },
       "hidden": {
-        "p": [
+        "p-1": [
           "A shorthand @mixin for hide elements on some parts of viewport."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin hidden($media-type $breakpoints)"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             "@include hidden(screen 300 500 700)",
             "// hidden between 300px and 500px, and 700px up on screen"
@@ -1416,14 +1416,14 @@
     },
     "Color Functions": {
       "contrast": {
-        "p": [
+        "p-1": [
           "Get a contrast ^font-color$ based on the ^background-color$."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function contrast($color (light $light) (dark $dark));"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".main { color: contrast(#a6e36e); }",
             "// color: #a6e36e;",
@@ -1433,14 +1433,14 @@
         }
       },
       "adjacent": {
-        "p": [
+        "p-1": [
           "^adjacent$ is for creating adjacent colors."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }",
             "// color: #a6e36e;",
@@ -1452,14 +1452,14 @@
         }
       },
       "complementary": {
-        "p": [
+        "p-1": [
           "^complementary$ is for getting a complementary color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".main { color: complementary(#a6e36e saturation 20%); }",
             "// color: #a6e36e;",
@@ -1468,14 +1468,14 @@
         }
       },
       "split-complementary": {
-        "p": [
+        "p-1": [
           "^split-complementary$ is for getting split-complementary colors based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist));"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".main { color: split-complementary(#a6e36e 2); }",
             "// color: #a6e36e;",
@@ -1484,14 +1484,14 @@
         }
       },
       "triad": {
-        "p": [
+        "p-1": [
           "^triad$ is for getting triad colors based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".main { color: triad(#a6e36e, 2); }",
             "// color: #a6e36e;",
@@ -1500,14 +1500,14 @@
         }
       },
       "rectangle": {
-        "p": [
+        "p-1": [
           "^rectangle$ is for getting rectangle colors based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             " ",
             ".main { color: rectangle(#a6e36e, -3); }",
@@ -1517,14 +1517,14 @@
         }
       },
       "square": {
-        "p": [
+        "p-1": [
           "^square$ is for getting square colors based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
         ],
-        "code": {
+        "code-1": {
           "scss": [
             ".main { color: square(#a6e36e, 3); }",
             "// color: #a6e36e;",
