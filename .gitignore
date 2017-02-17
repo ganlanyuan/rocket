@@ -11,3 +11,4 @@ bower_components/
 node_modules/
 tests/nightwatch/screenshots/
 LICENSE
+package.json

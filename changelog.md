@@ -1,5 +1,8 @@
 # Changelog
 
+##### 3.4.13
+- Fixed: `get-position-from-order`.
+
 ##### 3.4.12
 - Fixed: `off-canvas` push overlay position.
 - Fixed: `gallery` keep option.
