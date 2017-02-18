@@ -55,6 +55,9 @@
             Layout
           </h4>
           <ul>
+            <li class="nav-layout setting">
+              <a href="#layout%20setting">Layout setting</a>
+            </li>
             <li class="nav-container">
               <a href="#container">Container</a>
             </li>
@@ -234,12 +237,32 @@
           Layout
         </h2>
         <ul>
+          <li id="layout setting">
+            <h4>
+              Layout setting
+            </h4>
+            <p>
+              Default container and gutter for <code class="language-html">container</code>, <code class="language-html">grid</code>, <code class="language-html">gallery</code>, <code class="language-html">liquid-2</code>, <code class="language-html">liquid-3</code>, <code class="language-html">metro</code>, <code class="language-html">masonry</code>.
+            </p>
+            <div class="code-wrapper">
+              <header>
+                scss: <span>syntax</span>
+              </header>
+              <pre>
+<code class="language-scss">$ro-layout: (
+  container: 1024px,
+  gutter: 20px,
+);
+</code>
+</pre>
+            </div>
+          </li>
           <li id="container">
             <h4>
               Container
             </h4>
             <p>
-              The container of the main content. It can be center, left or right aligned.
+              Create a container to constrain your content. It can be push to the left, right edges or center aligned.
             </p>
             <p class="browser-capability">
               IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+
@@ -249,47 +272,87 @@
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin container($container (gutter $gutter) $align)
+<code class="language-scss">@mixin container($container ('gutter' $gutter) $alignment)
+// $container: px | em | %
+// $gutter: px | em | %
+// $alignment: left | right | center
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
-<code class="language-markup">&lt;div class="header container"&gt;
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup">&lt;div class="container1"&gt;
   &lt;!-- contents --&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
-<code class="language-scss">.container { @include container(); }
-// container: 1024px;
-// gutter: 20px; (default)
-// align: center; (default)
-
-.container { @include container(1200px gutter 2% left); }
-// container: 1200px
-// gutter: 2%;
-// align: left;
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss">.container1 { @include container(); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="container1"></div>
+              </div>
+            </div>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup">&lt;div class="container2"&gt;
+  &lt;!-- contents --&gt;
+&lt;/div&gt;
+</code>
+</pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss">.container2 {
+  @include container(800px gutter 2% left);
+}
+</code>
+</pre>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="container2"></div>
+              </div>
             </div>
           </li>
           <li id="grid">
             <h4>
               Grid
             </h4>
+            <p>
+              Create a responsive multi columns (and even multi rows) layout using <code class="language-html">grid</code>.
+            </p>
             <p class="browser-capability">
               IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+
             </p>
@@ -305,13 +368,17 @@
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="row"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -319,12 +386,12 @@
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.row { @include grid( (3 7 4) ); }
 // 1st child: 3 columns;
 // 2nd child: 7 columns;
@@ -356,8 +423,16 @@ $main: (
 .row { @include grid($main $breakpoints); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="row">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="liquid-2">
@@ -382,25 +457,29 @@ $main: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="wrapper"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.wrapper { @include liquid-2( ('auto' 200px) ); }
 // 1st column: fluid;
 // 2nd column: 200px;
@@ -409,8 +488,15 @@ $main: (
 // columns' order: 2 1;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="wrapper">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="liquid-3">
@@ -435,25 +521,29 @@ $main: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="wrapper"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.wrapper { @include liquid-3( (150px 'auto' 200px) ); }
 // 1st column: 150px;
 // 2nd column: fluid;
@@ -463,8 +553,15 @@ $main: (
 // columns' order: 0 2 1;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="wrapper">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="gallery">
@@ -489,13 +586,17 @@ $main: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;ul class="gallery"&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -505,12 +606,12 @@ $main: (
 &lt;/ul&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">// *** case 1 *** //
 .gallery { @include gallery(3); }
 // 3 items per row
@@ -533,8 +634,18 @@ $map: (
 // 800px and up: 4 items per row
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <ul class="gallery">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="masonry">
@@ -559,13 +670,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;ul class="masonry"&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -575,12 +690,12 @@ $map: (
 &lt;/ul&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">// *** case 1 *** //
 .masonry { @include masonry(3); }
 // count: 3;
@@ -618,8 +733,18 @@ $map: (
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <ul class="masonry">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="metro">
@@ -641,13 +766,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;ul class="main"&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
@@ -657,12 +786,12 @@ $map: (
 &lt;/ul&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { @include metro(3 1 h2 1 w3 of 3); }
 // 3: 1st child -&gt; 3 blocks width x 3 blocks height
 // 1: 2nd child -&gt; 1 blocks width x 1 blocks height
@@ -672,8 +801,28 @@ $map: (
 // "of 3": totaly 3 blocks width;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <ul class="main">
+                  <li>
+                    <div class="metro-item"></div>
+                  </li>
+                  <li>
+                    <div class="metro-item"></div>
+                  </li>
+                  <li>
+                    <div class="metro-item"></div>
+                  </li>
+                  <li>
+                    <div class="metro-item"></div>
+                  </li>
+                  <li>
+                    <div class="metro-item"></div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="diamond">
@@ -694,13 +843,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="wrapper"&gt;
   &lt;!-- 'wrapper' could be any valid class name --&gt;
   &lt;div class="diamond"&gt;
@@ -738,12 +891,12 @@ $map: (
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.diamond { @include diamond(5 'combined'); }
 // count: 5 (5 diamonds per row)
  
@@ -751,8 +904,55 @@ $map: (
 // diamond size: 20% (could be fixed value like 200px too)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="wrapper">
+                  <div class="diamond">
+                    <div class="diamond-content">
+                      <div>
+                        content
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diamond">
+                    <div class="diamond-content">
+                      <div>
+                        content
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diamond">
+                    <div class="diamond-content">
+                      <div>
+                        content
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diamond">
+                    <div class="diamond-content">
+                      <div>
+                        content
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diamond">
+                    <div class="diamond-content">
+                      <div>
+                        content
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diamond">
+                    <div class="diamond-content">
+                      <div>
+                        content
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="angled-edges">
@@ -775,31 +975,39 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="main"&gt;
   &lt;!-- Content goes here --&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { @include angled-edges("bottom" -5deg); }
 // edge: bottom;
 // angle: -5deg;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="main"></div>
+              </div>
             </div>
           </li>
           <li id="sticky-footer">
@@ -821,13 +1029,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;body&gt;
   &lt;header&gt;header&lt;/header&gt;
   &lt;div class="main"&gt;main&lt;/div&gt;
@@ -835,17 +1047,29 @@ $map: (
 &lt;/body&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">body { @include sticky-footer('.main'); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <header>
+                  header
+                </header>
+                <div class="main">
+                  main
+                </div>
+                <footer>
+                  footer
+                </footer>
+              </div>
             </div>
           </li>
           <li id="justify">
@@ -867,13 +1091,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;ul class="justify"&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
@@ -883,17 +1111,27 @@ $map: (
 &lt;/ul&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.justify { @include justify(); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <ul class="justify">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="center">
@@ -915,30 +1153,40 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="popup"&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.popup { @include center('div'); }
 // child: div;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="popup">
+                  <div></div>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
@@ -965,13 +1213,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="charts"&gt;
   &lt;!-- items: charts body --&gt;
   &lt;ul class="items"&gt;
@@ -1017,12 +1269,12 @@ $map: (
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">$data1: (
   #5AB5E1: 8.9 10.5 19.3 21.45,
 );
@@ -1042,8 +1294,73 @@ $data2: (
 // hide: numbers and labels
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="charts">
+                  <ul class="items">
+                    <li class="item-1">
+                      <strong>Copper</strong>  <span></span> 
+                    </li>
+                    <li class="item-2">
+                      <strong>Silver</strong> <span></span>
+                    </li>
+                    <li class="item-3">
+                      <strong>Gold</strong> <span></span>
+                    </li>
+                    <li class="item-4">
+                      <strong>Platinum</strong> <span></span>
+                    </li>
+                  </ul>
+                  <div class="ticks">
+                    <div class="tick-1">
+                      <span></span>
+                    </div>
+                    <div class="tick-2">
+                      <span></span>
+                    </div>
+                    <div class="tick-3">
+                      <span></span>
+                    </div>
+                    <div class="tick-4">
+                      <span></span>
+                    </div>
+                    <div class="tick-5">
+                      <span></span>
+                    </div>
+                    <div class="tick-6">
+                      <span></span>
+                    </div>
+                    <div class="tick-7">
+                      <span></span>
+                    </div>
+                    <div class="tick-8">
+                      <span></span>
+                    </div>
+                    <div class="tick-9">
+                      <span></span>
+                    </div>
+                    <div class="tick-10">
+                      <span></span>
+                    </div>
+                    <div class="tick-11">
+                      <span></span>
+                    </div>
+                    <div class="tick-12">
+                      <span></span>
+                    </div>
+                    <div class="tick-13">
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="labels">
+                    <div class="label-1">
+                      sales
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="responsive-table">
@@ -1079,13 +1396,17 @@ $data2: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;!-- modes: flip-scroll, stack --&gt;
 &lt;table class="your-table"&gt;
   &lt;!-- table content goes here --&gt;
@@ -1120,12 +1441,12 @@ $data2: (
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">// flip-scroll
 .table { 
   @include rp-table('flip-scroll' 'bp' 900) {
@@ -1162,8 +1483,22 @@ $data2: (
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <table class="your-table"></table>
+                <div class="scroll-wrapper">
+                  <table></table>
+                </div>
+                <div class="table-wrapper">
+                  <input type="checkbox" name="" id="toggle-1" checked> <input type="checkbox" name="" id="toggle-2"> <input type="checkbox" name="" id="toggle-3"> … <input type="checkbox" name="" id="control-panel">  <input type="checkbox" name="" id="display-all">  <label for="control-panel">Display</label>  <label for="display-all">Display All</label> 
+                  <div class="control-panel">
+                    <label for="toggle-1">First Name</label> <label for="toggle-2">Last Name</label> <label for="toggle-3">Job Title</label> …
+                  </div>
+                  <table></table>
+                </div>
+              </div>
             </div>
           </li>
           <li id="off-canvas">
@@ -1185,13 +1520,17 @@ $data2: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer --&gt;
 &lt;input type="checkbox" name="" id="nav-toggle"&gt;
 &lt;div class="page"&gt;
@@ -1255,12 +1594,12 @@ $data2: (
 &lt;/nav&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">// normal
 .page { @include off-canvas('slide-in' left 'submenu' '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
 // mode: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
@@ -1290,8 +1629,102 @@ $map: (
 .page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <input type="checkbox" name="" id="nav-toggle">
+                <div class="page">
+                  <header>
+                    <label for="nav-toggle">Menu</label> <label for="nav-toggle" class="page-overlay"></label>
+                    <nav class="nav">
+                      <ul>
+                        <li>
+                          <a href="">How It Works</a>
+                        </li>
+                        <li>
+                          <a href="">Compare</a>
+                        </li>
+                        <li>
+                          <a href="">Technology</a>
+                        </li>
+                        <li>
+                          <a href="">Careers</a>
+                        </li>
+                        <li>
+                          <a href="">Help</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </header>
+                  <div>
+                    Other content
+                  </div>
+                </div><input type="checkbox" name="" id="nav-toggle">
+                <nav class="nav">
+                  <ul>
+                    <li>
+                      <a href="">How It Works</a>
+                    </li>
+                    <li>
+                      <a href="">Compare</a>
+                    </li>
+                    <li>
+                      <a href="">Technology</a>
+                    </li>
+                    <li>
+                      <a href="">Careers</a>
+                    </li>
+                    <li>
+                      <a href="">Help</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div class="page">
+                  <header>
+                    <label for="nav-toggle">Menu</label> <label for="nav-toggle" class="page-overlay"></label>
+                  </header>
+                  <div>
+                    Other content
+                  </div>
+                </div>
+                <nav class="nav">
+                  <ul>
+                    <li>
+                      <a href="">How It Works</a>
+                    </li>
+                    <li>
+                      <a href="">Compare</a>
+                    </li>
+                    <li>
+                      <a href="">Technology</a>
+                    </li>
+                    <li>
+                      <a href="">Careers</a>
+                    </li>
+                    <li data-has-submenu="">
+                      <input type="checkbox" id="subnav-1-1" class="hidden-checkbox"><label for="subnav-1-1">&gt;</label><a href="">Careers</a>
+                      <ul data-submenu="">
+                        <li>
+                          <label for="subnav-1-1" data-back="">Back</label>
+                        </li>
+                        <li>
+                          <a href="">sub item 1</a>
+                        </li>
+                        <li>
+                          <a href="">sub item 2</a>
+                        </li>
+                        <li>
+                          <a href="">sub item 3</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="">Help</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
           </li>
           <li id="validation">
@@ -1317,13 +1750,17 @@ $map: (
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;form action="" class="myform"&gt;
   &lt;ol&gt;
     &lt;li&gt;
@@ -1343,31 +1780,57 @@ $map: (
 &lt;/form&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.myform { @include validation(slide-in right default); }
 // style: slide-in;
 // direction: right;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    javascript
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      javascript
+                    </header>
+                    <pre>
 <code class="language-javascript">// run form validation
 window.onload = function () {
   H5F.setup(document.querySelectorAll(".myform"));
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <form action="" class="myform">
+                  <ol>
+                    <li>
+                      <label for="name">Name</label> <input type="text" id="name" pattern="[a-zA-Z]{6,}" required=""> 
+                      <div data-info="valid">
+                        User name is valid.
+                      </div>
+                      <div data-info="required">
+                        Valid user name required.
+                      </div>
+                      <div data-info="error">
+                        User name must be at least 6 characters.
+                      </div>
+                    </li>
+                    <li>…
+                    </li>
+                    <li>…
+                    </li>
+                    <li>
+                      <input type="submit" value="Submit">
+                    </li>
+                  </ol>
+                </form>
+              </div>
             </div>
           </li>
           <li id="button">
@@ -1389,13 +1852,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;!-- normal: you can use button on any tag --&gt;
 &lt;span class="button"&gt;button&lt;/span&gt;
 &lt;!-- push: inner span tag, data-text attribute --&gt;
@@ -1409,12 +1876,12 @@ window.onload = function () {
 &lt;/span&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
 // padding: 1em 2em; (padding must be quoted)
 // background-color: #2B8ACF;
@@ -1424,8 +1891,12 @@ window.onload = function () {
 // active-selector: '.active'; Final selector will be .button.active;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <span class="button">button</span><span class="push" data-text="star"><span>push</span></span><span class="line-drawing">line-drawing <span></span> <span></span> <span></span> <span></span></span>
+              </div>
             </div>
           </li>
           <li id="parallelogram">
@@ -1447,29 +1918,37 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="box"&gt;&lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.box { @include parallelogram(#61A4DE -30deg); }
 // $background: #61A4DE; 
 // $angle: -30deg;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="box"></div>
+              </div>
             </div>
           </li>
           <li id="drop-shadows">
@@ -1493,30 +1972,38 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="box"&gt;&lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.box { @include drop-shadows(curve horizontal 20px); }
 // $style: 'curve'; 
 // $direction: horizontal;
 // $shadow-size: 20px;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="box"></div>
+              </div>
             </div>
           </li>
           <li id="switch">
@@ -1539,25 +2026,29 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="switch"&gt;
   &lt;input type="checkbox" id="switch1" name="switch"&gt;
   &lt;label for="switch1"&gt;&lt;/label&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.switch { @include switch(round text ("on" "off") 36px #399DE1); }
 // style: toggle; (default)
 // text: on off;
@@ -1566,8 +2057,14 @@ window.onload = function () {
 // round: true;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="switch">
+                  <input type="checkbox" id="switch1" name="switch"> <label for="switch1"></label>
+                </div>
+              </div>
             </div>
           </li>
           <li id="push-toggle">
@@ -1589,13 +2086,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="push-toggle"&gt;
   &lt;input type="radio" id="male" name="gender" checked=""&gt;
   &lt;label for="male"&gt;Male&lt;/label&gt;
@@ -1604,12 +2105,12 @@ window.onload = function () {
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.your-tab-class { 
   // default style
   label {
@@ -1626,8 +2127,14 @@ window.onload = function () {
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="push-toggle">
+                  <input type="radio" id="male" name="gender" checked> <label for="male">Male</label> <input type="radio" id="female" name="gender"> <label for="female">Female</label>
+                </div>
+              </div>
             </div>
           </li>
           <li id="checkbox">
@@ -1651,13 +2158,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;!-- make sure label right after radio or checkbox --&gt;
 &lt;div class="radio"&gt;
   &lt;input type="radio" name="my-radio-name" id="my-radio-id-1" checked&gt;
@@ -1672,12 +2183,12 @@ window.onload = function () {
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.radio {
   @include checkbox() {
  padding: 4px 0 4px 26px;
@@ -1686,8 +2197,16 @@ window.onload = function () {
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="radio">
+                  <input type="radio" name="my-radio-name" id="my-radio-id-1" checked> <label for="my-radio-id-1">item 1</label><br>
+                  <input type="radio" name="my-radio-name" id="my-radio-id-2"> <label for="my-radio-id-2">item 2</label><br>
+                  <input type="radio" name="my-radio-name" id="my-radio-id-3"> <label for="my-radio-id-3">item 3</label><br>
+                </div>
+              </div>
             </div>
           </li>
           <li id="checkbox-active">
@@ -1708,13 +2227,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.radio {
   @include checkbox-active() {
  background-image: url('../images/radio-active.png');
@@ -1722,8 +2245,9 @@ window.onload = function () {
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="input-file">
@@ -1748,25 +2272,29 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="input-file"&gt;
   &lt;input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple /&gt;
   &lt;label for="file"&gt;&lt;span&gt;Choose a file&lt;/span&gt;&lt;/label&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.radio {
   @include input-file() {
   // customized style goes here
@@ -1774,12 +2302,12 @@ window.onload = function () {
 }
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    javascript
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      javascript
+                    </header>
+                    <pre>
 <code class="language-javascript">// link input-file.js to your page
 &lt;script src="path/to/input-file.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
@@ -1787,8 +2315,14 @@ window.onload = function () {
 &lt;/script&gt;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="input-file">
+                  <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple> <label for="file"><span>Choose a file</span></label>
+                </div>
+              </div>
             </div>
           </li>
           <li id="tabs">
@@ -1810,13 +2344,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;!-- .ro-tabs and .ro-panels are required --&gt;
 &lt;div class="your-tab-class"&gt;
   &lt;input type="radio" name="your-radio-name" id="your-radio-id-1" checked&gt;
@@ -1843,19 +2381,33 @@ window.onload = function () {
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.your-tab-class { @include tabs(3 'carousel'); }
 // length: 3; (3 tabs)
 // style: carousel; (normal | carousel | customize)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="your-tab-class">
+                  <input type="radio" name="your-radio-name" id="your-radio-id-1" checked> <input type="radio" name="your-radio-name" id="your-radio-id-2"> <input type="radio" name="your-radio-name" id="your-radio-id-3"> 
+                  <div class="ro-tabs">
+                    <label for="your-radio-id-1">tab 1</label> <label for="your-radio-id-2">tab 2</label> <label for="your-radio-id-3">tab 3</label> 
+                  </div>
+                  <div class="ro-panels">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="tabs-active">
@@ -1874,13 +2426,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.your-tab-class { 
   @include tabs-active(3) {
  // tab active style
@@ -1889,8 +2445,9 @@ window.onload = function () {
 // length: 3; (3 tabs)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="tabs-panel-active">
@@ -1909,13 +2466,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.your-tab-class { 
   @include tabs-panel-active(3) {
     // panel active style
@@ -1924,8 +2485,9 @@ window.onload = function () {
 // length: 3; (3 tabs)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="accordion">
@@ -1947,13 +2509,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="accordion"&gt;
   &lt;input type="checkbox" name="" id="accordion-checkbox-1"&gt;
   &lt;label for="accordion-checkbox-1"&gt;&lt;strong&gt;About Us&lt;/strong&gt;&lt;/label&gt;
@@ -1963,20 +2529,31 @@ window.onload = function () {
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.accordion { @include accordion(div 200px 0.4s); }
 // $content: div;
 // $max-height: 200px;
 // $transition-duration: 0.4s;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="accordion">
+                  <input type="checkbox" name="" id="accordion-checkbox-1"> <label for="accordion-checkbox-1"><strong>About Us</strong></label>
+                  <div>
+                    <p>
+                      Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
           <li id="dropdown">
@@ -1997,13 +2574,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;!-- if you set $show: click, add these markup to your dropdown make sure the value of "for" match the checkbox id --&gt;
 &lt;div class="dropdown"&gt;
   &lt;span&gt;dropdown&lt;/span&gt;
@@ -2017,12 +2598,12 @@ window.onload = function () {
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.dropdown { @include dropdown(ul hover display right default); }
 // child: ul;
 // show: hover;
@@ -2031,8 +2612,25 @@ window.onload = function () {
 // default: true; (use default dropdown menu style)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="dropdown">
+                  <span>dropdown</span> <input type="checkbox" name="" id="dropdown"> <label for="dropdown">▼</label>
+                  <ul>
+                    <li>
+                      <a href="">item01</a>
+                    </li>
+                    <li>
+                      <a href="">item02</a>
+                    </li>
+                    <li>
+                      <a href="">item03</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </li>
           <li id="tooltip">
@@ -2054,22 +2652,26 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;p&gt;Hic, deleniti itaque expedita placeat in veritatis &lt;a href="" class="tooltip" data-tooltip="Tooltip content"&gt;consectetur&lt;/a&gt; explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.&lt;/p&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.tooltip { @include tooltip(radius right #b02df3 width 300px); }
 // radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
 // direction: right;
@@ -2077,8 +2679,14 @@ window.onload = function () {
 // width: 300px; (for old browsers)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <p>
+                  Hic, deleniti itaque expedita placeat in veritatis <a href="" class="tooltip" data-tooltip="Tooltip content">consectetur</a> explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.
+                </p>
+              </div>
             </div>
           </li>
           <li id="Media-list">
@@ -2100,13 +2708,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;ul class="news"&gt;
   &lt;li&gt;
     &lt;figure class="media"&gt;&lt;a href=""&gt;&lt;img src="http://placehold.it/120x80" alt=""&gt;&lt;/a&gt;&lt;/figure&gt;
@@ -2117,12 +2729,12 @@ window.onload = function () {
 &lt;/ul&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.news .media { @include media-list(); } 
 // role: 'media'; (media:default | media-body)
 // gutter: 10px; (default)
@@ -2137,8 +2749,23 @@ window.onload = function () {
 // role: 'media-body'; 
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <ul class="news">
+                  <li>
+                    <figure class="media">
+                      <a href=""><img src="http://placehold.it/120x80" alt=""></a>
+                    </figure>
+                    <div class="media-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="flex media">
@@ -2157,24 +2784,28 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;div class="video"&gt;
   &lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.video { @include flex-media(3/4); }
 // ratio: 3/4;
 // child: iframe, object, embed; (default)
@@ -2184,8 +2815,14 @@ window.onload = function () {
 // child: svg; 
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="video">
+                  <iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
@@ -2212,13 +2849,17 @@ window.onload = function () {
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }
 // font-size: 20px;
 // font-weight: bold; 
@@ -2237,8 +2878,9 @@ window.onload = function () {
 // $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="fluid-type">
@@ -2263,18 +2905,23 @@ $data: a map with two pairs of viewwidth and value
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="responsive-type (rp-type)">
@@ -2299,13 +2946,17 @@ $data: a map with two pairs of viewwidth and value
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">$bp: (
   'small' : 480px,
   'medium': 700px,
@@ -2329,8 +2980,9 @@ h3 { @include rp-type($h3-font-sizes $bp); }
 p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="hide-text">
@@ -2353,30 +3005,40 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    markup
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
 <code class="language-markup">&lt;h1 class="logo"&gt;Brand Name&lt;/h1&gt;
 </code>
 </pre>
-                </li>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.logo { 
   @extend %hide-text; 
   // or @include hide-text(); 
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <h1 class="logo">
+                  Brand Name
+                </h1>
+              </div>
             </div>
           </li>
           <li id="opacity">
@@ -2395,18 +3057,23 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.example { @include opacity(0.3); }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="ie-rgba">
@@ -2425,13 +3092,17 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }
 // output:
 // .lt-ie9 .example {
@@ -2441,8 +3112,9 @@ p { @include rp-type($p-font-sizes $bp); }
 // }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="ro-breakpoint (bp)">
@@ -2467,13 +3139,17 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">@include bp('min' 640) {};
 // output: @media (min-width: 40em) {};
 @include bp('min' 'height' 640) {};
@@ -2484,8 +3160,9 @@ p { @include rp-type($p-font-sizes $bp); }
 // output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="at-least">
@@ -2503,20 +3180,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.nav {
   @include at-least('li' 4) { width: 25%; }
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="at-most">
@@ -2534,20 +3216,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.nav {
   @include at-most('li' 4) { width: 25%; }
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="equal-to">
@@ -2565,20 +3252,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.nav {
   @include equal-to('li' 4) { width: 25%; }
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="between">
@@ -2596,20 +3288,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.nav {
   @include between('li' 4 6) { width: 25%; }
 }
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="visible">
@@ -2631,19 +3328,24 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">@include visible(500)
 // visible on 500px up on all media
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="hidden">
@@ -2665,19 +3367,24 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">@include hidden(screen 300 500 700)
 // hidden between 300px and 500px, and 700px up on screen
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
         </ul>
@@ -2704,21 +3411,26 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { color: contrast(#a6e36e); }
 // color: #a6e36e;
 // light: #fff; (default)
 // dark: #000; (default)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="adjacent">
@@ -2740,13 +3452,17 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
 // color: #a6e36e;
 // order: -1;
@@ -2755,8 +3471,9 @@ p { @include rp-type($p-font-sizes $bp); }
 // distribution: 20;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="complementary">
@@ -2778,20 +3495,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { color: complementary(#a6e36e saturation 20%); }
 // color: #a6e36e;
 // saturation: 20%;
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="split-complementary">
@@ -2813,20 +3535,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { color: split-complementary(#a6e36e 2); }
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="triad">
@@ -2848,20 +3575,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { color: triad(#a6e36e, 2); }
 // color: #a6e36e;
 // order: 2; (-2 | -1 | 1 | 2)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="rectangle">
@@ -2883,21 +3615,26 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss"> 
 .main { color: rectangle(#a6e36e, -3); }
 // color: #a6e36e;
 // order: -3; (-3 | -2 | -1 | 1 | 2 | 3)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li id="square">
@@ -2919,20 +3656,25 @@ p { @include rp-type($p-font-sizes $bp); }
 </code>
 </pre>
             </div>
-            <div class="code-wrapper">
-              <ul>
-                <li>
-                  <header>
-                    scss
-                  </header>
-                  <pre>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
 <code class="language-scss">.main { color: square(#a6e36e, 3); }
 // color: #a6e36e;
 // order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
 </code>
 </pre>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
         </ul>

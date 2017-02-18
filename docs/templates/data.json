@@ -11,34 +11,55 @@
   },
   "docs": {
     "Layout": {
+      "layout setting": {
+        "p-1": [
+          "Default container and gutter for ^container$, ^grid$, ^gallery$, ^liquid-2$, ^liquid-3$, ^metro$, ^masonry$."
+        ],
+        "syntax": [
+          "$ro-layout: (",
+          "  container: 1024px,",
+          "  gutter: 20px,",
+          ");"
+        ]
+      },
       "container": {
         "p-1": [
-          "The container of the main content. It can be center, left or right aligned."
+          "Create a container to constrain your content. It can be push to the left, right edges or center aligned."
         ],
         "capability": "IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
-          "@mixin container($container (gutter $gutter) $align)"
+          "@mixin container($container ('gutter' $gutter) $alignment)",
+          "// $container: px | em | %",
+          "// $gutter: px | em | %",
+          "// $alignment: left | right | center"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"header container\">",
+            "<div class=\"container1\">",
             "  <!-- contents -->",
             "</div>"
           ],
           "scss": [
-            ".container { @include container(); }",
-            "// container: 1024px;",
-            "// gutter: 20px; (default)",
-            "// align: center; (default)",
-            "",
-            ".container { @include container(1200px gutter 2% left); }",
-            "// container: 1200px",
-            "// gutter: 2%;",
-            "// align: left;"
+            ".container1 { @include container(); }"
+          ]
+        },
+        "code-2": {
+          "markup": [
+            "<div class=\"container2\">",
+            "  <!-- contents -->",
+            "</div>"
+          ],
+          "scss": [
+            ".container2 {",
+            "  @include container(800px gutter 2% left);",
+            "}"
           ]
         }
       },
       "grid": {
+        "p-1": [
+          "Create a responsive multi columns (and even multi rows) layout using ^grid$."
+        ],
         "capability": "IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+",
         "syntax": [
           "@mixin grid($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)",

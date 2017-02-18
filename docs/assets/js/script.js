@@ -59,6 +59,16 @@ var rocketSite = {
           navLists[i].classList.remove('active');
         }
       }
+    },
+    togglePreview: function () {
+      var btns = doc.querySelectorAll('.toggle-container button');
+      for (var i = btns.length; i--;) {
+        btns[i].addEventListener('click', function () {
+          demoContainer = this.parentNode.parentNode,
+          dataToggle = this.getAttribute('data-toggle');
+          demoContainer.setAttribute('data-show', dataToggle);
+        });
+      }
     }
   }
 };
@@ -68,6 +78,7 @@ if (doc.querySelector('.docs-nav')) {
     winHeight = window.innerHeight;
     rocketSite.docs.toggleNav();
     rocketSite.docs.showActive();
+    rocketSite.docs.togglePreview();
   });
   window.addEventListener('scroll', function () {
     clearTimeout(scrollTimer);

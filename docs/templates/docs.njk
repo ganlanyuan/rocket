@@ -57,21 +57,31 @@
             </code></pre>
           </div>
           {% elif tag.indexOf('code-') !== -1 %}
-          <div class="code-wrapper">
-            <ul>
-              
-              {% for type, codeContent in content %}
-              <li>
-                <header>{{ type }}</header>
-                <pre><code class="language-{{ type }}">
-                  
-                {%- for row in codeContent %}{{ row + '\n' }}{% endfor -%}
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container"><button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button></div>
+            <div class="code-wrapper">
+              <ul>
+                
+                {% for type, codeContent in content %}
+                <li>
+                  <header>{{ type }}</header>
+                  <pre><code class="language-{{ type }}">
+                    
+                  {%- for row in codeContent %}{{ row + '\n' }}{% endfor -%}
 
-                </code></pre>
-              </li>
-              {% endfor %}
-            
-            </ul>
+                  </code></pre>
+                </li>
+                {% endfor %}
+              
+              </ul>
+            </div>
+            {% for type, codeContent in content %}
+              {% if type === 'markup' %}
+                <div class="preview-wrapper">
+                {{ codeContent | join | safe }}
+                </div>
+              {% endif %}
+            {% endfor %}
           </div>
           {% else %}
           {% endif %}
