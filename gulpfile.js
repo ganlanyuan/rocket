@@ -51,7 +51,7 @@ function requireUncached( $module ) {
 }
 
 // Nunjucks Task
-gulp.task('nunjucks', function() {
+gulp.task('html', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json');
   data.year = new Date().getFullYear();
 
@@ -74,6 +74,35 @@ gulp.task('nunjucks', function() {
       'force-output': true
     }))
     .pipe(gulp.dest(PATHS.docs));
+});
+
+gulp.task('demo-scss', function() {
+  let data = requireUncached('./' + PATHS.templates_docs + 'data.json'),
+      dataDocs = data.docs,
+      docsDemoScss;
+
+  for(var main in dataDocs) {
+    for(var sub in dataDocs[main]) {
+      for(var code in dataDocs[main][sub]) {
+        if (code.indexOf('code-') !== -1) {
+          for(var type in dataDocs[main][sub][code]) {
+            if (type === 'scss') {
+              var arr = dataDocs[main][sub][code][type];
+              for (var i = 0; i < arr.length; i++) {
+                if (arr[i] !== undefined) {
+                  docsDemoScss += arr[i];
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  console.log(docsDemoScss);
+
+  // return gulp.src(PATHS.templates_docs + '*.njks')
+  //   .pipe(gulp.dest(PATHS.src_docs + 'scss'));
 });
 
 // Sass Task
@@ -205,7 +234,7 @@ gulp.task('server', function() {
 
 // Watch Task
 gulp.task('watch', function () {
-  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['nunjucks']);
+  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['html']);
   gulp.watch(PATHS.src_docs + 'scss/**/*.scss', ['sass-docs']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
@@ -215,13 +244,14 @@ gulp.task('watch', function () {
 
 // Default Task
 gulp.task('default', [
-  // 'nunjucks', 
+  // 'html', 
   // 'sass', 
   // 'js', 
   // 'move',
   // 'svgmin', 
   // 'svg-sprites',
   // 'inject',
+  'demo-scss',
   'server', 
   'watch',
 ]);  
