@@ -93,3 +93,23 @@ if (doc.querySelector('.docs-nav')) {
     }, 100);
   });
 }
+
+// clipboard
+var clipboard = new Clipboard('.copy-button');
+clipboard.on('success', function(e) {
+    var content = e.trigger.innerHTML;
+    
+    e.trigger.classList.add('copied');
+    e.trigger.innerHTML = 'Copied';
+    setTimeout(function () {
+      e.trigger.classList.remove('copied');
+      e.trigger.innerHTML = content;
+    }, 1000);
+
+    e.clearSelection();
+});
+
+clipboard.on('error', function(e) {
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+});

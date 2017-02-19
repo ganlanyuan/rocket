@@ -113,6 +113,7 @@ pre > code[class*="language-"] {
   border-bottom: 2px solid darken($lightgray, 10%);
   .btn {
     @include type(12px uppercase);
+    line-height: 2.6;
     min-width: 7em;
   }
 }
@@ -142,6 +143,8 @@ pre > code[class*="language-"] {
   li {
     width: 100%;
     float: left;
+    position: relative;
+    &:hover .copy-button { opacity: 1; }
   }
   ul {
     @extend %clearfix;
@@ -152,6 +155,23 @@ pre > code[class*="language-"] {
     @include bp(min 1300) {
       @include at-least('li' 3) { width: calc(100% / 3); }
     }
+  }
+}
+.copy-button {
+  @include type(13px);
+  color: #fff;
+  background-color: $color-code-header;
+  line-height: 2.7em;
+  height: 2.7em;
+  padding: 0 0.8em;
+  position: absolute;
+  right: 1em;
+  top: 3em;
+  border-radius: 0.2em;
+  opacity: 0;
+  transition: opacity 0.25s;
+  &.copied {
+    background-color: $blue;
   }
 }
 .preview-wrapper {
