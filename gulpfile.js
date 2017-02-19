@@ -79,7 +79,8 @@ gulp.task('html', function() {
 gulp.task('demo-scss', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json'),
       dataDocs = data.docs,
-      docsDemoScss;
+      docsDemoScss = '',
+      docsDemoScssTarget = gulp.src(src_docs + 'scss/_docs-demo.scss');
 
   for(var main in dataDocs) {
     for(var sub in dataDocs[main]) {
@@ -89,8 +90,9 @@ gulp.task('demo-scss', function() {
             if (type === 'scss') {
               var arr = dataDocs[main][sub][code][type];
               for (var i = 0; i < arr.length; i++) {
-                if (arr[i] !== undefined) {
+                if (arr[i].indexOf('//') === -1) {
                   docsDemoScss += arr[i];
+                  docsDemoScss += '\n';
                 }
               }
             }
@@ -99,6 +101,8 @@ gulp.task('demo-scss', function() {
       }
     }
   }
+
+  // return docsDemoScssTarget.pipe(inject())
   console.log(docsDemoScss);
 
   // return gulp.src(PATHS.templates_docs + '*.njks')
