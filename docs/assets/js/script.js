@@ -35,14 +35,18 @@ var rocketSite = {
   docs: {
     toggleNav: function () {
       var toggle = doc.querySelector('.docs-nav__toggle'),
+          docsWrapper = doc.querySelector('.docs-wrapper'),
           nav = doc.querySelector('.docs-nav'),
-          navLinks = nav.querySelectorAll('a');
+          navLinks = nav.querySelectorAll('a'),
+          breakpoint = 900;
       toggle.addEventListener('click', function () {
-        nav.classList.toggle('expanded');
+        docsWrapper.classList.toggle((window.innerWidth >= breakpoint) ? 'hidenav' : 'shownav');
       });
       for (var i = navLinks.length; i--;) {
         navLinks[i].addEventListener('click', function () {
-          nav.classList.remove('expanded');
+          if (window.innerWidth < 900) {
+            docsWrapper.classList.remove('shownav');
+          }
         })
       }
     },

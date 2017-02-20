@@ -38,26 +38,39 @@ pre > code[class*="language-"] {
   }
   @include bp(min $bp-docs) {
     @include liquid-2(($nav-width 'auto') child (nav main));
+    &.hidenav {
+      padding-left: (map-get($ro-layout, 'gutter') / 2);
+      main { width: 100%; }
+      > nav {
+        width: auto;
+        overflow: initial;
+        box-shadow: none;
+      }
+      .docs-nav {
+        z-index: $zi-docs-nav;
+        &__content { display: none; }
+        &__toggle {
+          position: sticky;
+          transform: translateX(0);
+          &:before { content: 'Show nav'; }
+        }
+      }
+      .preview-wrapper { 
+        width: 100vw; 
+        position: relative; 
+        left: 50%; 
+        right: 50%; 
+        margin-left: -50vw; 
+        margin-right: -50vw; 
+      }
+    }
   }
 }
 .docs-nav {
   width: $nav-width;
-  &.expanded { 
-    transform: translateX(0);
-    .docs-nav__content {
-      box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
-    }
-    .docs-nav__toggle svg { transform: rotate(180deg); }
-  }
   &__toggle {
-    position: absolute;
-    bottom: 4em;
-    right: -$logo-width-sm;
-    width: $logo-width-sm;
     text-align: center;
     border: none;
-    background-color: $color-code-header;
-    padding: 0.5em 0;
     cursor: pointer;
     border-radius: 0;
     > svg { margin: 0 auto; }
@@ -99,6 +112,21 @@ pre > code[class*="language-"] {
       overflow-y: auto;
       background-color: #fff;
     }
+    &__toggle {
+      position: absolute;
+      bottom: 4em;
+      right: -$logo-width-sm;
+      width: $logo-width-sm;
+      background-color: $color-code-header;
+      padding: 0.5em 0;
+    }
+    .shownav & { 
+      transform: translateX(0);
+      .docs-nav__content {
+        box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
+      }
+      .docs-nav__toggle svg { transform: rotate(180deg); }
+    }
   }
   @include bp(min $bp-docs) {
     position: sticky;
@@ -106,11 +134,26 @@ pre > code[class*="language-"] {
     max-height: 100vh;
     overflow: auto;
     box-shadow: 4px 12px 10px rgba(0, 0, 0, 0.15);
-    &__toggle { display: none; }
+    &:hover &__toggle { transform: translateX(0); }
+    &__toggle {
+      @include type(14px);
+      padding: 0.7em;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 3px;
+      position: fixed;
+      left: (map-get($ro-layout, 'gutter') / 2);
+      top: 128px;
+      white-space: nowrap;
+      transform: translateX(-200px);
+      transition: transform 0.25s;
+      &:before { content: 'Hide nav'; }
+      svg { display: none; }
+    }
   }
 }
 .toggle-container {
-  border-bottom: 2px solid darken($lightgray, 10%);
+  border-bottom: 4px solid darken($lightgray, 10%);
   .btn {
     @include type(12px uppercase);
     line-height: 2.6;
@@ -176,4 +219,12 @@ pre > code[class*="language-"] {
 }
 .preview-wrapper {
   margin-bottom: 20px;
+  resize: both;
+  overflow: auto;
+  outline: 1px dashed #ffa7f9;
+  outline-offset: -1px;
+  [data-contentbox] { 
+    min-height: 100px; 
+    background-color: $lightblue; 
+  }
 }

@@ -290,7 +290,7 @@
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="container-code-1-markup">&lt;div class="container1"&gt;
+<code class="language-markup" id="container-code-1-markup">&lt;div class="container1 " data-contentbox&gt;
   &lt;!-- contents --&gt;
 &lt;/div&gt;
 </code>
@@ -301,14 +301,14 @@
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="container-code-1-scss">.container1 { @include container(); }
+<code class="language-scss" id="container-code-1-scss">.container1 { @include container(600px); }
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#container-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="container1"></div>
+                <div class="container1" data-contentbox=""></div>
               </div>
             </div>
             <div class="demo-container" data-show="code">
@@ -322,7 +322,7 @@
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="container-code-2-markup">&lt;div class="container2"&gt;
+<code class="language-markup" id="container-code-2-markup">&lt;div class="container2 " data-contentbox&gt;
   &lt;!-- contents --&gt;
 &lt;/div&gt;
 </code>
@@ -342,7 +342,7 @@
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="container2"></div>
+                <div class="container2" data-contentbox=""></div>
               </div>
             </div>
           </li>
@@ -379,10 +379,10 @@
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="grid-code-1-markup">&lt;div class="row"&gt;
-  &lt;div&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;/div&gt;
+<code class="language-markup" id="grid-code-1-markup">&lt;div class="grid1"&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-1-markup">Copy Code</button>
@@ -392,25 +392,154 @@
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="grid-code-1-scss">.row { @include grid( (3 7 4) ); }
+<code class="language-scss" id="grid-code-1-scss">.grid1 { @include grid( (3 7 4) ); }
 // 1st child: 3 columns;
 // 2nd child: 7 columns;
 // 3rd child: 4 columns;
 // full width: 3 + 7 + 4 = 14 columns;
-
-// change orders
-.row { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-1-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="grid1">
+                  <div data-contentbox=""></div>
+                  <div data-contentbox=""></div>
+                  <div data-contentbox=""></div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="grid-code-2-markup">&lt;div class="grid2"&gt;
+  &lt;div data-contentbox&gt;1&lt;/div&gt;
+  &lt;div data-contentbox&gt;2&lt;/div&gt;
+  &lt;div data-contentbox&gt;3&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-2-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="grid-code-2-scss">// change orders
+.grid2 { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
 // children orders: 1 0 0; 
 // elements with smaller order will go to the front, with equal orders will go with the origin order in markup.
-// more detail about orders please refer to http://the-echoplex.net/flexyboxes/?fixed-height=on&amp;legacy=on&amp;display=flex&amp;flex-direction=row&amp;flex-wrap=nowrap&amp;justify-content=flex-start&amp;align-items=flex-start&amp;align-content=stretch&amp;order[]=0&amp;flex-grow[]=0&amp;flex-shrink[]=1&amp;flex-basis[]=auto&amp;align-self[]=auto&amp;order[]=0&amp;flex-grow[]=0&amp;flex-shrink[]=1&amp;flex-basis[]=auto&amp;align-self[]=auto&amp;order[]=0&amp;flex-grow[]=0&amp;flex-shrink[]=1&amp;flex-basis[]=auto&amp;align-self[]=auto
-
-// several rows
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-2-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="grid2">
+                  <div data-contentbox="">
+                    1
+                  </div>
+                  <div data-contentbox="">
+                    2
+                  </div>
+                  <div data-contentbox="">
+                    3
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="grid-code-3-markup">&lt;div class="grid3"&gt;
+  &lt;div data-contentbox&gt;1&lt;/div&gt;
+  &lt;div data-contentbox&gt;2&lt;/div&gt;
+  &lt;div data-contentbox&gt;3&lt;/div&gt;
+  &lt;div data-contentbox&gt;4&lt;/div&gt;
+  &lt;div data-contentbox&gt;5&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-3-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="grid-code-3-scss">// several rows
 $main: ( (3 7 4) (2 5) );
-.row { @include grid($main); }
+.grid3 { @include grid($main); }
 // The first row: (3 7 4)
 // The second row: (2 5)
-
-// with mediaquery
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-3-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="grid3">
+                  <div data-contentbox="">
+                    1
+                  </div>
+                  <div data-contentbox="">
+                    2
+                  </div>
+                  <div data-contentbox="">
+                    3
+                  </div>
+                  <div data-contentbox="">
+                    4
+                  </div>
+                  <div data-contentbox="">
+                    5
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="grid-code-4-markup">&lt;div class="grid4"&gt;
+  &lt;div data-contentbox&gt;1&lt;/div&gt;
+  &lt;div data-contentbox&gt;2&lt;/div&gt;
+  &lt;div data-contentbox&gt;3&lt;/div&gt;
+  &lt;div data-contentbox&gt;4&lt;/div&gt;
+  &lt;div data-contentbox&gt;5&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-4-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="grid-code-4-scss">// with mediaquery
 $breakpoints: (
   medium: 800px,
   large: 1200px,
@@ -420,17 +549,29 @@ $main: (
   medium: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.row { @include grid($main $breakpoints); }
+.grid4 { @include grid($main $breakpoints); }
 </code>
-</pre><button class="btn copy-button" data-clipboard-target="#grid-code-1-scss">Copy Code</button>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-4-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="row">
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                <div class="grid4">
+                  <div data-contentbox="">
+                    1
+                  </div>
+                  <div data-contentbox="">
+                    2
+                  </div>
+                  <div data-contentbox="">
+                    3
+                  </div>
+                  <div data-contentbox="">
+                    4
+                  </div>
+                  <div data-contentbox="">
+                    5
+                  </div>
                 </div>
               </div>
             </div>
@@ -468,9 +609,9 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="liquid-2-code-1-markup">&lt;div class="wrapper"&gt;
-  &lt;div&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;/div&gt;
+<code class="language-markup" id="liquid-2-code-1-markup">&lt;div class="liquid-2-1"&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-1-markup">Copy Code</button>
@@ -480,21 +621,55 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="liquid-2-code-1-scss">.wrapper { @include liquid-2( ('auto' 200px) ); }
+<code class="language-scss" id="liquid-2-code-1-scss">.liquid-2-1 { @include liquid-2( ('auto' 200px) ); }
 // 1st column: fluid;
 // 2nd column: 200px;
- 
-.wrapper { @include liquid-2( ('auto':2, 200px:1) ); }
-// columns' order: 2 1;
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="wrapper">
-                  <div></div>
-                  <div></div>
+                <div class="liquid-2-1">
+                  <div data-contentbox=""></div>
+                  <div data-contentbox=""></div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="liquid-2-code-2-markup">&lt;div class="liquid-2-2"&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
+  &lt;div data-contentbox&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-2-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="liquid-2-code-2-scss">.liquid-2-2 { @include liquid-2( ('auto':2, 200px:1) ); }
+// columns' order: 2 1;
+</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-2-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="liquid-2-2">
+                  <div data-contentbox=""></div>
+                  <div data-contentbox=""></div>
                 </div>
               </div>
             </div>

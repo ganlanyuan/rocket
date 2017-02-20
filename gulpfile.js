@@ -90,7 +90,7 @@ gulp.task('demo-scss', function() {
             if (type === 'scss') {
               var arr = dataDocs[main][sub][code][type];
               for (var i = 0; i < arr.length; i++) {
-                if (arr[i].indexOf('//') === -1) {
+                if (arr[i].replace(/(^\s+)/g, '').indexOf('//') !== 0) {
                   docsDemoScss += arr[i];
                   docsDemoScss += '\n';
                 }
