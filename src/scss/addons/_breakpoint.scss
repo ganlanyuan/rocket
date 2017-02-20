@@ -36,6 +36,8 @@
     }
     // remove the first ', '
     @if str-index($selector, ', ') == 1 { $selector: str-slice($selector, 3); }
+  } @else if $length == 0 {
+    @error "No breakpoint found.";
   }
 
   // *** output *** //

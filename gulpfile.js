@@ -80,7 +80,7 @@ gulp.task('demo-scss', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json'),
       dataDocs = data.docs,
       docsDemoScss = '',
-      docsDemoScssTarget = gulp.src(src_docs + 'scss/_docs-demo.scss');
+      docsDemoScssTarget = gulp.src(PATHS.src_docs + 'scss/_docs-demo.scss');
 
   for(var main in dataDocs) {
     for(var sub in dataDocs[main]) {
@@ -102,11 +102,15 @@ gulp.task('demo-scss', function() {
     }
   }
 
-  // return docsDemoScssTarget.pipe(inject())
-  console.log(docsDemoScss);
-
-  // return gulp.src(PATHS.templates_docs + '*.njks')
-  //   .pipe(gulp.dest(PATHS.src_docs + 'scss'));
+  return docsDemoScssTarget
+    .pipe(inject(gulp.src(PATHS.templates_docs + '*.json'), {
+      starttag: '/* inject:scss */',
+      endtag: '/* endinject */',
+      transform: function (filePath, file) {
+        return docsDemoScss;
+      }
+    }))
+    .pipe(gulp.dest(PATHS.src_docs + 'scss'))
 });
 
 // Sass Task
@@ -239,6 +243,7 @@ gulp.task('server', function() {
 // Watch Task
 gulp.task('watch', function () {
   gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['html']);
+  gulp.watch([PATHS.templates_docs + '*.json'], ['demo-scss']);
   gulp.watch(PATHS.src_docs + 'scss/**/*.scss', ['sass-docs']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
@@ -255,7 +260,7 @@ gulp.task('default', [
   // 'svgmin', 
   // 'svg-sprites',
   // 'inject',
-  'demo-scss',
+  // 'demo-scss',
   'server', 
   'watch',
 ]);  

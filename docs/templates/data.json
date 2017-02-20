@@ -385,14 +385,14 @@
         ],
         "code-1": {
           "markup": [
-            "<body>",
+            "<div class=\"demo-sticky-footer\">",
             "  <header>header</header>",
             "  <div class=\"main\">main</div>",
             "  <footer>footer</footer>",
-            "</body>"
+            "</div>"
           ],
           "scss": [
-            "body { @include sticky-footer('.main'); }"
+            ".demo-sticky-footer { @include sticky-footer('.main'); }"
           ]
         }
       },
@@ -1154,7 +1154,7 @@
             "</ul>"
           ],
           "scss": [
-            ".news .media { @include media-list(); } ",
+            ".news .media { @include media-list('media'); } ",
             "// role: 'media'; (media:default | media-body)",
             "// gutter: 10px; (default)",
             "// direction: left; (default)",
@@ -1248,28 +1248,32 @@
           "@mixin responsive-type($map, $breakpoints: $bp) // or rp-type();"
         ],
         "code-1": {
+          "markup": [
+            "<h3 class=\"demo-responsive-type-h3\">Assumenda, deleniti molestias sapiente ut!</h3>",
+            "<p class=\"demo-responsive-type-p\">Saepe aspernatur fugiat, corrupti officia.</p>"
+          ],
           "scss": [
             "$bp: (",
-            "  'small' : 480px,",
+            "  'small': 480px,",
             "  'medium': 700px,",
-            "  'large' : 1024px",
+            "  'large': 1024px",
             ");",
             "$p-font-sizes: (",
-            "  'dafault'  : (15px 1.3 right uppercase),",
-            "  'small' : 16px",
+            "  'default': (15px 1.3 right uppercase),",
+            "  'small': 16px,",
             "  'medium': (17px 1.4),",
-            "  900px : 18px",
-            "  'large' : (19px 1.45),",
+            "  900px: 18px,",
+            "  'large': (19px 1.45),",
             "  1440px: 20px",
             ");",
             "$h3-font-sizes: (",
-            "  'default'  : (18px 1.3 weight-normal),",
-            "  900px : 22px",
-            "  'large' : (30px 1.2),",
+            "  'default': (18px 1.3 weight-normal),",
+            "  900px: 22px,",
+            "  'large': (30px 1.2),",
             ");",
             " ",
-            "h3 { @include rp-type($h3-font-sizes $bp); }",
-            "p { @include rp-type($p-font-sizes $bp); }"
+            ".demo-responsive-type-h3 { @include rp-type($h3-font-sizes $bp); }",
+            ".demo-responsive-type-p { @include rp-type($p-font-sizes $bp); }"
           ]
         }
       },
@@ -1514,7 +1518,7 @@
         ],
         "code-1": {
           "scss": [
-            ".main { color: triad(#a6e36e, 2); }",
+            ".main { color: triad(#a6e36e 2); }",
             "// color: #a6e36e;",
             "// order: 2; (-2 | -1 | 1 | 2)"
           ]
@@ -1531,7 +1535,7 @@
         "code-1": {
           "scss": [
             " ",
-            ".main { color: rectangle(#a6e36e, -3); }",
+            ".main { color: rectangle(#a6e36e -3); }",
             "// color: #a6e36e;",
             "// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)"
           ]
@@ -1547,7 +1551,7 @@
         ],
         "code-1": {
           "scss": [
-            ".main { color: square(#a6e36e, 3); }",
+            ".main { color: square(#a6e36e 3); }",
             "// color: #a6e36e;",
             "// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)"
           ]
