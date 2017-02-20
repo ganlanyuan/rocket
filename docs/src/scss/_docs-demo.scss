@@ -4,7 +4,7 @@
   @include container(800px gutter 2% left);
 }
 .grid1 { @include grid( (3 7 4) ); }
-.grid2 { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
+.grid2 { @include grid( (3 7 4 : 1 0 0) ); }
 $main: ( (3 7 4) (2 5) );
 .grid3 { @include grid($main); }
 $breakpoints: (
@@ -16,7 +16,7 @@ $main: (
   medium: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.grid4 { @include grid($main $breakpoints); }
+.grid5 { @include grid($main $breakpoints); }
 .liquid-2-1 { @include liquid-2( ('auto' 200px) ); }
 .liquid-2-2 { @include liquid-2( ('auto':2, 200px:1) ); }
 .wrapper { @include liquid-3( (150px 'auto' 200px) ); }

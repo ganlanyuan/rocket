@@ -262,7 +262,7 @@
               Container
             </h4>
             <p>
-              Create a container to constrain your content. It can be push to the left, right edges or center aligned.
+              Create a container to constrain your content. It can be pushed to the left, right edge or center aligned.
             </p>
             <p class="browser-capability">
               IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+
@@ -361,10 +361,11 @@
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin grid($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)
-// $condition: 'min' or 'max'
-// $media-type: screen, print, tv
-// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)
+<code class="language-scss">@mixin grid($grid (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)
+// $grid: list | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
 </code>
 </pre>
             </div>
@@ -393,10 +394,9 @@
                     </header>
                     <pre>
 <code class="language-scss" id="grid-code-1-scss">.grid1 { @include grid( (3 7 4) ); }
-// 1st child: 3 columns;
-// 2nd child: 7 columns;
-// 3rd child: 4 columns;
-// full width: 3 + 7 + 4 = 14 columns;
+// 1st div child: 3 columns;
+// 2nd div child: 7 columns;
+// 3rd div child: 4 columns;
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-1-scss">Copy Code</button>
                   </li>
@@ -410,6 +410,9 @@
                 </div>
               </div>
             </div>
+            <p>
+              You can change the column orders using <code class="language-html">(cols : order)</code> format. Here the order works the same as flexbox-order works: <a href="https://drafts.csswg.org/css-flexbox-1/#order-property">https://drafts.csswg.org/css-flexbox-1/#order-property</a>
+            </p>
             <div class="demo-container" data-show="code">
               <div class="toggle-container">
                 <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -434,10 +437,9 @@
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="grid-code-2-scss">// change orders
-.grid2 { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)
-// children orders: 1 0 0; 
-// elements with smaller order will go to the front, with equal orders will go with the origin order in markup.
+<code class="language-scss" id="grid-code-2-scss">.grid2 { @include grid( (3 7 4 : 1 0 0) ); }
+// or (3:1, 7:0, 4:0)
+// orders: 1 0 0. The first div child will go last.
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-2-scss">Copy Code</button>
                   </li>
@@ -457,6 +459,9 @@
                 </div>
               </div>
             </div>
+            <p>
+              The child elements can be separated to multi rows using a nested list format: <code class="language-html">( (row1 row1 row1) (row2 row2) (row3 row3 row3))</code>.
+            </p>
             <div class="demo-container" data-show="code">
               <div class="toggle-container">
                 <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -483,11 +488,10 @@
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="grid-code-3-scss">// several rows
-$main: ( (3 7 4) (2 5) );
+<code class="language-scss" id="grid-code-3-scss">$main: ( (3 7 4) (2 5) );
 .grid3 { @include grid($main); }
-// The first row: (3 7 4)
-// The second row: (2 5)
+// 1st row: (3 7 4)
+// 2nd row: (2 5)
 </code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-3-scss">Copy Code</button>
                   </li>
@@ -513,6 +517,9 @@ $main: ( (3 7 4) (2 5) );
                 </div>
               </div>
             </div>
+            <p>
+              Works with breakpoints.
+            </p>
             <div class="demo-container" data-show="code">
               <div class="toggle-container">
                 <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -524,7 +531,7 @@ $main: ( (3 7 4) (2 5) );
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="grid-code-4-markup">&lt;div class="grid4"&gt;
+<code class="language-markup" id="grid-code-5-markup">&lt;div class="grid5"&gt;
   &lt;div data-contentbox&gt;1&lt;/div&gt;
   &lt;div data-contentbox&gt;2&lt;/div&gt;
   &lt;div data-contentbox&gt;3&lt;/div&gt;
@@ -532,15 +539,14 @@ $main: ( (3 7 4) (2 5) );
   &lt;div data-contentbox&gt;5&lt;/div&gt;
 &lt;/div&gt;
 </code>
-</pre><button class="btn copy-button" data-clipboard-target="#grid-code-4-markup">Copy Code</button>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-5-markup">Copy Code</button>
                   </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="grid-code-4-scss">// with mediaquery
-$breakpoints: (
+<code class="language-scss" id="grid-code-5-scss">$breakpoints: (
   medium: 800px,
   large: 1200px,
 );
@@ -549,14 +555,14 @@ $main: (
   medium: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.grid4 { @include grid($main $breakpoints); }
+.grid5 { @include grid($main $breakpoints); }
 </code>
-</pre><button class="btn copy-button" data-clipboard-target="#grid-code-4-scss">Copy Code</button>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-5-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="grid4">
+                <div class="grid5">
                   <div data-contentbox="">
                     1
                   </div>

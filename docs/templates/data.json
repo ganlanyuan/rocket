@@ -24,7 +24,7 @@
       },
       "container": {
         "p-1": [
-          "Create a container to constrain your content. It can be push to the left, right edges or center aligned."
+          "Create a container to constrain your content. It can be pushed to the left, right edge or center aligned."
         ],
         "capability": "IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
@@ -62,10 +62,11 @@
         ],
         "capability": "IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+",
         "syntax": [
-          "@mixin grid($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)",
-          "// $condition: 'min' or 'max'",
-          "// $media-type: screen, print, tv",
-          "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
+          "@mixin grid($grid (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)",
+          "// $grid: list | map",
+          "// $condition: 'min' | 'max'",
+          "// $media-type: media types",
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)"
         ],
         "code-1": {
           "markup": [
@@ -77,12 +78,14 @@
           ],
           "scss": [
             ".grid1 { @include grid( (3 7 4) ); }",
-            "// 1st child: 3 columns;",
-            "// 2nd child: 7 columns;",
-            "// 3rd child: 4 columns;",
-            "// full width: 3 + 7 + 4 = 14 columns;"
+            "// 1st div child: 3 columns;",
+            "// 2nd div child: 7 columns;",
+            "// 3rd div child: 4 columns;"
           ]
         },
+        "p-2": [
+          "You can change the column orders using ^(cols : order)$ format. Here the order works the same as flexbox-order works: https://drafts.csswg.org/css-flexbox-1/#order-property"
+        ],
         "code-2": {
           "markup": [
             "<div class=\"grid2\">",
@@ -92,12 +95,14 @@
             "</div>"
           ],
           "scss": [
-            "// change orders",
-            ".grid2 { @include grid( (3 7 4 : 1 0 0) ); } // or (3:1, 7:0, 4:0)",
-            "// children orders: 1 0 0; ",
-            "// elements with smaller order will go to the front, with equal orders will go with the origin order in markup."
+            ".grid2 { @include grid( (3 7 4 : 1 0 0) ); }",
+            "// or (3:1, 7:0, 4:0)",
+            "// orders: 1 0 0. The first div child will go last."
           ]
         },
+        "p-3": [
+          "The child elements can be separated to multi rows using a nested list format: ^( (row1 row1 row1) (row2 row2) (row3 row3 row3))$."
+        ],
         "code-3": {
           "markup": [
             "<div class=\"grid3\">",
@@ -109,16 +114,18 @@
             "</div>"
           ],
           "scss": [
-            "// several rows",
             "$main: ( (3 7 4) (2 5) );",
             ".grid3 { @include grid($main); }",
-            "// The first row: (3 7 4)",
-            "// The second row: (2 5)"
+            "// 1st row: (3 7 4)",
+            "// 2nd row: (2 5)"
           ]
         },
-        "code-4": {
+        "p-5": [
+          "Works with breakpoints."
+        ],
+        "code-5": {
           "markup": [
-            "<div class=\"grid4\">",
+            "<div class=\"grid5\">",
             "  <div data-contentbox>1</div>",
             "  <div data-contentbox>2</div>",
             "  <div data-contentbox>3</div>",
@@ -127,7 +134,6 @@
             "</div>"
           ],
           "scss": [
-            "// with mediaquery",
             "$breakpoints: (",
             "  medium: 800px,",
             "  large: 1200px,",
@@ -137,7 +143,7 @@
             "  medium: (2 7 3: 1 0 1) (1 1: 1 0),",
             "  1000px: (2 7 3 4 4),",
             ");",
-            ".grid4 { @include grid($main $breakpoints); }"
+            ".grid5 { @include grid($main $breakpoints); }"
           ]
         }
       },
