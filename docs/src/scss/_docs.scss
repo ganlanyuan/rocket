@@ -3,6 +3,7 @@
   font-size: 85%;
   text-shadow: none;
   background-color: $lightgray;
+  white-space: normal;
 }
 pre[class*="language-"] { background-color: $lightgray; }
 pre[class*="language-"] { 
@@ -21,8 +22,6 @@ pre > code[class*="language-"] {
 }
 .docs-wrapper {
   @include container(1600px left); 
-  padding-left: ($logo-width-sm + 20px);
-  @include bp(min $bp-docs) { padding-left: 0; }
   main {
     h2, h4, p, .code-wrapper { 
       margin-bottom: 20px;
@@ -36,119 +35,45 @@ pre > code[class*="language-"] {
     h4 { @include type(22px); }
     p { max-width: 46em; }
   }
-  @include bp(min $bp-docs) {
-    @include liquid-2(($nav-width 'auto') child (nav main));
-    &.hidenav {
-      padding-left: (map-get($ro-layout, 'gutter') / 2);
-      main { width: 100%; }
-      > nav {
-        width: auto;
-        overflow: initial;
-        box-shadow: none;
-      }
-      .docs-nav {
-        z-index: $zi-docs-nav;
-        &__content { display: none; }
-        &__toggle {
-          position: sticky;
-          transform: translateX(0);
-          &:before { content: 'Show nav'; }
-        }
-      }
-      .preview-wrapper { 
-        width: 100vw; 
-        position: relative; 
-        left: 50%; 
-        right: 50%; 
-        margin-left: -50vw; 
-        margin-right: -50vw; 
-      }
-    }
-  }
 }
 .docs-nav {
   width: $nav-width;
-  &__toggle {
-    text-align: center;
-    border: none;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  @include type(15px);
+  ul { margin-bottom: 3em; }
+  h4, a { line-height: 2.4; }
+  h4 {
+    margin-bottom: 0;
+    padding-left: 2em;
+  }
+  a {
+    display: block;
+    padding-left: 3em;
+    transition: background-color 0.25s;
+    &:hover { background-color: #eee; }
+  }
+  .active a { 
+    color: #fff;
+    background-color: $color-code-header; 
+  }
+  &-toggle {
+    @include type(14px);
+    position: absolute;
+    right: 0;
+    padding: 0.7em;
+    color: #fff;
+    background-color: $blue;
+    border-radius: 3px;
+    white-space: nowrap;
     cursor: pointer;
-    border-radius: 0;
-    > svg { margin: 0 auto; }
-  }
-  &__content {
-    @include type(15px);
-    ul { margin-bottom: 3em; }
-    h4, a { line-height: 2.4; }
-    h4 {
-      margin-bottom: 0;
-      padding-left: 2em;
-    }
-    a {
-      display: block;
-      padding-left: 3em;
-      transition: background-color 0.25s;
-      &:hover { background-color: #eee; }
-    }
-    .active a { 
-      color: #fff;
-      background-color: $color-code-header; 
-    }
-  }
-  @include bp(max $bp-docs) {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    transform: translateX(- $nav-width);
-    transition: transform 0.25s;
-    z-index: $zi-docs-nav;
-    &__content {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      background-color: #fff;
-    }
-    &__toggle {
-      position: absolute;
-      bottom: 4em;
-      right: -$logo-width-sm;
-      width: $logo-width-sm;
-      background-color: $color-code-header;
-      padding: 0.5em 0;
-    }
-    .shownav & { 
-      transform: translateX(0);
-      .docs-nav__content {
-        box-shadow: 3px 0 7px rgba(0, 0, 0, 0.2);
-      }
-      .docs-nav__toggle svg { transform: rotate(180deg); }
-    }
-  }
-  @include bp(min $bp-docs) {
-    position: sticky;
-    top: 0;
-    max-height: 100vh;
-    overflow: auto;
-    box-shadow: 4px 12px 10px rgba(0, 0, 0, 0.15);
-    &:hover &__toggle { transform: translateX(0); }
-    &__toggle {
-      @include type(14px);
-      padding: 0.7em;
-      color: #fff;
-      background-color: rgba(0, 0, 0, 0.8);
-      border-radius: 3px;
-      position: fixed;
-      left: (map-get($ro-layout, 'gutter') / 2);
-      top: 128px;
-      white-space: nowrap;
-      transform: translateX(-200px);
-      transition: transform 0.25s;
-      &:before { content: 'Hide nav'; }
-      svg { display: none; }
+    &-wrapper {
+      position: sticky;
+      top: 10px;
+      z-index: $zi-docs-nav;
+      text-align: right;
     }
   }
 }
@@ -226,5 +151,68 @@ pre > code[class*="language-"] {
   [data-contentbox] { 
     min-height: 100px; 
     background-color: $lightblue; 
+  }
+}
+
+@include bp(max $bp-docs) {
+  .docs-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: $zi-docs-nav;
+    transform: translateX(- $nav-width);
+    transition: transform 0.25s;
+    .shownav & { 
+      transform: translateX(0);
+      border-right: 1px solid $color-code-header;
+    }
+    &-toggle:before { 
+      content: "Show menu"; 
+      .shownav & {
+        content: "Hide menu";
+      }
+    }
+  }
+  .preview-wrapper { 
+    width: 100vw; 
+    position: relative; 
+    left: 50%; 
+    right: 50%; 
+    margin-left: -50vw; 
+    margin-right: -50vw; 
+  }
+}
+@include bp(min $bp-docs) {
+  .docs-nav {
+    position: sticky;
+    top: 0;
+    float: left;
+    width: $nav-width;
+    border-right: 1px solid $color-code-header;
+    .hidenav & { display: none; }
+    &-toggle:before { 
+      content: "Hide menu"; 
+      .hidenav & {
+        content: "Show menu";
+      }
+    }
+  }
+  .docs-wrapper {
+    > main {
+      float: right;
+      width: calc(100% - #{$nav-width} - #{map-get($ro-layout, gutter)});
+    }
+  }
+  .hidenav {
+    > main { width: 100%; }
+    .preview-wrapper { 
+      width: 100vw; 
+      position: relative; 
+      left: 50%; 
+      right: 50%; 
+      margin-left: -50vw; 
+      margin-right: -50vw; 
+    }
   }
 }

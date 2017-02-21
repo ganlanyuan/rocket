@@ -4,24 +4,20 @@
 {% block main %}
 
 <div class="docs-wrapper section">
+  <div class="docs-nav-toggle-wrapper"><div class="docs-nav-toggle"></div></div>
 
   {# docs nav #}
   <nav class="docs-nav">
-    <button class="docs-nav__toggle"><svg class="arrow" role="img" title="arrow" width="14" height="28"><use xlink:href="{{ svgSpritesPath + '#rightarrow'}}" /></svg></button>
-    <div class="docs-nav__content">
+    {% for main, sub in docs %}
+    <h4>{{ main | capitalize }}</h4>
+    <ul>
     
-      {% for main, sub in docs %}
-      <h4>{{ main | capitalize }}</h4>
-      <ul>
-
-        {% for title, content in sub %}
-        <li class="nav-{{ title }}"><a href="#{{ title }}">{{ title | capitalize }}</a></li>
-        {% endfor %}
-
-      </ul>
+      {% for title, content in sub %}
+      <li class="nav-{{ title }}"><a href="#{{ title }}">{{ title | capitalize }}</a></li>
       {% endfor %}
-
-    </div>
+    
+    </ul>
+    {% endfor %}
   </nav>
 
   {# main #}
@@ -58,7 +54,9 @@
           </div>
           {% elif tag.indexOf('code-') !== -1 %}
           <div class="demo-container" data-show="code">
-            <div class="toggle-container"><button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button></div>
+            {% if content['markup'] %}
+              <div class="toggle-container"><button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button></div>
+            {% endif %}
             <div class="code-wrapper">
               <ul>
                 

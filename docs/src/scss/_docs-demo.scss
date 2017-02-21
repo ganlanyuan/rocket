@@ -1,4 +1,8 @@
 /* inject:scss */
+$ro-layout: (
+  container: 1024px,
+  gutter: 20px,
+);
 .container1 { @include container(600px); }
 .container2 {
   @include container(800px gutter 2% left);

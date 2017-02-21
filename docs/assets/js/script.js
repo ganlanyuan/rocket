@@ -34,7 +34,7 @@ var doc = document,
 var rocketSite = {
   docs: {
     toggleNav: function () {
-      var toggle = doc.querySelector('.docs-nav__toggle'),
+      var toggle = doc.querySelector('.docs-nav-toggle'),
           docsWrapper = doc.querySelector('.docs-wrapper'),
           nav = doc.querySelector('.docs-nav'),
           navLinks = nav.querySelectorAll('a'),

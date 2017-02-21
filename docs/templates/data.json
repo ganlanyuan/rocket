@@ -15,12 +15,14 @@
         "p-1": [
           "Default container and gutter for ^container$, ^grid$, ^gallery$, ^liquid-2$, ^liquid-3$, ^metro$, ^masonry$."
         ],
-        "syntax": [
-          "$ro-layout: (",
-          "  container: 1024px,",
-          "  gutter: 20px,",
-          ");"
-        ]
+        "code-1": {
+          "scss": [
+            "$ro-layout: (",
+            "  container: 1024px,",
+            "  gutter: 20px,",
+            ");"
+          ]
+        }
       },
       "container": {
         "p-1": [
