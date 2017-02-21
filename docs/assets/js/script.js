@@ -99,7 +99,13 @@ if (doc.querySelector('.docs-nav')) {
 }
 
 // clipboard
-var clipboard = new Clipboard('.copy-button');
+var clipboard = new Clipboard('.copy-button', {
+  text: function (trigger) {
+    return doc.querySelector(trigger.getAttribute('data-clipboard-target'))
+      .textContent
+      .replace(/s$/g, '');
+  }
+});
 clipboard.on('success', function(e) {
     var content = e.trigger.innerHTML;
     

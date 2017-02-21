@@ -251,12 +251,11 @@
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="layout setting-code-1-scss">$ro-layout: (
+<code class="language-scss" id="layout-setting-code-1-scss">$ro-layout: (
   container: 1024px,
   gutter: 20px,
-);
-</code>
-</pre><button class="btn copy-button" data-clipboard-target="#layout setting-code-1-scss">Copy Code</button>
+);</code>
+</pre><button class="btn copy-button" data-clipboard-target="#layout-setting-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
@@ -297,8 +296,7 @@
                     <pre>
 <code class="language-markup" id="container-code-1-markup">&lt;div class="container1 " data-contentbox&gt;
   &lt;!-- contents --&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#container-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -306,8 +304,7 @@
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="container-code-1-scss">.container1 { @include container(600px); }
-</code>
+<code class="language-scss" id="container-code-1-scss">.container1 { @include container(600px); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#container-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -329,8 +326,7 @@
                     <pre>
 <code class="language-markup" id="container-code-2-markup">&lt;div class="container2 " data-contentbox&gt;
   &lt;!-- contents --&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#container-code-2-markup">Copy Code</button>
                   </li>
                   <li>
@@ -340,8 +336,7 @@
                     <pre>
 <code class="language-scss" id="container-code-2-scss">.container2 {
   @include container(800px gutter 2% left);
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#container-code-2-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -389,8 +384,7 @@
   &lt;div data-contentbox&gt;&lt;/div&gt;
   &lt;div data-contentbox&gt;&lt;/div&gt;
   &lt;div data-contentbox&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -401,8 +395,7 @@
 <code class="language-scss" id="grid-code-1-scss">.grid1 { @include grid( (3 7 4) ); }
 // 1st div child: 3 columns;
 // 2nd div child: 7 columns;
-// 3rd div child: 4 columns;
-</code>
+// 3rd div child: 4 columns;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -433,8 +426,7 @@
   &lt;div data-contentbox&gt;1&lt;/div&gt;
   &lt;div data-contentbox&gt;2&lt;/div&gt;
   &lt;div data-contentbox&gt;3&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-2-markup">Copy Code</button>
                   </li>
                   <li>
@@ -444,8 +436,7 @@
                     <pre>
 <code class="language-scss" id="grid-code-2-scss">.grid2 { @include grid( (3 7 4 : 1 0 0) ); }
 // or (3:1, 7:0, 4:0)
-// orders: 1 0 0. The first div child will go last.
-</code>
+// orders: 1 0 0. The first div child will go last.</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-2-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -484,8 +475,7 @@
   &lt;div data-contentbox&gt;3&lt;/div&gt;
   &lt;div data-contentbox&gt;4&lt;/div&gt;
   &lt;div data-contentbox&gt;5&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-3-markup">Copy Code</button>
                   </li>
                   <li>
@@ -496,8 +486,7 @@
 <code class="language-scss" id="grid-code-3-scss">$main: ( (3 7 4) (2 5) );
 .grid3 { @include grid($main); }
 // 1st row: (3 7 4)
-// 2nd row: (2 5)
-</code>
+// 2nd row: (2 5)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-3-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -523,7 +512,48 @@
               </div>
             </div>
             <p>
-              Works with breakpoints.
+              If the child elements are not <code class="language-html">div</code>s, you need to proclaim it via <code class="language-html">child</code> option in the format of <code class="language-html">child child-type</code>.
+            </p>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="grid-code-4-markup">&lt;div class="grid4"&gt;
+  &lt;section data-contentbox&gt;1&lt;/section&gt;
+  &lt;section data-contentbox&gt;2&lt;/section&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-4-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="grid-code-4-scss">.grid4 { @include grid( (2 5) child section); }</code>
+</pre><button class="btn copy-button" data-clipboard-target="#grid-code-4-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="grid4">
+                  <section data-contentbox="">
+                    1
+                  </section>
+                  <section data-contentbox="">
+                    2
+                  </section>
+                </div>
+              </div>
+            </div>
+            <p>
+              Grid works with breakpoints to make multi layouts for different window size.
             </p>
             <div class="demo-container" data-show="code">
               <div class="toggle-container">
@@ -542,8 +572,7 @@
   &lt;div data-contentbox&gt;3&lt;/div&gt;
   &lt;div data-contentbox&gt;4&lt;/div&gt;
   &lt;div data-contentbox&gt;5&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-5-markup">Copy Code</button>
                   </li>
                   <li>
@@ -560,8 +589,7 @@ $main: (
   medium: (2 7 3: 1 0 1) (1 1: 1 0),
   1000px: (2 7 3 4 4),
 );
-.grid5 { @include grid($main $breakpoints); }
-</code>
+.grid5 { @include grid($main $breakpoints); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#grid-code-5-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -623,8 +651,7 @@ $main: (
 <code class="language-markup" id="liquid-2-code-1-markup">&lt;div class="liquid-2-1"&gt;
   &lt;div data-contentbox&gt;&lt;/div&gt;
   &lt;div data-contentbox&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -634,8 +661,7 @@ $main: (
                     <pre>
 <code class="language-scss" id="liquid-2-code-1-scss">.liquid-2-1 { @include liquid-2( ('auto' 200px) ); }
 // 1st column: fluid;
-// 2nd column: 200px;
-</code>
+// 2nd column: 200px;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -661,8 +687,7 @@ $main: (
 <code class="language-markup" id="liquid-2-code-2-markup">&lt;div class="liquid-2-2"&gt;
   &lt;div data-contentbox&gt;&lt;/div&gt;
   &lt;div data-contentbox&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-2-markup">Copy Code</button>
                   </li>
                   <li>
@@ -671,8 +696,7 @@ $main: (
                     </header>
                     <pre>
 <code class="language-scss" id="liquid-2-code-2-scss">.liquid-2-2 { @include liquid-2( ('auto':2, 200px:1) ); }
-// columns' order: 2 1;
-</code>
+// columns' order: 2 1;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-2-code-2-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -721,8 +745,7 @@ $main: (
 <code class="language-markup" id="liquid-3-code-1-markup">&lt;div class="wrapper"&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-3-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -736,8 +759,7 @@ $main: (
 // 3rd column: 200px;
  
 .wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }
-// columns' order: 0 2 1;
-</code>
+// columns' order: 0 2 1;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-3-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -789,8 +811,7 @@ $main: (
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code>
+&lt;/ul&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#gallery-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -817,8 +838,7 @@ $map: (
 .gallery { @include gallery($map); }
 // default: 2 items per row
 // 600px and up: 3 items per row
-// 800px and up: 4 items per row
-</code>
+// 800px and up: 4 items per row</code>
 </pre><button class="btn copy-button" data-clipboard-target="#gallery-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -873,8 +893,7 @@ $map: (
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code>
+&lt;/ul&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#masonry-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -916,8 +935,7 @@ $map: (
       text-align: left;
     }
   }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#masonry-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -969,8 +987,7 @@ $map: (
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
   &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code>
+&lt;/ul&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#metro-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -984,8 +1001,7 @@ $map: (
 // h2: 3rd child -&gt; 1 blocks width x 2 blocks height
 // 1: 4th child -&gt; 1 blocks width x 1 blocks height
 // w3: 5th child -&gt; 3 blocks width x 1 blocks height
-// "of 3": totaly 3 blocks width;
-</code>
+// "of 3": totaly 3 blocks width;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#metro-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1074,8 +1090,7 @@ $map: (
       &lt;div&gt;content&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#diamond-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1087,8 +1102,7 @@ $map: (
 // count: 5 (5 diamonds per row)
  
 .diamond { @include diamond(20%); }
-// diamond size: 20% (could be fixed value like 200px too)
-</code>
+// diamond size: 20% (could be fixed value like 200px too)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#diamond-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1174,8 +1188,7 @@ $map: (
                     <pre>
 <code class="language-markup" id="angled-edges-code-1-markup">&lt;div class="main"&gt;
   &lt;!-- Content goes here --&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#angled-edges-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1185,8 +1198,7 @@ $map: (
                     <pre>
 <code class="language-scss" id="angled-edges-code-1-scss">.main { @include angled-edges("bottom" -5deg); }
 // edge: bottom;
-// angle: -5deg;
-</code>
+// angle: -5deg;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#angled-edges-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1230,8 +1242,7 @@ $map: (
   &lt;header&gt;header&lt;/header&gt;
   &lt;div class="main"&gt;main&lt;/div&gt;
   &lt;footer&gt;footer&lt;/footer&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#sticky-footer-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1239,8 +1250,7 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="sticky-footer-code-1-scss">.demo-sticky-footer { @include sticky-footer('.main'); }
-</code>
+<code class="language-scss" id="sticky-footer-code-1-scss">.demo-sticky-footer { @include sticky-footer('.main'); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#sticky-footer-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1296,8 +1306,7 @@ $map: (
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code>
+&lt;/ul&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#justify-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1305,8 +1314,7 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="justify-code-1-scss">.justify { @include justify(); }
-</code>
+<code class="language-scss" id="justify-code-1-scss">.justify { @include justify(); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#justify-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1354,8 +1362,7 @@ $map: (
                     <pre>
 <code class="language-markup" id="center-code-1-markup">&lt;div class="popup"&gt;
   &lt;div&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#center-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1364,8 +1371,7 @@ $map: (
                     </header>
                     <pre>
 <code class="language-scss" id="center-code-1-scss">.popup { @include center('div'); }
-// child: div;
-</code>
+// child: div;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#center-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1454,8 +1460,7 @@ $map: (
   &lt;div class="labels"&gt;
     &lt;div class="label-1"&gt;sales&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#charts-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1479,8 +1484,7 @@ $data2: (
 .charts { @include charts($data2 'column' 'steps' (2 24) 'hide' ('numbers' 'labels')); }
 // multiply factors column charts
 // steps: unit 2, total 24
-// hide: numbers and labels
-</code>
+// hide: numbers and labels</code>
 </pre><button class="btn copy-button" data-clipboard-target="#charts-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1626,8 +1630,7 @@ $data2: (
   &lt;table&gt;
  &lt;!-- table content goes here --&gt;
   &lt;/table&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#responsive-table-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1668,8 +1671,7 @@ $data2: (
  tr:nth-of-type(2n) { background-color: #f5f5f5; }
  td:before { margin-right: 7px; }
   }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#responsive-table-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1779,8 +1781,7 @@ $data2: (
  &lt;/li&gt;
  &lt;li&gt;&lt;a href=""&gt;Help&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-&lt;/nav&gt;
-</code>
+&lt;/nav&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#off-canvas-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1814,8 +1815,7 @@ $map: (
 );
 // null means default (without media query)
  
-.page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }
-</code>
+.page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#off-canvas-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -1965,8 +1965,7 @@ $map: (
       &lt;input type="submit" value="Submit"&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/form&gt;
-</code>
+&lt;/form&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#validation-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -1976,8 +1975,7 @@ $map: (
                     <pre>
 <code class="language-scss" id="validation-code-1-scss">.myform { @include validation(slide-in right default); }
 // style: slide-in;
-// direction: right;
-</code>
+// direction: right;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#validation-code-1-scss">Copy Code</button>
                   </li>
                   <li>
@@ -1988,8 +1986,7 @@ $map: (
 <code class="language-javascript" id="validation-code-1-javascript">// run form validation
 window.onload = function () {
   H5F.setup(document.querySelectorAll(".myform"));
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#validation-code-1-javascript">Copy Code</button>
                   </li>
                 </ul>
@@ -2061,8 +2058,7 @@ window.onload = function () {
   &lt;span&gt;&lt;/span&gt;
   &lt;span&gt;&lt;/span&gt;
   &lt;span&gt;&lt;/span&gt;
-&lt;/span&gt;
-</code>
+&lt;/span&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#button-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2076,8 +2072,7 @@ window.onload = function () {
 // active-color: #52CFDB;
 // border-radius: 5px; 
 // style: bubble;
-// active-selector: '.active'; Final selector will be .button.active;
-</code>
+// active-selector: '.active'; Final selector will be .button.active;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#button-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2117,8 +2112,7 @@ window.onload = function () {
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="parallelogram-code-1-markup">&lt;div class="box"&gt;&lt;/div&gt;
-</code>
+<code class="language-markup" id="parallelogram-code-1-markup">&lt;div class="box"&gt;&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#parallelogram-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2128,8 +2122,7 @@ window.onload = function () {
                     <pre>
 <code class="language-scss" id="parallelogram-code-1-scss">.box { @include parallelogram(#61A4DE -30deg); }
 // $background: #61A4DE; 
-// $angle: -30deg;
-</code>
+// $angle: -30deg;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#parallelogram-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2171,8 +2164,7 @@ window.onload = function () {
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="drop-shadows-code-1-markup">&lt;div class="box"&gt;&lt;/div&gt;
-</code>
+<code class="language-markup" id="drop-shadows-code-1-markup">&lt;div class="box"&gt;&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#drop-shadows-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2183,8 +2175,7 @@ window.onload = function () {
 <code class="language-scss" id="drop-shadows-code-1-scss">.box { @include drop-shadows(curve horizontal 20px); }
 // $style: 'curve'; 
 // $direction: horizontal;
-// $shadow-size: 20px;
-</code>
+// $shadow-size: 20px;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#drop-shadows-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2228,8 +2219,7 @@ window.onload = function () {
 <code class="language-markup" id="switch-code-1-markup">&lt;div class="switch"&gt;
   &lt;input type="checkbox" id="switch1" name="switch"&gt;
   &lt;label for="switch1"&gt;&lt;/label&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#switch-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2242,8 +2232,7 @@ window.onload = function () {
 // text: on off;
 // size: 36px;
 // active-color: #399DE1;
-// round: true;
-</code>
+// round: true;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#switch-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2290,8 +2279,7 @@ window.onload = function () {
   &lt;label for="male"&gt;Male&lt;/label&gt;
   &lt;input type="radio" id="female" name="gender"&gt;
   &lt;label for="female"&gt;Female&lt;/label&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#push-toggle-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2312,8 +2300,7 @@ window.onload = function () {
     background-image: linear-gradient(to bottom, #ebebeb, #fff);
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
   }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#push-toggle-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2368,8 +2355,7 @@ window.onload = function () {
   &lt;input type="radio" name="my-radio-name" id="my-radio-id-3"&gt;
   &lt;label for="my-radio-id-3"&gt;item 3&lt;/label&gt;
   &lt;br /&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#checkbox-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2382,8 +2368,7 @@ window.onload = function () {
  padding: 4px 0 4px 26px;
  background: url('../images/radio.png') 0 50% no-repeat;
   }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#checkbox-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2427,8 +2412,7 @@ window.onload = function () {
   @include checkbox-active() {
  background-image: url('../images/radio-active.png');
   }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#checkbox-active-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2471,8 +2455,7 @@ window.onload = function () {
 <code class="language-markup" id="input-file-code-1-markup">&lt;div class="input-file"&gt;
   &lt;input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple /&gt;
   &lt;label for="file"&gt;&lt;span&gt;Choose a file&lt;/span&gt;&lt;/label&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#input-file-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2484,8 +2467,7 @@ window.onload = function () {
   @include input-file() {
   // customized style goes here
   }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#input-file-code-1-scss">Copy Code</button>
                   </li>
                   <li>
@@ -2497,8 +2479,7 @@ window.onload = function () {
 &lt;script src="path/to/input-file.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   inputFile('#file');
-&lt;/script&gt;
-</code>
+&lt;/script&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#input-file-code-1-javascript">Copy Code</button>
                   </li>
                 </ul>
@@ -2563,8 +2544,7 @@ window.onload = function () {
       &lt;!-- Your tab-panels 3 --&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tabs-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2574,8 +2554,7 @@ window.onload = function () {
                     <pre>
 <code class="language-scss" id="tabs-code-1-scss">.your-tab-class { @include tabs(3 'carousel'); }
 // length: 3; (3 tabs)
-// style: carousel; (normal | carousel | customize)
-</code>
+// style: carousel; (normal | carousel | customize)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tabs-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2624,8 +2603,7 @@ window.onload = function () {
  // tab active style
   } 
 }
-// length: 3; (3 tabs)
-</code>
+// length: 3; (3 tabs)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tabs-active-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2661,8 +2639,7 @@ window.onload = function () {
     // panel active style
   } 
 }
-// length: 3; (3 tabs)
-</code>
+// length: 3; (3 tabs)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tabs-panel-active-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2705,8 +2682,7 @@ window.onload = function () {
   &lt;div&gt;
     &lt;p&gt;Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#accordion-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2717,8 +2693,7 @@ window.onload = function () {
 <code class="language-scss" id="accordion-code-1-scss">.accordion { @include accordion(div 200px 0.4s); }
 // $content: div;
 // $max-height: 200px;
-// $transition-duration: 0.4s;
-</code>
+// $transition-duration: 0.4s;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#accordion-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2774,8 +2749,7 @@ window.onload = function () {
     &lt;li&gt;&lt;a href=""&gt;item02&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=""&gt;item03&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-&lt;/div&gt;
-</code>
+&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#dropdown-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2788,8 +2762,7 @@ window.onload = function () {
 // show: hover;
 // style: display;
 // direction: right; 
-// default: true; (use default dropdown menu style)
-</code>
+// default: true; (use default dropdown menu style)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#dropdown-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2842,8 +2815,7 @@ window.onload = function () {
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="tooltip-code-1-markup">&lt;p&gt;Hic, deleniti itaque expedita placeat in veritatis &lt;a href="" class="tooltip" data-tooltip="Tooltip content"&gt;consectetur&lt;/a&gt; explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.&lt;/p&gt;
-</code>
+<code class="language-markup" id="tooltip-code-1-markup">&lt;p&gt;Hic, deleniti itaque expedita placeat in veritatis &lt;a href="" class="tooltip" data-tooltip="Tooltip content"&gt;consectetur&lt;/a&gt; explicabo non odit sed animi quos quibusdam adipisci. Vero dolores animi impedit tempore tenetur.&lt;/p&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tooltip-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2855,8 +2827,7 @@ window.onload = function () {
 // radius: 0.22em; (This can be custmized by changing "$ro-tooltip-radius: 0.22em !default;")
 // direction: right;
 // background-color: #b02df3;
-// width: 300px; (for old browsers)
-</code>
+// width: 300px; (for old browsers)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tooltip-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2905,8 +2876,7 @@ window.onload = function () {
       &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-</code>
+&lt;/ul&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#Media-list-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2925,8 +2895,7 @@ window.onload = function () {
 // direction: right;
  
 .news .media-body { @include media-list('media-body'); }
-// role: 'media-body'; 
-</code>
+// role: 'media-body'; </code>
 </pre><button class="btn copy-button" data-clipboard-target="#Media-list-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -2974,26 +2943,24 @@ window.onload = function () {
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="flex media-code-1-markup">&lt;div class="video"&gt;
+<code class="language-markup" id="flex-media-code-1-markup">&lt;div class="video"&gt;
   &lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</code>
-</pre><button class="btn copy-button" data-clipboard-target="#flex media-code-1-markup">Copy Code</button>
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#flex-media-code-1-markup">Copy Code</button>
                   </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="flex media-code-1-scss">.video { @include flex-media(3/4); }
+<code class="language-scss" id="flex-media-code-1-scss">.video { @include flex-media(3/4); }
 // ratio: 3/4;
 // child: iframe, object, embed; (default)
  
 .svg-wrapper { @include flex-media(9/16 svg); }
 // ratio: 9/16;
-// child: svg; 
-</code>
-</pre><button class="btn copy-button" data-clipboard-target="#flex media-code-1-scss">Copy Code</button>
+// child: svg; </code>
+</pre><button class="btn copy-button" data-clipboard-target="#flex-media-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
@@ -3051,8 +3018,7 @@ window.onload = function () {
 // $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
 // $ro-font-styles: italic, oblique, style-normal, style-inherit !default;
 // $ro-text-aligns: left, right, center, justify, align-inherit !default;
-// $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
-</code>
+// $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#type-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3089,8 +3055,7 @@ $data: a map with two pairs of viewwidth and value
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="fluid-type-code-1-scss">h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
-</code>
+<code class="language-scss" id="fluid-type-code-1-scss">h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#fluid-type-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3130,17 +3095,16 @@ $data: a map with two pairs of viewwidth and value
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="responsive-type (rp-type)-code-1-markup">&lt;h3 class="demo-responsive-type-h3"&gt;Assumenda, deleniti molestias sapiente ut!&lt;/h3&gt;
-&lt;p class="demo-responsive-type-p"&gt;Saepe aspernatur fugiat, corrupti officia.&lt;/p&gt;
-</code>
-</pre><button class="btn copy-button" data-clipboard-target="#responsive-type (rp-type)-code-1-markup">Copy Code</button>
+<code class="language-markup" id="responsive-type-(rp-type)-code-1-markup">&lt;h3 class="demo-responsive-type-h3"&gt;Assumenda, deleniti molestias sapiente ut!&lt;/h3&gt;
+&lt;p class="demo-responsive-type-p"&gt;Saepe aspernatur fugiat, corrupti officia.&lt;/p&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsive-type-(rp-type)-code-1-markup">Copy Code</button>
                   </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="responsive-type (rp-type)-code-1-scss">$bp: (
+<code class="language-scss" id="responsive-type-(rp-type)-code-1-scss">$bp: (
   'small': 480px,
   'medium': 700px,
   'large': 1024px
@@ -3160,9 +3124,8 @@ $h3-font-sizes: (
 );
  
 .demo-responsive-type-h3 { @include rp-type($h3-font-sizes $bp); }
-.demo-responsive-type-p { @include rp-type($p-font-sizes $bp); }
-</code>
-</pre><button class="btn copy-button" data-clipboard-target="#responsive-type (rp-type)-code-1-scss">Copy Code</button>
+.demo-responsive-type-p { @include rp-type($p-font-sizes $bp); }</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsive-type-(rp-type)-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
@@ -3207,8 +3170,7 @@ $h3-font-sizes: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="hide-text-code-1-markup">&lt;h1 class="logo"&gt;Brand Name&lt;/h1&gt;
-</code>
+<code class="language-markup" id="hide-text-code-1-markup">&lt;h1 class="logo"&gt;Brand Name&lt;/h1&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#hide-text-code-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -3219,8 +3181,7 @@ $h3-font-sizes: (
 <code class="language-scss" id="hide-text-code-1-scss">.logo { 
   @extend %hide-text; 
   // or @include hide-text(); 
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#hide-text-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3256,8 +3217,7 @@ $h3-font-sizes: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="opacity-code-1-scss">.example { @include opacity(0.3); }
-</code>
+<code class="language-scss" id="opacity-code-1-scss">.example { @include opacity(0.3); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#opacity-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3294,8 +3254,7 @@ $h3-font-sizes: (
 //   background: none;
 //   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000);
 //   zoom: 1;
-// }
-</code>
+// }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#ie-rgba-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3332,16 +3291,15 @@ $h3-font-sizes: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="ro-breakpoint (bp)-code-1-scss">@include bp('min' 640) {};
+<code class="language-scss" id="ro-breakpoint-(bp)-code-1-scss">@include bp('min' 640) {};
 // output: @media (min-width: 40em) {};
 @include bp('min' 'height' 640) {};
 // output: @media (min-height: 40em) {};
 @include bp('max' 640 screen) {};
 // output: @media screen and (max-width: 40em) {};
 @include bp(400 767 1000 1200 1500) {};
-// output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};
-</code>
-</pre><button class="btn copy-button" data-clipboard-target="#ro-breakpoint (bp)-code-1-scss">Copy Code</button>
+// output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};</code>
+</pre><button class="btn copy-button" data-clipboard-target="#ro-breakpoint-(bp)-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
@@ -3372,8 +3330,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="at-least-code-1-scss">.nav {
   @include at-least('li' 4) { width: 25%; }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#at-least-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3405,8 +3362,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="at-most-code-1-scss">.nav {
   @include at-most('li' 4) { width: 25%; }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#at-most-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3438,8 +3394,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="equal-to-code-1-scss">.nav {
   @include equal-to('li' 4) { width: 25%; }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#equal-to-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3471,8 +3426,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="between-code-1-scss">.nav {
   @include between('li' 4 6) { width: 25%; }
-}
-</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#between-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3507,8 +3461,7 @@ $h3-font-sizes: (
                     </header>
                     <pre>
 <code class="language-scss" id="visible-code-1-scss">@include visible(500)
-// visible on 500px up on all media
-</code>
+// visible on 500px up on all media</code>
 </pre><button class="btn copy-button" data-clipboard-target="#visible-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3543,8 +3496,7 @@ $h3-font-sizes: (
                     </header>
                     <pre>
 <code class="language-scss" id="hidden-code-1-scss">@include hidden(screen 300 500 700)
-// hidden between 300px and 500px, and 700px up on screen
-</code>
+// hidden between 300px and 500px, and 700px up on screen</code>
 </pre><button class="btn copy-button" data-clipboard-target="#hidden-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3586,8 +3538,7 @@ $h3-font-sizes: (
 <code class="language-scss" id="contrast-code-1-scss">.main { color: contrast(#a6e36e); }
 // color: #a6e36e;
 // light: #fff; (default)
-// dark: #000; (default)
-</code>
+// dark: #000; (default)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#contrast-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3626,8 +3577,7 @@ $h3-font-sizes: (
 // order: -1;
 // saturation: 10%;
 // lightness -20%;
-// distribution: 20;
-</code>
+// distribution: 20;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#adjacent-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3663,8 +3613,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="complementary-code-1-scss">.main { color: complementary(#a6e36e saturation 20%); }
 // color: #a6e36e;
-// saturation: 20%;
-</code>
+// saturation: 20%;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#complementary-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3700,8 +3649,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="split-complementary-code-1-scss">.main { color: split-complementary(#a6e36e 2); }
 // color: #a6e36e;
-// order: 2; (-2 | -1 | 1 | 2)
-</code>
+// order: 2; (-2 | -1 | 1 | 2)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#split-complementary-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3737,8 +3685,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="triad-code-1-scss">.main { color: triad(#a6e36e 2); }
 // color: #a6e36e;
-// order: 2; (-2 | -1 | 1 | 2)
-</code>
+// order: 2; (-2 | -1 | 1 | 2)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#triad-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3775,8 +3722,7 @@ $h3-font-sizes: (
 <code class="language-scss" id="rectangle-code-1-scss"> 
 .main { color: rectangle(#a6e36e -3); }
 // color: #a6e36e;
-// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)
-</code>
+// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#rectangle-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
@@ -3812,8 +3758,7 @@ $h3-font-sizes: (
                     <pre>
 <code class="language-scss" id="square-code-1-scss">.main { color: square(#a6e36e 3); }
 // color: #a6e36e;
-// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)
-</code>
+// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)</code>
 </pre><button class="btn copy-button" data-clipboard-target="#square-code-1-scss">Copy Code</button>
                   </li>
                 </ul>

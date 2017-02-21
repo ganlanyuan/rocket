@@ -63,12 +63,12 @@
                 {% for type, codeContent in content %}
                 <li>
                   <header>{{ type }}</header>
-                  <pre><code class="language-{{ type }}" id="{{ title + '-' + tag + '-' + type }}">
+                  <pre><code class="language-{{ type }}" id="{{ title | replace(' ', '-') + '-' + tag + '-' + type }}">
                     
-                  {%- for row in codeContent %}{{ row + '\n' }}{% endfor -%}
+                  {%- for row in codeContent %}{{ '\n' + row if row !== codeContent | first else row }}{% endfor -%}
 
                   </code></pre>
-                  <button class="btn copy-button" data-clipboard-target="#{{ title + '-' + tag + '-' + type }}">Copy Code</button>
+                  <button class="btn copy-button" data-clipboard-target="#{{ title | replace(' ', '-') + '-' + tag + '-' + type }}">Copy Code</button>
                 </li>
                 {% endfor %}
               

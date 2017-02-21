@@ -122,8 +122,22 @@
             "// 2nd row: (2 5)"
           ]
         },
+        "p-4": [
+          "If the child elements are not ^div$s, you need to proclaim it via ^child$ option in the format of ^child child-type$."
+        ],
+        "code-4": {
+          "markup": [
+            "<div class=\"grid4\">",
+            "  <section data-contentbox>1</section>",
+            "  <section data-contentbox>2</section>",
+            "</div>"
+          ],
+          "scss": [
+            ".grid4 { @include grid( (2 5) child section); }"
+          ]
+        },
         "p-5": [
-          "Works with breakpoints."
+          "Grid works with breakpoints to make multi layouts for different window size."
         ],
         "code-5": {
           "markup": [

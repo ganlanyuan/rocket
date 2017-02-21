@@ -11,6 +11,7 @@ $ro-layout: (
 .grid2 { @include grid( (3 7 4 : 1 0 0) ); }
 $main: ( (3 7 4) (2 5) );
 .grid3 { @include grid($main); }
+.grid4 { @include grid( (2 5) child section); }
 $breakpoints: (
   medium: 800px,
   large: 1200px,
