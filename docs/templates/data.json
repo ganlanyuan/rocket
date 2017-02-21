@@ -64,11 +64,12 @@
         ],
         "capability": "IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+",
         "syntax": [
-          "@mixin grid($grid (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep)",
+          "@mixin grid($grid (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep)",
           "// $grid: list | map",
           "// $condition: 'min' | 'max'",
           "// $media-type: media types",
-          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)"
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)",
+          "// $direction: LTR | RTL"
         ],
         "code-1": {
           "markup": [
@@ -165,20 +166,22 @@
       },
       "liquid-2": {
         "p-1": [
-          "^liquid-2$ is for creating a two columns layout: a fluid column with a fixed one. Similar with grid, you can use list or map as a parameter to set up the layout."
+          "Make a fluid 2-columns blog layout, with a fixed sidebar and fluid main column."
         ],
         "capability": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
-          "@mixin liquid-2($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL)",
-          "// $condition: 'min' or 'max'",
-          "// $media-type: screen, print, tv",
-          "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
+          "@mixin liquid-2($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction)",
+          "// $layout: list | map",
+          "// $condition: 'min' | 'max'",
+          "// $media-type: media types",
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)",
+          "// $direction: LTR | RTL"
         ],
         "code-1": {
           "markup": [
             "<div class=\"liquid-2-1\">",
-            "  <div data-contentbox></div>",
-            "  <div data-contentbox></div>",
+            "  <div data-contentbox>1</div>",
+            "  <div data-contentbox>2</div>",
             "</div>"
           ],
           "scss": [
@@ -187,87 +190,134 @@
             "// 2nd column: 200px;"
           ]
         },
+        "p-2": [
+          "The order and gutter can be redefined as well."
+        ],
         "code-2": {
           "markup": [
             "<div class=\"liquid-2-2\">",
-            "  <div data-contentbox></div>",
-            "  <div data-contentbox></div>",
+            "  <div data-contentbox>1</div>",
+            "  <div data-contentbox>2</div>",
             "</div>"
           ],
           "scss": [
-            ".liquid-2-2 { @include liquid-2( ('auto':2, 200px:1) ); }",
-            "// columns' order: 2 1;"
+            ".liquid-2-2 {",
+            "  @include liquid-2( ('auto':2, 200px:1) gutter 10px);",
+            "}",
+            "// order: 2 1;"
           ]
         }
       },
       "liquid-3": {
         "p-1": [
-          "^liquid-3$ is for creating a holy-grail layout: a fluid column with 2 fixed columns."
+          "Make a holy-grail layout: 2 fixed sidebars with a fluid main column."
         ],
         "capability": "IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+",
         "syntax": [
-          "@mixin liquid-3($list/$map (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL)",
-          "// $condition: 'min' or 'max'",
-          "// $media-type: screen, print, tv",
-          "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
+          "@mixin liquid-3($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction)",
+          "// $layout: list | map",
+          "// $condition: 'min' | 'max'",
+          "// $media-type: media types",
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)",
+          "// $direction: LTR | RTL"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"wrapper\">",
-            "  <div></div>",
-            "  <div></div>",
+            "<div class=\"liquid-3-1\">",
+            "  <div data-contentbox>sidebar1</div>",
+            "  <div data-contentbox>main</div>",
+            "  <div data-contentbox>sidebar2</div>",
             "</div>"
           ],
           "scss": [
-            ".wrapper { @include liquid-3( (150px 'auto' 200px) ); }",
+            ".liquid-3-1 { @include liquid-3( (150px 'auto' 200px) ); }",
             "// 1st column: 150px;",
             "// 2nd column: fluid;",
-            "// 3rd column: 200px;",
-            " ",
-            ".wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }",
-            "// columns' order: 0 2 1;"
+            "// 3rd column: 200px;"
+          ]
+        },
+        "p-2": [
+          "Order can be changed as well."
+        ],
+        "code-2": {
+          "markup": [
+            "<div class=\"liquid-3-2\">",
+            "  <div data-contentbox>sidebar1</div>",
+            "  <div data-contentbox>main</div>",
+            "  <div data-contentbox>sidebar2</div>",
+            "</div>"
+          ],
+          "scss": [
+            ".liquid-3-2 { ",
+            "  @include liquid-3( (150px:0, 'auto':2, 200px:1) ); ",
+            "}",
+            "// order: 0 2 1;"
           ]
         }
       },
       "gallery": {
         "p-1": [
-          "^gallery$ is for creating picture galleries."
+          "Make a photo gallery layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+",
         "syntax": [
-          "@mixin gallery(($map / $per-row) (gutter $gutter) (child $child) $breakpoints $condition $media-type LTR/RTL keep);",
-          "// $condition: 'min' or 'max'",
-          "// $media-type: screen, print, tv",
-          "// $breakpoints(map): (small: 640px, medium: 768px, large: 1024px)"
+          "@mixin gallery($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep);",
+          "// $layout: number | map",
+          "// $condition: 'min' | 'max'",
+          "// $media-type: media types",
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)",
+          "// $direction: LTR | RTL"
         ],
         "code-1": {
           "markup": [
-            "<ul class=\"gallery\">",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
+            "<ul class=\"gallery-1\">",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
             "</ul>"
           ],
           "scss": [
-            "// *** case 1 *** //",
-            ".gallery { @include gallery(3); }",
-            "// 3 items per row",
-            " ",
-            "// *** case 2: change gutter and direction *** //",
-            ".gallery { @include gallery(4 gutter 2% RTL); }",
-            "// 4 items per row",
+            ".gallery-1 { @include gallery(3); }"
+          ]
+        },
+        "p-2": [
+          "You can change the gutter and direction."
+        ],
+        "code-2": {
+          "markup": [
+            "<ul class=\"gallery-2\">",
+            "  <li><div data-contentbox>1</div></li>",
+            "  <li><div data-contentbox>2</div></li>",
+            "  <li><div data-contentbox>3</div></li>",
+            "  <li><div data-contentbox>4</div></li>",
+            "  <li><div data-contentbox>5</div></li>",
+            "</ul>"
+          ],
+          "scss": [
+            ".gallery-2 { @include gallery(4 gutter 2% RTL); }",
             "// gutter: 2%;",
-            "// RTL: right-to-left",
-            " ",
-            "// *** case 3: with breakpoints *** //",
-            "$map: (",
-            "  'default': 2, ",
-            "  600: 3,",
-            "  800: 4,",
-            ");",
-            ".gallery { @include gallery($map); }",
+            "// direction: right-to-left"
+          ]
+        },
+        "p-3": [
+          "Use breakpoints to make it works on multi devices."
+        ],
+        "code-3": {
+          "markup": [
+            "<ul class=\"gallery-3\">",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-contentbox></div></li>",
+            "</ul>"
+          ],
+          "scss": [
+            ".gallery-3 {",
+            "  @include gallery( ('default': 2, 600px: 3, 800px: 4) ); ",
+            "}",
             "// default: 2 items per row",
             "// 600px and up: 3 items per row",
             "// 800px and up: 4 items per row"
@@ -276,94 +326,122 @@
       },
       "masonry": {
         "p-1": [
-          "^masonry$ is for creating masonry layouts with pure css."
+          "Make masonry layout with pure css."
         ],
         "capability": "IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+",
         "syntax": [
-          "@mixin masonry(($map / $count) (gutter $gutter) (child $child) $breakpoints $condition);",
-          "// $map: ( $breakpoint-1: $count-1, $breakpoint-2: $count-2, ...)",
-          "// $count: num;",
-          "// $condition: 'min' | 'max'"
+          "@mixin masonry($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type);",
+          "// $layout: number | map",
+          "// $condition: 'min' | 'max'",
+          "// $media-type: media types",
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)",
+          "",
+          "// *** fallback: IE9- *** //",
+          ".no-csscolumns {",
+          "  .masonry {",
+          "    text-align: center;",
+          "    > li {",
+          "      display: inline-block;",
+          "      vertical-align: top;",
+          "      width: 250px;",
+          "      margin: 0 20px 20px 0;",
+          "      text-align: left;",
+          "    }",
+          "  }",
+          "}"
         ],
         "code-1": {
           "markup": [
-            "<ul class=\"masonry\">",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
+            "<ul class=\"masonry-1\">",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>",
             "</ul>"
           ],
           "scss": [
-            "// *** case 1 *** //",
-            ".masonry { @include masonry(3); }",
-            "// count: 3;",
-            " ",
-            "// *** case 2: with gutter *** //",
-            ".masonry { @include masonry(4 gutter 20px); }",
-            "// count: 4;",
-            "// gutter: 20px;",
-            " ",
-            "// *** case 3: with breakpoints *** //",
-            "$map: (",
-            "  'default': 1, ",
-            "  600px: 2,",
-            "  768px: 3,",
-            "  1024px: 4",
-            ");",
-            ".masonry { @include masonry($map gutter 20px child '.panel'); }",
-            "// default: 1 items per row",
-            "// 600px and up: 2 items per row",
-            "// 768px and up: 3 items per row",
-            "// 1024px and up: 4 items per row",
-            " ",
-            "// *** fallback: IE9- *** //",
-            ".no-csscolumns {",
-            "  .masonry {",
-            "    text-align: center;",
-            "    > li {",
-            "      display: inline-block;",
-            "      vertical-align: top;",
-            "      width: 250px;",
-            "      margin: 0 20px 20px 0;",
-            "      text-align: left;",
-            "    }",
-            "  }",
-            "}"
+            ".masonry-1 { @include masonry(3); }"
+          ]
+        },
+        "p": [
+          "Change gutter."
+        ], 
+        "code-2": {
+          "markup": [
+            "<ul class=\"masonry-2\">",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></li>",
+            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>",
+            "</ul>"
+          ],
+          "scss": [
+            ".masonry-2 { @include masonry(4 gutter 20px); }"
+          ]
+        },
+        "p-3": [
+          "Works with breakpoints."
+        ],
+        "code-3": {
+          "markup": [
+            "<div class=\"masonry-3\">",
+            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></div>",
+            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></div>",
+            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></div>",
+            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></div>",
+            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></div>",
+            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></div>",
+            "</div>"
+          ],
+          "scss": [
+            "$masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);",
+            ".masonry-3 { @include masonry($masonry-3-layout child '.panel'); }"
           ]
         }
       },
       "metro": {
         "p-1": [
-          "^metro$ is for creating block layout inspired by Windows 8. Use nested ^metro$ to make complex layout."
+          "Make a (Windows 8 style) metro layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin metro($map (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)"
+          "@mixin metro($layout (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)",
+          "// $layout: list | map",
+          "// $condition: 'min' | 'max'",
+          "// $media-type: media types",
+          "// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)"
         ],
         "code-1": {
           "markup": [
-            "<ul class=\"main\">",
-            "  <li><div class=\"metro-item\"></div></li>",
-            "  <li><div class=\"metro-item\"></div></li>",
-            "  <li><div class=\"metro-item\"></div></li>",
-            "  <li><div class=\"metro-item\"></div></li>",
-            "  <li><div class=\"metro-item\"></div></li>",
+            "<ul class=\"metro-1\">",
+            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
             "</ul>"
           ],
           "scss": [
-            ".main { @include metro(3 1 h2 1 w3 of 3); }",
-            "// 3: 1st child -> 3 blocks width x 3 blocks height",
-            "// 1: 2nd child -> 1 blocks width x 1 blocks height",
-            "// h2: 3rd child -> 1 blocks width x 2 blocks height",
-            "// 1: 4th child -> 1 blocks width x 1 blocks height",
-            "// w3: 5th child -> 3 blocks width x 1 blocks height",
-            "// \"of 3\": totaly 3 blocks width;"
+            ".metro-1 { ",
+            "  @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); ",
+            "  > li:nth-child(3) { float: right; };",
+            "}",
+            "// w5: 5 blocks width x 1 blocks height",
+            "// 2: 2 blocks width x 2 blocks height",
+            "// h2: 1 blocks width x 2 blocks height",
+            "// \"of 5\": totaly 5 blocks width;"
           ]
         }
       },
       "diamond": {
+        "p-1": [
+          "Make diamond (octagon) shape layout."
+        ],
         "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+",
         "syntax": [
           "@mixin diamond(($count / $size) $shape 'combined' $selector-type 'keep')",
@@ -376,33 +454,33 @@
             "  <!-- 'wrapper' could be any valid class name -->",
             "  <div class=\"diamond\">",
             "    <!-- 'diamond' could be any valid class name -->",
-            "    <div class=\"diamond-content\">",
+            "    <div class=\"diamond-content\" data-contentbox>",
             "      <!-- class 'diamond-content' is required -->",
             "      <div>content</div>",
             "    </div>",
             "  </div>",
             "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\">",
+            "    <div class=\"diamond-content\" data-contentbox>",
             "      <div>content</div>",
             "    </div>",
             "  </div>",
             "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\">",
+            "    <div class=\"diamond-content\" data-contentbox>",
             "      <div>content</div>",
             "    </div>",
             "  </div>",
             "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\">",
+            "    <div class=\"diamond-content\" data-contentbox>",
             "      <div>content</div>",
             "    </div>",
             "  </div>",
             "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\">",
+            "    <div class=\"diamond-content\" data-contentbox>",
             "      <div>content</div>",
             "    </div>",
             "  </div>",
             "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\">",
+            "    <div class=\"diamond-content\" data-contentbox>",
             "      <div>content</div>",
             "    </div>",
             "  </div>",

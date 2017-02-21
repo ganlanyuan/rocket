@@ -23,45 +23,26 @@ $main: (
 );
 .grid5 { @include grid($main $breakpoints); }
 .liquid-2-1 { @include liquid-2( ('auto' 200px) ); }
-.liquid-2-2 { @include liquid-2( ('auto':2, 200px:1) ); }
-.wrapper { @include liquid-3( (150px 'auto' 200px) ); }
- 
-.wrapper { @include liquid-3( (150px:0, 'auto':2, 200px:1) ); }
-.gallery { @include gallery(3); }
- 
-.gallery { @include gallery(4 gutter 2% RTL); }
- 
-$map: (
-  'default': 2, 
-  600: 3,
-  800: 4,
-);
-.gallery { @include gallery($map); }
-.masonry { @include masonry(3); }
- 
-.masonry { @include masonry(4 gutter 20px); }
- 
-$map: (
-  'default': 1, 
-  600px: 2,
-  768px: 3,
-  1024px: 4
-);
-.masonry { @include masonry($map gutter 20px child '.panel'); }
- 
-.no-csscolumns {
-  .masonry {
-    text-align: center;
-    > li {
-      display: inline-block;
-      vertical-align: top;
-      width: 250px;
-      margin: 0 20px 20px 0;
-      text-align: left;
-    }
-  }
+.liquid-2-2 {
+  @include liquid-2( ('auto':2, 200px:1) gutter 10px);
 }
-.main { @include metro(3 1 h2 1 w3 of 3); }
+.liquid-3-1 { @include liquid-3( (150px 'auto' 200px) ); }
+.liquid-3-2 { 
+  @include liquid-3( (150px:0, 'auto':2, 200px:1) ); 
+}
+.gallery-1 { @include gallery(3); }
+.gallery-2 { @include gallery(4 gutter 2% RTL); }
+.gallery-3 {
+  @include gallery( ('default': 2, 600px: 3, 800px: 4) ); 
+}
+.masonry-1 { @include masonry(3); }
+.masonry-2 { @include masonry(4 gutter 20px); }
+$masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
+.masonry-3 { @include masonry($masonry-3-layout child '.panel'); }
+.metro-1 { 
+  @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); 
+  > li:nth-child(3) { float: right; };
+}
 .diamond { @include diamond(5 'combined'); }
  
 .diamond { @include diamond(20%); }

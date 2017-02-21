@@ -145,14 +145,16 @@ pre > code[class*="language-"] {
 .preview-wrapper {
   margin-bottom: 20px;
   resize: both;
-  overflow: auto;
-  outline: 1px dashed #ffa7f9;
+  overflow: hidden;
+  outline: 1px solid #ffa7f9;
   outline-offset: -1px;
   [data-contentbox] { 
     min-height: 100px; 
     background-color: $lightblue; 
   }
+  .full { width: 100%; }
 }
+.metro-1 [data-contentbox] { height: 1000px };
 
 @include bp(max $bp-docs) {
   .docs-nav {
