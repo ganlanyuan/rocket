@@ -43,9 +43,9 @@ $masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
   @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); 
   > li:nth-child(3) { float: right; };
 }
-.diamond { @include diamond(5 'combined'); }
- 
-.diamond { @include diamond(20%); }
+.diamond-1 { @include diamond(3 'tight'); }
+.diamond-2 { @include diamond(20%); }
+.diamond-3 { @include diamond(octagon 200px); }
 .main { @include angled-edges("bottom" -5deg); }
 .demo-sticky-footer { @include sticky-footer('.main'); }
 .justify { @include justify(); }

@@ -1437,7 +1437,7 @@ $main: (
               Diamond
             </h4>
             <p>
-              Make diamond (octagon) shape layout.
+              Make diamond (octagon) shape layout. To reduce complexity, <code class="language-html">diamond</code> requires <code class="language-html">.diamond-content</code> to wrap its content.
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+
@@ -1447,9 +1447,8 @@ $main: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin diamond(($count / $size) $shape 'combined' $selector-type 'keep')
+<code class="language-scss">@mixin diamond(($count / $size) $shape 'combined' 'keep')
 // $shape: 'diamond' | 'octagon'
-// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)
 </code>
 </pre>
             </div>
@@ -1464,39 +1463,25 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="diamond-code-1-markup">&lt;div class="wrapper"&gt;
-  &lt;!-- 'wrapper' could be any valid class name --&gt;
-  &lt;div class="diamond"&gt;
-    &lt;!-- 'diamond' could be any valid class name --&gt;
-    &lt;div class="diamond-content" data-contentbox&gt;
-      &lt;!-- class 'diamond-content' is required --&gt;
-      &lt;div&gt;content&lt;/div&gt;
-    &lt;/div&gt;
+<code class="language-markup" id="diamond-code-1-markup">&lt;div class="diamond-1"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="diamond"&gt;
-    &lt;div class="diamond-content" data-contentbox&gt;
-      &lt;div&gt;content&lt;/div&gt;
-    &lt;/div&gt;
+&lt;/div&gt;&lt;div class="diamond-1"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="diamond"&gt;
-    &lt;div class="diamond-content" data-contentbox&gt;
-      &lt;div&gt;content&lt;/div&gt;
-    &lt;/div&gt;
+&lt;/div&gt;&lt;div class="diamond-1"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="diamond"&gt;
-    &lt;div class="diamond-content" data-contentbox&gt;
-      &lt;div&gt;content&lt;/div&gt;
-    &lt;/div&gt;
+&lt;/div&gt;&lt;div class="diamond-1"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="diamond"&gt;
-    &lt;div class="diamond-content" data-contentbox&gt;
-      &lt;div&gt;content&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="diamond"&gt;
-    &lt;div class="diamond-content" data-contentbox&gt;
-      &lt;div&gt;content&lt;/div&gt;
-    &lt;/div&gt;
+&lt;/div&gt;&lt;div class="diamond-1"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#diamond-code-1-markup">Copy Code</button>
@@ -1506,57 +1491,128 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="diamond-code-1-scss">.diamond { @include diamond(5 'combined'); }
-// count: 5 (5 diamonds per row)
- 
-.diamond { @include diamond(20%); }
-// diamond size: 20% (could be fixed value like 200px too)</code>
+<code class="language-scss" id="diamond-code-1-scss">.diamond-1 { @include diamond(3 'tight'); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#diamond-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="wrapper">
-                  <div class="diamond">
-                    <div class="diamond-content" data-contentbox="">
-                      <div>
-                        content
-                      </div>
+                <div class="diamond-1">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
                     </div>
                   </div>
-                  <div class="diamond">
-                    <div class="diamond-content" data-contentbox="">
-                      <div>
-                        content
-                      </div>
+                </div>
+                <div class="diamond-1">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
                     </div>
                   </div>
-                  <div class="diamond">
-                    <div class="diamond-content" data-contentbox="">
-                      <div>
-                        content
-                      </div>
+                </div>
+                <div class="diamond-1">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
                     </div>
                   </div>
-                  <div class="diamond">
-                    <div class="diamond-content" data-contentbox="">
-                      <div>
-                        content
-                      </div>
+                </div>
+                <div class="diamond-1">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
                     </div>
                   </div>
-                  <div class="diamond">
-                    <div class="diamond-content" data-contentbox="">
-                      <div>
-                        content
-                      </div>
+                </div>
+                <div class="diamond-1">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
                     </div>
                   </div>
-                  <div class="diamond">
-                    <div class="diamond-content" data-contentbox="">
-                      <div>
-                        content
-                      </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              You can use <code class="language-html">size</code> instead of <code class="language-html">count</code>.
+            </p>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="diamond-code-2-markup">&lt;div class="diamond-2"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#diamond-code-2-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="diamond-code-2-scss">.diamond-2 { @include diamond(20%); }
+// diamond width: 20%</code>
+</pre><button class="btn copy-button" data-clipboard-target="#diamond-code-2-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="diamond-2">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              Use octagon shape.
+            </p>
+            <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+              <div class="code-wrapper">
+                <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="diamond-code-3-markup">&lt;div class="diamond-3"&gt;
+  &lt;div class="diamond-content" data-contentbox&gt;
+    &lt;div&gt;content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#diamond-code-3-markup">Copy Code</button>
+                  </li>
+                  <li>
+                    <header>
+                      scss
+                    </header>
+                    <pre>
+<code class="language-scss" id="diamond-code-3-scss">.diamond-3 { @include diamond(octagon 200px); }
+// diamond width: 200px</code>
+</pre><button class="btn copy-button" data-clipboard-target="#diamond-code-3-scss">Copy Code</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="diamond-3">
+                  <div class="diamond-content" data-contentbox="">
+                    <div>
+                      content
                     </div>
                   </div>
                 </div>

@@ -41,7 +41,7 @@ body { min-width: 320px; }
 }
 h4 { margin-bottom: 1.5em; }
 p { 
-  @include type(15px 1.5); 
+  @include type(16px 1.5); 
   margin-bottom: 1.5em;
   &:last-child { margin-bottom: 0; }
   a { 

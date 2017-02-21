@@ -1,15 +1,8 @@
 // *** diamond *** //
 @mixin diamond($key){
   $shape: args-get($key, $ro-diamond-shape, 'diamond');
-  $tight: args-get($key, ('tight', 'combined'), false);
-  $selector-type: args-get($key, ('nth' 'type'), 'nth');
+  $tight: args-get($key, 'tight');
   $keep: args-get($key, 'keep');
-  // nth-child & nth-of-type
-  @if $selector-type == 'type' {
-    $selector-type: 'nth-of-type';
-  } @else {
-    $selector-type: 'nth-child';
-  }
 
   $global-bps: args-get-global-breakpoints($key);
   @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
@@ -54,7 +47,7 @@
         @include diamond-base($shape);
         $keep: true;
 
-        @include make-diamond($num, $shape, $tight, $selector-type);
+        @include make-diamond($num, $shape, $tight);
 
       } @else if type-of($bp) == 'number' {
         @include bp($bp $condition) {
@@ -63,13 +56,13 @@
             $keep: true;
           }
 
-          @include make-diamond($num, $shape, $tight, $selector-type);
+          @include make-diamond($num, $shape, $tight);
         }
       }
     }
   } @else {
     @include diamond-base($shape);
-    @include make-diamond($data, $shape, $tight, $selector-type);
+    @include make-diamond($data, $shape, $tight);
   }
 }
 
@@ -100,7 +93,7 @@
   }
 }
 
-@mixin make-diamond($data, $shape, $tight, $selector-type) {
+@mixin make-diamond($data, $shape, $tight) {
   $count: false;
   $size: false;
 
@@ -147,18 +140,18 @@
 
     @if $shape == 'diamond' {
       @if $count and $tight {
-        &:#{$selector-type}(n) {
+        &:nth-child(n) {
           margin: 0;
           clear: none;
         }
-        &:#{$selector-type}(#{$count * 2 - 1}n + #{($count + 1)}) {
+        &:nth-child(#{$count * 2 - 1}n + #{($count + 1)}) {
           margin-left: ($size / 2);
           clear: both;
         }
-        &:#{$selector-type}(n + #{($count + 1)}) {
+        &:nth-child(n + #{($count + 1)}) {
           margin-top: (- $size / 2);
         }
-        .lt-ie9 &:#{$selector-type}(n) { 
+        .lt-ie9 &:nth-child(n) { 
           margin: 0; 
           clear: none;
         }

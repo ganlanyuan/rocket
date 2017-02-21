@@ -440,58 +440,75 @@
       },
       "diamond": {
         "p-1": [
-          "Make diamond (octagon) shape layout."
+          "Make diamond (octagon) shape layout. To reduce complexity, ^diamond$ requires ^.diamond-content$ to wrap its content."
         ],
         "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+",
         "syntax": [
-          "@mixin diamond(($count / $size) $shape 'combined' $selector-type 'keep')",
-          "// $shape: 'diamond' | 'octagon'",
-          "// $selector-type: 'nth' | 'type' (:nth-child | :nth-of-type)"
+          "@mixin diamond(($count / $size) $shape 'combined' 'keep')",
+          "// $shape: 'diamond' | 'octagon'"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"wrapper\">",
-            "  <!-- 'wrapper' could be any valid class name -->",
-            "  <div class=\"diamond\">",
-            "    <!-- 'diamond' could be any valid class name -->",
-            "    <div class=\"diamond-content\" data-contentbox>",
-            "      <!-- class 'diamond-content' is required -->",
-            "      <div>content</div>",
-            "    </div>",
+            "<div class=\"diamond-1\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
             "  </div>",
-            "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\" data-contentbox>",
-            "      <div>content</div>",
-            "    </div>",
+            "</div>",
+            "<div class=\"diamond-1\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
             "  </div>",
-            "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\" data-contentbox>",
-            "      <div>content</div>",
-            "    </div>",
+            "</div>",
+            "<div class=\"diamond-1\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
             "  </div>",
-            "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\" data-contentbox>",
-            "      <div>content</div>",
-            "    </div>",
+            "</div>",
+            "<div class=\"diamond-1\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
             "  </div>",
-            "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\" data-contentbox>",
-            "      <div>content</div>",
-            "    </div>",
-            "  </div>",
-            "  <div class=\"diamond\">",
-            "    <div class=\"diamond-content\" data-contentbox>",
-            "      <div>content</div>",
-            "    </div>",
+            "</div>",
+            "<div class=\"diamond-1\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
             "  </div>",
             "</div>"
           ],
           "scss": [
-            ".diamond { @include diamond(5 'combined'); }",
-            "// count: 5 (5 diamonds per row)",
-            " ",
-            ".diamond { @include diamond(20%); }",
-            "// diamond size: 20% (could be fixed value like 200px too)"
+            ".diamond-1 { @include diamond(3 'tight'); }"
+          ]
+        },
+        "p-2": [
+          "You can use ^size$ instead of ^count$."
+        ],
+        "code-2": {
+          "markup": [
+            "<div class=\"diamond-2\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
+            "  </div>",
+            "</div>"
+          ],
+          "scss": [
+            ".diamond-2 { @include diamond(20%); }",
+            "// diamond width: 20%"
+          ]
+        },
+        "p-3": [
+          "Use octagon shape."
+        ],
+        "code-3": {
+          "markup": [
+            "<div class=\"diamond-3\">",
+            "  <div class=\"diamond-content\" data-contentbox>",
+            "    <div>content</div>",
+            "  </div>",
+            "</div>"
+          ],
+          "scss": [
+            ".diamond-3 { @include diamond(octagon 200px); }",
+            "// diamond width: 200px"
           ]
         }
       },
