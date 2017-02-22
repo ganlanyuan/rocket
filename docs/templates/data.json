@@ -1601,118 +1601,184 @@
     "Color Functions": {
       "contrast": {
         "p-1": [
-          "Get a contrast ^font-color$ based on the ^background-color$."
+          "Get a light or dark color based on a given color.",
+          "By default, the light color is ^#fff$ and black color is ^#000$, but you can use your own."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function contrast($color (light $light) (dark $dark));"
         ],
         "code-1": {
+          "markup": [
+            "<p class=\"contrast-1\">Consequatur pariatur, minima, ex facere molestias praesentium ipsum laborum porro earum modi optio ad quam.</p>",
+            "<p class=\"contrast-2\">Impedit dolorum sit nisi, aliquam, nemo repellendus vitae, ipsa et voluptatum dignissimos recusandae eum accusamus.</p>",
+            "<p class=\"contrast-3\">Veniam id, nostrum fuga saepe ab voluptate incidunt nemo maiores esse praesentium animi inventore qui.</p>"
+          ],
           "scss": [
-            ".main { color: contrast(#a6e36e); }",
-            "// color: #a6e36e;",
-            "// light: #fff; (default)",
-            "// dark: #000; (default)"
+            ".contrast-1 {",
+            "  background-color: #a6e36e;", 
+            "  color: contrast(#a6e36e);",
+            "}",
+            ".contrast-2 {",
+            "  background-color: #800000;",
+            "  color: contrast(#800000);",
+            "}",
+            ".contrast-3 {",
+            "  background-color: #6666FF;",
+            "  color: contrast(#6666FF light #D6D6E6);",
+            "}"
           ]
         }
       },
       "adjacent": {
         "p-1": [
-          "^adjacent$ is for creating adjacent colors."
+          "Get a adjacent color based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))",
+          "// $order: integer",
+          "// $saturation: percent",
+          "// $lightness: percent",
+          "// $dist(distribution): number"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"adjacent-0\">1</div>",
+            "<div class=\"adjacent-1\">2</div>",
+            "<div class=\"adjacent-2\">3</div>",
+            "<div class=\"adjacent-3\">4</div>"
+          ],
           "scss": [
-            ".main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }",
-            "// color: #a6e36e;",
-            "// order: -1;",
-            "// saturation: 10%;",
-            "// lightness -20%;",
-            "// distribution: 20;"
+            ".adjacent-0 { background-color: #155BDF; }",
+            ".adjacent-1 { background-color: adjacent(#155BDF 1); }",
+            ".adjacent-2 { background-color: adjacent(#155BDF 2); }",
+            ".adjacent-3 { background-color: adjacent(#155BDF 3); }"
           ]
         }
       },
       "complementary": {
         "p-1": [
-          "^complementary$ is for getting a complementary color."
+          "Get the complementary color based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))",
+          "// $order: integer",
+          "// $saturation: percent",
+          "// $lightness: percent",
+          "// $dist(distribution): number"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"complementary-0\">1</div>",
+            "<div class=\"complementary-1\">2</div>"
+          ],
           "scss": [
-            ".main { color: complementary(#a6e36e saturation 20%); }",
-            "// color: #a6e36e;",
-            "// saturation: 20%;"
+            ".complementary-0 { background-color: #155BDF; }",
+            ".complementary-1 { background-color: complementary(#155BDF 1); }"
           ]
         }
       },
       "split-complementary": {
         "p-1": [
-          "^split-complementary$ is for getting split-complementary colors based on a given color."
+          "Get a split-complementary color based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@function split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist));"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"split-complementary-0\">1</div>",
+            "<div class=\"split-complementary-1\">2</div>",
+            "<div class=\"split-complementary-2\">3</div>",
+            "<div class=\"split-complementary-3\">4</div>"
+          ],
           "scss": [
-            ".main { color: split-complementary(#a6e36e 2); }",
-            "// color: #a6e36e;",
-            "// order: 2; (-2 | -1 | 1 | 2)"
+            ".split-complementary-0 { background-color: #155BDF; }",
+            ".split-complementary-1 { background-color: split-complementary(#155BDF 1); }",
+            ".split-complementary-2 { background-color: split-complementary(#155BDF 2); }",
+            ".split-complementary-3 { background-color: split-complementary(#155BDF 3); }"
           ]
         }
       },
       "triad": {
         "p-1": [
-          "^triad$ is for getting triad colors based on a given color."
+          "Get a triad color based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))",
+          "// $order: integer",
+          "// $saturation: percent",
+          "// $lightness: percent",
+          "// $dist(distribution): number"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"triad-0\">1</div>",
+            "<div class=\"triad-1\">2</div>",
+            "<div class=\"triad-2\">3</div>"
+          ],
           "scss": [
-            ".main { color: triad(#a6e36e 2); }",
-            "// color: #a6e36e;",
-            "// order: 2; (-2 | -1 | 1 | 2)"
+            ".triad-0 { background-color: #155BDF; }",
+            ".triad-1 { background-color: triad(#155BDF 1); }",
+            ".triad-2 { background-color: triad(#155BDF 2); }"
           ]
         }
       },
       "rectangle": {
         "p-1": [
-          "^rectangle$ is for getting rectangle colors based on a given color."
+          "Get a rectangle color based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))",
+          "// $order: integer",
+          "// $saturation: percent",
+          "// $lightness: percent",
+          "// $dist(distribution): number"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"rectangle-0\">1</div>",
+            "<div class=\"rectangle-1\">2</div>",
+            "<div class=\"rectangle-2\">3</div>",
+            "<div class=\"rectangle-3\">4</div>"
+          ],
           "scss": [
-            " ",
-            ".main { color: rectangle(#a6e36e -3); }",
-            "// color: #a6e36e;",
-            "// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)"
+            ".rectangle-0 { background-color: #155BDF; }",
+            ".rectangle-1 { background-color: rectangle(#155BDF 1); }",
+            ".rectangle-2 { background-color: rectangle(#155BDF 2); }",
+            ".rectangle-3 { background-color: rectangle(#155BDF 3); }"
           ]
         }
       },
       "square": {
         "p-1": [
-          "^square$ is for getting square colors based on a given color."
+          "Get a square color based on a given color."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))"
+          "@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))",
+          "// $order: integer",
+          "// $saturation: percent",
+          "// $lightness: percent",
+          "// $dist(distribution): number"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"square-0\">1</div>",
+            "<div class=\"square-1\">2</div>",
+            "<div class=\"square-2\">3</div>",
+            "<div class=\"square-3\">4</div>"
+          ],
           "scss": [
-            ".main { color: square(#a6e36e 3); }",
-            "// color: #a6e36e;",
-            "// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)"
+            ".square-0 { background-color: #155BDF; }",
+            ".square-1 { background-color: square(#155BDF 1); }",
+            ".square-2 { background-color: square(#155BDF 2); }",
+            ".square-3 { background-color: square(#155BDF 3); }"
           ]
         }
       }

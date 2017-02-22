@@ -242,9 +242,9 @@ gulp.task('server', function() {
 
 // Watch Task
 gulp.task('watch', function () {
-  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['html']).on('change', browserSync.reload);
-  gulp.watch([PATHS.templates_docs + '*.json'], ['demo-scss']).on('change', browserSync.reload);
-  gulp.watch(PATHS.src_docs + 'scss/**/*.scss', ['sass-docs']).on('change', browserSync.reload);
+  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['html']);
+  gulp.watch([PATHS.templates_docs + '*.json'], ['demo-scss']);
+  gulp.watch(PATHS.src_docs + 'scss/**/*.scss', ['sass-docs']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);

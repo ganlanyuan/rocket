@@ -205,13 +205,38 @@ $h3-font-sizes: (
 }
 @include visible(500)
 @include hidden(screen 300 500 700)
-.main { color: contrast(#a6e36e); }
-.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
-.main { color: complementary(#a6e36e saturation 20%); }
-.main { color: split-complementary(#a6e36e 2); }
-.main { color: triad(#a6e36e 2); }
- 
-.main { color: rectangle(#a6e36e -3); }
-.main { color: square(#a6e36e 3); }
+.contrast-1 {
+  background-color: #a6e36e;
+  color: contrast(#a6e36e);
+}
+.contrast-2 {
+  background-color: #800000;
+  color: contrast(#800000);
+}
+.contrast-3 {
+  background-color: #6666FF;
+  color: contrast(#6666FF light #D6D6E6);
+}
+.adjacent-0 { background-color: #155BDF; }
+.adjacent-1 { background-color: adjacent(#155BDF 1); }
+.adjacent-2 { background-color: adjacent(#155BDF 2); }
+.adjacent-3 { background-color: adjacent(#155BDF 3); }
+.complementary-0 { background-color: #155BDF; }
+.complementary-1 { background-color: complementary(#155BDF 1); }
+.split-complementary-0 { background-color: #155BDF; }
+.split-complementary-1 { background-color: split-complementary(#155BDF 1); }
+.split-complementary-2 { background-color: split-complementary(#155BDF 2); }
+.split-complementary-3 { background-color: split-complementary(#155BDF 3); }
+.triad-0 { background-color: #155BDF; }
+.triad-1 { background-color: triad(#155BDF 1); }
+.triad-2 { background-color: triad(#155BDF 2); }
+.rectangle-0 { background-color: #155BDF; }
+.rectangle-1 { background-color: rectangle(#155BDF 1); }
+.rectangle-2 { background-color: rectangle(#155BDF 2); }
+.rectangle-3 { background-color: rectangle(#155BDF 3); }
+.square-0 { background-color: #155BDF; }
+.square-1 { background-color: square(#155BDF 1); }
+.square-2 { background-color: square(#155BDF 2); }
+.square-3 { background-color: square(#155BDF 3); }
 
 /* endinject */

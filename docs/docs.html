@@ -3977,7 +3977,10 @@ $h3-font-sizes: (
               Contrast
             </h4>
             <p>
-              Get a contrast <code class="language-html">font-color</code> based on the <code class="language-html">background-color</code>.
+              Get a light or dark color based on a given color.
+            </p>
+            <p>
+              By default, the light color is <code class="language-html">#fff</code> and black color is <code class="language-html">#000</code>, but you can use your own.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -3992,20 +3995,52 @@ $h3-font-sizes: (
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="contrast-code-1-markup">&lt;p class="contrast-1"&gt;Consequatur pariatur, minima, ex facere molestias praesentium ipsum laborum porro earum modi optio ad quam.&lt;/p&gt;
+&lt;p class="contrast-2"&gt;Impedit dolorum sit nisi, aliquam, nemo repellendus vitae, ipsa et voluptatum dignissimos recusandae eum accusamus.&lt;/p&gt;
+&lt;p class="contrast-3"&gt;Veniam id, nostrum fuga saepe ab voluptate incidunt nemo maiores esse praesentium animi inventore qui.&lt;/p&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#contrast-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="contrast-code-1-scss">.main { color: contrast(#a6e36e); }
-// color: #a6e36e;
-// light: #fff; (default)
-// dark: #000; (default)</code>
+<code class="language-scss" id="contrast-code-1-scss">.contrast-1 {
+  background-color: #a6e36e;
+  color: contrast(#a6e36e);
+}
+.contrast-2 {
+  background-color: #800000;
+  color: contrast(#800000);
+}
+.contrast-3 {
+  background-color: #6666FF;
+  color: contrast(#6666FF light #D6D6E6);
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#contrast-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <p class="contrast-1">
+                  Consequatur pariatur, minima, ex facere molestias praesentium ipsum laborum porro earum modi optio ad quam.
+                </p>
+                <p class="contrast-2">
+                  Impedit dolorum sit nisi, aliquam, nemo repellendus vitae, ipsa et voluptatum dignissimos recusandae eum accusamus.
+                </p>
+                <p class="contrast-3">
+                  Veniam id, nostrum fuga saepe ab voluptate incidunt nemo maiores esse praesentium animi inventore qui.
+                </p>
               </div>
             </div>
           </li>
@@ -4014,7 +4049,7 @@ $h3-font-sizes: (
               Adjacent
             </h4>
             <p>
-              <code class="language-html">adjacent</code> is for creating adjacent colors.
+              Get a adjacent color based on a given color.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -4025,26 +4060,56 @@ $h3-font-sizes: (
               </header>
               <pre>
 <code class="language-scss">@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
 </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="adjacent-code-1-markup">&lt;div class="adjacent-0"&gt;1&lt;/div&gt;
+&lt;div class="adjacent-1"&gt;2&lt;/div&gt;
+&lt;div class="adjacent-2"&gt;3&lt;/div&gt;
+&lt;div class="adjacent-3"&gt;4&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#adjacent-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="adjacent-code-1-scss">.main { color: adjacent(#a6e36e -1 saturation 10% lightness -20% dist 20); }
-// color: #a6e36e;
-// order: -1;
-// saturation: 10%;
-// lightness -20%;
-// distribution: 20;</code>
+<code class="language-scss" id="adjacent-code-1-scss">.adjacent-0 { background-color: #155BDF; }
+.adjacent-1 { background-color: adjacent(#155BDF 1); }
+.adjacent-2 { background-color: adjacent(#155BDF 2); }
+.adjacent-3 { background-color: adjacent(#155BDF 3); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#adjacent-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="adjacent-0">
+                  1
+                </div>
+                <div class="adjacent-1">
+                  2
+                </div>
+                <div class="adjacent-2">
+                  3
+                </div>
+                <div class="adjacent-3">
+                  4
+                </div>
               </div>
             </div>
           </li>
@@ -4053,7 +4118,7 @@ $h3-font-sizes: (
               Complementary
             </h4>
             <p>
-              <code class="language-html">complementary</code> is for getting a complementary color.
+              Get the complementary color based on a given color.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -4064,23 +4129,46 @@ $h3-font-sizes: (
               </header>
               <pre>
 <code class="language-scss">@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
 </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="complementary-code-1-markup">&lt;div class="complementary-0"&gt;1&lt;/div&gt;
+&lt;div class="complementary-1"&gt;2&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#complementary-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="complementary-code-1-scss">.main { color: complementary(#a6e36e saturation 20%); }
-// color: #a6e36e;
-// saturation: 20%;</code>
+<code class="language-scss" id="complementary-code-1-scss">.complementary-0 { background-color: #155BDF; }
+.complementary-1 { background-color: complementary(#155BDF 1); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#complementary-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="complementary-0">
+                  1
+                </div>
+                <div class="complementary-1">
+                  2
+                </div>
               </div>
             </div>
           </li>
@@ -4089,7 +4177,7 @@ $h3-font-sizes: (
               Split-complementary
             </h4>
             <p>
-              <code class="language-html">split-complementary</code> is for getting split-complementary colors based on a given color.
+              Get a split-complementary color based on a given color.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -4104,19 +4192,48 @@ $h3-font-sizes: (
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="split-complementary-code-1-markup">&lt;div class="split-complementary-0"&gt;1&lt;/div&gt;
+&lt;div class="split-complementary-1"&gt;2&lt;/div&gt;
+&lt;div class="split-complementary-2"&gt;3&lt;/div&gt;
+&lt;div class="split-complementary-3"&gt;4&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#split-complementary-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="split-complementary-code-1-scss">.main { color: split-complementary(#a6e36e 2); }
-// color: #a6e36e;
-// order: 2; (-2 | -1 | 1 | 2)</code>
+<code class="language-scss" id="split-complementary-code-1-scss">.split-complementary-0 { background-color: #155BDF; }
+.split-complementary-1 { background-color: split-complementary(#155BDF 1); }
+.split-complementary-2 { background-color: split-complementary(#155BDF 2); }
+.split-complementary-3 { background-color: split-complementary(#155BDF 3); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#split-complementary-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="split-complementary-0">
+                  1
+                </div>
+                <div class="split-complementary-1">
+                  2
+                </div>
+                <div class="split-complementary-2">
+                  3
+                </div>
+                <div class="split-complementary-3">
+                  4
+                </div>
               </div>
             </div>
           </li>
@@ -4125,7 +4242,7 @@ $h3-font-sizes: (
               Triad
             </h4>
             <p>
-              <code class="language-html">triad</code> is for getting triad colors based on a given color.
+              Get a triad color based on a given color.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -4136,23 +4253,51 @@ $h3-font-sizes: (
               </header>
               <pre>
 <code class="language-scss">@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
 </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="triad-code-1-markup">&lt;div class="triad-0"&gt;1&lt;/div&gt;
+&lt;div class="triad-1"&gt;2&lt;/div&gt;
+&lt;div class="triad-2"&gt;3&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#triad-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="triad-code-1-scss">.main { color: triad(#a6e36e 2); }
-// color: #a6e36e;
-// order: 2; (-2 | -1 | 1 | 2)</code>
+<code class="language-scss" id="triad-code-1-scss">.triad-0 { background-color: #155BDF; }
+.triad-1 { background-color: triad(#155BDF 1); }
+.triad-2 { background-color: triad(#155BDF 2); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#triad-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="triad-0">
+                  1
+                </div>
+                <div class="triad-1">
+                  2
+                </div>
+                <div class="triad-2">
+                  3
+                </div>
               </div>
             </div>
           </li>
@@ -4161,7 +4306,7 @@ $h3-font-sizes: (
               Rectangle
             </h4>
             <p>
-              <code class="language-html">rectangle</code> is for getting rectangle colors based on a given color.
+              Get a rectangle color based on a given color.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -4172,24 +4317,56 @@ $h3-font-sizes: (
               </header>
               <pre>
 <code class="language-scss">@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
 </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="rectangle-code-1-markup">&lt;div class="rectangle-0"&gt;1&lt;/div&gt;
+&lt;div class="rectangle-1"&gt;2&lt;/div&gt;
+&lt;div class="rectangle-2"&gt;3&lt;/div&gt;
+&lt;div class="rectangle-3"&gt;4&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#rectangle-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="rectangle-code-1-scss"> 
-.main { color: rectangle(#a6e36e -3); }
-// color: #a6e36e;
-// order: -3; (-3 | -2 | -1 | 1 | 2 | 3)</code>
+<code class="language-scss" id="rectangle-code-1-scss">.rectangle-0 { background-color: #155BDF; }
+.rectangle-1 { background-color: rectangle(#155BDF 1); }
+.rectangle-2 { background-color: rectangle(#155BDF 2); }
+.rectangle-3 { background-color: rectangle(#155BDF 3); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#rectangle-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="rectangle-0">
+                  1
+                </div>
+                <div class="rectangle-1">
+                  2
+                </div>
+                <div class="rectangle-2">
+                  3
+                </div>
+                <div class="rectangle-3">
+                  4
+                </div>
               </div>
             </div>
           </li>
@@ -4198,7 +4375,7 @@ $h3-font-sizes: (
               Square
             </h4>
             <p>
-              <code class="language-html">square</code> is for getting square colors based on a given color.
+              Get a square color based on a given color.
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -4209,23 +4386,56 @@ $h3-font-sizes: (
               </header>
               <pre>
 <code class="language-scss">@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
 </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="square-code-1-markup">&lt;div class="square-0"&gt;1&lt;/div&gt;
+&lt;div class="square-1"&gt;2&lt;/div&gt;
+&lt;div class="square-2"&gt;3&lt;/div&gt;
+&lt;div class="square-3"&gt;4&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#square-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="square-code-1-scss">.main { color: square(#a6e36e 3); }
-// color: #a6e36e;
-// order: 3; (-3 | -2 | -1 | 1 | 2 | 3)</code>
+<code class="language-scss" id="square-code-1-scss">.square-0 { background-color: #155BDF; }
+.square-1 { background-color: square(#155BDF 1); }
+.square-2 { background-color: square(#155BDF 2); }
+.square-3 { background-color: square(#155BDF 3); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#square-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <div class="square-0">
+                  1
+                </div>
+                <div class="square-1">
+                  2
+                </div>
+                <div class="square-2">
+                  3
+                </div>
+                <div class="square-3">
+                  4
+                </div>
               </div>
             </div>
           </li>
