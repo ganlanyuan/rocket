@@ -148,13 +148,18 @@ pre > code[class*="language-"] {
   background-color: $lightblue; 
 }
 .preview-wrapper {
+  min-height: 50px;
   margin-bottom: 20px;
   resize: both;
   overflow: hidden;
+  position: relative;
   .full { width: 100%; }
 }
 .metro-1 [data-content] { height: 1000px };
-
+[class*="angled-edges-"] p { 
+  padding: 10px; 
+  margin: 0 !important; 
+}
 @include bp(max $bp-docs) {
   .docs-nav {
     position: fixed;

@@ -514,23 +514,33 @@
       },
       "angled-edges": {
         "p-1": [
-          "Create `-angled-edges-` layout. `-background-` could be image, gradient or pure color, but the background of sibling elements must be pure color."
+          "Make angled edges layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+",
         "syntax": [
           "@mixin angled-edges($edges $angle $edge-color flip);",
-          "// $edges: top | bottom | both"
+          "// $edges: top | bottom | both",
+          "// $edge-color: deg"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"main\">",
-            "  <!-- Content goes here -->",
+            "<div class=\"angled-edges-sibling\">",
+            "  <p>Quis ab placeat totam beatae dolorum, harum omnis tempora dolore exercitationem quia, soluta qui deleniti numquam.</p>",
+            "</div>",
+            "<div class=\"angled-edges-1\">",
+            "  <p>Ipsam ducimus velit iure voluptatum, voluptate perferendis, asperiores, perspiciatis blanditiis autem exercitationem repellendus, rem ea reprehenderit.</p>",
+            "  <p>Enim itaque pariatur nulla, iste unde similique nemo obcaecati odio omnis! Animi earum praesentium et maxime.</p>",
+            "  <p>Obcaecati rerum consequatur quae itaque ratione, dolor, similique sit, earum distinctio enim consectetur eius quam nisi.</p>",
+            "</div>",
+            "<div class=\"angled-edges-sibling\">",
+            "  <p>Libero eum accusamus molestiae cum recusandae. Omnis doloremque eos amet, saepe minima fugiat inventore? Non, quaerat.</p>",
             "</div>"
           ],
           "scss": [
-            ".main { @include angled-edges(\"bottom\" -5deg); }",
-            "// edge: bottom;",
-            "// angle: -5deg;"
+            ".angled-edges-1 {",
+            "  @include angled-edges(both #fff -5deg flip);",
+            "  background-color: #58CAFF;",
+            "}"
           ]
         }
       },
@@ -540,61 +550,72 @@
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
-          "@mixin sticky-footer($main);"
+          "@mixin sticky-footer($selector);"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"demo-sticky-footer\">",
+            "<div class=\"sticky-footer-1\">",
             "  <header>header</header>",
-            "  <div class=\"main\">main</div>",
+            "  <main>main</main>",
             "  <footer>footer</footer>",
             "</div>"
           ],
           "scss": [
-            ".demo-sticky-footer { @include sticky-footer('.main'); }"
+            ".sticky-footer-1 {",
+            "  @include sticky-footer('main'); ",
+            "  header, main, footer { padding: 10px; background-color: #f5f5f5; }",
+            "  main { background-color: #FBA158; }",
+            "}"
           ]
         }
       },
       "justify": {
         "p-1": [
-          "`-justify-` is for creating `-justify-` layout."
+          "Make child elements justify aligned."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
-          "@mixin justify((child $child));"
+          "@mixin justify(($selector));"
         ],
         "code-1": {
           "markup": [
-            "<ul class=\"justify\">",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
-            "  <li></li>",
+            "<ul class=\"justify-1\">",
+            "  <li>1</li>",
+            "  <li>2</li>",
+            "  <li>3</li>",
+            "  <li>4</li>",
+            "  <li>5</li>",
             "</ul>"
           ],
           "scss": [
-            ".justify { @include justify(); }"
+            ".justify-1 { @include justify(); }"
           ]
         }
       },
       "center": {
         "p-1": [
-          "`-center-` is for creating both horizontal and vertical center aligned layout."
+          "Make child element horizontally and vertically center aligned."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
-          "@mixin center($child)"
+          "@mixin center($selector)"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"popup\">",
-            "  <div></div>",
+            "<div class=\"center-1\">",
+            "  <div>The child element is center aligned.</div>",
             "</div>"
           ],
           "scss": [
-            ".popup { @include center('div'); }",
-            "// child: div;"
+            ".center-1 {",
+            "  @include center('div');",
+            "  position: absolute;",
+            "  left: 0;",
+            "  top: 0;",
+            "  width: 100%;",
+            "  height: 100%;",
+            "  > div { display: inline-block; padding: 10px; background-color: #FBA158; }",
+            "}"
           ]
         }
       }

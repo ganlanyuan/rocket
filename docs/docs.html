@@ -1624,7 +1624,7 @@ $main: (
               Angled-edges
             </h4>
             <p>
-              Create <code class="language-html">angled-edges</code> layout. <code class="language-html">background</code> could be image, gradient or pure color, but the background of sibling elements must be pure color.
+              Make angled edges layout.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+
@@ -1636,6 +1636,7 @@ $main: (
               <pre>
 <code class="language-scss">@mixin angled-edges($edges $angle $edge-color flip);
 // $edges: top | bottom | both
+// $edge-color: deg
 </code>
 </pre>
             </div>
@@ -1650,8 +1651,15 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="angled-edges-code-1-markup">&lt;div class="main"&gt;
-  &lt;!-- Content goes here --&gt;
+<code class="language-markup" id="angled-edges-code-1-markup">&lt;div class="angled-edges-sibling"&gt;
+  &lt;p&gt;Quis ab placeat totam beatae dolorum, harum omnis tempora dolore exercitationem quia, soluta qui deleniti numquam.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="angled-edges-1"&gt;
+  &lt;p&gt;Ipsam ducimus velit iure voluptatum, voluptate perferendis, asperiores, perspiciatis blanditiis autem exercitationem repellendus, rem ea reprehenderit.&lt;/p&gt;
+  &lt;p&gt;Enim itaque pariatur nulla, iste unde similique nemo obcaecati odio omnis! Animi earum praesentium et maxime.&lt;/p&gt;
+  &lt;p&gt;Obcaecati rerum consequatur quae itaque ratione, dolor, similique sit, earum distinctio enim consectetur eius quam nisi.&lt;/p&gt;
+&lt;/div&gt;&lt;div class="angled-edges-sibling"&gt;
+  &lt;p&gt;Libero eum accusamus molestiae cum recusandae. Omnis doloremque eos amet, saepe minima fugiat inventore? Non, quaerat.&lt;/p&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#angled-edges-code-1-markup">Copy Code</button>
                   </li>
@@ -1660,15 +1668,36 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="angled-edges-code-1-scss">.main { @include angled-edges("bottom" -5deg); }
-// edge: bottom;
-// angle: -5deg;</code>
+<code class="language-scss" id="angled-edges-code-1-scss">.angled-edges-1 {
+  @include angled-edges(both #fff -5deg flip);
+  background-color: #58CAFF;
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#angled-edges-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="main"></div>
+                <div class="angled-edges-sibling">
+                  <p>
+                    Quis ab placeat totam beatae dolorum, harum omnis tempora dolore exercitationem quia, soluta qui deleniti numquam.
+                  </p>
+                </div>
+                <div class="angled-edges-1">
+                  <p>
+                    Ipsam ducimus velit iure voluptatum, voluptate perferendis, asperiores, perspiciatis blanditiis autem exercitationem repellendus, rem ea reprehenderit.
+                  </p>
+                  <p>
+                    Enim itaque pariatur nulla, iste unde similique nemo obcaecati odio omnis! Animi earum praesentium et maxime.
+                  </p>
+                  <p>
+                    Obcaecati rerum consequatur quae itaque ratione, dolor, similique sit, earum distinctio enim consectetur eius quam nisi.
+                  </p>
+                </div>
+                <div class="angled-edges-sibling">
+                  <p>
+                    Libero eum accusamus molestiae cum recusandae. Omnis doloremque eos amet, saepe minima fugiat inventore? Non, quaerat.
+                  </p>
+                </div>
               </div>
             </div>
           </li>
@@ -1687,7 +1716,7 @@ $main: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin sticky-footer($main);
+<code class="language-scss">@mixin sticky-footer($selector);
 </code>
 </pre>
             </div>
@@ -1702,9 +1731,9 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="sticky-footer-code-1-markup">&lt;div class="demo-sticky-footer"&gt;
+<code class="language-markup" id="sticky-footer-code-1-markup">&lt;div class="sticky-footer-1"&gt;
   &lt;header&gt;header&lt;/header&gt;
-  &lt;div class="main"&gt;main&lt;/div&gt;
+  &lt;main&gt;main&lt;/main&gt;
   &lt;footer&gt;footer&lt;/footer&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#sticky-footer-code-1-markup">Copy Code</button>
@@ -1714,19 +1743,23 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="sticky-footer-code-1-scss">.demo-sticky-footer { @include sticky-footer('.main'); }</code>
+<code class="language-scss" id="sticky-footer-code-1-scss">.sticky-footer-1 {
+  @include sticky-footer('main'); 
+  header, main, footer { padding: 10px; background-color: #f5f5f5; }
+  main { background-color: #FBA158; }
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#sticky-footer-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="demo-sticky-footer">
+                <div class="sticky-footer-1">
                   <header>
                     header
                   </header>
-                  <div class="main">
+                  <main>
                     main
-                  </div>
+                  </main>
                   <footer>
                     footer
                   </footer>
@@ -1739,7 +1772,7 @@ $main: (
               Justify
             </h4>
             <p>
-              <code class="language-html">justify</code> is for creating <code class="language-html">justify</code> layout.
+              Make child elements justify aligned.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+
@@ -1749,7 +1782,7 @@ $main: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin justify((child $child));
+<code class="language-scss">@mixin justify(($selector));
 </code>
 </pre>
             </div>
@@ -1764,12 +1797,12 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="justify-code-1-markup">&lt;ul class="justify"&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
+<code class="language-markup" id="justify-code-1-markup">&lt;ul class="justify-1"&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+  &lt;li&gt;4&lt;/li&gt;
+  &lt;li&gt;5&lt;/li&gt;
 &lt;/ul&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#justify-code-1-markup">Copy Code</button>
                   </li>
@@ -1778,18 +1811,23 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="justify-code-1-scss">.justify { @include justify(); }</code>
+<code class="language-scss" id="justify-code-1-scss">.justify-1 { @include justify(); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#justify-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <ul class="justify">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                <ul class="justify-1">
+                  <li>1
+                  </li>
+                  <li>2
+                  </li>
+                  <li>3
+                  </li>
+                  <li>4
+                  </li>
+                  <li>5
+                  </li>
                 </ul>
               </div>
             </div>
@@ -1799,7 +1837,7 @@ $main: (
               Center
             </h4>
             <p>
-              <code class="language-html">center</code> is for creating both horizontal and vertical center aligned layout.
+              Make child element horizontally and vertically center aligned.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+
@@ -1809,7 +1847,7 @@ $main: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin center($child)
+<code class="language-scss">@mixin center($selector)
 </code>
 </pre>
             </div>
@@ -1824,8 +1862,8 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="center-code-1-markup">&lt;div class="popup"&gt;
-  &lt;div&gt;&lt;/div&gt;
+<code class="language-markup" id="center-code-1-markup">&lt;div class="center-1"&gt;
+  &lt;div&gt;The child element is center aligned.&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#center-code-1-markup">Copy Code</button>
                   </li>
@@ -1834,15 +1872,24 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="center-code-1-scss">.popup { @include center('div'); }
-// child: div;</code>
+<code class="language-scss" id="center-code-1-scss">.center-1 {
+  @include center('div');
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  &gt; div { display: inline-block; padding: 10px; background-color: #FBA158; }
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#center-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="popup">
-                  <div></div>
+                <div class="center-1">
+                  <div>
+                    The child element is center aligned.
+                  </div>
                 </div>
               </div>
             </div>

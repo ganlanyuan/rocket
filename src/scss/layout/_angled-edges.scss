@@ -23,7 +23,8 @@
       @if type-of($item) == 'color' {
         @if not $color1 {
           $color1: $item;
-        } @else if not $color2 {
+          $color2: $item;
+        } @else {
           $color2: $item;
         }
       }
@@ -32,7 +33,8 @@
       @if type-of($item) == 'number' and unit($item) == 'deg' {
         @if not $angle {
           $angle: $item;
-        } @else if not $angle2 {
+          $angle2: $item;
+        } @else {
           $angle2: $item;
         }
       }
