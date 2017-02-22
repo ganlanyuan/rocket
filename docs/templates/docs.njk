@@ -36,7 +36,7 @@
           {% if tag.indexOf('p-') !== -1 %}
 
             {% for p in content %}
-              <p>{{ p | replace('^', '<code class="language-html">') | replace('$', '</code>') | urlize | nl2br | safe }}</p>
+              <p>{{ p | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
             {% endfor %}
 
           {% elif tag === 'capability' %}
@@ -65,7 +65,10 @@
                   <header>{{ type }}</header>
                   <pre><code class="language-{{ type }}" id="{{ title | replace(' ', '-') + '-' + tag + '-' + type }}">
                     
-                  {%- for row in codeContent %}{{ '\n' + row if row !== codeContent | first else row }}{% endfor -%}
+                  {%- for row in codeContent %}
+                    {%- set rowContent = row | replace(' data-content', '') -%}
+                    {{- '\n' + rowContent if row !== codeContent | first else rowContent -}}
+                  {% endfor -%}
 
                   </code></pre>
                   <button class="btn copy-button" data-clipboard-target="#{{ title | replace(' ', '-') + '-' + tag + '-' + type }}">Copy Code</button>

@@ -1,0 +1,27 @@
+@mixin between($key) {
+  $selector: args-get-type($key, 'string', ('nth' 'type'), '*');
+  $selector-type: args-get($key, ('nth' 'type'), 'nth');
+  $count: false;
+  $count-2: false;
+
+  @if type-of($key) == 'number' {
+    $count: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if not $count {
+          $count: $item;
+        } @else if not $count-2 {
+          $count-2: $item;
+        }
+      }
+    }
+  }
+
+  @if $count-2 and $count-2 > $count {
+    #{$selector}:first-child:nth-last-child(n + #{$count}):nth-last-child(-n + #{$count-2}), 
+    #{$selector}:first-child:nth-last-child(n + #{$count}):nth-last-child(-n + #{$count-2}) ~ #{$selector} {
+      @content;
+    }
+  }
+}

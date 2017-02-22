@@ -13,7 +13,7 @@
     "Layout": {
       "layout setting": {
         "p-1": [
-          "Default container and gutter for ^container$, ^grid$, ^gallery$, ^liquid-2$, ^liquid-3$, ^metro$, ^masonry$."
+          "Default container and gutter for `-container-`, `-grid-`, `-gallery-`, `-liquid-2-`, `-liquid-3-`, `-metro-`, `-masonry-`."
         ],
         "code-1": {
           "scss": [
@@ -37,7 +37,7 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"container1 \" data-contentbox>",
+            "<div class=\"container1 \" data-content>",
             "  <!-- contents -->",
             "</div>"
           ],
@@ -47,7 +47,7 @@
         },
         "code-2": {
           "markup": [
-            "<div class=\"container2 \" data-contentbox>",
+            "<div class=\"container2 \" data-content>",
             "  <!-- contents -->",
             "</div>"
           ],
@@ -60,7 +60,7 @@
       },
       "grid": {
         "p-1": [
-          "Create a responsive multi columns (and even multi rows) layout using ^grid$."
+          "Create a responsive multi columns (and even multi rows) layout using `-grid-`."
         ],
         "capability": "IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+",
         "syntax": [
@@ -74,9 +74,9 @@
         "code-1": {
           "markup": [
             "<div class=\"grid1\">",
-            "  <div data-contentbox></div>",
-            "  <div data-contentbox></div>",
-            "  <div data-contentbox></div>",
+            "  <div data-content></div>",
+            "  <div data-content></div>",
+            "  <div data-content></div>",
             "</div>"
           ],
           "scss": [
@@ -87,14 +87,14 @@
           ]
         },
         "p-2": [
-          "You can change the column orders using ^(cols : order)$ format. Here the order works the same as flexbox-order works: https://drafts.csswg.org/css-flexbox-1/#order-property"
+          "You can change the column orders using `-(cols : order)-` format. Here the order works the same as flexbox-order works: https://drafts.csswg.org/css-flexbox-1/#order-property"
         ],
         "code-2": {
           "markup": [
             "<div class=\"grid2\">",
-            "  <div data-contentbox>1</div>",
-            "  <div data-contentbox>2</div>",
-            "  <div data-contentbox>3</div>",
+            "  <div data-content>1</div>",
+            "  <div data-content>2</div>",
+            "  <div data-content>3</div>",
             "</div>"
           ],
           "scss": [
@@ -104,16 +104,16 @@
           ]
         },
         "p-3": [
-          "The child elements can be separated to multi rows using a nested list format: ^( (row1 row1 row1) (row2 row2) (row3 row3 row3))$."
+          "The child elements can be separated to multi rows using a nested list format: `-( (row1 row1 row1) (row2 row2) (row3 row3 row3))-`."
         ],
         "code-3": {
           "markup": [
             "<div class=\"grid3\">",
-            "  <div data-contentbox>1</div>",
-            "  <div data-contentbox>2</div>",
-            "  <div data-contentbox>3</div>",
-            "  <div data-contentbox>4</div>",
-            "  <div data-contentbox>5</div>",
+            "  <div data-content>1</div>",
+            "  <div data-content>2</div>",
+            "  <div data-content>3</div>",
+            "  <div data-content>4</div>",
+            "  <div data-content>5</div>",
             "</div>"
           ],
           "scss": [
@@ -124,13 +124,13 @@
           ]
         },
         "p-4": [
-          "If the child elements are not ^div$s, you need to proclaim it via ^child$ option in the format of ^child child-type$."
+          "If the child elements are not `-div-`s, you need to proclaim it via `-child-` option in the format of `-child child-type-`."
         ],
         "code-4": {
           "markup": [
             "<div class=\"grid4\">",
-            "  <section data-contentbox>1</section>",
-            "  <section data-contentbox>2</section>",
+            "  <section data-content>1</section>",
+            "  <section data-content>2</section>",
             "</div>"
           ],
           "scss": [
@@ -143,11 +143,11 @@
         "code-5": {
           "markup": [
             "<div class=\"grid5\">",
-            "  <div data-contentbox>1</div>",
-            "  <div data-contentbox>2</div>",
-            "  <div data-contentbox>3</div>",
-            "  <div data-contentbox>4</div>",
-            "  <div data-contentbox>5</div>",
+            "  <div data-content>1</div>",
+            "  <div data-content>2</div>",
+            "  <div data-content>3</div>",
+            "  <div data-content>4</div>",
+            "  <div data-content>5</div>",
             "</div>"
           ],
           "scss": [
@@ -180,8 +180,8 @@
         "code-1": {
           "markup": [
             "<div class=\"liquid-2-1\">",
-            "  <div data-contentbox>1</div>",
-            "  <div data-contentbox>2</div>",
+            "  <div data-content>1</div>",
+            "  <div data-content>2</div>",
             "</div>"
           ],
           "scss": [
@@ -196,8 +196,8 @@
         "code-2": {
           "markup": [
             "<div class=\"liquid-2-2\">",
-            "  <div data-contentbox>1</div>",
-            "  <div data-contentbox>2</div>",
+            "  <div data-content>1</div>",
+            "  <div data-content>2</div>",
             "</div>"
           ],
           "scss": [
@@ -224,9 +224,9 @@
         "code-1": {
           "markup": [
             "<div class=\"liquid-3-1\">",
-            "  <div data-contentbox>sidebar1</div>",
-            "  <div data-contentbox>main</div>",
-            "  <div data-contentbox>sidebar2</div>",
+            "  <div data-content>sidebar1</div>",
+            "  <div data-content>main</div>",
+            "  <div data-content>sidebar2</div>",
             "</div>"
           ],
           "scss": [
@@ -242,9 +242,9 @@
         "code-2": {
           "markup": [
             "<div class=\"liquid-3-2\">",
-            "  <div data-contentbox>sidebar1</div>",
-            "  <div data-contentbox>main</div>",
-            "  <div data-contentbox>sidebar2</div>",
+            "  <div data-content>sidebar1</div>",
+            "  <div data-content>main</div>",
+            "  <div data-content>sidebar2</div>",
             "</div>"
           ],
           "scss": [
@@ -271,11 +271,11 @@
         "code-1": {
           "markup": [
             "<ul class=\"gallery-1\">",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
             "</ul>"
           ],
           "scss": [
@@ -288,11 +288,11 @@
         "code-2": {
           "markup": [
             "<ul class=\"gallery-2\">",
-            "  <li><div data-contentbox>1</div></li>",
-            "  <li><div data-contentbox>2</div></li>",
-            "  <li><div data-contentbox>3</div></li>",
-            "  <li><div data-contentbox>4</div></li>",
-            "  <li><div data-contentbox>5</div></li>",
+            "  <li><div data-content>1</div></li>",
+            "  <li><div data-content>2</div></li>",
+            "  <li><div data-content>3</div></li>",
+            "  <li><div data-content>4</div></li>",
+            "  <li><div data-content>5</div></li>",
             "</ul>"
           ],
           "scss": [
@@ -307,11 +307,11 @@
         "code-3": {
           "markup": [
             "<ul class=\"gallery-3\">",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
-            "  <li><div data-contentbox></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
+            "  <li><div data-content></div></li>",
             "</ul>"
           ],
           "scss": [
@@ -353,12 +353,12 @@
         "code-1": {
           "markup": [
             "<ul class=\"masonry-1\">",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>",
             "</ul>"
           ],
           "scss": [
@@ -371,12 +371,12 @@
         "code-2": {
           "markup": [
             "<ul class=\"masonry-2\">",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></li>",
-            "  <li><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></li>",
+            "  <li><div data-content><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>",
             "</ul>"
           ],
           "scss": [
@@ -389,12 +389,12 @@
         "code-3": {
           "markup": [
             "<div class=\"masonry-3\">",
-            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></div>",
-            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></div>",
-            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></div>",
-            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></div>",
-            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></div>",
-            "  <div class=\"panel\"><div data-contentbox><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></div>",
+            "  <div class=\"panel\"><div data-content><img class=\"full\" src=\"http://placehold.it/300x300/cccccc/cccccc\" alt=\"\" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></div>",
+            "  <div class=\"panel\"><div data-content><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></div>",
+            "  <div class=\"panel\"><div data-content><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>3. Deserunt dolorum eum obcaecati, nihil optio reprehenderit sapiente. Accusantium illum officiis natus inventore quo. Possimus id architecto, ut impedit eveniet numquam voluptates.</p></div></div>",
+            "  <div class=\"panel\"><div data-content><img class=\"full\" src=\"http://placehold.it/300x400/cccccc/cccccc\" alt=\"\" /><p>4. Est fugiat reprehenderit, maiores. Vero facilis porro aspernatur doloribus, minus, sunt, unde quibusdam modi at nulla reiciendis nihil commodi deserunt nemo dignissimos. Voluptatum quisquam nam fuga, ut odit dolore explicabo?</p></div></div>",
+            "  <div class=\"panel\"><div data-content><img class=\"full\" src=\"http://placehold.it/300x200/cccccc/cccccc\" alt=\"\" /><p>5. Obcaecati modi molestiae debitis expedita enim praesentium dignissimos, consequuntur excepturi magni velit tenetur earum? Assumenda quam facilis, incidunt obcaecati dignissimos laboriosam qui magnam aliquid dolorem asperiores?</p></div></div>",
+            "  <div class=\"panel\"><div data-content><img class=\"full\" src=\"http://placehold.it/300x100/cccccc/cccccc\" alt=\"\" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></div>",
             "</div>"
           ],
           "scss": [
@@ -418,12 +418,12 @@
         "code-1": {
           "markup": [
             "<ul class=\"metro-1\">",
-            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
-            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
-            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
-            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
-            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
-            "  <li><div class=\"metro-item\"><div data-contentbox></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-content></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-content></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-content></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-content></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-content></div></div></li>",
+            "  <li><div class=\"metro-item\"><div data-content></div></div></li>",
             "</ul>"
           ],
           "scss": [
@@ -440,7 +440,7 @@
       },
       "diamond": {
         "p-1": [
-          "Make diamond (octagon) shape layout. To reduce complexity, ^diamond$ requires ^.diamond-content$ to wrap its content."
+          "Make diamond (octagon) shape layout. To reduce complexity, `-diamond-` requires `-.diamond-content-` to wrap its content."
         ],
         "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+",
         "syntax": [
@@ -450,27 +450,27 @@
         "code-1": {
           "markup": [
             "<div class=\"diamond-1\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>",
             "<div class=\"diamond-1\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>",
             "<div class=\"diamond-1\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>",
             "<div class=\"diamond-1\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>",
             "<div class=\"diamond-1\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>"
@@ -480,12 +480,12 @@
           ]
         },
         "p-2": [
-          "You can use ^size$ instead of ^count$."
+          "You can use `-size-` instead of `-count-`."
         ],
         "code-2": {
           "markup": [
             "<div class=\"diamond-2\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>"
@@ -501,7 +501,7 @@
         "code-3": {
           "markup": [
             "<div class=\"diamond-3\">",
-            "  <div class=\"diamond-content\" data-contentbox>",
+            "  <div class=\"diamond-content\" data-content>",
             "    <div>content</div>",
             "  </div>",
             "</div>"
@@ -514,7 +514,7 @@
       },
       "angled-edges": {
         "p-1": [
-          "Create ^angled-edges$ layout. ^background$ could be image, gradient or pure color, but the background of sibling elements must be pure color."
+          "Create `-angled-edges-` layout. `-background-` could be image, gradient or pure color, but the background of sibling elements must be pure color."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+",
         "syntax": [
@@ -536,7 +536,7 @@
       },
       "sticky-footer": {
         "p-1": [
-          "Create ^sticky-footer$ to prevent layout collapse when content is less, e.g. 404 page."
+          "Create `-sticky-footer-` to prevent layout collapse when content is less, e.g. 404 page."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
@@ -557,7 +557,7 @@
       },
       "justify": {
         "p-1": [
-          "^justify$ is for creating ^justify$ layout."
+          "`-justify-` is for creating `-justify-` layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
@@ -580,7 +580,7 @@
       },
       "center": {
         "p-1": [
-          "^center$ is for creating both horizontal and vertical center aligned layout."
+          "`-center-` is for creating both horizontal and vertical center aligned layout."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
@@ -602,7 +602,7 @@
     "Components": {
       "charts": {
         "p-1": [
-          "Pure css responsive charts. Currently only include ^bar$ and ^column$, more types will be added soon."
+          "Pure css responsive charts. Currently only include `-bar-` and `-column-`, more types will be added soon."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -874,8 +874,8 @@
       },
       "validation": {
         "p-1": [
-          "Html5 form validation using H5F https://github.com/ryanseddon/H5F. We already include H5F in ^kit.js$ (with a little bit modification), so you don't need download it again.",
-          "Set your customized alerts information through ^&lt;div data-info=\"\"&gt;&lt;/div&gt;$."
+          "Html5 form validation using H5F https://github.com/ryanseddon/H5F. We already include H5F in `-kit.js-` (with a little bit modification), so you don't need download it again.",
+          "Set your customized alerts information through `-&lt;div data-info=\"\"&gt;&lt;/div&gt;-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -1106,7 +1106,7 @@
       },
       "input-file": {
         "p-1": [
-          "Customize ^input[type=\"file\"]$. \n Thanks Osvaldas Valutis http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ for the idea."
+          "Customize `-input[type=\"file\"]-`. \n Thanks Osvaldas Valutis http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ for the idea."
         ],
         "capability": "IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": [
@@ -1274,7 +1274,7 @@
       },
       "tooltip": {
         "p-1": [
-          "pure css ^tooltip$."
+          "pure css `-tooltip-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -1295,7 +1295,7 @@
       },
       "Media-list": {
         "p-1": [
-          "^media-list$ displays a media object (images, video, audio) to the left or right of a block object."
+          "`-media-list-` displays a media object (images, video, audio) to the left or right of a block object."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -1354,91 +1354,91 @@
     "Addons": {
       "type": {
         "p-1": [
-          "^type$ is a shorthand mixin for type."
+          "`-type-` is a shorthand mixin for `-font-size-`, `-font-weight-`, `-font-style-`, `-line-height-`, `-font-family-`, `-text-align-`, `-text-transform-`."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)"
+          "@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)",
+            "// $font-weight: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit",
+            "// $font-style: italic, oblique, style-normal, style-inherit",
+            "// $text-align: left, right, center, justify, align-inherit",
+            "// $text-transform: capitalize, uppercase, lowercase, none, full-width, transform-inherit",
+            " ",
+            "// Tips: ",
+            "// to set 'font-weight', 'font-style', 'text-align' or 'text-transform' values to 'inherit' or 'normal', ",
+            "// you need add prefix 'weight-', 'style-' or 'transform-'."
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"type-1\">Maiores, molestiae! Explicabo, illumesse.</div>",
+            "<div class=\"type-2\">Eveniet neque voluptate nisi!</div>"
+          ],
           "scss": [
-            "h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }",
-            "// font-size: 20px;",
-            "// font-weight: bold; ",
-            "// font-style: italic; ",
-            "// font-family: 'Georgia, Helvetica, sans-serif';",
-            "// text-align: center;",
-            "// line-height: 1.4;",
-            " ",
-            "// Tips: to set 'font-weight', 'font-style', 'text-align' or 'text-transform' value ",
-            "// to 'inherit' or 'normal', ",
-            "// you need add prefix 'weight-', 'style-' or 'transform-'.",
-            " ",
-            "// $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;",
-            "// $ro-font-styles: italic, oblique, style-normal, style-inherit !default;",
-            "// $ro-text-aligns: left, right, center, justify, align-inherit !default;",
-            "// $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;"
+            ".type-1 { @include type(30px 1.8 'Georgia, Helvetica, sans-serif'); }",
+            ".type-2 { @include type(30px 1.8 uppercase bold italic right); }"
           ]
         }
       },
       "fluid-type": {
         "p-1": [
+          "Make `-font-size-` or other properties change smoothly depending on the window size.",
           "Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec \n More on https://blog.codepen.io/2016/10/31/fluid-type-blogs/."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin fluid-type($properties, $data);",
-          "$properties: properties which have the same fluid value",
-          "$data: a map with two pairs of viewwidth and value"
+          "$properties: font-size | margin | padding",
+          "$data: map"
         ],
         "code-1": {
+          "markup": [
+            "<div class=\"fluid-type-1\">Neque impedit, voluptatem quas!</div>"
+          ],
           "scss": [
-            "h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }"
+            ".fluid-type-1 { @include fluid-type(font-size, (320px: 16px, 1024px: 40px)); }"
           ]
         }
       },
       "responsive-type (rp-type)": {
         "p-1": [
-          "Responsive type.",
-          "Everything you can do with ^type$ you can do with ^responsive-type$."
+          "`-type-` works with breakpoints. \nEverything you can do with `-type-` you can do with `-responsive-type-`."
         ],
-        "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
+        "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
-          "@mixin responsive-type($map, $breakpoints: $bp) // or rp-type();"
+          "@mixin responsive-type($data, $breakpoints) // or rp-type();",
+          "// $data: map",
+          "// $breakpoints (global breakpoints, optional): map"
         ],
         "code-1": {
           "markup": [
-            "<h3 class=\"demo-responsive-type-h3\">Assumenda, deleniti molestias sapiente ut!</h3>",
-            "<p class=\"demo-responsive-type-p\">Saepe aspernatur fugiat, corrupti officia.</p>"
+            "<div class=\"responsive-type-1\">Assumenda, deleniti molestias sapiente ut!</div>",
+            "<div class=\"responsive-type-2\">Saepe aspernatur fugiat, corrupti officia.</div>"
           ],
           "scss": [
+            "$responsive-type-1: (",
+            "  'default': (15px 1.3 right uppercase),",
+            "  900px: 18px,",
+            "  1020px: 20px,",
+            ");",
+            ".responsive-type-1 { @include rp-type($responsive-type-1); }",
+            " ",
             "$bp: (",
             "  'small': 480px,",
             "  'medium': 700px,",
-            "  'large': 1024px",
+            "  'large': 1024px,",
             ");",
-            "$p-font-sizes: (",
-            "  'default': (15px 1.3 right uppercase),",
-            "  'small': 16px,",
-            "  'medium': (17px 1.4),",
-            "  900px: 18px,",
-            "  'large': (19px 1.45),",
-            "  1440px: 20px",
-            ");",
-            "$h3-font-sizes: (",
+            "$responsive-type-2: (",
             "  'default': (18px 1.3 weight-normal),",
             "  900px: 22px,",
             "  'large': (30px 1.2),",
             ");",
-            " ",
-            ".demo-responsive-type-h3 { @include rp-type($h3-font-sizes $bp); }",
-            ".demo-responsive-type-p { @include rp-type($p-font-sizes $bp); }"
+            ".responsive-type-2 { @include rp-type($responsive-type-2 $bp); }"
           ]
         }
       },
       "hide-text": {
         "p-1": [
-          "Visually hide a text element."
+          "Visually hide the text content of an element."
         ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -1447,41 +1447,44 @@
         ],
         "code-1": {
           "markup": [
-            "<h1 class=\"logo\">Brand Name</h1>"
+            "<div class=\"hide-text-1\">Brand Name</div>"
           ],
           "scss": [
-            ".logo { ",
-            "  @extend %hide-text; ",
-            "  // or @include hide-text(); ",
+            ".hide-text-1 {",
+            "  @extend %hide-text;",
+            "  width: 100px;",
+            "  height: 60px;",
+            "  background: #ccc url('http://placehold.it/100x60/DD279E/ffffff?text=Brand') 0 0 no-repeat;",
             "}"
           ]
         }
       },
       "opacity": {
         "p-1": [
-          "Use ^opacity$ to set ^opacity$ property for old IE and modern browsers."
+          "Set `-opacity-` property for IE8- and modern browsers."
         ],
         "syntax": [
           "@mixin opacity($opacity)"
         ],
         "code-1": {
           "scss": [
-            ".example { @include opacity(0.3); }"
+            ".opacity { @include opacity(0.3); }"
           ]
         }
       },
       "ie-rgba": {
         "p-1": [
-          "^ie-rgba$ is for getting rgba property for IE8."
+          "Get `-rgba()-` color for IE8."
         ],
         "syntax": [
-          "@mixin ie-rgba($rgba)"
+          "@mixin ie-rgba($rgba)",
+          "// $rgba: rgba color"
         ],
         "code-1": {
           "scss": [
-            ".lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }",
+            ".lt-ie9 .ie-rgba { @include ie-rgba(rgba(0,0,0,0.7)); }",
             "// output:",
-            "// .lt-ie9 .example {",
+            "// .lt-ie9 .ie-rgba {",
             "//   background: none;",
             "//   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000);",
             "//   zoom: 1;",
@@ -1491,78 +1494,153 @@
       },
       "ro-breakpoint (bp)": {
         "p-1": [
-          "A shorthand @mixin for breakpoints.",
-          "Use a single breakpoint (e.g. 800) for both ^min$ and ^max$ instead of two (e.g. 799 for ^max$, 800 for ^min$)."
+          "A shorthand @mixin for mediaquery. \nNote: `-ro-breakpoint-` uses one breakpoint (e.g. 800) for both `-min-` and `-max-` instead of two (e.g. 799 for `-max-`, 800 for `-min-`). If you don't want this behaiver, you can use `-$breakpoint-fix: false;-` to disable it."
         ],
-        "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
+        "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin ro-breakpoint($condition $media-type $media-feature $breakpoints)"
         ],
         "code-1": {
           "scss": [
             "@include bp('min' 640) {};",
-            "// output: @media (min-width: 40em) {};",
+            "// @media (min-width: 40em) {};",
             "@include bp('min' 'height' 640) {};",
-            "// output: @media (min-height: 40em) {};",
+            "// @media (min-height: 40em) {};",
             "@include bp('max' 640 screen) {};",
-            "// output: @media screen and (max-width: 40em) {};",
+            "// @media screen and (max-width: 39.9375em) {};",
             "@include bp(400 767 1000 1200 1500) {};",
-            "// output: @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em) {};"
+            "// @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em){}"
           ]
         }
       },
       "at-least": {
+        "p-1": [
+          "Apply styles to child elements when they are equal to or more than a given amount."
+        ],
         "syntax": [
-          "@mixin at-least($selector number) {",
+          "@mixin at-least($selector $count) {",
           "  @content;",
           "}"
         ],
         "code-1": {
+          "markup": [
+            "<ul class=\"at-least-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>",
+            "<ul class=\"at-least-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>"
+          ],
           "scss": [
-            ".nav {",
-            "  @include at-least('li' 4) { width: 25%; }",
+            ".at-least-1 {",
+            "  li { display: inline-block; width: 100px; }",
+            "  @include at-least('li' 4) { background-color: #25e425; }",
             "}"
           ]
         }
       },
       "at-most": {
+        "p-1": [
+          "Apply styles to child elements when they are equal to or less than a given amount."
+        ],
         "syntax": [
-          "@mixin at-most($selector number) {",
+          "@mixin at-most($selector $count) {",
           "  @content;",
           "}"
         ],
         "code-1": {
+          "markup": [
+            "<ul class=\"at-most-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>",
+            "<ul class=\"at-most-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>"
+          ],
           "scss": [
-            ".nav {",
-            "  @include at-most('li' 4) { width: 25%; }",
+            ".at-most-1 {",
+            "  li { display: inline-block; width: 100px; }",
+            "  @include at-most('li' 4) { background-color: #25e425; }",
             "}"
           ]
         }
       },
       "equal-to": {
+        "p-1": [
+          "Apply styles to child elements when they are equal to a given amount."
+        ],
         "syntax": [
-          "@mixin equal-to($selector number) {",
+          "@mixin equal-to($selector $count) {",
           "  @content;",
           "}"
         ],
         "code-1": {
+          "markup": [
+            "<ul class=\"equal-to-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>",
+            "<ul class=\"equal-to-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>",
+            "<ul class=\"equal-to-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>"
+          ],
           "scss": [
-            ".nav {",
-            "  @include equal-to('li' 4) { width: 25%; }",
+            ".equal-to-1 {",
+            "  li { display: inline-block; width: 100px; }",
+            "  @include equal-to('li' 4) { background-color: #25e425; }",
             "}"
           ]
         }
       },
       "between": {
+        "p-1": [
+          "Apply styles to child elements when they are between 2 given amounts."
+        ],
         "syntax": [
-          "@mixin between($selector number number) {",
+          "@mixin between($selector $count1 $count2) {",
           "  @content;",
           "}"
         ],
         "code-1": {
+          "markup": [
+            "<ul class=\"between-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>",
+            "<ul class=\"between-1\">",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "  <li data-content></li>",
+            "</ul>"
+          ],
           "scss": [
-            ".nav {",
-            "  @include between('li' 4 6) { width: 25%; }",
+            ".between-1 {",
+            "  li { display: inline-block; width: 100px; }",
+            "  @include between('li' 4 6) { background-color: #25e425; }",
             "}"
           ]
         }
@@ -1602,7 +1680,7 @@
       "contrast": {
         "p-1": [
           "Get a light or dark color based on a given color.",
-          "By default, the light color is ^#fff$ and black color is ^#000$, but you can use your own."
+          "By default, the light color is `-#fff-` and black color is `-#000-`, but you can use your own."
         ],
         "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -1644,10 +1722,10 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"adjacent-0\">1</div>",
-            "<div class=\"adjacent-1\">2</div>",
-            "<div class=\"adjacent-2\">3</div>",
-            "<div class=\"adjacent-3\">4</div>"
+            "<div class=\"adjacent-0\" data-content></div>",
+            "<div class=\"adjacent-1\" data-content></div>",
+            "<div class=\"adjacent-2\" data-content></div>",
+            "<div class=\"adjacent-3\" data-content></div>"
           ],
           "scss": [
             ".adjacent-0 { background-color: #155BDF; }",
@@ -1671,8 +1749,8 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"complementary-0\">1</div>",
-            "<div class=\"complementary-1\">2</div>"
+            "<div class=\"complementary-0\" data-content></div>",
+            "<div class=\"complementary-1\" data-content></div>"
           ],
           "scss": [
             ".complementary-0 { background-color: #155BDF; }",
@@ -1690,10 +1768,10 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"split-complementary-0\">1</div>",
-            "<div class=\"split-complementary-1\">2</div>",
-            "<div class=\"split-complementary-2\">3</div>",
-            "<div class=\"split-complementary-3\">4</div>"
+            "<div class=\"split-complementary-0\" data-content></div>",
+            "<div class=\"split-complementary-1\" data-content></div>",
+            "<div class=\"split-complementary-2\" data-content></div>",
+            "<div class=\"split-complementary-3\" data-content></div>"
           ],
           "scss": [
             ".split-complementary-0 { background-color: #155BDF; }",
@@ -1717,9 +1795,9 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"triad-0\">1</div>",
-            "<div class=\"triad-1\">2</div>",
-            "<div class=\"triad-2\">3</div>"
+            "<div class=\"triad-0\" data-content></div>",
+            "<div class=\"triad-1\" data-content></div>",
+            "<div class=\"triad-2\" data-content></div>"
           ],
           "scss": [
             ".triad-0 { background-color: #155BDF; }",
@@ -1742,10 +1820,10 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"rectangle-0\">1</div>",
-            "<div class=\"rectangle-1\">2</div>",
-            "<div class=\"rectangle-2\">3</div>",
-            "<div class=\"rectangle-3\">4</div>"
+            "<div class=\"rectangle-0\" data-content></div>",
+            "<div class=\"rectangle-1\" data-content></div>",
+            "<div class=\"rectangle-2\" data-content></div>",
+            "<div class=\"rectangle-3\" data-content></div>"
           ],
           "scss": [
             ".rectangle-0 { background-color: #155BDF; }",
@@ -1769,10 +1847,10 @@
         ],
         "code-1": {
           "markup": [
-            "<div class=\"square-0\">1</div>",
-            "<div class=\"square-1\">2</div>",
-            "<div class=\"square-2\">3</div>",
-            "<div class=\"square-3\">4</div>"
+            "<div class=\"square-0\" data-content></div>",
+            "<div class=\"square-1\" data-content></div>",
+            "<div class=\"square-2\" data-content></div>",
+            "<div class=\"square-3\" data-content></div>"
           ],
           "scss": [
             ".square-0 { background-color: #155BDF; }",

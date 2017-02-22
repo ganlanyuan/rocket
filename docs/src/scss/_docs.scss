@@ -43,16 +43,17 @@ pre > code[class*="language-"] {
   overflow-y: auto;
   background-color: #fff;
   @include type(15px);
-  ul { margin-bottom: 3em; }
+  ul { margin-bottom: 2em; }
   h4, a { line-height: 2.4; }
   h4 {
     margin-bottom: 0;
-    padding-left: 2em;
+    padding-left: 1em;
   }
   a {
     display: block;
-    padding-left: 3em;
+    padding-left: 2em;
     transition: background-color 0.25s;
+    color: $color-link;
     &:hover { background-color: #eee; }
   }
   .active a { 
@@ -142,19 +143,17 @@ pre > code[class*="language-"] {
     background-color: $blue;
   }
 }
+[data-content] { 
+  min-height: 100px; 
+  background-color: $lightblue; 
+}
 .preview-wrapper {
   margin-bottom: 20px;
   resize: both;
   overflow: hidden;
-  outline: 1px solid #ffa7f9;
-  outline-offset: -1px;
-  [data-contentbox] { 
-    min-height: 100px; 
-    background-color: $lightblue; 
-  }
   .full { width: 100%; }
 }
-.metro-1 [data-contentbox] { height: 1000px };
+.metro-1 [data-content] { height: 1000px };
 
 @include bp(max $bp-docs) {
   .docs-nav {

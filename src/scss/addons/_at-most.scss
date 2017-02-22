@@ -1,0 +1,20 @@
+@mixin at-most($key) {
+  $selector: args-get-type($key, 'string', ('nth' 'type'), '*');
+  $selector-type: args-get($key, ('nth' 'type'), 'nth');
+  $count: false;
+
+  @if type-of($key) == 'number' {
+    $count: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' and not $count {
+        $count: $item;
+      }
+    }
+  }
+
+  #{$selector}:first-child:nth-last-child(-n + #{$count}),
+  #{$selector}:first-child:nth-last-child(-n + #{$count}) ~ #{$selector} {
+    @content;
+  }
+}

@@ -55,8 +55,11 @@ gulp.task('html', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json');
   data.year = new Date().getFullYear();
 
-  let imageCount = 0;
-  data.getImageCount = function () { return imageCount += 1; };
+  let codeTagCount = 0;
+  data.getCodeTag = function () { 
+    codeTagCount += 1; 
+    return (codeTagCount%2 === 1) ? '<code class="language-html">' : '</code>';
+  };
 
   return gulp.src(PATHS.templates_docs + '*.njk')
     .pipe(nunjucks.compile(data), {

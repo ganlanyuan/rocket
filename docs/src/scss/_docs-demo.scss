@@ -157,51 +157,54 @@ $map: (
 .video { @include flex-media(3/4); }
  
 .svg-wrapper { @include flex-media(9/16 svg); }
-h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic); }
+.type-1 { @include type(30px 1.8 'Georgia, Helvetica, sans-serif'); }
+.type-2 { @include type(30px 1.8 uppercase bold italic right); }
+.fluid-type-1 { @include fluid-type(font-size, (320px: 16px, 1024px: 40px)); }
+$responsive-type-1: (
+  'default': (15px 1.3 right uppercase),
+  900px: 18px,
+  1020px: 20px,
+);
+.responsive-type-1 { @include rp-type($responsive-type-1); }
  
- 
-h2 { @include fluid-type(font-size, (320px: 24px, 1024px: 40px)); }
 $bp: (
   'small': 480px,
   'medium': 700px,
-  'large': 1024px
+  'large': 1024px,
 );
-$p-font-sizes: (
-  'default': (15px 1.3 right uppercase),
-  'small': 16px,
-  'medium': (17px 1.4),
-  900px: 18px,
-  'large': (19px 1.45),
-  1440px: 20px
-);
-$h3-font-sizes: (
+$responsive-type-2: (
   'default': (18px 1.3 weight-normal),
   900px: 22px,
   'large': (30px 1.2),
 );
- 
-.demo-responsive-type-h3 { @include rp-type($h3-font-sizes $bp); }
-.demo-responsive-type-p { @include rp-type($p-font-sizes $bp); }
-.logo { 
-  @extend %hide-text; 
+.responsive-type-2 { @include rp-type($responsive-type-2 $bp); }
+.hide-text-1 {
+  @extend %hide-text;
+  width: 100px;
+  height: 60px;
+  background: #ccc url('http://placehold.it/100x60/DD279E/ffffff?text=Brand') 0 0 no-repeat;
 }
-.example { @include opacity(0.3); }
-.lt-ie9 .example { @include ie-rgba(rgba(0,0,0,0.7)); }
+.opacity { @include opacity(0.3); }
+.lt-ie9 .ie-rgba { @include ie-rgba(rgba(0,0,0,0.7)); }
 @include bp('min' 640) {};
 @include bp('min' 'height' 640) {};
 @include bp('max' 640 screen) {};
 @include bp(400 767 1000 1200 1500) {};
-.nav {
-  @include at-least('li' 4) { width: 25%; }
+.at-least-1 {
+  li { display: inline-block; width: 100px; }
+  @include at-least('li' 4) { background-color: #25e425; }
 }
-.nav {
-  @include at-most('li' 4) { width: 25%; }
+.at-most-1 {
+  li { display: inline-block; width: 100px; }
+  @include at-most('li' 4) { background-color: #25e425; }
 }
-.nav {
-  @include equal-to('li' 4) { width: 25%; }
+.equal-to-1 {
+  li { display: inline-block; width: 100px; }
+  @include equal-to('li' 4) { background-color: #25e425; }
 }
-.nav {
-  @include between('li' 4 6) { width: 25%; }
+.between-1 {
+  li { display: inline-block; width: 100px; }
+  @include between('li' 4 6) { background-color: #25e425; }
 }
 @include visible(500)
 @include hidden(screen 300 500 700)
