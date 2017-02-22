@@ -4096,10 +4096,10 @@ $responsive-type-2: (
               Visible
             </h4>
             <p>
-              A shorthand @mixin for hide elements on some parts of viewport.
+              Make elements visible on some portions of the viewport.
             </p>
             <p class="browser-capability">
-              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
+              IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
             <div class="code-wrapper">
               <header>
@@ -4111,18 +4111,38 @@ $responsive-type-2: (
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="visible-code-1-markup">&lt;p class="visible-1"&gt;Visible on 700px and up&lt;/p&gt;
+&lt;p class="visible-2"&gt;Visible below 700px&lt;/p&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#visible-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="visible-code-1-scss">@include visible(500)
-// visible on 500px up on all media</code>
+<code class="language-scss" id="visible-code-1-scss">.visible-1 { @include visible(700px); }
+.visible-2 { @include visible(0 700px); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#visible-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <p class="visible-1">
+                  Visible on 700px and up
+                </p>
+                <p class="visible-2">
+                  Visible below 700px
+                </p>
               </div>
             </div>
           </li>
@@ -4131,10 +4151,10 @@ $responsive-type-2: (
               Hidden
             </h4>
             <p>
-              A shorthand @mixin for hide elements on some parts of viewport.
+              Hide elements on some portions of the viewport.
             </p>
             <p class="browser-capability">
-              IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
+              IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
             <div class="code-wrapper">
               <header>
@@ -4146,18 +4166,38 @@ $responsive-type-2: (
 </pre>
             </div>
             <div class="demo-container" data-show="code">
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
               <div class="code-wrapper">
                 <ul>
+                  <li>
+                    <header>
+                      markup
+                    </header>
+                    <pre>
+<code class="language-markup" id="hidden-code-1-markup">&lt;p class="hidden-1"&gt;Hidden on 700px and up&lt;/p&gt;
+&lt;p class="hidden-2"&gt;Hidden between 300px and 500px and 700px up&lt;/p&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#hidden-code-1-markup">Copy Code</button>
+                  </li>
                   <li>
                     <header>
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="hidden-code-1-scss">@include hidden(screen 300 500 700)
-// hidden between 300px and 500px, and 700px up on screen</code>
+<code class="language-scss" id="hidden-code-1-scss">.hidden-1 { @include hidden(700px); }
+.hidden-2 { @include hidden(300px 500px 700px); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#hidden-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
+              </div>
+              <div class="preview-wrapper">
+                <p class="hidden-1">
+                  Hidden on 700px and up
+                </p>
+                <p class="hidden-2">
+                  Hidden between 300px and 500px and 700px up
+                </p>
               </div>
             </div>
           </li>

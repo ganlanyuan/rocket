@@ -1647,31 +1647,39 @@
       },
       "visible": {
         "p-1": [
-          "A shorthand @mixin for hide elements on some parts of viewport."
+          "Make elements visible on some portions of the viewport."
         ],
-        "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
+        "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin visible($media-type $breakpoints)"
         ],
         "code-1": {
+          "markup": [
+            "<p class=\"visible-1\">Visible on 700px and up</p>",
+            "<p class=\"visible-2\">Visible below 700px</p>"
+          ],
           "scss": [
-            "@include visible(500)",
-            "// visible on 500px up on all media"
+            ".visible-1 { @include visible(700px); }",
+            ".visible-2 { @include visible(0 700px); }"
           ]
         }
       },
       "hidden": {
         "p-1": [
-          "A shorthand @mixin for hide elements on some parts of viewport."
+          "Hide elements on some portions of the viewport."
         ],
-        "capability": "IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
+        "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin hidden($media-type $breakpoints)"
         ],
         "code-1": {
+          "markup": [
+            "<p class=\"hidden-1\">Hidden on 700px and up</p>",
+            "<p class=\"hidden-2\">Hidden between 300px and 500px and 700px up</p>"
+          ],
           "scss": [
-            "@include hidden(screen 300 500 700)",
-            "// hidden between 300px and 500px, and 700px up on screen"
+            ".hidden-1 { @include hidden(700px); }",
+            ".hidden-2 { @include hidden(300px 500px 700px); }"
           ]
         }
       }

@@ -206,8 +206,10 @@ $responsive-type-2: (
   li { display: inline-block; width: 100px; }
   @include between('li' 4 6) { background-color: #25e425; }
 }
-@include visible(500)
-@include hidden(screen 300 500 700)
+.visible-1 { @include visible(700px); }
+.visible-2 { @include visible(0 700px); }
+.hidden-1 { @include hidden(700px); }
+.hidden-2 { @include hidden(300px 500px 700px); }
 .contrast-1 {
   background-color: #a6e36e;
   color: contrast(#a6e36e);
