@@ -3355,7 +3355,7 @@ window.onload = function () {
               Media-list
             </h4>
             <p>
-              <code class="language-html">media-list</code> displays a media object (images, video, audio) to the left or right of a block object.
+              Separate media element and the main content into 2 columns.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -3380,11 +3380,17 @@ window.onload = function () {
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="Media-list-code-1-markup">&lt;ul class="news"&gt;
-  &lt;li&gt;
+<code class="language-markup" id="Media-list-code-1-markup">&lt;ul&gt;
+  &lt;li class="media-list-1"&gt;
     &lt;figure class="media"&gt;&lt;a href=""&gt;&lt;img src="http://placehold.it/120x80" alt=""&gt;&lt;/a&gt;&lt;/figure&gt;
     &lt;div class="media-body"&gt;
-      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.&lt;/p&gt;
+      &lt;p&gt;Beatae nulla distinctio minima eos quibusdam tempore. Laudantium fuga neque incidunt velit, totam nobis, culpa mollitia dignissimos quis molestias minima.&lt;/p&gt;
+      &lt;div class="media-list-2"&gt;
+        &lt;div class="media-body"&gt;
+          &lt;p&gt;Est assumenda facere eius eveniet facilis id odit dignissimos fuga a iusto cum ut corporis laudantium fugit, neque quod. Aliquid.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;figure class="media"&gt;&lt;a href=""&gt;&lt;img src="http://placehold.it/120x80" alt=""&gt;&lt;/a&gt;&lt;/figure&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</code>
@@ -3395,32 +3401,33 @@ window.onload = function () {
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="Media-list-code-1-scss">.news .media { @include media-list('media'); } 
-// role: 'media'; (media:default | media-body)
-// gutter: 10px; (default)
-// direction: left; (default)
- 
-.news .media { @include media-list('media' 15px right); }
-// role: 'media';
-// gutter: 15px;
-// direction: right;
- 
-.news .media-body { @include media-list('media-body'); }
-// role: 'media-body'; </code>
+<code class="language-scss" id="Media-list-code-1-scss">.media-list-1 .media { @include media-list('media' 15px); } 
+.media-list-2 .media { @include media-list('media' 15px right); }
+.media-body { @include media-list('media-body'); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#Media-list-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <ul class="news">
-                  <li>
+                <ul>
+                  <li class="media-list-1">
                     <figure class="media">
                       <a href=""><img src="http://placehold.it/120x80" alt=""></a>
                     </figure>
                     <div class="media-body">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.
+                        Beatae nulla distinctio minima eos quibusdam tempore. Laudantium fuga neque incidunt velit, totam nobis, culpa mollitia dignissimos quis molestias minima.
                       </p>
+                      <div class="media-list-2">
+                        <div class="media-body">
+                          <p>
+                            Est assumenda facere eius eveniet facilis id odit dignissimos fuga a iusto cum ut corporis laudantium fugit, neque quod. Aliquid.
+                          </p>
+                        </div>
+                        <figure class="media">
+                          <a href=""><img src="http://placehold.it/120x80" alt=""></a>
+                        </figure>
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -3431,6 +3438,9 @@ window.onload = function () {
             <h4>
               Flex media
             </h4>
+            <p>
+              Make video or inline svg flexible within its container.
+            </p>
             <p class="browser-capability">
               IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+
             </p>
@@ -3454,8 +3464,11 @@ window.onload = function () {
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="flex-media-code-1-markup">&lt;div class="video"&gt;
+<code class="language-markup" id="flex-media-code-1-markup">&lt;div class="flex-media-1"&gt;
   &lt;iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div class="flex-media-2"&gt;
+  &lt;svg xmlns="http://www.w3.org/2000/svg" id="heart-fill" viewBox="0 0 48 48"&gt;&lt;title&gt;heart-fill&lt;/title&gt;&lt;path d="M42.9 26.6L24 45.5 5.1 26.6A13.8 13.8 0 1 1 24 6.6a13.7 13.7 0 0 1 23.5 9.7c0 4-1.8 7.8-4.6 10.3z" fill="currentColor" fill-rule="evenodd"/&gt;&lt;/svg&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#flex-media-code-1-markup">Copy Code</button>
                   </li>
@@ -3464,20 +3477,22 @@ window.onload = function () {
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="flex-media-code-1-scss">.video { @include flex-media(3/4); }
-// ratio: 3/4;
-// child: iframe, object, embed; (default)
- 
-.svg-wrapper { @include flex-media(9/16 svg); }
-// ratio: 9/16;
-// child: svg; </code>
+<code class="language-scss" id="flex-media-code-1-scss">.flex-media-1 { @include flex-media(315/560); }
+.flex-media-2 { @include flex-media(1 svg); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#flex-media-code-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="video">
+                <div class="flex-media-1">
                   <iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+                <div class="flex-media-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" id="heart-fill" viewbox="0 0 48 48">
+                  <title>
+                    heart-fill
+                  </title>
+                  <path d="M42.9 26.6L24 45.5 5.1 26.6A13.8 13.8 0 1 1 24 6.6a13.7 13.7 0 0 1 23.5 9.7c0 4-1.8 7.8-4.6 10.3z" fill="currentColor" fill-rule="evenodd"></path></svg>
                 </div>
               </div>
             </div>

@@ -164,14 +164,11 @@ $map: (
 .accordion { @include accordion(div 200px 0.4s); }
 .dropdown { @include dropdown(ul hover display right default); }
 .tooltip { @include tooltip(radius right #b02df3 width 300px); }
-.news .media { @include media-list('media'); } 
- 
-.news .media { @include media-list('media' 15px right); }
- 
-.news .media-body { @include media-list('media-body'); }
-.video { @include flex-media(3/4); }
- 
-.svg-wrapper { @include flex-media(9/16 svg); }
+.media-list-1 .media { @include media-list('media' 15px); } 
+.media-list-2 .media { @include media-list('media' 15px right); }
+.media-body { @include media-list('media-body'); }
+.flex-media-1 { @include flex-media(315/560); }
+.flex-media-2 { @include flex-media(1 svg); }
 .type-1 { @include type(30px 1.8 'Georgia, Helvetica, sans-serif'); }
 .type-2 { @include type(30px 1.8 uppercase bold italic right); }
 .fluid-type-1 { @include fluid-type(font-size, (320px: 16px, 1024px: 40px)); }

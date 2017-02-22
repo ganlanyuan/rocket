@@ -1316,7 +1316,7 @@
       },
       "Media-list": {
         "p-1": [
-          "`-media-list-` displays a media object (images, video, audio) to the left or right of a block object."
+          "Separate media element and the main content into 2 columns."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": [
@@ -1324,50 +1324,48 @@
         ],
         "code-1": {
           "markup": [
-            "<ul class=\"news\">",
-            "  <li>",
+            "<ul>",
+            "  <li class=\"media-list-1\">",
             "    <figure class=\"media\"><a href=\"\"><img src=\"http://placehold.it/120x80\" alt=\"\"></a></figure>",
             "    <div class=\"media-body\">",
-            "      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi tempore harum dignissimos error maxime, porro, quis dolorum laboriosam recusandae officia repudiandae natus mollitia id amet voluptatibus. Quibusdam, facilis! Hic.</p>",
+            "      <p>Beatae nulla distinctio minima eos quibusdam tempore. Laudantium fuga neque incidunt velit, totam nobis, culpa mollitia dignissimos quis molestias minima.</p>",
+            "      <div class=\"media-list-2\">",
+            "        <div class=\"media-body\">",
+            "          <p>Est assumenda facere eius eveniet facilis id odit dignissimos fuga a iusto cum ut corporis laudantium fugit, neque quod. Aliquid.</p>",
+            "        </div>",
+            "        <figure class=\"media\"><a href=\"\"><img src=\"http://placehold.it/120x80\" alt=\"\"></a></figure>",
+            "      </div>",
             "    </div>",
             "  </li>",
             "</ul>"
           ],
           "scss": [
-            ".news .media { @include media-list('media'); } ",
-            "// role: 'media'; (media:default | media-body)",
-            "// gutter: 10px; (default)",
-            "// direction: left; (default)",
-            " ",
-            ".news .media { @include media-list('media' 15px right); }",
-            "// role: 'media';",
-            "// gutter: 15px;",
-            "// direction: right;",
-            " ",
-            ".news .media-body { @include media-list('media-body'); }",
-            "// role: 'media-body'; "
+            ".media-list-1 .media { @include media-list('media' 15px); } ",
+            ".media-list-2 .media { @include media-list('media' 15px right); }",
+            ".media-body { @include media-list('media-body'); }"
           ]
         }
       },
       "flex media": {
+        "p-1": [
+          "Make video or inline svg flexible within its container."
+        ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+",
         "syntax": [
           "@mixin flex-media($ratio $child)"
         ],
         "code-1": {
           "markup": [
-            "<div class=\"video\">",
+            "<div class=\"flex-media-1\">",
             "  <iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/Rb0UmrCXxVA\" frameborder=\"0\" allowfullscreen></iframe>",
+            "</div>",
+            "<div class=\"flex-media-2\">",
+            "  <svg xmlns=\"http://www.w3.org/2000/svg\" id=\"heart-fill\" viewBox=\"0 0 48 48\"><title>heart-fill</title><path d=\"M42.9 26.6L24 45.5 5.1 26.6A13.8 13.8 0 1 1 24 6.6a13.7 13.7 0 0 1 23.5 9.7c0 4-1.8 7.8-4.6 10.3z\" fill=\"currentColor\" fill-rule=\"evenodd\"/></svg>",
             "</div>"
           ],
           "scss": [
-            ".video { @include flex-media(3/4); }",
-            "// ratio: 3/4;",
-            "// child: iframe, object, embed; (default)",
-            " ",
-            ".svg-wrapper { @include flex-media(9/16 svg); }",
-            "// ratio: 9/16;",
-            "// child: svg; "
+            ".flex-media-1 { @include flex-media(315/560); }",
+            ".flex-media-2 { @include flex-media(1 svg); }"
           ]
         }
       }
