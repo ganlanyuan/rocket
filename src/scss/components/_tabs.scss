@@ -1,6 +1,5 @@
-// *** tabs *** //
 @mixin tabs($key) {
-  $length: args-get-type($key, 'number', 0);
+  $count: args-get-type($key, 'number', 0);
   $style: args-get($key, $ro-tabs-style, 'normal');
 
   // *** output *** //
@@ -18,11 +17,11 @@
       @include clearfix();
       position: relative;
       left: 0;
-      width: (100% * $length);
+      width: (100% * $count);
       transition: all $ro-global-animation-duration $ro-global-bezier;
       > div {
         float: left;
-        width: percentage(1 / $length);
+        width: percentage(1 / $count);
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -34,7 +33,7 @@
     }
   }
 
-  @for $i from 1 through $length {
+  @for $i from 1 through $count {
     > input:nth-child(#{$i}):checked ~ {
       .ro-panels {
         @if $style == 'normal' {
@@ -50,15 +49,15 @@
 }
 
 /// Set tabs' active styles.
-@mixin tabs-active($length) {
-  @if $length <= 0 {
+@mixin tabs-active($count) {
+  @if $count <= 0 {
     @warn '"Length" should be at least 1.';
   }
 
   $path: '';
 
   // get selector
-  @for $i from 1 through $length {
+  @for $i from 1 through $count {
     > input:nth-child(#{$i}):checked ~ {
       .ro-tabs > label:nth-child(#{$i}) {
         $path: $path + & + ', ';
@@ -74,15 +73,15 @@
 }
 
 /// Set panels' active styles.
-@mixin tabs-panel-active($length) {
-  @if $length <= 0 {
+@mixin tabs-panel-active($count) {
+  @if $count <= 0 {
     @warn '"Length" should be at least 1.';
   }
 
   $path: '';
 
   // get selector
-  @for $i from 1 through $length {
+  @for $i from 1 through $count {
     > input:nth-child(#{$i}):checked ~ {
       .ro-panels > div:nth-child(#{$i}) {
         $path: $path + & + ', ';

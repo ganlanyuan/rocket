@@ -260,7 +260,7 @@
               Container
             </h4>
             <p>
-              Create a container to constrain your content. it can be pushed to the left, right edge or center aligned.
+              Create a container to constrain your content. It can be pushed to the left, right edge or center aligned.
             </p>
             <p class="browser-capability">
               IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+
@@ -402,7 +402,7 @@
               </div>
             </div>
             <p>
-              You can change the column orders using <code class="language-html">(cols : order)</code> format. here the order works the same as flexbox-order works: <a href="https://drafts.csswg.org/css-flexbox-1/#order-property">https://drafts.csswg.org/css-flexbox-1/#order-property</a>
+              You can change the column orders using <code class="language-html">(cols : order)</code> format. Here the order works the same as flexbox-order works: <a href="https://drafts.csswg.org/css-flexbox-1/#order-property">https://drafts.csswg.org/css-flexbox-1/#order-property</a>
             </p>
             <div class="demo-container" data-show="code">
               <div class="toggle-container">
@@ -1328,7 +1328,7 @@ $main: (
               Metro
             </h4>
             <p>
-              Make a (windows 8 style) metro layout.
+              Make a (Windows 8 style) metro layout.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -1424,7 +1424,7 @@ $main: (
               Diamond
             </h4>
             <p>
-              Make diamond (octagon) shape layout. to reduce complexity, <code class="language-html">diamond</code> requires <code class="language-html">.diamond-content</code> to wrap its content.
+              Make diamond (octagon) shape layout. To reduce complexity, <code class="language-html">diamond</code> requires <code class="language-html">.diamond-content</code> to wrap its content.
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+
@@ -1891,7 +1891,7 @@ $main: (
               Charts
             </h4>
             <p>
-              Pure css responsive charts. currently only include <code class="language-html">bar</code> and <code class="language-html">column</code>, more types will be added soon.
+              Pure css responsive charts. Currently only include <code class="language-html">bar</code> and <code class="language-html">column</code>, more types will be added soon.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -2062,7 +2062,7 @@ $data2: (
             <p>
               Referance:<br>
               <a href="http://dbushell.com/2012/01/05/responsive-tables-2/">http://dbushell.com/2012/01/05/responsive-tables-2/</a><br>
-              <a href="https://github.com/nadangergeo/rwd-table-patterns">https://github.com/nadangergeo/rwd-table-patterns</a>
+              <a href="https://github.com/nadangergeo/RWD-Table-Patterns">https://github.com/nadangergeo/RWD-Table-Patterns</a>
             </p>
             <p class="browser-capability">
               Stack: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -2415,7 +2415,7 @@ $map: (
               Validation
             </h4>
             <p>
-              Html5 form validation using h5f <a href="https://github.com/ryanseddon/h5f">https://github.com/ryanseddon/h5f</a> we already include h5f in <code class="language-html">kit.js</code> (with a little bit modification), so you don't need download it again.
+              Html5 form validation using H5F <a href="https://github.com/ryanseddon/H5F">https://github.com/ryanseddon/H5F</a> We already include H5F in <code class="language-html">kit.js</code> (with a little bit modification), so you don't need download it again.
             </p>
             <p>
               Set your customized alerts information through <code class="language-html"></code>
@@ -2634,7 +2634,7 @@ $map: (
               Drop-shadows
             </h4>
             <p>
-              Thanks nicolas gallagher <a href="http://nicolasgallagher.com/css-drop-shadows-without-images/">http://nicolasgallagher.com/css-drop-shadows-without-images/</a> for the idea.
+              Thanks Nicolas Gallagher <a href="http://nicolasgallagher.com/css-drop-shadows-without-images/">http://nicolasgallagher.com/css-drop-shadows-without-images/</a> for the idea.
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+
@@ -2918,7 +2918,7 @@ $map: (
             </h4>
             <p>
               Customize <code class="language-html">input[type="file"]</code>.<br>
-              thanks osvaldas valutis <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a> for the idea.
+              Thanks Osvaldas Valutis <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a> for the idea.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+
@@ -2985,7 +2985,9 @@ $map: (
               Tabs
             </h4>
             <p>
-              Pure css tabs.
+              Pure css tabs.<br>
+              Use<code class="language-html">tabs-active</code> to set up tab active styles and <code class="language-html">tabs-panel-active</code> for tab panel active styles.<br>
+              To reduce complexity, <code class="language-html">.ro-tabs</code> and <code class="language-html">.ro-panels</code> are required.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+
@@ -2995,9 +2997,15 @@ $map: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin tabs($length $style)
-@mixin tabs-active($length)
-@mixin tabs-panel-active($length)</code>
+<code class="language-scss">@mixin tabs($count $style)
+// $count: tab count
+// $style: 'normal' | 'carousel' | 'customize'
+
+@mixin tabs-active($count)
+// $count: tab count
+
+@mixin tabs-panel-active($count)
+// $count: tab count</code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -3011,27 +3019,28 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="tabs-demo-1-markup">&lt;!-- .ro-tabs and .ro-panels are required --&gt;
-&lt;div class="your-tab-class"&gt;
-  &lt;input type="radio" name="your-radio-name" id="your-radio-id-1" checked&gt;
-  &lt;input type="radio" name="your-radio-name" id="your-radio-id-2"&gt;
-  &lt;input type="radio" name="your-radio-name" id="your-radio-id-3"&gt;
-  &lt;!-- ... --&gt;
+<code class="language-markup" id="tabs-demo-1-markup">&lt;div class="tabs-1"&gt;
+  &lt;input type="radio" name="tabs-radio-name" id="tabs-radio-id-1" checked&gt;
+  &lt;input type="radio" name="tabs-radio-name" id="tabs-radio-id-2"&gt;
+  &lt;input type="radio" name="tabs-radio-name" id="tabs-radio-id-3"&gt;
+
+  &lt;!-- class .ro-tabs is required --&gt;
   &lt;div class="ro-tabs"&gt;
-    &lt;label for="your-radio-id-1"&gt;tab 1&lt;/label&gt;
-    &lt;label for="your-radio-id-2"&gt;tab 2&lt;/label&gt;
-    &lt;label for="your-radio-id-3"&gt;tab 3&lt;/label&gt;
-    &lt;!-- ... --&gt;
+    &lt;label for="tabs-radio-id-1"&gt;tab 1&lt;/label&gt;
+    &lt;label for="tabs-radio-id-2"&gt;tab 2&lt;/label&gt;
+    &lt;label for="tabs-radio-id-3"&gt;tab 3&lt;/label&gt;
   &lt;/div&gt;
+  
+  &lt;!-- class .ro-panels is required --&gt;
   &lt;div class="ro-panels"&gt;
     &lt;div&gt;
-      &lt;!-- Your tab-panels 1 --&gt;
+      &lt;p&gt;Praesentium velit, aliquam ex, fuga aperiam tempora harum rem obcaecati ut corrupti autem laudantium cupiditate, nostrum similique ducimus numquam commodi?&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-      &lt;!-- Your tab-panels 2 --&gt;
+      &lt;p&gt;Labore illo, doloremque laboriosam velit molestiae sequi provident vitae minima nobis tempore eius nulla deserunt, repellat aliquid odit, illum. Quod!&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-      &lt;!-- Your tab-panels 3 --&gt;
+      &lt;p&gt;Expedita earum soluta repudiandae voluptas dolorem doloremque maiores iusto rem fugit itaque. Ab facere aperiam libero, iusto facilis praesentium laborum.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code>
@@ -3042,35 +3051,41 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="tabs-demo-1-scss">.your-tab-class { @include tabs(3 'carousel'); }
-// length: 3; (3 tabs)
-// style: carousel; (normal | carousel | customize)
-.your-tab-class { 
+<code class="language-scss" id="tabs-demo-1-scss">.tabs-1 { 
+  @include tabs(3 'carousel'); 
   @include tabs-active(3) {
- // tab active style
+    color: #1899FF;
   } 
-}
-// length: 3; (3 tabs)
-.your-tab-class { 
   @include tabs-panel-active(3) {
-    // panel active style
+    border: 1px solid #1899FF;
   } 
-}
-// length: 3; (3 tabs)</code>
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#tabs-demo-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="your-tab-class">
-                  <input type="radio" name="your-radio-name" id="your-radio-id-1" checked> <input type="radio" name="your-radio-name" id="your-radio-id-2"> <input type="radio" name="your-radio-name" id="your-radio-id-3"> 
+                <div class="tabs-1">
+                  <input type="radio" name="tabs-radio-name" id="tabs-radio-id-1" checked> <input type="radio" name="tabs-radio-name" id="tabs-radio-id-2"> <input type="radio" name="tabs-radio-name" id="tabs-radio-id-3"> 
                   <div class="ro-tabs">
-                    <label for="your-radio-id-1">tab 1</label> <label for="your-radio-id-2">tab 2</label> <label for="your-radio-id-3">tab 3</label> 
+                    <label for="tabs-radio-id-1">tab 1</label> <label for="tabs-radio-id-2">tab 2</label> <label for="tabs-radio-id-3">tab 3</label>
                   </div>
                   <div class="ro-panels">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    <div>
+                      <p>
+                        Praesentium velit, aliquam ex, fuga aperiam tempora harum rem obcaecati ut corrupti autem laudantium cupiditate, nostrum similique ducimus numquam commodi?
+                      </p>
+                    </div>
+                    <div>
+                      <p>
+                        Labore illo, doloremque laboriosam velit molestiae sequi provident vitae minima nobis tempore eius nulla deserunt, repellat aliquid odit, illum. Quod!
+                      </p>
+                    </div>
+                    <div>
+                      <p>
+                        Expedita earum soluta repudiandae voluptas dolorem doloremque maiores iusto rem fugit itaque. Ab facere aperiam libero, iusto facilis praesentium laborum.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3238,7 +3253,7 @@ $map: (
               Tooltip
             </h4>
             <p>
-              Pure css <code class="language-html">tooltip</code>.
+              pure css <code class="language-html">tooltip</code>.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -3512,7 +3527,7 @@ $map: (
             </p>
             <p>
               Stolen from <a href="http://www.sassmeister.com/gist/7f22e44ace49b5124eec">http://www.sassmeister.com/gist/7f22e44ace49b5124eec</a><br>
-              more on <a href="https://blog.codepen.io/2016/10/31/fluid-type-blogs/">https://blog.codepen.io/2016/10/31/fluid-type-blogs/</a>
+              More on <a href="https://blog.codepen.io/2016/10/31/fluid-type-blogs/">https://blog.codepen.io/2016/10/31/fluid-type-blogs/</a>
             </p>
             <p class="browser-capability">
               IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -3564,7 +3579,7 @@ $map: (
             </h4>
             <p>
               <code class="language-html">type</code> works with breakpoints.<br>
-              everything you can do with <code class="language-html">type</code> you can do with <code class="language-html">responsive-type</code>.
+              Everything you can do with <code class="language-html">type</code> you can do with <code class="language-html">responsive-type</code>.
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -3691,7 +3706,7 @@ $responsive-type-2: (
               Opacity
             </h4>
             <p>
-              Set <code class="language-html">opacity</code> property for ie8- and modern browsers.
+              Set <code class="language-html">opacity</code> property for IE8- and modern browsers.
             </p>
             <div class="code-wrapper">
               <header>
@@ -3721,7 +3736,7 @@ $responsive-type-2: (
               Ie-rgba
             </h4>
             <p>
-              Get <code class="language-html">rgba()</code> color for ie8.
+              Get <code class="language-html">rgba()</code> color for IE8.
             </p>
             <div class="code-wrapper">
               <header>
@@ -3759,7 +3774,7 @@ $responsive-type-2: (
             </h4>
             <p>
               A shorthand @mixin for mediaquery.<br>
-              note: <code class="language-html">ro-breakpoint</code> uses one breakpoint (e.g. 800) for both <code class="language-html">min</code> and <code class="language-html">max</code> instead of two (e.g. 799 for <code class="language-html">max</code>, 800 for <code class="language-html">min</code>). if you don't want this behaiver, you can use <code class="language-html">$breakpoint-fix: false;</code> to disable it.
+              Note: <code class="language-html">ro-breakpoint</code> uses one breakpoint (e.g. 800) for both <code class="language-html">min</code> and <code class="language-html">max</code> instead of two (e.g. 799 for <code class="language-html">max</code>, 800 for <code class="language-html">min</code>). If you don't want this behaiver, you can use <code class="language-html">$breakpoint-fix: false;</code> to disable it.
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+

@@ -375,7 +375,7 @@
       },
       "tabs": {
         "p-1": [
-          "Pure css tabs."
+          "Pure css tabs. \nUse`-tabs-active-` to set up tab active styles and `-tabs-panel-active-` for tab panel active styles. \nTo reduce complexity, `-.ro-tabs-` and `-.ro-panels-` are required."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+",
         "syntax": true,

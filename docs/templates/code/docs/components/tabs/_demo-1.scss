@@ -1,15 +1,9 @@
-.your-tab-class { @include tabs(3 'carousel'); }
-// length: 3; (3 tabs)
-// style: carousel; (normal | carousel | customize)
-.your-tab-class { 
+.tabs-1 { 
+  @include tabs(3 'carousel'); 
   @include tabs-active(3) {
- // tab active style
+    color: #1899FF;
   } 
-}
-// length: 3; (3 tabs)
-.your-tab-class { 
   @include tabs-panel-active(3) {
-    // panel active style
+    border: 1px solid #1899FF;
   } 
 }
-// length: 3; (3 tabs)

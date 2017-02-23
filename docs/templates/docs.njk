@@ -39,7 +39,7 @@
           {% if type.indexOf('p-') !== -1 %}
 
             {% for p in content %}
-              <p>{{ p | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | capitalize | urlize | nl2br | safe }}</p>
+              <p>{{ p | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
             {% endfor %}
 
           {% elif type === 'capability' %}
