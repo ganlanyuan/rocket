@@ -1,0 +1,7 @@
+.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
+// padding: 1em 2em; (padding must be quoted)
+// background-color: #2B8ACF;
+// active-color: #52CFDB;
+// border-radius: 5px; 
+// style: bubble;
+// active-selector: '.active'; Final selector will be .button.active;

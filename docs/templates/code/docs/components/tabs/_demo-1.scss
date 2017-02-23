@@ -1,0 +1,15 @@
+.your-tab-class { @include tabs(3 'carousel'); }
+// length: 3; (3 tabs)
+// style: carousel; (normal | carousel | customize)
+.your-tab-class { 
+  @include tabs-active(3) {
+ // tab active style
+  } 
+}
+// length: 3; (3 tabs)
+.your-tab-class { 
+  @include tabs-panel-active(3) {
+    // panel active style
+  } 
+}
+// length: 3; (3 tabs)

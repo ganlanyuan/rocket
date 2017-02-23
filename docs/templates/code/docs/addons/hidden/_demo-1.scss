@@ -1,0 +1,2 @@
+.hidden-1 { @include hidden(700px); }
+.hidden-2 { @include hidden(300px 500px 700px); }

@@ -1,0 +1,6 @@
+.switch { @include switch(round text ("on" "off") 36px #399DE1); }
+// style: toggle; (default)
+// text: on off;
+// size: 36px;
+// active-color: #399DE1;
+// round: true;

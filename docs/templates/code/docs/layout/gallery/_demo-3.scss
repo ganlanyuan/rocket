@@ -1,0 +1,6 @@
+.gallery-3 {
+  @include gallery( ('default': 2, 600px: 3, 800px: 4) ); 
+}
+// default: 2 items per row
+// 600px and up: 3 items per row
+// 800px and up: 4 items per row

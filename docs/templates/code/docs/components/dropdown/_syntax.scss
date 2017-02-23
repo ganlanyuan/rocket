@@ -1,0 +1,5 @@
+@mixin dropdown($selector $show $style $direction $duration default)
+// $selector: string. Dropdown content selector.
+// $show: 'hover' | 'click'
+// $style: 'display' | 'scale' | 'rotate'
+// default: use default styles

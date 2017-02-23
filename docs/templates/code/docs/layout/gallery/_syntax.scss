@@ -1,0 +1,6 @@
+@mixin gallery($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep);
+// $layout: number | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+// $direction: LTR | RTL

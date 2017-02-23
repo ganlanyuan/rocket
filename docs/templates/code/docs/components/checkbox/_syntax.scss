@@ -1,0 +1,6 @@
+@mixin checkbox() {
+  @content;
+}
+@mixin checkbox-active() {
+  @content;
+}

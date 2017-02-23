@@ -1,0 +1,4 @@
+.accordion-1 {
+  @include accordion(div 200px);
+  > label { display: block; padding: 10px; background-color: #f5f5f5; }
+}

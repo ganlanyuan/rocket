@@ -1,0 +1,5 @@
+.sticky-footer-1 {
+  @include sticky-footer('main'); 
+  header, main, footer { padding: 10px; background-color: #f5f5f5; }
+  main { background-color: #FBA158; }
+}

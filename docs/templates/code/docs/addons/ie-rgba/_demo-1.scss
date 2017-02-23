@@ -1,0 +1,7 @@
+.lt-ie9 .ie-rgba { @include ie-rgba(rgba(0,0,0,0.7)); }
+// output:
+// .lt-ie9 .ie-rgba {
+//   background: none;
+//   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000);
+//   zoom: 1;
+// }

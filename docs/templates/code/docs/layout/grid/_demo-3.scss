@@ -1,0 +1,4 @@
+$main: ( (3 7 4) (2 5) );
+.grid3 { @include grid($main); }
+// 1st row: (3 7 4)
+// 2nd row: (2 5)

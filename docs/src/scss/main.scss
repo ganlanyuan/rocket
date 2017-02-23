@@ -42,7 +42,7 @@ body { min-width: 320px; }
 h4 { margin-bottom: 1.5em; }
 p { 
   @include type(16px 1.5); 
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
   &:last-child { margin-bottom: 0; }
   a { 
     color: $color-link; 
@@ -142,4 +142,4 @@ svg {
 
 @import 'home';
 @import 'docs';
-@import 'docs-demo';
+@import '../../templates/code/docs/_docs';

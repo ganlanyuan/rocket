@@ -1,0 +1,9 @@
+@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)
+// $font-weight: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit
+// $font-style: italic, oblique, style-normal, style-inherit
+// $text-align: left, right, center, justify, align-inherit
+// $text-transform: capitalize, uppercase, lowercase, none, full-width, transform-inherit
+ " 
+// Tips: 
+// to set 'font-weight', 'font-style', 'text-align' or 'text-transform' values to 'inherit' or 'normal', 
+// you need add prefix 'weight-', 'style-' or 'transform-'.

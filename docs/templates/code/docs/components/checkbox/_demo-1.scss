@@ -1,0 +1,9 @@
+.radio {
+  @include checkbox() {
+    padding: 4px 0 4px 26px;
+    background: url('../images/radio.png') 0 50% no-repeat;
+  };
+  @include checkbox-active() {
+    background-image: url('../images/radio-active.png');
+  };
+}

@@ -1,0 +1,10 @@
+@mixin responsive-table($mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count)) { // rp-table() for shorthand
+  @content;
+}
+// $mode: 'flip-scroll' 'scroll' 'toggle' 'stack'
+// $data: list, thead content
+// $count: thead > th length
+ 
+// flip-scroll: $breakpoint
+// toggle: $breakpoint and $count
+// stack: $data, $border-color and $th-width

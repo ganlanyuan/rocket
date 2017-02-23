@@ -1,6 +1,6 @@
 // *** accordion *** //
 @mixin accordion($key){
-  $child: args-get-type($key, 'string');
+  $selector: args-get-type($key, 'string');
   $max-height: 1000px;
   $duration: 0.3s;
 
@@ -26,11 +26,11 @@
   > input {
     position: absolute;
     left: -9999px;
-    &:checked ~ #{$child} {
+    &:checked ~ #{$selector} {
       max-height: $max-height;
     }
   }
-  > #{$child} {
+  > #{$selector} {
     @include ro-transition(max-height $duration);
     max-height: 0;
     overflow: hidden;

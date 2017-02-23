@@ -1,0 +1,4 @@
+@mixin button($padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function)
+// style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
+// direction: left, right, top, bottom, 'horizontal', 'vertical'
+// active-selector: . | # | [] | :

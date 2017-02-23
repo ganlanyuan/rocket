@@ -1,0 +1,4 @@
+.box { @include drop-shadows(curve horizontal 20px); }
+// $style: 'curve'; 
+// $direction: horizontal;
+// $shadow-size: 20px;

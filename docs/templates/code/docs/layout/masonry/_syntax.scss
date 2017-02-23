@@ -1,0 +1,19 @@
+@mixin masonry($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type);
+// $layout: number | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+
+// *** fallback: IE9- *** //
+.no-csscolumns {
+  .masonry {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 @mixin dropdown($key: 'ul'){
   $check: append(join(join($ro-dropdown-show, $ro-dropdown-style), $ro-dropdown-direction), 'default');
 
-  $child: args-get-type($key, 'string', $check, 'ul');
+  $selector: args-get-type($key, 'string', $check, 'ul');
   $show: args-get($key, $ro-dropdown-show, 'hover');
   $style: args-get($key, $ro-dropdown-style, 'display');
   $direction: args-get($key, $ro-dropdown-direction);
@@ -39,7 +39,7 @@
     }
   }
 
-  > #{$child} {
+  > #{$selector} {
     // basic menu style
     position: absolute;
     transition: transform $duration, opacity ($duration / 2);
@@ -104,7 +104,7 @@
   }
 
   // show
-  #{$path} #{$child} {
+  #{$path} #{$selector} {
     .lt-ie9 & { display: block; }
     @if $style == 'display' {
       display: block;

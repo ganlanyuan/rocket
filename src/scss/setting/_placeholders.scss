@@ -1,5 +1,6 @@
 // placeholder
 //-----------------------------
+@import "../addons/opacity";
 
 // clearfix
 %ro-hidden-checkbox {
@@ -21,8 +22,12 @@
 
 // tooltip
 %tooltip-common {
+  @include opacity(0);
+  content: '';
   position: absolute;
-  z-index: 9999;
+  z-index: -1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 %tooltip-content {
   padding: 0.67em;

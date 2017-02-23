@@ -1,0 +1,2 @@
+$masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
+.masonry-3 { @include masonry($masonry-3-layout child '.panel'); }

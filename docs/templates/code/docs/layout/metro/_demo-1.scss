@@ -1,0 +1,8 @@
+.metro-1 { 
+  @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); 
+  > li:nth-child(3) { float: right; };
+}
+// w5: 5 blocks width x 1 blocks height
+// 2: 2 blocks width x 2 blocks height
+// h2: 1 blocks width x 2 blocks height
+// "of 5": totaly 5 blocks width;

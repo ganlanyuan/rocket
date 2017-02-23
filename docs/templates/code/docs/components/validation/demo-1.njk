@@ -1,0 +1,23 @@
+<form action="" class="myform">
+  <ol>
+    <li>
+      <label for="name">Name</label>
+      <input type="text" id="name" pattern="[a-zA-Z]{6,}" required>
+      <!-- alerts -->
+      <div data-info="valid">User name is valid.</div>
+      <div data-info="required">Valid user name required.</div>
+      <div data-info="error">User name must be at least 6 characters.</div>
+    </li>
+    <li> … </li>
+    <li> … </li>
+    <li>
+      <input type="submit" value="Submit">
+    </li>
+  </ol>
+</form>
+<script>
+  // run form validation
+  window.onload = function () {
+    H5F.setup(document.querySelectorAll(".myform"));
+  }
+</script>

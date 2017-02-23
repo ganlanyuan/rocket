@@ -1,0 +1,3 @@
+@mixin equal-to($selector $count) {
+  @content;
+}
