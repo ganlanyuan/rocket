@@ -1,13 +1,11 @@
 // *** checkbox *** //
 @mixin checkbox(){
-  > [type="checkbox"],
-  > [type="radio"] { 
-    @include opacity(0); 
-    float: left;
+  > input { 
+    position: absolute; 
+    left: -9999px;
   }
   > label {
     display: inline-block;
-    clear: both;
     @content;
   }
 }

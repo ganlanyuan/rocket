@@ -322,7 +322,7 @@
       },
       "switch": {
         "p-1": [
-          "Pure css switch."
+          "Make switch using `-input:checkbox-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": true,
@@ -333,7 +333,7 @@
       },
       "push-toggle": {
         "p-1": [
-          "Pure css push toggle."
+          "Make push toggle with `-input:radio-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,
@@ -344,7 +344,7 @@
       },
       "checkbox": {
         "p-1": [
-          "Customize radios or checkboxes."
+          "Customize radios and checkboxes."
         ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,
@@ -353,18 +353,9 @@
           "scss": true
         }
       },
-      "checkbox-active": {
-        "p-1": [
-          "Radios or checkboxes' active style."
-        ],
-        "syntax": true,
-        "demo-1": {
-          "scss": true
-        }
-      },
       "input-file": {
         "p-1": [
-          "Customize `-input[type=\"file\"]-`. \n Thanks Osvaldas Valutis http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ for the idea."
+          "Customize `-input:file-`. \n Stolen from Osvaldas Valutis at http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/."
         ],
         "capability": "IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+",
         "syntax": true,
@@ -375,7 +366,7 @@
       },
       "tabs": {
         "p-1": [
-          "Pure css tabs. \nUse`-tabs-active-` to set up tab active styles and `-tabs-panel-active-` for tab panel active styles. \nTo reduce complexity, `-.ro-tabs-` and `-.ro-panels-` are required."
+          "Make tabs use `-input:radio-`. \nUse`-tabs-active-` to set up tab active styles and `-tabs-panel-active-` for tab panel active styles. \nTo reduce complexity, `-.ro-tabs-` and `-.ro-panels-` are required."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+",
         "syntax": true,
@@ -397,7 +388,7 @@
       },
       "dropdown": {
         "p-1": [
-          "Make a dropdown component using pure css."
+          "Make dropdown using `-:hover-` or `-input:checkbox-`."
         ],
         "capability": "IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": true,
@@ -408,7 +399,7 @@
       },
       "tooltip": {
         "p-1": [
-          "pure css `-tooltip-`."
+          "Pure css `-tooltip-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,

@@ -129,9 +129,6 @@
           <li class="nav-checkbox">
             <a href="#checkbox">Checkbox</a>
           </li>
-          <li class="nav-checkbox-active">
-            <a href="#checkbox-active">Checkbox-active</a>
-          </li>
           <li class="nav-input-file">
             <a href="#input-file">Input-file</a>
           </li>
@@ -2686,7 +2683,7 @@ $map: (
               Switch
             </h4>
             <p>
-              Pure css switch.
+              Make switch using <code class="language-html">input:checkbox</code>.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
@@ -2697,7 +2694,10 @@ $map: (
               </header>
               <pre>
 <code class="language-scss">@mixin switch($style $size $active-color (text $text) (radius | round))
-// $style: 'toggle' | 'slider'</code>
+// $style: 'toggle' | 'slider'
+// $size: px | em
+// $active-color: color
+// $text: list. e.g. ('on' 'off') </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -2711,9 +2711,14 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="switch-demo-1-markup">&lt;div class="switch"&gt;
-  &lt;input type="checkbox" id="switch1" name="switch"&gt;
-  &lt;label for="switch1"&gt;&lt;/label&gt;
+<code class="language-markup" id="switch-demo-1-markup">&lt;div class="switch-1"&gt;
+  &lt;input type="checkbox" id="switch-id-1" name="switch"&gt;
+  &lt;!-- span is required if you want to show text --&gt;
+  &lt;label for="switch-id-1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="switch-2"&gt;
+  &lt;input type="checkbox" id="switch-id-2" name="switch"&gt;
+  &lt;label for="switch-id-2"&gt;&lt;/label&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#switch-demo-1-markup">Copy Code</button>
                   </li>
@@ -2722,19 +2727,23 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="switch-demo-1-scss">.switch { @include switch(round text ("on" "off") 36px #399DE1); }
-// style: toggle; (default)
-// text: on off;
-// size: 36px;
-// active-color: #399DE1;
-// round: true;</code>
+<code class="language-scss" id="switch-demo-1-scss">.switch-1 { 
+  @include switch(round text ("on" "off") 36px blue); 
+  margin-bottom: 10px;
+}
+.switch-2 { 
+  @include switch(slider round 20px red); 
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#switch-demo-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="switch">
-                  <input type="checkbox" id="switch1" name="switch"> <label for="switch1"></label>
+                <div class="switch-1">
+                  <input type="checkbox" id="switch-id-1" name="switch">  <label for="switch-id-1"><span></span></label>
+                </div>
+                <div class="switch-2">
+                  <input type="checkbox" id="switch-id-2" name="switch"> <label for="switch-id-2"></label>
                 </div>
               </div>
             </div>
@@ -2744,7 +2753,7 @@ $map: (
               Push-toggle
             </h4>
             <p>
-              Pure css push toggle.
+              Make push toggle with <code class="language-html">input:radio</code>.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -2754,7 +2763,10 @@ $map: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin push-toggle()</code>
+<code class="language-scss">@mixin push-toggle() {
+  // Active styles go here
+  @content;
+}</code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -2768,7 +2780,8 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="push-toggle-demo-1-markup">&lt;div class="push-toggle"&gt;
+<code class="language-markup" id="push-toggle-demo-1-markup">&lt;div class="push-toggle-1"&gt;
+  &lt;!-- make sure labels right after inputs --&gt;
   &lt;input type="radio" id="male" name="gender" checked=""&gt;
   &lt;label for="male"&gt;Male&lt;/label&gt;
   &lt;input type="radio" id="female" name="gender"&gt;
@@ -2781,10 +2794,11 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="push-toggle-demo-1-scss">.your-tab-class { 
+<code class="language-scss" id="push-toggle-demo-1-scss">.push-toggle-1 { 
   // default style
   label {
-    padding: 1em 1.5em;
+    margin-right: -1px;
+    padding: 0.6em 1.5em;
     background-image: linear-gradient(to bottom, #fff, #e1e1e1);
     border: 1px solid #ccc;
   }
@@ -2800,7 +2814,7 @@ $map: (
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="push-toggle">
+                <div class="push-toggle-1">
                   <input type="radio" id="male" name="gender" checked> <label for="male">Male</label> <input type="radio" id="female" name="gender"> <label for="female">Female</label>
                 </div>
               </div>
@@ -2811,7 +2825,7 @@ $map: (
               Checkbox
             </h4>
             <p>
-              Customize radios or checkboxes.
+              Customize radios and checkboxes.
             </p>
             <p class="browser-capability">
               IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -2822,9 +2836,12 @@ $map: (
               </header>
               <pre>
 <code class="language-scss">@mixin checkbox() {
+  // unchecked styles go here
   @content;
 }
+
 @mixin checkbox-active() {
+  // checked styles go here
   @content;
 }</code>
 </pre>
@@ -2840,16 +2857,16 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="checkbox-demo-1-markup">&lt;!-- make sure label right after radio or checkbox --&gt;
-&lt;div class="radio"&gt;
-  &lt;input type="radio" name="my-radio-name" id="my-radio-id-1" checked&gt;
-  &lt;label for="my-radio-id-1"&gt;item 1&lt;/label&gt;
+<code class="language-markup" id="checkbox-demo-1-markup">&lt;div class="checkbox-1"&gt;
+  &lt;!-- make sure labels right after inputs --&gt;
+  &lt;input type="radio" name="radio-name" id="radio-id-1" checked&gt;
+  &lt;label for="radio-id-1"&gt;item 1&lt;/label&gt;
   &lt;br /&gt;
-  &lt;input type="radio" name="my-radio-name" id="my-radio-id-2"&gt;
-  &lt;label for="my-radio-id-2"&gt;item 2&lt;/label&gt;
+  &lt;input type="radio" name="radio-name" id="radio-id-2"&gt;
+  &lt;label for="radio-id-2"&gt;item 2&lt;/label&gt;
   &lt;br /&gt;
-  &lt;input type="radio" name="my-radio-name" id="my-radio-id-3"&gt;
-  &lt;label for="my-radio-id-3"&gt;item 3&lt;/label&gt;
+  &lt;input type="radio" name="radio-name" id="radio-id-3"&gt;
+  &lt;label for="radio-id-3"&gt;item 3&lt;/label&gt;
   &lt;br /&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#checkbox-demo-1-markup">Copy Code</button>
@@ -2859,13 +2876,27 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="checkbox-demo-1-scss">.radio {
+<code class="language-scss" id="checkbox-demo-1-scss">.checkbox-1 {
+  margin-top: 10px;
+
   @include checkbox() {
     padding: 4px 0 4px 26px;
-    background: url('../images/radio.png') 0 50% no-repeat;
+    &amp;:before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0 0 0 5px #fff, 0 0 0 6px #0080FF;
+      transform: translateX(-16px) translateY(-2px);
+    }
   };
+  
   @include checkbox-active() {
-    background-image: url('../images/radio-active.png');
+    &amp;:before {
+      background-color: #0080FF;
+    }
   };
 }
 </code>
@@ -2874,41 +2905,11 @@ $map: (
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="radio">
-                  <input type="radio" name="my-radio-name" id="my-radio-id-1" checked> <label for="my-radio-id-1">item 1</label><br>
-                  <input type="radio" name="my-radio-name" id="my-radio-id-2"> <label for="my-radio-id-2">item 2</label><br>
-                  <input type="radio" name="my-radio-name" id="my-radio-id-3"> <label for="my-radio-id-3">item 3</label><br>
+                <div class="checkbox-1">
+                  <input type="radio" name="radio-name" id="radio-id-1" checked> <label for="radio-id-1">item 1</label><br>
+                  <input type="radio" name="radio-name" id="radio-id-2"> <label for="radio-id-2">item 2</label><br>
+                  <input type="radio" name="radio-name" id="radio-id-3"> <label for="radio-id-3">item 3</label><br>
                 </div>
-              </div>
-            </div>
-          </li>
-          <li id="checkbox-active">
-            <h4>
-              Checkbox-active
-            </h4>
-            <p>
-              Radios or checkboxes' active style.
-            </p>
-            <div class="code-wrapper">
-              <header>
-                scss: <span>syntax</span>
-              </header>
-              <pre>
-<code class="language-scss"></code>
-</pre>
-            </div>
-            <div class="demo-container" data-show="code">
-              <div class="code-wrapper">
-                <ul>
-                  <li>
-                    <header>
-                      scss
-                    </header>
-                    <pre>
-<code class="language-scss" id="checkbox-active-demo-1-scss"></code>
-</pre><button class="btn copy-button" data-clipboard-target="#checkbox-active-demo-1-scss">Copy Code</button>
-                  </li>
-                </ul>
               </div>
             </div>
           </li>
@@ -2917,8 +2918,8 @@ $map: (
               Input-file
             </h4>
             <p>
-              Customize <code class="language-html">input[type="file"]</code>.<br>
-              Thanks Osvaldas Valutis <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a> for the idea.
+              Customize <code class="language-html">input:file</code>.<br>
+              Stolen from Osvaldas Valutis at <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a>
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+
@@ -2944,13 +2945,14 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="input-file-demo-1-markup">&lt;div class="input-file"&gt;
-  &lt;input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple /&gt;
-  &lt;label for="file"&gt;&lt;span&gt;Choose a file&lt;/span&gt;&lt;/label&gt;
+<code class="language-markup" id="input-file-demo-1-markup">&lt;div class="input-file-1"&gt;
+  &lt;input type="file" id="input-file-id" data-multiple-caption="{count} files selected" multiple /&gt;
+  &lt;label for="input-file-id"&gt;Choose a file&lt;/label&gt;
 &lt;/div&gt;
+
 &lt;script src="path/to/input-file.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
-  inputFile('#file');
+  inputFile('#input-file-id');
 &lt;/script&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#input-file-demo-1-markup">Copy Code</button>
                   </li>
@@ -2959,9 +2961,18 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="input-file-demo-1-scss">.radio {
+<code class="language-scss" id="input-file-demo-1-scss">.input-file-1 {
   @include input-file() {
-  // customized style goes here
+    margin: 10px 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #1D85E9;
+    border-radius: 5px;
+    box-shadow: 0 4px 0px #145796;
+    transition: background-color 0.25s;
+    &amp;:hover {
+      background-color: #1F91FF;
+    }
   }
 }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#input-file-demo-1-scss">Copy Code</button>
@@ -2969,13 +2980,13 @@ $map: (
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="input-file">
-                  <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple> <label for="file"><span>Choose a file</span></label>
+                <div class="input-file-1">
+                  <input type="file" id="input-file-id" data-multiple-caption="{count} files selected" multiple> <label for="input-file-id">Choose a file</label>
                 </div>
                 <script src="path/to/input-file.js">
                 </script> 
                 <script type="text/javascript">
-                inputFile('#file');
+                inputFile('#input-file-id');
                 </script>
               </div>
             </div>
@@ -2985,7 +2996,7 @@ $map: (
               Tabs
             </h4>
             <p>
-              Pure css tabs.<br>
+              Make tabs use <code class="language-html">input:radio</code>.<br>
               Use<code class="language-html">tabs-active</code> to set up tab active styles and <code class="language-html">tabs-panel-active</code> for tab panel active styles.<br>
               To reduce complexity, <code class="language-html">.ro-tabs</code> and <code class="language-html">.ro-panels</code> are required.
             </p>
@@ -3174,7 +3185,7 @@ $map: (
               Dropdown
             </h4>
             <p>
-              Make a dropdown component using pure css.
+              Make dropdown using <code class="language-html">:hover</code> or <code class="language-html">input:checkbox</code>.
             </p>
             <p class="browser-capability">
               IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
@@ -3253,7 +3264,7 @@ $map: (
               Tooltip
             </h4>
             <p>
-              pure css <code class="language-html">tooltip</code>.
+              Pure css <code class="language-html">tooltip</code>.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+

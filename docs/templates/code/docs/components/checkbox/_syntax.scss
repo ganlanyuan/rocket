@@ -1,6 +1,9 @@
 @mixin checkbox() {
+  // unchecked styles go here
   @content;
 }
+
 @mixin checkbox-active() {
+  // checked styles go here
   @content;
 }

@@ -1,5 +1,14 @@
-.radio {
+.input-file-1 {
   @include input-file() {
-  // customized style goes here
+    margin: 10px 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #1D85E9;
+    border-radius: 5px;
+    box-shadow: 0 4px 0px #145796;
+    transition: background-color 0.25s;
+    &:hover {
+      background-color: #1F91FF;
+    }
   }
 }

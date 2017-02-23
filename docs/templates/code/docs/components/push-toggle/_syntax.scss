@@ -1,1 +1,4 @@
-@mixin push-toggle()
+@mixin push-toggle() {
+  // Active styles go here
+  @content;
+}
