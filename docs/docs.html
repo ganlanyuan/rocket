@@ -2415,12 +2415,8 @@ $map: (
               Html5 form validation using H5F <a href="https://github.com/ryanseddon/H5F">https://github.com/ryanseddon/H5F</a> We already include H5F in <code class="language-html">kit.js</code> (with a little bit modification), so you don't need download it again.
             </p>
             <p>
-              Set your customized alerts information through <code class="language-html"></code>
+              Set your customized alerts information through <code class="language-html">&lt;div data-info=""&gt;&lt;/div&gt;</code>.
             </p>
-            <div data-info="">
-              <code class="language-html"></code>
-            </div>.
-            <p></p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
             </p>
@@ -2518,6 +2514,9 @@ $map: (
             <h4>
               Button
             </h4>
+            <p>
+              Create buttons and effects.
+            </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+
             </p>
@@ -2527,9 +2526,10 @@ $map: (
               </header>
               <pre>
 <code class="language-scss">@mixin button($padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function)
+// $padding: string. e.g. "5px 10px"
 // style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
 // direction: left, right, top, bottom, 'horizontal', 'vertical'
-// active-selector: . | # | [] | :</code>
+// active-selector: class | id | property | pseudo</code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -2543,12 +2543,12 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="button-demo-1-markup">&lt;!-- normal: you can use button on any tag --&gt;
-&lt;span class="button"&gt;button&lt;/span&gt;
-&lt;!-- push: inner span tag, data-text attribute --&gt;
-&lt;span class="push" data-text="star"&gt;&lt;span&gt;push&lt;/span&gt;&lt;/span&gt;
-&lt;!-- line-drawing: 4 empty span tags --&gt;
-&lt;span class="line-drawing"&gt;line-drawing
+<code class="language-markup" id="button-demo-1-markup">&lt;span class="button-simple"&gt;button&lt;/span&gt;
+&lt;span class="button-push" data-text="star"&gt;&lt;span&gt;push&lt;/span&gt;&lt;/span&gt;
+&lt;span class="button-bubble"&gt;bubble&lt;/span&gt;
+
+&lt;span class="button-line-drawing"&gt;line-drawing
+  &lt;!-- 4 pairs of empty spans required --&gt;
   &lt;span&gt;&lt;/span&gt;
   &lt;span&gt;&lt;/span&gt;
   &lt;span&gt;&lt;/span&gt;
@@ -2561,19 +2561,24 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="button-demo-1-scss">.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
-// padding: 1em 2em; (padding must be quoted)
-// background-color: #2B8ACF;
-// active-color: #52CFDB;
-// border-radius: 5px; 
-// style: bubble;
-// active-selector: '.active'; Final selector will be .button.active;</code>
+<code class="language-scss" id="button-demo-1-scss">$padding: "0.5em 0.8em";
+
+.button-simple { @include button($padding simple); }
+.button-push { @include button($padding push); }
+.button-bubble { @include button($padding #2B8ACF 5px bubble ':hover'); }
+.button-line-drawing { @include button($padding 'line-drawing' ':hover'); }
+
+[class*="button-"] {
+  vertical-align: middle;
+  margin: 10px;
+}
+</code>
 </pre><button class="btn copy-button" data-clipboard-target="#button-demo-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <span class="button">button</span> <span class="push" data-text="star"><span>push</span></span> <span class="line-drawing">line-drawing <span></span> <span></span> <span></span> <span></span></span>
+                <span class="button-simple">button</span> <span class="button-push" data-text="star"><span>push</span></span> <span class="button-bubble">bubble</span> <span class="button-line-drawing">line-drawing  <span></span> <span></span> <span></span> <span></span></span>
               </div>
             </div>
           </li>
@@ -2582,7 +2587,7 @@ $map: (
               Parallelogram
             </h4>
             <p>
-              Create parallelogram style.
+              Make parallelogram box using CSS3.
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -2592,7 +2597,9 @@ $map: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin parallelogram($background $angle);</code>
+<code class="language-scss">@mixin parallelogram($background $angle);
+// $background: color
+// $angle: deg</code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -2606,7 +2613,7 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="parallelogram-demo-1-markup">&lt;div class="box"&gt;&lt;/div&gt;</code>
+<code class="language-markup" id="parallelogram-demo-1-markup">&lt;div class="parallelogram-1"&gt;Parallelogram demo&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#parallelogram-demo-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2614,15 +2621,22 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="parallelogram-demo-1-scss">.box { @include parallelogram(#61A4DE -30deg); }
-// $background: #61A4DE; 
-// $angle: -30deg;</code>
+<code class="language-scss" id="parallelogram-demo-1-scss">.parallelogram-1 { 
+  @include parallelogram(#0C81E7 -30deg); 
+
+  display: inline-block;
+  margin-left: 30px;
+  padding: 20px;
+  color: #fff;
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#parallelogram-demo-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="box"></div>
+                <div class="parallelogram-1">
+                  Parallelogram demo
+                </div>
               </div>
             </div>
           </li>
@@ -2631,7 +2645,8 @@ $map: (
               Drop-shadows
             </h4>
             <p>
-              Thanks Nicolas Gallagher <a href="http://nicolasgallagher.com/css-drop-shadows-without-images/">http://nicolasgallagher.com/css-drop-shadows-without-images/</a> for the idea.
+              Pure css drop shadow effects.<br>
+              Token from Nicolas Gallagher at <a href="http://nicolasgallagher.com/css-drop-shadows-without-images/">http://nicolasgallagher.com/css-drop-shadows-without-images/</a>
             </p>
             <p class="browser-capability">
               IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+
@@ -2657,7 +2672,10 @@ $map: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="drop-shadows-demo-1-markup">&lt;div class="box"&gt;&lt;/div&gt;</code>
+<code class="language-markup" id="drop-shadows-demo-1-markup">&lt;div class="drop-shadow-1"&gt;style: lifted&lt;/div&gt;
+&lt;div class="drop-shadow-2"&gt;style: raised&lt;/div&gt;
+&lt;div class="drop-shadow-3"&gt;style: perspective&lt;/div&gt;
+&lt;div class="drop-shadow-4"&gt;style: curve&lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#drop-shadows-demo-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2665,16 +2683,35 @@ $map: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="drop-shadows-demo-1-scss">.box { @include drop-shadows(curve horizontal 20px); }
-// $style: 'curve'; 
-// $direction: horizontal;
-// $shadow-size: 20px;</code>
+<code class="language-scss" id="drop-shadows-demo-1-scss">.drop-shadow-1 { @include drop-shadows(lifted bottom 15px); }
+.drop-shadow-2 { @include drop-shadows(raised bottom 15px); }
+.drop-shadow-3 { @include drop-shadows(perspective bottom 15px); }
+.drop-shadow-4 { @include drop-shadows(curve bottom 15px); }
+[class*="drop-shadow-"] {
+  display: inline-block;
+  width: 8em;
+  text-align: center;
+  padding: 20px;
+  margin: 20px 50px;
+  background-color: #f7f7f7;
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#drop-shadows-demo-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="box"></div>
+                <div class="drop-shadow-1">
+                  style: lifted
+                </div>
+                <div class="drop-shadow-2">
+                  style: raised
+                </div>
+                <div class="drop-shadow-3">
+                  style: perspective
+                </div>
+                <div class="drop-shadow-4">
+                  style: curve
+                </div>
               </div>
             </div>
           </li>

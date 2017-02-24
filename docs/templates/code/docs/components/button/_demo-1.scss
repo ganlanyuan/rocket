@@ -1,7 +1,11 @@
-.button { @include button('1em 2em' #2B8ACF #52CFDB 5px bubble '.active'); }
-// padding: 1em 2em; (padding must be quoted)
-// background-color: #2B8ACF;
-// active-color: #52CFDB;
-// border-radius: 5px; 
-// style: bubble;
-// active-selector: '.active'; Final selector will be .button.active;
+$padding: "0.5em 0.8em";
+
+.button-simple { @include button($padding simple); }
+.button-push { @include button($padding push); }
+.button-bubble { @include button($padding #2B8ACF 5px bubble ':hover'); }
+.button-line-drawing { @include button($padding 'line-drawing' ':hover'); }
+
+[class*="button-"] {
+  vertical-align: middle;
+  margin: 10px;
+}

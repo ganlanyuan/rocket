@@ -281,7 +281,7 @@
       "validation": {
         "p-1": [
           "Html5 form validation using H5F https://github.com/ryanseddon/H5F. We already include H5F in `-kit.js-` (with a little bit modification), so you don't need download it again.",
-          "Set your customized alerts information through `-<div data-info=\"\"></div>-`."
+          "Set your customized alerts information through `-&lt;div data-info=\"\"&gt;&lt;/div&gt;-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,
@@ -291,6 +291,9 @@
         }
       },
       "button": {
+        "p-1": [
+          "Create buttons and effects."
+        ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": true,
         "demo-1": {
@@ -300,7 +303,7 @@
       },
       "parallelogram": {
         "p-1": [
-          "Create parallelogram style."
+          "Make parallelogram box using CSS3."
         ],
         "capability": "IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,
@@ -311,7 +314,7 @@
       },
       "drop-shadows": {
         "p-1": [
-          "Thanks Nicolas Gallagher http://nicolasgallagher.com/css-drop-shadows-without-images/ for the idea."
+          "Pure css drop shadow effects. \nToken from Nicolas Gallagher at http://nicolasgallagher.com/css-drop-shadows-without-images/."
         ],
         "capability": "IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": true,

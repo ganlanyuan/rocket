@@ -17,7 +17,7 @@
     z-index: -1;
 
     @if $background {
-      background: $background;
+      background-color: $background;
     }
     @if $angle {
       @include ro-transform(skew($angle));

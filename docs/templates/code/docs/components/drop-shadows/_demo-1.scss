@@ -1,4 +1,12 @@
-.box { @include drop-shadows(curve horizontal 20px); }
-// $style: 'curve'; 
-// $direction: horizontal;
-// $shadow-size: 20px;
+.drop-shadow-1 { @include drop-shadows(lifted bottom 15px); }
+.drop-shadow-2 { @include drop-shadows(raised bottom 15px); }
+.drop-shadow-3 { @include drop-shadows(perspective bottom 15px); }
+.drop-shadow-4 { @include drop-shadows(curve bottom 15px); }
+[class*="drop-shadow-"] {
+  display: inline-block;
+  width: 8em;
+  text-align: center;
+  padding: 20px;
+  margin: 20px 50px;
+  background-color: #f7f7f7;
+}

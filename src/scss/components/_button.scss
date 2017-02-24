@@ -11,7 +11,7 @@
   $active-selector: ':hover';
 
   $colors: ();
-  $color-1: #f2f2f2;
+  $color-1: #000;
   $color-2: analogous($color-1 10%);
   @each $item in $key {
     @if type-of($item) == 'color' {
