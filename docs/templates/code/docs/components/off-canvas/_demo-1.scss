@@ -1,27 +1,26 @@
 // normal
-.page { @include off-canvas('slide-in' left 'submenu' '.nav' rgba(0, 0, 0, 0.1) 200px 0.5s); }
-// mode: slide-in; (slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer)
-// direction: left; (left | right | top | bottom)
-// nav: .nav;
-// nav-width(or height): 200px; (default 240px)
-// submenu: has sub menu;
-// overlay-background-color: rgba(0, 0, 0, 0.1);
-// duration: 0.5s;
+.off-canvas-1 { @include off-canvas(slide-in submenu '.off-canvas-nav-1' ); }
  
-// For mode "drawer": 
-// you need set a dynamic gutter between the nav and the top edge of the window.
-// The format is map: $keys => break points, values => gutters.
-// You can use the keys form your $breakpoints.
-$breakpoints: (
-  small: 600px,
-  medium: 1000px,
-);
-$map: (
-  500px: 20px, 
-  small: 30px, 
-  medium: 40px, 
-  null: 50px 
-);
-// null means default (without media query)
- 
-.page { @include off-canvas("drawer" ".nav" left $map $breakpoints rgba(0, 0, 0, 0.1) 200px 0.5s); }
+.off-canvas-nav-1 {
+  color: #fff;
+  background-color: #000;
+  a, label { 
+    display: block;
+    padding: 0.5em 1em; 
+  }
+  label { background-color: rgba(255, 255, 255, 0.2); }
+  [data-submenu] {
+    background-color: #FF8000;
+  }
+}
+.checkbox-hidden {
+  position: absolute;
+  left: -9000px;
+}
+.off-canvas-1 .menu {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}

@@ -46,7 +46,7 @@
           <p class="browser-capability">{{ content }}</p>
           {% elif type === 'syntax' %}
           <div class="code-wrapper">
-            <header>scss: <span>{{ type }}</span></header>
+            <header class="scss">scss: <span>{{ type }}</span></header>
             <pre><code class="language-scss">
               {%- include "code/docs/" + groupName + "/" + componentName + "/_syntax.scss" ignore missing -%}
             </code></pre>
@@ -66,7 +66,7 @@
                 {% if content.markup %}
                 <li>
                   {# header #}
-                  <header>markup</header>
+                  <header class="markup">markup</header>
 
                   {# markup #}
                   <pre><code class="language-markup" id="{{ componentName + '-' + type + '-markup' }}">
@@ -82,7 +82,7 @@
                 {% if content.scss %}
                 <li>
                   {# header #}
-                  <header>scss</header>
+                  <header class="scss">scss</header>
                   
                   {# scss #}
                   <pre><code class="language-scss" id="{{ componentName + '-' + type + '-scss' }}">

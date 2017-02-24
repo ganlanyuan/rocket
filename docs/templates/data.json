@@ -254,7 +254,7 @@
       },
       "responsive-table": {
         "p-1": [
-          "Solutions for display a complex data table on small screen.",
+          "Display complex data tables on small screen.",
           "Referance: \n http://dbushell.com/2012/01/05/responsive-tables-2/, \n https://github.com/nadangergeo/RWD-Table-Patterns"
         ],
         "capability": "Flip-scroll: IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+",
@@ -269,7 +269,7 @@
       },
       "off-canvas": {
         "p-1": [
-          "Pure css off-canvas with multiple modes."
+          "Pure css off-canvas using `-input:checkbox-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+",
         "syntax": true,
@@ -280,8 +280,8 @@
       },
       "validation": {
         "p-1": [
-          "Html5 form validation using H5F https://github.com/ryanseddon/H5F. We already include H5F in `-kit.js-` (with a little bit modification), so you don't need download it again.",
-          "Set your customized alerts information through `-&lt;div data-info=\"\"&gt;&lt;/div&gt;-`."
+          "Html5 form validation using H5F https://github.com/ryanseddon/H5F . H5F is included in `-kit.js-` (with a little bit modification), so you don't need to add it again.",
+          "Set customized alerts information through `-&lt;div data-info=\"\"&gt;&lt;/div&gt;-`."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,

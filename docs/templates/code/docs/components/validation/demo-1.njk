@@ -1,4 +1,4 @@
-<form action="" class="myform">
+<form action="" class="validation-1">
   <ol>
     <li>
       <label for="name">Name</label>
@@ -8,8 +8,14 @@
       <div data-info="required">Valid user name required.</div>
       <div data-info="error">User name must be at least 6 characters.</div>
     </li>
-    <li> … </li>
-    <li> … </li>
+    <li>
+      <label for="name">Email</label>
+      <input type="email" id="email" required>
+      <!-- alerts -->
+      <div data-info="valid">Email is valid.</div>
+      <div data-info="required">Email is required.</div>
+      <div data-info="error">The email address you entered is not valid.</div>
+    </li>
     <li>
       <input type="submit" value="Submit">
     </li>
@@ -18,6 +24,6 @@
 <script>
   // run form validation
   window.onload = function () {
-    H5F.setup(document.querySelectorAll(".myform"));
+    H5F.setup(document.querySelectorAll(".validation-1"));
   }
 </script>

@@ -6,6 +6,7 @@
   $speed: args-get-next($key, 'speed', 0.3s);
   $duration: args-get-next($key, 'duration', 1.3s);
   $default: args-get($key, 'default');
+  $zi: 9999;
 
   $horizontal: false;
   $vertical: false;
@@ -24,6 +25,7 @@
       @include opacity(0);
       @include ro-transition(opacity $speed);
       position: absolute;
+      z-index: $zi;
       @if $direction == right {
         margin-left: 10px;
         margin-top: 0 !important;
@@ -38,6 +40,7 @@
         border-style: solid;
         border-width: 5px;
         border-color: transparent;
+        z-index: $zi;
         @if $direction == right {
           top: 5px;
           left: -10px;
@@ -51,6 +54,7 @@
       position: fixed;
       display: inline-block;
       #{$direction}: 0;
+      z-index: $zi;
       @if $direction == left {
         @include ro-transform(translateX(-100%));
       } @else if $direction == right {

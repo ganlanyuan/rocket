@@ -107,8 +107,9 @@ pre > code[class*="language-"] {
     padding: 0 1em;
     color: #fff;
     background-color: $color-code-header;
-    span { color: $lightblue; }
   }
+  .markup { background-color: #048af0; }
+  .scss { background-color: #fb8909; }
   li {
     width: 100%;
     float: left;
