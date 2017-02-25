@@ -86,8 +86,8 @@
       line-height: 2.1;
       text-align: center;
       font-weight: normal;
-      color: darken($lightblue, 20);
-      border: 1px solid darken($lightblue, 20);
+      color: nth($theme-complementary, 2);
+      border: 1px solid nth($theme-complementary, 2);
       border-radius: 50%;
     }
   }

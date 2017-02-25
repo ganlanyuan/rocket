@@ -13,13 +13,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/prefixfree.js" async defer>
+    </script>
+    <script src="assets/js/prism.js" async defer>
+    </script>
     <script>
     /* svg4everybody:js */
     !function(e,t){"function"==typeof define&&define.amd?define([],function(){return e.svg4everybody=t()}):"object"==typeof exports?module.exports=t():e.svg4everybody=t()}(this,function(){function e(e,t){if(t){var n=document.createDocumentFragment(),i=!e.getAttribute("viewBox")&&t.getAttribute("viewBox");i&&e.setAttribute("viewBox",i);for(var r=t.cloneNode(!0);r.childNodes.length;)n.appendChild(r.firstChild);e.appendChild(n)}}function t(t){t.onreadystatechange=function(){if(4===t.readyState){var n=t._cachedDocument;n||(n=t._cachedDocument=document.implementation.createHTMLDocument(""),n.body.innerHTML=t.responseText,t._cachedTarget={}),t._embeds.splice(0).map(function(i){var r=t._cachedTarget[i.id];r||(r=t._cachedTarget[i.id]=n.getElementById(i.id)),e(i.svg,r)})}},t.onreadystatechange()}function n(n){function i(){for(var n=0;n<h.length;){var d=h[n],s=d.parentNode;if(s&&/svg/i.test(s.nodeName)){var u=d.getAttribute("xlink:href")||d.getAttribute("href");if(r){var l=document.createElement("img");l.style.cssText="display:inline-block;",l.setAttribute("width",s.getAttribute("width")||s.clientWidth),l.setAttribute("height",s.getAttribute("height")||s.clientHeight),l.src=a(u,s,d),s.replaceChild(l,d)}else if(c&&(!o.validate||o.validate(u,s,d))){s.removeChild(d);var v=u.split("#"),b=v.shift(),f=v.join("#");if(b.length){var p=g[b];p||(p=g[b]=new XMLHttpRequest,p.open("GET",b),p.send(),p._embeds=[]),p._embeds.push({svg:s,id:f}),t(p)}else e(s,document.getElementById(f))}}else++n}m(i,67)}var r,a,o=Object(n);a=o.fallback||function(e){return e.replace(/\?[^#]+/,"").replace("#",".").replace(/^\./,"")+".png"+(/\?[^#]+/.exec(e)||[""])[0]},r="nosvg"in o?o.nosvg:/\bMSIE [1-8]\b/.test(navigator.userAgent),r&&(document.createElement("svg"),document.createElement("use"));var c,d=/\bMSIE [1-8]\.0\b/,s=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,u=/\bAppleWebKit\/(\d+)\b/,l=/\bEdge\/12\.(\d+)\b/;c="polyfill"in o?o.polyfill:d.test(navigator.userAgent)||s.test(navigator.userAgent)||(navigator.userAgent.match(l)||[])[1]<10547||(navigator.userAgent.match(u)||[])[1]<537;var g={},m=window.requestAnimationFrame||setTimeout,h=document.getElementsByTagName("use");c&&i()}return n});
     /* endinject */
     svg4everybody({ polyfill: true, fallback: false });
+    </script>
+    <script src="../src/js/vendors/H5F.js" async defer>
     </script>
   </head>
   <body>
@@ -30,7 +36,7 @@
     <header class="site-header site-header--sub">
       <div class="container">
         <div class="logo">
-          <a href="/rocket"><svg class="svg-logo" role="img" title="Rocket" width="54" height="56">
+          <a href="index.html"><svg class="svg-logo" role="img" title="Rocket" width="54" height="56">
           <use xlink:href="assets/svg/sprites.svg#logo"></use></svg> <svg class="svg-logo-text" role="img" title="Rocket" width="449" height="100">
           <use xlink:href="assets/svg/sprites.svg#logo-text"></use></svg></a>
         </div>
@@ -2069,16 +2075,18 @@ $data2: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin responsive-table($mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count)) { // rp-table() for shorthand
+<code class="language-scss">// rp-table() for shorthand
+@mixin responsive-table($mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count)) { 
   @content;
 }
-// $mode: 'flip-scroll' 'scroll' 'toggle' 'stack'
-// $data: list, thead content
-// $count: thead &gt; th length
+// $mode: flip-scroll | scroll | toggle | stack
+// $data: list. (&lt;th&gt; content)
+// $count: num. (&lt;th&gt; count)
  
+// Requirements
 // flip-scroll: $breakpoint
-// toggle: $breakpoint and $count
-// stack: $data, $border-color and $th-width</code>
+// toggle: $breakpoint, $count
+// stack: $data, $border-color, $th-width</code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -2092,38 +2100,254 @@ $data2: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="responsive-table-demo-1-markup">&lt;!-- modes: flip-scroll, stack --&gt;
-&lt;table class="your-table"&gt;
-  &lt;!-- table content goes here --&gt;
+<code class="language-markup" id="responsive-table-demo-1-markup">&lt;!-- Flip scroll --&gt;
+&lt;table class="responsive-table-1"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Name&lt;/th&gt;
+      &lt;th&gt;Last Name&lt;/th&gt;
+      &lt;th&gt;Job Title&lt;/th&gt;
+      &lt;th&gt;Favorite Color&lt;/th&gt;
+      &lt;th&gt;Wars or Trek?&lt;/th&gt;
+      &lt;th&gt;Porn Name&lt;/th&gt;
+      &lt;th&gt;Date of Birth&lt;/th&gt;
+      &lt;th&gt;Dream Vacation City&lt;/th&gt;
+      &lt;th&gt;GPA&lt;/th&gt;
+      &lt;th&gt;Arbitrary Data&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;James&lt;/td&gt;
+      &lt;td&gt;Matman&lt;/td&gt;
+      &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+      &lt;td&gt;Lettuce Green&lt;/td&gt;
+      &lt;td&gt;Trek&lt;/td&gt;
+      &lt;td&gt;Digby Green&lt;/td&gt;
+      &lt;td&gt;January 13, 1979&lt;/td&gt;
+      &lt;td&gt;Gotham City&lt;/td&gt;
+      &lt;td&gt;3.1&lt;/td&gt;
+      &lt;td&gt;RBX-12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The&lt;/td&gt;
+      &lt;td&gt;Tick&lt;/td&gt;
+      &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+      &lt;td&gt;Blue&lt;/td&gt;
+      &lt;td&gt;Wars&lt;/td&gt;
+      &lt;td&gt;John Smith&lt;/td&gt;
+      &lt;td&gt;July 19, 1968&lt;/td&gt;
+      &lt;td&gt;Athens&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jokey&lt;/td&gt;
+      &lt;td&gt;Smurf&lt;/td&gt;
+      &lt;td&gt;Giving Exploding Presents&lt;/td&gt;
+      &lt;td&gt;Smurflow&lt;/td&gt;
+      &lt;td&gt;Smurf&lt;/td&gt;
+      &lt;td&gt;Smurflane Smurfmutt&lt;/td&gt;
+      &lt;td&gt;Smurfuary Smurfteenth, 1945&lt;/td&gt;
+      &lt;td&gt;New Smurf City&lt;/td&gt;
+      &lt;td&gt;4.Smurf&lt;/td&gt;
+      &lt;td&gt;One&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cindy&lt;/td&gt;
+      &lt;td&gt;Beyler&lt;/td&gt;
+      &lt;td&gt;Sales Representative&lt;/td&gt;
+      &lt;td&gt;Red&lt;/td&gt;
+      &lt;td&gt;Wars&lt;/td&gt;
+      &lt;td&gt;Lori Quivey&lt;/td&gt;
+      &lt;td&gt;July 5, 1956&lt;/td&gt;
+      &lt;td&gt;Paris&lt;/td&gt;
+      &lt;td&gt;3.4&lt;/td&gt;
+      &lt;td&gt;3451&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Captain&lt;/td&gt;
+      &lt;td&gt;Cool&lt;/td&gt;
+      &lt;td&gt;Tree Crusher&lt;/td&gt;
+      &lt;td&gt;Blue&lt;/td&gt;
+      &lt;td&gt;Wars&lt;/td&gt;
+      &lt;td&gt;Steve 42nd&lt;/td&gt;
+      &lt;td&gt;December 13, 1982&lt;/td&gt;
+      &lt;td&gt;Las Vegas&lt;/td&gt;
+      &lt;td&gt;1.9&lt;/td&gt;
+      &lt;td&gt;Under the couch&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
- 
-&lt;!-- modes: scroll --&gt;
-&lt;div class="scroll-wrapper"&gt;
-  &lt;table&gt;
- &lt;!-- table content goes here --&gt;
+
+&lt;br&gt; 
+&lt;!-- scroll --&gt;
+&lt;div class="responsive-table-2"&gt;
+  &lt;table class=""&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;First Name&lt;/th&gt;
+        &lt;th&gt;Last Name&lt;/th&gt;
+        &lt;th&gt;Job Title&lt;/th&gt;
+        &lt;th&gt;Favorite Color&lt;/th&gt;
+        &lt;th&gt;Wars or Trek?&lt;/th&gt;
+        &lt;th&gt;Porn Name&lt;/th&gt;
+        &lt;th&gt;Date of Birth&lt;/th&gt;
+        &lt;th&gt;Dream Vacation City&lt;/th&gt;
+        &lt;th&gt;GPA&lt;/th&gt;
+        &lt;th&gt;Arbitrary Data&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;James&lt;/td&gt;
+        &lt;td&gt;Matman&lt;/td&gt;
+        &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+        &lt;td&gt;Lettuce Green&lt;/td&gt;
+        &lt;td&gt;Trek&lt;/td&gt;
+        &lt;td&gt;Digby Green&lt;/td&gt;
+        &lt;td&gt;January 13, 1979&lt;/td&gt;
+        &lt;td&gt;Gotham City&lt;/td&gt;
+        &lt;td&gt;3.1&lt;/td&gt;
+        &lt;td&gt;RBX-12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;The&lt;/td&gt;
+        &lt;td&gt;Tick&lt;/td&gt;
+        &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+        &lt;td&gt;Blue&lt;/td&gt;
+        &lt;td&gt;Wars&lt;/td&gt;
+        &lt;td&gt;John Smith&lt;/td&gt;
+        &lt;td&gt;July 19, 1968&lt;/td&gt;
+        &lt;td&gt;Athens&lt;/td&gt;
+        &lt;td&gt;N/A&lt;/td&gt;
+        &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;
- 
-&lt;!-- modes: toggle --&gt;
-&lt;div class="table-wrapper"&gt;
-  &lt;input type="checkbox" name="" id="toggle-1" checked=""&gt;
-  &lt;input type="checkbox" name="" id="toggle-2"&gt;
-  &lt;input type="checkbox" name="" id="toggle-3"&gt;
-  …
-  &lt;input type="checkbox" name="" id="control-panel"&gt; &lt;!-- required --&gt;
-  &lt;input type="checkbox" name="" id="display-all"&gt; &lt;!-- required --&gt;
-  &lt;label for="control-panel"&gt;Display&lt;/label&gt; &lt;!-- required --&gt;
-  &lt;label for="display-all"&gt;Display All&lt;/label&gt; &lt;!-- required --&gt;
-  &lt;div class="control-panel"&gt; &lt;!-- required --&gt;
- &lt;label for="toggle-1"&gt;First Name&lt;/label&gt;
- &lt;label for="toggle-2"&gt;Last Name&lt;/label&gt;
- &lt;label for="toggle-3"&gt;Job Title&lt;/label&gt;
- …
+&lt;script type="text/javascript" src="../src/js/components/responsive-table.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  responsiveTable(document.querySelector('.responsive-table-2'), 1300);
+&lt;/script&gt;
+
+&lt;br&gt; 
+&lt;!-- toggle --&gt;
+&lt;div class="responsive-table-3"&gt;
+  &lt;input name="" id="toggle-1" checked="" type="checkbox"&gt;
+  &lt;input name="" id="toggle-2" type="checkbox"&gt;
+  &lt;input name="" id="toggle-3" type="checkbox"&gt;
+  &lt;input name="" id="toggle-4" checked="" type="checkbox"&gt;
+  &lt;input name="" id="toggle-5" type="checkbox"&gt;
+  &lt;input name="" id="toggle-6" checked="" type="checkbox"&gt;
+  &lt;input name="" id="toggle-7" type="checkbox"&gt;
+  &lt;input name="" id="toggle-8" type="checkbox"&gt;
+  &lt;input name="" id="toggle-9" type="checkbox"&gt;
+  &lt;input name="" id="toggle-10" type="checkbox"&gt;
+  &lt;input name="" id="control-panel" type="checkbox"&gt;
+  &lt;input name="" id="display-all" type="checkbox"&gt;
+  &lt;label for="control-panel"&gt;Display&lt;/label&gt;
+  &lt;label for="display-all"&gt;Display All&lt;/label&gt;
+  &lt;div class="control-panel"&gt;
+    &lt;label for="toggle-1"&gt;First Name&lt;/label&gt;
+    &lt;label for="toggle-2"&gt;Last Name&lt;/label&gt;
+    &lt;label for="toggle-3"&gt;Job Title&lt;/label&gt;
+    &lt;label for="toggle-4"&gt;Favorite Color&lt;/label&gt;
+    &lt;label for="toggle-5"&gt;Wars or Trek?&lt;/label&gt;
+    &lt;label for="toggle-6"&gt;Porn Name&lt;/label&gt;
+    &lt;label for="toggle-7"&gt;Date of Birth&lt;/label&gt;
+    &lt;label for="toggle-8"&gt;Dream Vacation City&lt;/label&gt;
+    &lt;label for="toggle-9"&gt;GPA&lt;/label&gt;
+    &lt;label for="toggle-10"&gt;Arbitrary Data&lt;/label&gt;
   &lt;/div&gt;
   &lt;table&gt;
- &lt;!-- table content goes here --&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;First Name&lt;/th&gt;
+        &lt;th&gt;Last Name&lt;/th&gt;
+        &lt;th&gt;Job Title&lt;/th&gt;
+        &lt;th&gt;Favorite Color&lt;/th&gt;
+        &lt;th&gt;Wars or Trek?&lt;/th&gt;
+        &lt;th&gt;Porn Name&lt;/th&gt;
+        &lt;th&gt;Date of Birth&lt;/th&gt;
+        &lt;th&gt;Dream Vacation City&lt;/th&gt;
+        &lt;th&gt;GPA&lt;/th&gt;
+        &lt;th&gt;Arbitrary Data&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;James&lt;/td&gt;
+        &lt;td&gt;Matman&lt;/td&gt;
+        &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+        &lt;td&gt;Lettuce Green&lt;/td&gt;
+        &lt;td&gt;Trek&lt;/td&gt;
+        &lt;td&gt;Digby Green&lt;/td&gt;
+        &lt;td&gt;January 13, 1979&lt;/td&gt;
+        &lt;td&gt;Gotham City&lt;/td&gt;
+        &lt;td&gt;3.1&lt;/td&gt;
+        &lt;td&gt;RBX-12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;The&lt;/td&gt;
+        &lt;td&gt;Tick&lt;/td&gt;
+        &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+        &lt;td&gt;Blue&lt;/td&gt;
+        &lt;td&gt;Wars&lt;/td&gt;
+        &lt;td&gt;John Smith&lt;/td&gt;
+        &lt;td&gt;July 19, 1968&lt;/td&gt;
+        &lt;td&gt;Athens&lt;/td&gt;
+        &lt;td&gt;N/A&lt;/td&gt;
+        &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
   &lt;/table&gt;
-&lt;/div&gt;</code>
+&lt;/div&gt;
+
+&lt;br&gt; 
+&lt;!-- stack --&gt;
+&lt;table class="responsive-table-4"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Name&lt;/th&gt;
+      &lt;th&gt;Last Name&lt;/th&gt;
+      &lt;th&gt;Job Title&lt;/th&gt;
+      &lt;th&gt;Favorite Color&lt;/th&gt;
+      &lt;th&gt;Wars or Trek?&lt;/th&gt;
+      &lt;th&gt;Porn Name&lt;/th&gt;
+      &lt;th&gt;Date of Birth&lt;/th&gt;
+      &lt;th&gt;Dream Vacation City&lt;/th&gt;
+      &lt;th&gt;GPA&lt;/th&gt;
+      &lt;th&gt;Arbitrary Data&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;James&lt;/td&gt;
+      &lt;td&gt;Matman&lt;/td&gt;
+      &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+      &lt;td&gt;Lettuce Green&lt;/td&gt;
+      &lt;td&gt;Trek&lt;/td&gt;
+      &lt;td&gt;Digby Green&lt;/td&gt;
+      &lt;td&gt;January 13, 1979&lt;/td&gt;
+      &lt;td&gt;Gotham City&lt;/td&gt;
+      &lt;td&gt;3.1&lt;/td&gt;
+      &lt;td&gt;RBX-12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The&lt;/td&gt;
+      &lt;td&gt;Tick&lt;/td&gt;
+      &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+      &lt;td&gt;Blue&lt;/td&gt;
+      &lt;td&gt;Wars&lt;/td&gt;
+      &lt;td&gt;John Smith&lt;/td&gt;
+      &lt;td&gt;July 19, 1968&lt;/td&gt;
+      &lt;td&gt;Athens&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#responsive-table-demo-1-markup">Copy Code</button>
                   </li>
                   <li>
@@ -2131,17 +2355,39 @@ $data2: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="responsive-table-demo-1-scss">// flip-scroll
-.table { 
-  @include rp-table('flip-scroll' 'bp' 900) {
- border-right-width: 1px;
- &gt; tbody &gt; tr:last-child &gt; td { border-right-width: 0; }
+<code class="language-scss" id="responsive-table-demo-1-scss">table {
+  text-align: left;
+  width: 100%;
+  font-size: 13px;
+  border: 1px solid #dbdbdb;
+  border-width: 1px 0 0 1px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th, td {
+  padding: 10px 6px;
+  border: 1px solid #dbdbdb;
+  border-width: 0 1px 1px 0;
+}
+th {
+  background-color: #f5f5f5;
+}
+
+// flip-scroll
+.responsive-table-1 { 
+  @include rp-table('flip-scroll' bp 1300px) {
+    border-right-width: 1px;
+    &gt; tbody &gt; tr:last-child &gt; td { border-right-width: 0; }
+    .lt-ie10 &amp; { 
+      border-right-width: 0; 
+      &gt; tbody &gt; tr:last-child &gt; td { border-right-width: 1px; }
+    }
   }
 }
  
 // scroll
-.scroll-wrapper { 
-  @include rp-table('scroll' bp 900) {
+.responsive-table-2 { 
+  @include rp-table('scroll' bp 1300px) {
     .table {
       border-right-width: 1px;
       th:last-child, td:last-child { border-right-width: 0; }
@@ -2154,15 +2400,27 @@ $data2: (
 }
  
 // toggle
-.table {
-  @include rp-table('toggle' 'bp' 900 'count' 10);
+.responsive-table-3 {
+  @include rp-table('toggle' 'bp' 1300px 'count' 10);
 }
  
 // stack
-.table {
-  @include rp-table('stack' 'bp' 900 #dbdbdb 'data' ('First Nam',e 'Last Name', 'Job Title', 'Favorite Color', 'Wars or Trek?', 'Porn Name', 'Date of Birth', 'Dream Vacation City', 'GPA', 'Arbitrary Data')) {
- tr:nth-of-type(2n) { background-color: #f5f5f5; }
- td:before { margin-right: 7px; }
+$responsive-table-4-data: (
+  'First Name', 
+  'Last Name', 
+  'Job Title', 
+  'Favorite Color', 
+  'Wars or Trek?', 
+  'Porn Name', 
+  'Date of Birth', 
+  'Dream Vacation City', 
+  'GPA', 
+  'Arbitrary Data'
+);
+.responsive-table-4 {
+  @include rp-table('stack' 'bp' 1300px #dbdbdb 'data' $responsive-table-4-data) {
+    tr:nth-of-type(2n) { background-color: #f5f5f5; }
+    td:before { margin-right: 7px; }
   }
 }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#responsive-table-demo-1-scss">Copy Code</button>
@@ -2170,17 +2428,523 @@ $data2: (
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <table class="your-table"></table>
-                <div class="scroll-wrapper">
-                  <table></table>
+                <table class="responsive-table-1">
+                  <thead>
+                    <tr>
+                      <th>
+                        First Name
+                      </th>
+                      <th>
+                        Last Name
+                      </th>
+                      <th>
+                        Job Title
+                      </th>
+                      <th>
+                        Favorite Color
+                      </th>
+                      <th>
+                        Wars or Trek?
+                      </th>
+                      <th>
+                        Porn Name
+                      </th>
+                      <th>
+                        Date of Birth
+                      </th>
+                      <th>
+                        Dream Vacation City
+                      </th>
+                      <th>
+                        GPA
+                      </th>
+                      <th>
+                        Arbitrary Data
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        James
+                      </td>
+                      <td>
+                        Matman
+                      </td>
+                      <td>
+                        Chief Sandwich Eater
+                      </td>
+                      <td>
+                        Lettuce Green
+                      </td>
+                      <td>
+                        Trek
+                      </td>
+                      <td>
+                        Digby Green
+                      </td>
+                      <td>
+                        January 13, 1979
+                      </td>
+                      <td>
+                        Gotham City
+                      </td>
+                      <td>
+                        3.1
+                      </td>
+                      <td>
+                        RBX-12
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        The
+                      </td>
+                      <td>
+                        Tick
+                      </td>
+                      <td>
+                        Crimefighter Sorta
+                      </td>
+                      <td>
+                        Blue
+                      </td>
+                      <td>
+                        Wars
+                      </td>
+                      <td>
+                        John Smith
+                      </td>
+                      <td>
+                        July 19, 1968
+                      </td>
+                      <td>
+                        Athens
+                      </td>
+                      <td>
+                        N/A
+                      </td>
+                      <td>
+                        Edlund, Ben (July 1996).
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Jokey
+                      </td>
+                      <td>
+                        Smurf
+                      </td>
+                      <td>
+                        Giving Exploding Presents
+                      </td>
+                      <td>
+                        Smurflow
+                      </td>
+                      <td>
+                        Smurf
+                      </td>
+                      <td>
+                        Smurflane Smurfmutt
+                      </td>
+                      <td>
+                        Smurfuary Smurfteenth, 1945
+                      </td>
+                      <td>
+                        New Smurf City
+                      </td>
+                      <td>
+                        4.Smurf
+                      </td>
+                      <td>
+                        One
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Cindy
+                      </td>
+                      <td>
+                        Beyler
+                      </td>
+                      <td>
+                        Sales Representative
+                      </td>
+                      <td>
+                        Red
+                      </td>
+                      <td>
+                        Wars
+                      </td>
+                      <td>
+                        Lori Quivey
+                      </td>
+                      <td>
+                        July 5, 1956
+                      </td>
+                      <td>
+                        Paris
+                      </td>
+                      <td>
+                        3.4
+                      </td>
+                      <td>
+                        3451
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Captain
+                      </td>
+                      <td>
+                        Cool
+                      </td>
+                      <td>
+                        Tree Crusher
+                      </td>
+                      <td>
+                        Blue
+                      </td>
+                      <td>
+                        Wars
+                      </td>
+                      <td>
+                        Steve 42nd
+                      </td>
+                      <td>
+                        December 13, 1982
+                      </td>
+                      <td>
+                        Las Vegas
+                      </td>
+                      <td>
+                        1.9
+                      </td>
+                      <td>
+                        Under the couch
+                      </td>
+                    </tr>
+                  </tbody>
+                </table><br>
+                <div class="responsive-table-2">
+                  <table class="">
+                    <thead>
+                      <tr>
+                        <th>
+                          First Name
+                        </th>
+                        <th>
+                          Last Name
+                        </th>
+                        <th>
+                          Job Title
+                        </th>
+                        <th>
+                          Favorite Color
+                        </th>
+                        <th>
+                          Wars or Trek?
+                        </th>
+                        <th>
+                          Porn Name
+                        </th>
+                        <th>
+                          Date of Birth
+                        </th>
+                        <th>
+                          Dream Vacation City
+                        </th>
+                        <th>
+                          GPA
+                        </th>
+                        <th>
+                          Arbitrary Data
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          James
+                        </td>
+                        <td>
+                          Matman
+                        </td>
+                        <td>
+                          Chief Sandwich Eater
+                        </td>
+                        <td>
+                          Lettuce Green
+                        </td>
+                        <td>
+                          Trek
+                        </td>
+                        <td>
+                          Digby Green
+                        </td>
+                        <td>
+                          January 13, 1979
+                        </td>
+                        <td>
+                          Gotham City
+                        </td>
+                        <td>
+                          3.1
+                        </td>
+                        <td>
+                          RBX-12
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          The
+                        </td>
+                        <td>
+                          Tick
+                        </td>
+                        <td>
+                          Crimefighter Sorta
+                        </td>
+                        <td>
+                          Blue
+                        </td>
+                        <td>
+                          Wars
+                        </td>
+                        <td>
+                          John Smith
+                        </td>
+                        <td>
+                          July 19, 1968
+                        </td>
+                        <td>
+                          Athens
+                        </td>
+                        <td>
+                          N/A
+                        </td>
+                        <td>
+                          Edlund, Ben (July 1996).
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="table-wrapper">
-                  <input type="checkbox" name="" id="toggle-1" checked> <input type="checkbox" name="" id="toggle-2"> <input type="checkbox" name="" id="toggle-3"> … <input type="checkbox" name="" id="control-panel">  <input type="checkbox" name="" id="display-all">  <label for="control-panel">Display</label>  <label for="display-all">Display All</label> 
+                <script type="text/javascript" src="../src/js/components/responsive-table.js">
+                </script> 
+                <script>
+                responsiveTable(document.querySelector('.responsive-table-2'), 1300);
+                </script><br>
+                <div class="responsive-table-3">
+                  <input name="" id="toggle-1" checked type="checkbox"> <input name="" id="toggle-2" type="checkbox"> <input name="" id="toggle-3" type="checkbox"> <input name="" id="toggle-4" checked type="checkbox"> <input name="" id="toggle-5" type="checkbox"> <input name="" id="toggle-6" checked type="checkbox"> <input name="" id="toggle-7" type="checkbox"> <input name="" id="toggle-8" type="checkbox"> <input name="" id="toggle-9" type="checkbox"> <input name="" id="toggle-10" type="checkbox"> <input name="" id="control-panel" type="checkbox"> <input name="" id="display-all" type="checkbox"> <label for="control-panel">Display</label> <label for="display-all">Display All</label>
                   <div class="control-panel">
-                    <label for="toggle-1">First Name</label> <label for="toggle-2">Last Name</label> <label for="toggle-3">Job Title</label> …
+                    <label for="toggle-1">First Name</label> <label for="toggle-2">Last Name</label> <label for="toggle-3">Job Title</label> <label for="toggle-4">Favorite Color</label> <label for="toggle-5">Wars or Trek?</label> <label for="toggle-6">Porn Name</label> <label for="toggle-7">Date of Birth</label> <label for="toggle-8">Dream Vacation City</label> <label for="toggle-9">GPA</label> <label for="toggle-10">Arbitrary Data</label>
                   </div>
-                  <table></table>
-                </div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          First Name
+                        </th>
+                        <th>
+                          Last Name
+                        </th>
+                        <th>
+                          Job Title
+                        </th>
+                        <th>
+                          Favorite Color
+                        </th>
+                        <th>
+                          Wars or Trek?
+                        </th>
+                        <th>
+                          Porn Name
+                        </th>
+                        <th>
+                          Date of Birth
+                        </th>
+                        <th>
+                          Dream Vacation City
+                        </th>
+                        <th>
+                          GPA
+                        </th>
+                        <th>
+                          Arbitrary Data
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          James
+                        </td>
+                        <td>
+                          Matman
+                        </td>
+                        <td>
+                          Chief Sandwich Eater
+                        </td>
+                        <td>
+                          Lettuce Green
+                        </td>
+                        <td>
+                          Trek
+                        </td>
+                        <td>
+                          Digby Green
+                        </td>
+                        <td>
+                          January 13, 1979
+                        </td>
+                        <td>
+                          Gotham City
+                        </td>
+                        <td>
+                          3.1
+                        </td>
+                        <td>
+                          RBX-12
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          The
+                        </td>
+                        <td>
+                          Tick
+                        </td>
+                        <td>
+                          Crimefighter Sorta
+                        </td>
+                        <td>
+                          Blue
+                        </td>
+                        <td>
+                          Wars
+                        </td>
+                        <td>
+                          John Smith
+                        </td>
+                        <td>
+                          July 19, 1968
+                        </td>
+                        <td>
+                          Athens
+                        </td>
+                        <td>
+                          N/A
+                        </td>
+                        <td>
+                          Edlund, Ben (July 1996).
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div><br>
+                <table class="responsive-table-4">
+                  <thead>
+                    <tr>
+                      <th>
+                        First Name
+                      </th>
+                      <th>
+                        Last Name
+                      </th>
+                      <th>
+                        Job Title
+                      </th>
+                      <th>
+                        Favorite Color
+                      </th>
+                      <th>
+                        Wars or Trek?
+                      </th>
+                      <th>
+                        Porn Name
+                      </th>
+                      <th>
+                        Date of Birth
+                      </th>
+                      <th>
+                        Dream Vacation City
+                      </th>
+                      <th>
+                        GPA
+                      </th>
+                      <th>
+                        Arbitrary Data
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        James
+                      </td>
+                      <td>
+                        Matman
+                      </td>
+                      <td>
+                        Chief Sandwich Eater
+                      </td>
+                      <td>
+                        Lettuce Green
+                      </td>
+                      <td>
+                        Trek
+                      </td>
+                      <td>
+                        Digby Green
+                      </td>
+                      <td>
+                        January 13, 1979
+                      </td>
+                      <td>
+                        Gotham City
+                      </td>
+                      <td>
+                        3.1
+                      </td>
+                      <td>
+                        RBX-12
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        The
+                      </td>
+                      <td>
+                        Tick
+                      </td>
+                      <td>
+                        Crimefighter Sorta
+                      </td>
+                      <td>
+                        Blue
+                      </td>
+                      <td>
+                        Wars
+                      </td>
+                      <td>
+                        John Smith
+                      </td>
+                      <td>
+                        July 19, 1968
+                      </td>
+                      <td>
+                        Athens
+                      </td>
+                      <td>
+                        N/A
+                      </td>
+                      <td>
+                        Edlund, Ben (July 1996).
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </li>
@@ -2929,7 +3693,7 @@ $data2: (
   &lt;label for="input-file-id"&gt;Choose a file&lt;/label&gt;
 &lt;/div&gt;
 
-&lt;script src="path/to/input-file.js"&gt;&lt;/script&gt;
+&lt;script src="../src/js/components/input-file.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   inputFile('#input-file-id');
 &lt;/script&gt;</code>
@@ -2962,7 +3726,7 @@ $data2: (
                 <div class="input-file-1">
                   <input type="file" id="input-file-id" data-multiple-caption="{count} files selected" multiple> <label for="input-file-id">Choose a file</label>
                 </div>
-                <script src="path/to/input-file.js">
+                <script src="../src/js/components/input-file.js">
                 </script> 
                 <script type="text/javascript">
                 inputFile('#input-file-id');
@@ -4644,8 +5408,6 @@ $responsive-type-2: (
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js">
-    </script> 
-    <script src="../dist/kit.min.js">
     </script> 
     <script src="assets/js/script.js">
     </script>

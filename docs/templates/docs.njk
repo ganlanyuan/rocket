@@ -48,7 +48,7 @@
           <div class="code-wrapper">
             <header class="scss">scss: <span>{{ type }}</span></header>
             <pre><code class="language-scss">
-              {%- include "code/docs/" + groupName + "/" + componentName + "/_syntax.scss" ignore missing -%}
+              {%- include "code/docs/" + componentName + "/_syntax.scss" ignore missing -%}
             </code></pre>
           </div>
           {% elif type.indexOf('demo-') !== -1 %}
@@ -71,7 +71,7 @@
                   {# markup #}
                   <pre><code class="language-markup" id="{{ componentName + '-' + type + '-markup' }}">
                     {%- set itemHtml %}
-                      {%- include "code/docs/" + groupName + "/" + componentName + "/" + type + ".njk" ignore missing -%}
+                      {%- include "code/docs/" + componentName + "/" + type + ".njk" ignore missing -%}
                     {% endset -%}
                     {{- itemHtml -}}
                   </code></pre>
@@ -87,7 +87,7 @@
                   {# scss #}
                   <pre><code class="language-scss" id="{{ componentName + '-' + type + '-scss' }}">
                     {%- set itemScss %}
-                      {%- include "code/docs/" + groupName + "/" + componentName + "/_" + type + ".scss" ignore missing -%}
+                      {%- include "code/docs/" + componentName + "/_" + type + ".scss" ignore missing -%}
                     {% endset -%}
                     {{- itemScss -}}
                   </code></pre>
@@ -101,7 +101,7 @@
             {# preview #}
             {% if content.markup %}
             <div class="preview-wrapper">
-              {%- include "code/docs/" + groupName + "/" + componentName + "/" + type + ".njk" ignore missing -%}
+              {%- include "code/docs/" + componentName + "/" + type + ".njk" ignore missing -%}
             </div>
             {% endif %}
 

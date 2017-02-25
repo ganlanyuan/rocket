@@ -30,6 +30,8 @@
     "README.md",
     "node_modules",
     "bower_components",
+    "docs",
+    "demos",
     "test",
     "tests"
   ],

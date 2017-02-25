@@ -58,7 +58,7 @@ pre > code[class*="language-"] {
   }
   .active a { 
     color: #fff;
-    background-color: $color-code-header; 
+    background-color: $color-primary; 
   }
   &-toggle {
     @include type(14px);
@@ -66,7 +66,7 @@ pre > code[class*="language-"] {
     right: 0;
     padding: 0.7em;
     color: #fff;
-    background-color: $blue;
+    background-color: $color-primary;
     border-radius: 3px;
     white-space: nowrap;
     cursor: pointer;
@@ -108,8 +108,8 @@ pre > code[class*="language-"] {
     color: #fff;
     background-color: $color-code-header;
   }
-  .markup { background-color: #048af0; }
-  .scss { background-color: #fb8909; }
+  .markup { background-color: nth($theme-complementary, 1); }
+  .scss { background-color: nth($theme-complementary, 2); }
   li {
     width: 100%;
     float: left;
@@ -141,7 +141,7 @@ pre > code[class*="language-"] {
   opacity: 0;
   transition: opacity 0.25s;
   &.copied {
-    background-color: $blue;
+    background-color: $color-primary;
   }
 }
 [data-content] { 
@@ -172,7 +172,7 @@ pre > code[class*="language-"] {
     transition: transform 0.25s;
     .shownav & { 
       transform: translateX(0);
-      border-right: 1px solid $color-code-header;
+      box-shadow: $docs-nav-bxsh;
     }
     &-toggle:before { 
       content: "Show menu"; 
@@ -196,7 +196,7 @@ pre > code[class*="language-"] {
     top: 0;
     float: left;
     width: $nav-width;
-    border-right: 1px solid $color-code-header;
+    box-shadow: $docs-nav-bxsh;
     .hidenav & { display: none; }
     &-toggle:before { 
       content: "Hide menu"; 

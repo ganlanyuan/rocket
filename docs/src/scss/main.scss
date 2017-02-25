@@ -19,7 +19,12 @@ $lightgray: #f5f5f5;
 $color-code-header: #333;
 $color-link: $blue;
 
+$color-primary: #048af0;
+$theme-complementary: ($color-primary, complementary($color-primary 1));
+$theme-triad: ($color-primary, triad($color-primary 1), triad($color-primary 2));
+
 $border: 1px solid #eee;
+$docs-nav-bxsh: 3px 4px 4px 0 rgba(0, 0, 0, 0.2);
 $section-gap: calc(3% + 10px);
 $get-started-media-width: 32%;
 
@@ -66,20 +71,23 @@ svg {
 
 // header
 .header-wrapper {
-  background-color: $blue;
-  // background: $blue linear-gradient(to bottom, $blue, $lightblue) no-repeat;
+  background-color: $color-primary;
+  // background: $color-primary linear-gradient(to bottom, $color-primary, $lightblue) no-repeat;
 }
 .site-header {
   @extend %clearfix;
   color: #fff;
   .container { max-width: none; }
-  &--sub { background-color: $blue; }
+  &--sub { background-color: $color-primary; }
 }
 .logo {
   float: left;
   svg { 
     display: block; 
     padding: 10px 0;
+  }
+  path:last-child {
+    fill: nth($theme-triad, 3);
   }
 }
 .site-nav {
@@ -142,4 +150,4 @@ svg {
 
 @import 'home';
 @import 'docs';
-@import '../../templates/code/docs/_docs';
+@import '../../templates/code/docs/_all';
