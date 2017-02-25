@@ -1894,7 +1894,7 @@ $main: (
               Charts
             </h4>
             <p>
-              Pure css responsive charts. Currently only include <code class="language-html">bar</code> and <code class="language-html">column</code>, more types will be added soon.
+              Pure css responsive charts.
             </p>
             <p class="browser-capability">
               IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+
@@ -1904,7 +1904,10 @@ $main: (
                 scss: <span>syntax</span>
               </header>
               <pre>
-<code class="language-scss">@mixin charts(($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))</code>
+<code class="language-scss">@mixin charts($data $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))
+// $data: map. (color: data, color: data, ...)
+// $chart-type: bar | column
+// $bar-height: </code>
 </pre>
             </div>
             <div class="demo-container" data-show="code">
@@ -1918,7 +1921,7 @@ $main: (
                       markup
                     </header>
                     <pre>
-<code class="language-markup" id="charts-demo-1-markup">&lt;div class="charts"&gt;
+<code class="language-markup" id="charts-demo-1-markup">&lt;div class="charts-1"&gt;
   &lt;!-- items: charts body --&gt;
   &lt;ul class="items"&gt;
     &lt;li class="item-1"&gt;
@@ -1960,6 +1963,56 @@ $main: (
   &lt;div class="labels"&gt;
     &lt;div class="label-1"&gt;sales&lt;/div&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+&lt;div class="charts-2"&gt;
+  &lt;ul class="items"&gt;
+    &lt;li class="item-1"&gt;
+      &lt;strong&gt;Copper&lt;/strong&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="item-2"&gt;
+      &lt;strong&gt;Silver&lt;/strong&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="item-3"&gt;
+      &lt;strong&gt;Gold&lt;/strong&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="item-4"&gt;
+      &lt;strong&gt;Platinum&lt;/strong&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="ticks"&gt;
+    &lt;div class="tick-1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-2"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-3"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-4"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-5"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-6"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-7"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-8"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-9"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-10"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-11"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-12"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-13"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="labels"&gt;
+    &lt;div class="label-1"&gt;sales&lt;/div&gt;
+    &lt;div class="label-2"&gt;expenses&lt;/div&gt;
+    &lt;div class="label-3"&gt;profit&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#charts-demo-1-markup">Copy Code</button>
                   </li>
@@ -1968,29 +2021,27 @@ $main: (
                       scss
                     </header>
                     <pre>
-<code class="language-scss" id="charts-demo-1-scss">$data1: (
+<code class="language-scss" id="charts-demo-1-scss">$charts-data1: (
   #5AB5E1: 8.9 10.5 19.3 21.45,
 );
-.charts { @include charts($data1 'bar' 'steps' (2 22) animation (0.6s)); }
-// single factor bar charts
-// steps: unit 2, total 22
-// animation: 0.6s ease (add class '.active' to charts to show animation)
+.charts-1 { @include charts($charts-data1 'bar' 'steps' (2 22)); }
  
-$data2: (
+$charts-data2: (
   #E44B22: 8.9 10.5 19.3 21.45,
   #E48A22: 5 10 16 22,
   #22A1E4: 10.7 12 12 18,
 );
-.charts { @include charts($data2 'column' 'steps' (2 24) 'hide' ('numbers' 'labels')); }
-// multiply factors column charts
-// steps: unit 2, total 24
-// hide: numbers and labels</code>
+.charts-2 { @include charts($charts-data2 'column' 'steps' (2 24) 'hide' ('numbers')); }
+
+[class*="charts-"] {
+  margin-bottom: 2em;
+}</code>
 </pre><button class="btn copy-button" data-clipboard-target="#charts-demo-1-scss">Copy Code</button>
                   </li>
                 </ul>
               </div>
               <div class="preview-wrapper">
-                <div class="charts">
+                <div class="charts-1">
                   <ul class="items">
                     <li class="item-1">
                       <strong>Copper</strong>  <span></span> 
@@ -2049,6 +2100,74 @@ $data2: (
                   <div class="labels">
                     <div class="label-1">
                       sales
+                    </div>
+                  </div>
+                </div><br>
+                <div class="charts-2">
+                  <ul class="items">
+                    <li class="item-1">
+                      <strong>Copper</strong> <span></span> <span></span> <span></span>
+                    </li>
+                    <li class="item-2">
+                      <strong>Silver</strong> <span></span> <span></span> <span></span>
+                    </li>
+                    <li class="item-3">
+                      <strong>Gold</strong> <span></span> <span></span> <span></span>
+                    </li>
+                    <li class="item-4">
+                      <strong>Platinum</strong> <span></span> <span></span> <span></span>
+                    </li>
+                  </ul>
+                  <div class="ticks">
+                    <div class="tick-1">
+                      <span></span>
+                    </div>
+                    <div class="tick-2">
+                      <span></span>
+                    </div>
+                    <div class="tick-3">
+                      <span></span>
+                    </div>
+                    <div class="tick-4">
+                      <span></span>
+                    </div>
+                    <div class="tick-5">
+                      <span></span>
+                    </div>
+                    <div class="tick-6">
+                      <span></span>
+                    </div>
+                    <div class="tick-7">
+                      <span></span>
+                    </div>
+                    <div class="tick-8">
+                      <span></span>
+                    </div>
+                    <div class="tick-9">
+                      <span></span>
+                    </div>
+                    <div class="tick-10">
+                      <span></span>
+                    </div>
+                    <div class="tick-11">
+                      <span></span>
+                    </div>
+                    <div class="tick-12">
+                      <span></span>
+                    </div>
+                    <div class="tick-13">
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="labels">
+                    <div class="label-1">
+                      sales
+                    </div>
+                    <div class="label-2">
+                      expenses
+                    </div>
+                    <div class="label-3">
+                      profit
                     </div>
                   </div>
                 </div>
@@ -2375,7 +2494,7 @@ th {
 
 // flip-scroll
 .responsive-table-1 { 
-  @include rp-table('flip-scroll' bp 1300px) {
+  @include rp-table('flip-scroll' bp 900px) {
     border-right-width: 1px;
     &gt; tbody &gt; tr:last-child &gt; td { border-right-width: 0; }
     .lt-ie10 &amp; { 
@@ -2387,7 +2506,7 @@ th {
  
 // scroll
 .responsive-table-2 { 
-  @include rp-table('scroll' bp 1300px) {
+  @include rp-table('scroll' bp 900px) {
     .table {
       border-right-width: 1px;
       th:last-child, td:last-child { border-right-width: 0; }
@@ -2401,7 +2520,7 @@ th {
  
 // toggle
 .responsive-table-3 {
-  @include rp-table('toggle' 'bp' 1300px 'count' 10);
+  @include rp-table('toggle' 'bp' 900px 'count' 10);
 }
  
 // stack
@@ -2418,7 +2537,7 @@ $responsive-table-4-data: (
   'Arbitrary Data'
 );
 .responsive-table-4 {
-  @include rp-table('stack' 'bp' 1300px #dbdbdb 'data' $responsive-table-4-data) {
+  @include rp-table('stack' 'bp' 900px #dbdbdb 'data' $responsive-table-4-data) {
     tr:nth-of-type(2n) { background-color: #f5f5f5; }
     td:before { margin-right: 7px; }
   }
@@ -5392,7 +5511,7 @@ $responsive-type-2: (
     <footer class="site-footer">
       <div class="container">
         <div class="copyright">
-          Rocket code licensed under MIT license. Rocket website licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+          Code licensed under MIT license. Website licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
         </div>
         <ul class="site-footer__links">
           <li>

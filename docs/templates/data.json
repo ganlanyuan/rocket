@@ -243,7 +243,7 @@
     "components": {
       "charts": {
         "p-1": [
-          "Pure css responsive charts. Currently only include `-bar-` and `-column-`, more types will be added soon."
+          "Pure css responsive charts."
         ],
         "capability": "IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+",
         "syntax": true,

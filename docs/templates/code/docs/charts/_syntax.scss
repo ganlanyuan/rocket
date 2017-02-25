@@ -1,1 +1,6 @@
-@mixin charts(($data: $color: data, ...) $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))
+@mixin charts($data $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))
+// $data: map. (color: data, color: data, ...)
+// $chart-type: bar | column
+// $bar-gap: px | em. Required if mode is "bar".
+// $bar-height: px | em
+// $steps: list. (step count)

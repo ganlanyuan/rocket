@@ -162,10 +162,12 @@
       .labels { display: none; }
     }
   }
+
   @if $chart-type == 'bar' {
     $gutter: 10px;
 
-    margin-left: $bar-gap !important;
+    margin-left: $bar-gap;
+    margin-right: 1em;
     // background: #fff repeating-linear-gradient(90deg, $tick-line-color, transparent 1px, transparent (percentage($step-val / $full-width))) 0 0 no-repeat;
     // items
     li {
@@ -210,10 +212,14 @@
         }
       }
     }
+
+    @if $units { margin-top: 1em; }
     // labels
     @if $labels {
-      .labels { margin-top: 1em; }
+      margin-bottom: 2em;
+      .labels { margin-top: 0.5em; }
     }
+
   } @else if $chart-type == 'column' {
     $gutter: 0.2;
     $column-width: percentage((1 - $gutter) / length($data));
@@ -249,8 +255,10 @@
     @if $animation {
       #{$path} li > span { padding-top: 0.8em; }
     }
+
     // ticks
     @if $units {
+      margin-left: 2em;
       .ticks {
         span {
           margin-top: -0.5em;
@@ -259,8 +267,10 @@
         }
       }
     }
+
     // labels
     @if $labels {
+      margin-top: 2em;
       .labels {
         right: 0;
         top: -1.5em;
