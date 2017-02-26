@@ -20,7 +20,7 @@ $color-code-header: #333;
 $color-link: $blue;
 
 $color-primary: #048af0;
-$theme-complementary: ($color-primary, complementary($color-primary 1));
+$theme-complementary: ($color-primary, complementary($color-primary 1 lightness 10%));
 $theme-triad: ($color-primary, triad($color-primary 1), triad($color-primary 2));
 
 $border: 1px solid #eee;

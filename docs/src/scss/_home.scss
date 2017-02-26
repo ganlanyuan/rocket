@@ -23,9 +23,11 @@
 
 // features
 .features {
-  background-color: $lightgray;
+  // background-color: $lightgray;
+  background-color: nth($theme-complementary, 2);
   padding:1px 0 50px;
   text-align: center;
+  [class*="language-"] { background-color: rgba(0, 0, 0, 0.07); }
   @include bp(min 610) {
     ul { margin-right: -30px; }
     li {
@@ -60,16 +62,14 @@
     }
     @include bp(min 600px) {
       .media { 
+        float: right;
         width: $get-started-media-width; 
         text-align: center;
       }
       .media-body {
-        width: calc(100% - #{$get-started-media-width} - 20px);
+        float: left;
+        width: calc(100% - #{$get-started-media-width} - 30px);
       }
-      &:nth-child(odd) .media, 
-      &:nth-child(even) .media-body { float: left; }
-      &:nth-child(odd) .media-body, 
-      &:nth-child(even) .media { float: right; }
     }
   }
   h4 {
@@ -77,9 +77,7 @@
     position: relative;
     &:before {
       content: counter(getstarted);
-      position: absolute;
-      left: 0;
-      margin-top: -0.5em;
+      margin: -0.5em 0.5em 0 0;
       display: inline-block;
       width: 2em;
       height: 2em;
@@ -91,5 +89,4 @@
       border-radius: 50%;
     }
   }
-  h4, p { padding-left: 3em; }
 }
