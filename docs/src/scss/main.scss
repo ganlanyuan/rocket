@@ -82,10 +82,7 @@ svg {
 }
 .logo {
   float: left;
-  svg { 
-    display: block; 
-    padding: 10px 0;
-  }
+  padding: 10px 0;
   path:last-child {
     fill: nth($theme-triad, 3);
   }
@@ -106,17 +103,20 @@ svg {
   .active a { opacity: 1; }
 }
 @include bp(max $bp-header) {
-  .logo {
-    svg { width: $logo-width-sm; }
-    .svg-logo-text { display: none; }
+  .svg-logo { 
+    width: $logo-width-sm; 
+    height: ($logo-width-sm * 56 / 54); 
   }
+  .svg-logo-text { display: none; }
   .site-nav li { line-height: (50px * 56 / 54 + 20px); }
 }
 @include bp(min $bp-header) {
-  .logo {
-    svg { width: $logo-width-lg; padding: 20px 0; }
-    .svg-logo { display: none; }
+  .logo { padding: 20px 0; }
+  .svg-logo-text { 
+    width: $logo-width-lg; 
+    height: ($logo-width-lg * 100 / 449); 
   }
+  .svg-logo { display: none; }
   .site-nav li { line-height: (200px * 100 / 449 + 40px); }
 }
 
