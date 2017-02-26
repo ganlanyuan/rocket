@@ -71,8 +71,11 @@ pre > code[class*="language-"] {
     white-space: nowrap;
     cursor: pointer;
     &-wrapper {
-      position: sticky;
-      top: 10px;
+      position: relative;
+      @supports (position: sticky) {
+        position: sticky;
+        top: 10px;
+      }
       z-index: $zi-docs-nav;
       text-align: right;
     }
@@ -192,11 +195,15 @@ pre > code[class*="language-"] {
 }
 @include bp(min $bp-docs) {
   .docs-nav {
-    position: sticky;
-    top: 0;
+    max-height: unset;
+    position: relative;
+    @supports (position: sticky) {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+    }
     float: left;
     width: $nav-width;
-    box-shadow: $docs-nav-bxsh;
     .hidenav & { display: none; }
     &-toggle:before { 
       content: "Hide menu"; 
