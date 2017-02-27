@@ -1,9 +1,14 @@
 {% set pagename = 'guide' %}
 {% extends "partials/layout.njk" %}
 
-{% set guideNav = {'basis': ['data type', 'parameter'], 'practise': ['design', 'markup']} %}
+{% set guideNav = {'basics': ['sass basics', 'data type', 'parameter'], 'practice': ['design', 'markup']} %}
 {% block main %}
 <div class="docs-wrapper section">
+
+  {# nav toggle button #}
+  <div class="docs-nav-toggle-wrapper">
+    <div class="docs-nav-toggle"></div>
+  </div>
 
   {# guide nav #}
   <nav class="docs-nav">
@@ -12,7 +17,7 @@
     <ul>
 
       {% for item in group %}
-      <li class="nav-{{ item }}"><a href="#{{ item }}">{{ item | capitalize }}</a></li>
+      <li><a href="#{{ item | replace(' ', '-') }}">{{ item | capitalize }}</a></li>
       {% endfor %}
 
     </ul>
@@ -22,10 +27,66 @@
   {# main #}
   <main>
 
-    <h2>Guide</h2>
-    <section>
-      <h4>{{ keys(guideNav)[0] | capitalize }}</h4>
-      <p></p>
+    {% set key1 = keys(guideNav)[0] %}
+    {% set value1 = guideNav[key1] %}
+    <h2>{{ key1 | capitalize }}</h2>
+    <section id="{{ value1[0] | replace(' ', '-') }}">
+      <h4>{{ value1[0] | capitalize }}</h4>
+      <p>You don't need to have a full knowledges of <a href="http://sass-lang.com/" target="_black">SASS</a> in order to use Rocket, but still there are some <a href="http://sass-lang.com/guide" target="_black">basics</a> you should know beforehand.</p>
+    </section>
+
+    <section id="{{ value1[1] | replace(' ', '-') }}">
+      <h4>{{ value1[1] | capitalize }}</h4>
+      <p>The most offten used data types in <code class="language-none">Rocket</code> are <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#lists" target="_black">list</a> and <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps" target="_black">map</a>. <code class="language-none">list</code> can be space-separated or comma-separated and can be nested. <code class="language">map</code> must be surrounded by parentheses and must be comma-separated.</p>
+<pre class="language-scss"><code>// list
+$margin: (20px, 40px);
+$z-index: (1 2 3 4 5 6 7 8 9 10);
+$a-nested-list: (1 2 3 4 5, 6 7 8);
+
+// map
+$breakpoints: (
+  small: 640px,
+  midum: 768px,
+  large: 1024px
+);
+</code></pre>
+    </section>
+
+    <section id="{{ value1[2] | replace(' ', '-') }}">
+      <h4>{{ value1[2] | capitalize }}</h4>
+      <p>Rocket mixins and functions use a <code class="language-none">list</code> as paremeter. And you don't need to remember the orders of each item, the order can be any. For instance, the follow 2 lines of code will get the same results.</p>
+<pre class="language-scss"><code>// case 1
+.heading { @include type(24px bold italic); }
+
+// case 2
+.heading { @include type(bold italic 24px); }
+</code></pre>
+      <p>You may noticed some parameters are grouped by parentheses in the syntax field on the <a href="docs.html">docs page</a>. These parentheses are not needed when you write your code. They appeared here to indecate these parameters must come together in proper order.</p>
+<pre class="language-scss"><code>// syntax
+@mixin container($container ('gutter' $gutter) $alignment)
+
+// usage
+.selector { @include container(1000px left gutter 20px); }
+// The gutter value 20px must appear right after the string "gutter"
+</code></pre>
+      <p>It's recommended <em>not</em> to use comma-separated lists, because if you forget to surrounded them with parentheses, they will be consider as 2 or more paremeters. If you do want to use comma-separated list, make sure they'are surrounded by parentheses.</p>
+<pre class="language-scss"><code>// 1 parameter ✓
+h1 { @include type(24px bold italic); }
+
+// 1 parameter ✓
+h1 { @include type( (24px, bold, italic) ); }
+
+// 3 parameter ✗
+h1 { @include type(24px, bold, italic); }
+</code></pre>
+    </section>
+
+    {% set key2 = keys(guideNav)[1] %}
+    {% set value2 = guideNav[key2] %}
+    <h2>{{ key2 | capitalize }}</h2>
+    <section id="{{ value2[0] | replace(' ', '-') }}">
+      <h4>{{ value2[0] | capitalize }}</h4>
+      <p>In this section, I will show you how to make a sample one-page website <a href="http://graphicburger.com/reen-psd-creative-portfolio/" target="_black">Reen</a> step-by-step usin Rocket.</p>
     </section>
 
   </main>

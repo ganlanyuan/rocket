@@ -1,5 +1,5 @@
-@import 'reset';
 @import 'normalize';
+@import 'reset';
 @import 'prism';
 @import '../../../src/scss/rocket';
 $ro-layout: (
@@ -22,6 +22,7 @@ $color-link: $blue;
 $color-primary: #048af0;
 $theme-complementary: ($color-primary, complementary($color-primary 1 lightness 10%));
 $theme-triad: ($color-primary, triad($color-primary 1), triad($color-primary 2));
+$theme-square: ($color-primary, square($color-primary 1), square($color-primary 2), square($color-primary 3 lightness -7%));
 
 $border: 1px solid #eee;
 $docs-nav-bxsh: 3px 4px 4px 0 rgba(0, 0, 0, 0.2);

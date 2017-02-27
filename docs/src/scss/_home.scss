@@ -66,6 +66,7 @@
         float: right;
         width: $get-started-media-width; 
         text-align: center;
+        .code-wrapper { text-align: left; }
       }
       .media-body {
         float: left;
@@ -85,8 +86,8 @@
       line-height: 2.1;
       text-align: center;
       font-weight: normal;
-      color: nth($theme-complementary, 2);
-      border: 1px solid nth($theme-complementary, 2);
+      color: $color-code-wrapper;
+      border: 1px solid $color-code-wrapper;
       border-radius: 50%;
     }
   }

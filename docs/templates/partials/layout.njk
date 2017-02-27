@@ -43,7 +43,7 @@
     /* endinject */
     svg4everybody({ polyfill: true, fallback: false });
   </script>
-  {% if pagename === 'docs' %}
+  {% if pagename === 'docs' or pagename === 'guide' %}
     <script src="../src/js/vendors/H5F.js" async defer></script>
   {% endif %}
 </head>
@@ -98,7 +98,7 @@
     </ul>
   </div>
 </footer>
-{% if pagename === 'docs' %}
+{% if pagename === 'docs' or pagename === 'guide' %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
 {% endif %}
 <script src="assets/js/script.js"></script>

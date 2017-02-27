@@ -17,7 +17,7 @@
       <ul>
       
         {% for componentName, component in group %}
-        <li class="nav-{{ componentName }}"><a href="#{{ componentName }}">{{ componentName | capitalize }}</a></li>
+        <li><a href="#{{ componentName | replace(' ', '-') }}">{{ componentName | capitalize }}</a></li>
         {% endfor %}
       
       </ul>
@@ -31,7 +31,7 @@
     {% for groupName, group in docs %}
     <h2>{{ groupName | capitalize }}</h2>
     {% for componentName, component in group %}
-    <section id="{{ componentName }}">
+    <section id="{{ componentName | replace(' ', '-') }}">
       <h4>{{ componentName | capitalize }}</h4>
     
       {% for item in component %}
@@ -55,9 +55,11 @@
     
             <div class="code-wrapper">
               <header class="{{ lang }}">{{ lang }}: <span>{{ 'syntax' if item.indexOf('syntax') !== -1 }}</span></header>
-              <pre><code class="language-{{ lang }}">
-                {%- include "code/docs/" + componentName + "/" + item ignore missing -%}
-              </code></pre>
+              <div>
+                <pre><code class="language-{{ lang }}">
+                  {%- include "code/docs/" + componentName | replace(' ', '-') + "/" + item ignore missing -%}
+                </code></pre>
+              </div>
             </div>
     
           {# text #}
@@ -71,8 +73,7 @@
     
             {# toggle buttons #}
             <div class="toggle-container">
-              <button class="btn" data-toggle="code">Code</button>
-              <button class="btn" data-toggle="preview">Preview</button>
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
             </div>
     
             {# code #}
@@ -88,13 +89,15 @@
                     <header class="{{ lang }}">{{ lang }}</header>
     
                     {# code #}
-                    <pre><code class="language-{{ lang }}" id="{{ componentName + '-' + demo + '-' + lang }}">
-                      {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
-                      {%- set prefix = '_' if lang === 'scss' -%}
-    
-                      {%- set itemCode %}{%- include "code/docs/" + componentName + "/" + prefix + demo + ext ignore missing -%}{% endset -%}{{- itemCode -}}
-                    </code></pre>
-                    <button class="btn copy-button" data-clipboard-target="#{{ componentName + '-' + demo + '-' + lang }}">Copy Code</button>
+                    <div>
+                      <pre><code class="language-{{ lang }}" id="{{ componentName | replace(' ', '-') + '-' + demo + '-' + lang }}">
+                        {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
+                        {%- set prefix = '_' if lang === 'scss' -%}
+                          
+                        {%- set itemCode %}{%- include "code/docs/" + componentName | replace(' ', '-') + "/" + prefix + demo + ext ignore missing -%}{% endset -%}{{- itemCode -}}
+                      </code></pre>
+                      <button class="btn copy-button" data-clipboard-target="#{{ componentName | replace(' ', '-') + '-' + demo + '-' + lang }}">Copy Code</button>
+                    </div>
                   </li>
                   {% endfor %}
                 {% endfor %}
@@ -105,7 +108,7 @@
             {# preview #}
             {% for demo, langs in item %}
               <div class="preview-wrapper">
-                {%- include "code/docs/" + componentName + "/" + demo + ".njk" ignore missing -%}
+                {%- include "code/docs/" + componentName | replace(' ', '-') + "/" + demo + ".njk" ignore missing -%}
               </div>
             {% endfor %}
     

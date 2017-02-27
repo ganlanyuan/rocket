@@ -1,3 +1,4 @@
+// reset prism
 :not(pre) > code[class*="language-"] {
   padding: 0.2em 0.4em;
   font-size: 85%;
@@ -5,21 +6,19 @@
   background-color: $lightgray;
   white-space: normal;
 }
-pre[class*="language-"] { background-color: $lightgray; }
 pre[class*="language-"] { 
   margin: 0; 
+  background-color: $lightgray;
   overflow: hidden;
+  & > code[data-language] {
+    display: block;
+    margin: 0 0 -1em 0;
+    max-height: none;
+    overflow: auto;
+    &:before { display: none; }
+  }
 }
-pre[class*="language-"] > code[data-language] {
-  max-height: none;
-  overflow: auto;
-}
-pre[class*="language-"] > code[data-language]::before { display: none; }
-pre > code[class*="language-"] {
-  margin: 0 0 -1em 0;
-  display: block;
-  overflow: auto;
-}
+
 .docs-wrapper {
   @include container(1600px left); 
   main {
@@ -34,12 +33,14 @@ pre > code[class*="language-"] {
     h2 { @include type(32px uppercase); }
     h4 { @include type(22px); }
     p { max-width: 46em; }
-    em { 
+    .capability { 
       font-size: 0.85em;
       color: #999; 
     }
   }
 }
+
+// docs nav
 .docs-nav {
   width: $nav-width;
   max-height: 100vh;
@@ -104,38 +105,43 @@ pre > code[class*="language-"] {
     }
   }
 }
+
+// toggle buttons
 .toggle-container {
-  border-bottom: 4px solid darken($lightgray, 10%);
+  border-bottom: 4px solid $color-code-header;
   .btn {
     @include type(12px uppercase);
     line-height: 2.6;
     min-width: 7em;
   }
 }
+%preview-toggle-active {
+  color: contrast($color-code-header);
+  border-radius: 4px 4px 0 0;
+  background-color: $color-code-header;
+}
 [data-show="code"] {
-  [data-toggle="code"] {
-    border-radius: 4px 4px 0 0;
-    background-color: darken($lightgray, 10%);
-  }
+  [data-toggle="code"] { @extend %preview-toggle-active; }
   .preview-wrapper { display: none; }
 }
 [data-show="preview"] {
-  [data-toggle="preview"] {
-    border-radius: 4px 4px 0 0;
-    background-color: darken($lightgray, 10%);
-  }
+  [data-toggle="preview"] { @extend %preview-toggle-active; }
   .code-wrapper { display: none; }
 }
+
+// code
 .code-wrapper { 
+  background-color: $lightgray;
   header {
     font-size: 14px;
     line-height: 2;
     padding: 0 1em;
     color: #fff;
     background-color: $color-code-header;
+    display: inline-block;
   }
-  .markup { background-color: nth($theme-complementary, 1); }
-  .scss { background-color: nth($theme-complementary, 2); }
+  .markup { background-color: nth($theme-square, 4); }
+  .scss { background-color: nth($theme-square, 3); }
   li {
     width: 100%;
     float: left;
@@ -144,7 +150,6 @@ pre > code[class*="language-"] {
   }
   ul {
     @extend %clearfix;
-    background-color: $lightgray;
     @include bp(min 1024) {
       @include at-least('li' 2) { width: calc(100% / 2); }
     }
@@ -155,19 +160,20 @@ pre > code[class*="language-"] {
 }
 .copy-button {
   @include type(13px);
-  color: #fff;
-  background-color: $color-code-header;
+  color: contrast($color-primary);
+  background-color: $color-primary;
   line-height: 2.7em;
   height: 2.7em;
   padding: 0 0.8em;
   position: absolute;
+  top: 0;
   right: 1em;
-  top: 3em;
   opacity: 0;
   transition: opacity 0.25s;
-  &.copied {
-    background-color: $color-primary;
-  }
+  // &.copied {
+  //   color: contrast($color-primary);
+  //   background-color: $color-primary;
+  // }
 }
 [data-content] { 
   min-height: 100px; 
@@ -175,7 +181,7 @@ pre > code[class*="language-"] {
 }
 .preview-wrapper {
   min-height: 50px;
-  margin: 10px 0 20px;
+  margin:10px 0 20px;
   resize: both;
   overflow: hidden;
   position: relative;
@@ -186,6 +192,8 @@ pre > code[class*="language-"] {
   padding: 10px; 
   margin: 0 !important; 
 }
+
+// media query
 @include bp(max $bp-docs) {
   .docs-nav {
     position: fixed;

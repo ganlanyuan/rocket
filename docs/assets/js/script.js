@@ -11,15 +11,17 @@ var rocketSite = {
           nav = doc.querySelector('.docs-nav'),
           navLinks = nav.querySelectorAll('a'),
           breakpoint = 900;
-      toggle.addEventListener('click', function () {
-        docsWrapper.classList.toggle((window.innerWidth >= breakpoint) ? 'hidenav' : 'shownav');
-      });
-      for (var i = navLinks.length; i--;) {
-        navLinks[i].addEventListener('click', function () {
-          if (window.innerWidth < 900) {
-            docsWrapper.classList.remove('shownav');
-          }
-        })
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          docsWrapper.classList.toggle((window.innerWidth >= breakpoint) ? 'hidenav' : 'shownav');
+        });
+        for (var i = navLinks.length; i--;) {
+          navLinks[i].addEventListener('click', function () {
+            if (window.innerWidth < 900) {
+              docsWrapper.classList.remove('shownav');
+            }
+          })
+        }
       }
     },
     toggleSubnav: function () {

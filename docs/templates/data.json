@@ -12,20 +12,20 @@
   },
   "docs": {
     "layout": {
-      "layout-setting": [
+      "layout setting": [
         "Default container and gutter for `-container-`, `-grid-`, `-gallery-`, `-liquid-2-`, `-liquid-3-`, `-metro-`, `-masonry-`.",
-        { "demo-1": [ "scss" ] }
+        "_style-1.scss"
       ],
       "container": [
         "Create a container to constrain your content. It can be pushed to the left, right edge or center aligned.",
-        "<em>IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>",
+        "<em class='capability'>IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         { "demo-2": ["markup", "scss"] }
       ],
       "grid": [
         "Create a responsive multi columns (and even multi rows) layout using `-grid-`.",
-        "<em>IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+</em>",
+        "<em class='capability'>IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         "You can change the column orders using `-(cols : order)-` format. Here the order works the same as flexbox-order works: https://drafts.csswg.org/css-flexbox-1/#order-property",
@@ -39,7 +39,7 @@
       ],
       "liquid-2": [
         "Make a fluid 2-columns blog layout, with a fixed sidebar and fluid main column.",
-        "<em>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>",
+        "<em class='capability'>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         "The order and gutter can be redefined as well.",
@@ -47,7 +47,7 @@
       ],
       "liquid-3": [
         "Make a holy-grail layout: 2 fixed sidebars with a fluid main column.",
-        "<em>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>",
+        "<em class='capability'>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         "Order can be changed as well.",
@@ -55,7 +55,7 @@
       ],
       "gallery": [
         "Make a photo gallery layout.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 21+, Safari 6.2+, Opera 15+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         "You can change the gutter and direction.",
@@ -65,7 +65,7 @@
       ],
       "masonry": [
         "Make masonry layout with pure css.",
-        "<em>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+</em>",
+        "<em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         "Change gutter.",
@@ -75,13 +75,13 @@
       ],
       "metro": [
         "Make a (Windows 8 style) metro layout.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "diamond": [
         "Make diamond (octagon) shape layout. To reduce complexity, `-diamond-` requires `-.diamond-content-` to wrap its content.",
-        "<em>IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+</em>",
+        "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] },
         "You can use `-size-` instead of `-count-`.",
@@ -91,25 +91,25 @@
       ],
       "angled-edges": [
         "Make angled edges layout.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 6+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "sticky-footer": [
         "Create `-sticky-footer-` to prevent layout collapse when content is less, e.g. 404 page.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "justify": [
         "Make child elements justify aligned.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "center": [
         "Make child element horizontally and vertically center aligned.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ]
@@ -117,108 +117,108 @@
     "components": {
       "charts": [
         "Pure css responsive charts.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "responsive-table": [
         "Display complex data tables on small screen.",
         "Referance: \n http://dbushell.com/2012/01/05/responsive-tables-2/, \n https://github.com/nadangergeo/RWD-Table-Patterns",
-        "Flip-scroll: <em>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
-        "Scroll: <em>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
-        "Toggle: <em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
-        "Stack: <em>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
+        "Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "Stack: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "off-canvas": [
         "Pure css off-canvas using `-input:checkbox-`.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "validation": [
         "Html5 form validation using H5F https://github.com/ryanseddon/H5F . H5F is included in `-kit.js-` (with a little bit modification), so you don't need to add it again.",
         "Set customized alerts information through `-&lt;div data-info=\"\"&gt;&lt;/div&gt;-`.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "button": [
         "Create buttons and effects.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "parallelogram": [
         "Make parallelogram box using CSS3.",
-        "<em>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "drop-shadows": [
         "Pure css drop shadow effects. \nToken from Nicolas Gallagher at http://nicolasgallagher.com/css-drop-shadows-without-images/.",
-        "<em>IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "<em class='capability'>IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "switch": [
         "Make switch using `-input:checkbox-`.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "push-toggle": [
         "Make push toggle with `-input:radio-`.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "checkbox": [
         "Customize radios and checkboxes.",
-        "<em>IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "input-file": [
         "Customize `-input:file-`. \n Stolen from Osvaldas Valutis at http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/.",
-        "<em>IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
+        "<em class='capability'>IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "tabs": [
         "Make tabs use `-input:radio-`. \nUse`-tabs-active-` to set up tab active styles and `-tabs-panel-active-` for tab panel active styles. \nTo reduce complexity, `-.ro-tabs-` and `-.ro-panels-` are required.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 12.1+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "accordion": [
         "Pure css accordion.",
-        "<em>IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "<em class='capability'>IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "dropdown": [
         "Make dropdown using `-:hover-` or `-input:checkbox-`.",
-        "<em>IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "<em class='capability'>IE 7+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "tooltip": [
         "Pure css `-tooltip-`.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "Media-list": [
         "Separate media element and the main content into 2 columns.",
-        "<em>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "flex-media": [
         "Make video or inline svg flexible within its container.",
-        "<em>IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 7+, Firefox 3.6+, Chrome 16+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ]
@@ -226,26 +226,26 @@
     "addons": {
       "type": [
         "`-type-` is a shorthand mixin for `-font-size-`, `-font-weight-`, `-font-style-`, `-line-height-`, `-font-family-`, `-text-align-`, `-text-transform-`.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "fluid-type": [
         "Make `-font-size-` or other properties change smoothly depending on the window size.",
         "Stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec \n More on https://blog.codepen.io/2016/10/31/fluid-type-blogs/.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "responsive-type": [
         "`-type-` works with breakpoints. \nEverything you can do with `-type-` you can do with `-responsive-type-`.",
-        "<em>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "hide-text": [
         "Visually hide the text content of an element.",
-        "<em>IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 7+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
@@ -261,7 +261,7 @@
       ],
       "ro-breakpoint": [
         "A shorthand @mixin for mediaquery. \nNote: `-ro-breakpoint-` uses one breakpoint (e.g. 800) for both `-min-` and `-max-` instead of two (e.g. 799 for `-max-`, 800 for `-min-`). If you don't want this behaiver, you can use `-$breakpoint-fix: false;-` to disable it.",
-        "<em>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         "_style-1.scss"
       ],
@@ -287,13 +287,13 @@
       ],
       "visible": [
         "Make elements visible on some portions of the viewport.",
-        "<em>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "hidden": [
         "Hide elements on some portions of the viewport.",
-        "<em>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ]
@@ -302,43 +302,43 @@
       "contrast": [
         "Get a light or dark color based on a given color.",
         "By default, the light color is `-#fff-` and black color is `-#000-`, but you can use your own.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "adjacent": [
         "Get a adjacent color based on a given color.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "complementary": [
         "Get the complementary color based on a given color.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "split-complementary": [
         "Get a split-complementary color based on a given color.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "triad": [
         "Get a triad color based on a given color.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "rectangle": [
         "Get a rectangle color based on a given color.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ],
       "square": [
         "Get a square color based on a given color.",
-        "<em>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "<em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "_syntax.scss",
         { "demo-1": ["markup", "scss"] }
       ]
