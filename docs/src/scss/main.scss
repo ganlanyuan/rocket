@@ -85,9 +85,6 @@ svg {
 .logo {
   float: left;
   padding: 10px 0;
-  path:last-child {
-    fill: nth($theme-triad, 3);
-  }
 }
 .site-nav {
   float: right;

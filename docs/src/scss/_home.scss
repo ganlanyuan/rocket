@@ -83,11 +83,11 @@
       display: inline-block;
       width: 2em;
       height: 2em;
-      line-height: 2.1;
+      line-height: 2;
       text-align: center;
       font-weight: normal;
-      color: $color-code-wrapper;
-      border: 1px solid $color-code-wrapper;
+      color: $color-code-header;
+      border: 1px solid $color-code-header;
       border-radius: 50%;
     }
   }
