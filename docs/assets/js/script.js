@@ -23,7 +23,7 @@ var rocketSite = {
       }
     },
     showActive: function () {
-      var docLists = doc.querySelectorAll('.docs-wrapper main > ul > li'),
+      var docLists = doc.querySelectorAll('.docs-wrapper main > section'),
           navLists = doc.querySelectorAll('.docs-wrapper nav li');
           
       for (var i = docLists.length; i--;) {
