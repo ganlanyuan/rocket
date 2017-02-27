@@ -34,79 +34,82 @@
       <li id="{{ componentName }}">
         <h4>{{ componentName | capitalize }}</h4>
 
-        {% for type, content in component %}
+        {% for item in component %}
 
-          {% if type.indexOf('p-') !== -1 %}
+          {# String: text | syntax #}
+          {% if is('String', item) %}
 
-            {% for p in content %}
-              <p>{{ p | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
-            {% endfor %}
+            {# markup | scss | js #}
+            {% if item.indexOf('.njk') !== -1 or 
+                  item.indexOf('.scss') !== -1 or 
+                  item.indexOf('.js') !== -1 %}
 
-          {% elif type === 'capability' %}
-          <p class="browser-capability">{{ content }}</p>
-          {% elif type === 'syntax' %}
-          <div class="code-wrapper">
-            <header class="scss">scss: <span>{{ type }}</span></header>
-            <pre><code class="language-scss">
-              {%- include "code/docs/" + componentName + "/_syntax.scss" ignore missing -%}
-            </code></pre>
-          </div>
-          {% elif type.indexOf('demo-') !== -1 %}
-          <div class="demo-container" data-show="code">
+              {# set language, prefix #}
+              {% if item.indexOf('.njk') !== -1 %}
+                {% set lang = 'markup' %}
+              {% elif item.indexOf('.scss') !== -1 %}
+                {% set lang = 'scss' %}
+              {% else %}
+                {% set lang = 'javascript' %}
+              {% endif %}
 
-            {# toggle buttons #}
-            {% if content.markup %}
-              <div class="toggle-container"><button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button></div>
+              <div class="code-wrapper">
+                <header class="{{ lang }}">{{ lang }}: <span>{{ 'syntax' if item.indexOf('syntax') !== -1 }}</span></header>
+                <pre><code class="language-{{ lang }}">
+                  {%- include "code/docs/" + componentName + "/" + item ignore missing -%}
+                </code></pre>
+              </div>
+
+            {# text #}
+            {% else %}
+              <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
             {% endif %}
 
-            {# code #}
-            <div class="code-wrapper">
-              <ul>
-                
-                {% if content.markup %}
-                <li>
-                  {# header #}
-                  <header class="markup">markup</header>
+          {# Object: demo #}
+          {% elif is('Object', item) %}
+            <div class="demo-container" data-show="code">
 
-                  {# markup #}
-                  <pre><code class="language-markup" id="{{ componentName + '-' + type + '-markup' }}">
-                    {%- set itemHtml %}
-                      {%- include "code/docs/" + componentName + "/" + type + ".njk" ignore missing -%}
-                    {% endset -%}
-                    {{- itemHtml -}}
-                  </code></pre>
-                  <button class="btn copy-button" data-clipboard-target="#{{ componentName + '-' + type + '-markup' }}">Copy Code</button>
-                </li>
-                {% endif %}
+              {# toggle buttons #}
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button>
+                <button class="btn" data-toggle="preview">Preview</button>
+              </div>
 
-                {% if content.scss %}
-                <li>
-                  {# header #}
-                  <header class="scss">scss</header>
+              {# code #}
+              <div class="code-wrapper">
+                <ul>
                   
-                  {# scss #}
-                  <pre><code class="language-scss" id="{{ componentName + '-' + type + '-scss' }}">
-                    {%- set itemScss %}
-                      {%- include "code/docs/" + componentName + "/_" + type + ".scss" ignore missing -%}
-                    {% endset -%}
-                    {{- itemScss -}}
-                  </code></pre>
-                  <button class="btn copy-button" data-clipboard-target="#{{ componentName + '-' + type + '-scss' }}">Copy Code</button>
-                </li>
-                {% endif %}
-              
-              </ul>
-            </div>
+                  {% for demo, langs in item %}
 
-            {# preview #}
-            {% if content.markup %}
-            <div class="preview-wrapper">
-              {%- include "code/docs/" + componentName + "/" + type + ".njk" ignore missing -%}
-            </div>
-            {% endif %}
+                    {# langs: markup | scss | javascript #}
+                    {% for lang in langs %}
+                    <li>
+                      {# header #}
+                      <header class="{{ lang }}">{{ lang }}</header>
 
-          </div>
-          {% else %}
+                      {# code #}
+                      <pre><code class="language-{{ lang }}" id="{{ componentName + '-' + demo + '-' + lang }}">
+                        {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
+                        {%- set prefix = '_' if lang === 'scss' -%}
+
+                        {%- set itemCode %}{%- include "code/docs/" + componentName + "/" + prefix + demo + ext ignore missing -%}{% endset -%}{{- itemCode -}}
+                      </code></pre>
+                      <button class="btn copy-button" data-clipboard-target="#{{ componentName + '-' + demo + '-' + lang }}">Copy Code</button>
+                    </li>
+                    {% endfor %}
+                  {% endfor %}
+
+                </ul>
+              </div>
+
+              {# preview #}
+              {% for demo, langs in item %}
+                <div class="preview-wrapper">
+                  {%- include "code/docs/" + componentName + "/" + demo + ".njk" ignore missing -%}
+                </div>
+              {% endfor %}
+
+            </div>
           {% endif %}
 
         {% endfor %}

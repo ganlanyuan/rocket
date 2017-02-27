@@ -55,10 +55,9 @@ gulp.task('html', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json');
   data.year = new Date().getFullYear();
 
-  let codeTagCount = 0;
-  data.getCodeTag = function () { 
-    codeTagCount += 1; 
-    return (codeTagCount%2 === 1) ? '<code class="language-html">' : '</code>';
+  data.is = function (type, obj) {
+    var clas = Object.prototype.toString.call(obj).slice(8, -1);
+    return obj !== undefined && obj !== null && clas === type;
   };
 
   return gulp.src(PATHS.templates_docs + '*.njk')
@@ -206,8 +205,8 @@ gulp.task('watch', function () {
 
 // Default Task
 gulp.task('default', [
-  'html', 
-  'sass', 
+  // 'html', 
+  // 'sass', 
   // 'js', 
   // 'move',
   // 'svgmin', 

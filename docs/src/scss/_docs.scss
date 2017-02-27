@@ -34,6 +34,10 @@ pre > code[class*="language-"] {
     h2 { @include type(32px uppercase); }
     h4 { @include type(22px); }
     p { max-width: 46em; }
+    em { 
+      font-size: 0.85em;
+      color: #999; 
+    }
   }
 }
 .docs-nav {
@@ -67,7 +71,6 @@ pre > code[class*="language-"] {
     padding: 0.7em;
     color: #fff;
     background-color: $color-primary;
-    border-radius: 3px;
     white-space: nowrap;
     cursor: pointer;
     &-wrapper {
@@ -140,7 +143,6 @@ pre > code[class*="language-"] {
   position: absolute;
   right: 1em;
   top: 3em;
-  border-radius: 0.2em;
   opacity: 0;
   transition: opacity 0.25s;
   &.copied {
