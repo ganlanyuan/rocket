@@ -30,6 +30,7 @@
 
     {% for groupName, group in docs %}
     <h2>{{ groupName | capitalize }}</h2>
+    <p>Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before you read this docs.</p>
     {% for componentName, component in group %}
     <section id="{{ componentName | replace(' ', '-') }}">
       <h4>{{ componentName | capitalize }}</h4>

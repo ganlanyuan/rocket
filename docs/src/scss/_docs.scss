@@ -138,7 +138,6 @@ pre[class*="language-"] {
     padding: 0 1em;
     color: #fff;
     background-color: $color-code-header;
-    display: inline-block;
   }
   .markup { background-color: nth($theme-square, 4); }
   .scss { background-color: nth($theme-square, 3); }

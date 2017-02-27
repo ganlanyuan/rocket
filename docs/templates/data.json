@@ -13,7 +13,7 @@
   "docs": {
     "layout": {
       "layout setting": [
-        "Default container and gutter for `-container-`, `-grid-`, `-gallery-`, `-liquid-2-`, `-liquid-3-`, `-metro-`, `-masonry-`.",
+        "Default container for `-container-` and gutter for `-container-`, `-grid-`, `-gallery-`, `-liquid-2-`, `-liquid-3-`, `-metro-`, `-masonry-`.",
         "_style-1.scss"
       ],
       "container": [
@@ -27,6 +27,7 @@
         "Create a responsive multi columns (and even multi rows) layout using `-grid-`.",
         "<em class='capability'>IE 8+, Firefox 28+, Chrome 21+, Safari 6.2+, Opera 15+</em>",
         "_syntax.scss",
+        "`-@include-` grid on the parent element. If the child elements are not `-div-`s, indicate them using `-child $child-selector-` format in the parameter.",
         { "demo-1": ["markup", "scss"] },
         "You can change the column orders using `-(cols : order)-` format. Here the order works the same as flexbox-order works: https://drafts.csswg.org/css-flexbox-1/#order-property",
         { "demo-2": ["markup", "scss"] },
