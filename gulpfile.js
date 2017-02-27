@@ -60,6 +60,10 @@ gulp.task('html', function() {
     return obj !== undefined && obj !== null && clas === type;
   };
 
+  data.keys = function (obj) {
+    return Object.keys(obj);
+  };
+
   return gulp.src(PATHS.templates_docs + '*.njk')
     .pipe(nunjucks.compile(data), {
       watch: true,
@@ -205,7 +209,7 @@ gulp.task('watch', function () {
 
 // Default Task
 gulp.task('default', [
-  // 'html', 
+  'html', 
   // 'sass', 
   // 'js', 
   // 'move',

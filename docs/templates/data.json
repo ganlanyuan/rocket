@@ -1,6 +1,7 @@
 {
   "svgSpritesPath": "assets/svg/sprites.svg",
   "mainNav": [
+    "guide",
     "docs",
     "github"
   ],

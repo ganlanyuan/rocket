@@ -23,10 +23,10 @@ pre > code[class*="language-"] {
 .docs-wrapper {
   @include container(1600px left); 
   main {
+    section { padding: 20px 0; }
     h2, h4, p, .code-wrapper { 
       margin-bottom: 20px;
     }
-    > ul > li { padding: 20px 0; }
     .browser-capability {
       font-style: italic;
       color: #999;

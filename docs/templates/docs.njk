@@ -28,96 +28,92 @@
 
     {% for groupName, group in docs %}
     <h2>{{ groupName | capitalize }}</h2>
-    <ul>
-      
-      {% for componentName, component in group %}
-      <li id="{{ componentName }}">
-        <h4>{{ componentName | capitalize }}</h4>
-
-        {% for item in component %}
-
-          {# String: text | syntax #}
-          {% if is('String', item) %}
-
-            {# markup | scss | js #}
-            {% if item.indexOf('.njk') !== -1 or 
-                  item.indexOf('.scss') !== -1 or 
-                  item.indexOf('.js') !== -1 %}
-
-              {# set language, prefix #}
-              {% if item.indexOf('.njk') !== -1 %}
-                {% set lang = 'markup' %}
-              {% elif item.indexOf('.scss') !== -1 %}
-                {% set lang = 'scss' %}
-              {% else %}
-                {% set lang = 'javascript' %}
-              {% endif %}
-
-              <div class="code-wrapper">
-                <header class="{{ lang }}">{{ lang }}: <span>{{ 'syntax' if item.indexOf('syntax') !== -1 }}</span></header>
-                <pre><code class="language-{{ lang }}">
-                  {%- include "code/docs/" + componentName + "/" + item ignore missing -%}
-                </code></pre>
-              </div>
-
-            {# text #}
+    {% for componentName, component in group %}
+    <section id="{{ componentName }}">
+      <h4>{{ componentName | capitalize }}</h4>
+    
+      {% for item in component %}
+    
+        {# String: text | syntax #}
+        {% if is('String', item) %}
+    
+          {# markup | scss | js #}
+          {% if item.indexOf('.njk') !== -1 or 
+                item.indexOf('.scss') !== -1 or 
+                item.indexOf('.js') !== -1 %}
+    
+            {# set language, prefix #}
+            {% if item.indexOf('.njk') !== -1 %}
+              {% set lang = 'markup' %}
+            {% elif item.indexOf('.scss') !== -1 %}
+              {% set lang = 'scss' %}
             {% else %}
-              <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
+              {% set lang = 'javascript' %}
             {% endif %}
-
-          {# Object: demo #}
-          {% elif is('Object', item) %}
-            <div class="demo-container" data-show="code">
-
-              {# toggle buttons #}
-              <div class="toggle-container">
-                <button class="btn" data-toggle="code">Code</button>
-                <button class="btn" data-toggle="preview">Preview</button>
-              </div>
-
-              {# code #}
-              <div class="code-wrapper">
-                <ul>
-                  
-                  {% for demo, langs in item %}
-
-                    {# langs: markup | scss | javascript #}
-                    {% for lang in langs %}
-                    <li>
-                      {# header #}
-                      <header class="{{ lang }}">{{ lang }}</header>
-
-                      {# code #}
-                      <pre><code class="language-{{ lang }}" id="{{ componentName + '-' + demo + '-' + lang }}">
-                        {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
-                        {%- set prefix = '_' if lang === 'scss' -%}
-
-                        {%- set itemCode %}{%- include "code/docs/" + componentName + "/" + prefix + demo + ext ignore missing -%}{% endset -%}{{- itemCode -}}
-                      </code></pre>
-                      <button class="btn copy-button" data-clipboard-target="#{{ componentName + '-' + demo + '-' + lang }}">Copy Code</button>
-                    </li>
-                    {% endfor %}
-                  {% endfor %}
-
-                </ul>
-              </div>
-
-              {# preview #}
-              {% for demo, langs in item %}
-                <div class="preview-wrapper">
-                  {%- include "code/docs/" + componentName + "/" + demo + ".njk" ignore missing -%}
-                </div>
-              {% endfor %}
-
+    
+            <div class="code-wrapper">
+              <header class="{{ lang }}">{{ lang }}: <span>{{ 'syntax' if item.indexOf('syntax') !== -1 }}</span></header>
+              <pre><code class="language-{{ lang }}">
+                {%- include "code/docs/" + componentName + "/" + item ignore missing -%}
+              </code></pre>
             </div>
+    
+          {# text #}
+          {% else %}
+            <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
           {% endif %}
-
-        {% endfor %}
-
-      </li>
+    
+        {# Object: demo #}
+        {% elif is('Object', item) %}
+          <div class="demo-container" data-show="code">
+    
+            {# toggle buttons #}
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button>
+              <button class="btn" data-toggle="preview">Preview</button>
+            </div>
+    
+            {# code #}
+            <div class="code-wrapper">
+              <ul>
+                
+                {% for demo, langs in item %}
+    
+                  {# langs: markup | scss | javascript #}
+                  {% for lang in langs %}
+                  <li>
+                    {# header #}
+                    <header class="{{ lang }}">{{ lang }}</header>
+    
+                    {# code #}
+                    <pre><code class="language-{{ lang }}" id="{{ componentName + '-' + demo + '-' + lang }}">
+                      {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
+                      {%- set prefix = '_' if lang === 'scss' -%}
+    
+                      {%- set itemCode %}{%- include "code/docs/" + componentName + "/" + prefix + demo + ext ignore missing -%}{% endset -%}{{- itemCode -}}
+                    </code></pre>
+                    <button class="btn copy-button" data-clipboard-target="#{{ componentName + '-' + demo + '-' + lang }}">Copy Code</button>
+                  </li>
+                  {% endfor %}
+                {% endfor %}
+    
+              </ul>
+            </div>
+    
+            {# preview #}
+            {% for demo, langs in item %}
+              <div class="preview-wrapper">
+                {%- include "code/docs/" + componentName + "/" + demo + ".njk" ignore missing -%}
+              </div>
+            {% endfor %}
+    
+          </div>
+        {% endif %}
+    
       {% endfor %}
-
-    </ul>
+    
+    </section>
+    {% endfor %}
     {% endfor %}
 
   </main>

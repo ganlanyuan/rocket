@@ -1,0 +1,34 @@
+{% set pagename = 'guide' %}
+{% extends "partials/layout.njk" %}
+
+{% set guideNav = {'basis': ['data type', 'parameter'], 'practise': ['design', 'markup']} %}
+{% block main %}
+<div class="docs-wrapper section">
+
+  {# guide nav #}
+  <nav class="docs-nav">
+    {% for groupName, group in guideNav %}
+    <h4>{{ groupName | capitalize }}</h4>
+    <ul>
+
+      {% for item in group %}
+      <li class="nav-{{ item }}"><a href="#{{ item }}">{{ item | capitalize }}</a></li>
+      {% endfor %}
+
+    </ul>
+    {% endfor %}
+  </nav>
+
+  {# main #}
+  <main>
+
+    <h2>Guide</h2>
+    <section>
+      <h4>{{ keys(guideNav)[0] | capitalize }}</h4>
+      <p></p>
+    </section>
+
+  </main>
+
+</div>
+{% endblock %}

@@ -27,6 +27,7 @@
   background-color: nth($theme-complementary, 2);
   padding:1px 0 50px;
   text-align: center;
+  overflow: hidden;
   [class*="language-"] { background-color: rgba(0, 0, 0, 0.07); }
   @include bp(min 610) {
     ul { margin-right: -30px; }
