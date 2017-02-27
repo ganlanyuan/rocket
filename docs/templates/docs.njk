@@ -12,14 +12,16 @@
   {# docs nav #}
   <nav class="docs-nav">
     {% for groupName, group in docs %}
-    <h4>{{ groupName | capitalize }}</h4>
-    <ul>
-    
-      {% for componentName, component in group %}
-      <li class="nav-{{ componentName }}"><a href="#{{ componentName }}">{{ componentName | capitalize }}</a></li>
-      {% endfor %}
-    
-    </ul>
+    <section>
+      <h4><svg role="img" title="down arrow" width="12" height="6"><use xlink:href="{{ svgSpritesPath + '#downarrow' }}" /></svg>{{ groupName | capitalize }}</h4>
+      <ul>
+      
+        {% for componentName, component in group %}
+        <li class="nav-{{ componentName }}"><a href="#{{ componentName }}">{{ componentName | capitalize }}</a></li>
+        {% endfor %}
+      
+      </ul>
+    </section>
     {% endfor %}
   </nav>
 

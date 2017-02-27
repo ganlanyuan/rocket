@@ -31,6 +31,7 @@ $get-started-media-width: 32%;
 $logo-width-sm: 50px;
 $logo-width-lg: 200px;
 $nav-width: ($logo-width-lg + map-get($ro-layout, 'gutter') * 0.5);
+$nav-item-line-height: 2.4;
 
 $bp-header: 600;
 $bp-docs: 900;

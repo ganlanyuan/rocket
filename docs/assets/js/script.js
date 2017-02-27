@@ -22,6 +22,16 @@ var rocketSite = {
         })
       }
     },
+    toggleSubnav: function () {
+      var headings = doc.querySelectorAll('.docs-nav h4');
+      if (headings !== undefined && headings.length > 0) {
+        for (var i = headings.length; i--;) {
+          headings[i].addEventListener('click', function () {
+            this.parentNode.classList.toggle('shrank');
+          });
+        }
+      }
+    },
     showActive: function () {
       var docLists = doc.querySelectorAll('.docs-wrapper main > section'),
           navLists = doc.querySelectorAll('.docs-wrapper nav li');
@@ -53,6 +63,7 @@ if (doc.querySelector('.docs-nav')) {
   window.addEventListener('load', function () {
     winHeight = window.innerHeight;
     rocketSite.docs.toggleNav();
+    rocketSite.docs.toggleSubnav();
     rocketSite.docs.showActive();
     rocketSite.docs.togglePreview();
   });

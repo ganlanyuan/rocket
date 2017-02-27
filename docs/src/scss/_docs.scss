@@ -47,11 +47,24 @@ pre > code[class*="language-"] {
   overflow-y: auto;
   background-color: #fff;
   @include type(15px);
-  ul { margin-bottom: 2em; }
-  h4, a { line-height: 2.4; }
+  ul { 
+    margin-bottom: 2em; 
+    max-height: (20 * $nav-item-line-height * 1em);
+    overflow: hidden;
+    transition: max-height 0.25s, margin-bottom 0.25s;
+  }
+  h4, a { line-height: $nav-item-line-height; }
   h4 {
     margin-bottom: 0;
     padding-left: 1em;
+    cursor: pointer;
+  }
+  svg {
+    float: right;
+    height: ($nav-item-line-height * 1em);
+    line-height: $nav-item-line-height;
+    padding: 0 0.5em;
+    transition: transform 0.25s;
   }
   a {
     display: block;
@@ -81,6 +94,13 @@ pre > code[class*="language-"] {
       }
       z-index: $zi-docs-nav;
       text-align: right;
+    }
+  }
+  .shrank {
+    svg { transform: rotate(180deg); }
+    ul { 
+      max-height: 0; 
+      margin-bottom: 0
     }
   }
 }
