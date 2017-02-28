@@ -30,6 +30,11 @@
     <p><em>Doc version: 3.4.13</em></p>
     <p>Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before using this docs.</p>
 
+{# {% import 'code/markup.njk' as markups %}
+<pre class="language-scss"><code>
+{%- filter escape %}{%- filter trim %}{{ markups.test_1() }}{% endfilter -%}{% endfilter -%}
+</code></pre> #}
+
     {% for groupName, group in docs %}
     <h2>{{ groupName | capitalize }}</h2>
     {% for componentName, component in group %}
