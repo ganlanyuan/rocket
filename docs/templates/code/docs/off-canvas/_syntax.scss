@@ -1,5 +1,0 @@
-@mixin off-canvas($mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration)
-// $mode: slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer
-
-// For modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push and drawer, put nav inside ".page".
-// For modes: slide-along, slide-out, scale-down, scale-up, open-door and reveal, put nav outside ".page", after the checkbox.

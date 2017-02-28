@@ -1,4 +1,0 @@
-.between-1 {
-  li { display: inline-block; width: 100px; }
-  @include between('li' 4 6) { background-color: #25e425; }
-}

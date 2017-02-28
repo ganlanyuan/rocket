@@ -1,6 +1,6 @@
 const gulp = require('gulp');
-const fs = require("fs");
 const path = require('path');
+const change = require('gulp-change');
 const mergeStream = require('merge-stream');
 const browserSync = require('browser-sync').create();
 const rename = require('gulp-rename');
@@ -51,19 +51,20 @@ function requireUncached( $module ) {
   return require( $module );
 }
 
+// scss to njk
+gulp.task('scssToNjk', function () {
+  return gulp.src(PATHS.templates_docs + 'code/*.scss')
+    .pipe(change(function(content) {
+      return content.replace(/(\/\/=>\s+)/g, '');
+    }))
+    .pipe(rename({extname: '.njk'}))
+    .pipe(cache('scssToNjk'))
+    .pipe(gulp.dest(PATHS.templates_docs + 'code'));
+});
+
 // Nunjucks Task
-gulp.task('html', function() {
+gulp.task('html', ['scssToNjk'], function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json');
-  // let markups = fs.readFileSync('./' + PATHS.templates_docs + 'code/docs/markup.njk', "utf8");
-  // let styles = fs.readFileSync('./' + PATHS.templates_docs + 'code/docs/_style.scss', "utf8");
-  // let groupsNames = Object.keys(data.docs);
-  // groupsNames.forEach(function (groupsName) {
-  //   let group = data.docs[groupsName];
-  //   group.forEach(function (component) {
-  //   })
-  //   console.log(group);
-  // });
-  data.year = new Date().getFullYear();
 
   data.is = function (type, obj) {
     var clas = Object.prototype.toString.call(obj).slice(8, -1);
@@ -186,7 +187,7 @@ gulp.task('inject', function () {
   let svg4everybody = gulp.src('bower_components/svg4everybody/dist/svg4everybody.legacy.min.js')
       .pipe(uglify());
 
-  return gulp.src(PATHS.templates + 'partials/layout.njk')
+  return gulp.src(PATHS.templates + 'parts/layout.njk')
       .pipe(inject(svg4everybody, {
         starttag: '/* svg4everybody:js */',
         endtag: '/* endinject */',

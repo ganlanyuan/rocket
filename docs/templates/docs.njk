@@ -1,5 +1,9 @@
 {% set pagename = 'docs' %}
-{% extends "partials/layout.njk" %}
+{% set reg_title = r/\s+|\-/g %}
+{% extends "parts/layout.njk" %}
+{% import 'code/markup.njk' as macro_markup %}
+{% import 'code/_style.njk' as macro_scss %}
+{% import 'code/_syntax.njk' as macro_syntax %}
 
 {% block main %}
 <div class="docs-wrapper section">
@@ -17,7 +21,8 @@
       <ul>
       
         {% for componentName, component in group %}
-        <li><a href="#{{ componentName | replace(' ', '-') }}">{{ componentName | capitalize }}</a></li>
+        {% set componentName_new = componentName | replace(reg_title, '') %}
+        <li><a href="#{{ componentName_new }}">{{ componentName | capitalize }}</a></li>
         {% endfor %}
       
       </ul>
@@ -30,44 +35,48 @@
     <p><em>Doc version: 3.4.13</em></p>
     <p>Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before using this docs.</p>
 
-{# {% import 'code/markup.njk' as markups %}
-<pre class="language-scss"><code>
-{%- filter escape %}{%- filter trim %}{{ markups.test_1() }}{% endfilter -%}{% endfilter -%}
-</code></pre> #}
-
     {% for groupName, group in docs %}
     <h2>{{ groupName | capitalize }}</h2>
     {% for componentName, component in group %}
-    <section id="{{ componentName | replace(' ', '-') }}">
-      <h4>{{ componentName | capitalize }}</h4>
-    
-      {% for item in component %}
-    
-        {# String: text | syntax #}
-        {% if is('String', item) %}
+      {% set componentName_new = componentName | replace(reg_title, '') %}
+      <section id="{{ componentName_new }}">
+        <h4>{{ componentName | capitalize }}</h4>
+      
+        {% for item in component %}
+          {% set reg_ext = r/\..+$/g %}
+          {% set itemName = item | replace(reg_ext, '') %}
     
           {# markup | scss | js #}
           {% if item.indexOf('.njk') !== -1 or 
                 item.indexOf('.scss') !== -1 %}
     
-            {# set language, prefix #}
+            {# set language, macro #}
             {% if item.indexOf('.njk') !== -1 %}
+              {# markup #}
               {% set lang = 'markup' %}
+              {% set macroFn = macro_markup %}
             {% elif item.indexOf('.scss') !== -1 %}
               {% set lang = 'scss' %}
+
+              {# syntax | scss #}
+              {% if item === 'syntax.scss' %}
+                {% set macroFn = macro_syntax %}
+              {% else %}
+                {% set macroFn = macro_scss %}
+              {% endif %}
             {% endif %}
     
             <div class="code-wrapper">
               <header class="{{ lang }}">{{ lang }}: <span>{{ 'syntax' if item.indexOf('syntax') !== -1 }}</span></header>
               <div>
-                <pre><code class="language-{{ lang }}">
-                  {%- include "code/docs/" + componentName | replace(' ', '-') + "/" + item ignore missing -%}
+                <pre class="language-{{ lang }}"><code>
+                {%- filter trim %}{{ macroFn.get(componentName_new + '_' + itemName) }}{% endfilter -%}
                 </code></pre>
               </div>
             </div>
     
           {# demo #}
-          {% elif item.indexOf('demo-') === 0 %}
+          {% elif item.indexOf('demo') === 0 %}
             <div class="demo-container" data-show="code">
       
               {# toggle buttons #}
@@ -82,21 +91,25 @@
                   {# langs: markup | scss #}
                   {% set langs = ['markup', 'scss'] %}
                   {% for lang in langs %}
-                  <li>
-                    {# header #}
-                    <header class="{{ lang }}">{{ lang }}</header>
-    
-                    {# code #}
-                    <div>
-                      <pre><code class="language-{{ lang }}" id="{{ componentName | replace(' ', '-') + '-' + item + '-' + lang }}">
-                        {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
-                        {%- set prefix = '_' if lang === 'scss' -%}
-                          
-                        {%- set itemCode %}{%- include "code/docs/" + componentName | replace(' ', '-') + "/" + prefix + item + ext ignore missing -%}{% endset -%}{{- itemCode -}}
-                      </code></pre>
-                      <button class="btn copy-button" data-clipboard-target="#{{ componentName | replace(' ', '-') + '-' + item + '-' + lang }}">Copy Code</button>
-                    </div>
-                  </li>
+                    {# get marcro #}
+                    {% if lang === 'markup' %}
+                      {% set macroFn = macro_markup %}
+                    {% else %}
+                      {% set macroFn = macro_scss %}
+                    {% endif %}
+
+                    <li>
+                      {# header #}
+                      <header class="{{ lang }}">{{ lang }}</header>
+      
+                      {# code #}
+                      <div>
+                        <pre><code class="language-{{ lang }}" id="{{ componentName_new + '-' + item + '-' + lang }}">
+                        {%- filter trim %}{{ macroFn.get(componentName_new + '_' + item) }}{% endfilter -%}
+                        </code></pre>
+                        <button class="btn copy-button" data-clipboard-target="#{{ componentName_new + '-' + item + '-' + lang }}">Copy Code</button>
+                      </div>
+                    </li>
                   {% endfor %}
       
                 </ul>
@@ -104,7 +117,7 @@
       
               {# preview #}
               <div class="preview-wrapper">
-                {%- include "code/docs/" + componentName | replace(' ', '-') + "/" + item + ".njk" ignore missing -%}
+              {{ macro_markup.get(componentName_new + '_' + item) }}
               </div>
       
             </div>
@@ -113,18 +126,10 @@
           {% else %}
             <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | nl2br | safe }}</p>
           {% endif %}
-    
-        {# Object: demo #}
-        {% elif is('Object', item) %}
-        {% endif %}
-    
-      {% endfor %}
-    
-    </section>
+        {% endfor %}
+      </section>
     {% endfor %}
     {% endfor %}
-
   </main>
-
 </div>
 {% endblock %}

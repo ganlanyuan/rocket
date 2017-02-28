@@ -1,4 +1,0 @@
-.equal-to-1 {
-  li { display: inline-block; width: 100px; }
-  @include equal-to('li' 4) { background-color: #25e425; }
-}

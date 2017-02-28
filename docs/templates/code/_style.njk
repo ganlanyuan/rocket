@@ -1,39 +1,39 @@
-//=> {% macro get(name) %}
-//=> {% if name === "layoutsetting_style1" %}
+{% macro get(name) %}
+{% if name === "layoutsetting_style1" %}
 $ro-layout: (
   container: 1024px,
   gutter: 20px,
 );
 
-//=> {% elif name === "container_demo1" %}
+{% elif name === "container_demo1" %}
 .container1 { @include container(600px); }
 
-//=> {% elif name === "container_demo2" %}
+{% elif name === "container_demo2" %}
 .container2 {
   @include container(800px gutter 2% left);
 }
 
-//=> {% elif name === "grid_demo1" %}
+{% elif name === "grid_demo1" %}
 .grid1 { @include grid( (3 7 4) ); }
 // 1st div child: 3 columns;
 // 2nd div child: 7 columns;
 // 3rd div child: 4 columns;
 
-//=> {% elif name === "grid_demo2" %}
+{% elif name === "grid_demo2" %}
 .grid2 { @include grid( (3 7 4 : 1 0 0) ); }
 // or (3:1, 7:0, 4:0)
 // orders: 1 0 0. The first div child will go last.
 
-//=> {% elif name === "grid_demo3" %}
+{% elif name === "grid_demo3" %}
 $main: ( (3 7 4) (2 5) );
 .grid3 { @include grid($main); }
 // 1st row: (3 7 4)
 // 2nd row: (2 5)
 
-//=> {% elif name === "grid_demo4" %}
+{% elif name === "grid_demo4" %}
 .grid4 { @include grid( (2 5) child section); }
 
-//=> {% elif name === "grid_demo5" %}
+{% elif name === "grid_demo5" %}
 $breakpoints: (
   medium: 800px,
   large: 1200px,
@@ -45,58 +45,58 @@ $main: (
 );
 .grid5 { @include grid($main $breakpoints); }
 
-//=> {% elif name === "liquid2_demo1" %}
+{% elif name === "liquid2_demo1" %}
 .liquid-2-1 { @include liquid-2( ('auto' 200px) ); }
 // 1st column: fluid;
 // 2nd column: 200px;
 
-//=> {% elif name === "liquid2_demo2" %}
+{% elif name === "liquid2_demo2" %}
 .liquid-2-2 {
   @include liquid-2( ('auto':2, 200px:1) gutter 10px);
 }
 // order: 2 1;
 
-//=> {% elif name === "liquid2_demo3" %}
+{% elif name === "liquid2_demo3" %}
 .liquid-2-3 {
   @include liquid-2( (600px: ('auto':2, 200px:1)) min screen );
 }
 
-//=> {% elif name === "liquid2_demo4" %}
+{% elif name === "liquid2_demo4" %}
 .liquid-2-4 { @include liquid-2( ('auto' 200px) child (main aside) ); }
 // 1st column: fluid;
 // 2nd column: 200px;
 
-//=> {% elif name === "liquid3_demo1" %}
+{% elif name === "liquid3_demo1" %}
 .liquid-3-1 { @include liquid-3( (150px 'auto' 200px) ); }
 // 1st column: 150px;
 // 2nd column: fluid;
 // 3rd column: 200px;
 
-//=> {% elif name === "liquid3_demo2" %}
+{% elif name === "liquid3_demo2" %}
 .liquid-3-2 { 
   @include liquid-3( (150px:0, 'auto':2, 200px:1) gutter 30px ); 
 }
 // order: 0 2 1;
 
-//=> {% elif name === "liquid3_demo3" %}
+{% elif name === "liquid3_demo3" %}
 .liquid-3-3 { 
   @include liquid-3( (600px: (150px:0, 'auto':2, 200px:1)) gutter 30px); 
 }
 
-//=> {% elif name === "liquid3_demo4" %}
+{% elif name === "liquid3_demo4" %}
 .liquid-3-4 { 
   @include liquid-3( (150px, 'auto', 200px) child (nav main aside)); 
 }
 
-//=> {% elif name === "gallery_demo1" %}
+{% elif name === "gallery_demo1" %}
 .gallery-1 { @include gallery(3); }
 
-//=> {% elif name === "gallery_demo2" %}
+{% elif name === "gallery_demo2" %}
 .gallery-2 { @include gallery(4 gutter 2% RTL); }
 // gutter: 2%;
 // direction: right-to-left
 
-//=> {% elif name === "gallery_demo3" %}
+{% elif name === "gallery_demo3" %}
 .gallery-3 {
   @include gallery( ('default': 2, 600px: 3, 800px: 4) ); 
 }
@@ -104,20 +104,20 @@ $main: (
 // 600px and up: 3 items per row
 // 800px and up: 4 items per row
 
-//=> {% elif name === "gallery_demo4" %}
+{% elif name === "gallery_demo4" %}
 .gallery-4 { @include gallery(3 child div); }
 
-//=> {% elif name === "masonry_demo1" %}
+{% elif name === "masonry_demo1" %}
 .masonry-1 { @include masonry(3); }
 
-//=> {% elif name === "masonry_demo2" %}
+{% elif name === "masonry_demo2" %}
 .masonry-2 { @include masonry(4 gutter 20px); }
 
-//=> {% elif name === "masonry_demo3" %}
+{% elif name === "masonry_demo3" %}
 $masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
 .masonry-3 { @include masonry($masonry-3-layout child '.panel'); }
 
-//=> {% elif name === "metro_demo1" %}
+{% elif name === "metro_demo1" %}
 .metro-1 { 
   @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); 
   > li:nth-child(3) { float: right; };
@@ -127,34 +127,34 @@ $masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
 // h2: 1 blocks width x 2 blocks height
 // "of 5": totaly 5 blocks width;
 
-//=> {% elif name === "diamond_demo1" %}
+{% elif name === "diamond_demo1" %}
 .diamond-1 { @include diamond(3 'tight'); }
 
-//=> {% elif name === "diamond_demo2" %}
+{% elif name === "diamond_demo2" %}
 .diamond-2 { @include diamond(20%); }
 // diamond width: 20%
 
-//=> {% elif name === "diamond_demo3" %}
+{% elif name === "diamond_demo3" %}
 .diamond-3 { @include diamond(octagon 200px); }
 // diamond width: 200px
 
-//=> {% elif name === "anglededges_demo1" %}
+{% elif name === "anglededges_demo1" %}
 .angled-edges-1 {
   @include angled-edges(both #fff -5deg flip);
   background-color: #58CAFF;
 }
 
-//=> {% elif name === "stickyfooter_demo1" %}
+{% elif name === "stickyfooter_demo1" %}
 .sticky-footer-1 {
   @include sticky-footer('main'); 
   header, main, footer { padding: 10px; background-color: #f5f5f5; }
   main { background-color: #FBA158; }
 }
 
-//=> {% elif name === "justify_demo1" %}
+{% elif name === "justify_demo1" %}
 .justify-1 { @include justify(); }
 
-//=> {% elif name === "center_demo1" %}
+{% elif name === "center_demo1" %}
 .center-1 {
   @include center('div');
   position: absolute;
@@ -165,7 +165,7 @@ $masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
   > div { display: inline-block; padding: 10px; background-color: #FBA158; }
 }
 
-//=> {% elif name === "charts_demo1" %}
+{% elif name === "charts_demo1" %}
 $charts-data1: (
   #5AB5E1: 8.9 10.5 19.3 21.45,
 );
@@ -182,7 +182,7 @@ $charts-data2: (
   margin-bottom: 2em;
 }
 
-//=> {% elif name === "responsivetable_demo1" %}
+{% elif name === "responsivetable_demo1" %}
 table {
   text-align: left;
   width: 100%;
@@ -252,7 +252,7 @@ $responsive-table-4-data: (
   }
 }
 
-//=> {% elif name === "offcanvas_demo1" %}
+{% elif name === "offcanvas_demo1" %}
 // normal
 .off-canvas-1 { @include off-canvas(slide-in submenu '.off-canvas-nav-1' ); }
  
@@ -280,7 +280,7 @@ $responsive-table-4-data: (
   margin-bottom: 10px;
 }
 
-//=> {% elif name === "offcanvas_demo1" %}
+{% elif name === "offcanvas_demo1" %}
 <!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
 <div>
   <input type="checkbox" name="" id="nav-toggle-1" class="checkbox-hidden">
@@ -316,10 +316,10 @@ $responsive-table-4-data: (
   </div>
 </div>
 
-//=> {% elif name === "validation_demo1" %}
+{% elif name === "validation_demo1" %}
 .validation-1 { @include validation(slide-in right default); }
 
-//=> {% elif name === "button_demo1" %}
+{% elif name === "button_demo1" %}
 $padding: "0.5em 0.8em";
 
 .button-simple { @include button($padding simple); }
@@ -333,7 +333,7 @@ $padding: "0.5em 0.8em";
 }
 
 
-//=> {% elif name === "parallelogram_demo1" %}
+{% elif name === "parallelogram_demo1" %}
 .parallelogram-1 { 
   @include parallelogram(#0C81E7 -30deg); 
 
@@ -343,7 +343,7 @@ $padding: "0.5em 0.8em";
   color: #fff;
 }
 
-//=> {% elif name === "dropshadows_demo1" %}
+{% elif name === "dropshadows_demo1" %}
 .drop-shadow-1 { @include drop-shadows(lifted bottom 15px); }
 .drop-shadow-2 { @include drop-shadows(raised bottom 15px); }
 .drop-shadow-3 { @include drop-shadows(perspective bottom 15px); }
@@ -357,7 +357,7 @@ $padding: "0.5em 0.8em";
   background-color: #f7f7f7;
 }
 
-//=> {% elif name === "switch_demo1" %}
+{% elif name === "switch_demo1" %}
 .switch-1 { 
   @include switch(round text ("on" "off") 36px blue); 
   margin-bottom: 10px;
@@ -366,7 +366,7 @@ $padding: "0.5em 0.8em";
   @include switch(slider round 20px red); 
 }
 
-//=> {% elif name === "pushtoggle_" %}
+{% elif name === "pushtoggle_" %}
 .push-toggle-1 { 
   // default style
   label {
@@ -383,7 +383,7 @@ $padding: "0.5em 0.8em";
   }
 }
 
-//=> {% elif name === "checkbox_demo1" %}
+{% elif name === "checkbox_demo1" %}
 .checkbox-1 {
   margin-top: 10px;
 
@@ -409,7 +409,7 @@ $padding: "0.5em 0.8em";
 }
 
 
-//=> {% elif name === "inputfile_demo1" %}
+{% elif name === "inputfile_demo1" %}
 .input-file-1 {
   @include input-file() {
     margin: 10px 0;
@@ -425,7 +425,7 @@ $padding: "0.5em 0.8em";
   }
 }
 
-//=> {% elif name === "tabs_demo1" %}
+{% elif name === "tabs_demo1" %}
 .tabs-1 { 
   @include tabs(3 'carousel'); 
   @include tabs-active(3) {
@@ -436,13 +436,13 @@ $padding: "0.5em 0.8em";
   } 
 }
 
-//=> {% elif name === "accordion_demo1" %}
+{% elif name === "accordion_demo1" %}
 .accordion-1 {
   @include accordion(div 200px);
   > label { display: block; padding: 10px; background-color: #f5f5f5; }
 }
 
-//=> {% elif name === "dropdown_demo1" %}
+{% elif name === "dropdown_demo1" %}
 .dropdown-1 {
   @include dropdown(click right default);
   display: inline-block;
@@ -450,7 +450,7 @@ $padding: "0.5em 0.8em";
   margin-top: 20px;
 }
 
-//=> {% elif name === "tooltip_demo1" %}
+{% elif name === "tooltip_demo1" %}
 .tooltip-1 {
   @include tooltip(right #b02df3); 
 }
@@ -458,23 +458,23 @@ $padding: "0.5em 0.8em";
   @include tooltip(radius bottom #b02df3); 
 }
 
-//=> {% elif name === "medialist_demo1" %}
+{% elif name === "medialist_demo1" %}
 .media-list-1 .media { @include media-list('media' 15px); } 
 .media-list-2 .media { @include media-list('media' 15px right); }
 .media-body { @include media-list('media-body'); }
 
-//=> {% elif name === "flexmedia_demo1" %}
+{% elif name === "flexmedia_demo1" %}
 .flex-media-1 { @include flex-media(315/560); }
 .flex-media-2 { @include flex-media(1 svg); }
 
-//=> {% elif name === "type_demo1" %}
+{% elif name === "type_demo1" %}
 .type-1 { @include type(30px 1.8 'Georgia, Helvetica, sans-serif'); }
 .type-2 { @include type(30px 1.8 uppercase bold italic right); }
 
-//=> {% elif name === "fluidtype_demo1" %}
+{% elif name === "fluidtype_demo1" %}
 .fluid-type-1 { @include fluid-type(font-size, (320px: 16px, 1024px: 40px)); }
 
-//=> {% elif name === "responsivetype_demo1" %}
+{% elif name === "responsivetype_demo1" %}
 $responsive-type-1: (
   'default': (15px 1.3 right uppercase),
   900px: 18px,
@@ -494,7 +494,7 @@ $responsive-type-2: (
 );
 .responsive-type-2 { @include rp-type($responsive-type-2 $bp); }
 
-//=> {% elif name === "hidetext_demo1" %}
+{% elif name === "hidetext_demo1" %}
 .hide-text-1 {
   @extend %hide-text;
   width: 100px;
@@ -502,10 +502,10 @@ $responsive-type-2: (
   background: #ccc url('http://placehold.it/100x60/DD279E/ffffff?text=Brand') 0 0 no-repeat;
 }
 
-//=> {% elif name === "opacity_style1" %}
+{% elif name === "opacity_style1" %}
 .opacity { @include opacity(0.3); }
 
-//=> {% elif name === "iergba_style1" %}
+{% elif name === "iergba_style1" %}
 .lt-ie9 .ie-rgba { @include ie-rgba(rgba(0,0,0,0.7)); }
 // output:
 // .lt-ie9 .ie-rgba {
@@ -514,7 +514,7 @@ $responsive-type-2: (
 //   zoom: 1;
 // }
 
-//=> {% elif name === "robreakpoint_style1" %}
+{% elif name === "robreakpoint_style1" %}
 @include bp('min' 640) {};
 // @media (min-width: 40em) {};
 @include bp('min' 'height' 640) {};
@@ -524,39 +524,39 @@ $responsive-type-2: (
 @include bp(400 767 1000 1200 1500) {};
 // @media (min-width: 25em) and (max-width: 47.875em), (min-width: 62.5em) and (max-width: 74.9375em), (min-width: 93.75em){}
 
-//=> {% elif name === "atleast_demo1" %}
+{% elif name === "atleast_demo1" %}
 .at-least-1 {
   li { display: inline-block; width: 100px; }
   @include at-least('li' 4) { background-color: #25e425; }
 }
 
-//=> {% elif name === "atmost_demo1" %}
+{% elif name === "atmost_demo1" %}
 .at-most-1 {
   li { display: inline-block; width: 100px; }
   @include at-most('li' 4) { background-color: #25e425; }
 }
 
-//=> {% elif name === "equalto_demo1" %}
+{% elif name === "equalto_demo1" %}
 .equal-to-1 {
   li { display: inline-block; width: 100px; }
   @include equal-to('li' 4) { background-color: #25e425; }
 }
 
-//=> {% elif name === "between_demo1" %}
+{% elif name === "between_demo1" %}
 .between-1 {
   li { display: inline-block; width: 100px; }
   @include between('li' 4 6) { background-color: #25e425; }
 }
 
-//=> {% elif name === "visible_demo1" %}
+{% elif name === "visible_demo1" %}
 <p class="visible-1">Visible on 700px and up</p>
 <p class="visible-2">Visible below 700px</p>
 
-//=> {% elif name === "hidden_demo1" %}
+{% elif name === "hidden_demo1" %}
 .hidden-1 { @include hidden(700px); }
 .hidden-2 { @include hidden(300px 500px 700px); }
 
-//=> {% elif name === "contrast_demo1" %}
+{% elif name === "contrast_demo1" %}
 .contrast-1 {
   background-color: #a6e36e; 
   color: contrast(#a6e36e);
@@ -570,38 +570,38 @@ $responsive-type-2: (
   color: contrast(#6666FF light #D6D6E6);
 }
 
-//=> {% elif name === "adjacent_demo1" %}
+{% elif name === "adjacent_demo1" %}
 .adjacent-0 { background-color: #155BDF; }
 .adjacent-1 { background-color: adjacent(#155BDF 1); }
 .adjacent-2 { background-color: adjacent(#155BDF 2); }
 .adjacent-3 { background-color: adjacent(#155BDF 3); }
 
-//=> {% elif name === "complementary_demo1" %}
+{% elif name === "complementary_demo1" %}
 .complementary-0 { background-color: #155BDF; }
 .complementary-1 { background-color: complementary(#155BDF 1); }
 
-//=> {% elif name === "splitcomplementary_demo1" %}
+{% elif name === "splitcomplementary_demo1" %}
 .split-complementary-0 { background-color: #155BDF; }
 .split-complementary-1 { background-color: split-complementary(#155BDF 1); }
 .split-complementary-2 { background-color: split-complementary(#155BDF 2); }
 .split-complementary-3 { background-color: split-complementary(#155BDF 3); }
 
-//=> {% elif name === "triad_demo1" %}
+{% elif name === "triad_demo1" %}
 .triad-0 { background-color: #155BDF; }
 .triad-1 { background-color: triad(#155BDF 1); }
 .triad-2 { background-color: triad(#155BDF 2); }
 
-//=> {% elif name === "rectangle_demo1" %}
+{% elif name === "rectangle_demo1" %}
 .rectangle-0 { background-color: #155BDF; }
 .rectangle-1 { background-color: rectangle(#155BDF 1); }
 .rectangle-2 { background-color: rectangle(#155BDF 2); }
 .rectangle-3 { background-color: rectangle(#155BDF 3); }
 
-//=> {% elif name === "square_demo1" %}
+{% elif name === "square_demo1" %}
 .square-0 { background-color: #155BDF; }
 .square-1 { background-color: square(#155BDF 1); }
 .square-2 { background-color: square(#155BDF 2); }
 .square-3 { background-color: square(#155BDF 3); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

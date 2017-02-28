@@ -1,0 +1,303 @@
+{% macro get(name) %}
+{% if name === "container_syntax" %}
+@mixin container($container ('gutter' $gutter) $alignment)
+// $container: px | em | %
+// $gutter: px | em | %
+// $alignment: left | right | center
+
+{% elif name === "grid_syntax" %}
+@mixin grid($grid (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep)
+// $grid: list | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+// $direction: LTR | RTL
+
+{% elif name === "liquid2_syntax" %}
+@mixin liquid-2($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction)
+// $layout: list | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+// $direction: LTR | RTL
+
+{% elif name === "liquid3_syntax" %}
+@mixin liquid-3($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction)
+// $layout: list | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+// $direction: LTR | RTL
+
+{% elif name === "gallery_syntax" %}
+@mixin gallery($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep);
+// $layout: number | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+// $direction: LTR | RTL
+
+{% elif name === "masonry_syntax" %}
+@mixin masonry($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type);
+// $layout: number | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+
+// *** fallback: IE9- *** //
+.no-csscolumns {
+  .masonry {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
+}
+
+{% elif name === "metro_syntax" %}
+@mixin metro($layout (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)
+// $layout: list | map
+// $condition: 'min' | 'max'
+// $media-type: media types
+// $breakpoints: map, e.g. (small: 640px, medium: 768px, large: 1024px)
+
+{% elif name === "diamond_syntax" %}
+@mixin diamond(($count / $size) $shape 'combined' 'keep')
+// $shape: 'diamond' | 'octagon'
+
+{% elif name === "anglededges_syntax" %}
+@mixin angled-edges($edges $angle $edge-color flip);
+// $edges: top | bottom | both
+// $edge-color: deg
+
+{% elif name === "stickyfooter_syntax" %}
+@mixin sticky-footer($selector);
+
+{% elif name === "justify_syntax" %}
+@mixin justify(($selector));
+
+{% elif name === "center_syntax" %}
+@mixin center($selector)
+
+{% elif name === "charts_syntax" %}
+@mixin charts($data $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))
+// $data: map. (color: data, color: data, ...)
+// $chart-type: bar | column
+// $bar-gap: px | em. Required if mode is "bar".
+// $bar-height: px | em
+// $steps: list. (step count)
+
+{% elif name === "responsivetable_syntax" %}
+// rp-table() for shorthand
+@mixin responsive-table($mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count)) { 
+  @content;
+}
+// $mode: flip-scroll | scroll | toggle | stack
+// $data: list. (&lt;th&gt; content)
+// $count: num. (&lt;th&gt; count)
+ 
+// Requirements
+// flip-scroll: $breakpoint
+// toggle: $breakpoint, $count
+// stack: $data, $border-color, $th-width
+
+{% elif name === "offcanvas_syntax" %}
+@mixin off-canvas($mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration)
+// $mode: slide-in | slide-along | slide-out | rotate-in | rotate-out | rotate-in-reverse | scale-down | scale-up | open-door | push | reveal | drawer
+
+// For modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push and drawer, put nav inside ".page".
+// For modes: slide-along, slide-out, scale-down, scale-up, open-door and reveal, put nav outside ".page", after the checkbox.
+
+{% elif name === "validation_syntax" %}
+@mixin validation($style $direction $shake $speed $duration default)
+// $style: 'normal' | 'fade-in' | 'slide-in'
+// $direction: left | right | top | bottom
+
+{% elif name === "button_syntax" %}
+@mixin button($padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function)
+// $padding: string. e.g. "5px 10px"
+// style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
+// direction: left, right, top, bottom, 'horizontal', 'vertical'
+// active-selector: class | id | property | pseudo. You could change the button status by adding this selector.
+
+{% elif name === "parallelogram_syntax" %}
+@mixin parallelogram($background $angle);
+// $background: color
+// $angle: deg
+
+{% elif name === "dropshadows_syntax" %}
+@mixin drop-shadows($style $direction $color $shadow-size);
+// $style: 'lifted' | 'raised' | 'perspective' | 'curve'
+// $direction: left | right | top | bottom | 'horizontal' | 'vertical'
+
+{% elif name === "switch_syntax" %}
+@mixin switch($style $size $active-color (text $text) (radius | round))
+// $style: 'toggle' | 'slider'
+// $size: px | em
+// $active-color: color
+// $text: list. e.g. ('on' 'off') 
+
+{% elif name === "pushtoggle_syntax" %}
+@mixin push-toggle() {
+  // Active styles go here
+  @content;
+}
+
+{% elif name === "checkbox_syntax" %}
+@mixin checkbox() {
+  // unchecked styles go here
+  @content;
+}
+
+@mixin checkbox-active() {
+  // checked styles go here
+  @content;
+}
+
+{% elif name === "inputfile_syntax" %}
+@mixin input-file() {
+  @content;
+}
+
+{% elif name === "tabs_syntax" %}
+@mixin tabs($count $style)
+// $count: tab count
+// $style: 'normal' | 'carousel' | 'customize'
+
+@mixin tabs-active($count)
+// $count: tab count
+
+@mixin tabs-panel-active($count)
+// $count: tab count
+
+{% elif name === "accordion_syntax" %}
+@mixin accordion($selector $max-height $transition-duration)
+
+{% elif name === "dropdown_syntax" %}
+@mixin dropdown($selector $show $style $direction $duration default)
+// $selector: string. Dropdown content selector.
+// $show: 'hover' | 'click'
+// $style: 'display' | 'scale' | 'rotate'
+// default: use default styles
+
+{% elif name === "tooltip_syntax" %}
+@mixin tooltip($position $color (width $width) (height $height) radius)
+// $position: left | right | top | bottom
+// $width(optional): px | em
+// $height(optional): px | em
+// radius (0.22em), adjust it using "$ro-tooltip-radius: your value;")
+
+{% elif name === "medialist_syntax" %}
+@mixin media-list($role $gutter $direction)
+
+{% elif name === "flexmedia_syntax" %}
+@mixin flex-media($ratio $child)
+
+{% elif name === "type_syntax" %}
+@mixin type($font-size $font-weight $font-style $line-height $font-family $text-align $text-transform)
+// $font-weight: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit
+// $font-style: italic, oblique, style-normal, style-inherit
+// $text-align: left, right, center, justify, align-inherit
+// $text-transform: capitalize, uppercase, lowercase, none, full-width, transform-inherit
+ 
+// Tips: 
+// to set 'font-weight', 'font-style', 'text-align' or 'text-transform' values to 'inherit' or 'normal', 
+// you need add prefix 'weight-', 'style-' or 'transform-'.
+
+{% elif name === "fluidtype_syntax" %}
+@mixin fluid-type($properties, $data);
+// $properties: font-size | margin | padding
+// $data: map
+
+{% elif name === "responsivetype_syntax" %}
+@mixin responsive-type($data, $breakpoints) // or rp-type();
+// $data: map
+// $breakpoints (global breakpoints, optional): map
+
+{% elif name === "hidetext_syntax" %}
+@mixin hide-text();
+%hide-text {};
+
+{% elif name === "opacity_syntax" %}
+@mixin opacity($opacity)
+
+{% elif name === "iergba_syntax" %}
+@mixin ie-rgba($rgba)
+// $rgba: rgba color
+
+{% elif name === "robreakpoint_syntax" %}
+@mixin ro-breakpoint($condition $media-type $media-feature $breakpoints)
+
+{% elif name === "atleast_syntax" %}
+@mixin at-least($selector $count) {
+  @content;
+}
+
+{% elif name === "atmost_syntax" %}
+@mixin at-most($selector $count) {
+  @content;
+}
+
+{% elif name === "equalto_syntax" %}
+@mixin equal-to($selector $count) {
+  @content;
+}
+
+{% elif name === "between_syntax" %}
+@mixin between($selector $count1 $count2) {
+  @content;
+}
+
+{% elif name === "visible_syntax" %}
+@mixin visible($media-type $breakpoints)
+
+{% elif name === "hidden_syntax" %}
+@mixin hidden($media-type $breakpoints)
+
+{% elif name === "contrast_syntax" %}
+@function contrast($color (light $light) (dark $dark))
+
+{% elif name === "adjacent_syntax" %}
+@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
+
+{% elif name === "complementary_syntax" %}
+@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
+
+{% elif name === "splitcomplementary_syntax" %}
+@function split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+
+{% elif name === "triad_syntax" %}
+@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
+
+{% elif name === "rectangle_syntax" %}
+@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
+
+{% elif name === "square_syntax" %}
+@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+// $order: integer
+// $saturation: percent
+// $lightness: percent
+// $dist(distribution): number
+
+{% endif %}
+{% endmacro %}

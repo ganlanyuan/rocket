@@ -1,9 +1,0 @@
-.tabs-1 { 
-  @include tabs(3 'carousel'); 
-  @include tabs-active(3) {
-    color: #1899FF;
-  } 
-  @include tabs-panel-active(3) {
-    border: 1px solid #1899FF;
-  } 
-}

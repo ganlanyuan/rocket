@@ -1,9 +1,0 @@
-@mixin tabs($count $style)
-// $count: tab count
-// $style: 'normal' | 'carousel' | 'customize'
-
-@mixin tabs-active($count)
-// $count: tab count
-
-@mixin tabs-panel-active($count)
-// $count: tab count

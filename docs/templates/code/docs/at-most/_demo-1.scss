@@ -1,4 +1,0 @@
-.at-most-1 {
-  li { display: inline-block; width: 100px; }
-  @include at-most('li' 4) { background-color: #25e425; }
-}

@@ -1,9 +1,0 @@
-.center-1 {
-  @include center('div');
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  > div { display: inline-block; padding: 10px; background-color: #FBA158; }
-}
