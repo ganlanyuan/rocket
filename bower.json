@@ -8,17 +8,17 @@
   "keywords": [
     "css",
     "mixins",
-    "scss",
     "sass",
     "grid",
-    "color",
-    "type",
-    "breakpoint"
+    "framework",
+    "frontend",
+    "scss-framework",
+    "rocket"
   ],
   "authors": [
     "William Lin <ganlanyuan@gmail.com>"
   ],
-  "description": "Rocket is a powerful tool to help web developer handle layout and other components easily.",
+  "description": "Rocket is a powerful Sass framework with many common used components and utility functions, to help you build websites faster and easier.",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -28,6 +28,7 @@
     "sftp-config.json",
     "bower.json",
     "README.md",
+    "changelog.md",
     "node_modules",
     "bower_components",
     "docs",

@@ -1,0 +1,17 @@
+**/.*
+.gitignore
+.sublime-project
+.codekit
+sftp-config.json
+bower.json
+README.md
+changelog.md
+/node_modules
+/bower_components
+/docs
+/demos
+/test
+/tests
+.env
+docker-compose.yml
+gulpfile.js
