@@ -1,0 +1,3 @@
+.liquid-3-3 { 
+  @include liquid-3( (600px: (150px:0, 'auto':2, 200px:1)) gutter 30px); 
+}

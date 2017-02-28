@@ -1,0 +1,3 @@
+.liquid-3-4 { 
+  @include liquid-3( (150px, 'auto', 200px) child (nav main aside)); 
+}

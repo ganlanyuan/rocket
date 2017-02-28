@@ -1,7 +1,7 @@
 {% set pagename = 'guide' %}
 {% extends "partials/layout.njk" %}
 
-{% set guideNav = {'basics': ['sass basics', 'data type', 'parameter'], 'practice': ['design', 'markup']} %}
+{% set guideNav = {'basics': ['sass basics', 'data type', 'parameter', 'requests'], 'practice': ['design', 'markup']} %}
 {% block main %}
 <div class="docs-wrapper section">
 
@@ -79,6 +79,26 @@ h1 { @include type( (24px, bold, italic) ); }
 // 3 parameter ✗
 h1 { @include type(24px, bold, italic); }
 </code></pre>
+    </section>
+
+    <section id="{{ value1[3] | replace(' ', '-') }}">
+      <h4>{{ value1[3] | capitalize }}</h4>
+      <p>Requests for version 3:</p>
+      <ul class="initial">
+        <li>
+          <p><del><a href="http://v3.modernizr.com/" target="_blank">Modernizr</a> (`-csscolumns-`, `-csstransforms-`, `-cssanimations-`, `-flexbox-`, `-flexboxtweener-`, `-flexwrap-`).</del> Update: not required from <a href="https://github.com/ganlanyuan/rocket/tree/v3.4.2" target="_blank">v3.4.2</a>.</p>
+        </li>
+        <li>
+          <p><a href="http://selectivizr.com/" target="_blank">Selectivizr</a> and a Javascript library (if you're not using one) for IE8.</p>
+        </li>
+        <li>
+          <p>Please replace `<html>` with the markup below for better IE support.</p>
+<pre class="language-markup"><code>&lt;!--[if (IE 8)&!(IEMobile)]&gt;&lt;html class="no-js lt-ie10 lt-ie9" lang="en"&gt;&lt;![endif]--&gt;
+&lt;!--[if (IE 9)&!(IEMobile)]&gt;&lt;html class="no-js lt-ie10" lang="en"&gt;&lt;![endif]--&gt;
+&lt;!--[if gt IE 9]&gt;&lt;!--&gt; &lt;html class="no-js" lang="en"&gt;&lt;!--&lt;![endif]--&gt;
+</code></pre>
+        </li>
+      </ul>
     </section>
 
     {% set key2 = keys(guideNav)[1] %}

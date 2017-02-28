@@ -1,0 +1,3 @@
+.liquid-2-3 {
+  @include liquid-2( (600px: ('auto':2, 200px:1)) min screen );
+}

@@ -1,0 +1,3 @@
+.liquid-2-4 { @include liquid-2( ('auto' 200px) child (main aside) ); }
+// 1st column: fluid;
+// 2nd column: 200px;

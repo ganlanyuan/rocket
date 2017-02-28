@@ -1,4 +1,4 @@
 .liquid-3-2 { 
-  @include liquid-3( (150px:0, 'auto':2, 200px:1) ); 
+  @include liquid-3( (150px:0, 'auto':2, 200px:1) gutter 30px ); 
 }
 // order: 0 2 1;

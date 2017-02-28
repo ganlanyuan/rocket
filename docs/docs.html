@@ -244,18 +244,21 @@
         </section>
       </nav>
       <main>
+        <p>
+          <em>Doc version: 3.4.13</em>
+        </p>
+        <p>
+          Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before using this docs.
+        </p>
         <h2>
           Layout
         </h2>
-        <p>
-          Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before you read this docs.
-        </p>
         <section id="layout-setting">
           <h4>
             Layout setting
           </h4>
           <p>
-            Default container for <code class="language-html">container</code> and gutter for <code class="language-html">container</code>, <code class="language-html">grid</code>, <code class="language-html">gallery</code>, <code class="language-html">liquid-2</code>, <code class="language-html">liquid-3</code>, <code class="language-html">metro</code>, <code class="language-html">masonry</code>.
+            Default container for <code class="language-html">container</code> and gutter for <code class="language-html">container</code>, <code class="language-html">grid</code>, <code class="language-html">gallery</code>, <code class="language-html">liquid-2</code>, <code class="language-html">liquid-3</code>, <code class="language-html">metro</code> and <code class="language-html">masonry</code>.
           </p>
           <div class="code-wrapper">
             <header class="scss">
@@ -276,7 +279,7 @@
             Container
           </h4>
           <p>
-            Create a container to constrain your content. It can be pushed to the left, right edge or center aligned.
+            Create a container to constrain your content. The container can be pushed to the left, right edge or center aligned.
           </p>
           <p>
             <em class='capability'>IE 7+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>
@@ -294,6 +297,9 @@
 </pre>
             </div>
           </div>
+          <p>
+            Make a 600px width container:
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -328,6 +334,9 @@
               <div class="container1" data-content=""></div>
             </div>
           </div>
+          <p>
+            Change gutter and alignment:
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -391,7 +400,7 @@
             </div>
           </div>
           <p>
-            <code class="language-html">@include</code> grid on the parent element. If the child elements are not <code class="language-html">div</code>s, indicate them using <code class="language-html">child $child-selector</code> format in the parameter.
+            <code class="language-html">@include</code> grid on the parent element, pass a number list (make sure the number list count is the same with the child elements count) as a parameter.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -437,7 +446,10 @@
             </div>
           </div>
           <p>
-            You can change the column orders using <code class="language-html">(cols : order)</code> format. Here the order works the same as flexbox-order works: <a href="https://drafts.csswg.org/css-flexbox-1/#order-property">https://drafts.csswg.org/css-flexbox-1/#order-property</a>
+            Change the column order using <code class="language-html">(cols : order)</code> format.
+          </p>
+          <p>
+            The order works the same way as <a href='https://drafts.csswg.org/css-flexbox-1/#order-property' target='_blank'>flexbox-order</a>. Basically smaller order column will goes left, bigger goes right, equal orders will go with their original order in the markup from left to right.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -488,7 +500,7 @@
             </div>
           </div>
           <p>
-            The child elements can be separated to multi rows using a nested list format: <code class="language-html">( (row1 row1 row1) (row2 row2) (row3 row3 row3))</code>.
+            The child elements can be separated to multi rows using a nested list. <code class="language-html">( (row1 row1 row1) (row2 row2) (row3 row3 row3))</code> indicate 3 rows, the first row include 3 columns, 2rd row 2 columns, 3rd row 3 columns.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -548,7 +560,7 @@
             </div>
           </div>
           <p>
-            If the child elements are not <code class="language-html">div</code>s, you need to proclaim it via <code class="language-html">child</code> option in the format of <code class="language-html">child child-type</code>.
+            If the child elements are not <code class="language-html">div</code>s, indicate them using <code class="language-html">child $selector</code> format in the parameter.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -593,7 +605,7 @@
             </div>
           </div>
           <p>
-            Grid works with breakpoints to make multi layouts for different window size.
+            <code class="language-html">grid</code> works with breakpoints to make multi layouts for different devices.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -664,7 +676,7 @@ $main: (
             Liquid-2
           </h4>
           <p>
-            Make a fluid 2-columns blog layout, with a fixed sidebar and fluid main column.
+            Make a fluid 2-columns blog layout, with a fixed sidebar and a fluid main column.
           </p>
           <p>
             <em class='capability'>IE 8+, Firefox 4+, Chrome 19+, Safari 6+, Opera 15+</em>
@@ -684,6 +696,9 @@ $main: (
 </pre>
             </div>
           </div>
+          <p>
+            Use string <code class="language-html">'auto'</code> to indicate the fluid main column.
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -729,7 +744,7 @@ $main: (
             </div>
           </div>
           <p>
-            The order and gutter can be redefined as well.
+            Change the order using a <code class="language-html">map</code> and gutter using a keyword <code class="language-html">'gutter'</code>.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -776,6 +791,100 @@ $main: (
               </div>
             </div>
           </div>
+          <p>
+            Works with breakpoint.
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="liquid-2-demo-3-markup">&lt;div class="liquid-2-3"&gt;
+  &lt;div data-content&gt;1&lt;/div&gt;
+  &lt;div data-content&gt;2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-2-demo-3-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="liquid-2-demo-3-scss">.liquid-2-3 {
+  @include liquid-2( (600px: ('auto':2, 200px:1)) min screen );
+}</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-2-demo-3-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
+              <div class="liquid-2-3">
+                <div data-content="">
+                  1
+                </div>
+                <div data-content="">
+                  2
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            If the child elements are not <code class="language-html">div</code>s, indicate them using <code class="language-html">child ($selector1 $selector2)</code> format in the parameter.
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="liquid-2-demo-4-markup">&lt;div class="liquid-2-4"&gt;
+  &lt;main data-content&gt;1&lt;/main&gt;
+  &lt;aside data-content&gt;2&lt;/aside&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-2-demo-4-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="liquid-2-demo-4-scss">.liquid-2-4 { @include liquid-2( ('auto' 200px) child (main aside) ); }
+// 1st column: fluid;
+// 2nd column: 200px;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-2-demo-4-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
+              <div class="liquid-2-4">
+                <main data-content="">
+                  1
+                </main>
+                <aside data-content="">
+                  2
+                </aside>
+              </div>
+            </div>
+          </div>
         </section>
         <section id="liquid-3">
           <h4>
@@ -802,6 +911,9 @@ $main: (
 </pre>
             </div>
           </div>
+          <p>
+            Use string <code class="language-html">'auto'</code> to indicate the fluid main column.
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -852,7 +964,7 @@ $main: (
             </div>
           </div>
           <p>
-            Order can be changed as well.
+            Same with <code class="language-html">liquid-2</code>, you can change the order using a <code class="language-html">map</code> and gutter using a keyword <code class="language-html">'gutter'</code>.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -881,7 +993,7 @@ $main: (
                   <div>
                     <pre>
 <code class="language-scss" id="liquid-3-demo-2-scss">.liquid-3-2 { 
-  @include liquid-3( (150px:0, 'auto':2, 200px:1) ); 
+  @include liquid-3( (150px:0, 'auto':2, 200px:1) gutter 30px ); 
 }
 // order: 0 2 1;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid-3-demo-2-scss">Copy Code</button>
@@ -900,6 +1012,108 @@ $main: (
                 <div data-content="">
                   sidebar2
                 </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            Works with breakpoint.
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="liquid-3-demo-3-markup">&lt;div class="liquid-3-3"&gt;
+  &lt;div data-content&gt;sidebar1&lt;/div&gt;
+  &lt;div data-content&gt;main&lt;/div&gt;
+  &lt;div data-content&gt;sidebar2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-3-demo-3-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="liquid-3-demo-3-scss">.liquid-3-3 { 
+  @include liquid-3( (600px: (150px:0, 'auto':2, 200px:1)) gutter 30px); 
+}</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-3-demo-3-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
+              <div class="liquid-3-3">
+                <div data-content="">
+                  sidebar1
+                </div>
+                <div data-content="">
+                  main
+                </div>
+                <div data-content="">
+                  sidebar2
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            If the child elements are not <code class="language-html">div</code>s, indicate them using <code class="language-html">child ($selector1 $selector2 $selector3)</code> format in the parameter.
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="liquid-3-demo-4-markup">&lt;div class="liquid-3-4"&gt;
+  &lt;nav data-content&gt;sidebar1&lt;/nav&gt;
+  &lt;main data-content&gt;main&lt;/main&gt;
+  &lt;aside data-content&gt;sidebar2&lt;/aside&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-3-demo-4-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="liquid-3-demo-4-scss">.liquid-3-4 { 
+  @include liquid-3( (150px, 'auto', 200px) child (nav main aside)); 
+}</code>
+</pre><button class="btn copy-button" data-clipboard-target="#liquid-3-demo-4-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
+              <div class="liquid-3-4">
+                <nav data-content="">
+                  sidebar1
+                </nav>
+                <main data-content="">
+                  main
+                </main>
+                <aside data-content="">
+                  sidebar2
+                </aside>
               </div>
             </div>
           </div>
@@ -1112,6 +1326,63 @@ $main: (
                   <div data-content=""></div>
                 </li>
               </ul>
+            </div>
+          </div>
+          <p>
+            If the child elements are not <code class="language-html">li</code>s, indicate them using <code class="language-html">child $selector</code> format in the parameter.
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="gallery-demo-4-markup">&lt;div class="gallery-4"&gt;
+  &lt;div&gt;&lt;div data-content&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div data-content&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div data-content&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div data-content&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div data-content&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#gallery-demo-4-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="gallery-demo-4-scss">.gallery-4 { @include gallery(3 child div); }</code>
+</pre><button class="btn copy-button" data-clipboard-target="#gallery-demo-4-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
+              <div class="gallery-4">
+                <div>
+                  <div data-content=""></div>
+                </div>
+                <div>
+                  <div data-content=""></div>
+                </div>
+                <div>
+                  <div data-content=""></div>
+                </div>
+                <div>
+                  <div data-content=""></div>
+                </div>
+                <div>
+                  <div data-content=""></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -2030,9 +2301,6 @@ $main: (
         <h2>
           Components
         </h2>
-        <p>
-          Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before you read this docs.
-        </p>
         <section id="charts">
           <h4>
             Charts
@@ -2335,8 +2603,8 @@ $charts-data2: (
           </p>
           <p>
             Referance:<br>
-            <a href="http://dbushell.com/2012/01/05/responsive-tables-2/">http://dbushell.com/2012/01/05/responsive-tables-2/</a><br>
-            <a href="https://github.com/nadangergeo/RWD-Table-Patterns">https://github.com/nadangergeo/RWD-Table-Patterns</a>
+            <a href='http://dbushell.com/2012/01/05/responsive-tables-2/' target='_blank'>responsive-tables-2</a>,<br>
+            <a href='https://github.com/nadangergeo/RWD-Table-Patterns' target='_blank'>RWD-Table-Patterns</a>
           </p>
           <p>
             Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>
@@ -3396,16 +3664,9 @@ $responsive-table-4-data: (
           <h4>
             Validation
           </h4>
-          <div class="code-wrapper">
-            <header class="javascript">
-              javascript: <span></span>
-            </header>
-            <div>
-              <pre>
-<code class="language-javascript"></code>
-</pre>
-            </div>
-          </div>
+          <p>
+            Html5 form validation using <a href='https://github.com/ryanseddon/H5F' target='_blank'>H5F</a>. H5F is included in <code class="language-html">kit.js</code> (with a little bit modification), so you don't need to add it again.
+          </p>
           <p>
             Set customized alerts information through <code class="language-html">&lt;div data-info=""&gt;&lt;/div&gt;</code>.
           </p>
@@ -3669,7 +3930,7 @@ $responsive-table-4-data: (
           </h4>
           <p>
             Pure css drop shadow effects.<br>
-            Token from Nicolas Gallagher at <a href="http://nicolasgallagher.com/css-drop-shadows-without-images/">http://nicolasgallagher.com/css-drop-shadows-without-images/</a>
+            Token from Nicolas Gallagher at <a href='http://nicolasgallagher.com/css-drop-shadows-without-images/' target='_blank'>css-drop-shadows-without-images</a>.
           </p>
           <p>
             <em class='capability'>IE 9+, Firefox 4+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>
@@ -4003,7 +4264,7 @@ $responsive-table-4-data: (
           </h4>
           <p>
             Customize <code class="language-html">input:file</code>.<br>
-            Stolen from Osvaldas Valutis at <a href="http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/">http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/</a>
+            Stolen from Osvaldas Valutis at <a href='http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/' target='_blank'>styling-customizing-file-inputs-smart-way</a>.
           </p>
           <p>
             <em class='capability'>IE 8+, Firefox 22+, Chrome 15+, Safari 4+, Opera 12.1+</em>
@@ -4591,9 +4852,6 @@ $responsive-table-4-data: (
         <h2>
           Addons
         </h2>
-        <p>
-          Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before you read this docs.
-        </p>
         <section id="type">
           <h4>
             Type
@@ -4670,8 +4928,8 @@ $responsive-table-4-data: (
             Make <code class="language-html">font-size</code> or other properties change smoothly depending on the window size.
           </p>
           <p>
-            Stolen from <a href="http://www.sassmeister.com/gist/7f22e44ace49b5124eec">http://www.sassmeister.com/gist/7f22e44ace49b5124eec</a><br>
-            More on <a href="https://blog.codepen.io/2016/10/31/fluid-type-blogs/">https://blog.codepen.io/2016/10/31/fluid-type-blogs/</a>
+            Stolen from <a href='http://www.sassmeister.com/gist/7f22e44ace49b5124eec' target='_blank'>here</a><br>
+            More on <a href='https://blog.codepen.io/2016/10/31/fluid-type-blogs/' target='_blank'>fluid-type-blogs</a>.
           </p>
           <p>
             <em class='capability'>IE 6+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>
@@ -5404,9 +5662,6 @@ $responsive-type-2: (
         <h2>
           Color-functions
         </h2>
-        <p>
-          Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before you read this docs.
-        </p>
         <section id="contrast">
           <h4>
             Contrast

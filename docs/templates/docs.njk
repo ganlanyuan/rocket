@@ -27,10 +27,11 @@
 
   {# main #}
   <main>
+    <p><em>Doc version: 3.4.13</em></p>
+    <p>Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before using this docs.</p>
 
     {% for groupName, group in docs %}
     <h2>{{ groupName | capitalize }}</h2>
-    <p>Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before you read this docs.</p>
     {% for componentName, component in group %}
     <section id="{{ componentName | replace(' ', '-') }}">
       <h4>{{ componentName | capitalize }}</h4>
@@ -42,16 +43,13 @@
     
           {# markup | scss | js #}
           {% if item.indexOf('.njk') !== -1 or 
-                item.indexOf('.scss') !== -1 or 
-                item.indexOf('.js') !== -1 %}
+                item.indexOf('.scss') !== -1 %}
     
             {# set language, prefix #}
             {% if item.indexOf('.njk') !== -1 %}
               {% set lang = 'markup' %}
             {% elif item.indexOf('.scss') !== -1 %}
               {% set lang = 'scss' %}
-            {% else %}
-              {% set lang = 'javascript' %}
             {% endif %}
     
             <div class="code-wrapper">
@@ -63,27 +61,21 @@
               </div>
             </div>
     
-          {# text #}
-          {% else %}
-            <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | urlize | nl2br | safe }}</p>
-          {% endif %}
-    
-        {# Object: demo #}
-        {% elif is('Object', item) %}
-          <div class="demo-container" data-show="code">
-    
-            {# toggle buttons #}
-            <div class="toggle-container">
-              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
-            </div>
-    
-            {# code #}
-            <div class="code-wrapper">
-              <ul>
-                
-                {% for demo, langs in item %}
-    
-                  {# langs: markup | scss | javascript #}
+          {# demo #}
+          {% elif item.indexOf('demo-') === 0 %}
+            <div class="demo-container" data-show="code">
+      
+              {# toggle buttons #}
+              <div class="toggle-container">
+                <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+              </div>
+      
+              {# code #}
+              <div class="code-wrapper">
+                <ul>
+                  
+                  {# langs: markup | scss #}
+                  {% set langs = ['markup', 'scss'] %}
                   {% for lang in langs %}
                   <li>
                     {# header #}
@@ -91,29 +83,34 @@
     
                     {# code #}
                     <div>
-                      <pre><code class="language-{{ lang }}" id="{{ componentName | replace(' ', '-') + '-' + demo + '-' + lang }}">
+                      <pre><code class="language-{{ lang }}" id="{{ componentName | replace(' ', '-') + '-' + item + '-' + lang }}">
                         {%- set ext = '.njk' if lang === 'markup' else '.' + lang -%}
                         {%- set prefix = '_' if lang === 'scss' -%}
                           
-                        {%- set itemCode %}{%- include "code/docs/" + componentName | replace(' ', '-') + "/" + prefix + demo + ext ignore missing -%}{% endset -%}{{- itemCode -}}
+                        {%- set itemCode %}{%- include "code/docs/" + componentName | replace(' ', '-') + "/" + prefix + item + ext ignore missing -%}{% endset -%}{{- itemCode -}}
                       </code></pre>
-                      <button class="btn copy-button" data-clipboard-target="#{{ componentName | replace(' ', '-') + '-' + demo + '-' + lang }}">Copy Code</button>
+                      <button class="btn copy-button" data-clipboard-target="#{{ componentName | replace(' ', '-') + '-' + item + '-' + lang }}">Copy Code</button>
                     </div>
                   </li>
                   {% endfor %}
-                {% endfor %}
-    
-              </ul>
+      
+                </ul>
+              </div>
+      
+              {# preview #}
+              <div class="preview-wrapper">
+                {%- include "code/docs/" + componentName | replace(' ', '-') + "/" + item + ".njk" ignore missing -%}
+              </div>
+      
             </div>
     
-            {# preview #}
-            {% for demo, langs in item %}
-              <div class="preview-wrapper">
-                {%- include "code/docs/" + componentName | replace(' ', '-') + "/" + demo + ".njk" ignore missing -%}
-              </div>
-            {% endfor %}
+          {# text #}
+          {% else %}
+            <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | nl2br | safe }}</p>
+          {% endif %}
     
-          </div>
+        {# Object: demo #}
+        {% elif is('Object', item) %}
         {% endif %}
     
       {% endfor %}

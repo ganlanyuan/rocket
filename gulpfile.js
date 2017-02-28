@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const fs = require("fs");
 const path = require('path');
 const mergeStream = require('merge-stream');
 const browserSync = require('browser-sync').create();
@@ -53,6 +54,15 @@ function requireUncached( $module ) {
 // Nunjucks Task
 gulp.task('html', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'data.json');
+  // let markups = fs.readFileSync('./' + PATHS.templates_docs + 'code/docs/markup.njk', "utf8");
+  // let styles = fs.readFileSync('./' + PATHS.templates_docs + 'code/docs/_style.scss', "utf8");
+  // let groupsNames = Object.keys(data.docs);
+  // groupsNames.forEach(function (groupsName) {
+  //   let group = data.docs[groupsName];
+  //   group.forEach(function (component) {
+  //   })
+  //   console.log(group);
+  // });
   data.year = new Date().getFullYear();
 
   data.is = function (type, obj) {
@@ -79,6 +89,7 @@ gulp.task('html', function() {
       'drop-empty-elements': false,
       'force-output': true
     }))
+    .pipe(cache('nunjucks'))
     .pipe(gulp.dest(PATHS.docs));
 });
 
@@ -199,7 +210,7 @@ gulp.task('server', function() {
 
 // Watch Task
 gulp.task('watch', function () {
-  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '*.json'], ['html']);
+  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '**/*.scss', PATHS.templates_docs + '*.json'], ['html']);
   gulp.watch(PATHS.docs + '**/*.scss', ['sass']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);

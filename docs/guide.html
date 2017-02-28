@@ -73,6 +73,9 @@
           <li>
             <a href="#parameter">Parameter</a>
           </li>
+          <li>
+            <a href="#requests">Requests</a>
+          </li>
         </ul>
         <h4>
           Practice
@@ -161,6 +164,37 @@ h1 { @include type( (24px, bold, italic) ); }
 h1 { @include type(24px, bold, italic); }
 </code>
 </pre>
+        </section>
+        <section id="requests">
+          <h4>
+            Requests
+          </h4>
+          <p>
+            Requests for version 3:
+          </p>
+          <ul class="initial">
+            <li>
+              <p>
+                <del><a href="http://v3.modernizr.com/" target="_blank">Modernizr</a> (`-csscolumns-`, `-csstransforms-`, `-cssanimations-`, `-flexbox-`, `-flexboxtweener-`, `-flexwrap-`).</del> Update: not required from <a href="https://github.com/ganlanyuan/rocket/tree/v3.4.2" target="_blank">v3.4.2</a>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="http://selectivizr.com/" target="_blank">Selectivizr</a> and a Javascript library (if you're not using one) for IE8.
+              </p>
+            </li>
+            <li>
+              <p>
+                Please replace `` with the markup below for better IE support.
+              </p>
+              <pre class="language-markup">
+<code>&lt;!--[if (IE 8)&amp;!(IEMobile)]&gt;&lt;html class="no-js lt-ie10 lt-ie9" lang="en"&gt;&lt;![endif]--&gt;
+&lt;!--[if (IE 9)&amp;!(IEMobile)]&gt;&lt;html class="no-js lt-ie10" lang="en"&gt;&lt;![endif]--&gt;
+&lt;!--[if gt IE 9]&gt;&lt;!--&gt; &lt;html class="no-js" lang="en"&gt;&lt;!--&lt;![endif]--&gt;
+</code>
+</pre>
+            </li>
+          </ul>
         </section>
         <h2>
           Practice

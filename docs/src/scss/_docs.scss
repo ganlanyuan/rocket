@@ -9,7 +9,6 @@
 pre[class*="language-"] { 
   margin: 0; 
   background-color: $lightgray;
-  overflow: hidden;
   & > code[data-language] {
     display: block;
     margin: 0 0 -1em 0;
@@ -36,6 +35,10 @@ pre[class*="language-"] {
     .capability { 
       font-size: 0.85em;
       color: #999; 
+    }
+    ul.initial > li {
+      margin-left: 2em;
+      list-style-type: '+  ';
     }
   }
 }
