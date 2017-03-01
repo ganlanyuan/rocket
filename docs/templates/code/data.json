@@ -38,6 +38,7 @@
     }, 
     "practice": {
       "design": [
+        "In this section, I will show you how to make a sample one-page website <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>Reen</a> step-by-step using Rocket."
       ], 
       "markup": [
       ]
@@ -113,25 +114,32 @@
         "demo4"
       ],
       "masonry": [
-        "Make masonry layout with pure css.",
+        "Using <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts' target='_blank'>CSS3 multiple-column layout</a> to make `-masonry-` layout.",
         "<em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+</em>",
         "syntax",
         "demo1",
         "Change gutter.",
         "demo2",
-        "Works with breakpoints.",
+        "Works with breakpoints. \nUse `-'default'-` to indicate default setting. If child elements are not `-li-`s, indicate them with `-child $selector-` format.",
         "demo3"
       ],
       "metro": [
         "Make a (Windows 8 style) metro layout.",
         "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "syntax",
+        "Use `-ul &gt; li-`, `-ol &gt; li-` or `-div &gt; div-` HTML structure. Wrap the content with `-.metro-item-`.",
+        "markup1",
+        "Use list `-($col $col $col $col of $count)-` or map `-($breakpoint: ($col $col $col $col of $count))-` to make the layout. ",
+        "The idea is to set up a minimum width unit, each column compare with this unit to get the data. If the column width and height are both double size of the unit, use `-2-`. If width is double, heigt is one unit, use `-w2-` (which means 'width 2X'). `-w3h4-` means 3 units of width and 4 units of height. `-h3-` means one unit of width and 3 units of height. And `-of 5-` indicate the width unit is 1/5 of parent width.",
         "demo1"
       ],
       "diamond": [
         "Make diamond (octagon) shape layout. To reduce complexity, `-diamond-` requires `-.diamond-content-` to wrap its content.",
         "<em class='capability'>IE 9+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 11.5+</em>",
         "syntax",
+        "Use `-.diamond-content-` to wrap the content.",
+        "markup1",
+        "Use keyword `-'tight'-` to make the blocks combined tightly, without gap.",
         "demo1",
         "You can use `-size-` instead of `-count-`.",
         "demo2",

@@ -1,7 +1,15 @@
 // *** center *** //
 @mixin center($key: false){
   $check: (left right center 'child');
-  $child: args-get-type($key, 'string', $check, '*');
+  $child: args-get-type($key, 'string', $check);
+  
+  // get selector
+  $selector: false;
+  @if $child {
+    $selector: '> #{$child}';
+  } @else if {
+    $selector: '> div, > section, > article';
+  }
 
   // *** output *** //
   // 1. for Chrome 15-20, Safri 4-6
@@ -17,7 +25,7 @@
      -ms-flex-align: center; // 3
   width: 100%; // 2
 
-  > #{$child} { margin: auto; } // for modern browsers
+  #{$selector} { margin: auto; } // for modern browsers
 
   // 4
   .lt-ie10 & {
@@ -30,7 +38,7 @@
       vertical-align: middle;
       margin-right: -.25em; // adjusts for spacing
     }
-    > #{$child} {
+    #{$selector} {
       display: inline-block;
       vertical-align: middle;
       white-space: normal;

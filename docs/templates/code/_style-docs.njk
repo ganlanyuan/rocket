@@ -52,7 +52,7 @@ $main: (
 
 {% elif name === "liquid2_demo2" %}
 .liquid-2-2 {
-  @include liquid-2( ('auto':2, 200px:1) gutter 10px);
+  @include liquid-2( ('auto' 200px : 2 1) gutter 10px);
 }
 // order: 2 1;
 
@@ -74,7 +74,7 @@ $main: (
 
 {% elif name === "liquid3_demo2" %}
 .liquid-3-2 { 
-  @include liquid-3( (150px:0, 'auto':2, 200px:1) gutter 30px ); 
+  @include liquid-3( (150px 'auto' 200px : 0 2 1) gutter 30px ); 
 }
 // order: 0 2 1;
 
@@ -114,7 +114,12 @@ $main: (
 .masonry-2 { @include masonry(4 gutter 20px); }
 
 {% elif name === "masonry_demo3" %}
-$masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
+$masonry-3-layout: (
+  'default': 1, 
+  600px: 2, 
+  768px: 3, 
+  1024px: 4
+);
 .masonry-3 { @include masonry($masonry-3-layout child '.panel'); }
 
 {% elif name === "metro_demo1" %}
@@ -122,10 +127,10 @@ $masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
   @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); 
   > li:nth-child(3) { float: right; };
 }
-// w5: 5 blocks width x 1 blocks height
-// 2: 2 blocks width x 2 blocks height
-// h2: 1 blocks width x 2 blocks height
-// "of 5": totaly 5 blocks width;
+// w5: 5 units width x 1 units height
+// 2: 2 units width x 2 units height
+// h2: 1 units width x 2 units height
+// "of 5": totaly 5 units width;
 
 {% elif name === "diamond_demo1" %}
 .diamond-1 { @include diamond(3 'tight'); }
@@ -152,11 +157,11 @@ $masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
 }
 
 {% elif name === "justify_demo1" %}
-.justify-1 { @include justify(); }
+.justify-1 { @include justify('li'); }
 
 {% elif name === "center_demo1" %}
 .center-1 {
-  @include center('div');
+  @include center();
   position: absolute;
   left: 0;
   top: 0;
@@ -279,42 +284,6 @@ $responsive-table-4-data: (
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
-
-{% elif name === "offcanvas_demo1" %}
-<!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
-<div>
-  <input type="checkbox" name="" id="nav-toggle-1" class="checkbox-hidden">
-  <div class="off-canvas-1">
-    <header>
-      <label for="nav-toggle-1" class="menu">Menu</label>
-      <label for="nav-toggle-1" class="page-overlay"></label>
-      <nav class="off-canvas-nav-1">
-        <ul>
-          <li><a href="">How It Works</a></li>
-          <li><a href="">Compare</a></li>
-          <!-- [data-has-submenu] is required -->
-          <li data-has-submenu>
-            <input type="checkbox" id="subnav-1-1" class="hidden-checkbox">
-            <label for="subnav-1-1">&gt;</label>
-            <a href="">Technology</a>
-
-            <!-- sub menu -->
-            <!-- [data-submenu], [data-back] are required -->
-            <ul data-submenu>
-              <li><label for="subnav-1-1" data-back>Back</label></li>
-              <li><a href="">sub item 1</a></li>
-              <li><a href="">sub item 2</a></li>
-              <li><a href="">sub item 3</a></li>
-            </ul>
-          </li>
-          <li><a href="">Careers</a></li>
-          <li><a href="">Help</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div>Other content</div>
-  </div>
-</div>
 
 {% elif name === "validation_demo1" %}
 .validation-1 { @include validation(slide-in right default); }
@@ -549,8 +518,8 @@ $responsive-type-2: (
 }
 
 {% elif name === "visible_demo1" %}
-<p class="visible-1">Visible on 700px and up</p>
-<p class="visible-2">Visible below 700px</p>
+.visible-1 { @include visible(700px); }
+.visible-2 { @include visible(0 700px); }
 
 {% elif name === "hidden_demo1" %}
 .hidden-1 { @include hidden(700px); }

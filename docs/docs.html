@@ -248,7 +248,7 @@
           <small><em>Version: 3.4.13</em></small>
         </p>
         <p>
-          Make sure you have read <a href="guide.html">The Guide</a>, especially <a href="guide.html#parameter">parameter</a> section before using this docs.
+          Make sure you have read the <a href="guide.html">Guide</a> (especially <a href="guide.html#parameter">parameter</a> section) before using this docs.
         </p>
         <h2>
           Layout
@@ -262,7 +262,7 @@
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span></span>
+              scss
             </header>
             <div>
               <pre class="language-scss">
@@ -286,7 +286,7 @@
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -386,11 +386,11 @@
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin grid($grid (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep)
+<code>@mixin grid($grid ('gutter' $gutter) ('child' $child) $breakpoints $condition $media-type $direction 'keep')
 // $grid: list | map
 // $condition: 'min' | 'max'
 // $media-type: media types
@@ -683,11 +683,11 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin liquid-2($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction)
+<code>@mixin liquid-2($layout ('gutter' $gutter) ('child' $child) $breakpoints $condition $media-type $direction)
 // $layout: list | map
 // $condition: 'min' | 'max'
 // $media-type: media types
@@ -772,7 +772,7 @@ $main: (
                   <div>
                     <pre>
 <code class="language-scss" id="liquid2-demo2-scss">.liquid-2-2 {
-  @include liquid-2( ('auto':2, 200px:1) gutter 10px);
+  @include liquid-2( ('auto' 200px : 2 1) gutter 10px);
 }
 // order: 2 1;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid2-demo2-scss">Copy Code</button>
@@ -898,11 +898,11 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin liquid-3($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction)
+<code>@mixin liquid-3($layout ('gutter' $gutter) ('child' $child) $breakpoints $condition $media-type $direction)
 // $layout: list | map
 // $condition: 'min' | 'max'
 // $media-type: media types
@@ -993,7 +993,7 @@ $main: (
                   <div>
                     <pre>
 <code class="language-scss" id="liquid3-demo2-scss">.liquid-3-2 { 
-  @include liquid-3( (150px:0, 'auto':2, 200px:1) gutter 30px ); 
+  @include liquid-3( (150px 'auto' 200px : 0 2 1) gutter 30px ); 
 }
 // order: 0 2 1;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#liquid3-demo2-scss">Copy Code</button>
@@ -1130,11 +1130,11 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin gallery($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type $direction keep);
+<code>@mixin gallery($layout ('gutter' $gutter) ('child' $child) $breakpoints $condition $media-type $direction 'keep');
 // $layout: number | map
 // $condition: 'min' | 'max'
 // $media-type: media types
@@ -1391,18 +1391,18 @@ $main: (
             Masonry
           </h4>
           <p>
-            Make masonry layout with pure css.
+            Using <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts' target='_blank'>CSS3 multiple-column layout</a> to make <code class="language-html">masonry</code> layout.
           </p>
           <p>
             <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 11.5+</em>
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin masonry($layout (gutter $gutter) (child $child) $breakpoints $condition $media-type);
+<code>@mixin masonry($layout ('gutter' $gutter) ('child' $child) $breakpoints $condition $media-type 'keep');
 // $layout: number | map
 // $condition: 'min' | 'max'
 // $media-type: media types
@@ -1604,7 +1604,8 @@ $main: (
             </div>
           </div>
           <p>
-            Works with breakpoints.
+            Works with breakpoints.<br>
+            Use <code class="language-html">'default'</code> to indicate default setting. If child elements are not <code class="language-html">li</code>s, indicate them with <code class="language-html">child $selector</code> format.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -1635,7 +1636,12 @@ $main: (
                   </header>
                   <div>
                     <pre>
-<code class="language-scss" id="masonry-demo3-scss">$masonry-3-layout: ('default': 1, 600px: 2, 768px: 3, 1024px: 4);
+<code class="language-scss" id="masonry-demo3-scss">$masonry-3-layout: (
+  'default': 1, 
+  600px: 2, 
+  768px: 3, 
+  1024px: 4
+);
 .masonry-3 { @include masonry($masonry-3-layout child '.panel'); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#masonry-demo3-scss">Copy Code</button>
                   </div>
@@ -1708,11 +1714,11 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin metro($layout (ratio $ratio) (gutter $gutter) (child $child) $breakpoints $condition $media-type keep)
+<code>@mixin metro($layout (ratio $ratio) ('gutter' $gutter) ('child' $child) $breakpoints $condition $media-type 'keep')
 // $layout: list | map
 // $condition: 'min' | 'max'
 // $media-type: media types
@@ -1720,6 +1726,31 @@ $main: (
 </pre>
             </div>
           </div>
+          <p>
+            Use <code class="language-html">ul &gt; li</code>, <code class="language-html">ol &gt; li</code> or <code class="language-html">div &gt; div</code> HTML structure. Wrap the content with <code class="language-html">.metro-item</code>.
+          </p>
+          <div class="code-wrapper">
+            <header class="markup">
+              markup
+            </header>
+            <div>
+              <pre class="language-markup">
+<code>&lt;ul class="metro"&gt;
+  &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;div class="metro-item"&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Use list <code class="language-html">($col $col $col $col of $count)</code> or map <code class="language-html">($breakpoint: ($col $col $col $col of $count))</code> to make the layout.
+          </p>
+          <p>
+            The idea is to set up a minimum width unit, each column compare with this unit to get the data. If the column width and height are both double size of the unit, use <code class="language-html">2</code>. If width is double, heigt is one unit, use <code class="language-html">w2</code> (which means 'width 2X'). <code class="language-html">w3h4</code> means 3 units of width and 4 units of height. <code class="language-html">h3</code> means one unit of width and 3 units of height. And <code class="language-html">of 5</code> indicate the width unit is 1/5 of parent width.
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -1753,10 +1784,10 @@ $main: (
   @include metro( (w5 w3 2 h2 w2 w4 of 5) gutter 10px); 
   &gt; li:nth-child(3) { float: right; };
 }
-// w5: 5 blocks width x 1 blocks height
-// 2: 2 blocks width x 2 blocks height
-// h2: 1 blocks width x 2 blocks height
-// "of 5": totaly 5 blocks width;</code>
+// w5: 5 units width x 1 units height
+// 2: 2 units width x 2 units height
+// h2: 1 units width x 2 units height
+// "of 5": totaly 5 units width;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#metro-demo1-scss">Copy Code</button>
                   </div>
                 </li>
@@ -1810,15 +1841,33 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin diamond(($count / $size) $shape 'combined' 'keep')
+<code>@mixin diamond(($count / $size) $shape 'tight' 'keep')
 // $shape: 'diamond' | 'octagon'</code>
 </pre>
             </div>
           </div>
+          <p>
+            Use <code class="language-html">.diamond-content</code> to wrap the content.
+          </p>
+          <div class="code-wrapper">
+            <header class="markup">
+              markup
+            </header>
+            <div>
+              <pre class="language-markup">
+<code>&lt;div class="your-class"&gt;
+  &lt;div class="diamond-content"&gt;Content goes here&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Use keyword <code class="language-html">'tight'</code> to make the blocks combined tightly, without gap.
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -2014,11 +2063,11 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin angled-edges($edges $angle $edge-color flip);
+<code>@mixin angled-edges($edges $angle $edge-color 'flip');
 // $edges: top | bottom | both
 // $edge-color: deg</code>
 </pre>
@@ -2102,7 +2151,7 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -2173,7 +2222,7 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -2209,7 +2258,7 @@ $main: (
                   </header>
                   <div>
                     <pre>
-<code class="language-scss" id="justify-demo1-scss">.justify-1 { @include justify(); }</code>
+<code class="language-scss" id="justify-demo1-scss">.justify-1 { @include justify('li'); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#justify-demo1-scss">Copy Code</button>
                   </div>
                 </li>
@@ -2243,7 +2292,7 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -2276,7 +2325,7 @@ $main: (
                   <div>
                     <pre>
 <code class="language-scss" id="center-demo1-scss">.center-1 {
-  @include center('div');
+  @include center();
   position: absolute;
   left: 0;
   top: 0;
@@ -2313,11 +2362,11 @@ $main: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin charts($data $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) (gutter $gutter) (animation $animation-val) (hide $hide))
+<code>@mixin charts($data $chart-type ('bar-height' $bar-height) ('bar-gap' $bar-gap) ('steps' $steps) ('gutter' $gutter) ('animation' $animation-val) ('hide' $hide))
 // $data: map. (color: data, color: data, ...)
 // $chart-type: bar | column
 // $bar-gap: px | em. Required if mode is "bar".
@@ -2618,12 +2667,12 @@ $charts-data2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
 <code>// rp-table() for shorthand
-@mixin responsive-table($mode (data $data) $border-color (bp $breakpoint) (width $th-width) (count $count)) { 
+@mixin responsive-table($mode ('data' $data) $border-color ('bp' $breakpoint) ('width' $th-width) ('count' $count)) { 
   @content;
 }
 // $mode: flip-scroll | scroll | toggle | stack
@@ -3512,7 +3561,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -3673,11 +3722,11 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin validation($style $direction $shake $speed $duration default)
+<code>@mixin validation($style $direction $shake $speed $duration 'default')
 // $style: 'normal' | 'fade-in' | 'slide-in'
 // $direction: left | right | top | bottom</code>
 </pre>
@@ -3792,11 +3841,11 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin button($padding ($border-radius | round) ($background-color $active-color) $style $active-selector $direction $duration $timing-function)
+<code>@mixin button($padding ($border-radius | 'round') ($background-color $active-color) $style $active-selector $direction $duration $timing-function)
 // $padding: string. e.g. "5px 10px"
 // style: 'highlight' | 'simple' | 'slide' | 'ripple' | 'veil' | 'push' | 'cut' | 'bubble' | 'line-drawing'
 // direction: left, right, top, bottom, 'horizontal', 'vertical'
@@ -3869,7 +3918,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -3934,7 +3983,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4014,11 +4063,11 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin switch($style $size $active-color (text $text) (radius | round))
+<code>@mixin switch($style $size $active-color ('text' $text) ('radius' | 'round'))
 // $style: 'toggle' | 'slider'
 // $size: px | em
 // $active-color: color
@@ -4090,7 +4139,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4154,7 +4203,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4253,7 +4302,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4338,7 +4387,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4453,7 +4502,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4537,11 +4586,11 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin dropdown($selector $show $style $direction $duration default)
+<code>@mixin dropdown($selector $show $style $direction $duration 'default')
 // $selector: string. Dropdown content selector.
 // $show: 'hover' | 'click'
 // $style: 'display' | 'scale' | 'rotate'
@@ -4622,11 +4671,11 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@mixin tooltip($position $color (width $width) (height $height) radius)
+<code>@mixin tooltip($position $color ('width' $width) ('height' $height) 'radius')
 // $position: left | right | top | bottom
 // $width(optional): px | em
 // $height(optional): px | em
@@ -4686,7 +4735,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4737,7 +4786,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4808,7 +4857,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4880,7 +4929,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -4938,7 +4987,7 @@ $responsive-table-4-data: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5016,7 +5065,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5074,7 +5123,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5084,7 +5133,7 @@ $responsive-type-2: (
           </div>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span></span>
+              scss
             </header>
             <div>
               <pre class="language-scss">
@@ -5102,7 +5151,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5113,7 +5162,7 @@ $responsive-type-2: (
           </div>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span></span>
+              scss
             </header>
             <div>
               <pre class="language-scss">
@@ -5141,7 +5190,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5151,7 +5200,7 @@ $responsive-type-2: (
           </div>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span></span>
+              scss
             </header>
             <div>
               <pre class="language-scss">
@@ -5176,7 +5225,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5251,7 +5300,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5328,7 +5377,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5417,7 +5466,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5495,7 +5544,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5526,8 +5575,8 @@ $responsive-type-2: (
                   </header>
                   <div>
                     <pre>
-<code class="language-scss" id="visible-demo1-scss">&lt;p class="visible-1"&gt;Visible on 700px and up&lt;/p&gt;
-&lt;p class="visible-2"&gt;Visible below 700px&lt;/p&gt;</code>
+<code class="language-scss" id="visible-demo1-scss">.visible-1 { @include visible(700px); }
+.visible-2 { @include visible(0 700px); }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#visible-demo1-scss">Copy Code</button>
                   </div>
                 </li>
@@ -5555,7 +5604,7 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
@@ -5621,11 +5670,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function contrast($color (light $light) (dark $dark))</code>
+<code>@function contrast($color ('light' $light) ('dark' $dark))</code>
 </pre>
             </div>
           </div>
@@ -5695,11 +5744,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function adjacent($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+<code>@function adjacent($color $order ('saturation' $saturation) ('lightness' $lightness) ('dist' $dist))
 // $order: integer
 // $saturation: percent
 // $lightness: percent
@@ -5761,11 +5810,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function complementary($color (saturation $saturation) (lightness $lightness) (dist $dist))
+<code>@function complementary($color ('saturation' $saturation) ('lightness' $lightness) ('dist' $dist))
 // $order: integer
 // $saturation: percent
 // $lightness: percent
@@ -5821,11 +5870,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function split-complementary($color $order (saturation $saturation) (lightness $lightness) (dist $dist))</code>
+<code>@function split-complementary($color $order ('saturation' $saturation) ('lightness' $lightness) ('dist' $dist))</code>
 </pre>
             </div>
           </div>
@@ -5883,11 +5932,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function triad($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+<code>@function triad($color $order ('saturation' $saturation) ('lightness' $lightness) ('dist' $dist))
 // $order: integer
 // $saturation: percent
 // $lightness: percent
@@ -5946,11 +5995,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function rectangle($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+<code>@function rectangle($color $order ('saturation' $saturation) ('lightness' $lightness) ('dist' $dist))
 // $order: integer
 // $saturation: percent
 // $lightness: percent
@@ -6012,11 +6061,11 @@ $responsive-type-2: (
           </p>
           <div class="code-wrapper">
             <header class="scss">
-              scss: <span>syntax</span>
+              scss: syntax
             </header>
             <div>
               <pre class="language-scss">
-<code>@function square($color $order (saturation $saturation) (lightness $lightness) (dist $dist))
+<code>@function square($color $order ('saturation' $saturation) ('lightness' $lightness) ('dist' $dist))
 // $order: integer
 // $saturation: percent
 // $lightness: percent

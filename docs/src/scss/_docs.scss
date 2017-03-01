@@ -92,7 +92,11 @@ pre[class*="language-"] {
     cursor: pointer;
     &-wrapper {
       position: relative;
-      @supports (position: sticky) {
+      float: right;
+      min-width: 91px;
+      min-height: 36px;
+      background-color: $color-primary;
+      @supports (position: sticky) or (position: -webkit-sticky) {
         position: sticky;
         top: 10px;
       }
