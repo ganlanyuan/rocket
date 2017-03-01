@@ -64,7 +64,7 @@ gulp.task('scssToNjk', function () {
 
 // Nunjucks Task
 gulp.task('html', ['scssToNjk'], function() {
-  let data = requireUncached('./' + PATHS.templates_docs + 'data.json');
+  let data = requireUncached('./' + PATHS.templates_docs + 'code/data.json');
 
   data.is = function (type, obj) {
     var clas = Object.prototype.toString.call(obj).slice(8, -1);
@@ -211,7 +211,7 @@ gulp.task('server', function() {
 
 // Watch Task
 gulp.task('watch', function () {
-  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + '**/*.scss', PATHS.templates_docs + '*.json'], ['html']);
+  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + 'code/*.scss', PATHS.templates_docs + 'code/*.json'], ['html']);
   gulp.watch(PATHS.docs + '**/*.scss', ['sass']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
