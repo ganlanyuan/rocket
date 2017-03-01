@@ -43,23 +43,25 @@
         <h4>{{ componentName | capitalize }}</h4>
       
         {% for item in component %}
-          {% set reg_ext = r/\..+$/g %}
-          {% set itemName = item | replace(reg_ext, '') %}
+          {% set reg_markup = r/^markup\d+$/ %}
+          {% set reg_style = r/^style\d+$/ %}
+          {% set reg_demo = r/^demo\d+$/ %}
     
           {# markup | scss | js #}
-          {% if item.indexOf('.njk') !== -1 or 
-                item.indexOf('.scss') !== -1 %}
+          {% if item === 'syntax' or
+                reg_markup.test(item) or 
+                reg_style.test(item) %}
     
             {# set language, macro #}
-            {% if item.indexOf('.njk') !== -1 %}
+            {% if reg_markup.test(item) %}
               {# markup #}
               {% set lang = 'markup' %}
               {% set macroFn = macro_markup %}
-            {% elif item.indexOf('.scss') !== -1 %}
+            {% elif item === 'syntax' or reg_style.test(item) %}
               {% set lang = 'scss' %}
 
               {# syntax | scss #}
-              {% if item === 'syntax.scss' %}
+              {% if item === 'syntax' %}
                 {% set macroFn = macro_syntax %}
               {% else %}
                 {% set macroFn = macro_scss %}
@@ -70,13 +72,13 @@
               <header class="{{ lang }}">{{ lang }}: <span>{{ 'syntax' if item.indexOf('syntax') !== -1 }}</span></header>
               <div>
                 <pre class="language-{{ lang }}"><code>
-                {%- filter trim %}{{ macroFn.get(componentName_new + '_' + itemName) }}{% endfilter -%}
+                {%- filter trim %}{{ macroFn.get(componentName_new + '_' + item) }}{% endfilter -%}
                 </code></pre>
               </div>
             </div>
     
           {# demo #}
-          {% elif item.indexOf('demo') === 0 %}
+          {% elif reg_demo.test(item) %}
             <div class="demo-container" data-show="code">
       
               {# toggle buttons #}
@@ -91,7 +93,7 @@
                   {# langs: markup | scss #}
                   {% set langs = ['markup', 'scss'] %}
                   {% for lang in langs %}
-                    {# get marcro #}
+                    {# get macro #}
                     {% if lang === 'markup' %}
                       {% set macroFn = macro_markup %}
                     {% else %}
