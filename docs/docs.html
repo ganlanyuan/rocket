@@ -2375,6 +2375,46 @@ $main: (
 </pre>
             </div>
           </div>
+          <p>
+            Use the following HTML structure.
+          </p>
+          <p>
+            <code class="language-html">.items</code> is the body of the chart. Inside each item, <code class="language-html">&lt;strong&gt;</code>s indicate the item title, empty <code class="language-html">&lt;span&gt;</code>s indicate the graphic.
+          </p>
+          <p>
+            <code class="language-html">.ticks</code> will be used to show scale lines. The empty <code class="language-html">&lt;span&gt;</code>s inside it will be used to display the scale numbers.
+          </p>
+          <p>
+            <code class="language-html">.labels</code> will be used to show the labels.
+          </p>
+          <div class="code-wrapper">
+            <header class="markup">
+              markup
+            </header>
+            <div>
+              <pre class="language-markup">
+<code>&lt;div class="your-chart"&gt;
+  &lt;ul class="items"&gt;
+    &lt;li class="item-1"&gt;&lt;strong&gt;title1&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="item-2"&gt;&lt;strong&gt;title2&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="item-3"&gt;&lt;strong&gt;title3&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="item-4"&gt;&lt;strong&gt;title4&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="item-5"&gt;&lt;strong&gt;title5&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="ticks"&gt;
+    &lt;div class="tick-1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-2"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-3"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-4"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="tick-5"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="labels"&gt;
+    &lt;div class="label-1"&gt;label&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+            </div>
+          </div>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>

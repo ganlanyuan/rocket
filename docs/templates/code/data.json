@@ -23,7 +23,7 @@
       "parameter": [
         "Rocket mixins and functions use a <code class='language-none'>list</code> as paremeter. And you don't need to remember the orders of each item, the order can be any. For instance, the follow 2 lines of code will get the same results.",
         "style1",
-        "You may noticed some parameters are grouped by parentheses in the syntax field on the <a href='docs.html'>docs page</a>. These parentheses are not needed when you write your code. They appeared here to indecate these parameters must come together in proper order.",
+        "You may noticed some parameters are grouped by parentheses in the syntax field on the <a href='docs.html'>docs page</a>. These parentheses are not needed when you write your code. They appeared here to indicate these parameters must come together in proper order.",
         "style2",
         "It's recommended <em>not</em> to use comma-separated lists, because if you forget to surrounded them with parentheses, they will be consider as 2 or more paremeters. If you do want to use comma-separated list, make sure they'are surrounded by parentheses.",
         "style3"
@@ -37,9 +37,33 @@
       ]
     }, 
     "practice": {
-      "design": [
-        "In this section, I will show you how to make a sample one-page website <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>Reen</a> step-by-step using Rocket."
+      "description": [
+        "In this section, I will show you how to make a one-page website step-by-step using Rocket. The PSD file can be found <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>here</a> and code is <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>."
       ], 
+      "initial": [
+        "First create a folder `-rocket-reen/-`. Add more folders inside it to contain our sass, css and images. Now the folder structure looks like this:",
+        "<img src='assets/img/reen/init.png' alt='folder structure after initial' width='412' height='284' />"
+      ],
+      "download rocket": [
+        "In this example, I will download `-Rocket-` using <a href='http://bower.io/' target='_blank'>bower</a>. \nOpen the command tool, change directory to `-rocket-reen/-`, type `-bower install rocket-` and Enter. (I already install bower in my computer.)",
+        "Now my folder structure will looks like this:",
+        "<img src='assets/img/reen/folder-after-download-rocket.png' alt='folder structure after download rocket' width='1025' height='296' />",
+        "Notice that a new folder `-bower_components/-` was created. Inside it I can find `-_rocket.scss-` file in the sub folder `-rocket-`."
+      ],
+      "import rocket": [
+        "`-@import-` Rocket in the `-style.scss-` file.",
+        "style1"
+      ],
+      "task runner": [
+        "Now let's add a task to compile our `-scss-` file to `-css-` file automatically. I will use <a href='http://gulpjs.com/' target='_blank'>gulp</a> here, but you can use <a href='http://sass-lang.com/install' target='_blank'>others</a>.",
+        "Open command line tool, type `-npm init gulp gulp-sass gulp-sourcemaps browser-sync-` and enter. This will install the packages we need to run a local server (browser-sync) and compile our `-scss-` file to `-css-` file (gulp-sass).",
+        "Create a new file `-gulpfile.js-` at root and add the following code:",
+        "script1",
+        "Notice that I added a `-watch-` task which will re-compile our `-scss-` file and refresh the browser whenever I change the `-scss-` file. ",
+        "Now open command line tool, type `-gulp-` and enter. This will open a new window in the default browser and start `-scss-` and `-watch-` tasks."
+      ],
+      "markup": [
+      ],
       "markup": [
       ]
     }
@@ -176,6 +200,11 @@
         "Pure css responsive charts.",
         "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "syntax",
+        "Use the following HTML structure. ",
+        "`-.items-` is the body of the chart. Inside each item, `-&lt;strong&gt;-`s indicate the item title, empty `-&lt;span&gt;-`s indicate the graphic.",
+        "`-.ticks-` will be used to show scale lines. The empty `-&lt;span&gt;-`s inside it will be used to display the scale numbers.",
+        "`-.labels-` will be used to show the labels.",
+        "markup1",
         "demo1"
       ],
       "responsive-table": [

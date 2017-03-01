@@ -37,6 +37,9 @@ h1 { @include type( (24px, bold, italic) ); }
 // 3 parameter ✗
 h1 { @include type(24px, bold, italic); }
 
+//=> {% elif name === "importrocket_style1" %}
+@import "../bower_components/rocket/src/scss/_rocket.scss";
+
 //=> {% elif name === "grid_demo2" %}
 
 //=> {% endif %}

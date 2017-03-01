@@ -55,12 +55,14 @@
         {% for item in component %}
           {% set reg_markup = r/^markup\d+$/ %}
           {% set reg_style = r/^style\d+$/ %}
+          {% set reg_script = r/^script\d+$/ %}
           {% set reg_demo = r/^demo\d+$/ %}
     
           {# markup | scss | js #}
           {% if item === 'syntax' or
                 reg_markup.test(item) or 
-                reg_style.test(item) %}
+                reg_style.test(item) or
+                reg_script.test(item) %}
     
             {# set language, macro #}
             {% if reg_markup.test(item) %}
@@ -76,6 +78,10 @@
               {% else %}
                 {% set macroFn = macro_scss %}
               {% endif %}
+            {% elif reg_script.test(item) %}
+              {# script #}
+              {% set lang = 'javascript' %}
+              {% set macroFn = macro_markup %}
             {% endif %}
     
             <div class="code-wrapper">

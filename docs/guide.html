@@ -87,7 +87,19 @@
           </h4>
           <ul>
             <li>
-              <a href="#design">Design</a>
+              <a href="#description">Description</a>
+            </li>
+            <li>
+              <a href="#initial">Initial</a>
+            </li>
+            <li>
+              <a href="#downloadrocket">Download rocket</a>
+            </li>
+            <li>
+              <a href="#importrocket">Import rocket</a>
+            </li>
+            <li>
+              <a href="#taskrunner">Task runner</a>
             </li>
             <li>
               <a href="#markup">Markup</a>
@@ -157,7 +169,7 @@ $breakpoints: (
             </div>
           </div>
           <p>
-            You may noticed some parameters are grouped by parentheses in the syntax field on the <a href='docs.html'>docs page</a>. These parentheses are not needed when you write your code. They appeared here to indecate these parameters must come together in proper order.
+            You may noticed some parameters are grouped by parentheses in the syntax field on the <a href='docs.html'>docs page</a>. These parentheses are not needed when you write your code. They appeared here to indicate these parameters must come together in proper order.
           </p>
           <div class="code-wrapper">
             <header class="scss">
@@ -227,12 +239,129 @@ h1 { @include type(24px, bold, italic); }</code>
         <h2>
           Practice
         </h2>
-        <section id="design">
+        <section id="description">
           <h4>
-            Design
+            Description
           </h4>
           <p>
-            In this section, I will show you how to make a sample one-page website <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>Reen</a> step-by-step using Rocket.
+            In this section, I will show you how to make a one-page website step-by-step using Rocket. The PSD file can be found <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>here</a> and code is <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>.
+          </p>
+        </section>
+        <section id="initial">
+          <h4>
+            Initial
+          </h4>
+          <p>
+            First create a folder <code class="language-html">rocket-reen/</code>. Add more folders inside it to contain our sass, css and images. Now the folder structure looks like this:
+          </p>
+          <p>
+            <img src='assets/img/reen/init.png' alt='folder structure after initial' width='412' height='284'>
+          </p>
+        </section>
+        <section id="downloadrocket">
+          <h4>
+            Download rocket
+          </h4>
+          <p>
+            In this example, I will download <code class="language-html">Rocket</code> using <a href='http://bower.io/' target='_blank'>bower</a>.<br>
+            Open the command tool, change directory to <code class="language-html">rocket-reen/</code>, type <code class="language-html">bower install rocket</code> and Enter. (I already install bower in my computer.)
+          </p>
+          <p>
+            Now my folder structure will looks like this:
+          </p>
+          <p>
+            <img src='assets/img/reen/folder-after-download-rocket.png' alt='folder structure after download rocket' width='1025' height='296'>
+          </p>
+          <p>
+            Notice that a new folder <code class="language-html">bower_components/</code> was created. Inside it I can find <code class="language-html">_rocket.scss</code> file in the sub folder <code class="language-html">rocket</code>.
+          </p>
+        </section>
+        <section id="importrocket">
+          <h4>
+            Import rocket
+          </h4>
+          <p>
+            <code class="language-html">@import</code> Rocket in the <code class="language-html">style.scss</code> file.
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>@import "../bower_components/rocket/src/scss/_rocket.scss";</code>
+</pre>
+            </div>
+          </div>
+        </section>
+        <section id="taskrunner">
+          <h4>
+            Task runner
+          </h4>
+          <p>
+            Now let's add a task to compile our <code class="language-html">scss</code> file to <code class="language-html">css</code> file automatically. I will use <a href='http://gulpjs.com/' target='_blank'>gulp</a> here, but you can use <a href='http://sass-lang.com/install' target='_blank'>others</a>.
+          </p>
+          <p>
+            Open command line tool, type <code class="language-html">npm init gulp gulp-sass gulp-sourcemaps browser-sync</code> and enter. This will install the packages we need to run a local server (browser-sync) and compile our <code class="language-html">scss</code> file to <code class="language-html">css</code> file (gulp-sass).
+          </p>
+          <p>
+            Create a new file <code class="language-html">gulpfile.js</code> at root and add the following code:
+          </p>
+          <div class="code-wrapper">
+            <header class="javascript">
+              javascript
+            </header>
+            <div>
+              <pre class="language-javascript">
+<code>const gulp = require('gulp');
+const libsass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+
+// SASS Task
+gulp.task('sass', function () {  
+  return gulp.src('scss/*.scss')  
+      .pipe(sourcemaps.init())
+      .pipe(libsass({
+        outputStyle: 'compressed', 
+        precision: 7
+      }).on('error', libsass.logError))  
+      .pipe(sourcemaps.write('../sourcemaps'))
+      .pipe(gulp.dest('css'))
+      .pipe(browserSync.stream());
+});
+
+// SERVER Task
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: './'
+    },
+    open: true,
+    notify: false
+  });
+});
+
+// WATCH Task
+gulp.task('watch', function () {
+  gulp.watch('scss/*.scss', ['sass']);
+  gulp.watch('*.html').on('change', browserSync.reload);
+});
+
+// Default Task
+gulp.task('default', [
+  'sass', 
+  'browserSync', 
+  'watch',
+]);</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Notice that I added a <code class="language-html">watch</code> task which will re-compile our <code class="language-html">scss</code> file and refresh the browser whenever I change the <code class="language-html">scss</code> file.
+          </p>
+          <p>
+            Now open command line tool, type <code class="language-html">gulp</code> and enter. This will open a new window in the default browser and start <code class="language-html">scss</code> and <code class="language-html">watch</code> tasks.
           </p>
         </section>
         <section id="markup">

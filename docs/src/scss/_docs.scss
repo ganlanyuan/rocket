@@ -31,7 +31,11 @@ pre[class*="language-"] {
     }
     h2 { @include type(32px uppercase); }
     h4 { @include type(22px); }
-    p { max-width: 46em; }
+    p { 
+      max-width: 46em; 
+      overflow-x: auto;
+      img { max-width: none }
+    }
     .capability { 
       font-size: 0.85em;
       color: #999; 
@@ -148,6 +152,7 @@ pre[class*="language-"] {
   }
   .markup { background-color: nth($theme-square, 4); }
   .scss { background-color: nth($theme-square, 3); }
+  .javascript { background-color: nth($theme-square, 2); }
   li {
     width: 100%;
     float: left;
