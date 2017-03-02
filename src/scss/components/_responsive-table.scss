@@ -31,6 +31,7 @@
       input ~ label { display: none; }
     }
   }
+
   // == small screen ==
   @include bp('max' $breakpoint) {
     // == stack ==
@@ -77,32 +78,20 @@
     // == toggle ==
     } @else if $mode == 'toggle' {
       table { margin-top: 0.5em; }
-      th, td {
-        display: none;
-      }
+      th, td { display: none; }
       #control-panel:checked ~ .control-panel { display: block; }
 
-      // placeholders
-      %visible {
-        display: table-cell;
-      }
-      %checked {
-        background-color: #f2f2f2;
-      }
       @for $i from 1 through $count {
         input:nth-of-type(#{$i}):checked ~ .control-panel label:nth-of-type(#{$i}) {
-          // @extend %checked;
           background-color: #f2f2f2;
         }
         input:nth-of-type(#{$i}):checked ~ table th:nth-of-type(#{$i}),
         input:nth-of-type(#{$i}):checked ~ table td:nth-of-type(#{$i}) { 
-          // @extend %visible; 
           display: table-cell;
         }
       }
       #display-all:checked ~ table th,
       #display-all:checked ~ table td { 
-        // @extend %visible; 
         display: table-cell;
       }
 

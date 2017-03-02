@@ -97,13 +97,8 @@
   @content;
 }
 // $mode: flip-scroll | scroll | toggle | stack
-// $data: list. (&lt;th&gt; content)
-// $count: num. (&lt;th&gt; count)
- 
-// Requirements
-// flip-scroll: $breakpoint
-// toggle: $breakpoint, $count
-// stack: $data, $border-color, $th-width
+// $data: list. (<th> content)
+// $count: num. (column count)
 
 //=> {% elif componentName === "offcanvas_syntax" %}
 @mixin off-canvas($mode $nav 'submenu' $nav-width $direction ($map $breakpoints) $overlay-background-color $duration)

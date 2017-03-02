@@ -56,9 +56,7 @@
       </div>
     </header>
     <div class="docs-wrapper section">
-      <div class="docs-nav-toggle-wrapper">
-        <div class="docs-nav-toggle"></div>
-      </div>
+      <div class="docs-nav-toggle"></div>
       <nav class="docs-nav">
         <section>
           <h4>
@@ -2704,13 +2702,8 @@ $charts-data2: (
   @content;
 }
 // $mode: flip-scroll | scroll | toggle | stack
-// $data: list. (&amp;lt;th&amp;gt; content)
-// $count: num. (&amp;lt;th&amp;gt; count)
- 
-// Requirements
-// flip-scroll: $breakpoint
-// toggle: $breakpoint, $count
-// stack: $data, $border-color, $th-width</code>
+// $data: list. (&lt;th&gt; content)
+// $count: num. (column count)</code>
 </pre>
             </div>
           </div>
@@ -2832,6 +2825,7 @@ th {
 }
 
 .responsive-table-1 { 
+  // Requirements: $breakpoint
   @include rp-table('flip-scroll' bp 1400px) {
     border: 1px solid #dbdbdb;
     th, td { 
@@ -3049,6 +3043,10 @@ th {
           <p>
             Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>
           </p>
+          <p>
+            <code class="language-html">scroll</code> mode requires <code class="language-html">responsive-table.js</code>.<br>
+            First include the script in your page. Then call the function <code class="language-html">responsiveTable($table-container)</code> after the markup. Then <code class="language-html">@include</code> <code class="language-html">responsive-table</code> on the container of the table.
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -3119,6 +3117,7 @@ th {
                   <div>
                     <pre>
 <code class="language-scss" id="responsivetable-demo_scroll-scss">.responsive-table-2 { 
+  // Requirements: $breakpoint
   @include rp-table('scroll' bp 1400px) {
     .table {
       border-right-width: 1px;
@@ -3250,6 +3249,9 @@ th {
           <p>
             Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>
           </p>
+          <p>
+            <code class="language-html">toggle mode</code> requires <code class="language-html">input:checkbox</code> and <code class="language-html">label</code> for each column, also 2 pairs of <code class="language-html">input:checkbox</code> and <code class="language-html">label</code> for control panel.
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -3342,6 +3344,7 @@ th {
                   <div>
                     <pre>
 <code class="language-scss" id="responsivetable-demo_toggle-scss">.responsive-table-3 {
+  // Requirements: $breakpoint, $count
   @include rp-table('toggle' 'bp' 1400px 'count' 10);
 }</code>
 </pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_toggle-scss">Copy Code</button>
@@ -3539,6 +3542,7 @@ th {
   'Arbitrary Data'
 );
 .responsive-table-4 {
+  // Requirements: $data, $border-color, $th-width
   @include rp-table('stack' 'bp' 1400px #dbdbdb 'data' $responsive-table-4-data) {
     tr:nth-of-type(2n) { background-color: #f5f5f5; }
     td:before { margin-right: 7px; }

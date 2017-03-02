@@ -56,9 +56,7 @@
       </div>
     </header>
     <div class="docs-wrapper section">
-      <div class="docs-nav-toggle-wrapper">
-        <div class="docs-nav-toggle"></div>
-      </div>
+      <div class="docs-nav-toggle"></div>
       <nav class="docs-nav">
         <section>
           <h4>
@@ -102,7 +100,22 @@
               <a href="#taskrunner">Task runner</a>
             </li>
             <li>
-              <a href="#markup">Markup</a>
+              <a href="#assets">Assets</a>
+            </li>
+            <li>
+              <a href="#addcontainer">Add container</a>
+            </li>
+            <li>
+              <a href="#basestyles">Base styles</a>
+            </li>
+            <li>
+              <a href="#centerlayout">Center layout</a>
+            </li>
+            <li>
+              <a href="#innercontainer">Inner container</a>
+            </li>
+            <li>
+              <a href="#addgallery">Add gallery</a>
             </li>
           </ul>
         </section>
@@ -246,34 +259,39 @@ h1 { @include type(24px, bold, italic); }</code>
           <p>
             In this section, I will show you how to make a one-page website step-by-step using Rocket. The PSD file can be found <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>here</a> and code is <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>.
           </p>
+          <div class="img-container">
+            <img src='assets/img/reen/preview.jpg' alt='preview' width='1920' height='3905'>
+          </div>
         </section>
         <section id="initial">
           <h4>
             Initial
           </h4>
           <p>
-            First create a folder <code class="language-html">rocket-reen/</code>. Add more folders inside it to contain our sass, css and images. Now the folder structure looks like this:
+            Create a folder <code class="language-html">rocket-reen/</code> and sub folders <code class="language-html">scss/</code>, <code class="language-html">css/</code>, <code class="language-html">images/</code> to contain style sheet and images. Now the folder structure looks like this:
           </p>
-          <p>
+          <div class="img-container">
             <img src='assets/img/reen/init.png' alt='folder structure after initial' width='412' height='284'>
-          </p>
+          </div>
         </section>
         <section id="downloadrocket">
           <h4>
             Download rocket
           </h4>
           <p>
-            In this example, I will download <code class="language-html">Rocket</code> using <a href='http://bower.io/' target='_blank'>bower</a>.<br>
-            Open the command tool, change directory to <code class="language-html">rocket-reen/</code>, type <code class="language-html">bower install rocket</code> and Enter. (I already install bower in my computer.)
+            Download <code class="language-html">Rocket</code> using <a href='http://bower.io/' target='_blank'>bower</a>:
+          </p>
+          <p>
+            Open the command line tool, change directory to <code class="language-html">rocket-reen/</code>, type <code class="language-html">bower install rocket</code> and enter. (I have <code class="language-html">bower</code> preinstalled in my computer.)
           </p>
           <p>
             Now my folder structure will looks like this:
           </p>
-          <p>
+          <div class="img-container">
             <img src='assets/img/reen/folder-after-download-rocket.png' alt='folder structure after download rocket' width='1025' height='296'>
-          </p>
+          </div>
           <p>
-            Notice that a new folder <code class="language-html">bower_components/</code> was created. Inside it I can find <code class="language-html">_rocket.scss</code> file in the sub folder <code class="language-html">rocket</code>.
+            Notice that a new folder <code class="language-html">bower_components/</code> was created. Find <code class="language-html">_rocket.scss</code> file inside it which we need to <code class="language-html">@import</code> in the next step.
           </p>
         </section>
         <section id="importrocket">
@@ -289,7 +307,7 @@ h1 { @include type(24px, bold, italic); }</code>
             </header>
             <div>
               <pre class="language-scss">
-<code>@import "../bower_components/rocket/src/scss/_rocket.scss";</code>
+<code>@import "../bower_components/rocket/src/scss/rocket";</code>
 </pre>
             </div>
           </div>
@@ -299,13 +317,13 @@ h1 { @include type(24px, bold, italic); }</code>
             Task runner
           </h4>
           <p>
-            Now let's add a task to compile our <code class="language-html">scss</code> file to <code class="language-html">css</code> file automatically. I will use <a href='http://gulpjs.com/' target='_blank'>gulp</a> here, but you can use <a href='http://sass-lang.com/install' target='_blank'>others</a>.
+            Now I will use a task runner to compile our <code class="language-html">scss</code> file to <code class="language-html">css</code> file automatically. I will use <a href='http://gulpjs.com/' target='_blank'>gulp</a>, but you can use <a href='http://sass-lang.com/install' target='_blank'>other tools</a>.
           </p>
           <p>
-            Open command line tool, type <code class="language-html">npm init gulp gulp-sass gulp-sourcemaps browser-sync</code> and enter. This will install the packages we need to run a local server (browser-sync) and compile our <code class="language-html">scss</code> file to <code class="language-html">css</code> file (gulp-sass).
+            Open command line tool, type <code class="language-html">npm init gulp gulp-sass gulp-sourcemaps browser-sync</code> and enter. This will install the packages we need to run a local server (browser-sync) and compile our <code class="language-html">scss</code> file to <code class="language-html">css</code> file (gulp-sass). (I have <code class="language-html">npm</code> preinstalled on my computer.)
           </p>
           <p>
-            Create a new file <code class="language-html">gulpfile.js</code> at root and add the following code:
+            Create a new file <code class="language-html">gulpfile.js</code> in the root folder and add the following code:
           </p>
           <div class="code-wrapper">
             <header class="javascript">
@@ -361,13 +379,261 @@ gulp.task('default', [
             Notice that I added a <code class="language-html">watch</code> task which will re-compile our <code class="language-html">scss</code> file and refresh the browser whenever I change the <code class="language-html">scss</code> file.
           </p>
           <p>
-            Now open command line tool, type <code class="language-html">gulp</code> and enter. This will open a new window in the default browser and start <code class="language-html">scss</code> and <code class="language-html">watch</code> tasks.
+            Now open command line tool, type <code class="language-html">gulp</code> and enter. This will start <code class="language-html">scss</code> and <code class="language-html">watch</code> tasks and open a new tab (or new window if the browser didn't open yet) in the default browser.
           </p>
         </section>
-        <section id="markup">
+        <section id="assets">
           <h4>
-            Markup
+            Assets
           </h4>
+          <p>
+            Now let's add the images, icons (use icon-font generated at <a href='http://fontello.com/' target='_blank'>fontello</a>) and text in the <code class="language-html">index.html</code> file. I added some reset styles as well. Now the page looks like this:
+          </p>
+          <div class="img-container">
+            <img src='assets/img/reen/assets-markup.png' alt='add assets and markup' width='1280' height='3174'>
+          </div>
+        </section>
+        <section id="addcontainer">
+          <h4>
+            Add container
+          </h4>
+          <p>
+            Notice the design is based on a 12 columns grid, the main content is 1170px wide, gutter between columns is 30px wide.
+          </p>
+          <div class="img-container">
+            <img src='assets/img/reen/container.png' alt=''>
+          </div>
+          <p>
+            Let's first set up the container width and gutter use variable <code class="language-html">$ro-layout</code> in <code class="language-html">style.scss</code>.
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>$ro-layout: (
+  container: 1170px,
+  gutter: 30px,
+);</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Now let's add a <code class="language-html">.container</code> to constrain the main content.
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>.container { @include container(); }</code>
+</pre>
+            </div>
+          </div>
+          <div class="code-wrapper">
+            <header class="markup">
+              markup
+            </header>
+            <div>
+              <pre class="language-markup">
+<code>&lt;section class="hero"&gt;
+  &lt;div class="container"&gt;&lt;!-- add .container --&gt;
+    &lt;h2&gt;Made for Designers&lt;/h2&gt;
+    &lt;p&gt;Create your online portfolio in minutes with the professionally and lovingly designed REEN website template. Customize your site with versatile and easy to use features.&lt;/p&gt;
+    &lt;div&gt;&lt;a class="btn btn--bg" href=""&gt;Get started now&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            All the content is now constrain to 1170px and the container box is center aligned.
+          </p>
+          <div class="img-container">
+            <img src='assets/img/reen/page-add-container.png' alt=''>
+          </div>
+        </section>
+        <section id="basestyles">
+          <h4>
+            Base styles
+          </h4>
+          <p>
+            Let's add more styles to make it closer to the design.
+          </p>
+          <div class="img-container">
+            <img src='assets/img/reen/page-base-styles.png' alt=''>
+          </div>
+          <p>
+            If you look at the <code class="language-html">style.scss</code> file, you will notice I used a shorthand mixin <code class="language-html">type</code> to create type styles and a function <code class="language-html">contrast</code> to get a contrast color automatically based on the background.
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>$lato: '"Lato", sans-serif';
+$color-secondary: #16B18A;
+
+.heading1 { @include type(78px uppercase $lato); }
+.heading2 { @include type(44px $lato); }
+.sub-heading { @include type(22px 1.55); }
+.btn {
+  @include type(15px uppercase '"Source Sans Pro", sans-serif');
+  // ...
+  color: contrast($color-secondary);
+  background-color: $color-secondary;
+  // ...
+}</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Now there are just some layout issues left, let's look at them one-by-one.
+          </p>
+        </section>
+        <section id="centerlayout">
+          <h4>
+            Center layout
+          </h4>
+          <p>
+            First we need to make the introduction content center aligned vertically and horizontally. Use mixin <code class="language-html">center</code> in this case.
+          </p>
+          <div class="code-wrapper">
+            <header class="markup">
+              markup
+            </header>
+            <div>
+              <pre class="language-markup">
+<code>&lt;section class="hero"&gt;
+  &lt;div class="hero-content"&gt;
+  &lt;!-- &lt;div class="container"&gt; --&gt;
+    &lt;h2 class="heading1"&gt;Made for Designers&lt;/h2&gt;
+    &lt;p class="sub-heading"&gt;Create your online portfolio in minutes with the professionally and lovingly designed REEN website template. Customize your site with versatile and easy to use features.&lt;/p&gt;
+    &lt;div&gt;&lt;a class="btn btn-bg" href=""&gt;Get started now&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            I replace the class <code class="language-html">.container</code> to <code class="language-html">.hero-content</code> because I noticed the content didn't occupy the full width of <code class="language-html">.container</code>.
+          </p>
+          <p>
+            Then I just add one line of code <code class="language-html">@include center();</code> to the <code class="language-html">.hero</code> and it's done;
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>// hero
+.hero {
+  @include center();
+
+  // ...
+  // other styles
+  // ...
+
+  &amp;-content { max-width: 960px; }
+}</code>
+</pre>
+            </div>
+          </div>
+          <div class="img-container">
+            <img src='assets/img/reen/center-layout.png' alt=''>
+          </div>
+        </section>
+        <section id="innercontainer">
+          <h4>
+            Inner container
+          </h4>
+          <p>
+            Noitce that the sub titles are too wide compare to original design. Let's add a <code class="language-html">.inner-container</code> to narrow it.
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>.inner-container { @include container(50em); }</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Replace <code class="language-html">.container</code> with <code class="language-html">.inner-container</code>.
+          </p>
+          <div class="code-wrapper">
+            <header class="markup">
+              markup
+            </header>
+            <div>
+              <pre class="language-markup">
+<code>&lt;section class="get-in-touch"&gt;
+  &lt;div class="inner-container"&gt;
+    &lt;h2 class="heading2"&gt;Fresh branding for a creative startup&lt;/h2&gt;
+    &lt;p class="sub-heading"&gt;Magnis modipsae que voloratati andigen daepeditem quiate re porem aut labor. Laceaque quiae sitiorem rest non restibusaes maio es dem tumquam.&lt;/p&gt;
+    &lt;div&gt;&lt;a href="" class="btn btn-md"&gt;Get in touch&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code>
+</pre>
+            </div>
+          </div>
+          <div class="img-container">
+            <img src='assets/img/reen/inner-container.png' alt=''>
+          </div>
+        </section>
+        <section id="addgallery">
+          <h4>
+            Add gallery
+          </h4>
+          <div class="img-container">
+            <img src='assets/img/reen/preview-blocks.png' alt=''>
+          </div>
+          <p>
+            Notice that there are many <code class="language-html">gallery</code> layouts and <code class="language-html">media list</code> layouts in the design. We can use mixin <code class="language-html">gallery</code> and <code class="language-html">media-list</code> to make it.
+          </p>
+          <div class="code-wrapper">
+            <header class="scss">
+              scss
+            </header>
+            <div>
+              <pre class="language-scss">
+<code>$gallery-gutter: 2.56%; // (30px / 1170px)
+.gallery {
+  &amp;2 { @include gallery(2 gutter $gallery-gutter); }
+  &amp;3 { @include gallery(3 gutter $gallery-gutter); }
+  &amp;4 { @include gallery(4 gutter $gallery-gutter); }
+}
+[class*="gallery"] img { 
+  display: block; 
+  width: 100%;
+}
+
+// features
+.features {
+  [class*="icon-"] { @include media-list('media' 20px); }
+  .media-body { @include media-list('media-body'); }
+}</code>
+</pre>
+            </div>
+          </div>
+          <p>
+            Add related class names to the markup and we're done.
+          </p>
+          <div class="img-container">
+            <img src='assets/img/reen/final.png' alt=''>
+          </div>
+          <p>
+            The demo code is available <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>. You can check each step by the <a href='https://github.com/ganlanyuan/rocket-reen/commits/master' target='_blank'>commit history</a>.
+          </p>
+          <p>
+            Further questions or issues regarding this turorial please submit it <a href='https://github.com/ganlanyuan/rocket-reen/issues' target='_blank'>here</a>.
+          </p>
         </section>
       </main>
     </div>

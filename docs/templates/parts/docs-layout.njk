@@ -17,9 +17,7 @@
 <div class="docs-wrapper section">
 
   {# nav toggle button #}
-  <div class="docs-nav-toggle-wrapper">
-    <div class="docs-nav-toggle"></div>
-  </div>
+  <div class="docs-nav-toggle"></div>
 
   {# docs nav #}
   <nav class="docs-nav">
@@ -57,6 +55,7 @@
           {% set reg_style = r/^style_?(\d*|.*)$/ %}
           {% set reg_script = r/^script_?(\d*|.*)$/ %}
           {% set reg_demo = r/^demo_?(\d*|.*)$/ %}
+          {% set reg_img = r/^<img\s/ %}
     
           {# markup | scss | js #}
           {% if item === 'syntax' or
@@ -140,6 +139,10 @@
       
             </div>
     
+          {# img #}
+          {% elif reg_img.test(item) %}
+            <div class="img-container">{{ item | safe }}</div>
+
           {# text #}
           {% else %}
             <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | nl2br | safe }}</p>

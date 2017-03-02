@@ -38,33 +38,77 @@
     }, 
     "practice": {
       "description": [
-        "In this section, I will show you how to make a one-page website step-by-step using Rocket. The PSD file can be found <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>here</a> and code is <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>."
+        "In this section, I will show you how to make a one-page website step-by-step using Rocket. The PSD file can be found <a href='http://graphicburger.com/reen-psd-creative-portfolio/' target='_black'>here</a> and code is <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>.",
+        "<img src='assets/img/reen/preview.jpg' alt='preview' width='1920' height='3905' />"
       ], 
       "initial": [
-        "First create a folder `-rocket-reen/-`. Add more folders inside it to contain our sass, css and images. Now the folder structure looks like this:",
+        "Create a folder `-rocket-reen/-` and sub folders `-scss/-`, `-css/-`, `-images/-` to contain style sheet and images. Now the folder structure looks like this:",
         "<img src='assets/img/reen/init.png' alt='folder structure after initial' width='412' height='284' />"
       ],
       "download rocket": [
-        "In this example, I will download `-Rocket-` using <a href='http://bower.io/' target='_blank'>bower</a>. \nOpen the command tool, change directory to `-rocket-reen/-`, type `-bower install rocket-` and Enter. (I already install bower in my computer.)",
+        "Download `-Rocket-` using <a href='http://bower.io/' target='_blank'>bower</a>:",
+        "Open the command line tool, change directory to `-rocket-reen/-`, type `-bower install rocket-` and enter. (I have `-bower-` preinstalled in my computer.)",
         "Now my folder structure will looks like this:",
         "<img src='assets/img/reen/folder-after-download-rocket.png' alt='folder structure after download rocket' width='1025' height='296' />",
-        "Notice that a new folder `-bower_components/-` was created. Inside it I can find `-_rocket.scss-` file in the sub folder `-rocket-`."
+        "Notice that a new folder `-bower_components/-` was created. Find `-_rocket.scss-` file inside it which we need to `-@import-` in the next step."
       ],
       "import rocket": [
         "`-@import-` Rocket in the `-style.scss-` file.",
         "style1"
       ],
       "task runner": [
-        "Now let's add a task to compile our `-scss-` file to `-css-` file automatically. I will use <a href='http://gulpjs.com/' target='_blank'>gulp</a> here, but you can use <a href='http://sass-lang.com/install' target='_blank'>others</a>.",
-        "Open command line tool, type `-npm init gulp gulp-sass gulp-sourcemaps browser-sync-` and enter. This will install the packages we need to run a local server (browser-sync) and compile our `-scss-` file to `-css-` file (gulp-sass).",
-        "Create a new file `-gulpfile.js-` at root and add the following code:",
+        "Now I will use a task runner to compile our `-scss-` file to `-css-` file automatically. I will use <a href='http://gulpjs.com/' target='_blank'>gulp</a>, but you can use <a href='http://sass-lang.com/install' target='_blank'>other tools</a>.",
+        "Open command line tool, type `-npm init gulp gulp-sass gulp-sourcemaps browser-sync-` and enter. This will install the packages we need to run a local server (browser-sync) and compile our `-scss-` file to `-css-` file (gulp-sass). (I have `-npm-` preinstalled on my computer.)",
+        "Create a new file `-gulpfile.js-` in the root folder and add the following code:",
         "script1",
         "Notice that I added a `-watch-` task which will re-compile our `-scss-` file and refresh the browser whenever I change the `-scss-` file. ",
-        "Now open command line tool, type `-gulp-` and enter. This will open a new window in the default browser and start `-scss-` and `-watch-` tasks."
+        "Now open command line tool, type `-gulp-` and enter. This will start `-scss-` and `-watch-` tasks and open a new tab (or new window if the browser didn't open yet) in the default browser."
       ],
-      "markup": [
+      "assets": [
+        "Now let's add the images, icons (use icon-font generated at <a href='http://fontello.com/' target='_blank'>fontello</a>) and text in the `-index.html-` file. I added some reset styles as well. Now the page looks like this:",
+        "<img src='assets/img/reen/assets-markup.png' alt='add assets and markup' width='1280' height='3174' />"
       ],
-      "markup": [
+      "add container": [
+        "Notice the design is based on a 12 columns grid, the main content is 1170px wide, gutter between columns is 30px wide.",
+        "<img src='assets/img/reen/container.png' alt='' />",
+        "Let's first set up the container width and gutter use variable `-$ro-layout-` in `-style.scss-`.",
+        "style_setting",
+        "Now let's add a `-.container-` to constrain the main content.",
+        "style1",
+        "markup1",
+        "All the content is now constrain to 1170px and the container box is center aligned.",
+        "<img src='assets/img/reen/page-add-container.png' alt='' />"
+      ],
+      "base styles": [
+        "Let's add more styles to make it closer to the design.",
+        "<img src='assets/img/reen/page-base-styles.png' alt='' />",
+        "If you look at the `-style.scss-` file, you will notice I used a shorthand mixin `-type-` to create type styles and a function `-contrast-` to get a contrast color automatically based on the background.",
+        "style1",
+        "Now there are just some layout issues left, let's look at them one-by-one."
+      ],
+      "center layout": [
+        "First we need to make the introduction content center aligned vertically and horizontally. Use mixin `-center-` in this case.",
+        "markup1",
+        "I replace the class `-.container-` to `-.hero-content-` because I noticed the content didn't occupy the full width of `-.container-`.",
+        "Then I just add one line of code `-@include center();-` to the `-.hero-` and it's done;",
+        "style1",
+        "<img src='assets/img/reen/center-layout.png' alt='' />"
+      ],
+      "inner container": [
+        "Noitce that the sub titles are too wide compare to original design. Let's add a `-.inner-container-` to narrow it.",
+        "style1",
+        "Replace `-.container-` with `-.inner-container-`.",
+        "markup1",
+        "<img src='assets/img/reen/inner-container.png' alt='' />"
+      ],
+      "add gallery": [
+        "<img src='assets/img/reen/preview-blocks.png' alt='' />",
+        "Notice that there are many `-gallery-` layouts and `-media list-` layouts in the design. We can use mixin `-gallery-` and `-media-list-` to make it.",
+        "style1",
+        "Add related class names to the markup and we're done.",
+        "<img src='assets/img/reen/final.png' alt='' />",
+        "The demo code is available <a href='https://github.com/ganlanyuan/rocket-reen' target='_blank'>here</a>. You can check each step by the <a href='https://github.com/ganlanyuan/rocket-reen/commits/master' target='_blank'>commit history</a>.",
+        "Further questions or issues regarding this turorial please submit it <a href='https://github.com/ganlanyuan/rocket-reen/issues' target='_blank'>here</a>."
       ]
     }
   },
@@ -214,8 +258,10 @@
         "Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
         "demo_flipscroll",
         "Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "`-scroll-` mode requires `-responsive-table.js-`. \nFirst include the script in your page. Then call the function `-responsiveTable($table-container)-` after the markup. Then `-@include-` `-responsive-table-` on the container of the table.",
         "demo_scroll",
         "Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "`-toggle mode-` requires `-input:checkbox-` and `-label-` for each column, also 2 pairs of `-input:checkbox-` and `-label-` for control panel.",
         "demo_toggle",
         "Stack: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "demo_stack"

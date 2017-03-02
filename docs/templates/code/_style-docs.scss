@@ -204,6 +204,7 @@ th {
 }
 
 .responsive-table-1 { 
+  // Requirements: $breakpoint
   @include rp-table('flip-scroll' bp 1400px) {
     border: 1px solid #dbdbdb;
     th, td { 
@@ -215,6 +216,7 @@ th {
  
 //=> {% elif componentName === "responsivetable_demo_scroll" %}
 .responsive-table-2 { 
+  // Requirements: $breakpoint
   @include rp-table('scroll' bp 1400px) {
     .table {
       border-right-width: 1px;
@@ -229,6 +231,7 @@ th {
  
 //=> {% elif componentName === "responsivetable_demo_toggle" %}
 .responsive-table-3 {
+  // Requirements: $breakpoint, $count
   @include rp-table('toggle' 'bp' 1400px 'count' 10);
 }
  
@@ -246,6 +249,7 @@ $responsive-table-4-data: (
   'Arbitrary Data'
 );
 .responsive-table-4 {
+  // Requirements: $data, $border-color, $th-width
   @include rp-table('stack' 'bp' 1400px #dbdbdb 'data' $responsive-table-4-data) {
     tr:nth-of-type(2n) { background-color: #f5f5f5; }
     td:before { margin-right: 7px; }

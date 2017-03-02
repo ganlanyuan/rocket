@@ -9,10 +9,10 @@
 pre[class*="language-"] { 
   margin: 0; 
   background-color: $lightgray;
-  & > code[data-language] {
+  & > code {
     display: block;
     margin: 0 0 -1em 0;
-    max-height: none;
+    max-height: 28em;
     overflow: auto;
     &:before { display: none; }
   }
@@ -33,8 +33,14 @@ pre[class*="language-"] {
     h4 { @include type(22px); }
     p { 
       max-width: 46em; 
-      overflow-x: auto;
-      img { max-width: none }
+    }
+    > p:first-child { margin-top: 0; }
+    .img-container {
+      border: 5px solid nth($theme-triad, 3);
+      display: block;
+      max-height: 400px;
+      overflow: auto;
+      img { max-width: none; }
     }
     .capability { 
       font-size: 0.85em;
@@ -87,26 +93,23 @@ pre[class*="language-"] {
   }
   &-toggle {
     @include type(14px);
-    position: absolute;
-    right: 0;
-    padding: 0.7em;
+    position: relative;
+    z-index: $zi-docs-nav;
+    @supports (position: sticky) or (position: -webkit-sticky) {
+      position: sticky;
+      top: 10px;
+    }
+    float: right;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    background-color: $color-primary;
     color: #fff;
     background-color: $color-primary;
+    text-align: center;
     white-space: nowrap;
     cursor: pointer;
-    &-wrapper {
-      position: relative;
-      float: right;
-      min-width: 91px;
-      min-height: 36px;
-      background-color: $color-primary;
-      @supports (position: sticky) or (position: -webkit-sticky) {
-        position: sticky;
-        top: 10px;
-      }
-      z-index: $zi-docs-nav;
-      text-align: right;
-    }
+    ~ main { margin-top: -36px; }
   }
   .shrank {
     svg { transform: rotate(180deg); }
