@@ -1,29 +1,29 @@
-{% macro get(name) %}
-{% if name === "container_demo1" %}
+{% macro get(componentName) %}
+{% if componentName === "container_demo1" %}
 <div class="container1" data-content>
   <!-- contents -->
 </div>
 
-{% elif name === "container_demo2" %}
+{% elif componentName === "container_demo2" %}
 <div class="container2" data-content>
   <!-- contents -->
 </div>
 
-{% elif name === "grid_demo1" %}
+{% elif componentName === "grid_demo1" %}
 <div class="grid1">
   <div data-content></div>
   <div data-content></div>
   <div data-content></div>
 </div>
 
-{% elif name === "grid_demo2" %}
+{% elif componentName === "grid_demo2" %}
 <div class="grid2">
   <div data-content>1</div>
   <div data-content>2</div>
   <div data-content>3</div>
 </div>
 
-{% elif name === "grid_demo3" %}
+{% elif componentName === "grid_demo3" %}
 <div class="grid3">
   <div data-content>1</div>
   <div data-content>2</div>
@@ -32,13 +32,13 @@
   <div data-content>5</div>
 </div>
 
-{% elif name === "grid_demo4" %}
+{% elif componentName === "grid_demo4" %}
 <div class="grid4">
   <section data-content>1</section>
   <section data-content>2</section>
 </div>
 
-{% elif name === "grid_demo5" %}
+{% elif componentName === "grid_demo5" %}
 <div class="grid5">
   <div data-content>1</div>
   <div data-content>2</div>
@@ -47,59 +47,59 @@
   <div data-content>5</div>
 </div>
 
-{% elif name === "liquid2_demo1" %}
+{% elif componentName === "liquid2_demo1" %}
 <div class="liquid-2-1">
   <div data-content>1</div>
   <div data-content>2</div>
 </div>
 
-{% elif name === "liquid2_demo2" %}
+{% elif componentName === "liquid2_demo2" %}
 <div class="liquid-2-2">
   <div data-content>1</div>
   <div data-content>2</div>
 </div>
 
-{% elif name === "liquid2_demo3" %}
+{% elif componentName === "liquid2_demo3" %}
 <div class="liquid-2-3">
   <div data-content>1</div>
   <div data-content>2</div>
 </div>
 
-{% elif name === "liquid2_demo4" %}
+{% elif componentName === "liquid2_demo4" %}
 <div class="liquid-2-4">
   <main data-content>1</main>
   <aside data-content>2</aside>
 </div>
 
-{% elif name === "liquid3_demo1" %}
+{% elif componentName === "liquid3_demo1" %}
 <div class="liquid-3-1">
   <div data-content>sidebar1</div>
   <div data-content>main</div>
   <div data-content>sidebar2</div>
 </div>
 
-{% elif name === "liquid3_demo2" %}
+{% elif componentName === "liquid3_demo2" %}
 <div class="liquid-3-2">
   <div data-content>sidebar1</div>
   <div data-content>main</div>
   <div data-content>sidebar2</div>
 </div>
 
-{% elif name === "liquid3_demo3" %}
+{% elif componentName === "liquid3_demo3" %}
 <div class="liquid-3-3">
   <div data-content>sidebar1</div>
   <div data-content>main</div>
   <div data-content>sidebar2</div>
 </div>
 
-{% elif name === "liquid3_demo4" %}
+{% elif componentName === "liquid3_demo4" %}
 <div class="liquid-3-4">
   <nav data-content>sidebar1</nav>
   <main data-content>main</main>
   <aside data-content>sidebar2</aside>
 </div>
 
-{% elif name === "gallery_demo1" %}
+{% elif componentName === "gallery_demo1" %}
 <ul class="gallery-1">
   <li><div data-content></div></li>
   <li><div data-content></div></li>
@@ -108,7 +108,7 @@
   <li><div data-content></div></li>
 </ul>
 
-{% elif name === "gallery_demo2" %}
+{% elif componentName === "gallery_demo2" %}
 <ul class="gallery-2">
   <li><div data-content>1</div></li>
   <li><div data-content>2</div></li>
@@ -117,7 +117,7 @@
   <li><div data-content>5</div></li>
 </ul>
 
-{% elif name === "gallery_demo3" %}
+{% elif componentName === "gallery_demo3" %}
 <ul class="gallery-3">
   <li><div data-content></div></li>
   <li><div data-content></div></li>
@@ -126,7 +126,7 @@
   <li><div data-content></div></li>
 </ul>
 
-{% elif name === "gallery_demo4" %}
+{% elif componentName === "gallery_demo4" %}
 <div class="gallery-4">
   <div><div data-content></div></div>
   <div><div data-content></div></div>
@@ -135,7 +135,7 @@
   <div><div data-content></div></div>
 </div>
 
-{% elif name === "masonry_demo1" %}
+{% elif componentName === "masonry_demo1" %}
 <ul class="masonry-1">
   <li><div data-content><img class="full" src="http://placehold.it/300x300/cccccc/cccccc" alt="" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>
   <li><div data-content><img class="full" src="http://placehold.it/300x100/cccccc/cccccc" alt="" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>
@@ -145,7 +145,7 @@
   <li><div data-content><img class="full" src="http://placehold.it/300x100/cccccc/cccccc" alt="" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>
 </ul>
 
-{% elif name === "masonry_demo2" %}
+{% elif componentName === "masonry_demo2" %}
 <ul class="masonry-2">
   <li><div data-content><img class="full" src="http://placehold.it/300x300/cccccc/cccccc" alt="" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></li>
   <li><div data-content><img class="full" src="http://placehold.it/300x100/cccccc/cccccc" alt="" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></li>
@@ -155,7 +155,7 @@
   <li><div data-content><img class="full" src="http://placehold.it/300x100/cccccc/cccccc" alt="" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></li>
 </ul>
 
-{% elif name === "masonry_demo3" %}
+{% elif componentName === "masonry_demo3" %}
 <div class="masonry-3">
   <div class="panel"><div data-content><img class="full" src="http://placehold.it/300x300/cccccc/cccccc" alt="" /><p>1. Lorem ipsum dolor sit amet, incidunt voluptatibus in, labore itaque consequuntur facere blanditiis! Debitis nihil reiciendis, cum quis vitae non eveniet laudantium?</p></div></div>
   <div class="panel"><div data-content><img class="full" src="http://placehold.it/300x100/cccccc/cccccc" alt="" /><p>2. Porro cupiditate suscipit, repellat non doloribus dicta possimus hic magni facere ipsa minima laboriosam eum magnam, expedita ratione saepe neque id. Adipisci.</p></div></div>
@@ -165,7 +165,7 @@
   <div class="panel"><div data-content><img class="full" src="http://placehold.it/300x100/cccccc/cccccc" alt="" /><p>6. Perferendis unde ullam fugiat sapiente error explicabo quam reprehenderit, dolorum.</p></div></div>
 </div>
 
-{% elif name === "metro_markup1" %}
+{% elif componentName === "metro_markup1" %}
 <ul class="metro">
   <li><div class="metro-item"></div></li>
   <li><div class="metro-item"></div></li>
@@ -174,7 +174,7 @@
   <li><div class="metro-item"></div></li>
 </ul>
 
-{% elif name === "metro_demo1" %}
+{% elif componentName === "metro_demo1" %}
 <ul class="metro-1">
   <li><div class="metro-item"><div data-content></div></div></li>
   <li><div class="metro-item"><div data-content></div></div></li>
@@ -184,12 +184,12 @@
   <li><div class="metro-item"><div data-content></div></div></li>
 </ul>
 
-{% elif name === "diamond_markup1" %}
+{% elif componentName === "diamond_markup1" %}
 <div class="your-class">
   <div class="diamond-content">Content goes here</div>
 </div>
 
-{% elif name === "diamond_demo1" %}
+{% elif componentName === "diamond_demo1" %}
 <div class="diamond-1">
   <div class="diamond-content" data-content>
     <div>content</div>
@@ -216,21 +216,21 @@
   </div>
 </div>
 
-{% elif name === "diamond_demo2" %}
+{% elif componentName === "diamond_demo2" %}
 <div class="diamond-2">
   <div class="diamond-content" data-content>
     <div>content</div>
   </div>
 </div>
 
-{% elif name === "diamond_demo3" %}
+{% elif componentName === "diamond_demo3" %}
 <div class="diamond-3">
   <div class="diamond-content" data-content>
     <div>content</div>
   </div>
 </div>
 
-{% elif name === "anglededges_demo1" %}
+{% elif componentName === "anglededges_demo1" %}
 <div class="angled-edges-sibling">
   <p>Quis ab placeat totam beatae dolorum, harum omnis tempora dolore exercitationem quia, soluta qui deleniti numquam.</p>
 </div>
@@ -243,14 +243,14 @@
   <p>Libero eum accusamus molestiae cum recusandae. Omnis doloremque eos amet, saepe minima fugiat inventore? Non, quaerat.</p>
 </div>
 
-{% elif name === "stickyfooter_demo1" %}
+{% elif componentName === "stickyfooter_demo1" %}
 <div class="sticky-footer-1">
   <header>header</header>
   <main>main</main>
   <footer>footer</footer>
 </div>
 
-{% elif name === "justify_demo1" %}
+{% elif componentName === "justify_demo1" %}
 <ul class="justify-1">
   <li>1</li>
   <li>2</li>
@@ -259,12 +259,12 @@
   <li>5</li>
 </ul>
 
-{% elif name === "center_demo1" %}
+{% elif componentName === "center_demo1" %}
 <div class="center-1">
   <div>The child element is center aligned.</div>
 </div>
 
-{% elif name === "charts_markup1" %}
+{% elif componentName === "charts_markup1" %}
 <div class="your-chart">
   <ul class="items">
     <li class="item-1"><strong>title1</strong><span></span></li>
@@ -285,7 +285,7 @@
   </div>
 </div>
 
-{% elif name === "charts_demo1" %}
+{% elif componentName === "charts_demo1" %}
 <div class="charts-1">
   <!-- items: charts body -->
   <ul class="items">
@@ -380,8 +380,7 @@
   </div>
 </div>
 
-{% elif name === "responsivetable_demo1" %}
-<!-- Flip scroll -->
+{% elif componentName === "responsivetable_demo_flipscroll" %}
 <table class="responsive-table-1">
   <thead>
     <tr>
@@ -461,8 +460,7 @@
   </tbody>
 </table>
 
-<br> 
-<!-- scroll -->
+{% elif componentName === "responsivetable_demo_scroll" %}
 <div class="responsive-table-2">
   <table class="">
     <thead>
@@ -512,21 +510,20 @@
   responsiveTable(document.querySelector('.responsive-table-2'), 1300);
 </script>
 
-<br> 
-<!-- toggle -->
+{% elif componentName === "responsivetable_demo_toggle" %}
 <div class="responsive-table-3">
-  <input name === "" id="toggle-1" checked="" type="checkbox">
-  <input name === "" id="toggle-2" type="checkbox">
-  <input name === "" id="toggle-3" type="checkbox">
-  <input name === "" id="toggle-4" checked="" type="checkbox">
-  <input name === "" id="toggle-5" type="checkbox">
-  <input name === "" id="toggle-6" checked="" type="checkbox">
-  <input name === "" id="toggle-7" type="checkbox">
-  <input name === "" id="toggle-8" type="checkbox">
-  <input name === "" id="toggle-9" type="checkbox">
-  <input name === "" id="toggle-10" type="checkbox">
-  <input name === "" id="control-panel" type="checkbox">
-  <input name === "" id="display-all" type="checkbox">
+  <input name="" id="toggle-1" checked="" type="checkbox">
+  <input name="" id="toggle-2" type="checkbox">
+  <input name="" id="toggle-3" type="checkbox">
+  <input name="" id="toggle-4" checked="" type="checkbox">
+  <input name="" id="toggle-5" type="checkbox">
+  <input name="" id="toggle-6" checked="" type="checkbox">
+  <input name="" id="toggle-7" type="checkbox">
+  <input name="" id="toggle-8" type="checkbox">
+  <input name="" id="toggle-9" type="checkbox">
+  <input name="" id="toggle-10" type="checkbox">
+  <input name="" id="control-panel" type="checkbox">
+  <input name="" id="display-all" type="checkbox">
   <label for="control-panel">Display</label>
   <label for="display-all">Display All</label>
   <div class="control-panel">
@@ -585,8 +582,7 @@
   </table>
 </div>
 
-<br> 
-<!-- stack -->
+{% elif componentName === "responsivetable_demo_stack" %}
 <table class="responsive-table-4">
   <thead>
     <tr>
@@ -630,7 +626,7 @@
   </tbody>
 </table>
 
-{% elif name === "offcanvas_demo1" %}
+{% elif componentName === "offcanvas_demo1" %}
 <!-- modes: slide-in, rotate-in, rotate-out, rotate-in-reverse, push, drawer -->
 <div>
   <input type="checkbox" name="" id="nav-toggle-1" class="checkbox-hidden">
@@ -666,7 +662,7 @@
   </div>
 </div>
 
-{% elif name === "validation_demo1" %}
+{% elif componentName === "validation_demo1" %}
 <form action="" class="validation-1">
   <ol>
     <li>
@@ -697,7 +693,7 @@
   }
 </script>
 
-{% elif name === "button_demo1" %}
+{% elif componentName === "button_demo1" %}
 <span class="button-simple">button</span>
 <span class="button-push" data-text="star"><span>push</span></span>
 <span class="button-bubble">bubble</span>
@@ -710,50 +706,50 @@
   <span></span>
 </span>
 
-{% elif name === "parallelogram_demo1" %}
+{% elif componentName === "parallelogram_demo1" %}
 <div class="parallelogram-1">Parallelogram demo</div>
 
-{% elif name === "dropshadows_demo1" %}
+{% elif componentName === "dropshadows_demo1" %}
 <div class="drop-shadow-1">style: lifted</div>
 <div class="drop-shadow-2">style: raised</div>
 <div class="drop-shadow-3">style: perspective</div>
 <div class="drop-shadow-4">style: curve</div>
 
-{% elif name === "switch_demo1" %}
+{% elif componentName === "switch_demo1" %}
 <div class="switch-1">
-  <input type="checkbox" id="switch-id-1" name === "switch">
+  <input type="checkbox" id="switch-id-1" name="switch">
   <!-- span is required if you want to show text -->
   <label for="switch-id-1"><span></span></label>
 </div>
 <div class="switch-2">
-  <input type="checkbox" id="switch-id-2" name === "switch">
+  <input type="checkbox" id="switch-id-2" name="switch">
   <label for="switch-id-2"></label>
 </div>
 
-{% elif name === "pushtoggle_demo1" %}
+{% elif componentName === "pushtoggle_demo1" %}
 <div class="push-toggle-1">
   <!-- make sure labels right after inputs -->
-  <input type="radio" id="male" name === "gender" checked="">
+  <input type="radio" id="male" name="gender" checked="">
   <label for="male">Male</label>
-  <input type="radio" id="female" name === "gender">
+  <input type="radio" id="female" name="gender">
   <label for="female">Female</label>
 </div>
 
-{% elif name === "checkbox_demo1" %}
+{% elif componentName === "checkbox_demo1" %}
 <div class="checkbox-1">
   <!-- make sure labels right after inputs -->
-  <input type="radio" name === "radio-name" id="radio-id-1" checked>
+  <input type="radio" name="radio-name" id="radio-id-1" checked>
   <label for="radio-id-1">item 1</label>
   <br />
-  <input type="radio" name === "radio-name" id="radio-id-2">
+  <input type="radio" name="radio-name" id="radio-id-2">
   <label for="radio-id-2">item 2</label>
   <br />
-  <input type="radio" name === "radio-name" id="radio-id-3">
+  <input type="radio" name="radio-name" id="radio-id-3">
   <label for="radio-id-3">item 3</label>
   <br />
 </div>
 
-{% elif name === "inputfile_demo1" %}
+{% elif componentName === "inputfile_demo1" %}
 <div class="input-file-1">
   <input type="file" id="input-file-id" data-multiple-caption="{count} files selected" multiple />
   <label for="input-file-id">Choose a file</label>
@@ -764,11 +760,11 @@
   inputFile('#input-file-id');
 </script>
 
-{% elif name === "tabs_demo1" %}
+{% elif componentName === "tabs_demo1" %}
 <div class="tabs-1">
-  <input type="radio" name === "tabs-radio-name" id="tabs-radio-id-1" checked>
-  <input type="radio" name === "tabs-radio-name" id="tabs-radio-id-2">
-  <input type="radio" name === "tabs-radio-name" id="tabs-radio-id-3">
+  <input type="radio" name="tabs-radio-name" id="tabs-radio-id-1" checked>
+  <input type="radio" name="tabs-radio-name" id="tabs-radio-id-2">
+  <input type="radio" name="tabs-radio-name" id="tabs-radio-id-3">
 
   <!-- class .ro-tabs is required -->
   <div class="ro-tabs">
@@ -791,27 +787,27 @@
   </div>
 </div>
 
-{% elif name === "accordion_demo1" %}
+{% elif componentName === "accordion_demo1" %}
 <div class="accordion-1">
-  <input type="checkbox" name === "accordion-1" id="accordion-checkbox-1">
+  <input type="checkbox" name="accordion-1" id="accordion-checkbox-1">
   <label for="accordion-checkbox-1">About Us</label>
   <div>
     <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
   </div>
 </div>
 <div class="accordion-1">
-  <input type="checkbox" name === "accordion-1" id="accordion-checkbox-2">
+  <input type="checkbox" name="accordion-1" id="accordion-checkbox-2">
   <label for="accordion-checkbox-2">Contact Us</label>
   <div>
     <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
   </div>
 </div>
 
-{% elif name === "dropdown_demo1" %}
+{% elif componentName === "dropdown_demo1" %}
 <div class="dropdown-1">
   <span>dropdown</span>
   <!-- if you set $show: click, input and label are required. -->
-  <input type="checkbox" name === "" id="your-dropdown-id">
+  <input type="checkbox" name="" id="your-dropdown-id">
   <label for="your-dropdown-id"> → </label>
   <ul>
     <li><a href="">item01</a></li>
@@ -820,10 +816,10 @@
   </ul>
 </div>
 
-{% elif name === "tooltip_demo1" %}
+{% elif componentName === "tooltip_demo1" %}
 <p>Hic, deleniti <a href="" class="tooltip-2" data-tooltip="bottom tooltip">quibusdam</a> itaque expedita placeat in veritatis <a href="" class="tooltip-1" data-tooltip="right tooltip">consectetur</a> explicabo non odit sed animi quos adipisci. Vero dolores animi impedit tempore tenetur.</p>
 
-{% elif name === "medialist_demo1" %}
+{% elif componentName === "medialist_demo1" %}
 <ul>
   <li class="media-list-1">
     <figure class="media"><a href=""><img src="http://placehold.it/120x80" alt=""></a></figure>
@@ -839,7 +835,7 @@
   </li>
 </ul>
 
-{% elif name === "flexmedia_demo1" %}
+{% elif componentName === "flexmedia_demo1" %}
 <div class="flex-media-1">
   <iframe width="560" height="315" src="//www.youtube.com/embed/Rb0UmrCXxVA" frameborder="0" allowfullscreen></iframe>
 </div>
@@ -847,21 +843,21 @@
   <svg xmlns="http://www.w3.org/2000/svg" id="heart-fill" viewBox="0 0 48 48"><title>heart-fill</title><path d="M42.9 26.6L24 45.5 5.1 26.6A13.8 13.8 0 1 1 24 6.6a13.7 13.7 0 0 1 23.5 9.7c0 4-1.8 7.8-4.6 10.3z" fill="currentColor" fill-rule="evenodd"/></svg>
 </div>
 
-{% elif name === "type_demo1" %}
+{% elif componentName === "type_demo1" %}
 <div class="type-1">Maiores, molestiae! Explicabo, illumesse.</div>
 <div class="type-2">Eveniet neque voluptate nisi!</div>
 
-{% elif name === "fluidtype_demo1" %}
+{% elif componentName === "fluidtype_demo1" %}
 <div class="fluid-type-1">Neque impedit, voluptatem quas!</div>
 
-{% elif name === "responsivetype_demo1" %}
+{% elif componentName === "responsivetype_demo1" %}
 <div class="responsive-type-1">Assumenda, deleniti molestias sapiente ut!</div>
 <div class="responsive-type-2">Saepe aspernatur fugiat, corrupti officia.</div>
 
-{% elif name === "hidetext_demo1" %}
+{% elif componentName === "hidetext_demo1" %}
 <div class="hide-text-1">Brand Name</div>
 
-{% elif name === "atleast_demo1" %}
+{% elif componentName === "atleast_demo1" %}
 <ul class="at-least-1">
   <li data-content></li>
   <li data-content></li>
@@ -874,7 +870,7 @@
   <li data-content></li>
 </ul>
 
-{% elif name === "atmost_demo1" %}
+{% elif componentName === "atmost_demo1" %}
 <ul class="at-most-1">
   <li data-content></li>
   <li data-content></li>
@@ -888,7 +884,7 @@
   <li data-content></li>
 </ul>
 
-{% elif name === "equalto_demo1" %}
+{% elif componentName === "equalto_demo1" %}
 <ul class="equal-to-1">
   <li data-content></li>
   <li data-content></li>
@@ -908,7 +904,7 @@
   <li data-content></li>
 </ul>
 
-{% elif name === "between_demo1" %}
+{% elif componentName === "between_demo1" %}
 <ul class="between-1">
   <li data-content></li>
   <li data-content></li>
@@ -921,47 +917,47 @@
   <li data-content></li>
 </ul>
 
-{% elif name === "visible_demo1" %}
+{% elif componentName === "visible_demo1" %}
 <p class="visible-1">Visible on 700px and up</p>
 <p class="visible-2">Visible below 700px</p>
 
-{% elif name === "hidden_demo1" %}
+{% elif componentName === "hidden_demo1" %}
 <p class="hidden-1">Hidden on 700px and up</p>
 <p class="hidden-2">Hidden between 300px and 500px and 700px up</p>
 
-{% elif name === "contrast_demo1" %}
+{% elif componentName === "contrast_demo1" %}
 <p class="contrast-1">Consequatur pariatur, minima, ex facere molestias praesentium ipsum laborum porro earum modi optio ad quam.</p>
 <p class="contrast-2">Impedit dolorum sit nisi, aliquam, nemo repellendus vitae, ipsa et voluptatum dignissimos recusandae eum accusamus.</p>
 <p class="contrast-3">Veniam id, nostrum fuga saepe ab voluptate incidunt nemo maiores esse praesentium animi inventore qui.</p>
 
-{% elif name === "adjacent_demo1" %}
+{% elif componentName === "adjacent_demo1" %}
 <div class="adjacent-0" data-content></div>
 <div class="adjacent-1" data-content></div>
 <div class="adjacent-2" data-content></div>
 <div class="adjacent-3" data-content></div>
 
-{% elif name === "complementary_demo1" %}
+{% elif componentName === "complementary_demo1" %}
 <div class="complementary-0" data-content></div>
 <div class="complementary-1" data-content></div>
 
-{% elif name === "splitcomplementary_demo1" %}
+{% elif componentName === "splitcomplementary_demo1" %}
 <div class="split-complementary-0" data-content></div>
 <div class="split-complementary-1" data-content></div>
 <div class="split-complementary-2" data-content></div>
 <div class="split-complementary-3" data-content></div>
 
-{% elif name === "triad_demo1" %}
+{% elif componentName === "triad_demo1" %}
 <div class="triad-0" data-content></div>
 <div class="triad-1" data-content></div>
 <div class="triad-2" data-content></div>
 
-{% elif name === "rectangle_demo1" %}
+{% elif componentName === "rectangle_demo1" %}
 <div class="rectangle-0" data-content></div>
 <div class="rectangle-1" data-content></div>
 <div class="rectangle-2" data-content></div>
 <div class="rectangle-3" data-content></div>
 
-{% elif name === "square_demo1" %}
+{% elif componentName === "square_demo1" %}
 <div class="square-0" data-content></div>
 <div class="square-1" data-content></div>
 <div class="square-2" data-content></div>

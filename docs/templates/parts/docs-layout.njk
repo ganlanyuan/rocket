@@ -53,10 +53,10 @@
         <h4>{{ componentName | capitalize }}</h4>
       
         {% for item in component %}
-          {% set reg_markup = r/^markup\d+$/ %}
-          {% set reg_style = r/^style\d+$/ %}
-          {% set reg_script = r/^script\d+$/ %}
-          {% set reg_demo = r/^demo\d+$/ %}
+          {% set reg_markup = r/^markup_?(\d*|.*)$/ %}
+          {% set reg_style = r/^style_?(\d*|.*)$/ %}
+          {% set reg_script = r/^script_?(\d*|.*)$/ %}
+          {% set reg_demo = r/^demo_?(\d*|.*)$/ %}
     
           {# markup | scss | js #}
           {% if item === 'syntax' or

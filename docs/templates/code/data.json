@@ -94,7 +94,7 @@
         "demo2",
         "The child elements can be separated to multi rows using a nested list. `-( (row1 row1 row1) (row2 row2) (row3 row3 row3))-` indicate 3 rows, the first row include 3 columns, 2rd row 2 columns, 3rd row 3 columns.",
         "demo3",
-        "If the child elements are not `-div-`s, indicate them using `-child $selector-` format in the parameter.",
+        "If the child elements are not `-div-`s, indicate them using `-child $selector-` format.",
         "demo4",
         "`-grid-` works with breakpoints to make multi layouts for different devices.",
         "demo5"
@@ -210,12 +210,15 @@
       "responsive-table": [
         "Display complex data tables on small screen.",
         "Referance: <a href='http://dbushell.com/2012/01/05/responsive-tables-2/' target='_blank'>responsive-tables-2</a>, <a href='https://github.com/nadangergeo/RWD-Table-Patterns' target='_blank'>RWD-Table-Patterns</a>",
-        "Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
-        "Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
-        "Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
-        "Stack: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "syntax",
-        "demo1"
+        "Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>",
+        "demo_flipscroll",
+        "Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "demo_scroll",
+        "Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>",
+        "demo_toggle",
+        "Stack: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
+        "demo_stack"
       ],
       "off-canvas": [
         "Pure css off-canvas using `-input:checkbox-`.",

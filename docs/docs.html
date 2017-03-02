@@ -560,7 +560,7 @@
             </div>
           </div>
           <p>
-            If the child elements are not <code class="language-html">div</code>s, indicate them using <code class="language-html">child $selector</code> format in the parameter.
+            If the child elements are not <code class="language-html">div</code>s, indicate them using <code class="language-html">child $selector</code> format.
           </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
@@ -2693,18 +2693,6 @@ $charts-data2: (
           <p>
             Referance: <a href='http://dbushell.com/2012/01/05/responsive-tables-2/' target='_blank'>responsive-tables-2</a>, <a href='https://github.com/nadangergeo/RWD-Table-Patterns' target='_blank'>RWD-Table-Patterns</a>
           </p>
-          <p>
-            Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>
-          </p>
-          <p>
-            Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>
-          </p>
-          <p>
-            Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>
-          </p>
-          <p>
-            Stack: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>
-          </p>
           <div class="code-wrapper">
             <header class="scss">
               scss: syntax
@@ -2726,6 +2714,9 @@ $charts-data2: (
 </pre>
             </div>
           </div>
+          <p>
+            Flip-scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 12.1+</em>
+          </p>
           <div class="demo-container" data-show="code">
             <div class="toggle-container">
               <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
@@ -2738,8 +2729,7 @@ $charts-data2: (
                   </header>
                   <div>
                     <pre>
-<code class="language-markup" id="responsivetable-demo1-markup">&lt;!-- Flip scroll --&gt;
-&lt;table class="responsive-table-1"&gt;
+<code class="language-markup" id="responsivetable-demo_flipscroll-markup">&lt;table class="responsive-table-1"&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;First Name&lt;/th&gt;
@@ -2816,177 +2806,8 @@ $charts-data2: (
       &lt;td&gt;Under the couch&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;br&gt; 
-&lt;!-- scroll --&gt;
-&lt;div class="responsive-table-2"&gt;
-  &lt;table class=""&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;First Name&lt;/th&gt;
-        &lt;th&gt;Last Name&lt;/th&gt;
-        &lt;th&gt;Job Title&lt;/th&gt;
-        &lt;th&gt;Favorite Color&lt;/th&gt;
-        &lt;th&gt;Wars or Trek?&lt;/th&gt;
-        &lt;th&gt;Porn Name&lt;/th&gt;
-        &lt;th&gt;Date of Birth&lt;/th&gt;
-        &lt;th&gt;Dream Vacation City&lt;/th&gt;
-        &lt;th&gt;GPA&lt;/th&gt;
-        &lt;th&gt;Arbitrary Data&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;James&lt;/td&gt;
-        &lt;td&gt;Matman&lt;/td&gt;
-        &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
-        &lt;td&gt;Lettuce Green&lt;/td&gt;
-        &lt;td&gt;Trek&lt;/td&gt;
-        &lt;td&gt;Digby Green&lt;/td&gt;
-        &lt;td&gt;January 13, 1979&lt;/td&gt;
-        &lt;td&gt;Gotham City&lt;/td&gt;
-        &lt;td&gt;3.1&lt;/td&gt;
-        &lt;td&gt;RBX-12&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;The&lt;/td&gt;
-        &lt;td&gt;Tick&lt;/td&gt;
-        &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
-        &lt;td&gt;Blue&lt;/td&gt;
-        &lt;td&gt;Wars&lt;/td&gt;
-        &lt;td&gt;John Smith&lt;/td&gt;
-        &lt;td&gt;July 19, 1968&lt;/td&gt;
-        &lt;td&gt;Athens&lt;/td&gt;
-        &lt;td&gt;N/A&lt;/td&gt;
-        &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-&lt;script type="text/javascript" src="../src/js/components/responsive-table.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  responsiveTable(document.querySelector('.responsive-table-2'), 1300);
-&lt;/script&gt;
-
-&lt;br&gt; 
-&lt;!-- toggle --&gt;
-&lt;div class="responsive-table-3"&gt;
-  &lt;input name === "" id="toggle-1" checked="" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-2" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-3" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-4" checked="" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-5" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-6" checked="" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-7" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-8" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-9" type="checkbox"&gt;
-  &lt;input name === "" id="toggle-10" type="checkbox"&gt;
-  &lt;input name === "" id="control-panel" type="checkbox"&gt;
-  &lt;input name === "" id="display-all" type="checkbox"&gt;
-  &lt;label for="control-panel"&gt;Display&lt;/label&gt;
-  &lt;label for="display-all"&gt;Display All&lt;/label&gt;
-  &lt;div class="control-panel"&gt;
-    &lt;label for="toggle-1"&gt;First Name&lt;/label&gt;
-    &lt;label for="toggle-2"&gt;Last Name&lt;/label&gt;
-    &lt;label for="toggle-3"&gt;Job Title&lt;/label&gt;
-    &lt;label for="toggle-4"&gt;Favorite Color&lt;/label&gt;
-    &lt;label for="toggle-5"&gt;Wars or Trek?&lt;/label&gt;
-    &lt;label for="toggle-6"&gt;Porn Name&lt;/label&gt;
-    &lt;label for="toggle-7"&gt;Date of Birth&lt;/label&gt;
-    &lt;label for="toggle-8"&gt;Dream Vacation City&lt;/label&gt;
-    &lt;label for="toggle-9"&gt;GPA&lt;/label&gt;
-    &lt;label for="toggle-10"&gt;Arbitrary Data&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;table&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;First Name&lt;/th&gt;
-        &lt;th&gt;Last Name&lt;/th&gt;
-        &lt;th&gt;Job Title&lt;/th&gt;
-        &lt;th&gt;Favorite Color&lt;/th&gt;
-        &lt;th&gt;Wars or Trek?&lt;/th&gt;
-        &lt;th&gt;Porn Name&lt;/th&gt;
-        &lt;th&gt;Date of Birth&lt;/th&gt;
-        &lt;th&gt;Dream Vacation City&lt;/th&gt;
-        &lt;th&gt;GPA&lt;/th&gt;
-        &lt;th&gt;Arbitrary Data&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;James&lt;/td&gt;
-        &lt;td&gt;Matman&lt;/td&gt;
-        &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
-        &lt;td&gt;Lettuce Green&lt;/td&gt;
-        &lt;td&gt;Trek&lt;/td&gt;
-        &lt;td&gt;Digby Green&lt;/td&gt;
-        &lt;td&gt;January 13, 1979&lt;/td&gt;
-        &lt;td&gt;Gotham City&lt;/td&gt;
-        &lt;td&gt;3.1&lt;/td&gt;
-        &lt;td&gt;RBX-12&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;The&lt;/td&gt;
-        &lt;td&gt;Tick&lt;/td&gt;
-        &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
-        &lt;td&gt;Blue&lt;/td&gt;
-        &lt;td&gt;Wars&lt;/td&gt;
-        &lt;td&gt;John Smith&lt;/td&gt;
-        &lt;td&gt;July 19, 1968&lt;/td&gt;
-        &lt;td&gt;Athens&lt;/td&gt;
-        &lt;td&gt;N/A&lt;/td&gt;
-        &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-
-&lt;br&gt; 
-&lt;!-- stack --&gt;
-&lt;table class="responsive-table-4"&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;First Name&lt;/th&gt;
-      &lt;th&gt;Last Name&lt;/th&gt;
-      &lt;th&gt;Job Title&lt;/th&gt;
-      &lt;th&gt;Favorite Color&lt;/th&gt;
-      &lt;th&gt;Wars or Trek?&lt;/th&gt;
-      &lt;th&gt;Porn Name&lt;/th&gt;
-      &lt;th&gt;Date of Birth&lt;/th&gt;
-      &lt;th&gt;Dream Vacation City&lt;/th&gt;
-      &lt;th&gt;GPA&lt;/th&gt;
-      &lt;th&gt;Arbitrary Data&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;James&lt;/td&gt;
-      &lt;td&gt;Matman&lt;/td&gt;
-      &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
-      &lt;td&gt;Lettuce Green&lt;/td&gt;
-      &lt;td&gt;Trek&lt;/td&gt;
-      &lt;td&gt;Digby Green&lt;/td&gt;
-      &lt;td&gt;January 13, 1979&lt;/td&gt;
-      &lt;td&gt;Gotham City&lt;/td&gt;
-      &lt;td&gt;3.1&lt;/td&gt;
-      &lt;td&gt;RBX-12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;The&lt;/td&gt;
-      &lt;td&gt;Tick&lt;/td&gt;
-      &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
-      &lt;td&gt;Blue&lt;/td&gt;
-      &lt;td&gt;Wars&lt;/td&gt;
-      &lt;td&gt;John Smith&lt;/td&gt;
-      &lt;td&gt;July 19, 1968&lt;/td&gt;
-      &lt;td&gt;Athens&lt;/td&gt;
-      &lt;td&gt;N/A&lt;/td&gt;
-      &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
 &lt;/table&gt;</code>
-</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo1-markup">Copy Code</button>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_flipscroll-markup">Copy Code</button>
                   </div>
                 </li>
                 <li>
@@ -2995,75 +2816,31 @@ $charts-data2: (
                   </header>
                   <div>
                     <pre>
-<code class="language-scss" id="responsivetable-demo1-scss">table {
+<code class="language-scss" id="responsivetable-demo_flipscroll-scss">table {
   text-align: left;
   width: 100%;
   font-size: 13px;
-  border: 1px solid #dbdbdb;
-  border-width: 1px 0 0 1px;
   border-collapse: collapse;
   border-spacing: 0;
 }
 th, td {
   padding: 10px 6px;
   border: 1px solid #dbdbdb;
-  border-width: 0 1px 1px 0;
 }
 th {
   background-color: #f5f5f5;
 }
 
-// flip-scroll
 .responsive-table-1 { 
-  @include rp-table('flip-scroll' bp 900px) {
-    border-right-width: 1px;
-    &gt; tbody &gt; tr:last-child &gt; td { border-right-width: 0; }
-    .lt-ie10 &amp; { 
-      border-right-width: 0; 
-      &gt; tbody &gt; tr:last-child &gt; td { border-right-width: 1px; }
+  @include rp-table('flip-scroll' bp 1400px) {
+    border: 1px solid #dbdbdb;
+    th, td { 
+      border-width: 0 1px 1px 0;
+      &amp;:last-child { border-bottom-width: 0; }
     }
-  }
-}
- 
-// scroll
-.responsive-table-2 { 
-  @include rp-table('scroll' bp 900px) {
-    .table {
-      border-right-width: 1px;
-      th:last-child, td:last-child { border-right-width: 0; }
-      .lt-ie10 &amp; { 
-        border-right-width: 0; 
-        th:last-child, td:last-child { border-right-width: 1px; }
-      }
-    }
-  } 
-}
- 
-// toggle
-.responsive-table-3 {
-  @include rp-table('toggle' 'bp' 900px 'count' 10);
-}
- 
-// stack
-$responsive-table-4-data: (
-  'First Name', 
-  'Last Name', 
-  'Job Title', 
-  'Favorite Color', 
-  'Wars or Trek?', 
-  'Porn Name', 
-  'Date of Birth', 
-  'Dream Vacation City', 
-  'GPA', 
-  'Arbitrary Data'
-);
-.responsive-table-4 {
-  @include rp-table('stack' 'bp' 900px #dbdbdb 'data' $responsive-table-4-data) {
-    tr:nth-of-type(2n) { background-color: #f5f5f5; }
-    td:before { margin-right: 7px; }
   }
 }</code>
-</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo1-scss">Copy Code</button>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_flipscroll-scss">Copy Code</button>
                   </div>
                 </li>
               </ul>
@@ -3266,7 +3043,99 @@ $responsive-table-4-data: (
                     </td>
                   </tr>
                 </tbody>
-              </table><br>
+              </table>
+            </div>
+          </div>
+          <p>
+            Scroll: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="responsivetable-demo_scroll-markup">&lt;div class="responsive-table-2"&gt;
+  &lt;table class=""&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;First Name&lt;/th&gt;
+        &lt;th&gt;Last Name&lt;/th&gt;
+        &lt;th&gt;Job Title&lt;/th&gt;
+        &lt;th&gt;Favorite Color&lt;/th&gt;
+        &lt;th&gt;Wars or Trek?&lt;/th&gt;
+        &lt;th&gt;Porn Name&lt;/th&gt;
+        &lt;th&gt;Date of Birth&lt;/th&gt;
+        &lt;th&gt;Dream Vacation City&lt;/th&gt;
+        &lt;th&gt;GPA&lt;/th&gt;
+        &lt;th&gt;Arbitrary Data&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;James&lt;/td&gt;
+        &lt;td&gt;Matman&lt;/td&gt;
+        &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+        &lt;td&gt;Lettuce Green&lt;/td&gt;
+        &lt;td&gt;Trek&lt;/td&gt;
+        &lt;td&gt;Digby Green&lt;/td&gt;
+        &lt;td&gt;January 13, 1979&lt;/td&gt;
+        &lt;td&gt;Gotham City&lt;/td&gt;
+        &lt;td&gt;3.1&lt;/td&gt;
+        &lt;td&gt;RBX-12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;The&lt;/td&gt;
+        &lt;td&gt;Tick&lt;/td&gt;
+        &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+        &lt;td&gt;Blue&lt;/td&gt;
+        &lt;td&gt;Wars&lt;/td&gt;
+        &lt;td&gt;John Smith&lt;/td&gt;
+        &lt;td&gt;July 19, 1968&lt;/td&gt;
+        &lt;td&gt;Athens&lt;/td&gt;
+        &lt;td&gt;N/A&lt;/td&gt;
+        &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript" src="../src/js/components/responsive-table.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  responsiveTable(document.querySelector('.responsive-table-2'), 1300);
+&lt;/script&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_scroll-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="responsivetable-demo_scroll-scss">.responsive-table-2 { 
+  @include rp-table('scroll' bp 1400px) {
+    .table {
+      border-right-width: 1px;
+      th:last-child, td:last-child { border-right-width: 0; }
+      .lt-ie10 &amp; { 
+        border-right-width: 0; 
+        th:last-child, td:last-child { border-right-width: 1px; }
+      }
+    }
+  } 
+}</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_scroll-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
               <div class="responsive-table-2">
                 <table class="">
                   <thead>
@@ -3375,9 +3244,114 @@ $responsive-table-4-data: (
               </script> 
               <script>
               responsiveTable(document.querySelector('.responsive-table-2'), 1300);
-              </script><br>
+              </script>
+            </div>
+          </div>
+          <p>
+            Toggle: <em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 5.1+, Opera 10.6+</em>
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="responsivetable-demo_toggle-markup">&lt;div class="responsive-table-3"&gt;
+  &lt;input name="" id="toggle-1" checked="" type="checkbox"&gt;
+  &lt;input name="" id="toggle-2" type="checkbox"&gt;
+  &lt;input name="" id="toggle-3" type="checkbox"&gt;
+  &lt;input name="" id="toggle-4" checked="" type="checkbox"&gt;
+  &lt;input name="" id="toggle-5" type="checkbox"&gt;
+  &lt;input name="" id="toggle-6" checked="" type="checkbox"&gt;
+  &lt;input name="" id="toggle-7" type="checkbox"&gt;
+  &lt;input name="" id="toggle-8" type="checkbox"&gt;
+  &lt;input name="" id="toggle-9" type="checkbox"&gt;
+  &lt;input name="" id="toggle-10" type="checkbox"&gt;
+  &lt;input name="" id="control-panel" type="checkbox"&gt;
+  &lt;input name="" id="display-all" type="checkbox"&gt;
+  &lt;label for="control-panel"&gt;Display&lt;/label&gt;
+  &lt;label for="display-all"&gt;Display All&lt;/label&gt;
+  &lt;div class="control-panel"&gt;
+    &lt;label for="toggle-1"&gt;First Name&lt;/label&gt;
+    &lt;label for="toggle-2"&gt;Last Name&lt;/label&gt;
+    &lt;label for="toggle-3"&gt;Job Title&lt;/label&gt;
+    &lt;label for="toggle-4"&gt;Favorite Color&lt;/label&gt;
+    &lt;label for="toggle-5"&gt;Wars or Trek?&lt;/label&gt;
+    &lt;label for="toggle-6"&gt;Porn Name&lt;/label&gt;
+    &lt;label for="toggle-7"&gt;Date of Birth&lt;/label&gt;
+    &lt;label for="toggle-8"&gt;Dream Vacation City&lt;/label&gt;
+    &lt;label for="toggle-9"&gt;GPA&lt;/label&gt;
+    &lt;label for="toggle-10"&gt;Arbitrary Data&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;First Name&lt;/th&gt;
+        &lt;th&gt;Last Name&lt;/th&gt;
+        &lt;th&gt;Job Title&lt;/th&gt;
+        &lt;th&gt;Favorite Color&lt;/th&gt;
+        &lt;th&gt;Wars or Trek?&lt;/th&gt;
+        &lt;th&gt;Porn Name&lt;/th&gt;
+        &lt;th&gt;Date of Birth&lt;/th&gt;
+        &lt;th&gt;Dream Vacation City&lt;/th&gt;
+        &lt;th&gt;GPA&lt;/th&gt;
+        &lt;th&gt;Arbitrary Data&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;James&lt;/td&gt;
+        &lt;td&gt;Matman&lt;/td&gt;
+        &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+        &lt;td&gt;Lettuce Green&lt;/td&gt;
+        &lt;td&gt;Trek&lt;/td&gt;
+        &lt;td&gt;Digby Green&lt;/td&gt;
+        &lt;td&gt;January 13, 1979&lt;/td&gt;
+        &lt;td&gt;Gotham City&lt;/td&gt;
+        &lt;td&gt;3.1&lt;/td&gt;
+        &lt;td&gt;RBX-12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;The&lt;/td&gt;
+        &lt;td&gt;Tick&lt;/td&gt;
+        &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+        &lt;td&gt;Blue&lt;/td&gt;
+        &lt;td&gt;Wars&lt;/td&gt;
+        &lt;td&gt;John Smith&lt;/td&gt;
+        &lt;td&gt;July 19, 1968&lt;/td&gt;
+        &lt;td&gt;Athens&lt;/td&gt;
+        &lt;td&gt;N/A&lt;/td&gt;
+        &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_toggle-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="responsivetable-demo_toggle-scss">.responsive-table-3 {
+  @include rp-table('toggle' 'bp' 1400px 'count' 10);
+}</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_toggle-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
               <div class="responsive-table-3">
-                <input name="==" id="toggle-1" checked type="checkbox"> <input name="==" id="toggle-2" type="checkbox"> <input name="==" id="toggle-3" type="checkbox"> <input name="==" id="toggle-4" checked type="checkbox"> <input name="==" id="toggle-5" type="checkbox"> <input name="==" id="toggle-6" checked type="checkbox"> <input name="==" id="toggle-7" type="checkbox"> <input name="==" id="toggle-8" type="checkbox"> <input name="==" id="toggle-9" type="checkbox"> <input name="==" id="toggle-10" type="checkbox"> <input name="==" id="control-panel" type="checkbox"> <input name="==" id="display-all" type="checkbox"> <label for="control-panel">Display</label> <label for="display-all">Display All</label>
+                <input name="" id="toggle-1" checked type="checkbox"> <input name="" id="toggle-2" type="checkbox"> <input name="" id="toggle-3" type="checkbox"> <input name="" id="toggle-4" checked type="checkbox"> <input name="" id="toggle-5" type="checkbox"> <input name="" id="toggle-6" checked type="checkbox"> <input name="" id="toggle-7" type="checkbox"> <input name="" id="toggle-8" type="checkbox"> <input name="" id="toggle-9" type="checkbox"> <input name="" id="toggle-10" type="checkbox"> <input name="" id="control-panel" type="checkbox"> <input name="" id="display-all" type="checkbox"> <label for="control-panel">Display</label> <label for="display-all">Display All</label>
                 <div class="control-panel">
                   <label for="toggle-1">First Name</label> <label for="toggle-2">Last Name</label> <label for="toggle-3">Job Title</label> <label for="toggle-4">Favorite Color</label> <label for="toggle-5">Wars or Trek?</label> <label for="toggle-6">Porn Name</label> <label for="toggle-7">Date of Birth</label> <label for="toggle-8">Dream Vacation City</label> <label for="toggle-9">GPA</label> <label for="toggle-10">Arbitrary Data</label>
                 </div>
@@ -3483,7 +3457,101 @@ $responsive-table-4-data: (
                     </tr>
                   </tbody>
                 </table>
-              </div><br>
+              </div>
+            </div>
+          </div>
+          <p>
+            Stack: <em class='capability'>IE 10+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>
+          </p>
+          <div class="demo-container" data-show="code">
+            <div class="toggle-container">
+              <button class="btn" data-toggle="code">Code</button><button class="btn" data-toggle="preview">Preview</button>
+            </div>
+            <div class="code-wrapper">
+              <ul>
+                <li>
+                  <header class="markup">
+                    markup
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-markup" id="responsivetable-demo_stack-markup">&lt;table class="responsive-table-4"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Name&lt;/th&gt;
+      &lt;th&gt;Last Name&lt;/th&gt;
+      &lt;th&gt;Job Title&lt;/th&gt;
+      &lt;th&gt;Favorite Color&lt;/th&gt;
+      &lt;th&gt;Wars or Trek?&lt;/th&gt;
+      &lt;th&gt;Porn Name&lt;/th&gt;
+      &lt;th&gt;Date of Birth&lt;/th&gt;
+      &lt;th&gt;Dream Vacation City&lt;/th&gt;
+      &lt;th&gt;GPA&lt;/th&gt;
+      &lt;th&gt;Arbitrary Data&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;James&lt;/td&gt;
+      &lt;td&gt;Matman&lt;/td&gt;
+      &lt;td&gt;Chief Sandwich Eater&lt;/td&gt;
+      &lt;td&gt;Lettuce Green&lt;/td&gt;
+      &lt;td&gt;Trek&lt;/td&gt;
+      &lt;td&gt;Digby Green&lt;/td&gt;
+      &lt;td&gt;January 13, 1979&lt;/td&gt;
+      &lt;td&gt;Gotham City&lt;/td&gt;
+      &lt;td&gt;3.1&lt;/td&gt;
+      &lt;td&gt;RBX-12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The&lt;/td&gt;
+      &lt;td&gt;Tick&lt;/td&gt;
+      &lt;td&gt;Crimefighter Sorta&lt;/td&gt;
+      &lt;td&gt;Blue&lt;/td&gt;
+      &lt;td&gt;Wars&lt;/td&gt;
+      &lt;td&gt;John Smith&lt;/td&gt;
+      &lt;td&gt;July 19, 1968&lt;/td&gt;
+      &lt;td&gt;Athens&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;Edlund, Ben (July 1996).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_stack-markup">Copy Code</button>
+                  </div>
+                </li>
+                <li>
+                  <header class="scss">
+                    scss
+                  </header>
+                  <div>
+                    <pre>
+<code class="language-scss" id="responsivetable-demo_stack-scss">$responsive-table-4-data: (
+  'First Name', 
+  'Last Name', 
+  'Job Title', 
+  'Favorite Color', 
+  'Wars or Trek?', 
+  'Porn Name', 
+  'Date of Birth', 
+  'Dream Vacation City', 
+  'GPA', 
+  'Arbitrary Data'
+);
+.responsive-table-4 {
+  @include rp-table('stack' 'bp' 1400px #dbdbdb 'data' $responsive-table-4-data) {
+    tr:nth-of-type(2n) { background-color: #f5f5f5; }
+    td:before { margin-right: 7px; }
+    border-bottom: 1px solid #dbdbdb;
+    th, td { border-bottom: 0; }
+  }
+}</code>
+</pre><button class="btn copy-button" data-clipboard-target="#responsivetable-demo_stack-scss">Copy Code</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="preview-wrapper">
               <table class="responsive-table-4">
                 <thead>
                   <tr>
@@ -4128,12 +4196,12 @@ $responsive-table-4-data: (
                   <div>
                     <pre>
 <code class="language-markup" id="switch-demo1-markup">&lt;div class="switch-1"&gt;
-  &lt;input type="checkbox" id="switch-id-1" name === "switch"&gt;
+  &lt;input type="checkbox" id="switch-id-1" name="switch"&gt;
   &lt;!-- span is required if you want to show text --&gt;
   &lt;label for="switch-id-1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/label&gt;
 &lt;/div&gt;
 &lt;div class="switch-2"&gt;
-  &lt;input type="checkbox" id="switch-id-2" name === "switch"&gt;
+  &lt;input type="checkbox" id="switch-id-2" name="switch"&gt;
   &lt;label for="switch-id-2"&gt;&lt;/label&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#switch-demo1-markup">Copy Code</button>
@@ -4159,10 +4227,10 @@ $responsive-table-4-data: (
             </div>
             <div class="preview-wrapper">
               <div class="switch-1">
-                <input type="checkbox" id="switch-id-1" name="==">  <label for="switch-id-1"><span></span></label>
+                <input type="checkbox" id="switch-id-1" name="switch">  <label for="switch-id-1"><span></span></label>
               </div>
               <div class="switch-2">
-                <input type="checkbox" id="switch-id-2" name="=="> <label for="switch-id-2"></label>
+                <input type="checkbox" id="switch-id-2" name="switch"> <label for="switch-id-2"></label>
               </div>
             </div>
           </div>
@@ -4204,9 +4272,9 @@ $responsive-table-4-data: (
                     <pre>
 <code class="language-markup" id="pushtoggle-demo1-markup">&lt;div class="push-toggle-1"&gt;
   &lt;!-- make sure labels right after inputs --&gt;
-  &lt;input type="radio" id="male" name === "gender" checked=""&gt;
+  &lt;input type="radio" id="male" name="gender" checked=""&gt;
   &lt;label for="male"&gt;Male&lt;/label&gt;
-  &lt;input type="radio" id="female" name === "gender"&gt;
+  &lt;input type="radio" id="female" name="gender"&gt;
   &lt;label for="female"&gt;Female&lt;/label&gt;
 &lt;/div&gt;</code>
 </pre><button class="btn copy-button" data-clipboard-target="#pushtoggle-demo1-markup">Copy Code</button>
@@ -4226,7 +4294,7 @@ $responsive-table-4-data: (
             </div>
             <div class="preview-wrapper">
               <div class="push-toggle-1">
-                <input type="radio" id="male" name="==" checked> <label for="male">Male</label> <input type="radio" id="female" name="=="> <label for="female">Female</label>
+                <input type="radio" id="male" name="gender" checked> <label for="male">Male</label> <input type="radio" id="female" name="gender"> <label for="female">Female</label>
               </div>
             </div>
           </div>
@@ -4273,13 +4341,13 @@ $responsive-table-4-data: (
                     <pre>
 <code class="language-markup" id="checkbox-demo1-markup">&lt;div class="checkbox-1"&gt;
   &lt;!-- make sure labels right after inputs --&gt;
-  &lt;input type="radio" name === "radio-name" id="radio-id-1" checked&gt;
+  &lt;input type="radio" name="radio-name" id="radio-id-1" checked&gt;
   &lt;label for="radio-id-1"&gt;item 1&lt;/label&gt;
   &lt;br /&gt;
-  &lt;input type="radio" name === "radio-name" id="radio-id-2"&gt;
+  &lt;input type="radio" name="radio-name" id="radio-id-2"&gt;
   &lt;label for="radio-id-2"&gt;item 2&lt;/label&gt;
   &lt;br /&gt;
-  &lt;input type="radio" name === "radio-name" id="radio-id-3"&gt;
+  &lt;input type="radio" name="radio-name" id="radio-id-3"&gt;
   &lt;label for="radio-id-3"&gt;item 3&lt;/label&gt;
   &lt;br /&gt;
 &lt;/div&gt;</code>
@@ -4322,9 +4390,9 @@ $responsive-table-4-data: (
             </div>
             <div class="preview-wrapper">
               <div class="checkbox-1">
-                <input type="radio" name="==" id="radio-id-1" checked> <label for="radio-id-1">item 1</label><br>
-                <input type="radio" name="==" id="radio-id-2"> <label for="radio-id-2">item 2</label><br>
-                <input type="radio" name="==" id="radio-id-3"> <label for="radio-id-3">item 3</label><br>
+                <input type="radio" name="radio-name" id="radio-id-1" checked> <label for="radio-id-1">item 1</label><br>
+                <input type="radio" name="radio-name" id="radio-id-2"> <label for="radio-id-2">item 2</label><br>
+                <input type="radio" name="radio-name" id="radio-id-3"> <label for="radio-id-3">item 3</label><br>
               </div>
             </div>
           </div>
@@ -4456,9 +4524,9 @@ $responsive-table-4-data: (
                   <div>
                     <pre>
 <code class="language-markup" id="tabs-demo1-markup">&lt;div class="tabs-1"&gt;
-  &lt;input type="radio" name === "tabs-radio-name" id="tabs-radio-id-1" checked&gt;
-  &lt;input type="radio" name === "tabs-radio-name" id="tabs-radio-id-2"&gt;
-  &lt;input type="radio" name === "tabs-radio-name" id="tabs-radio-id-3"&gt;
+  &lt;input type="radio" name="tabs-radio-name" id="tabs-radio-id-1" checked&gt;
+  &lt;input type="radio" name="tabs-radio-name" id="tabs-radio-id-2"&gt;
+  &lt;input type="radio" name="tabs-radio-name" id="tabs-radio-id-3"&gt;
 
   &lt;!-- class .ro-tabs is required --&gt;
   &lt;div class="ro-tabs"&gt;
@@ -4505,7 +4573,7 @@ $responsive-table-4-data: (
             </div>
             <div class="preview-wrapper">
               <div class="tabs-1">
-                <input type="radio" name="==" id="tabs-radio-id-1" checked> <input type="radio" name="==" id="tabs-radio-id-2"> <input type="radio" name="==" id="tabs-radio-id-3"> 
+                <input type="radio" name="tabs-radio-name" id="tabs-radio-id-1" checked> <input type="radio" name="tabs-radio-name" id="tabs-radio-id-2"> <input type="radio" name="tabs-radio-name" id="tabs-radio-id-3"> 
                 <div class="ro-tabs">
                   <label for="tabs-radio-id-1">tab 1</label> <label for="tabs-radio-id-2">tab 2</label> <label for="tabs-radio-id-3">tab 3</label>
                 </div>
@@ -4563,14 +4631,14 @@ $responsive-table-4-data: (
                   <div>
                     <pre>
 <code class="language-markup" id="accordion-demo1-markup">&lt;div class="accordion-1"&gt;
-  &lt;input type="checkbox" name === "accordion-1" id="accordion-checkbox-1"&gt;
+  &lt;input type="checkbox" name="accordion-1" id="accordion-checkbox-1"&gt;
   &lt;label for="accordion-checkbox-1"&gt;About Us&lt;/label&gt;
   &lt;div&gt;
     &lt;p&gt;Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="accordion-1"&gt;
-  &lt;input type="checkbox" name === "accordion-1" id="accordion-checkbox-2"&gt;
+  &lt;input type="checkbox" name="accordion-1" id="accordion-checkbox-2"&gt;
   &lt;label for="accordion-checkbox-2"&gt;Contact Us&lt;/label&gt;
   &lt;div&gt;
     &lt;p&gt;Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.&lt;/p&gt;
@@ -4596,7 +4664,7 @@ $responsive-table-4-data: (
             </div>
             <div class="preview-wrapper">
               <div class="accordion-1">
-                <input type="checkbox" name="==" id="accordion-checkbox-1"> <label for="accordion-checkbox-1">About Us</label>
+                <input type="checkbox" name="accordion-1" id="accordion-checkbox-1"> <label for="accordion-checkbox-1">About Us</label>
                 <div>
                   <p>
                     Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.
@@ -4604,7 +4672,7 @@ $responsive-table-4-data: (
                 </div>
               </div>
               <div class="accordion-1">
-                <input type="checkbox" name="==" id="accordion-checkbox-2"> <label for="accordion-checkbox-2">Contact Us</label>
+                <input type="checkbox" name="accordion-1" id="accordion-checkbox-2"> <label for="accordion-checkbox-2">Contact Us</label>
                 <div>
                   <p>
                     Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.
@@ -4653,7 +4721,7 @@ $responsive-table-4-data: (
 <code class="language-markup" id="dropdown-demo1-markup">&lt;div class="dropdown-1"&gt;
   &lt;span&gt;dropdown&lt;/span&gt;
   &lt;!-- if you set $show: click, input and label are required. --&gt;
-  &lt;input type="checkbox" name === "" id="your-dropdown-id"&gt;
+  &lt;input type="checkbox" name="" id="your-dropdown-id"&gt;
   &lt;label for="your-dropdown-id"&gt; → &lt;/label&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=""&gt;item01&lt;/a&gt;&lt;/li&gt;
@@ -4683,7 +4751,7 @@ $responsive-table-4-data: (
             </div>
             <div class="preview-wrapper">
               <div class="dropdown-1">
-                <span>dropdown</span>  <input type="checkbox" name="==" id="your-dropdown-id"> <label for="your-dropdown-id">→</label>
+                <span>dropdown</span>  <input type="checkbox" name="" id="your-dropdown-id"> <label for="your-dropdown-id">→</label>
                 <ul>
                   <li>
                     <a href="">item01</a>

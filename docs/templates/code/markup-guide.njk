@@ -1,10 +1,10 @@
-{% macro get(name) %}
-{% if name === "requests_markup1" %}
+{% macro get(componentName) %}
+{% if componentName === "requests_markup1" %}
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 
-{% elif name === "taskrunner_script1" %}
+{% elif componentName === "taskrunner_script1" %}
 const gulp = require('gulp');
 const libsass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
@@ -47,7 +47,7 @@ gulp.task('default', [
   'watch',
 ]);  
 
-{% elif name === "container_demo2" %}
+{% elif componentName === "container_demo2" %}
 
 {% endif %}
 {% endmacro %}
