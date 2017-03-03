@@ -48,30 +48,36 @@
                 <a href="docs.html">Docs</a>
               </li>
               <li>
-                <a href="https://github.com/ganlanyuan/rocket" target="_blank">Github</a>
+                <a href="tutorial.html">Tutorial</a>
               </li>
             </ul>
           </nav>
         </div>
       </header>
-      <div class="video-wrapper container">
+      <div class="video-wrapper container-wide">
         <video id="video-home" poster="assets/videos/video.png" autoplay="" loop=""><source src="assets/videos/video.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
       </div>
     </div>
     <section class="intro section">
-      <div class="container">
+      <div class="container-narrow">
         <p>
           Rocket is a powerful Sass framework with many common used components and utility functions, to help you build websites faster and easier.
         </p>
+        <div>
+          <a href="https://github.com/ganlanyuan/rocket/archive/master.zip" class="btn btn-bg btn-primary">Download</a> <a href="#get-started" class="btn btn-bg btn-secondary">Get started</a>
+        </div>
       </div>
     </section>
-    <section class="features">
-      <div class="container">
+    <section class="features section">
+      <div class="container-wide">
+        <h2 class="heading2">
+          Features
+        </h2>
         <ul>
           <li>
             <svg role="img" title="desktop-mobile" width="115" height="75" class="svg-responsive">
             <use xlink:href="assets/svg/sprites.svg#desktop-mobile"></use></svg>
-            <h4>
+            <h4 class="heading4">
               Responsive
             </h4>
             <p>
@@ -81,7 +87,7 @@
           <li>
             <svg role="img" title="tools" width="81" height="81" class="svg-customizable">
             <use xlink:href="assets/svg/sprites.svg#tools"></use></svg>
-            <h4>
+            <h4 class="heading4">
               Customizable
             </h4>
             <p>
@@ -91,7 +97,7 @@
           <li>
             <svg role="img" title="feather" width="105" height="59" class="svg-light-weight">
             <use xlink:href="assets/svg/sprites.svg#feather"></use></svg>
-            <h4>
+            <h4 class="heading4">
               light weight
             </h4>
             <p>
@@ -101,15 +107,15 @@
         </ul>
       </div>
     </section>
-    <section class="get-started section">
-      <h2>
-        Get started
-      </h2>
-      <div class="container">
+    <section class="get-started section" id="get-started">
+      <div class="container-narrow">
+        <h2 class="heading2">
+          Get started
+        </h2>
         <ol>
           <li>
             <div class="media-body">
-              <h4>
+              <h4 class="heading4">
                 Download Rocket
               </h4>
               <p>
@@ -129,7 +135,7 @@ npm install rocket-sass --save</code>
           </li>
           <li>
             <div class="media-body">
-              <h4>
+              <h4 class="heading4">
                 Import Rocket and Start using Rocket Mixins and Functions
               </h4>
               <p>
@@ -142,7 +148,7 @@ npm install rocket-sass --save</code>
                   scss
                 </header>
                 <pre>
-<code class="language-scss">@import "path/to/rocket.scss";
+<code class="language-scss">@import "path/to/rocket";
 
 .wrapper {
   @include grid(3 7);
@@ -153,7 +159,7 @@ npm install rocket-sass --save</code>
           </li>
           <li>
             <div class="media-body">
-              <h4>
+              <h4 class="heading4">
                 Compile sass to css
               </h4>
               <p>
@@ -165,6 +171,26 @@ npm install rocket-sass --save</code>
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+    <section class="whats-next section">
+      <div class="container-narrow">
+        <h2 class="heading2">
+          What's next?
+        </h2>
+        <p>
+          Start with the <a href="guide.html">Guide</a>? Read the <a href="docs.html">Document</a>? Follow a simply <a href="tutorial.html">Tutorial</a>?
+        </p>
+      </div>
+    </section>
+    <section class="support section">
+      <div class="container-wide">
+        <h2 class="heading2">
+          Support
+        </h2>
+        <p>
+          <a href="https://www.browserstack.com/" target="_blank"><img src="https://avatars0.githubusercontent.com/u/1119453?v=3&amp;s=200" alt="BrowserStack" width="70"></a>Big thanks to <a href="https://www.browserstack.com/" target="_blank">Browserstack</a> for giving us access to test this project.
+        </p>
       </div>
     </section>
     <footer class="site-footer">

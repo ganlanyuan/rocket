@@ -36,7 +36,7 @@ pre[class*="language-"] {
     }
     > p:first-child { margin-top: 0; }
     .img-container {
-      border: 5px solid nth($theme-triad, 3);
+      border: 5px solid #ccc;
       display: block;
       max-height: 400px;
       overflow: auto;
@@ -109,7 +109,6 @@ pre[class*="language-"] {
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
-    ~ main { margin-top: -36px; }
   }
   .shrank {
     svg { transform: rotate(180deg); }

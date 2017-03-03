@@ -1,0 +1,76 @@
+{% macro get(componentName) %}
+{% if componentName === "taskrunner_script1" %}
+const gulp = require('gulp');
+const libsass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+
+// SASS Task
+gulp.task('sass', function () {  
+  return gulp.src('scss/*.scss')  
+      .pipe(sourcemaps.init())
+      .pipe(libsass({
+        outputStyle: 'compressed', 
+        precision: 7
+      }).on('error', libsass.logError))  
+      .pipe(sourcemaps.write('../sourcemaps'))
+      .pipe(gulp.dest('css'))
+      .pipe(browserSync.stream());
+});
+
+// SERVER Task
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: './'
+    },
+    open: true,
+    notify: false
+  });
+});
+
+// WATCH Task
+gulp.task('watch', function () {
+  gulp.watch('scss/*.scss', ['sass']);
+  gulp.watch('*.html').on('change', browserSync.reload);
+});
+
+// Default Task
+gulp.task('default', [
+  'sass', 
+  'browserSync', 
+  'watch',
+]);  
+
+{% elif componentName === "addcontainer_markup1" %}
+<section class="hero">
+  <div class="container"><!-- add .container -->
+    <h2>Made for Designers</h2>
+    <p>Create your online portfolio in minutes with the professionally and lovingly designed REEN website template. Customize your site with versatile and easy to use features.</p>
+    <div><a class="btn btn--bg" href="">Get started now</a></div>
+  </div>
+</section>
+
+{% elif componentName === "centerlayout_markup1" %}
+<section class="hero">
+  <div class="hero-content">
+  <!-- <div class="container"> -->
+    <h2 class="heading1">Made for Designers</h2>
+    <p class="sub-heading">Create your online portfolio in minutes with the professionally and lovingly designed REEN website template. Customize your site with versatile and easy to use features.</p>
+    <div><a class="btn btn-bg" href="">Get started now</a></div>
+  </div>
+</section>
+
+{% elif componentName === "innercontainer_markup1" %}
+<section class="get-in-touch">
+  <div class="inner-container">
+    <h2 class="heading2">Fresh branding for a creative startup</h2>
+    <p class="sub-heading">Magnis modipsae que voloratati andigen daepeditem quiate re porem aut labor. Laceaque quiae sitiorem rest non restibusaes maio es dem tumquam.</p>
+    <div><a href="" class="btn btn-md">Get in touch</a></div>
+  </div>
+</section>
+
+{% elif componentName === "container_demo2" %}
+
+{% endif %}
+{% endmacro %}

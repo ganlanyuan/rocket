@@ -1,0 +1,62 @@
+{% macro get(componentName) %}
+{% if componentName === "importrocket_style1" %}
+@import "../bower_components/rocket/src/scss/rocket";
+
+{% elif componentName === "addcontainer_style_setting" %}
+$ro-layout: (
+  container: 1170px,
+  gutter: 30px,
+);
+
+{% elif componentName === "addcontainer_style1" %}
+.container { @include container(); }
+
+{% elif componentName === "addbasicstyles_style1" %}
+$lato: '"Lato", sans-serif';
+$color-secondary: #16B18A;
+
+.heading1 { @include type(78px uppercase $lato); }
+.heading2 { @include type(44px $lato); }
+.sub-heading { @include type(22px 1.55); }
+.btn {
+  @include type(15px uppercase '"Source Sans Pro", sans-serif');
+  // ...
+  color: contrast($color-secondary);
+  background-color: $color-secondary;
+  // ...
+}
+{% elif componentName === "centerlayout_style1" %}
+// hero
+.hero {
+  @include center();
+
+  // ...
+  // other styles
+  // ...
+
+  &-content { max-width: 960px; }
+}
+
+{% elif componentName === "innercontainer_style1" %}
+.inner-container { @include container(50em); }
+
+{% elif componentName === "addgallery_style1" %}
+$gallery-gutter: 2.56%; // (30px / 1170px)
+.gallery {
+  &2 { @include gallery(2 gutter $gallery-gutter); }
+  &3 { @include gallery(3 gutter $gallery-gutter); }
+  &4 { @include gallery(4 gutter $gallery-gutter); }
+}
+[class*="gallery"] img { 
+  display: block; 
+  width: 100%;
+}
+
+// features
+.features {
+  [class*="icon-"] { @include media-list('media' 20px); }
+  .media-body { @include media-list('media-body'); }
+}
+
+{% endif %}
+{% endmacro %}

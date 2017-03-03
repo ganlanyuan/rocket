@@ -40,13 +40,20 @@ $bp-docs: 900;
 // utilities
 body { min-width: 320px; }
 .container { @include container(); }
+.container-narrow { @include container(960px); }
+.container-wide { @include container(1400px); }
 .section {
-  margin: #{$section-gap} 0;
-  @include bp(min map-get($ro-layout, 'container')) { 
-    margin: 46px 0; 
-  }
+  padding: #{$section-gap} 0;
+  @include bp(min map-get($ro-layout, 'container')) { padding: 50px 0; }
 }
-h4 { margin-bottom: 1.5em; }
+.heading2 {
+  @include fluid-type(font-size, (320px: 30px, map-get($ro-layout, 'container'): 40px));
+  .section & { padding-bottom: #{$section-gap}; }
+}
+.heading4 { 
+  @include type(18px);
+  margin-bottom: 1.5em; 
+}
 p { 
   @include type(16px 1.5); 
   margin: 1.5em 0;
@@ -61,14 +68,30 @@ svg {
   height: auto; 
 }
 .btn {
+  display: inline-block;
   height: 2.2em;
   line-height: 2.2;
   padding: 0 0.7em;
   border-width: 0;
-  border-radius: 0;
+  border-radius: 0.2em;
   background-color: $lightgray;
   cursor: pointer;
-  overflow: hidden;
+  &-bg {
+    @include type(17px bold uppercase);
+    height: 3em;
+    line-height: 3;
+    padding: 0 2em;
+  }
+  &-primary { 
+    color: #fff;
+    background-color: $color-primary; 
+    border-bottom: 5px solid darken($color-primary, 10%);
+  }
+  &-secondary { 
+    color: #fff;
+    background-color: nth($theme-square, 3); 
+    border-bottom: 5px solid darken(nth($theme-square, 3), 10%);
+  }
 }
 
 // header
@@ -80,7 +103,11 @@ svg {
   @extend %clearfix;
   color: #fff;
   .container { max-width: none; }
-  &--sub { background-color: $color-primary; }
+  &--sub { 
+    margin-bottom: 20px;
+    @include bp(min 667px) { margin-bottom: 3%; }
+    background-color: $color-primary; 
+  }
 }
 .logo {
   float: left;
@@ -121,8 +148,8 @@ svg {
 
 // footer
 .site-footer {
-  color: #ccc;
-  background: $black;
+  color: rgba(255, 255, 255, 0.7);
+  background: darken($color-primary, 35%);
   .container { 
     max-width: none;
     padding-top: 10px; 
@@ -149,4 +176,4 @@ svg {
 
 @import 'home';
 @import 'docs';
-@import '../../templates/code/style-docs';
+@import '../../templates/code/scss/style-docs';

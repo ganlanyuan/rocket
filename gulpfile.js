@@ -53,7 +53,7 @@ function requireUncached( $module ) {
 
 // scss to njk
 gulp.task('scssToNjk', function () {
-  return gulp.src(PATHS.templates_docs + 'code/*.scss')
+  return gulp.src(PATHS.templates_docs + 'code/scss/*.scss')
     .pipe(change(function(content) {
       return content.replace(/(\/\/=>\s+)/g, '');
     }))
@@ -211,7 +211,7 @@ gulp.task('server', function() {
 
 // Watch Task
 gulp.task('watch', function () {
-  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + 'code/*.scss', PATHS.templates_docs + 'code/*.json'], ['html']);
+  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + 'code/scss/*.scss', PATHS.templates_docs + 'code/*.json'], ['html']);
   gulp.watch(PATHS.docs + '**/*.scss', ['sass']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);

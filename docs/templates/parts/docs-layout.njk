@@ -11,6 +11,11 @@
   {% import 'code/markup-guide.njk' as macro_markup %}
   {% import 'code/_style-guide.njk' as macro_scss %}
   {% set macro_syntax = macro_scss %}
+{% elif pagename === 'tutorial' %}
+  {% set dataContent = tutorial %}
+  {% import 'code/markup-tutorial.njk' as macro_markup %}
+  {% import 'code/_style-tutorial.njk' as macro_scss %}
+  {% set macro_syntax = macro_scss %}
 {% endif %}
 
 {% block main %}
@@ -144,7 +149,7 @@
             <div class="img-container">{{ item | safe }}</div>
 
           {# text #}
-          {% else %}
+          {% elif item !== '' %}
             <p>{{ item | replace('`-', '<code class="language-html">') | replace('-`', '</code>') | nl2br | safe }}</p>
           {% endif %}
         {% endfor %}

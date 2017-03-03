@@ -1,5 +1,5 @@
-{% macro get(componentName) %}
-{% if componentName === "datatype_style1" %}
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "datatype_style1" %}
 // list
 $margin: (20px, 40px);
 $z-index: (1 2 3 4 5 6 7 8 9 10);
@@ -12,14 +12,14 @@ $breakpoints: (
   large: 1024px
 );
 
-{% elif componentName === "parameter_style1" %}
+//=> {% elif componentName === "parameter_style1" %}
 // case 1
 .heading { @include type(24px bold italic); }
 
 // case 2
 .heading { @include type(bold italic 24px); }
 
-{% elif componentName === "parameter_style2" %}
+//=> {% elif componentName === "parameter_style2" %}
 // syntax
 @mixin container($container ('gutter' $gutter) $alignment)
 
@@ -27,7 +27,7 @@ $breakpoints: (
 .selector { @include container(1000px left gutter 20px); }
 // The gutter value 20px must appear right after the string "gutter"
 
-{% elif componentName === "parameter_style3" %}
+//=> {% elif componentName === "parameter_style3" %}
 // 1 parameter ✓
 h1 { @include type(24px bold italic); }
 
@@ -37,7 +37,7 @@ h1 { @include type( (24px, bold, italic) ); }
 // 3 parameter ✗
 h1 { @include type(24px, bold, italic); }
 
-{% elif componentName === "style1" %}
+//=> {% elif componentName === "style1" %}
 
-{% endif %}
-{% endmacro %}
+//=> {% endif %}
+//=> {% endmacro %}

@@ -1,43 +1,5 @@
 //=> {% macro get(componentName) %}
-//=> {% if componentName === "datatype_style1" %}
-// list
-$margin: (20px, 40px);
-$z-index: (1 2 3 4 5 6 7 8 9 10);
-$a-nested-list: (1 2 3 4 5, 6 7 8);
-
-// map
-$breakpoints: (
-  small: 640px,
-  midum: 768px,
-  large: 1024px
-);
-
-//=> {% elif componentName === "parameter_style1" %}
-// case 1
-.heading { @include type(24px bold italic); }
-
-// case 2
-.heading { @include type(bold italic 24px); }
-
-//=> {% elif componentName === "parameter_style2" %}
-// syntax
-@mixin container($container ('gutter' $gutter) $alignment)
-
-// usage
-.selector { @include container(1000px left gutter 20px); }
-// The gutter value 20px must appear right after the string "gutter"
-
-//=> {% elif componentName === "parameter_style3" %}
-// 1 parameter ✓
-h1 { @include type(24px bold italic); }
-
-// 1 parameter ✓
-h1 { @include type( (24px, bold, italic) ); }
-
-// 3 parameter ✗
-h1 { @include type(24px, bold, italic); }
-
-//=> {% elif componentName === "importrocket_style1" %}
+//=> {% if componentName === "importrocket_style1" %}
 @import "../bower_components/rocket/src/scss/rocket";
 
 //=> {% elif componentName === "addcontainer_style_setting" %}
@@ -49,7 +11,7 @@ $ro-layout: (
 //=> {% elif componentName === "addcontainer_style1" %}
 .container { @include container(); }
 
-//=> {% elif componentName === "basestyles_style1" %}
+//=> {% elif componentName === "addbasicstyles_style1" %}
 $lato: '"Lato", sans-serif';
 $color-secondary: #16B18A;
 
