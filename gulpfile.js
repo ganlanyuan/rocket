@@ -1,24 +1,9 @@
 const gulp = require('gulp');
-const path = require('path');
-const change = require('gulp-change');
-const mergeStream = require('merge-stream');
+const $ = require('gulp-load-plugins')();
 const browserSync = require('browser-sync').create();
-const rename = require('gulp-rename');
-const libsass = require('gulp-sass');
-const rubysass = require('gulp-ruby-sass');
-const cache = require('gulp-cached');
-const sourcemaps = require('gulp-sourcemaps');
-const modernizr = require('gulp-modernizr');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const imagemin = require('gulp-imagemin');
-const svgmin = require('gulp-svgmin');
-const svgstore = require('gulp-svgstore');
-const inject = require('gulp-inject');
-const uncss = require('gulp-uncss');
-const nunjucks = require('gulp-nunjucks');
-const htmltidy = require('gulp-htmltidy');
+const nunjucks = require('nunjucks');
 
+let dev = false;
 let sassLang = 'libsass';
 let sourcemapDest = '../sourcemaps';
 let PATHS = {
@@ -54,16 +39,23 @@ function requireUncached( $module ) {
 // scss to njk
 gulp.task('scssToNjk', function () {
   return gulp.src(PATHS.templates_docs + 'code/scss/*.scss')
-    .pipe(change(function(content) {
+    .pipe($.change(function(content) {
       return content.replace(/(\/\/=>\s+)/g, '');
     }))
-    .pipe(rename({extname: '.njk'}))
-    .pipe(cache('scssToNjk'))
+    .pipe($.rename({extname: '.njk'}))
+    .pipe($.cached('scssToNjk'))
+    .pipe(gulp.dest(PATHS.templates_docs + 'code'));
+});
+
+// yml to json
+gulp.task('ymlToJson', function () {
+  return gulp.src(PATHS.templates_docs + 'code/*.yml')
+    .pipe($.yaml({space: 2}))
     .pipe(gulp.dest(PATHS.templates_docs + 'code'));
 });
 
 // Nunjucks Task
-gulp.task('html', ['scssToNjk'], function() {
+gulp.task('html', function() {
   let data = requireUncached('./' + PATHS.templates_docs + 'code/data.json');
 
   data.is = function (type, obj) {
@@ -76,12 +68,13 @@ gulp.task('html', ['scssToNjk'], function() {
   };
 
   return gulp.src(PATHS.templates_docs + '*.njk')
-    .pipe(nunjucks.compile(data), {
+    .pipe($.plumber())
+    .pipe($.nunjucks.compile(data, {
       watch: true,
       noCache: true,
-    })
-    .pipe(rename(function (path) { path.extname = ".html"; }))
-    .pipe(htmltidy({
+    }))
+    .pipe($.rename(function (path) { path.extname = ".html"; }))
+    .pipe($.if(dev, $.htmltidy({
       doctype: 'html5',
       wrap: 0,
       hideComments: true,
@@ -89,41 +82,49 @@ gulp.task('html', ['scssToNjk'], function() {
       'indent-attributes': false,
       'drop-empty-elements': false,
       'force-output': true
-    }))
-    .pipe(cache('nunjucks'))
+    }), $.htmlmin({
+      collapseWhitespace: true,
+      collapseInlineTagWhitespace: true,
+      collapseBooleanAttributes: true,
+      decodeEntities: true,
+      minifyCSS: true,
+      minifyJs: true,
+      removeComments: true,
+    })))
+    .pipe($.cached('nunjucks'))
     .pipe(gulp.dest(PATHS.docs));
 });
 
 // Sass Task
 gulp.task('sass', function () {  
   return gulp.src(PATHS.src_docs + 'scss/*.scss')  
-    .pipe(sourcemaps.init())
-    .pipe(libsass({
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
       outputStyle: 'compressed', 
       precision: 7
-    }).on('error', libsass.logError))  
-    .pipe(cache('sass'))
-    .pipe(sourcemaps.write(sourcemapDest))
+    }).on('error', $.sass.logError))  
+    .pipe($.cached('sass'))
+    .pipe($.sourcemaps.write(sourcemapDest))
     .pipe(gulp.dest(PATHS.assets_docs + 'css'))
     .pipe(browserSync.stream());
 });  
 
 gulp.task('sass-video', function () {  
   return gulp.src(PATHS.src_docs + 'scss/video/*.scss')  
-    .pipe(sourcemaps.init())
-    .pipe(libsass({
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
       outputStyle: 'compressed', 
       precision: 7
-    }).on('error', libsass.logError))  
-    .pipe(cache('sass-video'))
-    .pipe(sourcemaps.write(sourcemapDest))
+    }).on('error', $.sass.logError))  
+    .pipe($.cached('sass-video'))
+    .pipe($.sourcemaps.write(sourcemapDest))
     .pipe(gulp.dest(PATHS.assets_docs + '/css/video'))
     .pipe(browserSync.stream());
 });  
 
 gulp.task('svg-sprites', function () {
   return gulp.src(PATHS.src_docs + 'svg/sprites/*.svg')
-    .pipe(svgmin(function (file) {
+    .pipe($.svgmin(function (file) {
       let prefix = path.basename(file.relative, path.extname(file.relative));
       return {
         plugins: [{
@@ -135,8 +136,8 @@ gulp.task('svg-sprites', function () {
         // js2svg: { pretty: true }
       }
     }))
-    .pipe(svgstore({ inlineSvg: true }))
-    .pipe(rename(NAMES.svgSprites))
+    .pipe($.svgstore({ inlineSvg: true }))
+    .pipe($.rename(NAMES.svgSprites))
     .pipe(gulp.dest(PATHS.assets_docs + 'svg'));
 });
 
@@ -150,9 +151,9 @@ gulp.task('js', function () {
     for (let i = 0; i < srcs.length; i++) {
       tasks.push(
         gulp.src(srcs[i])
-            .pipe(sourcemaps.init())
-            .pipe(concat(names[i]))
-            .pipe(uglify({
+            .pipe($.sourcemaps.init())
+            .pipe($.concat(names[i]))
+            .pipe($.uglify({
               // mangle: false,
               output: {
                 quote_keys: true,
@@ -162,7 +163,7 @@ gulp.task('js', function () {
               }
             }))
             .on('error', errorlog)  
-            .pipe(sourcemaps.write(sourcemapDest))
+            .pipe($.sourcemaps.write(sourcemapDest))
             .pipe(gulp.dest(PATHS.assets + 'js'))
       );
     }
@@ -172,11 +173,11 @@ gulp.task('js', function () {
 
   } else if(typeof scripts.name === 'string') {
     return gulp.src(scripts.src)
-        .pipe(sourcemaps.init())
-        .pipe(concat(scripts.name))
-        .pipe(uglify())
+        .pipe($.sourcemaps.init())
+        .pipe($.concat(scripts.name))
+        .pipe($.uglify())
         .on('error', errorlog)  
-        .pipe(sourcemaps.write(sourcemapDest))
+        .pipe($.sourcemaps.write(sourcemapDest))
         .pipe(gulp.dest(PATHS.assets + 'js'))
         .pipe(browserSync.stream());
   }
@@ -185,10 +186,10 @@ gulp.task('js', function () {
 // Inject Task
 gulp.task('inject', function () {
   let svg4everybody = gulp.src('bower_components/svg4everybody/dist/svg4everybody.legacy.min.js')
-      .pipe(uglify());
+      .pipe($.uglify());
 
   return gulp.src(PATHS.templates + 'parts/layout.njk')
-      .pipe(inject(svg4everybody, {
+      .pipe($.inject(svg4everybody, {
         starttag: '/* svg4everybody:js */',
         endtag: '/* endinject */',
         transform: function (filePath, file) {
@@ -207,21 +208,20 @@ gulp.task('server', function() {
     open: false,
     notify: false
   });
-});
 
-// Watch Task
-gulp.task('watch', function () {
-  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + 'code/scss/*.scss', PATHS.templates_docs + 'code/*.json'], ['html']);
+  gulp.watch([PATHS.templates_docs + 'code/*.yml'], ['ymlToJson']);
+  gulp.watch([PATHS.templates_docs + 'code/scss/*.scss'], ['scssToNjk']);
+  gulp.watch([PATHS.templates_docs + '**/*.njk', PATHS.templates_docs + 'code/*.json'], ['html']);
   gulp.watch(PATHS.docs + '**/*.scss', ['sass']);
   // gulp.watch(PATHS.src_docs + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(PATHS.src_docs + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);
-  gulp.watch(['**/*.html', 'docs/assets/js/*.js']).on('change', browserSync.reload);
+  gulp.watch(['**/*.html', 'docs/assets/js/*.js', 'docs/assets/css/*.css']).on('change', browserSync.reload);
 });
 
 // Default Task
 gulp.task('default', [
-  'html', 
+  // 'html', 
   // 'sass', 
   // 'js', 
   // 'move',
@@ -229,5 +229,4 @@ gulp.task('default', [
   // 'svg-sprites',
   // 'inject',
   'server', 
-  'watch',
 ]);  

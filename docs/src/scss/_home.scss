@@ -25,7 +25,6 @@
 
 // features
 .features {
-  // background-color: $lightgray;
   background-color: nth($theme-square, 4);
   text-align: center;
   overflow: hidden;
@@ -39,7 +38,6 @@
       margin-right: 30px;
     }
   }
-  .heading2 { border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
   svg {
     margin: 50px auto 50px;
     height: 90px;
@@ -54,7 +52,7 @@
     counter-increment: getstarted;
     @extend %clearfix;
     padding: 5% 0;
-    border-top: $border;
+    + li { border-top: $border; }
     &:last-child { padding-bottom: 0; }
     @include bp(max 600px) {
       .media { display: none; }

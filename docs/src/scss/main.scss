@@ -72,8 +72,7 @@ svg {
   height: 2.2em;
   line-height: 2.2;
   padding: 0 0.7em;
-  border-width: 0;
-  border-radius: 0.2em;
+  border: 0;
   background-color: $lightgray;
   cursor: pointer;
   &-bg {
@@ -85,12 +84,10 @@ svg {
   &-primary { 
     color: #fff;
     background-color: $color-primary; 
-    border-bottom: 5px solid darken($color-primary, 10%);
   }
   &-secondary { 
     color: #fff;
     background-color: nth($theme-square, 3); 
-    border-bottom: 5px solid darken(nth($theme-square, 3), 10%);
   }
 }
 
