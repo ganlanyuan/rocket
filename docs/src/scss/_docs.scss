@@ -11,7 +11,6 @@ pre[class*="language-"] {
   background-color: $lightgray;
   & > code {
     display: block;
-    margin: 0 0 -1em 0;
     max-height: 28em;
     overflow: auto;
     &:before { display: none; }

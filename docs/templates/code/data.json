@@ -270,7 +270,7 @@
         "syntax",
         "demo1"
       ],
-      "Media-list": [
+      "media-list": [
         "Separate media element and the main content into 2 columns.",
         "<em class='capability'>IE 8+, Firefox 3.6+, Chrome 15+, Safari 4+, Opera 10.6+</em>",
         "syntax",
