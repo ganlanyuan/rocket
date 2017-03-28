@@ -1,0 +1,34 @@
+{% set page = '' %}
+{% extends 'parts/layout.php' %}
+
+  <div class="example">
+    <nav class="nav">
+     <ul class="links">
+       <li>Entertainment</li>
+       <li>Sports</li>
+       <li>Business</li>
+       <li>Technology</li>
+       <li>Nation</li>
+       <li>Politics</li>
+       <li>World</li>
+       <li>Opinion</li>
+       <li>Obituaries</li>
+       <li>Travel</li>
+       <li>Life & Style</li>
+       <li>Science</li>
+     </ul>
+    </nav>
+  </div>
+  <pre><code class="language-scss">
+.nav { @include priority-nav(); }
+  </code></pre>
+  <pre><code class="language-javascript">
+ready(function () {
+  priorityNav('.nav', 'more', false, 600);
+});
+  </code></pre>
+  <script>
+    ready(function () {
+      priorityNav('.nav', 'more', false, 600);
+    });
+  </script>

@@ -1,0 +1,34 @@
+{% set page = '' %}
+{% extends 'parts/layout.php' %}
+
+  <ul class="validation-wrap">
+    <li>
+      <form action="" class="myform" id="form1">
+        <h4>Form 1: normal</h4>
+        <?php include 'include/form-validation.php'; ?>
+      </form>
+    </li>
+    <li>
+      <form action="" class="myform" id="form2">
+        <h4>Form 2: fade-in right</h4>
+        <?php include 'include/form-validation.php'; ?>
+      </form>
+    </li>
+    <li>
+      <form action="" class="myform" id="form3">
+        <h4>Form 3: fade-in bottom</h4>
+        <?php include 'include/form-validation.php'; ?>
+      </form>
+    </li>
+    <li>
+      <form action="" class="myform" id="form4">
+        <h4>Form 4: slide-in top</h4>
+        <?php include 'include/form-validation.php'; ?>
+      </form>
+    </li>
+  </ul>
+  <script>
+    window.onload = function () {
+      H5F.setup(document.querySelectorAll(".myform"));
+    }
+  </script>
