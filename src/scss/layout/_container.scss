@@ -44,7 +44,7 @@
     @if $align == center {
       margin-left: auto;
       margin-right: auto;
-    } @else if {
+    } @else {
       margin-#{$align}: 0;
       margin-#{opposite($align)}: auto;
     }
