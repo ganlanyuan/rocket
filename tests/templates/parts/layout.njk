@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <meta http-equiv="cleartype" content="on"> -->
-  <title>{{ pagename }}</title>
+  <title>{{ page }}</title>
 	
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -17,7 +17,8 @@
 
 	<!-- css -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
-  <link href="css/{{ pagename }}.css"> rel="stylesheet">
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/{{ page }}.css" rel="stylesheet">
 
 	<!-- javascript --> 
 	<!--[if (lt IE 9)]>
@@ -33,7 +34,7 @@
 	<div class="page">
 		<div class="container">
 			<div class="topic">
-				<h2 class="main-heading">{{ pagename | title }}</h2>
+				<h2 class="main-heading">{{ page | title }}</h2>
 
 				{% block main %}
 				{% endblock %}

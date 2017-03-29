@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'push-toggle' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example">
     <div class="push-toggle two">
       <input type="radio" id="male" name="gender" checked="">
@@ -17,3 +18,4 @@
       <label for="three">Three</label>
     </div>              
   </div>
+{% endblock %}

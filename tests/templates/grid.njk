@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'grid' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example ovh">
     <div class="grid-list demo-container">
       <div data-margin>
@@ -119,3 +120,4 @@
       </div>
     </div>
   </div>
+{% endblock %}

@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'masonry' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="ovh">
     <div class="masonry-number demo-container">
       <ul><?php include '../part/masonry-content.php'; ?></ul>
@@ -24,3 +25,4 @@
       <ul><?php include '../part/masonry-content.php'; ?></ul>
     </div>
   </div>
+{% endblock %}

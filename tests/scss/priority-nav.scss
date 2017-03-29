@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../../src/scss/components/priority-nav"; 
+@import "../../src/scss/components/priority-nav"; 
 
 .nav {
   @include priority-nav();

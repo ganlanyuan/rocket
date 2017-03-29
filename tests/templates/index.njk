@@ -1,0 +1,15 @@
+{% set page = 'index' %}
+{% extends 'parts/layout.njk' %}
+
+{% block main %}
+  {% for name, content in tree %}
+    <section>
+      <h3>{{ name | title }}</h3>
+      <ul>
+        {% for item in content %}
+          <li><a href="{{ item + '.html' }}" target="_blank">{{ item }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+{% endblock %}

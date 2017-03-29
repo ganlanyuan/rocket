@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/type"; 
+@import "../../src/scss/addons/type"; 
 
 h1.example-type { @include type(32px 1.1 italic); margin-bottom: 10px; }
 h2.example-type { @include type(28px 1.2 weight-normal uppercase); margin-bottom: 10px; }

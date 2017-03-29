@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'scrollTo' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="scroll-to">
     <button class="btn btn-1">scroll to 100px</button> <br>
     <button class="btn btn-2">scroll to <strong>.box</strong></button> <br>
@@ -19,3 +20,4 @@ kit('.btn-3').click(function() { scrollTo(0, 500); });
       kit('.btn-3').click(function() { scrollTo(0, 500); });
     });
   </script>
+{% endblock %}

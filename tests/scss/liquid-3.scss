@@ -1,6 +1,6 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/breakpoint"; 
-@import "../../../src/scss/layout/liquid-3"; 
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/liquid-3"; 
 
 $liquid3-list1: ('auto' 100px 250px);
 $liquid3-list2: (100px 'auto' 250px);

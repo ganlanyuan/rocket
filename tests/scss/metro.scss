@@ -1,6 +1,6 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/breakpoint"; 
-@import "../../../src/scss/layout/metro"; 
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/metro"; 
 
 $metro-list: (w1 w3 h2 w4 of 5) gutter 10px;
 $metro-list-0px: (w1 w3 h2 w4 of 5) gutter 0px;

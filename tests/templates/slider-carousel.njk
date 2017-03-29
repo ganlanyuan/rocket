@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'slider-carousel' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="content">
     <div class="slider">
       <input type="radio" name="option-carousel" id="sc-normal" checked="">
@@ -530,3 +531,4 @@
       autoheightCarousel('.sc-autoheight'); 
     })
   </script>
+{% endblock %}

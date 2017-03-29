@@ -1,7 +1,9 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'tooltip' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">top</div>
   <div class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">right</div>
   <div class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">bottom</div>
   <div class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">left</div>
+{% endblock %}

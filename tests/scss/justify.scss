@@ -1,6 +1,6 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/breakpoint"; 
-@import "../../../src/scss/layout/justify"; 
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/justify"; 
 
 .example-justify {
   @include justify();

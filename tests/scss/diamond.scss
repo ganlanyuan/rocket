@@ -1,7 +1,7 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/breakpoint"; 
-@import "../../../src/scss/layout/center"; 
-@import "../../../src/scss/layout/diamond"; 
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/center"; 
+@import "../../src/scss/layout/diamond"; 
 
 $diamond-count: 3 diamond;
 $diamond-count-combined: 3 diamond combined;

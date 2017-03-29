@@ -1,16 +1,16 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/opacity";
-@import "../../../src/scss/components/checkbox"; 
+@import "../../src/scss/addons/opacity";
+@import "../../src/scss/components/checkbox"; 
 
 .radio {
   @include checkbox() {
     padding: 4px 0 4px 26px;
     margin-bottom: 3px;
     font-size: 14px;
-    background: url('../images/radio.png') 0 50% no-repeat;
+    background: url('images/radio.png') 0 50% no-repeat;
   }
   @include checkbox-active() {
-    background-image: url('../images/radio-active.png');
+    background-image: url('images/radio-active.png');
   }
 }
 
@@ -19,9 +19,9 @@
     padding: 4px 0 4px 26px;
     margin-bottom: 3px;
     font-size: 14px;
-    background: url('../images/checkbox.png') 0 50% no-repeat;
+    background: url('images/checkbox.png') 0 50% no-repeat;
   }
   @include checkbox-active() {
-    background-image: url('../images/checkbox-active.png');
+    background-image: url('images/checkbox-active.png');
   }
 }

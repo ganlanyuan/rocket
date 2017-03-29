@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'justify' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <ul class="example-justify">
     <li><a href="">Features</a></li>
     <li><a href="">Pricing</a></li>
@@ -10,3 +11,4 @@
     <li><a href="">Blog</a></li>
     <li><input type="search" placeholder="click me"></li>
   </ul>
+{% endblock %}

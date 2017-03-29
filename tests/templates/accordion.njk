@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'accordion' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="string acc-1 demo-container">
     <div>
       <input type="checkbox" name="" id="accordion-checkbox-1">
@@ -41,3 +42,4 @@
       </nav>
     </div>
   </div>
+{% endblock %}

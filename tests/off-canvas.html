@@ -1,0 +1,14 @@
+<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>off-canvas</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/off-canvas.css" rel="stylesheet"><!--[if (lt IE 9)]>
+		<script src="js/html5.js"></script>
+		<script src="js/ie.min.js"></script>
+		
+		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+		<script src="cross-domain/respond.proxy.js"></script>	
+	<![endif]--></head><body><div class="page"><div class="container"><div class="topic"><h2 class="main-heading">Off-canvas</h2><div class="container"><h2 class="main-heading"><span>components:</span>off-canvas<span></span></h2></div> <?php 
+  $navs = array('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'push', 'reveal', 'drawer');
+
+  foreach ($navs as $nav) {
+    echo '<div class="container"><h3><a href="off-canvas-' . $nav . '.html">' . $nav . '</a></h3></div><iframe src="off-canvas-' . $nav . '.html" scrolling="no" frameborder="0"></iframe>';
+  };
+?> </div></div></div></body></html>

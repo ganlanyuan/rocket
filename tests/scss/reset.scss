@@ -1,0 +1,49 @@
+// reset
+// ========
+
+// set min-width to 320
+html, body { min-width: 320px; }
+
+// remove margin and padding
+body,
+figure,
+dl,
+dt,
+dd,
+ul,
+ol,
+li { margin: 0; }
+dl,
+ul,
+ol { padding: 0; }
+
+// reset list styles
+li { list-style: none; }
+
+// make images & videos flexible
+img, video { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+
+// remove the white space under images
+figure img,
+a > img { vertical-align: bottom; }
+
+// prevent an image issue on IE 8
+@media \0screen { img { width: auto; } }
+
+// reset form styles
+label { cursor: pointer; }
+select { -webkit-appearance: none; }
+
+// reset link style
+a { text-decoration: none; color: inherit; }
+
+body { font-family: 'Roboto', sans-serif; }
+button,
+input,
+select { line-height: normal !important; }
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {outline: 0; }
+button { border: none; }

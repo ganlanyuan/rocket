@@ -1,0 +1,34 @@
+.page {
+  text-align: center;
+  section {
+    margin: 10% 0;
+  }
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h2 { font-size: 48px; }
+h3 { font-size: 36px; }
+li {
+  display: inline-block;
+  margin: 0 20px 20px 0;
+  vertical-align: top;
+  a {
+    display: block;
+    width: 200px;
+    height: 200px;
+    display: table-cell;
+
+    background-color: hsl(205, 90%, 90%);
+
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: 100;
+    vertical-align: middle;
+    transition: background-color 0.25s;
+    &:hover {
+      background-color: hsl(0, 0%, 98%);
+    }
+  }
+}

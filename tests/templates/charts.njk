@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'charts' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="charts-wrap">
     <h4>Sales report</h4>
     <div class="charts charts1">
@@ -107,3 +108,4 @@
   //   })
   // });
   </script>
+{% endblock %}

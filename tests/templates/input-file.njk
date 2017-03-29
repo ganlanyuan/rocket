@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'input-file' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example">
     <div class="input-file">
       <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
@@ -14,8 +15,12 @@
       </label>
     </div>
   </div>
+  <script src="../src/js/components/input-file.js"></script>
   <script type="text/javascript">
-    ready(function () {
-      inputFile('#file');
-    });
+    var htmlClass = document.documentElement.className;
+    htmlClass = htmlClass.replace('no-js', 'js');
+    document.documentElement.className = htmlClass;
+    
+    inputFile('#file');
   </script>
+{% endblock %}

@@ -1,5 +1,8 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/quantity-query"; 
+@import "../../src/scss/addons/at-least"; 
+@import "../../src/scss/addons/at-most"; 
+@import "../../src/scss/addons/equal-to"; 
+@import "../../src/scss/addons/between"; 
 
 .control {
   margin-bottom: 20px;

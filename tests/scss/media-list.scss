@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../../src/scss/components/media-list"; 
+@import "../../src/scss/components/media-list"; 
 
 .media-body { @include media-list('media-body'); }
 .news-left { 

@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'responsive-table' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <h4>flip-scroll</h4>
   <table class="flip-scroll">
     <thead>
@@ -350,3 +351,4 @@
   <script>
     responsiveTable(document.querySelector('.scroll-wrapper'), 900);
   </script>
+{% endblock %}

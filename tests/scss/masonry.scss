@@ -1,7 +1,7 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/breakpoint"; 
-@import "../../../src/scss/layout/grid"; 
-@import "../../../src/scss/layout/masonry"; 
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/grid"; 
+@import "../../src/scss/layout/masonry"; 
 
 $masonry-number: 3;
 $masonry-child: 4 child '.masonry-item';

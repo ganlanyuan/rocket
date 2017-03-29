@@ -1,7 +1,7 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/breakpoint"; 
-@import "../../../src/scss/addons/type"; 
-@import "../../../src/scss/addons/responsive-type"; 
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/addons/type"; 
+@import "../../src/scss/addons/responsive-type"; 
 
 p.example-responsive-type { margin-bottom: 10px; }
 .topic .example-responsive-type {

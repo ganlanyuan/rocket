@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'dropdown' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example">
     <div class="dropdown-1">
       <label for="dropdown"><span>dropdown: </span><img src="../images/arrow-down.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -40,3 +41,4 @@
       </ul>
     </div>              
   </div>
+{% endblock %}

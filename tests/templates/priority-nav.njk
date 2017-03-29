@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'priority-nav' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example">
     <nav class="nav">
      <ul class="links">
@@ -32,3 +33,4 @@ ready(function () {
       priorityNav('.nav', 'more', false, 600);
     });
   </script>
+{% endblock %}

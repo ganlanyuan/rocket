@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'equalizer' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="equalizer-grid">
     <div class="equalizer-1">
       <img src="http://placehold.it/500x300/aaa/aaa" alt="">
@@ -47,5 +48,4 @@ ready(function () {
       });
     });
   </script>
-
-
+{% endblock %}

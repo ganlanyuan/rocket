@@ -8,13 +8,13 @@ let sourcemapDest = '../sourcemaps';
 let src = 'src/',
   assets = 'assets/',
   docs = 'docs/',
-  docs__templates = 'docs/templates/',
-  docs__src = 'docs/src/',
-  docs__assets = 'docs/assets/',
+  docsTemplates = 'docs/templates/',
+  docsSrc = 'docs/src/',
+  docsAssets = 'docs/assets/',
   tests = 'tests/',
-  tests__templates = 'tests/templates/',
-  tests__src = 'tests/src/',
-  tests__assets = 'tests/assets/';
+  testsTemplates = 'tests/templates/',
+  testsScss = 'tests/scss/',
+  testsCss = 'tests/css/';
 let NAMES = {
   cssMain: 'main.css',
   svgSprites: 'sprites.svg',
@@ -39,25 +39,25 @@ function requireUncached( $module ) {
 
 // scss to njk
 gulp.task('scssToNjk', function () {
-  return gulp.src(docs__templates + 'code/scss/*.scss')
+  return gulp.src(docsTemplates + 'code/scss/*.scss')
     .pipe($.change(function(content) {
       return content.replace(/(\/\/=>\s+)/g, '');
     }))
     .pipe($.rename({extname: '.njk'}))
     .pipe($.cached('scssToNjk'))
-    .pipe(gulp.dest(docs__templates + 'code'));
+    .pipe(gulp.dest(docsTemplates + 'code'));
 });
 
 // yml to json
 gulp.task('ymlToJson', function () {
-  return gulp.src(docs__templates + 'code/*.yml')
+  return gulp.src(docsTemplates + 'code/*.yml')
     .pipe($.yaml({space: 2}))
-    .pipe(gulp.dest(docs__templates + 'code'));
+    .pipe(gulp.dest(docsTemplates + 'code'));
 });
 
 // Nunjucks Task
 gulp.task('docs', function() {
-  let data = requireUncached('./' + docs__templates + 'code/data.json');
+  let data = requireUncached('./' + docsTemplates + 'code/data.json');
 
   data.is = function (type, obj) {
     var clas = Object.prototype.toString.call(obj).slice(8, -1);
@@ -68,7 +68,7 @@ gulp.task('docs', function() {
     return Object.keys(obj);
   };
 
-  return gulp.src(docs__templates + '*.njk')
+  return gulp.src(docsTemplates + '*.njk')
     .pipe($.plumber())
     .pipe($.nunjucks.compile(data, {
       watch: true,
@@ -97,8 +97,7 @@ gulp.task('docs', function() {
 });
 
 gulp.task('tests', function() {
-  // let data = requireUncached('./' + docs__templates + 'code/data.json');
-  let data = {};
+  let data = requireUncached('./' + testsTemplates + 'tree.json');
 
   data.is = function (type, obj) {
     var clas = Object.prototype.toString.call(obj).slice(8, -1);
@@ -109,7 +108,7 @@ gulp.task('tests', function() {
     return Object.keys(obj);
   };
 
-  return gulp.src(docs__templates + 'tests/**/*.njk')
+  return gulp.src(testsTemplates + '/*.njk')
     .pipe($.plumber())
     .pipe($.nunjucks.compile(data, {
       watch: true,
@@ -134,25 +133,40 @@ gulp.task('tests', function() {
       removeComments: true,
     })))
     .pipe($.cached('nunjucks'))
-    .pipe(gulp.dest(docs + 'tests/'));
+    .pipe(gulp.dest(tests));
 });
 
 // Sass Task
-gulp.task('sass', function () {  
-  return gulp.src(docs__src + 'scss/*.scss')  
+gulp.task('sass-docs', function () {  
+  return gulp.src(docsSrc + 'scss/*.scss')  
+    .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       outputStyle: 'compressed', 
       precision: 7
     }).on('error', $.sass.logError))  
-    .pipe($.cached('sass'))
+    .pipe($.cached('sass-docs'))
     .pipe($.sourcemaps.write(sourcemapDest))
-    .pipe(gulp.dest(docs__assets + 'css'))
+    .pipe(gulp.dest(docsAssets + 'css'))
+    .pipe(browserSync.stream());
+});  
+
+gulp.task('sass-tests', function () {  
+  return gulp.src(testsScss + '/*.scss')  
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+      outputStyle: 'compressed', 
+      precision: 7
+    }).on('error', $.sass.logError))  
+    .pipe($.cached('sass-tests'))
+    .pipe($.sourcemaps.write(sourcemapDest))
+    .pipe(gulp.dest(testsCss))
     .pipe(browserSync.stream());
 });  
 
 gulp.task('sass-video', function () {  
-  return gulp.src(docs__src + 'scss/video/*.scss')  
+  return gulp.src(docsSrc + 'scss/video/*.scss')  
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       outputStyle: 'compressed', 
@@ -160,12 +174,12 @@ gulp.task('sass-video', function () {
     }).on('error', $.sass.logError))  
     .pipe($.cached('sass-video'))
     .pipe($.sourcemaps.write(sourcemapDest))
-    .pipe(gulp.dest(docs__assets + '/css/video'))
+    .pipe(gulp.dest(docsAssets + '/css/video'))
     .pipe(browserSync.stream());
 });  
 
 gulp.task('svg-sprites', function () {
-  return gulp.src(docs__src + 'svg/sprites/*.svg')
+  return gulp.src(docsSrc + 'svg/sprites/*.svg')
     .pipe($.svgmin(function (file) {
       let prefix = path.basename(file.relative, path.extname(file.relative));
       return {
@@ -180,7 +194,7 @@ gulp.task('svg-sprites', function () {
     }))
     .pipe($.svgstore({ inlineSvg: true }))
     .pipe($.rename(NAMES.svgSprites))
-    .pipe(gulp.dest(docs__assets + 'svg'));
+    .pipe(gulp.dest(docsAssets + 'svg'));
 });
 
 // JS Task  
@@ -251,22 +265,24 @@ gulp.task('server', function() {
     notify: false
   });
 
-  gulp.watch([docs__templates + 'code/*.yml'], ['ymlToJson']);
-  gulp.watch([docs__templates + 'code/scss/*.scss'], ['scssToNjk']);
-  gulp.watch([docs__templates + '**/*.njk', docs__templates + 'code/*.json'], ['docs']);
-  gulp.watch([docs__templates + 'tests/**/*.njk'], ['tests']);
-  gulp.watch(docs + '**/*.scss', ['sass']);
-  // gulp.watch(docs__src + 'scss/video/*.scss', ['sass-video']);
-  gulp.watch(docs__src + 'svg/sprites/*.svg', ['svg-sprites']);
+  gulp.watch([docsTemplates + 'code/*.yml'], ['ymlToJson']);
+  gulp.watch([docsTemplates + 'code/scss/*.scss'], ['scssToNjk']);
+  gulp.watch([docsTemplates + '**/*.njk', docsTemplates + 'code/*.json'], ['docs']);
+  gulp.watch([testsTemplates + '**/*.njk'], ['tests']);
+  gulp.watch(docs + '**/*.scss', ['sass-docs']);
+  gulp.watch(testsScss + '*.scss', ['sass-tests']);
+  // gulp.watch(docsSrc + 'scss/video/*.scss', ['sass-video']);
+  gulp.watch(docsSrc + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);
-  gulp.watch(['**/*.html', 'docs/assets/js/*.js', 'docs/assets/css/*.css']).on('change', browserSync.reload);
+  gulp.watch(['**/*.html', 'docs/assets/js/*.js', 'docs/assets/css/*.css', 'tests/css/*.css']).on('change', browserSync.reload);
 });
 
 // Default Task
 gulp.task('default', [
   // 'docs', 
   // 'tests',
-  // 'sass', 
+  // 'sass-docs', 
+  // 'sass-tests', 
   // 'js', 
   // 'move',
   // 'svgmin', 

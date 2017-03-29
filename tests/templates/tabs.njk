@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'tabs' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <h4>normal</h4>
   <div class="example">
     <div class="tabs tabs-normal">
@@ -91,3 +92,4 @@
       </div>
     </div>              
   </div>
+{% endblock %}

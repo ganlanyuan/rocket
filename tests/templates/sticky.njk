@@ -1,7 +1,8 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'sticky' %}
+{% extends 'parts/layout.njk' %}
 
-  <div class="sticky-grid wrapper-left-1">
+{% block main %}
+ <div class="sticky-grid wrapper-left-1">
     <div>
       <div class="box"></div>
       <div class="sticky sticky-high sticky-left-1">
@@ -98,3 +99,4 @@
       spacing: 10,
     });
   </script>
+{% endblock %}

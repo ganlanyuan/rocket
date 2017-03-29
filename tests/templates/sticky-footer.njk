@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'sticky-footer' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example" data-margin>
     <div class="container container-inner">
       <div class="body" data-content>
@@ -22,3 +23,4 @@
       </div>
     </div>
   </div>
+{% endblock %}

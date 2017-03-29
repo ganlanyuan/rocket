@@ -1,6 +1,6 @@
 @import 'demo-base';
-@import "../../../src/scss/addons/opacity";
-@import "../../../src/scss/components/validation"; 
+@import "../../src/scss/addons/opacity";
+@import "../../src/scss/components/validation"; 
 
 #form1 { @include validation(shake default); }
 #form2 { @include validation(fade-in right default); }

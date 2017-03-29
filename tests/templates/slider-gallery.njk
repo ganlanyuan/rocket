@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'slider-gallery' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="content">
     <div class="content-main">
       <div class="slider">
@@ -513,3 +514,4 @@
       autoheightGallery('.sg-autoheight'); 
     });
   </script>
+{% endblock %}

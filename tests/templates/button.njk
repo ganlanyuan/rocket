@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'button' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="example">
     <div class="example-button">
       <div class="default demo-container">
@@ -65,3 +66,4 @@
       }
     };
   </script>
+{% endblock %}

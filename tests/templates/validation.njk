@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'validation' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <ul class="validation-wrap">
     <li>
       <form action="" class="myform" id="form1">
@@ -32,3 +33,4 @@
       H5F.setup(document.querySelectorAll(".myform"));
     }
   </script>
+{% endblock %}

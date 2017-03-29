@@ -1,6 +1,7 @@
-{% set page = '' %}
-{% extends 'parts/layout.php' %}
+{% set page = 'quantity-query' %}
+{% extends 'parts/layout.njk' %}
 
+{% block main %}
   <div class="quantity-query">
     <div class="control">
       <input type="button" value="at-least 4" class="type at-least active">
@@ -59,3 +60,4 @@
 
     });
   </script>
+{% endblock %}
