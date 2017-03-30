@@ -1,9 +1,9 @@
-<?php 
+{# <?php 
   $navP = 'inside';
   $navN = 'slide-in';
   $pagegroup = 'off-canvas';
  ?>
-
+ #}
 {% set page = 'off-canvas' %}
 {% extends 'parts/layout.njk' %}
 
@@ -12,11 +12,12 @@
   <h2 class="main-heading"><span>components: </span>off-canvas<span></span></h2>
 </div>
 
-<?php 
-  $navs = array('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'push', 'reveal', 'drawer');
+  {% set navs = ['slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'push', 'reveal', 'drawer'] %}
+  {% for item in navs %}
+    <div class="container">
+      <h3><a href="templates/off-canvas-{{ item }}.html">{{ item }}</a></h3>
+    </div>
 
-  foreach ($navs as $nav) {
-    echo '<div class="container"><h3><a href="off-canvas-' . $nav . '.html">' . $nav . '</a></h3></div><iframe src="off-canvas-' . $nav . '.html" scrolling="no" frameborder="0"></iframe>';
-  };
-?>
+    <iframe src="templates/off-canvas-{{ item }}.html" scrolling="no" frameborder="0"></iframe>
+  {% endfor %}
 {% endblock %}
