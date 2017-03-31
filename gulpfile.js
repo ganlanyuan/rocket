@@ -14,7 +14,9 @@ let src = 'src/',
   tests = 'tests/',
   testsTemplates = 'tests/templates/',
   testsScss = 'tests/scss/',
-  testsCss = 'tests/css/';
+  testsCss = 'tests/css/',
+  testsSyntax = 'tests-syntax/';
+  
 let NAMES = {
   cssMain: 'main.css',
   svgSprites: 'sprites.svg',
@@ -156,7 +158,7 @@ gulp.task('sass-docs', function () {
 });  
 
 gulp.task('sass-tests', function () {  
-  return gulp.src(testsScss + '/*.scss')  
+  return gulp.src(testsScss + '*.scss')  
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass({
@@ -167,6 +169,17 @@ gulp.task('sass-tests', function () {
     .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
     .pipe(gulp.dest(testsCss))
     .pipe(browserSync.stream());
+});  
+
+gulp.task('sass-tests-syntax', function () {  
+  return gulp.src(testsSyntax + '*.scss')  
+    .pipe($.plumber())
+    .pipe($.sass({
+      outputStyle: 'compressed', 
+      precision: 7
+    }).on('error', $.sass.logError))  
+    // .pipe(gulp.dest(testsSyntax))
+    // .pipe(browserSync.stream());
 });  
 
 gulp.task('sass-video', function () {  
@@ -275,6 +288,7 @@ gulp.task('server', function() {
   gulp.watch([testsTemplates + '**/*.njk'], ['tests']);
   gulp.watch(docs + '**/*.scss', ['sass-docs']);
   gulp.watch(testsScss + '*.scss', ['sass-tests']);
+  gulp.watch([testsSyntax + '**/*.scss', src + 'scss/**/*.scss'], ['sass-tests-syntax']);
   // gulp.watch(docsSrc + 'scss/video/*.scss', ['sass-video']);
   gulp.watch(docsSrc + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);

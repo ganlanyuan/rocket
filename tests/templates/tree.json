@@ -44,13 +44,6 @@
       "responsive-type",
       "type",
       "visibility"
-    ],
-    "js-components": [
-      "equalizer",
-      "priority-nav",
-      "reach",
-      "scrollto",
-      "sticky"
     ]
   }
 }

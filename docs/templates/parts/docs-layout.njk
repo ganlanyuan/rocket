@@ -29,8 +29,7 @@
       <ul>
       
         {% for componentName, component in group %}
-        {% set componentName_new = componentName | replace(reg_title, '') %}
-        <li><a href="#{{ componentName_new }}">{{ componentName | capitalize }}</a></li>
+        <li><a href="#{{ componentName }}">{{ componentName | capitalize }}</a></li>
         {% endfor %}
       
       </ul>
@@ -46,7 +45,7 @@
 
       {% if pagename === "docs" %}
       <form action="" class="search-form">
-        <input type="text" list="components" name="component" id="component" placeholder="Search">
+        <input type="text" list="components" name="component" id="component" placeholder="Search" autocomplete autofocus>
         <datalist id="components">
           {% for groupname, groupcontent in docs %}
             {% for comp, compcontent in groupcontent %}
@@ -57,7 +56,7 @@
       </form>
       {% endif %}
     </div>
-    
+
     {% if pagename === "docs" %}
     <p><small><em>Version: {{ version }}</em></small></p>
     <p>Make sure you have read the <a href="guide.html">Guide</a> (especially <a href="guide.html#parameter">parameter</a> section) before using this docs.</p>
@@ -67,7 +66,7 @@
     <h2>{{ groupName | capitalize }}</h2>
     {% for componentName, component in group %}
       {% set componentName_new = componentName | replace(reg_title, '') %}
-      <section id="{{ componentName_new }}">
+      <section id="{{ componentName }}">
         <h4>{{ componentName | capitalize }}</h4>
       
         {% for item in component %}

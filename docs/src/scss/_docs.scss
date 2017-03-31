@@ -29,7 +29,10 @@ pre[class*="language-"] {
       color: #999;
     }
     h2 { @include type(32px uppercase); }
-    h4 { @include type(22px); }
+    h4 { 
+      @include type(22px); 
+      margin-top: 2em;
+    }
     p { 
       max-width: 46em; 
     }
