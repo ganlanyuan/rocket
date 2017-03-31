@@ -100,19 +100,28 @@ h5 {
   margin: 3em 0 1em; 
 }
 p {
-  .topic & {
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 1.8em auto;
-    max-width: 50em;
-    color: #7d7d7d;
-  }
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 1.8em auto;
+  max-width: 50em;
+  color: #7d7d7d;
 }
 .container {
   max-width: 70em;
   margin: 0 auto; 
   @media screen and (max-width: 74em) {
     margin: 0 2em;
+  }
+}
+.back-to-home {
+  position: sticky;
+  bottom: 0;
+  margin-top: 100px;
+  a {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    background-color: #222;
   }
 }
 
@@ -150,8 +159,8 @@ p {
       vertical-align: 7px;
       margin: 0 15px;
     }
-    &:before { content: url('images/title-prev.png'); }
-    &:after { content: url('images/title-next.png'); }
+    &:before { content: url('../images/title-prev.png'); }
+    &:after { content: url('../images/title-next.png'); }
   }
   .topic {
     > section { margin: 0 0 5em; }

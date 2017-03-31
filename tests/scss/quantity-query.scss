@@ -4,13 +4,16 @@
 @import "../../src/scss/addons/equal-to"; 
 @import "../../src/scss/addons/between"; 
 
+.quantity-query { text-align: center; }
 .control {
   margin-bottom: 20px;
   input {
+    font-size: 14px;
     padding: 0.6em 1.1em;
     border-width: 0;
     border-radius: 3px;
     background: #cbcbcb;
+    cursor: pointer;
   }
   .active { 
     color: #fff;
@@ -27,20 +30,18 @@
   @extend %clearfix;
   margin-bottom: 40px;
   > .box {
-    float: left;
+    display: inline-block;
     width: 150px;
     height: 150px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    background: #56AFEE;
+    margin: 0 5px 10px;
+    background-color: #56AFEE;
   }
 }
 .info {
   color: #666;
   font-size: 13px;
   margin-left: 10px;
-  vertical-align: bottom;
-  span { color: #ff49a6; vertical-align: bottom; }
+  span { color: #ff49a6; }
 }
 
 .at-least {

@@ -20,6 +20,7 @@
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
+      &:nth-child(odd) { clear: both; }
     }
   }
 }
@@ -44,6 +45,9 @@
     width: 100%;
     max-width: 500px;
     border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     &:invalid {
       box-shadow: none;
       outline: none;

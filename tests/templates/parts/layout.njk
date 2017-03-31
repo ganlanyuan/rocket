@@ -31,15 +31,15 @@
 	<![endif]-->
 </head>
 <body>
-	<div class="page">
-		<div class="container">
-			<div class="topic">
-				<h2 class="main-heading">{{ page | title }}</h2>
+	<div class="container">
+		<h2 class="main-heading">{{ page | title }}</h2>
+		
+		{% block main %}
+		{% endblock %}
 
-				{% block main %}
-				{% endblock %}
-			</div>
-		</div>
+		{% if page !== 'index' %}
+			<div class="back-to-home"><a href="/tests">← Back to home</a></div>
+		{% endif %}
 	</div>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js lt-ie" lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <meta http-equiv="cleartype" content="on"> -->
+  <title>{{ page }}</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<!-- css -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/{{ page }}.css" rel="stylesheet">
+
+	<!-- javascript --> 
+	<!--[if (lt IE 9)]>
+		<script src="js/html5.js"></script>
+		<script src="js/ie.min.js"></script>
+		
+		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+		<script src="cross-domain/respond.proxy.js"></script>	
+	<![endif]-->
+</head>
+<body>
+<input type="checkbox" name="" id="nav-toggle" class="hidden-checkbox">
+{% if belongTo(offcanvasMode, ['slide-along', 'slide-out', 'scale-down', 'scale-up', 'open-door', 'reveal']) %}
+  {% include './off-canvas-nav.njk' %}
+{% endif %}
+<div class="page {{ offcanvasMode }}">
+  <div class="container">
+    <header>
+      <label for="nav-toggle" class="menu-icon"><span></span></label>
+      <label for="nav-toggle" class="page-overlay"></label>
+      {% if belongTo(offcanvasMode, ['slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'push', 'drawer']) %}
+	      {% include './off-canvas-nav.njk' %}
+      {% endif %}
+    </header>
+    <div class="main">
+      <p>Quia corporis architecto quae harum veritatis suscipit tenetur odio nisi voluptatem nam hic quasi dolorum ipsa inventore enim rem natus, illum modi dolor voluptates, aliquam libero. Cupiditate commodi est molestias?</p>
+      <p>Nobis temporibus laudantium necessitatibus repellendus voluptatibus incidunt odio aliquid, nemo voluptatem quo illum, deserunt ratione animi labore molestias sed adipisci explicabo dolorum, excepturi omnis. Tempora repudiandae optio sit, ullam sint?</p>
+      <p>Incidunt dolore debitis minima fugit maxime fugiat ea quasi tempore, id hic dolorum placeat architecto nulla, perferendis dolorem assumenda doloribus neque ab. Dolor aperiam, iure quidem delectus qui adipisci tempora!</p>
+      <p class="code"></p>
+    </div>
+</div>
+</body>
+</html>

@@ -35,7 +35,7 @@ $bg2: #FBDBF6;
   }
   .sibling-1 { background-color: $bg1; }
   .sibling-2 { background-color: $bg2; }
-  .bottom { background-image: url('images/angled-edges/1.jpg'); }
-  .both { background-image: url('images/angled-edges/2.jpg'); }
-  .top { background-image: url('images/angled-edges/3.jpg'); }
+  .bottom { background-image: url('../images/angled-edges/1.jpg'); }
+  .both { background-image: url('../images/angled-edges/2.jpg'); }
+  .top { background-image: url('../images/angled-edges/3.jpg'); }
 }

@@ -92,21 +92,17 @@ pre[class*="language-"] {
   }
   &-toggle {
     @include type(14px);
-    position: relative;
-    z-index: $zi-docs-nav;
-    @supports (position: sticky) or (position: -webkit-sticky) {
-      position: sticky;
-      top: 10px;
-    }
     float: right;
     width: 100px;
     height: 36px;
+
+    background-color: $color-primary;
+
     line-height: 36px;
-    background-color: $color-primary;
     color: #fff;
-    background-color: $color-primary;
     text-align: center;
     white-space: nowrap;
+
     cursor: pointer;
   }
   .shrank {
@@ -115,6 +111,24 @@ pre[class*="language-"] {
       max-height: 0; 
       margin-bottom: 0
     }
+  }
+}
+
+// sticky line
+.sticky-line {
+  position: sticky;
+  top: 0;
+  z-index: $zi-docs-sticky-line;
+  padding-bottom: 10px;
+  background-color: #fff;
+}
+.search-form {
+  input {
+    width: calc(100% - 8em);
+    line-height: 2.2;
+    padding: 0 0.7em;
+    border: 1px solid $color-primary;
+    box-sizing: border-box;
   }
 }
 

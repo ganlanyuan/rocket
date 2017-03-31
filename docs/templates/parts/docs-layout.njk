@@ -21,9 +21,6 @@
 {% block main %}
 <div class="docs-wrapper section">
 
-  {# nav toggle button #}
-  <div class="docs-nav-toggle"></div>
-
   {# docs nav #}
   <nav class="docs-nav">
     {% for groupName, group in dataContent %}
@@ -43,6 +40,24 @@
 
   {# main #}
   <main>
+    <div class="sticky-line">
+      {# nav toggle button #}
+      <div class="docs-nav-toggle"></div>
+
+      {% if pagename === "docs" %}
+      <form action="" class="search-form">
+        <input type="text" list="components" name="component" id="component" placeholder="Search">
+        <datalist id="components">
+          {% for groupname, groupcontent in docs %}
+            {% for comp, compcontent in groupcontent %}
+              <option value="{{ comp }}"></option>
+            {% endfor %}
+          {% endfor %}
+        </datalist>
+      </form>
+      {% endif %}
+    </div>
+    
     {% if pagename === "docs" %}
     <p><small><em>Version: {{ version }}</em></small></p>
     <p>Make sure you have read the <a href="guide.html">Guide</a> (especially <a href="guide.html#parameter">parameter</a> section) before using this docs.</p>

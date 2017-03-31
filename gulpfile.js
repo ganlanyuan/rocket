@@ -108,6 +108,10 @@ gulp.task('tests', function() {
     return Object.keys(obj);
   };
 
+  data.belongTo = function (str, arr) {
+    return arr.indexOf(str) !== -1;
+  }
+
   return gulp.src(testsTemplates + '/*.njk')
     .pipe($.plumber())
     .pipe($.nunjucks.compile(data, {
@@ -140,13 +144,13 @@ gulp.task('tests', function() {
 gulp.task('sass-docs', function () {  
   return gulp.src(docsSrc + 'scss/*.scss')  
     .pipe($.plumber())
-    .pipe($.sourcemaps.init())
+    .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass({
       outputStyle: 'compressed', 
       precision: 7
     }).on('error', $.sass.logError))  
     .pipe($.cached('sass-docs'))
-    .pipe($.sourcemaps.write(sourcemapDest))
+    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
     .pipe(gulp.dest(docsAssets + 'css'))
     .pipe(browserSync.stream());
 });  
@@ -154,26 +158,26 @@ gulp.task('sass-docs', function () {
 gulp.task('sass-tests', function () {  
   return gulp.src(testsScss + '/*.scss')  
     .pipe($.plumber())
-    .pipe($.sourcemaps.init())
+    .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass({
       outputStyle: 'compressed', 
       precision: 7
     }).on('error', $.sass.logError))  
     .pipe($.cached('sass-tests'))
-    .pipe($.sourcemaps.write(sourcemapDest))
+    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
     .pipe(gulp.dest(testsCss))
     .pipe(browserSync.stream());
 });  
 
 gulp.task('sass-video', function () {  
   return gulp.src(docsSrc + 'scss/video/*.scss')  
-    .pipe($.sourcemaps.init())
+    .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass({
       outputStyle: 'compressed', 
       precision: 7
     }).on('error', $.sass.logError))  
     .pipe($.cached('sass-video'))
-    .pipe($.sourcemaps.write(sourcemapDest))
+    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
     .pipe(gulp.dest(docsAssets + '/css/video'))
     .pipe(browserSync.stream());
 });  
