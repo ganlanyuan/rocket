@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const browserSync = require('browser-sync').create();
 const nunjucks = require('nunjucks');
+const path = require('path');
 
 let dev = false;
 let sourcemapDest = '../sourcemaps';
@@ -46,7 +47,7 @@ gulp.task('scssToNjk', function () {
       return content.replace(/(\/\/=>\s+)/g, '');
     }))
     .pipe($.rename({extname: '.njk'}))
-    .pipe($.cached('scssToNjk'))
+    // .pipe($.cached('scssToNjk'))
     .pipe(gulp.dest(docsTemplates + 'code'));
 });
 
@@ -94,7 +95,7 @@ gulp.task('docs', function() {
       minifyJs: true,
       removeComments: true,
     })))
-    .pipe($.cached('nunjucks'))
+    // .pipe($.cached('nunjucks'))
     .pipe(gulp.dest(docs));
 });
 
@@ -138,62 +139,9 @@ gulp.task('tests', function() {
       minifyJs: true,
       removeComments: true,
     })))
-    .pipe($.cached('nunjucks'))
+    // .pipe($.cached('nunjucks'))
     .pipe(gulp.dest(tests));
 });
-
-// Sass Task
-gulp.task('sass-docs', function () {  
-  return gulp.src(docsSrc + 'scss/*.scss')  
-    .pipe($.plumber())
-    .pipe($.if(dev, $.sourcemaps.init()))
-    .pipe($.sass({
-      outputStyle: 'compressed', 
-      precision: 7
-    }).on('error', $.sass.logError))  
-    .pipe($.cached('sass-docs'))
-    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
-    .pipe(gulp.dest(docsAssets + 'css'))
-    .pipe(browserSync.stream());
-});  
-
-gulp.task('sass-tests', function () {  
-  return gulp.src(testsScss + '*.scss')  
-    .pipe($.plumber())
-    .pipe($.if(dev, $.sourcemaps.init()))
-    .pipe($.sass({
-      outputStyle: 'compressed', 
-      precision: 7
-    }).on('error', $.sass.logError))  
-    .pipe($.cached('sass-tests'))
-    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
-    .pipe(gulp.dest(testsCss))
-    .pipe(browserSync.stream());
-});  
-
-gulp.task('sass-tests-syntax', function () {  
-  return gulp.src(testsSyntax + '*.scss')  
-    .pipe($.plumber())
-    .pipe($.sass({
-      outputStyle: 'compressed', 
-      precision: 7
-    }).on('error', $.sass.logError))  
-    // .pipe(gulp.dest(testsSyntax))
-    // .pipe(browserSync.stream());
-});  
-
-gulp.task('sass-video', function () {  
-  return gulp.src(docsSrc + 'scss/video/*.scss')  
-    .pipe($.if(dev, $.sourcemaps.init()))
-    .pipe($.sass({
-      outputStyle: 'compressed', 
-      precision: 7
-    }).on('error', $.sass.logError))  
-    .pipe($.cached('sass-video'))
-    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
-    .pipe(gulp.dest(docsAssets + '/css/video'))
-    .pipe(browserSync.stream());
-});  
 
 gulp.task('svg-sprites', function () {
   return gulp.src(docsSrc + 'svg/sprites/*.svg')
@@ -283,13 +231,53 @@ gulp.task('server', function() {
   });
 
   gulp.watch([docsTemplates + 'code/*.yml'], ['ymlToJson']);
-  gulp.watch([docsTemplates + 'code/scss/*.scss'], ['scssToNjk']);
+  gulp.watch([docsTemplates + 'code/scss/*.scss'], function (e) {
+    if (e.type !== 'deleted') {
+      return gulp.src(e.path)
+        .pipe($.change(function(content) {
+          return content.replace(/(\/\/=>\s+)/g, '');
+        }))
+        .pipe($.rename({extname: '.njk'}))
+        .pipe(gulp.dest(docsTemplates + 'code'));
+    }
+  });
   gulp.watch([docsTemplates + '**/*.njk', docsTemplates + 'code/*.json'], ['docs']);
   gulp.watch([testsTemplates + '**/*.njk'], ['tests']);
-  gulp.watch(docs + '**/*.scss', ['sass-docs']);
-  gulp.watch(testsScss + '*.scss', ['sass-tests']);
-  gulp.watch([testsSyntax + '**/*.scss', src + 'scss/**/*.scss'], ['sass-tests-syntax']);
-  // gulp.watch(docsSrc + 'scss/video/*.scss', ['sass-video']);
+  gulp.watch([docs + '**/*.scss', testsScss + '*.scss', testsSyntax + '**/*.scss'], function (e) {
+    if (e.type !== 'deleted') {
+      let src, 
+          dest,
+          pathParsed = path.parse(e.path), 
+          dir = pathParsed.dir,
+          name = pathParsed.name;
+
+      if(dir.indexOf('docs') !== -1) {
+        if (dir.indexOf('video') !== -1) {
+          src = e.path;
+          dest = docsAssets + 'css/video';
+        } else {
+          src = docsSrc + 'scss/main.scss';
+          dest = docsAssets + 'css';
+        }
+      } else if (dir.indexOf('tests-syntax') !== -1) {
+        src = testsSyntax + 'tests.scss';
+        dest = testsSyntax;
+      } else {
+        src = e.path;
+        dest = testsCss;
+      }
+
+      return gulp.src(src)  
+        .pipe($.plumber())
+        .pipe($.if(dev, $.sourcemaps.init()))
+        .pipe($.sass({
+          outputStyle: 'compressed', 
+          precision: 7
+        }).on('error', $.sass.logError))  
+        .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
+        .pipe(gulp.dest(dest));
+    }
+  });
   gulp.watch(docsSrc + 'svg/sprites/*.svg', ['svg-sprites']);
   gulp.watch(scripts.src, ['js']);
   gulp.watch(['**/*.html', 'docs/assets/js/*.js', 'docs/assets/css/*.css', 'tests/css/*.css']).on('change', browserSync.reload);
