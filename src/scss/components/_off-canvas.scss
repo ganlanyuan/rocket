@@ -167,6 +167,7 @@
     #{$direction}: 0;
 
     @if $page-over-nav {
+      min-height: 100vh;
       z-index: map-get($ro-off-canvas-z-index, 'page');
     }
 
