@@ -15,7 +15,7 @@
   $nav: false;
   $map: false;
   $duration: 0.3s;
-  $width: 240px;
+  $nav-size: 240px;
   @if type-of($key) == 'map' {
     $map: $key;
   } @else if type-of($key) == 'string' {
@@ -28,7 +28,7 @@
         @if unit($item) == 's' {
           $duration: $item;
         } @else {
-          $width: $item;
+          $nav-size: $item;
         }
       } @else if type-of($item) == 'string' {
         @if index(('.', '#', '['), str-slice($item, 1, 1)) { $nav: $item; }
@@ -39,13 +39,24 @@
   // update map breakpoints
   @if $global-bps and $map { $map: map-update-breakpoints($map, $global-bps); }
 
-  // define modules
-  $page-push: false;
-  $page-over-nav: false;
-  $page-transform: false;
+  $axis: 'horizontal';
+  $translate-size: if(index((left, top), $direction), $nav-size, - $nav-size);
+  $translate-value: translateX(#{$translate-size});
+  $rotate-shortcut: 'Y';
+  
+  @if index((top, bottom), $direction) {
+    $axis: 'vertical';
+    $translate-value: translateY(#{$translate-size});
+    $rotate-shortcut: 'X';
+  }
 
+  // define modules
+  $page-action: false;
+  $page-over-nav: false;
+
+  $nav-action: false;
   $nav-push: false;
-  $nav-push-val: false;
+  $nav-translate-size: - $nav-size;
   $nav-transform: false;
   $nav-outside: false;
 
@@ -61,27 +72,79 @@
   $rotate-active: false;
   $scale-default: translate3d(0px, 0px, 0px);
   $scale-active: perspective(1000px) translate3d(0px, 0px, -300px);
+  
+  @if $mode == 'slide-in'{
+    $nav-action: 'translate';
 
-  @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $mode) {
-    $page-push: true;
-  }
-  @if index(('reveal', 'slide-along', 'slide-out', 'scale-up'), $mode) {
+  } @else if $mode == 'slide-along' {
+    $page-action: 'translate';
     $page-over-nav: true;
-  }
-  @if index(('scale-down', 'open-door'), $mode) {
-    $page-transform: true;
+    $nav-action: 'translate';
+    $nav-translate-size: - ($nav-size / 2);
+
+  } @else if $mode == 'slide-out' {
+    $page-action: 'translate';
+    $page-over-nav: true;
+    $nav-action: 'translate';
+    $nav-translate-size: ($nav-size / 2);
+
+  } @else if $mode == 'rotate-in' {
+    $page-action: 'translate';
+    $nav-action: 'translate', 'rotate';
+
+  } @else if $mode == 'rotate-out' {
+    $page-action: 'translate';
+    $nav-action: 'translate', 'rotate';
+
+  } @else if $mode == 'rotate-in-reverse' {
+    $page-action: 'translate';
+    $nav-action: 'translate', 'rotate';
+
+  } @else if $mode == 'scale-down' {
+    $page-action: 'scale';
+    $nav-action: 'translate';
+
+  } @else if $mode == 'scale-up' {
+    $page-action: 'translate';
+    $page-over-nav: true;
+    $nav-action: 'scale';
+
+  } @else if $mode == 'open-door' {
+    $page-action: 'rotate';
+    $nav-action: 'translate';
+
+  } @else if $mode == 'push' {
+    $page-action: 'translate';
+    $nav-action: 'translate';
+
+  } @else if $mode == 'reveal' {
+    $page-action: 'translate';
+    $page-over-nav: true;
+
+  } @else if $mode == 'drawer' {
+    $nav-action: 'translate';
   }
 
-  @if index(('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $mode) {
-    $nav-push: true;
-  }
-  @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $mode) {
-    $nav-push-val: - $width;
-  } @else if index(('slide-along'), $mode) {
-    $nav-push-val: - ($width / 2);
-  } @else if index(('slide-out'), $mode) {
-    $nav-push-val: ($width / 2);
-  }
+  // @if index(('reveal', 'push', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $mode) {
+  //   $page-action: 'translate';
+  // }
+  // @if index(('scale-down', 'open-door'), $mode) {
+  //   $page-action: 'transform';
+  // }
+  // @if index(('reveal', 'slide-along', 'slide-out', 'scale-up'), $mode) {
+  //   $page-over-nav: true;
+  // }
+
+  // @if index(('slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $mode) {
+  //   $nav-push: true;
+  // }
+  // @if index(('slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'open-door', 'push', 'drawer'), $mode) {
+  //   $nav-translate-size: - $nav-size;
+  // } @else if index(('slide-along'), $mode) {
+  //   $nav-translate-size: - ($nav-size / 2);
+  // } @else if index(('slide-out'), $mode) {
+  //   $nav-translate-size: ($nav-size / 2);
+  // }
   @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-up'), $mode) {
     $nav-transform: true;
   }
@@ -96,15 +159,15 @@
     $overlay-push: true;
   }
 
-  @if index((left, right), $direction) {
-    $horizontal: true;
-  } @else if index((top, bottom), $direction) {
-    $vertical: true;
-  }
+  // @if index((left, right), $direction) {
+  //   $horizontal: true;
+  // } @else if index((top, bottom), $direction) {
+  //   $vertical: true;
+  // }
 
   @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse'), $mode) {
     $rotate: true;
-    @if $horizontal {
+    @if $axis == 'horizontal' {
       $rotate-active: rotateY(0);
     } @else {
       $rotate-active: rotateX(0);
@@ -134,81 +197,80 @@
   }
   @if index(('rotate-in'), $mode) {
     @if $direction == left {
-      $rotate-default: perspective(#{$width}) rotateY(-90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateY(-90deg);
     } @else if $direction == right {
-      $rotate-default: perspective(#{$width}) rotateY(90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateY(90deg);
     } @else if $direction == top {
-      $rotate-default: perspective(#{$width}) rotateX(90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateX(90deg);
     } @else if $direction == bottom {
-      $rotate-default: perspective(#{$width}) rotateX(-90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateX(-90deg);
     }
   }
   @if index(('rotate-out', 'rotate-in-reverse'), $mode) {
     @if $direction == left {
-      $rotate-default: perspective(#{$width}) rotateY(90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateY(90deg);
     } @else if $direction == right {
-      $rotate-default: perspective(#{$width}) rotateY(-90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateY(-90deg);
     } @else if $direction == top {
-      $rotate-default: perspective(#{$width}) rotateX(-90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateX(-90deg);
     } @else if $direction == bottom {
-      $rotate-default: perspective(#{$width}) rotateX(90deg);
+      $rotate-default: perspective(#{$nav-size}) rotateX(90deg);
     }
   }
 
   // *** output *** //
-  // page
-  @if $page-transform {
-    @include ro-transition(unquote("transform #{$duration}"));
-  }
+  // === page ===
+  // page transition
+  @include ro-transition(unquote("transform #{$duration}"));
 
-  @if $page-push {
-    @include ro-transition(unquote("#{$direction} #{$duration}"));
-    position: relative;
-    #{$direction}: 0;
+  // page action
+  @if $page-action == 'translate' {
+    input:checked ~ & { @include ro-transform($translate-value); }
 
-    @if $page-over-nav {
-      min-height: 100vh;
-      z-index: map-get($ro-off-canvas-z-index, 'page');
+    .lt-ie9 & {
+      input:checked ~ & { margin-#{$direction}: $nav-size; }
     }
+  } @else {
 
-    input:checked ~ & { #{$direction}: $width; }
-  }
+    @if $page-action == 'scale' {
+      input:checked ~ & { @include ro-transform(scale(0.8)); }
 
-  @if $transform-origin and $page-transform {
-    @include ro-transform-origin($transform-origin);
-    @include ro-transform-style(preserve-3d);
-  }
-
-  @if $mode == 'scale-down' {
-    @include ro-transform-style(preserve-3d);
-    @include ro-transform($scale-default);
-    input:checked ~ & {
-      @include ro-transform($scale-active);
-    }
-  } @else if $mode == 'open-door' {
-    @include ro-transform(perspective(1000px) rotateY(0deg));
-    input:checked ~ & {
-      @if $direction == left {
-        @include ro-transform(perspective(1000px) rotateY(-7deg));
-      } @else if $direction == right {
-        @include ro-transform(perspective(1000px) rotateY(7deg));
-      } @else if $direction == top {
-        @include ro-transform(perspective(1000px) rotateX(7deg));
-      } @else if $direction == bottom {
-        @include ro-transform(perspective(1000px) rotateX(-7deg));
+    } @else if $page-action == 'rotate' {
+      @include ro-transform-origin($transform-origin);
+      @include ro-transform-style(preserve-3d);
+      input:checked ~ & {
+        $page-rotate-angle: if(index((right, top), $direction), 7deg, -7deg);
+        @include ro-transform(perspective(1000px) unquote('rotate#{$rotate-shortcut}(#{$page-rotate-angle})'));
+        // @if $direction == left {
+        //   @include ro-transform(perspective(1000px) rotateY(-7deg));
+        // } @else if $direction == right {
+        //   @include ro-transform(perspective(1000px) rotateY(7deg));
+        // } @else if $direction == top {
+        //   @include ro-transform(perspective(1000px) rotateX(7deg));
+        // } @else if $direction == bottom {
+        //   @include ro-transform(perspective(1000px) rotateX(-7deg));
+        // }
       }
     }
   }
 
+  // page over nav
+  @if $page-over-nav {
+    position: relative;
+    z-index: map-get($ro-off-canvas-z-index, 'page');
+    min-height: 100vh;
+  }
+
+
   @if $submenu {
     // hide submenu on hide nav
-    input:not(:checked) ~ & #{$nav} [data-submenu] { #{$direction}: - $width; }
+    input:not(:checked) ~ & #{$nav} [data-submenu] { #{$direction}: - $nav-size; }
   }
-  
 
-  // nav
+  // === nav ===
   @at-root {
     #{$nav} {
+      @include ro-transition(unquote('transform #{$duration}'));
       position: fixed;
       display: block;
       z-index: map-get($ro-off-canvas-z-index, 'nav');
@@ -217,20 +279,19 @@
       #{$direction}: 0;
       // > ul { position: relative; }
 
-      @if $nav-push and $nav-transform {
-        @include ro-transition(unquote("transform #{$duration}"), unquote("margin-#{$direction} #{$duration}"));
-      } @else if $nav-push and not $nav-transform {
-        @include ro-transition(unquote("margin-#{$direction} #{$duration}"));
-      } @else if not $nav-push and $nav-transform {
-        @include ro-transition(unquote("transform #{$duration}"));
+      // $transitionTem: ();
+      // @if $nav-transform { $transitionTem: append($transitionTem, unquote("transform #{$duration}"), comma); }
+      // @if index($nav-action, 'translate') { $transitionTem: append($transitionTem, unquote("margin-#{$direction} #{$duration}"), comma); }
+      // @if length($transitionTem) > 0 {
+      //   @include ro-transition($transitionTem);
+      // }
+
+      @if $nav-translate-size {
+        margin-#{$direction}: $nav-translate-size;
       }
 
-      @if $nav-push-val {
-        margin-#{$direction}: $nav-push-val;
-      }
-
-      @if $horizontal {
-        width: $width;
+      @if $axis == 'horizontal' {
+        width: $nav-size;
         bottom: 0;
         overflow-x: hidden;
         @if $mode == 'drawer' {
@@ -238,25 +299,32 @@
         } @else {
           top: 0;
         }
-      } @else if $vertical {
-        height: $width;
+      } @else {
+        height: $nav-size;
         left: 0;
         right: 0;
         overflow-y: hidden;
       }
 
-      @if $transform-origin and $nav-transform {
+      @if index($nav-action, 'rotate') or index($nav-action, 'scale') {
         @include ro-transform-origin($transform-origin);
         @include ro-transform-style(preserve-3d);
-      }
-      @if $rotate {
-        @include ro-transform($rotate-default);
+        
+        @if index($nav-action, 'rotate') {
+          @include ro-transform($rotate-default);
+        }
+
+        @if index($nav-action, 'scale') {
+          @include ro-transform($scale-active);
+          input:checked ~ & {
+            @include ro-transform($scale-default);
+          }
+        }
       }
 
-      @if $mode == 'scale-up' {
-        @include ro-transform($scale-active);
+      @if index($nav-action, 'translate') and $nav-outside {
         input:checked ~ & {
-          @include ro-transform($scale-default);
+          margin-#{$direction}: 0;
         }
       }
       
@@ -271,10 +339,10 @@
         [data-submenu] {
           position: fixed;
           box-sizing: border-box;
-          #{$direction}: - $width;
+          #{$direction}: - $nav-size;
           transition: #{$direction} #{$duration};
-          @if $horizontal {
-            width: $width;
+          @if $axis == 'horizontal' {
+            width: $nav-size;
             height: 100%;
             overflow-x: hidden;
             @if $mode == 'drawer' {
@@ -282,8 +350,8 @@
             } @else {
               top: 0;
             }
-          } @else if $vertical {
-            height: $width;
+          } @else {
+            height: $nav-size;
             left: 0;
             right: 0;
           }
@@ -294,14 +362,8 @@
       }
     }
   }
-  @if $nav-push {
-    @if $nav-outside {
-      @at-root {
-        input:checked ~ #{$nav} {
-          margin-#{$direction}: 0;
-        }
-      }
-    } @else {
+  @if index($nav-action, 'translate') {
+    @if not $nav-outside {
       input:checked ~ & #{$nav} {
         margin-#{$direction}: 0;
         @if $rotate {
@@ -338,7 +400,7 @@
         // push
         #{opposite($direction)}: 0;
         @if $overlay-push {
-          #{$direction}: $width;
+          #{$direction}: $nav-size;
         } @else {
           #{$direction}: 0;
         }
