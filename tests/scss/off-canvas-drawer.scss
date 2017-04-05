@@ -10,7 +10,7 @@ $map: (
   medium: 40px, 
   null: 70px
 );
-$drawer: drawer '.nav' rgba(#000, 0.1) 200px 0.5s submenu $map $bp;
+$drawer: drawer '.nav' 200px 0.5s submenu $map $bp;
 .drawer {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($drawer)}'; }

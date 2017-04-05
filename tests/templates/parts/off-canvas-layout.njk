@@ -32,17 +32,17 @@
 </head>
 <body>
 <input type="checkbox" name="" id="nav-toggle" class="hidden-checkbox">
-{% if belongTo(offcanvasMode, ['slide-along', 'slide-out', 'scale-down', 'scale-up', 'open-door', 'reveal']) %}
-  {% include './off-canvas-nav.njk' %}
-{% endif %}
+{# {% if belongTo(offcanvasMode, ['slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'reveal']) %} #}
+{% include './off-canvas-nav.njk' %}
+{# {% endif %} #}
 <div class="page {{ offcanvasMode }}">
   <div class="container">
     <header>
       <label for="nav-toggle" class="menu-icon"><span></span></label>
       <label for="nav-toggle" class="page-overlay"></label>
-      {% if belongTo(offcanvasMode, ['slide-in', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'push', 'drawer']) %}
+      {# {% if belongTo(offcanvasMode, ['slide-in', 'push', 'drawer']) %}
 	      {% include './off-canvas-nav.njk' %}
-      {% endif %}
+      {% endif %} #}
     </header>
     <div class="main">
       {# <p>Quia corporis architecto quae harum veritatis suscipit tenetur odio nisi voluptatem nam hic quasi dolorum ipsa inventore enim rem natus, illum modi dolor voluptates, aliquam libero. Cupiditate commodi est molestias?</p> #}

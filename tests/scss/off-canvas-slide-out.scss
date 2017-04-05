@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$slide-out: slide-out '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+$slide-out: slide-out '.nav' 200px 0.5s submenu;
 .slide-out {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($slide-out)}'; }

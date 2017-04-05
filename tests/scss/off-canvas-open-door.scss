@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$open-door: open-door '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+$open-door: open-door '.nav' 200px 0.5s submenu;
 .open-door {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($open-door)}'; }

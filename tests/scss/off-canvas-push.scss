@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$push: push '.nav' top rgba(#000, 0.1) 50px 0.5s submenu;
+$push: push '.nav' top 50px 0.5s submenu;
 .push {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($push)}'; }

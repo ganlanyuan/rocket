@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$rotate-in: rotate-in '.nav' rgba(#000, 0.1) 200px 0.5s submenu;
+$rotate-in: rotate-in '.nav' 200px 0.5s submenu;
 .rotate-in {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($rotate-in)}'; }

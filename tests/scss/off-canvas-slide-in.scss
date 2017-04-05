@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$slide-in: '.nav' rgba(#000, 0.1) 200px 0.5s submenu slide-in;
+$slide-in: '.nav' 200px 0.5s submenu slide-in;
 .slide-in {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($slide-in)}'; }
