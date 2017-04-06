@@ -21,19 +21,6 @@ let NAMES = {
   svgSprites: 'sprites.svg',
 };
 
-let dataDocs = requireUncached('./' + docsTemplates + 'code/data.json'),
-    dataTests = requireUncached('./' + testsTemplates + 'tree.json'),
-    isFn = function (type, obj) {
-      var clas = Object.prototype.toString.call(obj).slice(8, -1);
-      return obj !== undefined && obj !== null && clas === type;
-    },
-    keysFn = function (obj) {
-      return Object.keys(obj);
-    },
-    belongToFn = function (str, arr) {
-      return arr.indexOf(str) !== -1;
-    };
-
 function errorlog (error) {  
   console.error.bind(error);  
   this.emit('end');  
@@ -56,7 +43,7 @@ gulp.task('inject', function () {
           return file.contents.toString().replace('height:100%;width:100%', '');
         }
       }))
-      .pipe(gulp.dest(templates + 'partials'));
+      .pipe(gulp.dest(templates + 'parts'));
 });
 
 // Server & Watch Tasks
@@ -93,21 +80,34 @@ gulp.task('server', function() {
   // njk to html
   gulp.watch([docsTemplates + '**/*.njk', docsTemplates + 'code/*.json', testsTemplates + '**/*.njk'], function (e) {
     if (e.type !== 'deleted') {
-      let data, dest;
+      let src, data, dest, dir = path.dirname(e.path);
+
+      if (path.extname(e.path) === '.json') {
+        src = dir.replace('/code', '') + '/*.njk';
+      } else {
+        src = (dir.indexOf('parts') === -1) ? e.path : dir.replace('parts', '') + '*.njk';
+      }
 
       if (e.path.indexOf('docs/') !== -1) {
-        data = dataDocs;
+        data = requireUncached('./' + docsTemplates + 'code/data.json');
         dest = docs;
       } else {
-        data = dataTests;
+        data = requireUncached('./' + testsTemplates + 'tree.json');
         dest = tests;
       }
 
-      data.is = isFn;
-      data.keys = keysFn;
-      data.belongTo = belongToFn;
+      data.is = function (type, obj) {
+        var clas = Object.prototype.toString.call(obj).slice(8, -1);
+        return obj !== undefined && obj !== null && clas === type;
+      };
+      data.keys = function (obj) {
+        return Object.keys(obj);
+      };
+      data.belongTo = function (str, arr) {
+        return arr.indexOf(str) !== -1;
+      };
 
-      return gulp.src(e.path)
+      return gulp.src(src)
         .pipe($.plumber())
         .pipe($.nunjucks.compile(data, {
           watch: true,
@@ -156,7 +156,7 @@ gulp.task('server', function() {
         src = testsSyntax + 'tests.scss';
         dest = testsSyntax;
       } else {
-        src = e.path;
+        src = (name.indexOf('_') === -1) ? e.path : tests + 'scss/*.scss';
         dest = tests + 'css';
       }
 
