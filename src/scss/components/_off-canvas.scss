@@ -179,9 +179,6 @@
     }
   }
 
-  // IE8 fallback
-  .lt-ie9 input:checked ~ & { margin-#{$direction}: $nav-size; }
-
   // page over nav
   @if $page-over-nav {
     position: relative;
@@ -211,28 +208,32 @@
           top: 0;
         }
         bottom: 0;
-        overflow-x: hidden;
+        overflow-y: auto;
       } @else {
         height: $nav-size;
         left: 0;
         right: 0;
-        overflow-y: hidden;
+        overflow-x: auto;
       }
     }
     
     #{$nav} {
       @extend %nav-common;
       z-index: map-get($ro-off-canvas-z-index, 'nav');
-      @include ro-transition(unquote('transform #{$duration}'));
+      $nav-transition: ();
 
       @if index($nav-action, 'translate') {
-        $nav-transform-default: (unquote('translate#{$translate-shortcut}(#{$nav-translate-size})'));
-        $nav-transform-active: (unquote('translate#{$translate-shortcut}(0)'));
+        $nav-transition: append($nav-transition, unquote('margin #{$duration}'));
+        margin-#{$direction}: - $nav-size;
+        input:checked ~ & { margin-#{$direction}: 0; }
+        // $nav-transform-default: (unquote('translate#{$translate-shortcut}(#{$nav-translate-size})'));
+        // $nav-transform-active: (unquote('translate#{$translate-shortcut}(0)'));
       }
 
       @if index($nav-action, 'rotate') or index($nav-action, 'scale') {
         @include ro-transform-origin($nav-transform-origin);
         @include ro-transform-style(preserve-3d);
+        $nav-transition: append($nav-transition, unquote('transform #{$duration}'));
         
         @if index($nav-action, 'rotate') {
           $nav-transform-default: append($nav-transform-default, $nav-rotate-default, space);
@@ -245,15 +246,15 @@
         }
       }
 
+      @if length($nav-transition) != 0 {
+        @include ro-transition($nav-transition);
+      }
+
       @if length($nav-transform-default) != 0 {
         @include ro-transform($nav-transform-default);
         input:checked ~ & { @include ro-transform($nav-transform-active); }
       }
 
-      // IE8 fallback
-      .lt-ie9 & { margin-#{$direction}: - $nav-size; }
-      .lt-ie9 input:checked ~ & { margin-#{$direction}: 0; }
-      
       // submenu
       @if $submenu {
         [data-has-submenu] { 
@@ -264,18 +265,9 @@
           @extend %nav-common;
           @include ro-transition(transform #{$duration});
           @include ro-transform(unquote('translate#{$translate-shortcut}(#{$nav-translate-size})'));
-
-          // IE8 fallback
-          .lt-ie9 & { 
-            top: 0; // reset drawer
-            #{$direction}: - $nav-size; 
-          }
         }
         input:checked ~ [data-submenu] { 
           @include ro-transform(unquote('translate#{$translate-shortcut}(0)')); 
-
-          // IE8 fallback
-          .lt-ie9 & { #{$direction}: 0; }
         }
       }
     }
@@ -297,9 +289,6 @@
 
     background: $overlay-color;
     opacity: 0;
-
-    // IE8 fallback
-    .lt-ie9 & { display: none; }
 
     input:checked ~ & {
       right: 0;
