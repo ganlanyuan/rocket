@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$reveal: reveal '.nav' right 200px 0.5s submenu;
+$reveal: reveal '.nav' right submenu;
 .reveal {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($reveal)}'; }

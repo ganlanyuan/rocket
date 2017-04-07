@@ -67,7 +67,6 @@
   $nav-scale-default: $page-scale-active;
   $nav-scale-active: $page-scale-default;
   $nav-transform-default: ();
-  $nav-transform-active: ();
 
   $overlay: true;
   $overlay-action: false;
@@ -158,7 +157,8 @@
 
   // === page ===
   // page transition
-  @include ro-transition(unquote("transform #{$duration}"));
+  min-height: 100vh;
+  @include ro-transition(transform #{$duration});
 
   // page action
   @if $page-action == 'translate' {
@@ -183,7 +183,6 @@
   @if $page-over-nav {
     position: relative;
     z-index: map-get($ro-off-canvas-z-index, 'page');
-    min-height: 100vh;
   }
 
   // hide submenu on hide nav
@@ -220,39 +219,28 @@
     #{$nav} {
       @extend %nav-common;
       z-index: map-get($ro-off-canvas-z-index, 'nav');
-      $nav-transition: ();
+      @include ro-transition(transform #{$duration});
 
       @if index($nav-action, 'translate') {
-        $nav-transition: append($nav-transition, unquote('margin #{$duration}'));
-        margin-#{$direction}: - $nav-size;
-        input:checked ~ & { margin-#{$direction}: 0; }
-        // $nav-transform-default: (unquote('translate#{$translate-shortcut}(#{$nav-translate-size})'));
-        // $nav-transform-active: (unquote('translate#{$translate-shortcut}(0)'));
+        $nav-transform-default: (unquote('translate#{$translate-shortcut}(#{$nav-translate-size})'));
       }
 
       @if index($nav-action, 'rotate') or index($nav-action, 'scale') {
         @include ro-transform-origin($nav-transform-origin);
         @include ro-transform-style(preserve-3d);
-        $nav-transition: append($nav-transition, unquote('transform #{$duration}'));
         
         @if index($nav-action, 'rotate') {
           $nav-transform-default: append($nav-transform-default, $nav-rotate-default, space);
-          $nav-transform-active: append($nav-transform-active, $nav-rotate-active, space);
         }
 
         @if index($nav-action, 'scale') {
           $nav-transform-default: append($nav-transform-default, $nav-scale-default, space);
-          $nav-transform-active: append($nav-transform-active, $nav-scale-active, space);
         }
-      }
-
-      @if length($nav-transition) != 0 {
-        @include ro-transition($nav-transition);
       }
 
       @if length($nav-transform-default) != 0 {
         @include ro-transform($nav-transform-default);
-        input:checked ~ & { @include ro-transform($nav-transform-active); }
+        input:checked ~ & { @include ro-transform(none); }
       }
 
       // submenu
@@ -264,10 +252,10 @@
         [data-submenu] {
           @extend %nav-common;
           @include ro-transition(transform #{$duration});
-          @include ro-transform(unquote('translate#{$translate-shortcut}(#{$nav-translate-size})'));
+          @include ro-transform(unquote('translate#{$translate-shortcut}(#{- $page-translate-size})'));
         }
         input:checked ~ [data-submenu] { 
-          @include ro-transform(unquote('translate#{$translate-shortcut}(0)')); 
+          @include ro-transform(none); 
         }
       }
     }
@@ -279,7 +267,7 @@
 
   // === page-overlay ===
   .page-overlay {
-    @include ro-transition(unquote("opacity #{$duration}"));
+    @include ro-transition(opacity #{$duration});
     position: fixed;
     display: block;
     left: 0;

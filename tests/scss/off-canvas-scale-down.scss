@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$scale-down: scale-down '.nav' 200px 0.5s submenu;
+$scale-down: scale-down '.nav' submenu;
 .scale-down {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($scale-down)}'; }

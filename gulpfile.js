@@ -156,7 +156,8 @@ gulp.task('server', function() {
         src = testsSyntax + 'tests.scss';
         dest = testsSyntax;
       } else {
-        src = (name.indexOf('_') === -1) ? e.path : tests + 'scss/*.scss';
+        // src = (name.indexOf('_') === -1) ? e.path : tests + 'scss/*.scss';
+        src = e.path;
         dest = tests + 'css';
       }
 
