@@ -1,8 +1,8 @@
 @import 'off-canvas-base';
 
-$slide-in: '.nav' submenu slide-in;
+$slide-in: 'page' '.page' 'nav' '.nav' submenu slide-in 'inside';
+@include off-canvas($slide-in);
 .slide-in {
   @extend %demo-show;
   .code:before { content: '#{var-to-string($slide-in)}'; }
-  @include off-canvas($slide-in);
 }

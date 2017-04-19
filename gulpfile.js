@@ -165,7 +165,7 @@ gulp.task('server', function() {
         .pipe($.plumber())
         .pipe($.if(dev, $.sourcemaps.init()))
         .pipe($.sass({
-          outputStyle: 'compressed', 
+          outputStyle: 'expanded', 
           precision: 7
         }).on('error', $.sass.logError))  
         .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
