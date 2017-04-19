@@ -1,3 +1,0 @@
-.switch{text-align:center}.switch>input{position:absolute;left:-9999px}.switch>input ~ label{display:inline-block;height:1.875em;line-height:1.875em;transition:padding 0.3s, background 0.3s;background:#ddd;padding:.234375em 1.59375em .234375em .234375em;border-radius:1000px}.switch>input ~ label:after{content:'';display:inline-block;height:1.875em;background:#fff;width:1.875em;box-shadow:0 .234375em .234375em 0 rgba(0,0,0,0.2);border-radius:1000px}.switch>input:checked ~ label{padding:.234375em .234375em .234375em 1.59375em;background:red}
-
-/*# sourceMappingURL=../../sourcemaps/video/switch.css.map */
