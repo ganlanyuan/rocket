@@ -29,8 +29,8 @@ $ npm install rocket-sass --save
 ````
 
 # Docs
-[Guide](https://ganlanyuan.github.io/rocket/docs/guide.html)  
-[Docs](https://ganlanyuan.github.io/rocket/docs/docs.html)  
+[Guide](https://ganlanyuan.github.io/rocket.site/guide.html)  
+[Docs](https://ganlanyuan.github.io/rocket.site/docs.html)  
 
 # License
 This project is available under the MIT license.
