@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$open-door: open-door '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'open-door');
+@include off-canvas($off-canvas-options);
+
 .open-door {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($open-door)}'; }
-  @include off-canvas($open-door);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

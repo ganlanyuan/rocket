@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$reveal: reveal '.nav' right submenu;
+$off-canvas-options: append($off-canvas-options, 'reveal');
+@include off-canvas($off-canvas-options);
+
 .reveal {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($reveal)}'; }
-  @include off-canvas($reveal);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

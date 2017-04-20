@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$scale-up: scale-up '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'scale-up');
+@include off-canvas($off-canvas-options);
+
 .scale-up {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($scale-up)}'; }
-  @include off-canvas($scale-up);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

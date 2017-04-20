@@ -3,6 +3,8 @@
 @import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/off-canvas"; 
 
+$off-canvas-options: ('page' '.page' 'nav' '.nav' submenu);
+
 .container { max-width: 800px; }
 .has-bg { background-color: #000; }
 .hidden-checkbox {

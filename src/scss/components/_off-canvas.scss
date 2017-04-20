@@ -15,14 +15,11 @@
   $media-type: args-get($key, $ro-media-type);
 
   // get data
-  $nav: false;
   $map: false;
   $duration: 0.3s;
   $nav-size: 240px;
   @if type-of($key) == 'map' {
     $map: $key;
-  } @else if type-of($key) == 'string' {
-    @if index(('.', '#', '['), str-slice($key, 1, 1)) { $nav: $key; }
   } @else if type-of($key) == 'list' {
     @each $item in $key {
       @if type-of($item) == 'map' {
@@ -33,8 +30,6 @@
         } @else {
           $nav-size: $item;
         }
-      } @else if type-of($item) == 'string' {
-        @if index(('.', '#', '['), str-slice($item, 1, 1)) { $nav: $item; }
       }
     }
   }

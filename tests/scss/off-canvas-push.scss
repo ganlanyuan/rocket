@@ -1,10 +1,11 @@
 @import 'off-canvas-base';
 
-$push: push '.nav' top 50px 0.5s submenu;
+$off-canvas-options: join($off-canvas-options, ('push' top 50px));
+@include off-canvas($off-canvas-options);
+
 .push {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($push)}'; }
-  @include off-canvas($push);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }
 
 li { 

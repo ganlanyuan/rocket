@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$rotate-out: rotate-out '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'rotate-out');
+@include off-canvas($off-canvas-options);
+
 .rotate-out {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($rotate-out)}'; }
-  @include off-canvas($rotate-out);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$rotate-in-reverse: rotate-in-reverse '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'rotate-in-reverse');
+@include off-canvas($off-canvas-options);
+
 .rotate-in-reverse {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($rotate-in-reverse)}'; }
-  @include off-canvas($rotate-in-reverse);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

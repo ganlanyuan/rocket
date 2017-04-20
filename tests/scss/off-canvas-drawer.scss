@@ -10,9 +10,11 @@ $map: (
   medium: 40px, 
   null: 70px
 );
-$drawer: drawer '.nav' submenu $map $bp;
+$drawer: 'page' '.page' 'nav' '.nav' drawer submenu $map $bp;
+$off-canvas-options: join($off-canvas-options, ('drawer' $map $bp));
+@include off-canvas($off-canvas-options);
+
 .drawer {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($drawer)}'; }
-  @include off-canvas($drawer);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

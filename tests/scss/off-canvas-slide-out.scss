@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$slide-out: slide-out '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'slide-out');
+@include off-canvas($off-canvas-options);
+
 .slide-out {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($slide-out)}'; }
-  @include off-canvas($slide-out);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

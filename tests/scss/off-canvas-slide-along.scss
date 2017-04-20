@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$slide-along: slide-along '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'slide-along');
+@include off-canvas($off-canvas-options);
+
 .slide-along {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($slide-along)}'; }
-  @include off-canvas($slide-along);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }

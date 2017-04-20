@@ -1,8 +1,9 @@
 @import 'off-canvas-base';
 
-$rotate-in: rotate-in '.nav' submenu;
+$off-canvas-options: append($off-canvas-options, 'rotate-in');
+@include off-canvas($off-canvas-options);
+
 .rotate-in {
   @extend %demo-show;
-  .code:before { content: '#{var-to-string($rotate-in)}'; }
-  @include off-canvas($rotate-in);
+  .code:before { content: '#{var-to-string($off-canvas-options)}'; }
 }
