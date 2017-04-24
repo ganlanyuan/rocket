@@ -6,7 +6,7 @@
   $inside: args-get($key, 'inside');
   $page: args-get-next($key, 'page');
   $nav: args-get-next($key, 'nav');
-  $overlay-color: args-get-type($key, 'color', false, #000);
+  $overlay-color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.1));
 
   $global-bps: args-get-global-breakpoints($key);
   @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
@@ -280,9 +280,9 @@
     opacity: 0;
 
     input:checked ~ & {
-      right: 0;
       @if $mode == 'drawer' { @include nav-map(top, $map); } // set top value 
-      opacity: 0.1;
+      right: 0;
+      opacity: 1;
     }
   }
 
