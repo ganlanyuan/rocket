@@ -4,12 +4,7 @@
   $child: args-get-type($key, 'string', $check);
   
   // get selector
-  $selector: false;
-  @if $child {
-    $selector: '> #{$child}';
-  } @else if {
-    $selector: '> div, > section, > article';
-  }
+  $selector: if($child, '> #{$child}', '> *');
 
   // *** output *** //
   // 1. for Chrome 15-20, Safri 4-6
