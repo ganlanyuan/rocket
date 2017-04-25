@@ -14,7 +14,7 @@ $padding: '1em 2em';
    $style-highlight: $padding $color1 $color2 highlight;
       $style-simple: $padding $color1 simple;
        $style-slide: $padding $color1 $color2 slide;
-      $style-ripple: $padding $color1 $color2 '.active' ripple;
+      $style-ripple: $padding $color1 $color2 ':hover' ripple;
         $style-veil: $padding $color1 veil;
          $style-cut: $padding $color1 $color2 cut;
         $style-push: $padding $color1 push;
