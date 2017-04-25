@@ -11,8 +11,8 @@
   $active-selector: ':hover';
 
   $colors: ();
-  $color-1: #000;
-  $color-2: analogous($color-1 10%);
+  $color-1: null;
+  $color-2: null;
   @each $item in $key {
     @if type-of($item) == 'color' {
       $colors: append($colors, $item);
@@ -62,7 +62,7 @@
   @if $round {
     border-radius: $ro-button-round;
   }
-  @if not index(('simple' 'veil' 'line-drawing'), $style) {
+  @if $color-1 and not index(('simple' 'veil' 'line-drawing'), $style) {
     background: $color-1;
     color: contrast($color-1);
   }
