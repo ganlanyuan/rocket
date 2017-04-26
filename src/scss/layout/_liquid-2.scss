@@ -12,7 +12,7 @@
   $media-type: args-get($key, $ro-media-type);
 
   // strip unit when gutter == 0
-  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
+  $gutter: check-zero-value($gutter);
 
   // get data
   $data: args-get-liquid-data($key, 2);

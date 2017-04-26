@@ -29,8 +29,9 @@
 
   // if not valuable data found
   @if not $data { @error 'Parameters must include number or map.'; }
+  
   // strip unit when gutter == 0
-  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
+  $gutter: check-zero-value($gutter);
 
 
   @if type-of($data) == 'map' {
