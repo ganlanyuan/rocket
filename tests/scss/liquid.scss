@@ -1,6 +1,6 @@
 @import 'demo-base';
 @import "../../src/scss/addons/breakpoint"; 
-@import "../../src/scss/layout/liquid-2"; 
+@import "../../src/scss/layout/liquid"; 
 
 $liquid2-list: ('auto' 200px);
 $liquid2-order: ('auto': 2, 200px: 1);
@@ -23,60 +23,60 @@ $liquid2-global-breakpoints: (
 .liquid2-list {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-list)}'; }
-  > div { @include liquid-2($liquid2-list); }
+  > div { @include liquid($liquid2-list); }
 }
 .liquid2-order {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-order)}'; }
-  > div { @include liquid-2($liquid2-order); }
+  > div { @include liquid($liquid2-order); }
 }
 .liquid2-RTL {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-RTL)}'; }
-  > div { @include liquid-2($liquid2-RTL); }
+  > div { @include liquid($liquid2-RTL); }
 }
 .liquid2-child1 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-child1)}'; }
-  > div { @include liquid-2($liquid2-child1); }
+  > div { @include liquid($liquid2-child1); }
 }
 .liquid2-child2 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-child2)}'; }
-  > div { @include liquid-2($liquid2-child2); }
+  > div { @include liquid($liquid2-child2); }
 }
 .liquid2-gutter-0px {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-gutter-0px)}'; }
-  > div { @include liquid-2($liquid2-gutter-0px); }
+  > div { @include liquid($liquid2-gutter-0px); }
 }
 .liquid2-gutter-sameunit {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-gutter-sameunit)}'; }
-  > div { @include liquid-2($liquid2-gutter-sameunit); }
+  > div { @include liquid($liquid2-gutter-sameunit); }
 }
 .liquid2-gutter-percentage {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-gutter-percentage)}'; }
-  > div { @include liquid-2($liquid2-gutter-percentage); }
+  > div { @include liquid($liquid2-gutter-percentage); }
 }
 .liquid2-gutter-differentunit {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-gutter-differentunit)}'; }
-  > div { @include liquid-2($liquid2-gutter-differentunit); }
+  > div { @include liquid($liquid2-gutter-differentunit); }
 }
 .liquid2-breakpoint {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-breakpoint)}'; }
-  > div { @include liquid-2($liquid2-breakpoint); }
+  > div { @include liquid($liquid2-breakpoint); }
 }
 .liquid2-breakpoint-conditions {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-breakpoint-conditions)}'; }
-  > div { @include liquid-2($liquid2-breakpoint-conditions); }
+  > div { @include liquid($liquid2-breakpoint-conditions); }
 }
 .liquid2-global-breakpoints {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid2-global-breakpoints)}'; }
-  > div { @include liquid-2($liquid2-global-breakpoints); }
+  > div { @include liquid($liquid2-global-breakpoints); }
 }

@@ -1,0 +1,5 @@
+@mixin box-sizing ($key) {
+  -webkit-box-sizing: $key;
+  -moz-box-sizing: $key;
+  box-sizing: $key;
+}

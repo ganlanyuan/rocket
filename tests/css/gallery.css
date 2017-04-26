@@ -252,10 +252,10 @@ p {
 .num > ul > li {
   width: 100%;
   float: left;
+  padding: 0 20px 20px 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 20px 20px 0;
 }
 
 .num > ul > li {
@@ -322,10 +322,10 @@ p {
 .child > div > div {
   width: 100%;
   float: left;
+  padding: 0 20px 20px 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 20px 20px 0;
 }
 
 .child > div > div {
@@ -357,10 +357,10 @@ p {
 .direction > ul > li {
   width: 100%;
   float: right;
+  padding: 0 20px 20px 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 20px 20px 0;
 }
 
 .direction > ul > li {
@@ -399,10 +399,10 @@ p {
   vertical-align: top;
   text-rendering: auto;
   text-align: left;
+  padding: 0 20px 20px 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 20px 20px 0;
 }
 
 .center-align > ul > li {
@@ -462,10 +462,10 @@ p {
 .rem-gutter > ul > li {
   width: 100%;
   float: left;
+  padding: 0 2rem 2rem 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 2rem 2rem 0;
 }
 
 .rem-gutter > ul > li {
@@ -496,10 +496,10 @@ p {
   .map > ul > li {
     width: 100%;
     float: left;
+    padding: 0 20px 20px 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 0 20px 20px 0;
   }
   .map > ul > li {
     width: 33.3333333%;

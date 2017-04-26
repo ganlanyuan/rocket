@@ -116,6 +116,7 @@ p {
 .back-to-home {
   position: sticky;
   bottom: 0;
+  z-index: 100;
   margin-top: 100px;
   a {
     display: inline-block;

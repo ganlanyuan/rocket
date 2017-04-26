@@ -84,7 +84,6 @@
   } @else {
     @error 'Please match the units. You passed "#{$columns}".'
   }
-  $gutter-calc: if($gutter == 0, 0px, $gutter);
   $gutter-ie8: gutter-fallback($gutter, $column-unit);
 
   $child-list: ();
@@ -92,11 +91,11 @@
   @if type-of($child) == 'string' {
 
     $child-list: ('#{$child}:nth-child(1)', '#{$child}:nth-child(2)', '#{$child}:nth-child(3)');
-    $children-ie8: '.lt-ie9 #{&} > #{$child}';
+    $children-ie8: '#{&} > #{$child}';
   } @else if type-of($child) == 'list' and length($child) == 3 {
 
     $child-list: $child;
-    $children-ie8: '.lt-ie9 #{&} > #{nth($child, 1)}, .lt-ie9 #{&} > #{nth($child, 2)}, .lt-ie9 #{&} > #{nth($child, 3)}'
+    $children-ie8: '#{&} > #{nth($child, 1)}, #{&} > #{nth($child, 2)}, #{&} > #{nth($child, 3)}'
   } 
 
   $positions: get-position-from-order($order);
@@ -106,8 +105,8 @@
   }
 
   @at-root #{$children-ie8} {
-    box-sizing: border-box;
     position: relative;
+    @include box-sizing(border-box);
   }
 
   // flexible-column is on the left
@@ -117,40 +116,31 @@
       > #{nth($child-list, nth($positions, $i))} {
 
         @if ($i == 1) {
-          float: $float;
-          margin: get-TRBL(opposite($float) -100%);
           // float: left;
           // margin-right: -100%;
+          // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
+          float: $float;
+          margin: get-TRBL(opposite($float) -100%);
+          padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
-          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
-          width: calc(100% - #{nth($new-columns, 2)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
-
-          .lt-ie9 & {
-            padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
-            // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
-            z-index: 0;
-          }
+          z-index: 0;
 
         } @else {
+          // float: right;
           float: opposite($float);
           width: nth($new-columns, $i);
-          // float: right;
+          padding: 0; 
+          z-index: 1;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float -100%);
-            margin: get-TRBL(opposite($float) calc(#{nth($new-columns, 3)} + #{$gutter}) $float -100%);
             // margin-left: -100%;
             // margin-right: (nth($new-columns, 3) + $gutter);
+            margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float -100%);
           } @else {
-            margin: get-TRBL($float -100%);
             // margin-left: -100%;
+            margin: get-TRBL($float -100%);
           }
 
-          .lt-ie9 & { 
-            padding: 0; 
-            z-index: 1;
-          }
         }
       }
     }
@@ -162,48 +152,34 @@
       > #{nth($child-list, nth($positions, $i))} {
 
         @if ($i == 3) {
+          // float: right;
+          // margin-left: -100%;
           float: opposite($float);
           width: nth($new-columns, $i);
           margin: get-TRBL($float -100%);
-          // float: right;
-          // margin-left: -100%;
-
-          .lt-ie9 & { 
-            padding: 0; 
-            z-index: 1;
-          }
+          padding: 0; 
+          z-index: 1;
 
         } @else {
-          float: $float;
           // float: left;
+          float: $float;
 
           @if $i == 2 {
-            width: 100%;
-            width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
-            width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
-            width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 3)} - #{$gutter-calc * 2});
-            margin: get-TRBL(opposite($float) -100% $float calc(#{nth($new-columns, 1)} + #{$gutter}));
-            // margin-left: #{(nth($new-columns, 1) + $gutter)};
+            // padding-left: #{(nth($new-columns, 1) + $gutter)};
+            // padding-right: #{(nth($new-columns, 3) + $gutter)};
             // margin-right: -100%;
-
-            .lt-ie9 & {
-              padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float (nth($new-columns, 1) + $gutter-ie8));
-              // padding-left: #{(nth($new-columns, 1) + $gutter)};
-              // padding-right: #{(nth($new-columns, 3) + $gutter)};
-              margin: get-TRBL(opposite($float) -100%);
-              // margin-right: -100%;
-              z-index: 0;
-            }
+            // margin-left: #{(nth($new-columns, 1) + $gutter)};
+            width: 100%;
+            padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float (nth($new-columns, 1) + $gutter-ie8));
+            margin: get-TRBL(opposite($float) -100%);
+            z-index: 0;
 
           } @else {
+            // margin-right: -100%;
             width: nth($new-columns, $i);
             margin: get-TRBL(opposite($float) -100%);
-            // margin-right: -100%;
-
-            .lt-ie9 & { 
-              padding: 0; 
-              z-index: 1;
-            }
+            padding: 0; 
+            z-index: 1;
           }
         }
       }
@@ -216,47 +192,34 @@
       > #{nth($child-list, nth($positions, $i))} {
 
         @if ($i == 3) {
-          float: opposite($float);
-          margin: get-TRBL($float -100%);
           // float: right;
           // margin-left: -100%;
+          // padding-left: (nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2);
+          float: opposite($float);
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter-calc * 2});
-          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter-calc * 2});
-          width: calc(100% - #{nth($new-columns, 1)} - #{nth($new-columns, 2)} - #{$gutter-calc * 2});
-          
-          .lt-ie9 & {
-            padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));
-            // padding-left: (nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2);
-            z-index: 0;
-          }
+          margin: get-TRBL($float -100%);
+          padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));
+          z-index: 0;
 
         } @else {
+          // float: left;
           float: $float;
           width: nth($new-columns, $i);
-          // float: left;
+          padding: 0; 
+          z-index: 1;
 
           @if $i == 2 {
-            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
-            margin: get-TRBL(opposite($float) -100% $float calc(#{nth($new-columns, 1)} + #{$gutter}));
             // margin-left: #{(nth($new-columns, 1) + $gutter)};
             // margin-right: -100%;
+            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
           } @else {
-            margin: get-TRBL(opposite($float) -100%);
             // margin-right: -100%;
+            margin: get-TRBL(opposite($float) -100%);
           }
 
-          .lt-ie9 & { 
-            padding: 0; 
-            z-index: 1;
-          }
         }
       }
     }
   }
 
-}
-
-@mixin liquid-3($key) {
-  @include holy-grail($key);
 }

@@ -1,4 +1,4 @@
-@mixin liquid-2($key){
+@mixin liquid($key){
   $columns: false;
   $order: false; 
   $child: args-get-next($key, 'child', 'div');
@@ -27,13 +27,13 @@
     @if length(nth(map-keys($data), 1)) == 2 {
       $columns: nth(map-keys($data), 1);
       $order: nth(map-values($data), 1);
-      @include make-liquid-2($columns, $order, $child, $gutter, $float);
+      @include make-liquid($columns, $order, $child, $gutter, $float);
 
     // ('auto' : 2, 200px : 1)
     } @else if is-simple-map($data) {
       $columns: map-keys($data);
       $order: map-values($data);
-      @include make-liquid-2($columns, $order, $child, $gutter, $float);
+      @include make-liquid($columns, $order, $child, $gutter, $float);
 
     // complex map, with media querys
     } @else {
@@ -52,10 +52,10 @@
         }
 
         @if $bp == 'default' or $bp == null {
-          @include make-liquid-2($columns, $order, $child, $gutter, $float);
+          @include make-liquid($columns, $order, $child, $gutter, $float);
         } @else {
           @include bp($condition $media-type $bp) {
-            @include make-liquid-2($columns, $order, $child, $gutter, $float);
+            @include make-liquid($columns, $order, $child, $gutter, $float);
           }
         }
       }
@@ -66,12 +66,12 @@
     $columns: $data;
     $order: (1, 2);
 
-    @include make-liquid-2($columns, $order, $child, $gutter, $float);
+    @include make-liquid($columns, $order, $child, $gutter, $float);
   }
 
 }
 
-@mixin make-liquid-2($columns, $order, $child, $gutter, $float) {
+@mixin make-liquid($columns, $order, $child, $gutter, $float) {
   $column-unit: if(nth($columns, 1) == null or nth($columns, 1) == 'auto',
     unit(nth($columns, 2)),
     unit(nth($columns, 1))
@@ -94,65 +94,45 @@
 
   // flexible-column is on the left
   @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
-
-    .lt-ie9 & {
-      padding: get-TRBL(opposite($float) (nth($new-columns, 2) + $gutter-ie8));
-      // padding-right: (nth($new-columns, 2) + $gutter);
-      box-sizing: border-box;
-    }
+    // padding-right: (nth($new-columns, 2) + $gutter);
+    padding: get-TRBL(opposite($float) (nth($new-columns, 2) + $gutter-ie8));
+    @include box-sizing(border-box);
 
     @for $i from 1 through length($new-columns) {
-
       > #{nth($child-list, nth($positions, $i))} {
         @if $i == 1 {
-          float: $float;
           // float: left;
+          float: $float;
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 2)} - #{$gutter-calc});
-          width: -moz-calc(100% - #{nth($new-columns, 2)} - #{$gutter-calc});
-          width: calc(100% - #{nth($new-columns, 2)} - #{$gutter-calc});
         } @else {
+          // float: right;
+          // margin-right: (- (nth($new-columns, 2) + $gutter));
           float: opposite($float);
           width: nth($new-columns, 2);
-          // float: right;
-
-          .lt-ie9 & {
-            margin: get-TRBL(opposite($float) (- (nth($new-columns, 2) + $gutter-ie8)));
-            // margin-right: (- (nth($new-columns, 2) + $gutter));
-          }
+          margin: get-TRBL(opposite($float) (- (nth($new-columns, 2) + $gutter-ie8)));
         }
       }
     }
 
   // flexible-column is on the right
   } @else {
-
-    .lt-ie9 & {
-      padding: get-TRBL($float (nth($new-columns, 1) + $gutter-ie8));
-      // padding-left: (nth($new-columns, 1) + $gutter);
-      box-sizing: border-box;
-    }
+    // padding-left: (nth($new-columns, 1) + $gutter);
+    padding: get-TRBL($float (nth($new-columns, 1) + $gutter-ie8));
+    @include box-sizing(border-box);
 
     @for $i from 1 through length($new-columns) {
-
       > #{nth($child-list, nth($positions, $i))} {
         @if $i == 1 {
+          // float: left;
+          // margin-left: (- (nth($new-columns, 1) + $gutter));
           float: $float;
           width: nth($new-columns, 1);
-          // float: left;
-
-          .lt-ie9 & {
-            margin: get-TRBL($float (- (nth($new-columns, 1) + $gutter-ie8)));
-            // margin-left: (- (nth($new-columns, 1) + $gutter));
-          }
+          margin: get-TRBL($float (- (nth($new-columns, 1) + $gutter-ie8)));
 
         } @else {
-          float: opposite($float);
           // float: right;
+          float: opposite($float);
           width: 100%;
-          width: -webkit-calc(100% - #{nth($new-columns, 1)} - #{$gutter-calc});
-          width: -moz-calc(100% - #{nth($new-columns, 1)} - #{$gutter-calc});
-          width: calc(100% - #{nth($new-columns, 1)} - #{$gutter-calc});
         }
       }
     }

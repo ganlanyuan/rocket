@@ -41,28 +41,6 @@
   // if not valuable data found
   @if not $data { @error 'Parameters must include list or map.'; }
 
-  // 1. Modern browser:
-  //    gutter: flex/space-between
-  //    order: flex/order
-  //    direction: flex/row-reverse
-
-  //   1-1. percentage gutter
-  //        width: %
-
-  //   1-2. gutter with other units
-  //        width: calc()
-
-  // 2. IE9-:
-  //    width: %
-  //    direction: float
-  //    order: margin/float, -100% margin/opposite-float
-
-  //   2-1. percentage gutter
-  //        gutter: no set
-
-  //   2-2. gutter with other units
-  //        gutter: minus margin of the container element, padding of child elements
-
   // has breakpoints
   @if grid-has-breakpoints($data) {
     
@@ -88,9 +66,6 @@
             $keep: true;
           }
 
-          // reset order
-          // * only needed within media query condition
-          > #{$child}:nth-child(n) { @include ro-order(0); }
           @include divide-rows(map-get($data, $bp), $gutter, $child, $float);
         }
       }
@@ -103,35 +78,33 @@
   }
 }
 
-@mixin grid-base($child, $float, $gutter){
-  // 1. Modern browser:
-  // flex/space-between
-  @include ro-flexbox; 
-  @include ro-flex-wrap(wrap);
-  @include ro-justify-content(space-between);
-  // change direction
-  @if $float == right {
-    @include ro-flex-direction(row-reverse);
-  }
+//  width: %
+//  direction: float
+//  order: margin/float, -100% margin/opposite-float
 
+//  2-1. percentage gutter
+//     gutter: no set
+
+//  2-2. gutter with other units
+//     gutter: minus margin of the container element, padding of child elements
+
+@mixin grid-base($child, $float, $gutter){
   // default 100% width
   > #{$child} { width: 100%; }
 
-  // 2. IE9-:
-  .lt-ie10 & {
-    @include clearfix();
-    // gutter: px | em | rem | vw
-    @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
+  @include clearfix();
+  // gutter: px | em | rem | vw
+  @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
 
-    > #{$child} {
-      float: $float;
-      clear: both; // default: single column
-      margin-#{opposite($float)}: -100%; // each column is isolated with each other
-      // gutter: px | em | rem | vw
-      @if $gutter != 0 and unit($gutter) != '%' {
-        padding-#{opposite($float)}: $gutter;
-        box-sizing: border-box;
-      }
+  > #{$child} {
+    float: $float;
+    clear: both; // default: single column
+    margin-#{opposite($float)}: -100%; // each column is isolated with each other
+
+    // gutter: px | em | rem | vw
+    @if $gutter != 0 and unit($gutter) != '%' {
+      padding-#{opposite($float)}: $gutter;
+      @include box-sizing(border-box);
     }
   }
 }
@@ -144,7 +117,7 @@
   $max-order: false;
   
   // reset clear
-  .lt-ie10 & > #{$child}:nth-child(n) { clear: none; };
+  > #{$child}:nth-child(n) { clear: none; };
 
   // many rows
   @if is-nested-list($value) {
@@ -160,7 +133,7 @@
       @if $columns { 
         $list-length: ($list-length + length($columns)); 
         // clear float on the first column of a new row
-        .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
+        > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
       }
 
       // get max-order
@@ -204,50 +177,24 @@
 
 
     > #{$child}:nth-child(#{$i + $list-length}) {
-      // order
-      @if $orders or $max-order {
-        @if $orders { 
-          @if $max-order {
-            @include ro-order((nth($orders, $i) + $max-order)); 
-          } @else {
-            @include ro-order(nth($orders, $i)); 
-          }
-        } @else {
-          @include ro-order($max-order);
-        }
-      }
-
-      // gutter: %
       @if unit($gutter) == '%' or $gutter == 0 {
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
-
-      // gutter: px | em | rem | vw
       } @else {
-        // 1. Add calc support for chrome back to 19+.
-        // 2. No need to add -moz- because firefox already support css-calc form 28+ while it full supports flexbox.
-        width: -webkit-calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});
-        width: calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});
+        width: percentage(nth($cols, $i) / $full-col);
       }
 
-      .lt-ie10 & {
-        // gutter: px | em | rem | vw
-        @if $gutter != 0 and unit($gutter) != '%' { width: percentage(nth($cols, $i) / $full-col); }
+      @if $location == 1 {
+        margin-#{$float}: 0;
+      } @else {
+        $val: 0;
+        @for $j from 1 to $location {
+          $val: ($val + nth($cols, nth($new-orders, $j)));
+        }
 
-        @if $location == 1 {
-          margin-#{$float}: 0;
+        @if unit($gutter) == '%' or $gutter == 0 {
+          margin-#{$float}: ((100% + $gutter) * $val / $full-col);
         } @else {
-          $val: 0;
-          @for $j from 1 to $location {
-            $val: ($val + nth($cols, nth($new-orders, $j)));
-          }
-
-          // gutter: %
-          @if unit($gutter) == '%' or $gutter == 0 {
-            margin-#{$float}: ((100% + $gutter) * $val / $full-col);
-          // gutter: px | em | rem | vw
-          } @else {
-            margin-#{$float}: percentage($val / $full-col);
-          }
+          margin-#{$float}: percentage($val / $full-col);
         }
       }
     }

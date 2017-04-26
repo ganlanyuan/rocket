@@ -1,6 +1,6 @@
 @import 'demo-base';
 @import "../../src/scss/addons/breakpoint"; 
-@import "../../src/scss/layout/liquid-3"; 
+@import "../../src/scss/layout/holy-grail"; 
 
 $liquid3-list1: ('auto' 100px 250px);
 $liquid3-list2: (100px 'auto' 250px);
@@ -27,80 +27,80 @@ $liquid3-global-breakpoints: (
 .liquid3-list1 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-list1)}'; }
-  > div { @include liquid-3($liquid3-list1); }
+  > div { @include holy-grail($liquid3-list1); }
 }
 .liquid3-list2 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-list2)}'; }
-  > div { @include liquid-3($liquid3-list2); }
+  > div { @include holy-grail($liquid3-list2); }
 }
 .liquid3-list3 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-list3)}'; }
-  > div { @include liquid-3($liquid3-list3); }
+  > div { @include holy-grail($liquid3-list3); }
 }
 .liquid3-order1 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-order1)}'; }
-  > div { @include liquid-3($liquid3-order1); }
+  > div { @include holy-grail($liquid3-order1); }
 }
 .liquid3-order2 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-order2)}'; }
-  > div { @include liquid-3($liquid3-order2); }
+  > div { @include holy-grail($liquid3-order2); }
 }
 .liquid3-order3 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-order3)}'; }
-  > div { @include liquid-3($liquid3-order3); }
+  > div { @include holy-grail($liquid3-order3); }
 }
 .liquid3-RTL {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-RTL)}'; }
-  > div { @include liquid-3($liquid3-RTL); }
+  > div { @include holy-grail($liquid3-RTL); }
 }
 .liquid3-child1 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-child1)}'; }
-  > div { @include liquid-3($liquid3-child1); }
+  > div { @include holy-grail($liquid3-child1); }
 }
 .liquid3-child2 {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-child2)}'; }
-  > div { @include liquid-3($liquid3-child2); }
+  > div { @include holy-grail($liquid3-child2); }
 }
 .liquid3-gutter-0px {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-gutter-0px)}'; }
-  > div { @include liquid-3($liquid3-gutter-0px); }
+  > div { @include holy-grail($liquid3-gutter-0px); }
 }
 .liquid3-gutter-sameunit {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-gutter-sameunit)}'; }
-  > div { @include liquid-3($liquid3-gutter-sameunit); }
+  > div { @include holy-grail($liquid3-gutter-sameunit); }
 }
 .liquid3-gutter-percentage {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-gutter-percentage)}'; }
-  > div { @include liquid-3($liquid3-gutter-percentage); }
+  > div { @include holy-grail($liquid3-gutter-percentage); }
 }
 .liquid3-gutter-differentunit {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-gutter-differentunit)}'; }
-  > div { @include liquid-3($liquid3-gutter-differentunit); }
+  > div { @include holy-grail($liquid3-gutter-differentunit); }
 }
 .liquid3-breakpoint {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-breakpoint)}'; }
-  > div { @include liquid-3($liquid3-breakpoint); }
+  > div { @include holy-grail($liquid3-breakpoint); }
 }
 .liquid3-breakpoint-conditions {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-breakpoint-conditions)}'; }
-  > div { @include liquid-3($liquid3-breakpoint-conditions); }
+  > div { @include holy-grail($liquid3-breakpoint-conditions); }
 }
 .liquid3-global-breakpoints {
   @extend %demo-show;
   &:before { content: '#{var-to-string($liquid3-global-breakpoints)}'; }
-  > div { @include liquid-3($liquid3-global-breakpoints); }
+  > div { @include holy-grail($liquid3-global-breakpoints); }
 }
