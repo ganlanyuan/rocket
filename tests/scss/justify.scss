@@ -4,6 +4,7 @@
 
 .example-justify {
   @include justify();
+  
   li {
     font-size: 13px;
     text-transform: uppercase;
@@ -21,4 +22,3 @@
     &:focus { width: 250px; }
   }
 }
-

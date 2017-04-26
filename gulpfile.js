@@ -114,7 +114,7 @@ gulp.task('server', function() {
           noCache: true,
         }))
         .pipe($.rename(function (path) { path.extname = ".html"; }))
-        .pipe($.if(dev, $.htmltidy({
+        .pipe($.htmltidy({
           doctype: 'html5',
           wrap: 0,
           hideComments: false,
@@ -122,15 +122,7 @@ gulp.task('server', function() {
           'indent-attributes': false,
           'drop-empty-elements': false,
           'force-output': true
-        }), $.htmlmin({
-          collapseWhitespace: true,
-          collapseInlineTagWhitespace: true,
-          collapseBooleanAttributes: true,
-          decodeEntities: true,
-          minifyCSS: true,
-          minifyJs: true,
-          removeComments: false,
-        })))
+        }))
         .pipe(gulp.dest(dest));
     }
   });

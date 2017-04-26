@@ -10,36 +10,13 @@
     $selector: '> li, > div, > span';
   }
 
-  // *** output *** //
-  // 1. for Chrome 15-20, Safri 4-6
-  // 2. for Firefox 3.6-21
-  // 3. for IE 10
-  // 4. for IE 8-9
-
-  @include ro-flexbox;
-  // @include ro-justify-content(space-between);
-  -webkit-box-pack: justify; // 1
-     -moz-box-pack: justify; // 2
-     -ms-flex-pack: justify; // 3
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
-          
-  // 2
-  width: 100%;
-  #{$selector} { -moz-box-flex: 1; }
-
-  // 4
-  .lt-ie10 & {
-    text-align: justify;
-    line-height: 0;
-    &:after {
-      content: "";
-      width: 100%;
-      display: inline-block;
-    }
-    #{$selector} {
-      line-height: 1;
-      display: inline-block;
-    }
+  text-align: justify;
+  #{$selector} {
+    display: inline-block;
+  }
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
   }
 }

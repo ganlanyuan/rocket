@@ -2,42 +2,26 @@
 @mixin center($key: false){
   $check: (left right center 'child');
   $child: args-get-type($key, 'string', $check);
+  $align: args-get($key, (left right center), left);
   
   // get selector
   $selector: if($child, '> #{$child}', '> *');
 
-  // *** output *** //
-  // 1. for Chrome 15-20, Safri 4-6
-  // 2. for Firefox 3.6-21
-  // 3. for IE 10
-  // 4. for IE 8-9
-
-  @include ro-flexbox;
-   -webkit-box-pack: center; // 1
-  -webkit-box-align: center; // 1
-      -moz-box-pack: center; // 2
-     -moz-box-align: center; // 2
-     -ms-flex-align: center; // 3
-  width: 100%; // 2
-
-  #{$selector} { margin: auto; } // for modern browsers
-
-  // 4
-  .lt-ie10 & {
-    text-align: center; 
-    white-space: nowrap;
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-      margin-right: -.25em; // adjusts for spacing
-    }
-    #{$selector} {
-      display: inline-block;
-      vertical-align: middle;
-      white-space: normal;
-      text-align: left;
+  text-align: center; 
+  white-space: nowrap;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -.25em; // adjusts for spacing
+  }
+  #{$selector} {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    @if $align != center {
+      text-align: $align;
     }
   }
 }
