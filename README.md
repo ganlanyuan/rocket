@@ -5,8 +5,10 @@ Rocket is a powerful Sass framework with many common used components and utility
 Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
 
 #### What's new in version 4
-- Simplify layout mixins (remove flex-box, IE8 classes). 
-- Add acceessibility support.
+- Simplify layout mixins (remove flex-box, IE8 classes).  
+- Rename `liquid-2` to `liquid`, `liquid-3` to `holy-grail`.
+- Remove CSS sliders (`slider-carousel`, `slider-gallery`).
+<!-- - Add acceessibility support. -->
 - Remove kit.js.
 - Drop IE8 support.
 
