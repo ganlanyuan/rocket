@@ -2,26 +2,29 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/holy-grail"; 
 
-$liquid3-list1: ('auto' 100px 250px);
-$liquid3-list2: (100px 'auto' 250px);
-$liquid3-list3: (100px 250px 'auto');
-$liquid3-order1: (100px:2, 'auto':0, 250px:0);
-$liquid3-order2: (100px:2, 'auto':1, 250px:0);
-$liquid3-order3: (100px:2, 'auto':3, 250px:2);
-$liquid3-RTL: ('auto' 100px 250px) RTL;
-$liquid3-child1: (('auto' 100px 250px) child '.child');
-$liquid3-child2: ((100px 'auto' 250px) child (nav main aside));
-$liquid3-gutter-0px: (('auto' 100px 250px) gutter 0px);
-$liquid3-gutter-sameunit: (('auto' 100px 250px) gutter 40px);
-$liquid3-gutter-percentage: (('auto' 100px 250px) gutter 3%);
-$liquid3-gutter-differentunit: (('auto' 100px 250px) gutter 3rem);
-$liquid3-breakpoint: (900px: (100px:2, 'auto':0, 250px:0));
-$liquid3-breakpoint-conditions: (900px: (100px:2, 'auto':1, 250px:0)) max screen;
+$liquid3-list1: (layout: ('auto' 100px 250px));
+$liquid3-list2: (layout: (100px 'auto' 250px));
+$liquid3-list3: (layout: (100px 250px 'auto'));
+$liquid3-order1: (layout: (100px:2, 'auto':0, 250px:0));
+$liquid3-order2: (layout: (100px:2, 'auto':1, 250px:0));
+$liquid3-order3: (layout: (100px:2, 'auto':3, 250px:2));
+$liquid3-RTL: (layout: ('auto' 100px 250px), direction: 'RTL');
+$liquid3-child1: (layout: ('auto' 100px 250px), child: '.child');
+$liquid3-child2: (layout: (100px 'auto' 250px), child: ('nav' 'main' 'aside'));
+$liquid3-gutter-0px: (layout: ('auto' 100px 250px), gutter: 0px);
+$liquid3-gutter-sameunit: (layout: ('auto' 100px 250px), gutter: 40px);
+$liquid3-gutter-percentage: (layout: ('auto' 100px 250px), gutter: 3%);
+$liquid3-gutter-differentunit: (layout: ('auto' 100px 250px), gutter: 3rem);
+$liquid3-breakpoint: (layout: (900px: (100px:2, 'auto':0, 250px:0)));
+$liquid3-breakpoint-conditions: (layout: (900px: (100px:2, 'auto':1, 250px:0)), condition: 'max', media: 'screen');
 $liquid3-global-breakpoints: (
-  'default': (100px:2, 'auto':1, 250px:0),
-  'sm': (100px:0, 'auto':1, 250px:2),
-  'lg': (100px:2, 'auto':1, 250px:0),
-) $global-bps;
+  layout: (
+    'default': (100px:2, 'auto':1, 250px:0),
+    'sm': (100px:0, 'auto':1, 250px:2),
+    'lg': (100px:2, 'auto':1, 250px:0),
+  ), 
+  breakpoints: $global-bps
+);
 
 
 .liquid3-list1 {

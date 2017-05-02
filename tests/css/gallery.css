@@ -82,6 +82,7 @@ p {
 .back-to-home {
   position: sticky;
   bottom: 0;
+  z-index: 100;
   margin-top: 100px;
 }
 
@@ -236,7 +237,7 @@ p {
 }
 
 .num:before {
-  content: "3";
+  content: "( layout :  3  )";
 }
 
 .num > ul {
@@ -271,7 +272,7 @@ p {
 }
 
 .num-0px:before {
-  content: '(  3  "gutter"  0px  )';
+  content: "( layout :  3 , gutter :  0px  )";
 }
 
 .num-0px > ul:after {
@@ -306,7 +307,7 @@ p {
 }
 
 .child:before {
-  content: '(  4  "child"  "div"  )';
+  content: "( layout :  4 , child :  div  )";
 }
 
 .child > div {
@@ -341,7 +342,7 @@ p {
 }
 
 .direction:before {
-  content: '(  4  "RTL"  )';
+  content: "( layout :  4 , direction :  RTL  )";
 }
 
 .direction > ul {
@@ -376,7 +377,7 @@ p {
 }
 
 .center-align:before {
-  content: '(  3  "center-align"  )';
+  content: "( layout :  3 , center-align :  true  )";
 }
 
 .center-align > ul {
@@ -410,7 +411,7 @@ p {
 }
 
 .percentage-gutter:before {
-  content: '(  4  "gutter"  5%  )';
+  content: "( layout :  4 , gutter :  5%  )";
 }
 
 .percentage-gutter > ul:after {
@@ -446,7 +447,7 @@ p {
 }
 
 .rem-gutter:before {
-  content: '(  5  "gutter"  2rem  )';
+  content: "( layout :  5 , gutter :  2rem  )";
 }
 
 .rem-gutter > ul {
@@ -481,7 +482,7 @@ p {
 }
 
 .map:before {
-  content: "( dafault :  2 , 600px :  3 , 900px :  4  )";
+  content: "( layout : ( dafault :  2 , 600px :  3 , 900px :  4  ) )";
 }
 
 @media (min-width: 37.5em) {

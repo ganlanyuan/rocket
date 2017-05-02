@@ -1,34 +1,13 @@
-@mixin container($key: false){
-  $container: false;
-  $breakpoint: false;
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $align: args-get($key, (left right center), center);
+@mixin container($key: (container: map-get($ro-layout, 'container')) ){
 
-  // get container & gutter
-  @if type-of($key) == 'number' {
-    $container: $key;
-  } @else if type-of($key) == list {
-    @if index($key, 'gutter') {
-      $key: list-remove($key, $gutter);
-    }
-    @each $item in $key {
-      @if type-of($item) == 'number'{
-        @if not $container {
-          $container: $item;
-        } @else {
-          $gutter: $item;
-        }
-      } 
-    }
-  }
-  @if not $container { $container: map-get($ro-layout, container); }
+  $container: if(map-get($key, 'container'), map-get($key, 'container'), map-get($ro-layout, 'container'));
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
+  $align: if(map-get($key, 'align'), map-get($key, 'align'), 'center');
 
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
 
-  // *** output *** //
   @extend %clearfix;
-
   // pecentage container: 80%
   @if unit($container) == '%' {
     padding: 0 ((100% - $container) / 2);

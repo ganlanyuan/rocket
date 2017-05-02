@@ -1,52 +1,40 @@
 // *** angled-edges *** //
 @mixin angled-edges ($key) {
-  $edges: args-get($key, $ro-angled-edges, 'bottom');
-  $flip: args-get($key, 'flip');
+  @include check-arg-type($key, 'map');
+
+  $color: map-get($key, 'color');
+  $angle: map-get($key, 'angle');
+  $color1: if(length($color) >= 1, nth($color, 1), #fff);
+  $color2: if(length($color) >= 2, nth($color, 2), #fff);
+  $angle1: false;
+  $angle2: false;
+  $edge: if(map-get($key, 'edge'), map-get($key, 'edge'), 'bottom');
+  $flip: map-get($key, 'flip');
   $view: 1800px;
 
   // set selector
   $selector: '&:before, &:after';
-  @if $edges == 'top' {
+  @if $edge == 'top' {
     $selector: '&:before';
-  } @else if $edges == 'bottom' {
+  } @else if $edge == 'bottom' {
     $selector: '&:after';
   }
 
-  // set colors & angles
-  $color1: false;
-  $color2: false;
-  $angle: false;
-  $angle2: false;
-  @if type-of($key) == 'list' {
-    @each $item in $key {
-      // colors
-      @if type-of($item) == 'color' {
-        @if not $color1 {
-          $color1: $item;
-          $color2: $item;
-        } @else {
-          $color2: $item;
-        }
-      }
-
-      // angles
+  // angles
+  @if $angle {
+    @each $item in $angle {
       @if type-of($item) == 'number' and unit($item) == 'deg' {
-        @if not $angle {
-          $angle: $item;
-          $angle2: $item;
+        @if not $angle1 {
+          $angle1: $item;
         } @else {
           $angle2: $item;
         }
       }
     }
   }
-  @if not $color1 {$color1: #fff; }
-  @if not $color2 {$color2: #fff; }
-  @if not $angle { $angle: 5deg; }
-  @if not $angle2 { 
-    $angle2: $angle; 
-    @if $flip { $angle2: - $angle; }
-  }
+  @if not $angle1 { $angle1: 5deg; }
+  @if not $angle2 { $angle2: $angle1; }
+  @if $flip { $angle2: - $angle1; }
 
   // *** output *** //
   position: relative;
@@ -60,16 +48,16 @@
     border: 0px solid transparent;
   }
 
-  @if $edges == 'top' or $edges == 'bottom' {
+  @if $edge == 'top' or $edge == 'bottom' {
     $dir: right;
-    @if $edges == 'bottom' { $dir: left; }
+    @if $edge == 'bottom' { $dir: left; }
 
-    padding-#{$edges}: edge-tan($angle, 100%);
+    padding-#{$edge}: edge-tan($angle1, 100%);
     #{$selector} {
-      #{$edges}: 0;
-      border-#{$edges}: edge-tan($angle, $view) solid $color1;
+      #{$edge}: 0;
+      border-#{$edge}: edge-tan($angle1, $view) solid $color1;
 
-      @if strip-unit($angle) < 0 {
+      @if strip-unit($angle1) < 0 {
         #{$dir}: 0;
         border-#{$dir}-width: $view;
       } @else {
@@ -77,14 +65,14 @@
         border-#{opposite($dir)}-width: $view;
       }
     }
-  } @else if $edges == 'both' {
-    padding-top: edge-tan($angle, 100%);
+  } @else if $edge == 'both' {
+    padding-top: edge-tan($angle1, 100%);
     padding-bottom: edge-tan($angle2, 100%);
     &:before {
       top: 0;
-      border-top: edge-tan($angle, $view) solid $color1;
+      border-top: edge-tan($angle1, $view) solid $color1;
 
-      @if strip-unit($angle) < 0 {
+      @if strip-unit($angle1) < 0 {
         right: 0;
         border-right-width: $view;
       } @else {
@@ -108,6 +96,6 @@
 
 }
 
-@function edge-tan($angle, $width) {
-  @return (tan(abs($angle)) * $width);
+@function edge-tan($angle1, $width) {
+  @return (tan(abs($angle1)) * $width);
 }

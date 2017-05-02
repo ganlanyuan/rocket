@@ -1,0 +1,5 @@
+@mixin check-arg-type($arg, $type) {
+  @if type-of($arg) != $type {
+    @error 'The parameter must be a map, you passed a ' + type-of($arg) + ': ' + $arg + '.';
+  }
+}

@@ -88,6 +88,7 @@ p {
 .back-to-home {
   position: sticky;
   bottom: 0;
+  z-index: 100;
   margin-top: 100px;
 }
 
@@ -253,7 +254,7 @@ p {
 }
 
 .px-left:before {
-  content: '(  900px  "left"  )';
+  content: "( container :  900px , align :  left  )";
 }
 
 .px-left > div {
@@ -264,7 +265,7 @@ p {
 }
 
 .px-right:before {
-  content: '(  900px  "right"  )';
+  content: "( container :  900px , align :  right  )";
 }
 
 .px-right > div {
@@ -275,7 +276,7 @@ p {
 }
 
 .px-px:before {
-  content: '(  900px  "gutter"  30px  )';
+  content: "( container :  900px , gutter :  30px  )";
 }
 
 .px-px > div {
@@ -286,7 +287,7 @@ p {
 }
 
 .px-0px:before {
-  content: '(  900px  "gutter"  0px  )';
+  content: "( container :  900px , gutter :  0px  )";
 }
 
 .px-0px > div {
@@ -296,7 +297,7 @@ p {
 }
 
 .em:before {
-  content: "56.25em";
+  content: "( container :  56.25em  )";
 }
 
 .em > div {
@@ -307,7 +308,7 @@ p {
 }
 
 .em-px:before {
-  content: '(  56.25em  "gutter"  20px  )';
+  content: "( container :  56.25em , gutter :  20px  )";
 }
 
 .em-px > div {
@@ -318,7 +319,7 @@ p {
 }
 
 .percentage:before {
-  content: "80%";
+  content: "( container :  80%  )";
 }
 
 .percentage > div {
@@ -326,7 +327,7 @@ p {
 }
 
 .percentage-px:before {
-  content: '(  80%  "gutter"  30px  )';
+  content: "( container :  80% , gutter :  30px  )";
 }
 
 .percentage-px > div {

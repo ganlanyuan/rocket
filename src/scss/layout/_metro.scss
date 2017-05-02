@@ -1,35 +1,50 @@
 // *** metro *** //
 @mixin metro($key) {
-  $ratio: args-get-next($key, 'ratio', 1);
-  $gutter: args-get-next($key, 'gutter', 0);
-  $child: args-get-next($key, 'child', '*');
-  $keep: args-get($key, 'keep', false);
+  @include check-arg-type($key, 'map');
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $layout: map-get($key, 'layout');
+  $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), 1);
+  $child: if(map-get($key, 'child'), map-get($key, 'child'), 'div');
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
+  $global-breakpoints: map-get($key, 'breakpoints');
+  $local-breakpoints: false;
+  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
+  $media-type: map-get($key, 'media-type');
+  $keep: map-get($key, 'keep');
 
-  @if type-of($child) == 'list' {
-    @error 'Only one type of child element is acceptable. You passed (#{$child}).';
-  } @else if type-of($child) != 'string' {
-    @error 'Child should be a string. You passed "#{$child}".';
-  }
+  // strip unit when gutter == 0
+  $gutter: check-zero-value($gutter);
+
+  // $ratio: args-get-next($key, 'ratio', 1);
+  // $gutter: args-get-next($key, 'gutter', 0);
+  // $child: args-get-next($key, 'child', '*');
+  // $keep: args-get($key, 'keep', false);
+
+  // $global-breakpoints: args-get-global-breakpoints($key);
+  // @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  // $local-breakpoints: false;
+  // $condition: args-get($key, ('min' 'max'), 'min');
+  // $media-type: args-get($key, $ro-media-type);
+
+  // @if type-of($child) == 'list' {
+  //   @error 'Only one type of child element is acceptable. You passed (#{$child}).';
+  // } @else if type-of($child) != 'string' {
+  //   @error 'Child should be a string. You passed "#{$child}".';
+  // }
 
   // get data
-  $data: false;
+  $layout: false;
   @if type-of($key) == map {
-    $data: $key;
+    $layout: $key;
   } @else if type-of($key) == 'list' {
     @if is-metro-list($key) {
-      $data: $key;
+      $layout: $key;
     } @else {
       @each $item in $key {
-        @if not $data {
+        @if not $layout {
           @if type-of($item) == 'map' or 
               type-of($item) == 'list' and is-metro-list($item) {
-            $data: $item;
+            $layout: $item;
           }
         }
       }
@@ -37,19 +52,19 @@
   }
 
   // if not valuable data found
-  @if not $data { @error 'Parameters must include list or map.'; }
+  @if not $layout { @error 'Parameters must include list or map.'; }
 
-  @if type-of($data) == 'map' {
+  @if type-of($layout) == 'map' {
     // update breakpoints
-    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
-    $bps: map-keys($data);
+    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
+    $local-breakpoints: map-keys($layout);
 
-    @if index($bps, null) != null or index($bps, 'default') != null { 
+    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
-    @each $bp in $bps {
-      $list: map-get($data, $bp);
+    @each $bp in $local-breakpoints {
+      $list: map-get($layout, $bp);
       $full: args-get-next($list, 'of');
 
       @if $bp == null or $bp == 'default' {
@@ -70,10 +85,10 @@
 
     }
   } @else {
-    $full: args-get-next($data, 'of');
+    $full: args-get-next($layout, 'of');
 
     @include metro-base($child, $gutter);
-    @include make-metro($data, $full, $ratio, $child);
+    @include make-metro($layout, $full, $ratio, $child);
   }
 }
 

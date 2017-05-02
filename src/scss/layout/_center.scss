@@ -1,12 +1,10 @@
 // *** center *** //
-@mixin center($key: false){
-  $check: (left right center 'child');
-  $child: args-get-type($key, 'string', $check);
-  $align: args-get($key, (left right center), left);
-  
-  // get selector
-  $selector: if($child, '> #{$child}', '> *');
+@mixin center($key: (child: '*')){
+  @include check-arg-type($key, 'map');
 
+  $child: if(map-get($key, 'child'), map-get($key, 'child'), '*');
+  $align: if(map-get($key, 'align'), map-get($key, 'align'), 'left');
+  
   text-align: center; 
   white-space: nowrap;
   &:before {
@@ -16,7 +14,7 @@
     vertical-align: middle;
     margin-right: -.25em; // adjusts for spacing
   }
-  #{$selector} {
+  > #{$child} {
     display: inline-block;
     vertical-align: middle;
     white-space: normal;

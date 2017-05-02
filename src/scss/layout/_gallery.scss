@@ -1,50 +1,33 @@
 @mixin gallery($key){
-  $child: args-get-next($key, 'child', 'li');
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, gutter));
-  $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
-  $center-align: args-get($key, 'center-align');
-  $keep: args-get($key, 'keep');
-  @if $float == right { $center-align: false; }
+  @include check-arg-type($key, 'map');
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $layout: map-get($key, 'layout');
+  $child: if(map-get($key, 'child'), map-get($key, 'child'), 'li');
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, gutter));
+  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
+  $center-align: map-get($key, 'center-align');
+  $global-breakpoints: map-get($key, 'breakpoints');
+  $local-breakpoints: false;
+  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
+  $media-type: map-get($key, 'media-type');
+  $keep: map-get($key, 'keep');
 
-  // get data
-  $data: false;
-  @if type-of($key) == 'number' and unitless($key) or 
-      type-of($key) == 'map' {
-    $data: $key;
-  } @else if type-of($key) == 'list' and not $data {
-    @each $item in $key {
-      @if not $data and
-          type-of($item) == 'number' and unitless($item) or
-          type-of($item) == 'map' {
-        $data: $item;
-      }
-    }
-  }
-
-  // if not valuable data found
-  @if not $data { @error 'Parameters must include number or map.'; }
-  
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
+  $float: if($direction == 'LTR', left, right);
+  @if $float == right { $center-align: false; }
 
+  @if type-of($layout) == 'map' {
+    // update $layout breakpoints
+    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
+    @if $layout and type-of($layout) == 'map' { $local-breakpoints: map-keys($layout); }
 
-  @if type-of($data) == 'map' {
-    // update $data breakpoints
-    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
-    @if $data and type-of($data) == 'map' { $bps: map-keys($data); }
-
-    @if index($bps, null) != null or index($bps, 'default') != null { 
+    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
-    @each $bp in $bps {
-      $this-per-row: map-get($data, $bp);
+    @each $bp in $local-breakpoints {
+      $this-per-row: map-get($layout, $bp);
 
       @if $bp == null or $bp == 'default' {
         @include gallery-base($child, $gutter, $float, $center-align);
@@ -67,7 +50,7 @@
     @if not $keep {
       @include gallery-base($child, $gutter, $float, $center-align);
     }
-    @include make-gallery($data, $child, $gutter, $float, $center-align);
+    @include make-gallery($layout, $child, $gutter, $float, $center-align);
   }
 }
 

@@ -249,7 +249,7 @@ p {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
-  text-align: left;
+  text-align: "left";
 }
 
 .example-center > main {

@@ -3,12 +3,12 @@
 @import "../../src/scss/layout/center"; 
 @import "../../src/scss/layout/diamond"; 
 
-$diamond-count: 3 diamond;
-$diamond-count-combined: 3 diamond combined;
-$diamond-size: 25%;
-$diamond-breakpoints: (600px:3, 800px:4) diamond;
-$octagon-count: 4 octagon;
-$octagon-size: 300px octagon;
+$diamond-count: (layout: 3, shape: 'diamond');
+$diamond-count-combined: (layout:3, shape: 'diamond', tight: true);
+$diamond-size: (layout: 25%);
+$diamond-breakpoints: (layout: (600px:3, 800px:4), shape: 'diamond');
+$octagon-count: (layout: 4, shape: 'octagon');
+$octagon-size: (layout: 300px, shape: 'octagon');
 
 .diamond-count { 
   @extend %demo-show;

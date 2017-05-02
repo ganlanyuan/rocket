@@ -237,7 +237,7 @@ p {
 }
 
 .liquid3-list1:before {
-  content: '(  "auto"  100px  250px  )';
+  content: '( layout : "auto" 100px 250px )';
 }
 
 .liquid3-list1 > div:after {
@@ -278,7 +278,7 @@ p {
 }
 
 .liquid3-list2:before {
-  content: '(  100px  "auto"  250px  )';
+  content: '( layout : 100px "auto" 250px )';
 }
 
 .liquid3-list2 > div:after {
@@ -319,7 +319,7 @@ p {
 }
 
 .liquid3-list3:before {
-  content: '(  100px  250px  "auto"  )';
+  content: '( layout : 100px 250px "auto" )';
 }
 
 .liquid3-list3 > div:after {
@@ -360,7 +360,7 @@ p {
 }
 
 .liquid3-order1:before {
-  content: "( 100px :  2 , auto :  0 , 250px :  0  )";
+  content: "( layout : ( 100px :  2 , auto :  0 , 250px :  0  ) )";
 }
 
 .liquid3-order1 > div:after {
@@ -401,7 +401,7 @@ p {
 }
 
 .liquid3-order2:before {
-  content: "( 100px :  2 , auto :  1 , 250px :  0  )";
+  content: "( layout : ( 100px :  2 , auto :  1 , 250px :  0  ) )";
 }
 
 .liquid3-order2 > div:after {
@@ -442,7 +442,7 @@ p {
 }
 
 .liquid3-order3:before {
-  content: "( 100px :  2 , auto :  3 , 250px :  2  )";
+  content: "( layout : ( 100px :  2 , auto :  3 , 250px :  2  ) )";
 }
 
 .liquid3-order3 > div:after {
@@ -483,7 +483,7 @@ p {
 }
 
 .liquid3-RTL:before {
-  content: '( (  "auto"  100px  250px  ) "RTL"  )';
+  content: '( layout : "auto" 100px 250px, direction :  RTL  )';
 }
 
 .liquid3-RTL > div:after {
@@ -524,7 +524,7 @@ p {
 }
 
 .liquid3-child1:before {
-  content: '( (  "auto"  100px  250px  ) "child"  ".child"  )';
+  content: '( layout : "auto" 100px 250px, child :  .child  )';
 }
 
 .liquid3-child1 > div:after {
@@ -565,7 +565,7 @@ p {
 }
 
 .liquid3-child2:before {
-  content: '( (  100px  "auto"  250px  ) "child" (  "nav"  "main"  "aside"  ) )';
+  content: '( layout : 100px "auto" 250px, child : "nav" "main" "aside" )';
 }
 
 .liquid3-child2 > div:after {
@@ -606,7 +606,7 @@ p {
 }
 
 .liquid3-gutter-0px:before {
-  content: '( (  "auto"  100px  250px  ) "gutter"  0px  )';
+  content: '( layout : "auto" 100px 250px, gutter :  0px  )';
 }
 
 .liquid3-gutter-0px > div:after {
@@ -647,7 +647,7 @@ p {
 }
 
 .liquid3-gutter-sameunit:before {
-  content: '( (  "auto"  100px  250px  ) "gutter"  40px  )';
+  content: '( layout : "auto" 100px 250px, gutter :  40px  )';
 }
 
 .liquid3-gutter-sameunit > div:after {
@@ -688,7 +688,7 @@ p {
 }
 
 .liquid3-gutter-percentage:before {
-  content: '( (  "auto"  100px  250px  ) "gutter"  3%  )';
+  content: '( layout : "auto" 100px 250px, gutter :  3%  )';
 }
 
 .liquid3-gutter-percentage > div:after {
@@ -729,7 +729,7 @@ p {
 }
 
 .liquid3-gutter-differentunit:before {
-  content: '( (  "auto"  100px  250px  ) "gutter"  3rem  )';
+  content: '( layout : "auto" 100px 250px, gutter :  3rem  )';
 }
 
 .liquid3-gutter-differentunit > div:after {
@@ -770,7 +770,7 @@ p {
 }
 
 .liquid3-breakpoint:before {
-  content: "( 900px : ( 100px :  2 , auto :  0 , 250px :  0  ) )";
+  content: "( layout : ( 900px : ( 100px :  2 , auto :  0 , 250px :  0  ) ) )";
 }
 
 .liquid3-breakpoint > div:after {
@@ -810,7 +810,7 @@ p {
 }
 
 .liquid3-breakpoint-conditions:before {
-  content: '( ( 900px : ( 100px :  2 , auto :  1 , 250px :  0  ) ) "max"  "screen"  )';
+  content: "( layout : ( 900px : ( 100px :  2 , auto :  1 , 250px :  0  ) ), condition :  max , media :  screen  )";
 }
 
 .liquid3-breakpoint-conditions > div:after {
@@ -819,7 +819,7 @@ p {
   display: table;
 }
 
-@media screen and (max-width: 56.1875em) {
+@media (max-width: 56.1875em) {
   .liquid3-breakpoint-conditions > div > div {
     position: relative;
     -webkit-box-sizing: border-box;
@@ -850,7 +850,7 @@ p {
 }
 
 .liquid3-global-breakpoints:before {
-  content: "( ( default : ( 100px :  2 , auto :  1 , 250px :  0  ), sm : ( 100px :  0 , auto :  1 , 250px :  2  ), lg : ( 100px :  2 , auto :  1 , 250px :  0  ) )( sm :  600px , md :  900px , lg :  1200px  ) )";
+  content: "( layout : ( default : ( 100px :  2 , auto :  1 , 250px :  0  ), sm : ( 100px :  0 , auto :  1 , 250px :  2  ), lg : ( 100px :  2 , auto :  1 , 250px :  0  ) ), breakpoints : ( sm :  600px , md :  900px , lg :  1200px  ) )";
 }
 
 .liquid3-global-breakpoints > div:after {

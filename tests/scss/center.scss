@@ -4,7 +4,7 @@
 
 .example-center { 
   height: 400px;
-  @include center('main');
+  @include center((child: 'main'));
   > main { 
     background: #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);

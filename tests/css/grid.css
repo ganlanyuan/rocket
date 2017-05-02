@@ -82,6 +82,7 @@ p {
 .back-to-home {
   position: sticky;
   bottom: 0;
+  z-index: 100;
   margin-top: 100px;
 }
 
@@ -240,7 +241,7 @@ p {
 }
 
 .grid-list:before {
-  content: "(  3  4  )";
+  content: "( layout : 3 4 )";
 }
 
 .grid-list > div {
@@ -282,7 +283,7 @@ p {
 }
 
 .grid-child:before {
-  content: '( (  3  4  ) "child"  ".child"  )';
+  content: "( layout : 3 4, child :  .child  )";
 }
 
 .grid-child > div {
@@ -324,7 +325,7 @@ p {
 }
 
 .grid-list-direction:before {
-  content: '( (  3  4  ) "RTL"  )';
+  content: "( layout : 3 4, direction :  RTL  )";
 }
 
 .grid-list-direction > div {
@@ -366,7 +367,7 @@ p {
 }
 
 .grid-gutter1:before {
-  content: '( ( 3 4 : 2 1 ) "gutter"  5%  )';
+  content: "( layout : ( 3 4 : 2 1 ), gutter :  5%  )";
 }
 
 .grid-gutter1 > div > div {
@@ -400,7 +401,7 @@ p {
 }
 
 .grid-gutter2:before {
-  content: '( (  3  4  ) "gutter"  5rem  )';
+  content: "( layout : 3 4, gutter :  5rem  )";
 }
 
 .grid-gutter2 > div {
@@ -442,7 +443,7 @@ p {
 }
 
 .grid-nested-list:before {
-  content: "( (  3  4  ) 7  )";
+  content: "( layout : (  3  4  ) 7  )";
 }
 
 .grid-nested-list > div {
@@ -497,7 +498,7 @@ p {
 }
 
 .grid-map:before {
-  content: "( ( 3 4 7 : 0 2 1 ) 3  )";
+  content: "( layout : ( 3 4 7 : 0 2 1 ) 3  )";
 }
 
 .grid-map > div {
@@ -557,7 +558,7 @@ p {
 }
 
 .grid-breakpoint:before {
-  content: "( 600px : 5 7 )";
+  content: "( layout : ( 600px : 5 7 ) )";
 }
 
 @media (min-width: 37.5em) {
@@ -595,7 +596,7 @@ p {
 }
 
 .grid-breakpoint-outside:before {
-  content: "@media (min-width: 600px) { (  5  7  ) }";
+  content: "@media (min-width: 600px) { ( layout : 5 7 ) }";
 }
 
 @media screen and (min-width: 600px) and (min-width: 37.5em) {
@@ -633,7 +634,7 @@ p {
 }
 
 .grid-global-breakpoints:before {
-  content: "( ( sm : 1 1, md : 2 1, lg : 3 5 )( sm :  600px , md :  900px , lg :  1200px  ) )";
+  content: "( layout : ( sm : 1 1, md : 2 1, lg : 3 5 ), breakpoints : ( sm :  600px , md :  900px , lg :  1200px  ) )";
 }
 
 @media (min-width: 37.5em) {
@@ -699,7 +700,7 @@ p {
 }
 
 .grid-breakpoint-max:before {
-  content: '( ( 900px : 3 5, 600px : 2 1 ) "max"  )';
+  content: "( layout : ( 900px : 3 5, 600px : 2 1 ), condition :  max  )";
 }
 
 @media (max-width: 56.1875em) {
@@ -751,7 +752,7 @@ p {
 }
 
 .grid-breakpoint-nested-list:before {
-  content: "( 600px : (  3  4  )(  2  5  ) 3  )";
+  content: "( layout : ( 600px : (  3  4  )(  2  5  ) 3  ) )";
 }
 
 @media (min-width: 37.5em) {
@@ -810,7 +811,7 @@ p {
 }
 
 .grid-breakpoint-map:before {
-  content: "( 600px : ( 3 4 : 2 1 )(  2  5  ) 3  )";
+  content: "( layout : ( 600px : ( 3 4 : 2 1 )(  2  5  ) 3  ) )";
 }
 
 @media (min-width: 37.5em) {
@@ -869,7 +870,7 @@ p {
 }
 
 .grid-breakpoint-default:before {
-  content: "( default : 3 4, 900px : 2 7 )";
+  content: "( layout : ( default : 3 4, 900px : 2 7 ) )";
 }
 
 .grid-breakpoint-default > div {
@@ -925,7 +926,7 @@ p {
 }
 
 .grid-breakpoint-complex-list:before {
-  content: "( default : (  3  4  )(  2  5  ) 3 , 600px : (  3  4  2  )(  5  3  ), 900px : ( 5 2 : 2 1 ) 3 ( 1 1 : 2 1 ) )";
+  content: "( layout : ( default : (  3  4  )(  2  5  ) 3 , 600px : (  3  4  2  )(  5  3  ), 900px : ( 5 2 : 2 1 ) 3 ( 1 1 : 2 1 ) ) )";
 }
 
 .grid-breakpoint-complex-list > div {

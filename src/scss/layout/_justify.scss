@@ -1,22 +1,14 @@
 // *** justify *** //
-@mixin justify($key: false){
-  $child: args-get-type($key, 'string', ('child'));
+@mixin justify($key: (child: '*')){
+  $child: if(map-get($key, 'child'), map-get($key, 'child'), '*');
   
-  // get selector
-  $selector: false;
-  @if $child {
-    $selector: '> #{$child}';
-  } @else if {
-    $selector: '> li, > div, > span';
-  }
-
   text-align: justify;
-  #{$selector} {
-    display: inline-block;
-  }
   &:after {
     content: '';
     display: inline-block;
     width: 100%;
+  }
+  > #{$child} {
+    display: inline-block;
   }
 }

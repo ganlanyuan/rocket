@@ -2,14 +2,14 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/container"; 
 
-$px-left: 900px left;
-$px-right: 900px right;
-$px-px: 900px gutter 30px;
-$px-0px: 900px gutter 0px;
-$em: 56.25em;
-$em-px: 56.25em gutter 20px;
-$percentage: 80%;
-$percentage-px: 80% gutter 30px;
+$px-left: (container: 900px, align: 'left');
+$px-right: (container: 900px, align: 'right');
+$px-px: (container: 900px, gutter: 30px);
+$px-0px: (container: 900px, gutter: 0px);
+$em: (container: 56.25em);
+$em-px: (container: 56.25em, gutter: 20px);
+$percentage: (container: 80%);
+$percentage-px: (container: 80%, gutter: 30px);
 
 .default {
   @extend %demo-show;

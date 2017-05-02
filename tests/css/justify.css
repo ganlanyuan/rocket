@@ -235,14 +235,14 @@ p {
   text-align: justify;
 }
 
-.example-justify > li, .example-justify > div, .example-justify > span {
-  display: inline-block;
-}
-
 .example-justify:after {
   content: '';
   display: inline-block;
   width: 100%;
+}
+
+.example-justify > li {
+  display: inline-block;
 }
 
 .example-justify li {
