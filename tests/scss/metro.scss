@@ -16,36 +16,36 @@ $metro-global-breakpoints: (layout: ('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h
   &:before { content: '#{var-to-string($metro-list)}'; }
   > ul { @include metro($metro-list); }
 }
-// .metro-list-0px {
-//   @extend %demo-show;
-//   &:before { content: '#{var-to-string($metro-list-0px)}'; }
-//   > ul { @include metro($metro-list-0px); }
-// }
-// .metro-child {
-//   @extend %demo-show;
-//   &:before { content: '#{var-to-string($metro-child)}'; }
-//   > ul { @include metro($metro-child); }
-// }
-// .metro-ratio {
-//   @extend %demo-show;
-//   &:before { content: '#{var-to-string($metro-ratio)}'; }
-//   > ul { @include metro($metro-ratio); }
-// }
-// .metro-breakpoint {
-//   @extend %demo-show;
-//   &:before { content: '#{var-to-string($metro-breakpoint)}'; }
-//   > ul { @include metro($metro-breakpoint); }
-// }
-// .metro-breakpoint-condition {
-//   @extend %demo-show;
-//   &:before { content: '#{var-to-string($metro-breakpoint-condition)}'; }
-//   > ul { @include metro($metro-breakpoint-condition); }
-// }
-// .metro-global-breakpoints {
-//   @extend %demo-show;
-//   &:before { content: '#{var-to-string($metro-global-breakpoints)}'; }
-//   > ul { @include metro($metro-global-breakpoints); }
-// }
+.metro-list-0px {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-list-0px)}'; }
+  > ul { @include metro($metro-list-0px); }
+}
+.metro-child {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-child)}'; }
+  > ul { @include metro($metro-child); }
+}
+.metro-ratio {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-ratio)}'; }
+  > ul { @include metro($metro-ratio); }
+}
+.metro-breakpoint {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-breakpoint)}'; }
+  > ul { @include metro($metro-breakpoint); }
+}
+.metro-breakpoint-condition {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-breakpoint-condition)}'; }
+  > ul { @include metro($metro-breakpoint-condition); }
+}
+.metro-global-breakpoints {
+  @extend %demo-show;
+  &:before { content: '#{var-to-string($metro-global-breakpoints)}'; }
+  > ul { @include metro($metro-global-breakpoints); }
+}
 
 .metro-list li:nth-child(3) { float: right; }
 .metro-list-0px li:nth-child(3) { float: right; }

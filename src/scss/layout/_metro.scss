@@ -4,7 +4,7 @@
 
   $layout: map-get($key, 'layout');
   $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), 1);
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), 'div');
+  $child: if(map-get($key, 'child'), map-get($key, 'child'), '*');
   $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
   $global-breakpoints: map-get($key, 'breakpoints');
   $local-breakpoints: false;
@@ -14,45 +14,6 @@
 
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
-
-  // $ratio: args-get-next($key, 'ratio', 1);
-  // $gutter: args-get-next($key, 'gutter', 0);
-  // $child: args-get-next($key, 'child', '*');
-  // $keep: args-get($key, 'keep', false);
-
-  // $global-breakpoints: args-get-global-breakpoints($key);
-  // @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
-  // $local-breakpoints: false;
-  // $condition: args-get($key, ('min' 'max'), 'min');
-  // $media-type: args-get($key, $ro-media-type);
-
-  // @if type-of($child) == 'list' {
-  //   @error 'Only one type of child element is acceptable. You passed (#{$child}).';
-  // } @else if type-of($child) != 'string' {
-  //   @error 'Child should be a string. You passed "#{$child}".';
-  // }
-
-  // get data
-  $layout: false;
-  @if type-of($key) == map {
-    $layout: $key;
-  } @else if type-of($key) == 'list' {
-    @if is-metro-list($key) {
-      $layout: $key;
-    } @else {
-      @each $item in $key {
-        @if not $layout {
-          @if type-of($item) == 'map' or 
-              type-of($item) == 'list' and is-metro-list($item) {
-            $layout: $item;
-          }
-        }
-      }
-    }
-  }
-
-  // if not valuable data found
-  @if not $layout { @error 'Parameters must include list or map.'; }
 
   @if type-of($layout) == 'map' {
     // update breakpoints
@@ -146,7 +107,7 @@
       $height: percentage($ratio * $cell-num / $full);
     }
 
-    > #{$child}:nth-child(#{$j}) {
+    > :nth-child(#{$j}) {
       width: $width;
       padding-bottom: $height;
     }
