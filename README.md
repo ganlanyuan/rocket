@@ -7,7 +7,7 @@ Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.
 #### What's new in version 4
 - Simplify layout mixins (remove flex-box, IE8 classes).  
 - Rename `liquid-2` to `liquid`, `liquid-3` to `holy-grail`.
-- Remove CSS sliders (`slider-carousel`, `slider-gallery`).
+- Remove CSS sliders (`slider-carousel`, `slider-gallery`), `sticky-footer`.
 <!-- - Add acceessibility support. -->
 - Remove kit.js.
 - Drop IE8 support.

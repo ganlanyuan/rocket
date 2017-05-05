@@ -11,8 +11,7 @@
       "liquid",
       "holy-grail",
       "masonry",
-      "metro",
-      "sticky-footer"
+      "metro"
     ],
     "components": [
       "accordion",
