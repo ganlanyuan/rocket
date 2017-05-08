@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: append($off-canvas-options, 'rotate-out');
+$off-canvas-options: map-merge($off-canvas-options, ('mode': 'rotate-out'));
 @include off-canvas($off-canvas-options);
 
 .rotate-out {

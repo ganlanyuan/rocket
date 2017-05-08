@@ -1,20 +1,25 @@
 // *** charts *** //
 @mixin charts($key) {
-  $chart-type: args-get($key, $ro-charts-type, 'bar');
-  $bar-height: args-get-next($key, 'bar-height', 40px);
-  $bar-gap: args-get-next($key, 'bar-gap', 6em);
-  $steps: args-get-next($key, 'steps', (5 100));
-  $gutter: args-get-next($key, 'gutter');
-  $animation: args-get($key, 'animation');
-  $animation-val: args-get-next($key, 'animation');
-  
-  $tick-line-color: #e7e7e7;
+  $data: map-get($key, 'data');
+  $data-colors: map-keys($data);
+  $data-numbers: map-values($data);
+
+  $chart-type: if(map-get($key, 'chart-type'), map-get($key, 'chart-type'), 'bar');
+  $bar-height: if(map-get($key, 'bar-height'), map-get($key, 'bar-height'), 40px);
+  $bar-gap: if(map-get($key, 'bar-gap'), map-get($key, 'bar-gap'), 6em);
+  $steps: if(map-get($key, 'steps'), map-get($key, 'steps'), (5 100));
+  $gutter: map-get($key, 'gutter');
+
+  $animation: if(map-get($key, 'animation'), map-get($key, 'animation'), false);
+  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 1s);
+  $timing-function: if(map-get($key, 'timing-function'), map-get($key, 'timing-function'), ease);
+  $tick-line-color: if(map-get($key, 'tick-line-color'), map-get($key, 'tick-line-color'), #e7e7e7);
+  $hide: map-get($key, 'hide');
 
   // set hide
   $units: true;
   $labels: true;
   $numbers: true;
-  $hide: args-get-next($key, 'hide');
   @if $hide {
     @if index($hide, 'units') {
       $units: false;
@@ -46,27 +51,8 @@
     $direction: top;
   }
 
-  // get color, data
-  $map: false;
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    $map: args-get-type($key, 'map');
-  }
-  $colors: map-keys($map);
-  $data: map-values($map);
-
   // set animation path
-  $path: '';
-  @if $animation {
-    $path: '&.active';
-  }
-  $duration: 1s;
-  $timing-function: args-get-type($animation-val, 'string', false, ease);
-  $animation-val: list-remove($animation-val, $timing-function);
-  @if length($animation-val) > 0 {
-    $duration: nth($animation-val, 1);
-  }
+  $path: if($animation, '&.active', '');
 
   // *** output *** //
   @if $chart-type == 'bar' or $chart-type == 'column' {
@@ -87,18 +73,18 @@
         @if not $numbers {
           text-indent: 110%;
         }
-        @for $i from 1 through length($colors) {
-          &:nth-of-type(#{$i}) { background: nth($colors, $i); }
+        @for $i from 1 through length($data-colors) {
+          &:nth-of-type(#{$i}) { background: nth($data-colors, $i); }
         }
       }
     }
-    @for $i from 1 through length(nth($data, 1)) {
+    @for $i from 1 through length(nth($data-numbers, 1)) {
       #{$path} .item-#{$i} {
-        @for $j from 1 through length($data) {
+        @for $j from 1 through length($data-numbers) {
           > span:nth-of-type(#{$j}) {
-            #{$grow}: percentage(nth(nth($data, $j), $i) / $full-width);
-            &:before { content: '#{nth(nth($data, $j), $i)}'; } // add content 
-            // transition-delay: ($delay * ($i - 1 + length(nth($data, 1)) * ($j - 1)));
+            #{$grow}: percentage(nth(nth($data-numbers, $j), $i) / $full-width);
+            &:before { content: '#{nth(nth($data-numbers, $j), $i)}'; } // add content 
+            // transition-delay: ($delay * ($i - 1 + length(nth($data-numbers, 1)) * ($j - 1)));
           }
         }
       }
@@ -155,8 +141,8 @@
           }
         }
       }
-      @for $i from 1 through length($colors) {
-        .label-#{$i}:before { background: nth($colors, $i); }
+      @for $i from 1 through length($data-colors) {
+        .label-#{$i}:before { background: nth($data-colors, $i); }
       }
     } @else {
       .labels { display: none; }
@@ -184,7 +170,7 @@
           width: ($bar-gap - 1vw);
         }
         left: - $bar-gap;
-        line-height: ($bar-height * length($data));
+        line-height: ($bar-height * length($data-numbers));
         text-align: right;
         margin: $gutter 0;
       }
@@ -222,7 +208,7 @@
 
   } @else if $chart-type == 'column' {
     $gutter: 0.2;
-    $column-width: percentage((1 - $gutter) / length($data));
+    $column-width: percentage((1 - $gutter) / length($data-numbers));
 
     @include clearfix();
     // background: #fff repeating-linear-gradient(0deg, $tick-line-color, transparent 1px, transparent (percentage($step-val / $full-width))) 0 0 no-repeat;
@@ -230,7 +216,7 @@
     li {
       float: left;
       padding-top: 60%;
-      width: percentage(1 / length(nth($data, 1)));
+      width: percentage(1 / length(nth($data-numbers, 1)));
       > strong {
         bottom: 0;
         width: 100%;
@@ -245,7 +231,7 @@
         @if not $animation {
           padding-top: 0.8em; 
         }
-        @for $i from 1 through length($data) {
+        @for $i from 1 through length($data-numbers) {
           &:nth-of-type(#{$i}) {
             left: (percentage($gutter / 2) + $column-width * ($i - 1));
           }

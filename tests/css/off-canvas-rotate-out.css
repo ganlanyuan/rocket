@@ -82,6 +82,7 @@ p {
 .back-to-home {
   position: sticky;
   bottom: 0;
+  z-index: 100;
   margin-top: 100px;
 }
 
@@ -423,15 +424,15 @@ input:checked ~ .nav {
   top: 0;
   bottom: 0;
   z-index: 199;
-  background: #000;
+  background: rgba(0, 0, 0, 0.1);
   opacity: 0;
 }
 
 input:checked ~ .page .page-overlay {
   right: 0;
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .rotate-out .code:before {
-  content: '(  "page"  ".page"  "nav"  ".nav"  "submenu"  "rotate-out"  )';
+  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  rotate-out  )";
 }

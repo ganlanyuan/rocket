@@ -1,18 +1,23 @@
 // *** dropdown *** //
-@mixin dropdown($key: 'ul'){
-  $check: append(join(join($ro-dropdown-show, $ro-dropdown-style), $ro-dropdown-direction), 'default');
+@mixin dropdown($key: ('selector': 'ul')){
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'ul');
+  $activate: if(map-get($key, 'activate'), map-get($key, 'activate'), 'hover');
+  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'display');
+  $direction: map-get($key, 'direction');
+  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
+  $default: map-get($key, 'default');
 
-  $selector: args-get-type($key, 'string', $check, 'ul');
-  $show: args-get($key, $ro-dropdown-show, 'hover');
-  $style: args-get($key, $ro-dropdown-style, 'display');
-  $direction: args-get($key, $ro-dropdown-direction);
-  $duration: args-get-type($key, 'number', false, 0.3s);
-  $default: args-get($key, 'default');
+  // set path
   $path: false;
+  @if $activate == 'hover' {
+    $path: '&:hover >';
+  } @else if $activate == 'click' {
+    $path: '> input:checked ~';
+  }
 
   // *** output *** //
   position: relative;
-  @if $show == 'hover' { cursor: pointer; }
+  @if $activate == 'hover' { cursor: pointer; }
   // hide checkbox. 
   > input { 
     position: absolute;
@@ -20,7 +25,7 @@
   }
 
   // add more hover space
-  @if $show == 'hover' and $direction {
+  @if $activate == 'hover' and $direction {
     &:before, 
     &:after {
       content: '';
@@ -94,13 +99,6 @@
         &:hover { text-decoration: none; }
       }
     }
-  }
-
-  // set path
-  @if $show == 'hover' {
-    $path: '&:hover >';
-  } @else if $show == 'click' {
-    $path: '> input:checked ~';
   }
 
   // show

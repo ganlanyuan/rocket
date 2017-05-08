@@ -13,14 +13,15 @@ $liquid2-gutter-percentage: (layout: ('auto' 200px), gutter: 3%);
 $liquid2-gutter-differentunit: (layout: ('auto' 12.5em), gutter: 3rem);
 $liquid2-breakpoint: (layout: (750px: (150px:1, 'auto':0)));
 $liquid2-breakpoint-conditions: (layout: (750px: (150px:1, 'auto':0)), condition: max, media: screen);
-$liquid2-global-breakpoints: (
-  layout: (
-    'default': (150px 'auto'),
-    'sm': (150px:1, 'auto':0),
-    'md': (150px:0, 'auto':1)
-  ),
-  breakpoints: $global-bps
-);
+$liquid2-global-breakpoints: ('layout': (800px: ('auto' 300px)));
+// $liquid2-global-breakpoints: (
+//   layout: (
+//     'default': (150px 'auto'),
+//     'sm': (150px:1, 'auto':0),
+//     'md': (150px:0, 'auto':1)
+//   ),
+//   breakpoints: $global-bps
+// );
 
 
 .liquid2-list {

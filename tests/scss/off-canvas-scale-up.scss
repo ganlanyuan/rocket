@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: append($off-canvas-options, 'scale-up');
+$off-canvas-options: map-merge($off-canvas-options, ('mode': 'scale-up'));
 @include off-canvas($off-canvas-options);
 
 .scale-up {

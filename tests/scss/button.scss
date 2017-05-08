@@ -1,49 +1,36 @@
 @import 'demo-base';
+@import "../../src/scss/color/analogous";
 @import "../../src/scss/color/contrast";
 @import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/button"; 
 
 $color1: #2B8ACF;
 $color2: #52cfdb;
-$padding: '1em 2em';
 
-           $default: $padding;
-             $color: $padding #46A736;
-            $radius: $padding #FF851B 0.4em;
-             $round: $padding #FF851B round;
-   $style-highlight: $padding $color1 $color2 highlight;
-      $style-simple: $padding $color1 simple;
-       $style-slide: $padding $color1 $color2 slide;
-      $style-ripple: $padding $color1 $color2 ':hover' ripple;
-        $style-veil: $padding $color1 veil;
-         $style-cut: $padding $color1 $color2 cut;
-        $style-push: $padding $color1 push;
-      $style-bubble: $padding $color1 bubble;
-$style-line-drawing: $padding $color1 line-drawing;
-       $style-shake: $padding $color1 shake;
+$color: ('color': #46A736);
+$style-highlight: ('color': $color1 $color2, 'style': 'highlight');
+$style-simple: ('color': $color1, 'style': 'simple');
+$style-slide: ('color': $color1 $color2, 'style': 'slide');
+$style-ripple: ('color': $color1 $color2, 'selector': ':hover', 'style': 'ripple');
+$style-veil: ('color': $color1, 'style': 'veil');
+$style-cut: ('color': $color1 $color2, 'style': 'cut');
+$style-push: ('color': $color1, 'style': 'push');
+$style-bubble: ('color': $color1, 'style': 'bubble');
+$style-line-drawing: ('color': $color1, 'style': 'line-drawing');
+$style-shake: ('color': $color1, 'style': 'shake');
 
 .default {
   @extend %demo-show;
-  &:before { content: '"#{var-to-string($default)}"'; }
-  > .btn { @include button($default); }
+  > .btn { @include button(); }
 }
 .color {
   @extend %demo-show;
   &:before { content: '#{var-to-string($color)}'; }
   > .btn { @include button($color); }
 }
-.radius {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($radius)}'; }
-  > .btn { @include button($radius); }
-}
-.round {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($round)}'; }
-  > .btn { @include button($round); }
-}
 .style-highlight {
   @extend %demo-show;
+  @error #{var-to-string($style-highlight)};
   &:before { content: '#{var-to-string($style-highlight)}'; }
   > .btn { @include button($style-highlight); }
 }
@@ -106,4 +93,11 @@ $style-line-drawing: $padding $color1 line-drawing;
   }
   &.style-bubble { overflow: visible; }
 }
-.btn { min-width: 10em; }
+.btn { 
+  display: inline-block; 
+  min-width: 10em; 
+  height: 2.8em;
+  line-height: 2.8em;
+  border-radius: 3px;
+  font-size: 16px;
+}

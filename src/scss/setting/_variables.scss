@@ -32,10 +32,6 @@ $ro-font-styles: italic, oblique, style-normal, style-inherit !default;
 $ro-text-aligns: left, right, center, justify, align-inherit !default;
 $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 
-// media list
-$ro-media-list-type: 'media', 'media-body';
-$ro-media-direction: left, right;
-
 // off-canvas
 $ro-off-canvas-direction: left, right, top, bottom !default;
 $ro-off-canvas-modes: 'slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'push', 'reveal', 'drawer' !default;

@@ -1,28 +1,9 @@
 // *** accordion *** //
-@mixin accordion($key){
-  $selector: args-get-type($key, 'string');
-  $max-height: 1000px;
-  $duration: 0.3s;
+@mixin accordion($key: ('selector': 'div')){
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
+  $max-height: if(map-get($key, 'max-height'), map-get($key, 'max-height'), 1000px);
+  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
 
-  @if type-of($key) == 'number' {
-    @if not unitless($item) and unit($item) == 's' {
-      $duration: $item;
-    } @else {
-      @if unitless($item) { $item: $item * 1px; }
-      $max-height: $item;
-    }
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'number' {
-        @if not unitless($item) and unit($item) == 's' {
-          $duration: $item;
-        } @else {
-          @if unitless($item) { $item: $item * 1px; }
-          $max-height: $item;
-        }
-      }
-    }
-  }
   > input {
     position: absolute;
     left: -9999px;

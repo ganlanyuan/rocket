@@ -1,17 +1,13 @@
 // *** flex-media *** //
-@mixin flex-media($key: ((9/16) false) ){
-  $ratio: args-get-type($key, 'number');
-  $child: args-get-type($key, 'string');
+@mixin flex-media($key: ('ratio': (9/16)) ){
+  $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), (9/16));
+  $selector: map-get($key, 'selector');
+
   @if unitless($ratio) { $ratio: percentage($ratio); }
+  $selectors: if($selector, "> #{$selector}", "> iframe, > object, > embed");
 
   // *** output *** //
   @extend %flex-video-container;
   padding-bottom: $ratio;
-  @if $child {
-    > #{$child} { @extend %flex-video; }
-  } @else {
-    > iframe,
-    > object,
-    > embed { @extend %flex-video; }
-  }
+  #{$selectors} { @extend %flex-video; }
 }

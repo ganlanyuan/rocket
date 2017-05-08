@@ -1,41 +1,26 @@
 // *** off-canvas *** //
 @mixin off-canvas($key) {
-  $mode: args-get($key, $ro-off-canvas-modes, 'slide-in');
-  $direction: args-get($key, $ro-off-canvas-direction, 'left');
-  $submenu: args-get($key, 'submenu');
-  $inside: args-get($key, 'inside');
-  $page: args-get-next($key, 'page');
-  $nav: args-get-next($key, 'nav');
-  $overlay-color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.1));
+  @include check-arg-type($key, 'map');
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $mode: if(map-get($key, 'mode'), map-get($key, 'mode'), 'slide-in');
+  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'left');
+  $submenu: map-get($key, 'submenu');
+  $inside: map-get($key, 'inside');
+  $page: if(map-get($key, 'page'), map-get($key, 'page'), '.page');
+  $nav: if(map-get($key, 'nav'), map-get($key, 'nav'), '.nav');
+  $overlay-color: if(map-get($key, 'overlay-color'), map-get($key, 'overlay-color'), rgba(0, 0, 0, 0.1));
 
-  // get data
-  $map: false;
-  $duration: 0.3s;
-  $nav-size: 240px;
-  @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
-    @each $item in $key {
-      @if type-of($item) == 'map' {
-        @if not $map { $map: $item; }
-      } @else if type-of($item) == 'number' {
-        @if unit($item) == 's' {
-          $duration: $item;
-        } @else {
-          $nav-size: $item;
-        }
-      }
-    }
-  }
+  $global-breakpoints: map-get($key, 'breakpoints');
+  $local-breakpoints: false;
+  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
+  $media-type: map-get($key, 'media-type');
+  
+  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
+  $nav-size: if(map-get($key, 'nav-size'), map-get($key, 'nav-size'), 240px);
+  $tops: if(map-get($key, 'tops'), map-get($key, 'tops'), false);
 
   // update map breakpoints
-  @if $global-bps and $map { $map: map-update-breakpoints($map, $global-bps); }
+  @if $global-breakpoints and $tops { $tops: map-update-breakpoints($tops, $global-breakpoints); }
 
   // set nav selector
   $nav-selector: if(not $inside, #{$nav}, #{$page} #{$nav});
@@ -204,7 +189,7 @@
     @if $axis == 'horizontal' {
       width: $nav-size;
       @if $mode == 'drawer' {
-        @include nav-map(top, $map); // set top value 
+        @include nav-map(top, $tops); // set top value 
       } @else {
         top: 0;
       }
@@ -280,7 +265,7 @@
     opacity: 0;
 
     input:checked ~ & {
-      @if $mode == 'drawer' { @include nav-map(top, $map); } // set top value 
+      @if $mode == 'drawer' { @include nav-map(top, $tops); } // set top value 
       right: 0;
       opacity: 1;
     }
@@ -288,15 +273,15 @@
 
 }
 
-@mixin nav-map($prop, $map) {
-  $bps: map-keys($map);
+@mixin nav-map($prop, $tops) {
+  $local-breakpoints: map-keys($tops);
 
-  @each $bp in $bps {
+  @each $bp in $local-breakpoints {
     @if $bp == null or $bp == 'default' {
-      #{$prop}: map-get($map, $bp);
+      #{$prop}: map-get($tops, $bp);
     } @else {
       @include bp('max' $bp) {
-        #{$prop}: map-get($map, $bp);
+        #{$prop}: map-get($tops, $bp);
       }
     }
   }

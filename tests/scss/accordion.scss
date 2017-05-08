@@ -1,10 +1,10 @@
 @import 'demo-base';
 @import "../../src/scss/components/accordion"; 
 
-$string: div;
-$string-height: div 200px;
-$string-duration: div 0.4s;
-$string-height-duration: '.nav' 200px 0.4s;
+$string: ('selector': 'div');
+$string-height: ('selector': 'div', 'max-height': 200px);
+$string-duration: ('selector': 'div', 'duration': 0.4s);
+$string-height-duration: ('selector': '.nav', 'max-height': 200px, 'duration': 0.4s);
 
 .string {
   @extend %demo-show;

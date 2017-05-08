@@ -15,13 +15,13 @@
     box-sizing: border-box;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   }
-  .lifted { @include drop-shadows(lifted); }
-  .raised { @include drop-shadows(raised); }
-  .perspective { @include drop-shadows(perspective); }
-  .curve.left { @include drop-shadows(curve left); }
-  .curve.right { @include drop-shadows(curve right); }
-  .curve.horizontal { @include drop-shadows(curve horizontal); }
-  .curve.top { @include drop-shadows(curve top); }
-  .curve.bottom { @include drop-shadows(curve bottom); }
-  .curve.vertical { @include drop-shadows(curve vertical); }
+  .lifted { @include drop-shadows( ('style': 'lifted') ); }
+  .raised { @include drop-shadows( ('style': 'raised') ); }
+  .perspective { @include drop-shadows( ('style': 'perspective') ); }
+  .curve.left { @include drop-shadows( ('style': 'curve', 'direction': left) ); }
+  .curve.right { @include drop-shadows( ('style': 'curve', 'direction': right) ); }
+  .curve.horizontal { @include drop-shadows( ('style': 'curve', 'direction': 'horizontal') ); }
+  .curve.top { @include drop-shadows( ('style': 'curve', 'direction': top) ); }
+  .curve.bottom { @include drop-shadows( ('style': 'curve', 'direction': bottom) ); }
+  .curve.vertical { @include drop-shadows( ('style': 'curve', 'direction': 'vertical') ); }
 }
