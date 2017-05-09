@@ -1,60 +1,55 @@
-// *** color core *** //
-// color
-@function color($key){
-  $method: args-get($key, $ro-color-methods);
-  $color: args-get-type($key, 'color');
-  $saturation: args-get-next($key, 'saturation', 0%);
-  $lightness: args-get-next($key, 'lightness', 0%);
-  $dist: args-get-next($key, 'dist', $ro-color-dist);
-
-  $key: list-remove($key, $saturation);
-  $key: list-remove($key, $lightness);
-  $order: args-get-type($key, 'number', false, 0);
+@function palette($key){
+  $mode: map-get($key, 'mode');
+  $color: map-get($key, 'color');
+  $saturation: if(map-get($key, 'saturation'), map-get($key, 'saturation'), 0%);
+  $lightness: if(map-get($key, 'lightness'), map-get($key, 'lightness'), 0%);
+  $angle: if(map-get($key, 'angle'), map-get($key, 'angle'), 30);
+  $scale: if(map-get($key, 'scale'), map-get($key, 'scale'), 0);
 
   $hue: hue($color);
   $target-hue: 0deg;
   
-  @if $method == adjacent {
-    $target-hue: to-normal-hue(to-ideal-hue($hue) + $dist * $order);
+  @if $mode == 'adjacent' {
+    $target-hue: to-normal-hue(to-ideal-hue($hue) + $angle * $scale);
   }
-  @if $method == complementary {
+  @if $mode == 'complementary' {
     $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
   }
-  @if $method == split-complementary {
-    @if $order == 1 or $order == -2 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $dist);
+  @if $mode == 'split'-complementary {
+    @if $scale == 1 or $scale == -2 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $angle);
     }
-    @if $order == 2 or $order == -1 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $dist);
+    @if $scale == 2 or $scale == -1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $angle);
     }
   }
-  @if $method == triad {
-    @if $order == 1 or $order == -2 {
+  @if $mode == 'triad' {
+    @if $scale == 1 or $scale == -2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 120);
     }
-    @if $order == 2 or $order == -1 {
+    @if $scale == 2 or $scale == -1 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 240);
     }
   }
-  @if $method == rectangle {
-    @if abs($order) == 1 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + $dist * $order);
+  @if $mode == 'rectangle' {
+    @if abs($scale) == 1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + $angle * $scale);
     }
-    @if $order == 2 {
+    @if $scale == 2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
     }
-    @if abs($order) == 3 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $dist * $order / 3);
+    @if abs($scale) == 3 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $angle * $scale / 3);
     }
   }
-  @if $method == square {
-    @if $order == 1 or $order == -3 {
+  @if $mode == 'square' {
+    @if $scale == 1 or $scale == -3 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 90);
     }
-    @if $order == 2 {
+    @if $scale == 2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
     }
-    @if $order == 3 or $order == -1 {
+    @if $scale == 3 or $scale == -1 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 270);
     }
   }

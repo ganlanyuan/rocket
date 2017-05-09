@@ -49,10 +49,6 @@ $ro-lightness: 10% !default;
 $ro-timing-function: linear, ease, ease-in, ease-out, ease-in-out !default;
 $ro-unit: 'em', 'ex', '%', 'px', 'cm', 'mm', 'in', 'pt', 'pc', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax' !default; 
 
-// tooltip
-$ro-tooltip-position: 'left', 'right', 'top', 'bottom' !default;
-$ro-tooltip-radius: 0.22em !default;
-
 // dropdown
 $ro-dropdown-show: 'hover', 'click' !default;
 $ro-dropdown-style: 'display', 'scale', 'rotate' !default;

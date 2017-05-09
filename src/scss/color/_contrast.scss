@@ -1,15 +1,8 @@
-// *** contrast *** //
 @function contrast($key) {
-  $light: args-get-next($key, 'light', #fff);
-  $dark: args-get-next($key, 'dark', #000);
+  $color: map-get($key, 'color');
+  $light: if(map-get($key, 'light'), map-get($key, 'light'), #fff);
+  $dark: if(map-get($key, 'dark'), map-get($key, 'dark'), #000);
 
-  @if type-of($key) == 'list' {
-    $key: list-remove($key, $light);
-    $key: list-remove($key, $dark);
-  }
-  $color: args-get-type($key, 'color');
-
-  // @error $color;
   @if $color {
     @if brightness($color) < 65% { 
       @return $light; 

@@ -2,39 +2,36 @@
 // https://blog.codepen.io/2016/10/31/fluid-type-blogs/
 
 // *** fluid-type *** //
-@mixin fluid-type($properties, $data) {
-  @if type of $data == 'map' {
-    $keys: map-keys($data);
-    $values: map-values($data);
+@mixin fluid-type($key) {
+  $property: map-get($key, 'property');
+  $breakpoint: map-get($key, 'breakpoints');
 
-    $min-vw: nth($keys, 1); 
-    $max-vw: nth($keys, 2);
-    $min-value: nth($values, 1);
-    $max-value: nth($values, 2);
+  @if type of $breakpoint == 'map' {
+    $keys: map-keys($breakpoint);
+    $values: map-values($breakpoint);
 
-    @each $property in $properties {
-      #{$property}: $min-value;
-      @if $property == 'font-size' and unit($min-value) == 'px' {
-        #{$property}: rem($min-value);
+    $vw-sm: nth($keys, 1); 
+    $vw-bg: nth($keys, 2);
+    $value-sm: nth($values, 1);
+    $value-bg: nth($values, 2);
+
+    #{$property}: $value-sm;
+    @if $property == 'font-size' and unit($value-sm) == 'px' {
+      #{$property}: rem($value-sm);
+    }
+
+    @include bp( ('breakpoints': $vw-sm) ) {
+      @if $property == 'font-size' and unit($value-sm) == 'px' {
+        #{$property}: calc(#{rem($value-sm)} + #{strip-unit($value-bg - $value-sm)} * (100vw - #{rem($vw-sm)}) / #{strip-unit($vw-bg - $vw-sm)});
+      } else {
+        #{$property}: calc(#{$value-sm} + #{strip-unit($value-bg - $value-sm)} * (100vw - #{$vw-sm}) / #{strip-unit($vw-bg - $vw-sm)});
       }
     }
 
-    @include bp('min' $min-vw) {
-      @each $property in $properties {
-        @if $property == 'font-size' and unit($min-value) == 'px' {
-          #{$property}: calc(#{rem($min-value)} + #{strip-unit($max-value - $min-value)} * (100vw - #{rem($min-vw)}) / #{strip-unit($max-vw - $min-vw)});
-        } else {
-          #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
-        }
-      }
-    }
-
-    @include bp('min' $max-vw) {
-      @each $property in $properties {
-        #{$property}: $max-value;
-        @if $property == 'font-size' and unit($max-value) == 'px' {
-          #{$property}: rem($max-value);
-        }
+    @include bp( ('breakpoints': $vw-bg) ) {
+      #{$property}: $value-bg;
+      @if $property == 'font-size' and unit($value-bg) == 'px' {
+        #{$property}: rem($value-bg);
       }
     }
   }

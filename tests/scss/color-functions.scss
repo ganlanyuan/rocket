@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../src/scss/color/color"; 
+@import "../../src/scss/color/palette"; 
 
 $original: #d92626;
 
@@ -37,77 +37,35 @@ $contrast: #5173a3, #bbf8e6, #cb7d26;
 @for $i from 1 through 3 {
   .color-box-contrast-#{$i} { 
     background-color: nth($contrast, $i); 
-    color: contrast(nth($contrast, $i) 'light' #eee 'dark' #333);
+    color: contrast( ('color': nth($contrast, $i), 'light': #eee, 'dark': #333) );
   }
 }
 
 
 // *** color: adjacent *** //
-.color-box-adjacent-1 { 
-  background-color: adjacent($original -1); 
-  color: contrast(adjacent($original -1));
-}
-.color-box-adjacent-2 { 
-  background-color: adjacent($original 1);
-  color: contrast(adjacent($original 1));
+$options: (
+  'adjacent': ( ('scale': -1), ('scale': 1) ),
+  'complementary': ( 1 ),
+  'split-complementary': ( ('scale': 1), ('scale': 2) ),
+  'triad': ( ('scale': 1, 'saturation': 10%), ('scale': 2) ),
+  'rectangle': ( ('scale': 1), ('scale': 2), ('scale': 3) ),
+  'square': ( ('scale': 1), ('scale': 2), ('scale': 3) ),
+);
+
+$data: false;
+$color: #fff;
+@each $name, $option in $options {
+  @for $i from 1 through length($option) {
+    $data: if(
+      length($option) >= 1 and type-of(nth($option, $i)) == 'map', 
+      map-merge(nth($option, $i), ('mode': $name, 'color': $original)), 
+      ('mode': $name, 'color': $original) 
+      );
+    $color: palette( $data );
+    .color-box-#{$name}-#{$i} { 
+      background-color: $color; 
+      color: contrast( ('color': $color) );
+    }
+  }
 }
 .example-adjacent { @include clearfix(); }
-
-
-// *** color: complementary *** //
-.color-box-complementary { 
-  background-color: complementary($original); 
-  color: contrast(complementary($original));
-}
-
-
-// *** color: split-complementary *** //
-.color-box-split-complementary-1 { 
-  background-color: split-complementary($original 1); 
-  color: contrast(split-complementary($original 1));
-}
-.color-box-split-complementary-2 { 
-  background-color: split-complementary($original 2);
-  color: contrast(split-complementary($original 2));
-}
-
-
-// *** color: triad *** //
-.color-box-triad-1 { 
-  background-color: triad(1 $original saturation 10%); 
-  color: contrast(triad(1 $original saturation 10%));
-}
-.color-box-triad-2 { 
-  background-color: triad($original 2);
-  color: contrast(triad($original 2));
-}
-
-
-// *** color: rectangle *** //
-.color-box-rectangle-1 { 
-  background-color: rectangle($original 1); 
-  color: contrast(rectangle($original 1));
-}
-.color-box-rectangle-2 { 
-  background-color: rectangle($original 2);
-  color: contrast(rectangle($original 2));
-}
-.color-box-rectangle-3 { 
-  background-color: rectangle($original 3);
-  color: contrast(rectangle($original 3));
-}
-
-
-// *** color: square *** //
-.color-box-square-1 { 
-  background-color: square($original 1); 
-  color: contrast(square($original 1));
-}
-.color-box-square-2 { 
-  background-color: square($original 2);
-  color: contrast(square($original 2));
-}
-.color-box-square-3 { 
-  background-color: square($original 3);
-  color: contrast(square($original 3));
-}

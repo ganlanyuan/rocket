@@ -27,13 +27,13 @@
         &:hover { background-color: #f2f2f2; }
       }
     }
-    @include bp('min' $breakpoint) {
+    @include bp( ('breakpoints': $breakpoint) ) {
       input ~ label { display: none; }
     }
   }
 
   // == small screen ==
-  @include bp('max' $breakpoint) {
+  @include bp( ('condition': 'max', 'breakpoints': $breakpoint) ) {
     // == stack ==
     @if $mode == 'stack' {
       &, 

@@ -34,7 +34,7 @@
 
         @include make-metro($list, $full, $ratio, $child);
       } @else {
-        @include bp($condition $bp) {
+        @include bp( ('condition': $condition, 'breakpoints': $bp) ) {
           @if not $keep {
             @include metro-base($child, $gutter);
             $keep: true;

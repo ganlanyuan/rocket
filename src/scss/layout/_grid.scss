@@ -34,7 +34,7 @@
 
         @include divide-rows(map-get($layout, $bp), $gutter, $child, $float);
       } @else {
-        @include bp($condition $media-type $bp) {
+        @include bp( ('condition': $condition, 'media': $media-type, 'breakpoints': $bp) ) {
           @if not $keep {
             @include grid-base($child, $float, $gutter);
             $keep: true;

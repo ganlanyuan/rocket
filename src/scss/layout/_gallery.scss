@@ -36,7 +36,7 @@
         @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
 
       } @else if type-of($bp) == 'number' {
-        @include bp($bp $condition) {
+        @include bp( ('breakpoints': $bp, 'condition': $condition) ) {
           @if not $keep {
             @include gallery-base($child, $gutter, $float, $center-align);
             $keep: true;

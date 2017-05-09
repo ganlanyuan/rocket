@@ -280,7 +280,7 @@
     @if $bp == null or $bp == 'default' {
       #{$prop}: map-get($tops, $bp);
     } @else {
-      @include bp('max' $bp) {
+      @include bp( ('condition': 'max', 'breakpoints': $bp) ) {
         #{$prop}: map-get($tops, $bp);
       }
     }

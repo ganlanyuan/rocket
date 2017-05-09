@@ -55,7 +55,7 @@
         @if $bp == 'default' or $bp == null {
           @include make-holy-grail($columns, $order, $child, $gutter, $float);
         } @else {
-          @include bp($condition $media-type $bp) {
+          @include bp( ('condition': $condition, 'media': $media-type, 'breakpoints': $bp) ) {
             @include make-holy-grail($columns, $order, $child, $gutter, $float);
           }
         }

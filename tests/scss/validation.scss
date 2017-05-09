@@ -2,10 +2,10 @@
 @import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/validation"; 
 
-#form1 { @include validation(shake default); }
-#form2 { @include validation(fade-in right default); }
-#form3 { @include validation(fade-in bottom default); }
-#form4 { @include validation(slide-in top default); }
+#form1 { @include validation( ('shake': true, 'default': true) ); }
+#form2 { @include validation( ('style': 'fade-in', 'direction': right, 'default': true) ); }
+#form3 { @include validation( ('style': 'fade-in', 'direction': bottom, 'default': true) ); }
+#form4 { @include validation( ('style': 'slide-in', 'direction': top, 'default': true) ); }
 .validation-wrap {
   &:after {
     content: '';
@@ -42,7 +42,7 @@
   }
   input:not([type="submit"]) {
     padding: 0.5em 0.8em;
-    width: 100%;
+    width: 90%;
     max-width: 500px;
     border: 1px solid #ccc;
     -webkit-box-sizing: border-box;

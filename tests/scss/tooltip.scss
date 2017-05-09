@@ -1,4 +1,5 @@
 @import 'demo-base';
+@import "../../src/scss/color/contrast";
 @import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/tooltip"; 
 
@@ -6,6 +7,6 @@
   display: inline-block; 
   margin-right: 3em;
   @each $item in (left right bottom top) {
-    &.#{$item} { @include tooltip(radius $item #b02df3 width 100px); }
+    &.#{$item} { @include tooltip( ('border-radius': 0.22em, 'position': $item, 'color': #b02df3) ); }
   }
 }
