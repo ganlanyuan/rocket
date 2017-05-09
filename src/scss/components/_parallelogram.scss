@@ -1,10 +1,9 @@
 // *** parallelogram *** //
 @mixin parallelogram($key) {
-  $background: args-get-type($key, 'color');
-  $angle: args-get-type($key, 'number');
-  @if not $background {
-    $background: args-get-type($key, 'string');
-  }
+  @include check-arg-type($key, 'map');
+
+  $color: map-get($key, 'color');
+  $angle: map-get($key, 'angle');
 
   position: relative;
   &:before {
@@ -16,8 +15,8 @@
     left: 0; 
     z-index: -1;
 
-    @if $background {
-      background-color: $background;
+    @if $color {
+      background-color: $color;
     }
     @if $angle {
       @include ro-transform(skew($angle));

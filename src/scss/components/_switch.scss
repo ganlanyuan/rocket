@@ -1,30 +1,40 @@
 // *** switch *** //
-@mixin switch($key: 20px){
-  $radius: args-get($key, 'radius');
-  $round: args-get($key, 'round');
-  $style: args-get($key, $ro-switch-style, 'toggle');
-  $default-color: #ddd;
-  $active-color: args-get-type($key, 'color', false, #3DD754);
-  $text: args-get-next($key, 'text');
+@mixin switch($key: ('size': 20px)){
+  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'toggle');
+  $color: if(map-get($key, 'color'), map-get($key, 'color'), (#ddd, #3DD754));
+  $size: if(map-get($key, 'size'), map-get($key, 'size'), (em(20), em(20)));
+  $text: map-get($key, 'text');
+  $border-radius: map-get($key, 'border-radius');
   
-  // change em, rem to px
+  $default-color: false;
+  $active-color: false;
+  @if type-of($color) == 'list' {
+    $default-color: nth($color, 1);
+    @if length($color) >= 2 {
+      $active-color: nth($color, 2);
+    } @else {
+      $active-color: $default-color;
+    }
+  } @else if type-of($color) == 'color' {
+    $default-color: $color;    
+    $active-color: $default-color;
+  }
+
   $width: false;
   $height: false;
-  @each $item in $key {
-    @if type-of($item) == 'number' {
-      @if not $width {
-        $width: $item;
-      } @else {
-        $height: $item;
-      }
+  @if type-of($size) == 'list' {
+    $width: nth($size, 1);
+    @if length($size) >= 2 {
+      $height: nth($size, 2);
     }
+  } @else if type-of($size) == 'number' {
+    $width: $size;    
   }
-  @if not $width { $width: em(20); }
   @if not $height { $height: $width; }
+
   $width: em($width);
   $height: em($height);
-  $border: ($height / 8);
-  $radius-val: ($height / 6);
+  $gap: ($height / 8);
 
   // hide checkbox or radio
   > input {
@@ -35,8 +45,8 @@
   @if $text {
     label > span {
       position: absolute;
-      left: $border;
-      top: $border;
+      left: $gap;
+      top: $gap;
       display: inline-block;
       white-space: nowrap;
       color: contrast($default-color);
@@ -63,7 +73,7 @@
 
       @if $style == 'toggle' {
         background: $default-color;
-        padding: $border ($height * 0.85) $border $border;
+        padding: $gap ($height * 0.85) $gap $gap;
       } @else if $style == 'slider' {
         $width: $width * 1.8;
         text-align: left;
@@ -83,10 +93,8 @@
         }
       }
 
-      @if $radius {
-        border-radius: $radius-val;
-      } @else if $round {
-        border-radius: $ro-button-round;
+      @if $border-radius {
+        border-radius: $border-radius;
       }
 
       @if $text {
@@ -103,17 +111,15 @@
 
         @if $style == 'toggle' {
           width: $width;
-          box-shadow: 0 $border $border 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 $gap $gap 0 rgba(0, 0, 0, 0.2);
         } @else if $style == 'slider' {
           width: $height;
-          box-shadow: 0 ($border / 1.3) $border 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 ($gap / 1.3) $gap 0 rgba(0, 0, 0, 0.2);
           .lt-ie9 & { background: $active-color; }
         }
 
-        @if $radius {
-          border-radius: $radius-val;
-        } @else if $round {
-          border-radius: $ro-button-round;
+        @if $border-radius {
+          border-radius: $border-radius;
         }
 
         @if $text { position: relative; }
@@ -122,7 +128,7 @@
 
     // active style
     &:checked ~ label {
-      padding: $border $border $border ($height * 0.85);
+      padding: $gap $gap $gap ($height * 0.85);
       @if $style == 'toggle' {
         background: $active-color;
       } @else if $style == 'slider' {

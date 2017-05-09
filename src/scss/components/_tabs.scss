@@ -1,6 +1,8 @@
 @mixin tabs($key) {
-  $count: args-get-type($key, 'number', 0);
-  $style: args-get($key, $ro-tabs-style, 'normal');
+  @include check-arg-type($key, 'map');
+
+  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'normal');
+  $count: map-get($key, 'count');
 
   // *** output *** //
   > [type="radio"] {

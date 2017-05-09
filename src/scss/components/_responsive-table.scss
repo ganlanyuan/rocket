@@ -1,13 +1,13 @@
-// *** responsive-table *** //
 @mixin responsive-table($key) {
-  $mode: args-get($key, $responsive-table-mode, 'flip-scroll');
-  $data: args-get-next($key, 'data');
-  $border-color: args-get-type($key, 'color');
-  $breakpoint: args-get-next($key, 'bp', 768);
-  $th-width: args-get-next($key, 'width', 50%);
-  $count: args-get-next($key, 'count', 15);
+  @include check-arg-type($key, 'map');
 
-  // *** output *** //
+  $mode: if(map-get($key, 'mode'), map-get($key, 'mode'), 'flip-scroll');
+  $data: map-get($key, 'data');
+  $border-color: map-get($key, 'color');
+  $breakpoint: if(map-get($key, 'breakpoint'), map-get($key, 'breakpoint'), 768);
+  $th-width: if(map-get($key, 'th-width'), map-get($key, 'th-width'), 50%);
+  $count: if(map-get($key, 'count'), map-get($key, 'count'), 15);
+
   // normal
   @if $mode == 'toggle' {
     overflow-x: auto;
