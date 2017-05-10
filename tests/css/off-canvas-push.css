@@ -422,7 +422,7 @@ input:checked ~ .page .page-overlay {
 }
 
 .push .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  push , direction :  top , nav-size :  50px  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  push , direction :  top , nav-size :  50px  )";
 }
 
 li {

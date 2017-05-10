@@ -432,5 +432,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .open-door .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  open-door  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  open-door  )";
 }

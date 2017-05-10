@@ -29,7 +29,7 @@ th {
   } 
 }
 .scroll-wrapper { 
-  @include rp-table( ('mode': 'scroll', 'breakpoint': 900) ) {
+  @include rp-table( ('style': 'scroll', 'breakpoint': 900) ) {
     .scrollable {
       border-right-width: 1px;
       th:last-child, td:last-child { border-right-width: 0; }
@@ -41,10 +41,10 @@ th {
   } 
 }
 .toggle-wrapper {
-  @include rp-table( ('mode': 'toggle', 'breakpoint': 900, 'count': 10) );
+  @include rp-table( ('style': 'toggle', 'breakpoint': 900, 'count': 10) );
 }
 .stack {
-  @include rp-table( ('mode': 'stack', 'breakpoint': 900, 'color': #dbdbdb, 'data': ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) ) {
+  @include rp-table( ('style': 'stack', 'breakpoint': 900, 'color': #dbdbdb, 'data': ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) ) {
     tr:nth-of-type(2n) { 
       background-color: #f5f5f5; 
       .lt-ie10 & { background-color: transparent; }

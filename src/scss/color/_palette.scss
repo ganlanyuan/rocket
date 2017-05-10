@@ -1,5 +1,5 @@
 @function palette($key){
-  $mode: map-get($key, 'mode');
+  $style: map-get($key, 'style');
   $color: map-get($key, 'color');
   $saturation: if(map-get($key, 'saturation'), map-get($key, 'saturation'), 0%);
   $lightness: if(map-get($key, 'lightness'), map-get($key, 'lightness'), 0%);
@@ -9,13 +9,13 @@
   $hue: hue($color);
   $target-hue: 0deg;
   
-  @if $mode == 'adjacent' {
+  @if $style == 'adjacent' {
     $target-hue: to-normal-hue(to-ideal-hue($hue) + $angle * $scale);
   }
-  @if $mode == 'complementary' {
+  @if $style == 'complementary' {
     $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
   }
-  @if $mode == 'split-complementary' {
+  @if $style == 'split-complementary' {
     @if $scale == 1 or $scale == -2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $angle);
     }
@@ -23,7 +23,7 @@
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $angle);
     }
   }
-  @if $mode == 'triad' {
+  @if $style == 'triad' {
     @if $scale == 1 or $scale == -2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 120);
     }
@@ -31,7 +31,7 @@
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 240);
     }
   }
-  @if $mode == 'rectangle' {
+  @if $style == 'rectangle' {
     @if abs($scale) == 1 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + $angle * $scale);
     }
@@ -42,7 +42,7 @@
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $angle * $scale / 3);
     }
   }
-  @if $mode == 'square' {
+  @if $style == 'square' {
     @if $scale == 1 or $scale == -3 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 90);
     }
@@ -105,30 +105,30 @@
 
 // adjacent
 @function adjacent($key) {
-  @return palette(map-merge($key, ('mode': 'adjacent')));
+  @return palette(map-merge($key, ('style': 'adjacent')));
 }
 
 // complementary
 @function complementary($key) {
-  @return palette(map-merge($key, ('mode': 'complementary')));
+  @return palette(map-merge($key, ('style': 'complementary')));
 }
 
 // split-complementary
 @function split-complementary($key) {
-  @return palette(map-merge($key, ('mode': 'split-complementary')));
+  @return palette(map-merge($key, ('style': 'split-complementary')));
 }
 
 // triad
 @function triad($key) {
-  @return palette(map-merge($key, ('mode': 'triad')));
+  @return palette(map-merge($key, ('style': 'triad')));
 }
 
 // rectangle
 @function rectangle($key) {
-  @return palette(map-merge($key, ('mode': 'rectangle')));
+  @return palette(map-merge($key, ('style': 'rectangle')));
 }
 
 // square
 @function square($key) {
-  @return palette(map-merge($key, ('mode': 'square')));
+  @return palette(map-merge($key, ('style': 'square')));
 }

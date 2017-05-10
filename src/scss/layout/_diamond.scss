@@ -5,7 +5,7 @@
   $layout: map-get($key, 'layout');
   $shape: if(map-get($key, 'shape'), map-get($key, 'shape'), 'diamond');
   $tight: map-get($key, 'tight');
-  $global-breakpoints: map-get($key, 'breakpoints');
+  $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
   $media-type: map-get($key, 'media-type');
@@ -30,7 +30,7 @@
         @include make-diamond($num, $shape, $tight);
 
       } @else if type-of($bp) == 'number' {
-        @include bp( ('breakpoints': $bp, 'condition': $condition) ) {
+        @include bp( ('breakpoint': $bp, 'condition': $condition) ) {
           @if not $keep {
             @include diamond-base($shape);
             $keep: true;

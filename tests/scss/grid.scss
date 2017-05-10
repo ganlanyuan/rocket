@@ -5,14 +5,14 @@
 [class*='grid-'] .cell { margin-bottom: 20px; }
 
 $grid-list: ('layout': 3 4);
-$grid-child: ('layout': 3 4, 'child': '.child');
+$grid-child: ('layout': 3 4, 'selector': '.child');
 $grid-gutter1: ('layout': (3 4 : 2 1), 'gutter': 5%);
 $grid-gutter2: ('layout': 3 4, 'gutter': 5rem);
 $grid-list-direction: ('layout': 3 4, 'direction': 'RTL');
 $grid-nested-list: ('layout': (3 4) 7);
 $grid-map: ( 'layout': (3 4 7 : 0 2 1 ) 3 );
 $grid-breakpoint: ('layout': ( 600px: 5 7 ));
-$grid-global-breakpoints: ( 'layout': ('sm': 1 1, 'md': 2 1, 'lg': 3 5), 'breakpoints': $global-bps);
+$grid-global-breakpoints: ( 'layout': ('sm': 1 1, 'md': 2 1, 'lg': 3 5), 'breakpoint': $global-bps);
 $grid-breakpoint-max: ( 'layout': (900px: 3 5, 600px: 2 1), 'condition': 'max' );
 $grid-breakpoint-outside: ( 'layout': (5 7) );
 $grid-breakpoint-nested-list: ( 'layout': ( 600px: (3 4) (2 5) 3 ) );

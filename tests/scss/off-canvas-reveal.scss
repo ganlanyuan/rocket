@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: map-merge($off-canvas-options, ('mode': 'reveal'));
+$off-canvas-options: map-merge($off-canvas-options, ('style': 'reveal'));
 @include off-canvas($off-canvas-options);
 
 .reveal {

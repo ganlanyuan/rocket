@@ -4,9 +4,9 @@
 
   $layout: map-get($key, 'layout');
   $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), 1);
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), '*');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
   $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
-  $global-breakpoints: map-get($key, 'breakpoints');
+  $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
   $media-type: map-get($key, 'media-type');
@@ -29,18 +29,18 @@
       $full: args-get-next($list, 'of');
 
       @if $bp == null or $bp == 'default' {
-        @include metro-base($child, $gutter);
+        @include metro-base($selector, $gutter);
         $keep: true;
 
-        @include make-metro($list, $full, $ratio, $child);
+        @include make-metro($list, $full, $ratio, $selector);
       } @else {
-        @include bp( ('condition': $condition, 'breakpoints': $bp) ) {
+        @include bp( ('condition': $condition, 'breakpoint': $bp) ) {
           @if not $keep {
-            @include metro-base($child, $gutter);
+            @include metro-base($selector, $gutter);
             $keep: true;
           }
 
-          @include make-metro($list, $full, $ratio, $child);
+          @include make-metro($list, $full, $ratio, $selector);
         }
       }
 
@@ -48,15 +48,15 @@
   } @else {
     $full: args-get-next($layout, 'of');
 
-    @include metro-base($child, $gutter);
-    @include make-metro($layout, $full, $ratio, $child);
+    @include metro-base($selector, $gutter);
+    @include make-metro($layout, $full, $ratio, $selector);
   }
 }
 
-@mixin metro-base($child, $gutter){
+@mixin metro-base($selector, $gutter){
   @include clearfix();
   @if $gutter and strip-unit($gutter) != 0 { margin: 0 (-$gutter / 2); }
-  > #{$child} {
+  > #{$selector} {
     position: relative;
     float: left;
     height: 0;
@@ -72,7 +72,7 @@
   }
 }
 
-@mixin make-metro($list, $full, $ratio, $child) {
+@mixin make-metro($list, $full, $ratio, $selector) {
   @for $j from 1 through (length($list) - 2) {
     $width: percentage(1 / $full);
     $height: percentage($ratio / $full);

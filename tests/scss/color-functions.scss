@@ -58,8 +58,8 @@ $color: #fff;
   @for $i from 1 through length($option) {
     $data: if(
       length($option) >= 1 and type-of(nth($option, $i)) == 'map', 
-      map-merge(nth($option, $i), ('mode': $name, 'color': $original)), 
-      ('mode': $name, 'color': $original) 
+      map-merge(nth($option, $i), ('style': $name, 'color': $original)), 
+      ('style': $name, 'color': $original) 
       );
     $color: palette( $data );
     .color-box-#{$name}-#{$i} { 

@@ -1,6 +1,6 @@
 // *** justify *** //
 @mixin justify($key: (child: '*')){
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), '*');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
   
   text-align: justify;
   &:after {
@@ -8,7 +8,7 @@
     display: inline-block;
     width: 100%;
   }
-  > #{$child} {
+  > #{$selector} {
     display: inline-block;
   }
 }

@@ -451,5 +451,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .drawer .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  drawer , tops : ( 500px :  20px , small :  30px , medium :  40px , null :  70px  ), breakpoints : ( small :  600px , medium :  900px  ) )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  drawer , tops : ( 500px :  20px , small :  30px , medium :  40px , null :  70px  ), breakpoint : ( small :  600px , medium :  900px  ) )";
 }

@@ -422,5 +422,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .scale-down .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  scale-down  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  scale-down  )";
 }

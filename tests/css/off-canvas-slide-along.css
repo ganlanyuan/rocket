@@ -424,5 +424,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .slide-along .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  slide-along  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  slide-along  )";
 }

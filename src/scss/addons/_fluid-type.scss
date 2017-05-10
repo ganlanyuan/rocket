@@ -4,7 +4,7 @@
 // *** fluid-type *** //
 @mixin fluid-type($key) {
   $property: map-get($key, 'property');
-  $breakpoint: map-get($key, 'breakpoints');
+  $breakpoint: map-get($key, 'breakpoint');
 
   @if type of $breakpoint == 'map' {
     $keys: map-keys($breakpoint);
@@ -20,7 +20,7 @@
       #{$property}: rem($value-sm);
     }
 
-    @include bp( ('breakpoints': $vw-sm) ) {
+    @include bp( ('breakpoint': $vw-sm) ) {
       @if $property == 'font-size' and unit($value-sm) == 'px' {
         #{$property}: calc(#{rem($value-sm)} + #{strip-unit($value-bg - $value-sm)} * (100vw - #{rem($vw-sm)}) / #{strip-unit($vw-bg - $vw-sm)});
       } else {
@@ -28,7 +28,7 @@
       }
     }
 
-    @include bp( ('breakpoints': $vw-bg) ) {
+    @include bp( ('breakpoint': $vw-bg) ) {
       #{$property}: $value-bg;
       @if $property == 'font-size' and unit($value-bg) == 'px' {
         #{$property}: rem($value-bg);

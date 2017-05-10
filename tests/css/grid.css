@@ -283,7 +283,7 @@ p {
 }
 
 .grid-child:before {
-  content: "( layout : 3 4, child :  .child  )";
+  content: "( layout : 3 4, selector :  .child  )";
 }
 
 .grid-child > div {
@@ -634,7 +634,7 @@ p {
 }
 
 .grid-global-breakpoints:before {
-  content: "( layout : ( sm : 1 1, md : 2 1, lg : 3 5 ), breakpoints : ( sm :  600px , md :  900px , lg :  1200px  ) )";
+  content: "( layout : ( sm : 1 1, md : 2 1, lg : 3 5 ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ) )";
 }
 
 @media (min-width: 37.5em) {

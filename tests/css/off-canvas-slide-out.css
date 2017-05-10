@@ -424,5 +424,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .slide-out .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  slide-out  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  slide-out  )";
 }

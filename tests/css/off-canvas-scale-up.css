@@ -434,5 +434,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .scale-up .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  scale-up  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  scale-up  )";
 }

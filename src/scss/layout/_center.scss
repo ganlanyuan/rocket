@@ -2,7 +2,7 @@
 @mixin center($key: (child: '*')){
   @include check-arg-type($key, 'map');
 
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), '*');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
   $align: if(map-get($key, 'align'), map-get($key, 'align'), 'left');
   
   text-align: center; 
@@ -14,7 +14,7 @@
     vertical-align: middle;
     margin-right: -.25em; // adjusts for spacing
   }
-  > #{$child} {
+  > #{$selector} {
     display: inline-block;
     vertical-align: middle;
     white-space: normal;

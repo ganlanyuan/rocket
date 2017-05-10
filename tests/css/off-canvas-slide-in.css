@@ -414,5 +414,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .slide-in .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  slide-in , inside :  true  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  slide-in , inside :  true  )";
 }

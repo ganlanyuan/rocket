@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: map-merge($off-canvas-options, ('mode': 'push', 'direction': 'top', 'nav-size': 50px));
+$off-canvas-options: map-merge($off-canvas-options, ('style': 'push', 'direction': 'top', 'nav-size': 50px));
 @include off-canvas($off-canvas-options);
 
 .push {

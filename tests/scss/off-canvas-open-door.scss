@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: map-merge($off-canvas-options, ('mode': 'open-door'));
+$off-canvas-options: map-merge($off-canvas-options, ('style': 'open-door'));
 @include off-canvas($off-canvas-options);
 
 .open-door {

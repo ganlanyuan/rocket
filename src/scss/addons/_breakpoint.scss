@@ -2,7 +2,7 @@
 @mixin ro-breakpoint($key){
   @include check-arg-type($key, 'map');
 
-  $breakpoints: map-get($key, 'breakpoints');
+  $breakpoint: map-get($key, 'breakpoint');
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
   $media: map-get($key, 'media');
   $feature: if(map-get($key, 'feature'), map-get($key, 'feature'), 'width');
@@ -10,28 +10,28 @@
   $media-string: if($media, '#{$media} and ', '');
   $selector: '';
 
-  $breakpoints-em: ();
+  $breakpoint-em: ();
   // get breakpoints
-  @each $item in $breakpoints {
+  @each $item in $breakpoint {
     @if strip-unit($item) == 0 {
       $item: 0em;
     } @else {
       $item: em($item);
     }
 
-    $breakpoints-em: append($breakpoints-em, $item);
+    $breakpoint-em: append($breakpoint-em, $item);
   }
-  $length: length($breakpoints-em);
+  $length: length($breakpoint-em);
 
   @if $length == 1 {
-    $bp: if($breakpoint-fix and $condition == 'max', (nth($breakpoints-em, 1) - em(1)), nth($breakpoints-em, 1));
+    $bp: if($breakpoint-fix and $condition == 'max', (nth($breakpoint-em, 1) - em(1)), nth($breakpoint-em, 1));
     $selector: $media-string + '(#{$condition}-#{$feature}: #{$bp})';
   } @else if $length >= 2 {
     @for $i from 1 through $length {
       @if number-odd-even($i) == 'odd' {
-        $selector: $selector + ', ' + $media-string + ' (min-#{$feature}: #{nth($breakpoints-em, $i)})';
+        $selector: $selector + ', ' + $media-string + ' (min-#{$feature}: #{nth($breakpoint-em, $i)})';
       } @else if number-odd-even($i) == 'even' {
-        $bp-max: if($breakpoint-fix, (nth($breakpoints-em, $i) - em(1)), nth($breakpoints-em, $i));
+        $bp-max: if($breakpoint-fix, (nth($breakpoint-em, $i) - em(1)), nth($breakpoint-em, $i));
         $selector: $selector + 'and (max-#{$feature}: #{$bp-max})';
       }
     }

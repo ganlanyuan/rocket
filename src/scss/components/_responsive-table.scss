@@ -1,7 +1,7 @@
 @mixin responsive-table($key) {
   @include check-arg-type($key, 'map');
 
-  $mode: if(map-get($key, 'mode'), map-get($key, 'mode'), 'flip-scroll');
+  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'flip-scroll');
   $data: map-get($key, 'data');
   $border-color: map-get($key, 'color');
   $breakpoint: if(map-get($key, 'breakpoint'), map-get($key, 'breakpoint'), 768);
@@ -9,7 +9,7 @@
   $count: if(map-get($key, 'count'), map-get($key, 'count'), 15);
 
   // normal
-  @if $mode == 'toggle' {
+  @if $style == 'toggle' {
     overflow-x: auto;
     input { @extend %ro-hidden-checkbox; }
     label { font-size: 14px; }
@@ -27,15 +27,15 @@
         &:hover { background-color: #f2f2f2; }
       }
     }
-    @include bp( ('breakpoints': $breakpoint) ) {
+    @include bp( ('breakpoint': $breakpoint) ) {
       input ~ label { display: none; }
     }
   }
 
   // == small screen ==
-  @include bp( ('condition': 'max', 'breakpoints': $breakpoint) ) {
+  @include bp( ('condition': 'max', 'breakpoint': $breakpoint) ) {
     // == stack ==
-    @if $mode == 'stack' {
+    @if $style == 'stack' {
       &, 
       thead, 
       tbody, 
@@ -76,7 +76,7 @@
       }
 
     // == toggle ==
-    } @else if $mode == 'toggle' {
+    } @else if $style == 'toggle' {
       table { margin-top: 0.5em; }
       th, td { display: none; }
       #control-panel:checked ~ .control-panel { display: block; }
@@ -96,7 +96,7 @@
       }
 
     // == scroll ==
-    } @else if $mode == 'scroll' {
+    } @else if $style == 'scroll' {
       position: relative;
       > .pinned {
         position: absolute;
@@ -120,7 +120,7 @@
         }
       }
     // == flip-scroll ==
-    } @else if $mode == 'flip-scroll' {
+    } @else if $style == 'flip-scroll' {
       position: relative; 
       width: 100%;
       &,

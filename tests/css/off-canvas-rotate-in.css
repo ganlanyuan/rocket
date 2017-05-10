@@ -434,5 +434,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .rotate-in .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  rotate-in  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  rotate-in  )";
 }

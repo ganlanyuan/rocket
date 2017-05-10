@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: map-merge($off-canvas-options, ('mode': 'rotate-in-reverse'));
+$off-canvas-options: map-merge($off-canvas-options, ('style': 'rotate-in-reverse'));
 @include off-canvas($off-canvas-options);
 
 .rotate-in-reverse {

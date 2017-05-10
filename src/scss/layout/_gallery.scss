@@ -2,11 +2,11 @@
   @include check-arg-type($key, 'map');
 
   $layout: map-get($key, 'layout');
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), 'li');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'li');
   $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, gutter));
   $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
   $center-align: map-get($key, 'center-align');
-  $global-breakpoints: map-get($key, 'breakpoints');
+  $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
   $media-type: map-get($key, 'media-type');
@@ -30,31 +30,31 @@
       $this-per-row: map-get($layout, $bp);
 
       @if $bp == null or $bp == 'default' {
-        @include gallery-base($child, $gutter, $float, $center-align);
+        @include gallery-base($selector, $gutter, $float, $center-align);
         $keep: true;
 
-        @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
+        @include make-gallery($this-per-row, $selector, $gutter, $float, $center-align);
 
       } @else if type-of($bp) == 'number' {
-        @include bp( ('breakpoints': $bp, 'condition': $condition) ) {
+        @include bp( ('breakpoint': $bp, 'condition': $condition) ) {
           @if not $keep {
-            @include gallery-base($child, $gutter, $float, $center-align);
+            @include gallery-base($selector, $gutter, $float, $center-align);
             $keep: true;
           }
 
-          @include make-gallery($this-per-row, $child, $gutter, $float, $center-align);
+          @include make-gallery($this-per-row, $selector, $gutter, $float, $center-align);
         }
       }
     }
   } @else {
     @if not $keep {
-      @include gallery-base($child, $gutter, $float, $center-align);
+      @include gallery-base($selector, $gutter, $float, $center-align);
     }
-    @include make-gallery($layout, $child, $gutter, $float, $center-align);
+    @include make-gallery($layout, $selector, $gutter, $float, $center-align);
   }
 }
 
-@mixin gallery-base($child, $gutter, $float, $center-align){
+@mixin gallery-base($selector, $gutter, $float, $center-align){
   @if $center-align { 
     // Webkit: collapse white-space between units
     letter-spacing: -0.31em; 
@@ -82,7 +82,7 @@
 
   @if unit($gutter) != '%' and $gutter != 0 { margin-right: - $gutter; }
   
-  > #{$child} {
+  > #{$selector} {
     width: 100%;
 
     @if $center-align {
@@ -107,8 +107,8 @@
   }
 }
 
-@mixin make-gallery($columns, $child, $gutter, $float, $center-align) {
-  > #{$child} { 
+@mixin make-gallery($columns, $selector, $gutter, $float, $center-align) {
+  > #{$selector} { 
     @if unit($gutter) == '%' or $gutter == 0 {
       width: ((100% + $gutter) / $columns - $gutter); 
       

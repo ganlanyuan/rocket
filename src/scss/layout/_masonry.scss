@@ -3,9 +3,9 @@
   @include check-arg-type($key, 'map');
 
   $layout: map-get($key, 'layout');
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), 'div');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
   $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
-  $global-breakpoints: map-get($key, 'breakpoints');
+  $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
   $media-type: map-get($key, 'media-type');
@@ -31,14 +31,14 @@
       $count: map-get($layout, $bp);
 
       @if $bp == 'default' or $bp == null {
-        @include masonry-base($child, $gutter);
+        @include masonry-base($selector, $gutter);
         $keep: true;
         @include make-masonry($count);
 
       } @else if type-of($bp) == 'number' {
-        @include bp( ('condition': $condition, 'media': $media-type, 'breakpoints': $bp) ) {
+        @include bp( ('condition': $condition, 'media': $media-type, 'breakpoint': $bp) ) {
           @if not $keep {
-            @include masonry-base($child, $gutter);
+            @include masonry-base($selector, $gutter);
             $keep: true;
           }
           @include make-masonry($count);
@@ -48,19 +48,19 @@
       }
     }
   } @else {
-    @include masonry-base($child, $gutter);
+    @include masonry-base($selector, $gutter);
     @include make-masonry($layout);
   }
 }
 
-@mixin masonry-base($child, $gutter){
+@mixin masonry-base($selector, $gutter){
   overflow: hidden; // fix an chrome overflow
   @if $gutter {
     -webkit-column-gap: $gutter;
        -moz-column-gap: $gutter;
             column-gap: $gutter;
   }
-  > #{$child} {
+  > #{$selector} {
     @if not $gutter {
       // default column-gap: 1em
       padding-bottom: 1em;

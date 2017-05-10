@@ -411,5 +411,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .reveal .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , mode :  reveal  )";
+  content: "( page :  .page , nav :  .nav , submenu :  true , style :  reveal  )";
 }

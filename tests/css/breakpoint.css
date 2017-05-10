@@ -237,7 +237,7 @@ p {
 }
 
 .num:before {
-  content: "( breakpoints :  600  )";
+  content: "( breakpoint :  600  )";
 }
 
 @media (min-width: 37.5em) {
@@ -247,7 +247,7 @@ p {
 }
 
 .num-max:before {
-  content: "( condition :  max , breakpoints :  600  )";
+  content: "( condition :  max , breakpoint :  600  )";
 }
 
 @media (max-width: 37.4375em) {
@@ -257,7 +257,7 @@ p {
 }
 
 .num-2-max:before {
-  content: "( breakpoints : 600 900, condition :  max  )";
+  content: "( breakpoint : 600 900, condition :  max  )";
 }
 
 @media (min-width: 37.5em) and (max-width: 56.1875em) {
@@ -267,7 +267,7 @@ p {
 }
 
 .num-print:before {
-  content: "( breakpoints :  600 , media :  print  )";
+  content: "( breakpoint :  600 , media :  print  )";
 }
 
 @media print and (min-width: 37.5em) {
@@ -277,7 +277,7 @@ p {
 }
 
 .height:before {
-  content: "( breakpoints :  600 , feature :  height  )";
+  content: "( breakpoint :  600 , feature :  height  )";
 }
 
 @media (min-height: 37.5em) {
@@ -287,7 +287,7 @@ p {
 }
 
 .num-9:before {
-  content: "( breakpoints : 300 400 500 600 700 800 900 1000 1100 )";
+  content: "( breakpoint : 300 400 500 600 700 800 900 1000 1100 )";
 }
 
 @media (min-width: 18.75em) and (max-width: 24.9375em), (min-width: 31.25em) and (max-width: 37.4375em), (min-width: 43.75em) and (max-width: 49.9375em), (min-width: 56.25em) and (max-width: 62.4375em), (min-width: 68.75em) {

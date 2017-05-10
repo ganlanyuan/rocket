@@ -2,10 +2,10 @@
   @include check-arg-type($key, 'map');
 
   $layout: map-get($key, 'layout');
-  $child: if(map-get($key, 'child'), map-get($key, 'child'), 'div');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
   $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
   $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
-  $global-breakpoints: map-get($key, 'breakpoints');
+  $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
   $media-type: map-get($key, 'media-type');
@@ -29,26 +29,26 @@
     // divide rows within each breakpoints
     @each $bp in $local-breakpoints {
       @if $bp == 'default' {
-        @include grid-base($child, $float, $gutter);
+        @include grid-base($selector, $float, $gutter);
         $keep: true;
 
-        @include divide-rows(map-get($layout, $bp), $gutter, $child, $float);
+        @include divide-rows(map-get($layout, $bp), $gutter, $selector, $float);
       } @else {
-        @include bp( ('condition': $condition, 'media': $media-type, 'breakpoints': $bp) ) {
+        @include bp( ('condition': $condition, 'media': $media-type, 'breakpoint': $bp) ) {
           @if not $keep {
-            @include grid-base($child, $float, $gutter);
+            @include grid-base($selector, $float, $gutter);
             $keep: true;
           }
 
-          @include divide-rows(map-get($layout, $bp), $gutter, $child, $float);
+          @include divide-rows(map-get($layout, $bp), $gutter, $selector, $float);
         }
       }
     }
 
   // no breakpoints
   } @else {
-    @include grid-base($child, $float, $gutter);
-    @include divide-rows($layout, $gutter, $child, $float);
+    @include grid-base($selector, $float, $gutter);
+    @include divide-rows($layout, $gutter, $selector, $float);
   }
 }
 
@@ -62,15 +62,15 @@
 //  2-2. gutter with other units
 //     gutter: minus margin of the container element, padding of child elements
 
-@mixin grid-base($child, $float, $gutter){
+@mixin grid-base($selector, $float, $gutter){
   // default 100% width
-  > #{$child} { width: 100%; }
+  > #{$selector} { width: 100%; }
 
   @include clearfix();
   // gutter: px | em | rem | vw
   @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
 
-  > #{$child} {
+  > #{$selector} {
     float: $float;
     clear: both; // default: single column
     margin-#{opposite($float)}: -100%; // each column is isolated with each other
@@ -84,14 +84,14 @@
 }
 
 // == divide-rows ==
-@mixin divide-rows($value, $gutter, $child, $float) {
+@mixin divide-rows($value, $gutter, $selector, $float) {
   $columns: false;
   $orders: false;
   $list-length: 0;
   $max-order: false;
   
   // reset clear
-  > #{$child}:nth-child(n) { clear: none; };
+  > #{$selector}:nth-child(n) { clear: none; };
 
   // many rows
   @if is-nested-list($value) {
@@ -101,13 +101,13 @@
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
 
-      @include grid-row($columns, $orders, $child, $float, $gutter, $max-order, $list-length);
+      @include grid-row($columns, $orders, $selector, $float, $gutter, $max-order, $list-length);
 
       // get list-length
       @if $columns { 
         $list-length: ($list-length + length($columns)); 
         // clear float on the first column of a new row
-        > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
+        > #{$selector}:nth-child(#{$list-length + 1}) { clear: both; }
       }
 
       // get max-order
@@ -125,12 +125,12 @@
     $columns: grid-get-columns($value);
     $orders: grid-get-orders($value);
 
-    @include grid-row($columns, $orders, $child, $float, $gutter);
+    @include grid-row($columns, $orders, $selector, $float, $gutter);
   }
 }
 
 // == grid-row ==
-@mixin grid-row($cols, $orders, $child, $float, $gutter, $max-order:false, $list-length:0) {
+@mixin grid-row($cols, $orders, $selector, $float, $gutter, $max-order:false, $list-length:0) {
 
   $full-col: 0;
   @each $item in $cols {
@@ -150,7 +150,7 @@
     }
 
 
-    > #{$child}:nth-child(#{$i + $list-length}) {
+    > #{$selector}:nth-child(#{$i + $list-length}) {
       @if unit($gutter) == '%' or $gutter == 0 {
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
       } @else {
