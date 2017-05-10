@@ -69,3 +69,8 @@ $color: #fff;
   }
 }
 .example-adjacent { @include clearfix(); }
+// .color-box-adjacent-2 {
+//   $color-adjacent: adjacent( ('color': $original, 'scale': 1) );
+//   background-color: $color-adjacent; 
+//   color: contrast( ('color': $color-adjacent) );
+// }

@@ -287,13 +287,13 @@ p {
 }
 
 .color-box-adjacent-1 {
-  background-color: #26d9d9;
-  color: contrast(("color": #26d9d9));
+  background-color: #d9268b;
+  color: contrast(("color": #d9268b));
 }
 
 .color-box-adjacent-2 {
-  background-color: #9dd926;
-  color: contrast(("color": #9dd926));
+  background-color: #d97726;
+  color: contrast(("color": #d97726));
 }
 
 .color-box-complementary-1 {

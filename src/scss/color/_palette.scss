@@ -15,7 +15,7 @@
   @if $mode == 'complementary' {
     $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
   }
-  @if $mode == 'split'-complementary {
+  @if $mode == 'split-complementary' {
     @if $scale == 1 or $scale == -2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $angle);
     }
@@ -101,4 +101,34 @@
     }
   }
   @return $normal-hue;
+}
+
+// adjacent
+@function adjacent($key) {
+  @return palette(map-merge($key, ('mode': 'adjacent')));
+}
+
+// complementary
+@function complementary($key) {
+  @return palette(map-merge($key, ('mode': 'complementary')));
+}
+
+// split-complementary
+@function split-complementary($key) {
+  @return palette(map-merge($key, ('mode': 'split-complementary')));
+}
+
+// triad
+@function triad($key) {
+  @return palette(map-merge($key, ('mode': 'triad')));
+}
+
+// rectangle
+@function rectangle($key) {
+  @return palette(map-merge($key, ('mode': 'rectangle')));
+}
+
+// square
+@function square($key) {
+  @return palette(map-merge($key, ('mode': 'square')));
 }
