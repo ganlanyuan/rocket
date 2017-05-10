@@ -36,8 +36,7 @@
       "color-functions",
       "hide-text",
       "quantity-query",
-      "fluid-type",
-      "visibility"
+      "fluid-type"
     ]
   }
 }
