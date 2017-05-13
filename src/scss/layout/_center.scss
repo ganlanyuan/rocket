@@ -8,7 +8,7 @@
   @if $child {
     $selector: '> #{$child}';
   } @else if {
-    $selector: '> div, > section, > article';
+    $selector: '> *';
   }
 
   // *** output *** //

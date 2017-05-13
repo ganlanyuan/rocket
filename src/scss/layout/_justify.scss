@@ -7,7 +7,7 @@
   @if $child {
     $selector: '> #{$child}';
   } @else if {
-    $selector: '> li, > div, > span';
+    $selector: '> *';
   }
 
   // *** output *** //

@@ -58,7 +58,6 @@
   $transform-origin: false;
   $rotate: false;
   $rotate-default: false;
-  $rotate-active: false;
   $scale-default: translate3d(0px, 0px, 0px);
   $scale-active: perspective(1000px) translate3d(0px, 0px, -300px);
 
@@ -104,11 +103,6 @@
 
   @if index(('rotate-in', 'rotate-out', 'rotate-in-reverse'), $mode) {
     $rotate: true;
-    @if $horizontal {
-      $rotate-active: rotateY(0);
-    } @else {
-      $rotate-active: rotateX(0);
-    }
   }
   @if index(('rotate-in', 'rotate-out', 'open-door'), $mode) {
     @if $direction == left {
@@ -305,7 +299,7 @@
       input:checked ~ & #{$nav} {
         margin-#{$direction}: 0;
         @if $rotate {
-          @include ro-transform($rotate-active);
+          @include ro-transform(none);
         }
       }
     }
