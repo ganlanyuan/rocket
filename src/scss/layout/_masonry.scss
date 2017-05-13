@@ -3,7 +3,7 @@
   @include check-arg-type($key, 'map');
 
   $layout: map-get($key, 'layout');
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
+  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'li');
   $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
