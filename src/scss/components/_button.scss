@@ -100,7 +100,7 @@
     transition: background $duration $timing-function, color $duration $timing-function;
     &:before {
       @include button-pos-a();
-      @include opacity(0);
+      opacity: 0;
       @if $direction == vertical {
         @include ro-transform(scaleY(0.7));
       } @else {
@@ -117,7 +117,7 @@
     &#{$selector} {
       color: contrast($color1);
       &:before {
-        @include opacity(1);
+        opacity: 1;
         @if $direction == vertical {
           @include ro-transform(scaleY(1));
         } @else {
@@ -132,12 +132,12 @@
       transition: transform $duration $timing-function, opacity $duration $timing-function;
     }
     span {
-      @include opacity(1);
+      opacity: 1;
       @include ro-transform(translateY(0));
       display: block;
     }
     &:before {
-      @include opacity(0);
+      opacity: 0;
       @if $direction == bottom {
         @include ro-transform(translateY(-20%));
       } @else if $direction == left {
@@ -158,7 +158,7 @@
     }
     &#{$selector} {
       span {
-        @include opacity(0);
+        opacity: 0;
         @if $direction == bottom {
           @include ro-transform(translateY(20%));
         } @else if $direction == left {
@@ -170,7 +170,7 @@
         }
       }
       &:before {
-        @include opacity(1);
+        opacity: 1;
         @include ro-transform(translateY(0));
         .lt-ie9 & { display: block; }
       }

@@ -66,12 +66,12 @@
       @include ro-transform-origin(50% 0% 0px);
       @include ro-transform-style(preserve-3d);
       @include ro-transform(scaleY(0.4));
-      @include opacity(0);
+      opacity: 0;
     } @else if $style == 'rotate' {
       @include ro-transform-style(preserve-3d);
       @include ro-transform-origin(50% 0% 0px);
       @include ro-transform(rotateX(-30deg));
-      @include opacity(0);
+      opacity: 0;
     }
 
     // default menu style
@@ -108,10 +108,10 @@
       display: block;
     } @else if $style == 'scale' {
       @include ro-transform(scaleY(1));
-      @include opacity(1);
+      opacity: 1;
     } @else if $style == 'rotate' {
       @include ro-transform(rotateX(0));
-      @include opacity(1);
+      opacity: 1;
     }
   }
 }

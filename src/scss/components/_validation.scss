@@ -13,7 +13,7 @@
     @if $style == 'normal' {
       display: none;
     } @else if $style == 'fade-in' {
-      @include opacity(0);
+      opacity: 0;
       @include ro-transition(opacity $speed);
       position: absolute;
       z-index: $z-index;
@@ -76,7 +76,7 @@
     @if $style == 'normal' {
       display: inline-block;
     } @else if $style == 'fade-in' {
-      @include opacity(1);
+      opacity: 1;
     } @else if $style == 'slide-in' {
       $trans-hide: '';
       $trans-show: '';

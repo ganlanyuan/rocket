@@ -5,6 +5,21 @@
   $content: if(map-get($key, 'content'), map-get($key, 'content'), attr(data-tooltip));
   $border-radius: map-get($key, 'border-radius');
 
+  
+  %tooltip-common {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+  %tooltip-content {
+    padding: 0.67em;
+    min-width: 8.5em;
+    font-size: 0.8em;
+  }
+
   position: relative;
   cursor: pointer;
   &:before, 
@@ -22,7 +37,7 @@
   &:hover { 
     &:before,
     &:after { 
-      @include opacity(1); 
+      opacity: 1;
       z-index: 9999;
     }
   }
