@@ -1,7 +1,0 @@
-// *** opacity *** //
-@mixin opacity($key) {
-  $opacity-ie: $key * 100;
-  
-  opacity: $key;
-  filter: alpha(opacity=$opacity-ie); //IE8
-}
