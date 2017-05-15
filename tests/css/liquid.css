@@ -321,7 +321,7 @@ p {
 }
 
 .liquid2-child1:before {
-  content: '( layout : "auto" 200px, child :  .child  )';
+  content: '( layout : "auto" 200px, selector :  .child  )';
 }
 
 .liquid2-child1 > div {
@@ -349,7 +349,7 @@ p {
 }
 
 .liquid2-child2:before {
-  content: '( layout : "auto" 200px, child : "main" "aside" )';
+  content: '( layout : "auto" 200px, selector : "main" "aside" )';
 }
 
 .liquid2-child2 > div {
@@ -545,7 +545,14 @@ p {
 }
 
 .liquid2-global-breakpoints:before {
-  content: '( layout : ( 800px : "auto" 300px ) )';
+  content: '( layout : ( default : 150px "auto", sm : ( 150px :  1 , auto :  0  ), md : ( 150px :  0 , auto :  1  ) ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ) )';
+}
+
+.liquid2-global-breakpoints > div {
+  padding: 0 0 0 170px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .liquid2-global-breakpoints > div:after {
@@ -554,20 +561,49 @@ p {
   display: table;
 }
 
-@media (min-width: 50em) {
+.liquid2-global-breakpoints > div > div:nth-child(1) {
+  float: left;
+  width: 150px;
+  margin: 0 0 0 -170px;
+}
+
+.liquid2-global-breakpoints > div > div:nth-child(2) {
+  float: right;
+  width: 100%;
+}
+
+@media (min-width: 37.5em) {
   .liquid2-global-breakpoints > div {
-    padding: 0 320px 0 0;
+    padding: 0 170px 0 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .liquid2-global-breakpoints > div > div:nth-child(2) {
+    float: left;
+    width: 100%;
+  }
+  .liquid2-global-breakpoints > div > div:nth-child(1) {
+    float: right;
+    width: 150px;
+    margin: 0 -170px 0 0;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .liquid2-global-breakpoints > div {
+    padding: 0 0 0 170px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
   .liquid2-global-breakpoints > div > div:nth-child(1) {
     float: left;
-    width: 100%;
+    width: 150px;
+    margin: 0 0 0 -170px;
   }
   .liquid2-global-breakpoints > div > div:nth-child(2) {
     float: right;
-    width: 300px;
-    margin: 0 -320px 0 0;
+    width: 100%;
   }
 }

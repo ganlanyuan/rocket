@@ -1,15 +1,3 @@
-.video {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-}
-
-.video > iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -245,4 +233,16 @@ p {
 
 .video {
   padding-bottom: 56.25%;
+}
+
+.video .video {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+.video > iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }

@@ -9,8 +9,8 @@ $liquid3-order1: (layout: (100px:2, 'auto':0, 250px:0));
 $liquid3-order2: (layout: (100px:2, 'auto':1, 250px:0));
 $liquid3-order3: (layout: (100px:2, 'auto':3, 250px:2));
 $liquid3-RTL: (layout: ('auto' 100px 250px), direction: 'RTL');
-$liquid3-child1: (layout: ('auto' 100px 250px), child: '.child');
-$liquid3-child2: (layout: (100px 'auto' 250px), child: ('nav' 'main' 'aside'));
+$liquid3-child1: (layout: ('auto' 100px 250px), selector: '.child');
+$liquid3-child2: (layout: (100px 'auto' 250px), selector: ('nav' 'main' 'aside'));
 $liquid3-gutter-0px: (layout: ('auto' 100px 250px), gutter: 0px);
 $liquid3-gutter-sameunit: (layout: ('auto' 100px 250px), gutter: 40px);
 $liquid3-gutter-percentage: (layout: ('auto' 100px 250px), gutter: 3%);
@@ -23,7 +23,7 @@ $liquid3-global-breakpoints: (
     'sm': (100px:0, 'auto':1, 250px:2),
     'lg': (100px:2, 'auto':1, 250px:0),
   ), 
-  breakpoints: $global-bps
+  breakpoint: $global-bps
 );
 
 

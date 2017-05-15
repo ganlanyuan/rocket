@@ -1,7 +1,6 @@
 @import 'demo-base';
 @import "../../src/scss/color/analogous";
 @import "../../src/scss/color/contrast";
-@import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/button"; 
 
 $color1: #2B8ACF;
@@ -30,7 +29,6 @@ $style-shake: ('color': $color1, 'style': 'shake');
 }
 .style-highlight {
   @extend %demo-show;
-  @error #{var-to-string($style-highlight)};
   &:before { content: '#{var-to-string($style-highlight)}'; }
   > .btn { @include button($style-highlight); }
 }

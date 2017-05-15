@@ -408,7 +408,7 @@ p {
   top: 0.28125em;
   display: inline-block;
   white-space: nowrap;
-  color: contrast(#399DE1);
+  color: contrast(("color": #399DE1));
   transition: color 0.3s;
 }
 
@@ -462,5 +462,5 @@ p {
 }
 
 .text > input:checked ~ label > span {
-  color: contrast(#399DE1);
+  color: contrast(("color": #399DE1));
 }

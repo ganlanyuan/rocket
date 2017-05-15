@@ -336,7 +336,7 @@ p {
 }
 
 .metro-child:before {
-  content: "( layout : w2h3 w3h1 w3h2 of 5, child :  .child , gutter :  5%  )";
+  content: "( layout : w2h3 w3h1 w3h2 of 5, selector :  .child , gutter :  5%  )";
 }
 
 .metro-child > ul {
@@ -513,7 +513,7 @@ p {
 }
 
 .metro-global-breakpoints:before {
-  content: "( layout : ( default : w6 w2 w4 of 6, sm : w2h3 w4 w4h2 of 6, md : w3h2 w3 w3 of 6 ), breakpoints : ( sm :  600px , md :  900px , lg :  1200px  ), gutter :  10px  )";
+  content: "( layout : ( default : w6 w2 w4 of 6, sm : w2h3 w4 w4h2 of 6, md : w3h2 w3 w3 of 6 ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ), gutter :  10px  )";
 }
 
 .metro-global-breakpoints > ul {

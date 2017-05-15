@@ -30,7 +30,7 @@
   &:after {
     @extend %tooltip-content;
     content: $content;
-    color: contrast($color);
+    color: contrast( ('color': $color) );
     background: $color;
     @if $border-radius { border-radius: $border-radius; }
   }

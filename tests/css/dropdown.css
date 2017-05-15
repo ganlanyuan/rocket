@@ -259,7 +259,6 @@ p {
   -o-transform: rotateX(-30deg);
   transform: rotateX(-30deg);
   opacity: 0;
-  filter: alpha(opacity=0);
   background: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 0.19em;
@@ -290,7 +289,7 @@ p {
 .dropdown-1 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: contrast(("color": #fff));
 }
 
 .dropdown-1 > ul a:hover {
@@ -304,7 +303,6 @@ p {
   -o-transform: rotateX(0);
   transform: rotateX(0);
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .lt-ie9 .dropdown-1 > input:checked ~ ul {
@@ -341,7 +339,6 @@ p {
   -o-transform: rotateX(-30deg);
   transform: rotateX(-30deg);
   opacity: 0;
-  filter: alpha(opacity=0);
   background: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 0.19em;
@@ -372,7 +369,7 @@ p {
 .dropdown-1 .sub-1 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: contrast(("color": #fff));
 }
 
 .dropdown-1 .sub-1 > ul a:hover {
@@ -386,7 +383,6 @@ p {
   -o-transform: rotateX(0);
   transform: rotateX(0);
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .lt-ie9 .dropdown-1 .sub-1 > input:checked ~ ul {
@@ -422,7 +418,6 @@ p {
   -o-transform: scaleY(0.4);
   transform: scaleY(0.4);
   opacity: 0;
-  filter: alpha(opacity=0);
   background: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 0.19em;
@@ -453,7 +448,7 @@ p {
 .dropdown-2 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: contrast(("color": #fff));
 }
 
 .dropdown-2 > ul a:hover {
@@ -467,7 +462,6 @@ p {
   -o-transform: scaleY(1);
   transform: scaleY(1);
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .lt-ie9 .dropdown-2:hover > ul {
@@ -523,7 +517,6 @@ p {
   -o-transform: scaleY(0.4);
   transform: scaleY(0.4);
   opacity: 0;
-  filter: alpha(opacity=0);
   background: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 0.19em;
@@ -554,7 +547,7 @@ p {
 .dropdown-2 .sub-2 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: contrast(("color": #fff));
 }
 
 .dropdown-2 .sub-2 > ul a:hover {
@@ -568,7 +561,6 @@ p {
   -o-transform: scaleY(1);
   transform: scaleY(1);
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .lt-ie9 .dropdown-2 .sub-2:hover > ul {

@@ -307,7 +307,7 @@ p {
 }
 
 .child:before {
-  content: "( layout :  4 , child :  div  )";
+  content: "( layout :  4 , selector :  div  )";
 }
 
 .child > div {

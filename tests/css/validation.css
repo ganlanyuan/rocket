@@ -314,7 +314,6 @@ p {
 
 #form2 [data-info] {
   opacity: 0;
-  filter: alpha(opacity=0);
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
@@ -340,7 +339,6 @@ p {
 #form2 .required ~ [data-info="required"],
 #form2 .error ~ [data-info="error"] {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 #form2 .required,
@@ -388,7 +386,6 @@ p {
 
 #form3 [data-info] {
   opacity: 0;
-  filter: alpha(opacity=0);
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
@@ -414,7 +411,6 @@ p {
 #form3 .required ~ [data-info="required"],
 #form3 .error ~ [data-info="error"] {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 #form3 .required,

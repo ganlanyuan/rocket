@@ -1,5 +1,4 @@
 @import 'demo-base';
-@import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/validation"; 
 
 #form1 { @include validation( ('shake': true, 'default': true) ); }

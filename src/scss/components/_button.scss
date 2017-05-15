@@ -21,7 +21,7 @@
 
   @if not index(('simple' 'veil' 'line-drawing'), $style) {
     background: $color1;
-    color: contrast($color1);
+    color: contrast( ('color': $color1) );
   }
   @if $style == 'slide' {
     @include button-pos-r();
@@ -39,8 +39,8 @@
       transition: #{$direction} $duration $timing-function;
     }
     &#{$selector} {
-      @if contrast($color1) != contrast($color2) {
-        color: contrast($color2);
+      @if contrast( ('color': $color1) ) != contrast( ('color': $color2) ) {
+        color: contrast( ('color': $color2) );
       }
       &:before { #{$direction}: 0px; }
     }
@@ -48,8 +48,8 @@
     transition: background $duration $timing-function, color $duration $timing-function;
     &#{$selector} {
       background: $color2;
-      @if contrast($color1) != contrast($color2) {
-        color: contrast($color2);
+      @if contrast( ('color': $color1) ) != contrast( ('color': $color2) ) {
+        color: contrast( ('color': $color2) );
       }
     }
   } @else if $style == 'simple' {
@@ -58,7 +58,7 @@
     background: transparent;
     transition: background $duration $timing-function, color $duration $timing-function;
     &#{$selector} {
-      color: contrast($color1);
+      color: contrast( ('color': $color1) );
       border-color: $color1;
       background: $color1;
     }
@@ -115,7 +115,7 @@
       .lt-ie9 & { display: none; }
     }
     &#{$selector} {
-      color: contrast($color1);
+      color: contrast( ('color': $color1) );
       &:before {
         opacity: 1;
         @if $direction == vertical {

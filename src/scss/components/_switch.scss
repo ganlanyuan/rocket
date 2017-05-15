@@ -49,7 +49,7 @@
       top: $gap;
       display: inline-block;
       white-space: nowrap;
-      color: contrast($default-color);
+      color: contrast( ('color': $default-color) );
       transition: color 0.3s;
       .lt-ie9 & { color: #fff; }
       &:before, &:after {
@@ -140,7 +140,7 @@
 
       @if $text {
         padding-left: ($width * 2 - $height * 0.85);
-        > span { color: contrast($active-color); }
+        > span { color: contrast( ('color': $active-color) ); }
       }
     }
   }

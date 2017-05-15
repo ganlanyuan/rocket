@@ -4,12 +4,12 @@
 @import "../../src/scss/layout/masonry"; 
 
 $masonry-number: (layout: 3);
-$masonry-child: (layout: 4, child: '.masonry-item');
+$masonry-child: (layout: 4, selector: '.masonry-item');
 $masonry-0px: (layout: 4, gutter: 0px);
 $masonry-percentage-gutter: (layout: 4, gutter: 3%);
 $masonry-condition: (layout: (900px: 3), condition: 'max');
 $masonry-breakpoints: (layout: (600px: 2, 900px: 3));
-$masonry-global-breakpoints: (layout: ('sm': 2, 'md': 3), breakpoints: $global-bps);
+$masonry-global-breakpoints: (layout: ('sm': 2, 'md': 3), breakpoint: $global-bps);
 
 .masonry-number {
   @extend %demo-show;

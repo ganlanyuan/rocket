@@ -4,7 +4,7 @@
 
 $num: (layout: 3);
 $num-0px: (layout: 3, gutter: 0px);
-$child: (layout: 4, child: 'div');
+$child: (layout: 4, 'selector': 'div');
 $direction: (layout: 4, direction: 'RTL');
 $center-align: (layout: 3, 'center-align': true);
 $percentage-gutter: (layout: 4, gutter: 5%);

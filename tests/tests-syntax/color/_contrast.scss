@@ -3,19 +3,19 @@
   // Testing Functions
   @include test('contrast [function]') {
 
-    $test1: contrast(#5173a3);
+    $test1: contrast( ('color': #5173a3) );
     $expect1: #fff;
     @include assert-equal($test1, $expect1, 'Returns the contrast color');
 
-    $test2: contrast(#bbf8e6);
+    $test2: contrast( ('color': #bbf8e6) );
     $expect2: #000;
     @include assert-equal($test2, $expect2, 'Returns the contrast color');
 
-    $test3: contrast(#333 light #f2f2f2);
+    $test3: contrast( ('color': #333, 'light': #f2f2f2) );
     $expect3: #f2f2f2;
     @include assert-equal($test3, $expect3, 'Returns the contrast color');
 
-    $test4: contrast(#f5f5f5 light #f2f2f2 dark #333);
+    $test4: contrast( ('color': #f5f5f5, 'light': #f2f2f2, 'dark': #333) );
     $expect4: #333;
     @include assert-equal($test4, $expect4, 'Returns the contrast color');
   }
