@@ -13,7 +13,7 @@
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  $media-type: map-get($key, 'media-type');
+  $media-type: map-get($key, 'media');
   
   $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
   $nav-size: if(map-get($key, 'nav-size'), map-get($key, 'nav-size'), 240px);

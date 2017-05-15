@@ -8,7 +8,7 @@
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  $media-type: map-get($key, 'media-type');
+  $media-type: map-get($key, 'media');
   $keep: map-get($key, 'keep');
 
   @if type-of($layout) == 'map' {
