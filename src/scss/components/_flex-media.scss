@@ -1,4 +1,14 @@
-// *** flex-media *** //
+%flex-media-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+%flex-media {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 @mixin flex-media($key: ('ratio': (9/16)) ){
   $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), (9/16));
   $selector: map-get($key, 'selector');
@@ -6,18 +16,6 @@
   @if unitless($ratio) { $ratio: percentage($ratio); }
   $selectors: if($selector, "> #{$selector}", "> iframe, > object, > embed");
 
-  %flex-media-container {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-  }
-  %flex-media {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  // *** output *** //
   @extend %flex-media-container;
   padding-bottom: $ratio;
   #{$selectors} { @extend %flex-media; }

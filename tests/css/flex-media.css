@@ -232,10 +232,6 @@ p {
 }
 
 .video {
-  padding-bottom: 56.25%;
-}
-
-.video .video {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -245,4 +241,8 @@ p {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.video {
+  padding-bottom: 56.25%;
 }

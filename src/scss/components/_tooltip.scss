@@ -1,4 +1,17 @@
-// *** tooltip *** //
+%tooltip-common {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+%tooltip-content {
+  padding: 0.67em;
+  min-width: 8.5em;
+  font-size: 0.8em;
+}
+
 @mixin tooltip($key: ('color': #000)) {
   $position: if(map-get($key, 'position'), map-get($key, 'position'), 'right');
   $color: if(map-get($key, 'color'), map-get($key, 'color'), #333);
@@ -6,19 +19,6 @@
   $border-radius: map-get($key, 'border-radius');
 
   
-  %tooltip-common {
-    opacity: 0;
-    content: '';
-    position: absolute;
-    z-index: -1;
-    -webkit-transition: opacity 0.3s;
-    transition: opacity 0.3s;
-  }
-  %tooltip-content {
-    padding: 0.67em;
-    min-width: 8.5em;
-    font-size: 0.8em;
-  }
 
   position: relative;
   cursor: pointer;
