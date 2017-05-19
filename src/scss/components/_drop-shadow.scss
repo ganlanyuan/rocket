@@ -1,5 +1,5 @@
-// *** drop-shadows *** //
-@mixin drop-shadows($key){
+// *** drop-shadow *** //
+@mixin drop-shadow($key){
   @include check-arg-type($key, 'map');
 
   $style: map-get($key, 'style');

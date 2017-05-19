@@ -16,9 +16,9 @@
     "components": [
       "accordion",
       "button",
-      "charts",
+      "chart",
       "checkbox",
-      "drop-shadows",
+      "drop-shadow",
       "dropdown",
       "flex-media",
       "input-file",
@@ -27,7 +27,7 @@
       "push-toggle",
       "responsive-table",
       "switch",
-      "tabs",
+      "tab",
       "tooltip",
       "validation"
     ],

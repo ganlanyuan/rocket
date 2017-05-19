@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../src/scss/components/charts"; 
+@import "../../src/scss/components/chart"; 
 
 $data1: (
   #FF6666: 8.9 10.5 19.3 21.45,
@@ -10,7 +10,7 @@ $data2: (
   #FF8000: 5 10 16 22,
   #666666: 10.7 12 12 18,
 );
-.charts {
+.chart {
   &-wrap {
     max-width: 800px;
     margin: 0 auto;
@@ -22,6 +22,6 @@ $data2: (
   }
   margin: 50px 0;
   li span { font-size: 14px; }
-  &1 { @include charts( ('data': $data1, 'chart-type': 'bar', 'steps': (2 22), 'animation': true, 'duratioon': 0.6s) ); }
-  &2 { @include charts( ('data': $data2, 'chart-type': 'column', 'steps': (2 24), 'animation': true, 'duratioon': 0.6s) ); }
+  &1 { @include chart( ('data': $data1, 'type': 'bar', 'steps': (2 22), 'animation': true, 'duratioon': 0.6s) ); }
+  &2 { @include chart( ('data': $data2, 'type': 'column', 'steps': (2 24), 'animation': true, 'duratioon': 0.6s) ); }
 }

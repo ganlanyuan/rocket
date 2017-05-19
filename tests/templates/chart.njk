@@ -1,10 +1,10 @@
-{% set page = 'charts' %}
+{% set page = 'chart' %}
 {% extends 'parts/layout.njk' %}
 
 {% block main %}
-  <div class="charts-wrap">
+  <div class="chart-wrap">
     <h4>Sales report</h4>
-    <div class="charts charts1">
+    <div class="chart chart1">
       <ul class="items">
         <li class="item-1">
           <strong>Copper</strong>
@@ -43,9 +43,9 @@
       </div>
     </div>
   </div>
-  <div class="charts-wrap">
+  <div class="chart-wrap">
     <h4>Sales report</h4>
-    <div class="charts charts2">
+    <div class="chart chart2">
       <ul class="items">
         <li class="item-1">
           <strong>Copper</strong>
@@ -96,14 +96,14 @@
   </div>
   <script>
   window.onload = function () {
-    var charts = document.querySelectorAll('.charts');
-    for (var i = charts.length; i--;) {
-      charts[i].className += ' active';
+    var chart = document.querySelectorAll('.chart');
+    for (var i = chart.length; i--;) {
+      chart[i].className += ' active';
     }
   }
   // ready(function () {
   //   winLoad(function () {
-  //     var chart = kit('.charts1, .charts2');
+  //     var chart = kit('.chart1, .chart2');
   //     chart.addClass('active');
   //   })
   // });

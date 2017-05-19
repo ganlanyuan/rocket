@@ -1,4 +1,4 @@
-@mixin tabs($key) {
+@mixin tab($key) {
   @include check-arg-type($key, 'map');
 
   $style: if(map-get($key, 'style'), map-get($key, 'style'), 'normal');
@@ -50,8 +50,10 @@
   }
 }
 
-/// Set tabs' active styles.
-@mixin tabs-active($count) {
+/// Set tab' active styles.
+@mixin tab-active($key) {
+  $count: map-get($key, 'count');
+
   @if $count <= 0 {
     @warn '"Length" should be at least 1.';
   }
@@ -61,7 +63,7 @@
   // get selector
   @for $i from 1 through $count {
     > input:nth-child(#{$i}):checked ~ {
-      .ro-tabs > label:nth-child(#{$i}) {
+      .ro-tab > label:nth-child(#{$i}) {
         $path: $path + & + ', ';
       }
     }
@@ -75,7 +77,9 @@
 }
 
 /// Set panels' active styles.
-@mixin tabs-panel-active($count) {
+@mixin tab-panel-active($key) {
+  $count: map-get($key, 'count');
+
   @if $count <= 0 {
     @warn '"Length" should be at least 1.';
   }

@@ -1,15 +1,15 @@
-@import "charts";
+@import "chart";
 @import "responsive-table"; // @requir [mixin] bp
 @import "off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
 @import "validation";
 @import "button"; // @require [function] contrast
 @import "parallelogram"; 
-@import "drop-shadows"; 
+@import "drop-shadow"; 
 @import "switch";
 @import "push-toggle";
 @import "checkbox";
 @import "input-file";
-@import "tabs";
+@import "tab";
 @import "accordion";
 @import "dropdown";
 @import "tooltip";

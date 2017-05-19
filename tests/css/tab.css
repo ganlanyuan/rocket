@@ -231,22 +231,22 @@ p {
   margin-bottom: 5px;
 }
 
-.tabs {
+.tab {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.tabs > input:nth-child(1):checked ~ .ro-tabs > label:nth-child(1), .tabs > input:nth-child(2):checked ~ .ro-tabs > label:nth-child(2), .tabs > input:nth-child(3):checked ~ .ro-tabs > label:nth-child(3) {
+.tab > input:nth-child(1):checked ~ .ro-tab > label:nth-child(1), .tab > input:nth-child(2):checked ~ .ro-tab > label:nth-child(2), .tab > input:nth-child(3):checked ~ .ro-tab > label:nth-child(3) {
   color: #000;
   background-color: #e9e9e9;
 }
 
-.tabs > .ro-tabs {
+.tab > .ro-tab {
   margin-bottom: 10px;
   letter-spacing: -0.34em;
 }
 
-.tabs > .ro-tabs > label {
+.tab > .ro-tab > label {
   display: inline-block;
   padding: 8px 12px;
   background-color: #2d2d2d;
@@ -255,65 +255,65 @@ p {
   text-transform: capitalize;
 }
 
-.tabs > .ro-panels > div {
+.tab > .ro-panels > div {
   padding: 8px 12px;
   background-color: #f2f2f2;
 }
 
-.tabs p {
+.tab p {
   max-width: none;
 }
 
-.tabs-normal > [type="radio"] {
+.tab-normal > [type="radio"] {
   position: absolute;
   left: -9999px;
 }
 
-.tabs-normal > .ro-panels > div {
+.tab-normal > .ro-panels > div {
   display: none;
 }
 
-.tabs-normal > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1) {
+.tab-normal > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1) {
   display: block;
 }
 
-.tabs-normal > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2) {
+.tab-normal > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2) {
   display: block;
 }
 
-.tabs-normal > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
+.tab-normal > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
   display: block;
 }
 
-.tabs-normal > .ro-panels > div:before, .tabs-normal > .ro-panels > div:after {
+.tab-normal > .ro-panels > div:before, .tab-normal > .ro-panels > div:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.tabs-carousel {
+.tab-carousel {
   overflow-x: hidden;
 }
 
-.tabs-carousel > [type="radio"] {
+.tab-carousel > [type="radio"] {
   position: absolute;
   left: -9999px;
 }
 
-.tabs-carousel > .ro-panels {
+.tab-carousel > .ro-panels {
   position: relative;
   left: 0;
   width: 300%;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.tabs-carousel > .ro-panels:after {
+.tab-carousel > .ro-panels:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.tabs-carousel > .ro-panels > div {
+.tab-carousel > .ro-panels > div {
   float: left;
   width: 33.3333333%;
   -webkit-box-sizing: border-box;
@@ -321,24 +321,24 @@ p {
   box-sizing: border-box;
 }
 
-.tabs-carousel > input:nth-child(1):checked ~ .ro-panels {
+.tab-carousel > input:nth-child(1):checked ~ .ro-panels {
   left: 0%;
 }
 
-.tabs-carousel > input:nth-child(2):checked ~ .ro-panels {
+.tab-carousel > input:nth-child(2):checked ~ .ro-panels {
   left: -100%;
 }
 
-.tabs-carousel > input:nth-child(3):checked ~ .ro-panels {
+.tab-carousel > input:nth-child(3):checked ~ .ro-panels {
   left: -200%;
 }
 
-.tabs-customize > [type="radio"] {
+.tab-customize > [type="radio"] {
   position: absolute;
   left: -9999px;
 }
 
-.tabs-customize > .ro-panels > div {
+.tab-customize > .ro-panels > div {
   height: 0;
   padding: 0;
   overflow: hidden;
@@ -351,25 +351,25 @@ p {
   transition: transform 0.4s ease 0s;
 }
 
-.tabs-customize > .ro-panels > div:nth-child(odd) {
+.tab-customize > .ro-panels > div:nth-child(odd) {
   -ms-transform: perspective(1000px) rotateY(180deg);
   -webkit-transform: perspective(1000px) rotateY(180deg);
   transform: perspective(1000px) rotateY(180deg);
 }
 
-.tabs-customize > .ro-panels > div:nth-child(even) {
+.tab-customize > .ro-panels > div:nth-child(even) {
   -ms-transform: perspective(1000px) rotateY(-180deg);
   -webkit-transform: perspective(1000px) rotateY(-180deg);
   transform: perspective(1000px) rotateY(-180deg);
 }
 
-.no-csstransforms .tabs-customize > .ro-panels > div {
+.no-csstransforms .tab-customize > .ro-panels > div {
   display: none;
   height: auto;
   padding: 8px 12px;
 }
 
-.tabs-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1), .tabs-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2), .tabs-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
+.tab-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1), .tab-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2), .tab-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
   height: auto;
   padding: 8px 12px;
   -ms-transform: perspective(1000px) rotateY(0deg);
@@ -377,6 +377,6 @@ p {
   transform: perspective(1000px) rotateY(0deg);
 }
 
-.no-csstransforms .tabs-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1), .no-csstransforms .tabs-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2), .no-csstransforms .tabs-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
+.no-csstransforms .tab-customize > input:nth-child(1):checked ~ .ro-panels > div:nth-child(1), .no-csstransforms .tab-customize > input:nth-child(2):checked ~ .ro-panels > div:nth-child(2), .no-csstransforms .tab-customize > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
   display: block;
 }
