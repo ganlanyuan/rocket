@@ -44,12 +44,12 @@ $contrast: #5173a3, #bbf8e6, #cb7d26;
 
 // *** color: adjacent *** //
 $options: (
-  'adjacent': ( ('scale': -1), ('scale': 1) ),
+  'adjacent': ( ('count': -1), ('count': 1) ),
   'complementary': ( 1 ),
-  'split-complementary': ( ('scale': 1), ('scale': 2) ),
-  'triad': ( ('scale': 1, 'saturation': 10%), ('scale': 2) ),
-  'rectangle': ( ('scale': 1), ('scale': 2), ('scale': 3) ),
-  'square': ( ('scale': 1), ('scale': 2), ('scale': 3) ),
+  'split-complementary': ( ('count': 1), ('count': 2) ),
+  'triad': ( ('count': 1, 'saturation': 10%), ('count': 2) ),
+  'rectangle': ( ('count': 1), ('count': 2), ('count': 3) ),
+  'square': ( ('count': 1), ('count': 2), ('count': 3) ),
 );
 
 $data: false;

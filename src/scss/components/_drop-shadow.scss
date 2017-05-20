@@ -1,4 +1,3 @@
-// *** drop-shadow *** //
 @mixin drop-shadow($key){
   @include check-arg-type($key, 'map');
 

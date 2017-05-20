@@ -1,55 +1,55 @@
 @function palette($key){
   $style: map-get($key, 'style');
   $color: map-get($key, 'color');
+  $count: if(map-get($key, 'count'), map-get($key, 'count'), 0);
   $saturation: if(map-get($key, 'saturation'), map-get($key, 'saturation'), 0%);
   $lightness: if(map-get($key, 'lightness'), map-get($key, 'lightness'), 0%);
-  $angle: if(map-get($key, 'angle'), map-get($key, 'angle'), 30);
-  $scale: if(map-get($key, 'scale'), map-get($key, 'scale'), 0);
+  $scale: if(map-get($key, 'scale'), map-get($key, 'scale'), 30);
 
   $hue: hue($color);
   $target-hue: 0deg;
   
   @if $style == 'adjacent' {
-    $target-hue: to-normal-hue(to-ideal-hue($hue) + $angle * $scale);
+    $target-hue: to-normal-hue(to-ideal-hue($hue) + $scale * $count);
   }
   @if $style == 'complementary' {
     $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
   }
   @if $style == 'split-complementary' {
-    @if $scale == 1 or $scale == -2 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $angle);
+    @if $count == 1 or $count == -2 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 - $scale);
     }
-    @if $scale == 2 or $scale == -1 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $angle);
+    @if $count == 2 or $count == -1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $scale);
     }
   }
   @if $style == 'triad' {
-    @if $scale == 1 or $scale == -2 {
+    @if $count == 1 or $count == -2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 120);
     }
-    @if $scale == 2 or $scale == -1 {
+    @if $count == 2 or $count == -1 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 240);
     }
   }
   @if $style == 'rectangle' {
-    @if abs($scale) == 1 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + $angle * $scale);
+    @if abs($count) == 1 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + $scale * $count);
     }
-    @if $scale == 2 {
+    @if $count == 2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
     }
-    @if abs($scale) == 3 {
-      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $angle * $scale / 3);
+    @if abs($count) == 3 {
+      $target-hue: to-normal-hue(to-ideal-hue($hue) + 180 + $scale * $count / 3);
     }
   }
   @if $style == 'square' {
-    @if $scale == 1 or $scale == -3 {
+    @if $count == 1 or $count == -3 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 90);
     }
-    @if $scale == 2 {
+    @if $count == 2 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 180);
     }
-    @if $scale == 3 or $scale == -1 {
+    @if $count == 3 or $count == -1 {
       $target-hue: to-normal-hue(to-ideal-hue($hue) + 270);
     }
   }

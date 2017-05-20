@@ -1,4 +1,3 @@
-// *** parallelogram *** //
 @mixin parallelogram($key) {
   @include check-arg-type($key, 'map');
 

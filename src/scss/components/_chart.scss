@@ -1,10 +1,9 @@
-// *** chart *** //
 @mixin chart($key) {
   $data: map-get($key, 'data');
   $data-colors: map-keys($data);
   $data-numbers: map-values($data);
 
-  $type: if(map-get($key, 'type'), map-get($key, 'type'), 'bar');
+  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'bar');
   $bar-height: if(map-get($key, 'bar-height'), map-get($key, 'bar-height'), 40px);
   $bar-gap: if(map-get($key, 'bar-gap'), map-get($key, 'bar-gap'), 6em);
   $steps: if(map-get($key, 'steps'), map-get($key, 'steps'), (5 100));
@@ -41,11 +40,11 @@
   $grow: false;
   $tick-grow: false;
   $direction: false;
-  @if $type == 'bar' {
+  @if $style == 'bar' {
     $grow: width;
     $tick-grow: height;
     $direction: right;
-  } @else if $type == 'column' {
+  } @else if $style == 'column' {
     $grow: height;
     $tick-grow: width;
     $direction: top;
@@ -55,7 +54,7 @@
   $path: if($animation, '&.active', '');
 
   // *** output *** //
-  @if $type == 'bar' or $type == 'column' {
+  @if $style == 'bar' or $style == 'column' {
     position: relative;
     // items
     li {
@@ -149,7 +148,7 @@
     }
   }
 
-  @if $type == 'bar' {
+  @if $style == 'bar' {
     $gutter: 10px;
 
     margin-left: $bar-gap;
@@ -206,7 +205,7 @@
       .labels { margin-top: 0.5em; }
     }
 
-  } @else if $type == 'column' {
+  } @else if $style == 'column' {
     $gutter: 0.2;
     $column-width: percentage((1 - $gutter) / length($data-numbers));
 

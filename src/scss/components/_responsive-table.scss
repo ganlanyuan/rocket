@@ -3,7 +3,7 @@
 
   $style: if(map-get($key, 'style'), map-get($key, 'style'), 'flip-scroll');
   $data: map-get($key, 'data');
-  $border-color: map-get($key, 'color');
+  $border-color: map-get($key, 'border-color');
   $breakpoint: if(map-get($key, 'breakpoint'), map-get($key, 'breakpoint'), 768);
   $th-width: if(map-get($key, 'th-width'), map-get($key, 'th-width'), 50%);
   $count: if(map-get($key, 'count'), map-get($key, 'count'), 15);
