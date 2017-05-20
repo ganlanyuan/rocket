@@ -13,7 +13,7 @@
 }
 
 @mixin tooltip($key: ('color': #000)) {
-  $position: if(map-get($key, 'position'), map-get($key, 'position'), 'right');
+  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'right');
   $color: if(map-get($key, 'color'), map-get($key, 'color'), #333);
   $content: if(map-get($key, 'content'), map-get($key, 'content'), attr(data-tooltip));
   $border-radius: map-get($key, 'border-radius');
@@ -25,7 +25,7 @@
   &:before, 
   &:after {
     @extend %tooltip-common;
-    #{$position}: -8px;
+    #{$direction}: -8px;
   }
   &:after {
     @extend %tooltip-content;
@@ -43,27 +43,27 @@
   }
 
   // horizontal or vertical
-  @if $position == top or $position == bottom {
+  @if $direction == top or $direction == bottom {
     &:before,
     &:after { left: 50%; }
     &:before { margin-left: -6px; }
-  } @else if $position == left or $position == right {
+  } @else if $direction == left or $direction == right {
     &:before,
     &:after { top: 50%; }
     &:before { margin-top: -8px; }
   }
 
   // individual direction
-  @if $position == top {
+  @if $direction == top {
     &:before { @include ro-triangle(12px, $color, down); }
     &:after { @include ro-transform(translate(-50%, -100%)); }
-  } @else if $position == bottom {
+  } @else if $direction == bottom {
     &:before { @include ro-triangle(12px, $color, up); }
     &:after { @include ro-transform(translate(-50%, 100%)); }
-  } @else if $position == left {
+  } @else if $direction == left {
     &:before { @include ro-triangle(12px, $color, right); }
     &:after { @include ro-transform(translate(-100%, -50%)); }
-  } @else if $position == right {
+  } @else if $direction == right {
     &:before { @include ro-triangle(12px, $color, left); }
     &:after { @include ro-transform(translate(100%, -50%)); }
   }
