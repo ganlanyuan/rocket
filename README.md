@@ -1,6 +1,6 @@
 # Rocket v4
 
-![Version](https://img.shields.io/badge/Version-4.0.0-beta4-blue.svg)   
+![Version](https://img.shields.io/badge/Version-4.0.0-beta5-blue.svg)   
 Rocket is a powerful Sass framework with many common used components and utility functions, to help you build websites faster and easier.    
 Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
 
