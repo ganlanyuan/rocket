@@ -243,7 +243,7 @@ p {
 }
 
 .diamond-count:before {
-  content: "( layout :  3 , shape :  diamond  )";
+  content: "( column :  3 , shape :  diamond  )";
 }
 
 .diamond-count > div {
@@ -291,7 +291,7 @@ p {
 }
 
 .diamond-count-combined:before {
-  content: "( layout :  3 , shape :  diamond , tight :  true  )";
+  content: "( column :  3 , shape :  diamond , tight :  true  )";
 }
 
 .diamond-count-combined > div {
@@ -353,7 +353,7 @@ p {
 }
 
 .diamond-size:before {
-  content: "( layout :  25%  )";
+  content: "( column :  25%  )";
 }
 
 .diamond-size > div {
@@ -401,7 +401,7 @@ p {
 }
 
 .diamond-breakpoints:before {
-  content: "( layout : ( 600px :  3 , 800px :  4  ), shape :  diamond  )";
+  content: "( column : ( 600px :  3 , 800px :  4  ), shape :  diamond  )";
 }
 
 @media (min-width: 37.5em) {
@@ -456,7 +456,7 @@ p {
 }
 
 .octagon-count:before {
-  content: "( layout :  4 , shape :  octagon  )";
+  content: "( column :  4 , shape :  octagon  )";
 }
 
 .octagon-count > div {
@@ -505,7 +505,7 @@ p {
 }
 
 .octagon-size:before {
-  content: "( layout :  300px , shape :  octagon  )";
+  content: "( column :  300px , shape :  octagon  )";
 }
 
 .octagon-size > div {

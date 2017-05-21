@@ -237,7 +237,7 @@ p {
 }
 
 .masonry-number:before {
-  content: "( layout :  3  )";
+  content: "( column :  3  )";
 }
 
 .masonry-number > ul {
@@ -258,7 +258,7 @@ p {
 }
 
 .masonry-child:before {
-  content: "( layout :  4 , selector :  .masonry-item  )";
+  content: "( column :  4 , selector :  .masonry-item  )";
 }
 
 .masonry-child > ul {
@@ -279,7 +279,7 @@ p {
 }
 
 .masonry-0px:before {
-  content: "( layout :  4 , gutter :  0px  )";
+  content: "( column :  4 , gutter :  0px  )";
 }
 
 .masonry-0px > ul {
@@ -299,7 +299,7 @@ p {
 }
 
 .masonry-percentage-gutter:before {
-  content: "( layout :  4 , gutter :  3%  )";
+  content: "( column :  4 , gutter :  3%  )";
 }
 
 .masonry-percentage-gutter > ul {
@@ -320,7 +320,7 @@ p {
 }
 
 .masonry-condition:before {
-  content: "( layout : ( 900px :  3  ), condition :  max  )";
+  content: "( column : ( 900px :  3  ), condition :  max  )";
 }
 
 @media (max-width: 56.1875em) {
@@ -342,7 +342,7 @@ p {
 }
 
 .masonry-breakpoints:before {
-  content: "( layout : ( 600px :  2 , 900px :  3  ) )";
+  content: "( column : ( 600px :  2 , 900px :  3  ) )";
 }
 
 @media (min-width: 37.5em) {
@@ -372,7 +372,7 @@ p {
 }
 
 .masonry-global-breakpoints:before {
-  content: "( layout : ( sm :  2 , md :  3  ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ) )";
+  content: "( column : ( sm :  2 , md :  3  ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ) )";
 }
 
 @media (min-width: 37.5em) {

@@ -1,9 +1,9 @@
 @mixin grid($key){
   @include check-arg-type($key, 'map');
 
-  $layout: map-get($key, 'layout');
+  $column: map-get($key, 'column');
   $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
-  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), $global-gutter);
   $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
@@ -16,11 +16,11 @@
   $float: if($direction == 'LTR', left, right);
 
   // has breakpoints
-  @if grid-has-breakpoints($layout) {
+  @if grid-has-breakpoints($column) {
     
     // update breakpoints
-    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
-    $local-breakpoints: map-keys($layout);
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    $local-breakpoints: map-keys($column);
 
     @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
@@ -32,7 +32,7 @@
         @include grid-base($selector, $float, $gutter);
         $keep: true;
 
-        @include divide-rows(map-get($layout, $bp), $gutter, $selector, $float);
+        @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
       } @else {
         @include bp( ('condition': $condition, 'media': $media-type, 'breakpoint': $bp) ) {
           @if not $keep {
@@ -40,7 +40,7 @@
             $keep: true;
           }
 
-          @include divide-rows(map-get($layout, $bp), $gutter, $selector, $float);
+          @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
         }
       }
     }
@@ -48,7 +48,7 @@
   // no breakpoints
   } @else {
     @include grid-base($selector, $float, $gutter);
-    @include divide-rows($layout, $gutter, $selector, $float);
+    @include divide-rows($column, $gutter, $selector, $float);
   }
 }
 
@@ -176,11 +176,11 @@
 }
 
 // == grid-get-columns ==
-@function grid-has-breakpoints($layout) {
-  @if type-of($layout) == 'map' {
+@function grid-has-breakpoints($key) {
+  @if type-of($key) == 'map' {
     $bools: ();
 
-    @each $bp in map-keys($layout) {
+    @each $bp in map-keys($key) {
       $type: type-of($bp);
       @if $type == 'string' or $type == 'number' and not unitless($bp) {
         $bools: append($bools, true);

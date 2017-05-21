@@ -237,7 +237,7 @@ p {
 }
 
 .num:before {
-  content: "( layout :  3  )";
+  content: "( column :  3  )";
 }
 
 .num > ul {
@@ -272,7 +272,7 @@ p {
 }
 
 .num-0px:before {
-  content: "( layout :  3 , gutter :  0px  )";
+  content: "( column :  3 , gutter :  0px  )";
 }
 
 .num-0px > ul:after {
@@ -307,7 +307,7 @@ p {
 }
 
 .child:before {
-  content: "( layout :  4 , selector :  div  )";
+  content: "( column :  4 , selector :  div  )";
 }
 
 .child > div {
@@ -342,7 +342,7 @@ p {
 }
 
 .direction:before {
-  content: "( layout :  4 , direction :  RTL  )";
+  content: "( column :  4 , direction :  RTL  )";
 }
 
 .direction > ul {
@@ -377,7 +377,7 @@ p {
 }
 
 .center-align:before {
-  content: "( layout :  3 , center-align :  true  )";
+  content: "( column :  3 , center-align :  true  )";
 }
 
 .center-align > ul {
@@ -411,7 +411,7 @@ p {
 }
 
 .percentage-gutter:before {
-  content: "( layout :  4 , gutter :  5%  )";
+  content: "( column :  4 , gutter :  5%  )";
 }
 
 .percentage-gutter > ul:after {
@@ -447,7 +447,7 @@ p {
 }
 
 .rem-gutter:before {
-  content: "( layout :  5 , gutter :  2rem  )";
+  content: "( column :  5 , gutter :  2rem  )";
 }
 
 .rem-gutter > ul {
@@ -482,7 +482,7 @@ p {
 }
 
 .map:before {
-  content: "( layout : ( dafault :  2 , 600px :  3 , 900px :  4  ) )";
+  content: "( column : ( dafault :  2 , 600px :  3 , 900px :  4  ) )";
 }
 
 @media (min-width: 37.5em) {

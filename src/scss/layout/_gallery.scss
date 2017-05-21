@@ -1,9 +1,9 @@
 @mixin gallery($key){
   @include check-arg-type($key, 'map');
 
-  $layout: map-get($key, 'layout');
+  $column: map-get($key, 'column');
   $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'li');
-  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, gutter));
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), $global-gutter);
   $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
   $center-align: map-get($key, 'center-align');
   $global-breakpoints: map-get($key, 'breakpoint');
@@ -17,17 +17,17 @@
   $float: if($direction == 'LTR', left, right);
   @if $float == right { $center-align: false; }
 
-  @if type-of($layout) == 'map' {
-    // update $layout breakpoints
-    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
-    @if $layout and type-of($layout) == 'map' { $local-breakpoints: map-keys($layout); }
+  @if type-of($column) == 'map' {
+    // update $column breakpoints
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    @if $column and type-of($column) == 'map' { $local-breakpoints: map-keys($column); }
 
     @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
     @each $bp in $local-breakpoints {
-      $this-per-row: map-get($layout, $bp);
+      $this-per-row: map-get($column, $bp);
 
       @if $bp == null or $bp == 'default' {
         @include gallery-base($selector, $gutter, $float, $center-align);
@@ -50,7 +50,7 @@
     @if not $keep {
       @include gallery-base($selector, $gutter, $float, $center-align);
     }
-    @include make-gallery($layout, $selector, $gutter, $float, $center-align);
+    @include make-gallery($column, $selector, $gutter, $float, $center-align);
   }
 }
 

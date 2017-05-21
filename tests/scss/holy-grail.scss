@@ -2,23 +2,23 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/holy-grail"; 
 
-$liquid3-list1: (layout: ('auto' 100px 250px));
-$liquid3-list2: (layout: (100px 'auto' 250px));
-$liquid3-list3: (layout: (100px 250px 'auto'));
-$liquid3-order1: (layout: (100px:2, 'auto':0, 250px:0));
-$liquid3-order2: (layout: (100px:2, 'auto':1, 250px:0));
-$liquid3-order3: (layout: (100px:2, 'auto':3, 250px:2));
-$liquid3-RTL: (layout: ('auto' 100px 250px), direction: 'RTL');
-$liquid3-child1: (layout: ('auto' 100px 250px), selector: '.child');
-$liquid3-child2: (layout: (100px 'auto' 250px), selector: ('nav' 'main' 'aside'));
-$liquid3-gutter-0px: (layout: ('auto' 100px 250px), gutter: 0px);
-$liquid3-gutter-sameunit: (layout: ('auto' 100px 250px), gutter: 40px);
-$liquid3-gutter-percentage: (layout: ('auto' 100px 250px), gutter: 3%);
-$liquid3-gutter-differentunit: (layout: ('auto' 100px 250px), gutter: 3rem);
-$liquid3-breakpoint: (layout: (900px: (100px:2, 'auto':0, 250px:0)));
-$liquid3-breakpoint-conditions: (layout: (900px: (100px:2, 'auto':1, 250px:0)), condition: 'max', media: 'screen');
+$liquid3-list1: ('column': ('auto' 100px 250px));
+$liquid3-list2: ('column': (100px 'auto' 250px));
+$liquid3-list3: ('column': (100px 250px 'auto'));
+$liquid3-order1: ('column': (100px:2, 'auto':0, 250px:0));
+$liquid3-order2: ('column': (100px:2, 'auto':1, 250px:0));
+$liquid3-order3: ('column': (100px:2, 'auto':3, 250px:2));
+$liquid3-RTL: ('column': ('auto' 100px 250px), direction: 'RTL');
+$liquid3-child1: ('column': ('auto' 100px 250px), selector: '.child');
+$liquid3-child2: ('column': (100px 'auto' 250px), selector: ('nav' 'main' 'aside'));
+$liquid3-gutter-0px: ('column': ('auto' 100px 250px), gutter: 0px);
+$liquid3-gutter-sameunit: ('column': ('auto' 100px 250px), gutter: 40px);
+$liquid3-gutter-percentage: ('column': ('auto' 100px 250px), gutter: 3%);
+$liquid3-gutter-differentunit: ('column': ('auto' 100px 250px), gutter: 3rem);
+$liquid3-breakpoint: ('column': (900px: (100px:2, 'auto':0, 250px:0)));
+$liquid3-breakpoint-conditions: ('column': (900px: (100px:2, 'auto':1, 250px:0)), condition: 'max', media: 'screen');
 $liquid3-global-breakpoints: (
-  layout: (
+  'column': (
     'default': (100px:2, 'auto':1, 250px:0),
     'sm': (100px:0, 'auto':1, 250px:2),
     'lg': (100px:2, 'auto':1, 250px:0),

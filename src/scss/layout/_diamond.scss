@@ -2,7 +2,7 @@
 @mixin diamond($key){
   @include check-arg-type($key, 'map');
 
-  $layout: map-get($key, 'layout');
+  $column: map-get($key, 'column');
   $shape: if(map-get($key, 'shape'), map-get($key, 'shape'), 'diamond');
   $tight: map-get($key, 'tight');
   $global-breakpoints: map-get($key, 'breakpoint');
@@ -11,17 +11,17 @@
   $media-type: map-get($key, 'media');
   $keep: map-get($key, 'keep');
 
-  @if type-of($layout) == 'map' {
-    // update $layout breakpoints
-    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
-    @if $layout and type-of($layout) == 'map' { $local-breakpoints: map-keys($layout); }
+  @if type-of($column) == 'map' {
+    // update $column breakpoints
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    @if $column and type-of($column) == 'map' { $local-breakpoints: map-keys($column); }
 
     @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     } 
 
     @each $bp in $local-breakpoints {
-      $num: map-get($layout, $bp);
+      $num: map-get($column, $bp);
 
       @if $bp == null or $bp == 'default' {
         @include diamond-base($shape);
@@ -44,7 +44,7 @@
     @if not $keep {
       @include diamond-base($shape);
     }
-    @include make-diamond($layout, $shape, $tight);
+    @include make-diamond($column, $shape, $tight);
   }
 }
 
@@ -75,19 +75,19 @@
   }
 }
 
-@mixin make-diamond($layout, $shape, $tight) {
+@mixin make-diamond($column, $shape, $tight) {
   $count: false;
   $size: false;
 
   // count & size
-  @if type-of($layout) == 'number' {
-    @if unitless($layout) {
-      $count: $layout; 
+  @if type-of($column) == 'number' {
+    @if unitless($column) {
+      $count: $column; 
     } @else {
-      $size: $layout;
+      $size: $column;
     }
-  } @else if type-of($layout) == 'list' {
-    @each $item in $layout {
+  } @else if type-of($column) == 'list' {
+    @each $item in $column {
       @if type-of($item) == 'number' {
         @if unitless($item) {
           $count: $item;

@@ -2,10 +2,10 @@
 @mixin metro($key) {
   @include check-arg-type($key, 'map');
 
-  $layout: map-get($key, 'layout');
+  $column: map-get($key, 'column');
   $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), 1);
   $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
-  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), $global-gutter);
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
@@ -15,17 +15,17 @@
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
 
-  @if type-of($layout) == 'map' {
+  @if type-of($column) == 'map' {
     // update breakpoints
-    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
-    $local-breakpoints: map-keys($layout);
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    $local-breakpoints: map-keys($column);
 
     @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
     @each $bp in $local-breakpoints {
-      $list: map-get($layout, $bp);
+      $list: map-get($column, $bp);
       $full: args-get-next($list, 'of');
 
       @if $bp == null or $bp == 'default' {
@@ -46,10 +46,10 @@
 
     }
   } @else {
-    $full: args-get-next($layout, 'of');
+    $full: args-get-next($column, 'of');
 
     @include metro-base($selector, $gutter);
-    @include make-metro($layout, $full, $ratio, $selector);
+    @include make-metro($column, $full, $ratio, $selector);
   }
 }
 

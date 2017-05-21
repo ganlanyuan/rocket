@@ -2,9 +2,9 @@
 @mixin masonry ($key) {
   @include check-arg-type($key, 'map');
 
-  $layout: map-get($key, 'layout');
+  $column: map-get($key, 'column');
   $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'li');
-  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), $global-gutter);
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
   $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
@@ -19,16 +19,16 @@
     $gutter: to-length((strip-unit($gutter) * 10 / 16), em);
   }
 
-  @if type-of($layout) == 'map' {
-    @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
-    $local-breakpoints: map-keys($layout);
+  @if type-of($column) == 'map' {
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    $local-breakpoints: map-keys($column);
 
     @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
     @each $bp in $local-breakpoints {
-      $count: map-get($layout, $bp);
+      $count: map-get($column, $bp);
 
       @if $bp == 'default' or $bp == null {
         @include masonry-base($selector, $gutter);
@@ -49,7 +49,7 @@
     }
   } @else {
     @include masonry-base($selector, $gutter);
-    @include make-masonry($layout);
+    @include make-masonry($column);
   }
 }
 

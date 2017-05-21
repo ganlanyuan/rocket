@@ -1,9 +1,9 @@
 @mixin liquid($key){
   @include check-arg-type($key, 'map');
 
-  $layout: map-get($key, 'layout');
+  $column: map-get($key, 'column');
   $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
-  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), map-get($ro-layout, 'gutter'));
+  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), $global-gutter);
   $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
   $global-breakpoints: map-get($key, 'breakpoint');
   $local-breakpoints: false;
@@ -19,35 +19,35 @@
 
   @include clearfix(); 
   // using map
-  @if type-of($layout) == 'map' {
+  @if type-of($column) == 'map' {
 
     // simple map, without media querys
     // ('auto' 200px : 2 1)
-    @if length(nth(map-keys($layout), 1)) == 2 {
-      $columns: nth(map-keys($layout), 1);
-      $order: nth(map-values($layout), 1);
+    @if length(nth(map-keys($column), 1)) == 2 {
+      $columns: nth(map-keys($column), 1);
+      $order: nth(map-values($column), 1);
       @include make-liquid($columns, $order, $selector, $gutter, $float);
 
     // ('auto' : 2, 200px : 1)
-    } @else if is-simple-map($layout) {
-      $columns: map-keys($layout);
-      $order: map-values($layout);
+    } @else if is-simple-map($column) {
+      $columns: map-keys($column);
+      $order: map-values($column);
       @include make-liquid($columns, $order, $selector, $gutter, $float);
 
     // complex map, with media querys
     } @else {
-      @if $global-breakpoints { $layout: map-update-breakpoints($layout, $global-breakpoints); }
-      $local-breakpoints: map-keys($layout);
+      @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+      $local-breakpoints: map-keys($column);
 
       @each $bp in $local-breakpoints {
-        $layout-item: map-get($layout, $bp);
+        $column-item: map-get($column, $bp);
 
-        @if type-of($layout-item) == 'list' {
-          $columns: $layout-item;
+        @if type-of($column-item) == 'list' {
+          $columns: $column-item;
           @if not $order { $order: (1, 2); }
-        } @else if type-of($layout-item) == 'map' {
-          $columns: map-keys($layout-item);
-          $order: map-values(map-get($layout, $bp));
+        } @else if type-of($column-item) == 'map' {
+          $columns: map-keys($column-item);
+          $order: map-values(map-get($column, $bp));
         }
 
         @if $bp == 'default' or $bp == null {
@@ -62,7 +62,7 @@
     
   // using list
   } @else {
-    $columns: $layout;
+    $columns: $column;
     $order: (1, 2);
 
     @include make-liquid($columns, $order, $selector, $gutter, $float);

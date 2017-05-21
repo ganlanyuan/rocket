@@ -2,10 +2,7 @@
 //-----------------------------
 
 // layout
-$ro-layout: (
-  'container': 1024px,
-  'gutter': 20px,
-) !default;
+$global-gutter: 20px !default;
 
 // setting
 $breakpoint-fix: true !default;
@@ -13,10 +10,6 @@ $breakpoint-fix: true !default;
 // base
 $ro-em-base: 16px !default;
 $ro-rem-base: 16px !default;
-
-// transition
-$ro-global-animation-duration: 0.3s !default;
-$ro-global-bezier: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
 // off-canvas
 $ro-off-canvas-z-index: (

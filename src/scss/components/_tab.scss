@@ -20,7 +20,7 @@
       position: relative;
       left: 0;
       width: (100% * $count);
-      transition: all $ro-global-animation-duration $ro-global-bezier;
+      transition: all 0.3s ease;
       > div {
         float: left;
         width: percentage(1 / $count);
