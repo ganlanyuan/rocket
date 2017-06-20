@@ -2,25 +2,22 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/liquid"; 
 
-$liquid2-list: ('column': ('auto' 200px));
-$liquid2-order: ('column': ('auto': 2, 200px: 1));
-$liquid2-RTL: ('column': ('auto' 200px), direction: 'RTL');
-$liquid2-child1: ('column': ('auto' 200px), selector: '.child');
-$liquid2-child2: ('column': ('auto' 200px), selector: ('main' 'aside'));
-$liquid2-gutter-0px: ('column': ('auto' 200px), gutter: 0px);
-$liquid2-gutter-sameunit: ('column': ('auto' 200px), gutter: 40px);
-$liquid2-gutter-percentage: ('column': ('auto' 200px), gutter: 3%);
-$liquid2-gutter-differentunit: ('column': ('auto' 12.5em), gutter: 3rem);
-$liquid2-breakpoint: ('column': (750px: (150px:1, 'auto':0)));
-$liquid2-breakpoint-conditions: ('column': (750px: (150px:1, 'auto':0)), condition: max, media: screen);
-$liquid2-global-breakpoints: (
-  'column': (
-    'default': (150px 'auto'),
-    'sm': (150px:1, 'auto':0),
-    'md': (150px:0, 'auto':1)
-  ),
-  breakpoint: $global-bps
-);
+$liquid2-list: ('auto' 200px);
+$liquid2-order: ('auto': 2, 200px: 1);
+$liquid2-RTL: (('auto' 200px) 'RTL');
+$liquid2-child1: (('auto' 200px) 'selector' '.child');
+$liquid2-child2: (('auto' 200px) 'selector' ('main' 'aside'));
+$liquid2-gutter-0px: (('auto' 200px) 'gutter' 0px);
+$liquid2-gutter-sameunit: (('auto' 200px) 'gutter' 40px);
+$liquid2-gutter-percentage: (('auto' 200px) 'gutter' 3%);
+$liquid2-gutter-differentunit: (('auto' 12.5em) 'gutter' 3rem);
+$liquid2-breakpoint: (750px: (150px:1, 'auto':0));
+$liquid2-breakpoint-conditions: ((750px: (150px:1, 'auto':0)) 'max' 'screen');
+$liquid2-global-breakpoints: ((
+  'default': (150px 'auto'),
+  'sm': (150px:1, 'auto':0),
+  'md': (150px:0, 'auto':1)
+) $global-bps );
 
 
 .liquid2-list {

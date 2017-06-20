@@ -1,21 +1,24 @@
 @mixin liquid($key){
-  @include check-arg-type($key, 'map');
-
-  $column: map-get($key, 'column');
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
-  $gutter: if(map-get($key, 'gutter'), map-get($key, 'gutter'), $global-gutter);
-  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'LTR');
-  $global-breakpoints: map-get($key, 'breakpoint');
-  $local-breakpoints: false;
-  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  $media-type: map-get($key, 'media');
-  $keep: map-get($key, 'keep');
-
+  $selector: args-get-next($key, 'selector', 'div');
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
-  $float: if($direction == 'LTR', left, right);
+  $float: if(index($key, 'RTL'), right, left);
+
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+  $keep: args-get($key, 'keep', false);
+
+  // get data
+  $column: args-get-liquid-data($key, 2);
   $columns: false;
   $order: false; 
+
+
+
 
   @include clearfix(); 
   // using map

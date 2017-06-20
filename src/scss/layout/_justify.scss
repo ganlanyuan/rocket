@@ -1,6 +1,5 @@
-// *** justify *** //
-@mixin justify($key: (child: '*')){
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
+@mixin justify($key: ('selector' '*')){
+  $selector: args-get-type($key, 'string', ('selector'));
   
   text-align: justify;
   &:after {

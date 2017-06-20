@@ -237,7 +237,7 @@ p {
 }
 
 .liquid2-list:before {
-  content: '( column : "auto" 200px )';
+  content: '(  "auto"  200px  )';
 }
 
 .liquid2-list > div {
@@ -265,7 +265,7 @@ p {
 }
 
 .liquid2-order:before {
-  content: "( column : ( auto :  2 , 200px :  1  ) )";
+  content: "( auto :  2 , 200px :  1  )";
 }
 
 .liquid2-order > div {
@@ -293,7 +293,7 @@ p {
 }
 
 .liquid2-RTL:before {
-  content: '( column : "auto" 200px, direction :  RTL  )';
+  content: '( (  "auto"  200px  ) "RTL"  )';
 }
 
 .liquid2-RTL > div {
@@ -321,7 +321,7 @@ p {
 }
 
 .liquid2-child1:before {
-  content: '( column : "auto" 200px, selector :  .child  )';
+  content: '( (  "auto"  200px  ) "selector"  ".child"  )';
 }
 
 .liquid2-child1 > div {
@@ -349,7 +349,7 @@ p {
 }
 
 .liquid2-child2:before {
-  content: '( column : "auto" 200px, selector : "main" "aside" )';
+  content: '( (  "auto"  200px  ) "selector" (  "main"  "aside"  ) )';
 }
 
 .liquid2-child2 > div {
@@ -377,7 +377,7 @@ p {
 }
 
 .liquid2-gutter-0px:before {
-  content: '( column : "auto" 200px, gutter :  0px  )';
+  content: '( (  "auto"  200px  ) "gutter"  0px  )';
 }
 
 .liquid2-gutter-0px > div {
@@ -405,7 +405,7 @@ p {
 }
 
 .liquid2-gutter-sameunit:before {
-  content: '( column : "auto" 200px, gutter :  40px  )';
+  content: '( (  "auto"  200px  ) "gutter"  40px  )';
 }
 
 .liquid2-gutter-sameunit > div {
@@ -433,7 +433,7 @@ p {
 }
 
 .liquid2-gutter-percentage:before {
-  content: '( column : "auto" 200px, gutter :  3%  )';
+  content: '( (  "auto"  200px  ) "gutter"  3%  )';
 }
 
 .liquid2-gutter-percentage > div {
@@ -461,7 +461,7 @@ p {
 }
 
 .liquid2-gutter-differentunit:before {
-  content: '( column : "auto" 12.5em, gutter :  3rem  )';
+  content: '( (  "auto"  12.5em  ) "gutter"  3rem  )';
 }
 
 .liquid2-gutter-differentunit > div {
@@ -489,7 +489,7 @@ p {
 }
 
 .liquid2-breakpoint:before {
-  content: "( column : ( 750px : ( 150px :  1 , auto :  0  ) ) )";
+  content: "( 750px : ( 150px :  1 , auto :  0  ) )";
 }
 
 .liquid2-breakpoint > div:after {
@@ -517,7 +517,7 @@ p {
 }
 
 .liquid2-breakpoint-conditions:before {
-  content: "( column : ( 750px : ( 150px :  1 , auto :  0  ) ), condition :  max , media :  screen  )";
+  content: '( ( 750px : ( 150px :  1 , auto :  0  ) ) "max"  "screen"  )';
 }
 
 .liquid2-breakpoint-conditions > div:after {
@@ -545,7 +545,7 @@ p {
 }
 
 .liquid2-global-breakpoints:before {
-  content: '( column : ( default : 150px "auto", sm : ( 150px :  1 , auto :  0  ), md : ( 150px :  0 , auto :  1  ) ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ) )';
+  content: '( ( default : 150px "auto", sm : ( 150px :  1 , auto :  0  ), md : ( 150px :  0 , auto :  1  ) )( sm :  600px , md :  900px , lg :  1200px  ) )';
 }
 
 .liquid2-global-breakpoints > div {

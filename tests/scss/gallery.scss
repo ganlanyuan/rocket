@@ -2,14 +2,14 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/gallery"; 
 
-$num: ('column': 3);
-$num-0px: ('column': 3, gutter: 0px);
-$child: ('column': 4, 'selector': 'div');
-$direction: ('column': 4, direction: 'RTL');
-$center-align: ('column': 3, 'center-align': true);
-$percentage-gutter: ('column': 4, gutter: 5%);
-$rem-gutter: ('column': 5, gutter: 2rem);
-$map: ('column': ('dafault': 2, 600px: 3, 900px: 4));
+$num: (3);
+$num-0px: (3 'gutter' 0px);
+$child: (4 'selector' 'div');
+$direction: (4 'RTL');
+$center-align: (3 'center-align');
+$percentage-gutter: (4 'gutter' 5%);
+$rem-gutter: (5 'gutter' 2rem);
+$map: (('dafault': 2, 600px: 3, 900px: 4));
 
 .num { 
   @extend %demo-show;

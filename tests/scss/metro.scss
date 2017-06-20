@@ -2,13 +2,13 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/metro"; 
 
-$metro-list: ('column': (w1 w3 h2 w4 of 5), gutter: 10px);
-$metro-list-0px: ('column': (w1 w3 h2 w4 of 5), gutter: 0px);
-$metro-child: ('column': (w2h3 w3h1 w3h2 of 5), selector: '.child', gutter: 5%);
-$metro-ratio: ('column': (w1 w3 w3 w1 of 4), ratio: (9/16), gutter: 10px);
-$metro-breakpoint: ('column': (600px: w6h1 w2h2 w4h2 of 6), gutter: 10px);
-$metro-breakpoint-condition: ('column': (900px: w2h2 w2 w2 of 4), gutter: 10px, condition: 'max', media: 'screen');
-$metro-global-breakpoints: ('column': ('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h2 of 6, 'md': w3h2 w3 w3 of 6), breakpoint: $global-bps, gutter: 10px);
+$metro-list: ((w1 w3 h2 w4 of 5) 'gutter' 10px);
+$metro-list-0px: ((w1 w3 h2 w4 of 5) 'gutter' 0px);
+$metro-child: ((w2h3 w3h1 w3h2 of 5) 'selector' '.child' 'gutter' 5%);
+$metro-ratio: ((w1 w3 w3 w1 of 4) 'ratio' (9/16) 'gutter' 10px);
+$metro-breakpoint: ((600px: w6h1 w2h2 w4h2 of 6) 'gutter' 10px);
+$metro-breakpoint-condition: ((900px: w2h2 w2 w2 of 4) 'gutter' 10px 'max' 'screen');
+$metro-global-breakpoints: (('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h2 of 6, 'md': w3h2 w3 w3 of 6) $global-bps 'gutter' 10px);
 
 .container { max-width: 800px; }
 .metro-list {

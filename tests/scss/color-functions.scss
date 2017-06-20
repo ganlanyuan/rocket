@@ -1,5 +1,5 @@
 @import 'demo-base';
-@import "../../src/scss/color/palette"; 
+@import "../../src/scss/color/color"; 
 
 $original: #d92626;
 
@@ -37,12 +37,17 @@ $contrast: #5173a3, #bbf8e6, #cb7d26;
 @for $i from 1 through 3 {
   .color-box-contrast-#{$i} { 
     background-color: nth($contrast, $i); 
-    color: contrast( ('color': nth($contrast, $i), 'light': #eee, 'dark': #333) );
+    color: contrast(nth($contrast, $i) 'light' #eee 'dark' #333);
+  }
+  .color-box-analogous-#{$i} { 
+    background-color: nth($contrast, $i); 
+    color: contrast(nth($contrast, $i) 'light' #eee 'dark' #333);
+    cursor: pointer;
+    &:hover { background-color: analogous(nth($contrast, $i) 10%); }
   }
 }
 
 
-// *** color: adjacent *** //
 $options: (
   'adjacent': ( ('count': -1), ('count': 1) ),
   'complementary': ( 1 ),
@@ -64,7 +69,7 @@ $color: #fff;
     $color: palette( $data );
     .color-box-#{$name}-#{$i} { 
       background-color: $color; 
-      color: contrast( ('color': $color) );
+      color: contrast($color);
     }
   }
 }

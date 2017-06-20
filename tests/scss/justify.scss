@@ -3,7 +3,7 @@
 @import "../../src/scss/layout/justify"; 
 
 .example-justify {
-  @include justify( (child: 'li') );
+  @include justify('li');
   
   li {
     font-size: 13px;

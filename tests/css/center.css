@@ -245,7 +245,7 @@ p {
   margin-right: -.25em;
 }
 
-.example-center > * {
+.example-center > main {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;

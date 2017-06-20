@@ -241,7 +241,7 @@ p {
   width: 100%;
 }
 
-.example-justify > * {
+.example-justify > li {
   display: inline-block;
 }
 

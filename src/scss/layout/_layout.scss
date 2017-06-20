@@ -1,3 +1,4 @@
+@import "container";
 @import "grid";
 @import "liquid";
 @import "holy-grail";
@@ -5,6 +6,6 @@
 @import "masonry";
 @import "metro";
 @import "diamond"; 
-@import "justify"; // @required [mixin] display, justify-content, align-items
+@import "justify";
 @import "center";
 @import "angled-edges";

@@ -10,6 +10,8 @@ $breakpoint-fix: true !default;
 // base
 $ro-em-base: 16px !default;
 $ro-rem-base: 16px !default;
+$ro-media-type: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$ro-media-features: 'width', 'height' !default;
 
 // off-canvas
 $ro-off-canvas-z-index: (

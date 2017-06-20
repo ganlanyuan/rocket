@@ -241,7 +241,7 @@ p {
 }
 
 .grid-list:before {
-  content: "( column : 3 4 )";
+  content: "(  3  1  )";
 }
 
 .grid-list > div {
@@ -273,17 +273,17 @@ p {
 }
 
 .grid-list > div > div:nth-child(1) {
-  width: 42.8571429%;
+  width: 75%;
   margin-left: 0;
 }
 
 .grid-list > div > div:nth-child(2) {
-  width: 57.1428571%;
-  margin-left: 42.8571429%;
+  width: 25%;
+  margin-left: 75%;
 }
 
 .grid-child:before {
-  content: "( column : 3 4, selector :  .child  )";
+  content: '( (  3  4  ) "selector"  ".child"  )';
 }
 
 .grid-child > div {
@@ -325,7 +325,7 @@ p {
 }
 
 .grid-list-direction:before {
-  content: "( column : 3 4, direction :  RTL  )";
+  content: '( (  3  4  ) "RTL"  )';
 }
 
 .grid-list-direction > div {
@@ -367,7 +367,7 @@ p {
 }
 
 .grid-gutter1:before {
-  content: "( column : ( 3 4 : 2 1 ), gutter :  5%  )";
+  content: '( ( 3 4 : 2 1 ) "gutter"  5%  )';
 }
 
 .grid-gutter1 > div > div {
@@ -401,7 +401,7 @@ p {
 }
 
 .grid-gutter2:before {
-  content: "( column : 3 4, gutter :  5rem  )";
+  content: '( (  3  4  ) "gutter"  5rem  )';
 }
 
 .grid-gutter2 > div {
@@ -443,7 +443,7 @@ p {
 }
 
 .grid-nested-list:before {
-  content: "( column : (  3  4  ) 7  )";
+  content: "( (  3  4  ) 7  )";
 }
 
 .grid-nested-list > div {
@@ -498,7 +498,7 @@ p {
 }
 
 .grid-map:before {
-  content: "( column : ( 3 4 7 : 0 2 1 ) 3  )";
+  content: "( ( 3 4 7 : 0 2 1 ) 3  )";
 }
 
 .grid-map > div {
@@ -558,7 +558,7 @@ p {
 }
 
 .grid-breakpoint:before {
-  content: "( column : ( 600px : 5 7 ) )";
+  content: "( 600px : 5 7 )";
 }
 
 @media (min-width: 37.5em) {
@@ -596,7 +596,7 @@ p {
 }
 
 .grid-breakpoint-outside:before {
-  content: "@media (min-width: 600px) { ( column : 5 7 ) }";
+  content: "@media (min-width: 600px) { (  5  7  ) }";
 }
 
 @media screen and (min-width: 600px) and (min-width: 37.5em) {
@@ -634,7 +634,7 @@ p {
 }
 
 .grid-global-breakpoints:before {
-  content: "( column : ( sm : 1 1, md : 2 1, lg : 3 5 ), breakpoint : ( sm :  600px , md :  900px , lg :  1200px  ) )";
+  content: "( ( sm : 1 1, md : 2 1, lg : 3 5 )( sm :  600px , md :  900px , lg :  1200px  ) )";
 }
 
 @media (min-width: 37.5em) {
@@ -700,7 +700,7 @@ p {
 }
 
 .grid-breakpoint-max:before {
-  content: "( column : ( 900px : 3 5, 600px : 2 1 ), condition :  max  )";
+  content: '( ( 900px : 3 5, 600px : 2 1 ) "max"  )';
 }
 
 @media (max-width: 56.1875em) {
@@ -752,7 +752,7 @@ p {
 }
 
 .grid-breakpoint-nested-list:before {
-  content: "( column : ( 600px : (  3  4  )(  2  5  ) 3  ) )";
+  content: "( 600px : (  3  4  )(  2  5  ) 3  )";
 }
 
 @media (min-width: 37.5em) {
@@ -811,7 +811,7 @@ p {
 }
 
 .grid-breakpoint-map:before {
-  content: "( column : ( 600px : ( 3 4 : 2 1 )(  2  5  ) 3  ) )";
+  content: "( 600px : ( 3 4 : 2 1 )(  2  5  ) 3  )";
 }
 
 @media (min-width: 37.5em) {
@@ -870,7 +870,7 @@ p {
 }
 
 .grid-breakpoint-default:before {
-  content: "( column : ( default : 3 4, 900px : 2 7 ) )";
+  content: "( default : 3 4, 900px : 2 7 )";
 }
 
 .grid-breakpoint-default > div {
@@ -926,7 +926,7 @@ p {
 }
 
 .grid-breakpoint-complex-list:before {
-  content: "( column : ( default : (  3  4  )(  2  5  ) 3 , 600px : (  3  4  2  )(  5  3  ), 900px : ( 5 2 : 2 1 ) 3 ( 1 1 : 2 1 ) ) )";
+  content: "( default : (  3  4  )(  2  5  ) 3 , 600px : (  3  4  2  )(  5  3  ), 900px : ( 5 2 : 2 1 ) 3 ( 1 1 : 2 1 ) )";
 }
 
 .grid-breakpoint-complex-list > div {

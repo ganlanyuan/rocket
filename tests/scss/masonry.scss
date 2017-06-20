@@ -3,13 +3,13 @@
 @import "../../src/scss/layout/grid"; 
 @import "../../src/scss/layout/masonry"; 
 
-$masonry-number: ('column': 3);
-$masonry-child: ('column': 4, selector: '.masonry-item');
-$masonry-0px: ('column': 4, gutter: 0px);
-$masonry-percentage-gutter: ('column': 4, gutter: 3%);
-$masonry-condition: ('column': (900px: 3), condition: 'max');
-$masonry-breakpoints: ('column': (600px: 2, 900px: 3));
-$masonry-global-breakpoints: ('column': ('sm': 2, 'md': 3), breakpoint: $global-bps);
+$masonry-number: (3);
+$masonry-child: (4 'selector' '.masonry-item');
+$masonry-0px: (4 'gutter' 0px);
+$masonry-percentage-gutter: (4 'gutter' 3%);
+$masonry-condition: ((900px: 3) 'max');
+$masonry-breakpoints: ((600px: 2, 900px: 3));
+$masonry-global-breakpoints: (('sm': 2, 'md': 3) $global-bps);
 
 .masonry-number {
   @extend %demo-show;

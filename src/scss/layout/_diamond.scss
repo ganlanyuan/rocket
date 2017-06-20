@@ -1,15 +1,39 @@
-// *** diamond *** //
 @mixin diamond($key){
-  @include check-arg-type($key, 'map');
+  $shape: args-get($key, ('diamond', 'octagon'), 'diamond');
+  $tight: args-get($key, 'tight');
 
-  $column: map-get($key, 'column');
-  $shape: if(map-get($key, 'shape'), map-get($key, 'shape'), 'diamond');
-  $tight: map-get($key, 'tight');
-  $global-breakpoints: map-get($key, 'breakpoint');
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $local-breakpoints: false;
-  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  $media-type: map-get($key, 'media');
-  $keep: map-get($key, 'keep');
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media-type: args-get($key, $ro-media-type);
+  $keep: args-get($key, 'keep', false);
+
+  // get data
+  $column: false;
+  @if type-of($key) == 'number' or type-of($key) == 'map' {
+    $column: $key;
+  } @else if type-of($key) == 'list' and not $column {
+    @each $item in $key {
+      @if not $column and type-of($item) == 'number' or type-of($item) == 'map' {
+        $column: $item;
+      }
+    }
+  }
+
+  // if not valuable data found
+  @if not $column { @error 'Parameters must include number or map.'; }
+
+  // @include check-arg-type($key, 'map');
+
+  // $column: map-get($key, 'column');
+  // $shape: if(map-get($key, 'shape'), map-get($key, 'shape'), 'diamond');
+  // $tight: map-get($key, 'tight');
+  // $global-breakpoints: map-get($key, 'breakpoint');
+  // $local-breakpoints: false;
+  // $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
+  // $media-type: map-get($key, 'media');
+  // $keep: map-get($key, 'keep');
 
   @if type-of($column) == 'map' {
     // update $column breakpoints

@@ -1,15 +1,6 @@
-// *** angled-edges *** //
 @mixin angled-edges ($key) {
-  @include check-arg-type($key, 'map');
-
-  $color: map-get($key, 'color');
-  $angle: map-get($key, 'angle');
-  $color1: if(length($color) >= 1, nth($color, 1), #fff);
-  $color2: if(length($color) >= 2, nth($color, 2), #fff);
-  $angle1: false;
-  $angle2: false;
-  $edge: if(map-get($key, 'edge'), map-get($key, 'edge'), 'bottom');
-  $flip: map-get($key, 'flip');
+  $edge: args-get($key, ('top', 'bottom', 'both'), 'bottom');
+  $flip: args-get($key, 'flip');
   $view: 1800px;
 
   // set selector
@@ -20,23 +11,43 @@
     $selector: '&:after';
   }
 
-  // angles
-  @if $angle {
-    @each $item in $angle {
+  // set colors & angles
+  $color1: false;
+  $color2: false;
+  $angle1: false;
+  $angle2: false;
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      // colors
+      @if type-of($item) == 'color' {
+        @if not $color1 {
+          $color1: $item;
+          $color2: $item;
+        } @else {
+          $color2: $item;
+        }
+      }
+
+      // angles
       @if type-of($item) == 'number' and unit($item) == 'deg' {
         @if not $angle1 {
           $angle1: $item;
+          $angle2: $item;
         } @else {
           $angle2: $item;
         }
       }
     }
   }
+  @if not $color1 {$color1: #fff; }
+  @if not $color2 {$color2: #fff; }
   @if not $angle1 { $angle1: 5deg; }
-  @if not $angle2 { $angle2: $angle1; }
-  @if $flip { $angle2: - $angle1; }
+  @if not $angle2 { 
+    $angle2: $angle1; 
+    @if $flip { $angle2: - $angle1; }
+  }
 
-  // *** output *** //
+
   position: relative;
   overflow: hidden;
   #{$selector} {

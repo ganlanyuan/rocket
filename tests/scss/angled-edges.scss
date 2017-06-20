@@ -4,9 +4,9 @@
 
 $bg1: #B9E2FF;
 $bg2: #FBDBF6;
-.bottom { @include angled-edges((edge: bottom, angle: 5deg, color: $bg1)); }
-.both { @include angled-edges((edge: both, angle: 5deg, flip: true, color: $bg1 $bg2)); }
-.top { @include angled-edges((edge: top, angle: -5deg, color: $bg2)); }
+.bottom { @include angled-edges('bottom' 5deg $bg1); }
+.both { @include angled-edges('both' 5deg 'flip' $bg1 $bg2); }
+.top { @include angled-edges('top' -5deg $bg2); }
 
 // other styles
 .example-angled-edges {

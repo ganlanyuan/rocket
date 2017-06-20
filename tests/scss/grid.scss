@@ -4,21 +4,21 @@
 
 [class*='grid-'] .cell { margin-bottom: 20px; }
 
-$grid-list: ('column': 3 4);
-$grid-child: ('column': 3 4, 'selector': '.child');
-$grid-gutter1: ('column': (3 4 : 2 1), 'gutter': 5%);
-$grid-gutter2: ('column': 3 4, 'gutter': 5rem);
-$grid-list-direction: ('column': 3 4, 'direction': 'RTL');
-$grid-nested-list: ('column': (3 4) 7);
-$grid-map: ( 'column': (3 4 7 : 0 2 1 ) 3 );
-$grid-breakpoint: ('column': ( 600px: 5 7 ));
-$grid-global-breakpoints: ( 'column': ('sm': 1 1, 'md': 2 1, 'lg': 3 5), 'breakpoint': $global-bps);
-$grid-breakpoint-max: ( 'column': (900px: 3 5, 600px: 2 1), 'condition': 'max' );
-$grid-breakpoint-outside: ( 'column': (5 7) );
-$grid-breakpoint-nested-list: ( 'column': ( 600px: (3 4) (2 5) 3 ) );
-$grid-breakpoint-map: ( 'column': ( 600px: (3 4 : 2 1) (2 5) 3 ) );
-$grid-breakpoint-default: ( 'column': ( 'default': 3 4, 900px: 2 7 ) );
-$grid-breakpoint-complex-list: ( 'column': ( default: (3 4) (2 5) 3, 600px: (3 4 2) (5 3), 900px: (5 2: 2 1) 3 (1 1 : 2 1) ) );
+$grid-list: (3 1);
+$grid-child: ((3 4) 'selector' '.child');
+$grid-gutter1: ((3 4 : 2 1) 'gutter' 5%);
+$grid-gutter2: ((3 4) 'gutter' 5rem);
+$grid-list-direction: ((3 4) 'RTL');
+$grid-nested-list: ((3 4) 7);
+$grid-map: ( (3 4 7 : 0 2 1 ) 3 );
+$grid-breakpoint: (( 600px: 5 7 ));
+$grid-global-breakpoints: ( ('sm': 1 1, 'md': 2 1, 'lg': 3 5) $global-bps);
+$grid-breakpoint-max: ( (900px: 3 5, 600px: 2 1) 'max' );
+$grid-breakpoint-outside: ( (5 7) );
+$grid-breakpoint-nested-list: ( ( 600px: (3 4) (2 5) 3 ) );
+$grid-breakpoint-map: ( ( 600px: (3 4 : 2 1) (2 5) 3 ) );
+$grid-breakpoint-default: ( ( 'default': 3 4, 900px: 2 7 ) );
+$grid-breakpoint-complex-list: ( ( default: (3 4) (2 5) 3, 600px: (3 4 2) (5 3), 900px: (5 2: 2 1) 3 (1 1 : 2 1) ) );
 
 .grid-list {
   @extend %demo-show;

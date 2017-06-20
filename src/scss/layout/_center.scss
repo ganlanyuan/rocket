@@ -1,9 +1,8 @@
-// *** center *** //
-@mixin center($key: (child: '*')){
-  @include check-arg-type($key, 'map');
-
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
-  $align: if(map-get($key, 'align'), map-get($key, 'align'), 'left');
+@mixin center($key: ('selector' '*')){
+  $check: ('left' 'right' 'center' 'selector');
+  $selector: args-get-type($key, 'string', $check);
+  $align: args-get($key, ('left' 'right' 'center'), 'left');
+  
   
   text-align: center; 
   white-space: nowrap;
