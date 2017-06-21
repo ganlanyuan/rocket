@@ -6,7 +6,7 @@
   $selector: args-get-next($key, 'selector', '*');
 
   $global-breakpoints: args-get-global-breakpoints($key);
-  @if $global-breakpoints { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
   $local-breakpoints: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media: args-get($key, $ro-media-type);
