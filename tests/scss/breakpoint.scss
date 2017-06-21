@@ -4,12 +4,12 @@
 $bp-default: #eee;
 $bp-active: #FF66FF;
 
-$num: ('breakpoint': 600);
-$num-max: ('condition': 'max', 'breakpoint': 600);
-$num-2-max: ('breakpoint': (600 900), 'condition': 'max');
-$num-print: ('breakpoint': 600, 'media': 'print');
-$height: ('breakpoint': 600, 'feature': 'height');
-$num-9: ('breakpoint': (300 400 500 600 700 800 900 1000 1100));
+$num: (600);
+$num-max: ('max' 600);
+$num-2-max: (600 900 'max');
+$num-print: (600 'print');
+$height: (600 'height');
+$num-9: (300 400 500 600 700 800 900 1000 1100);
 
 .num {
   @extend %demo-show;

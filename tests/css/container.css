@@ -1,3 +1,9 @@
+.default > div:after, .px-left > div:after, .px-right > div:after, .px-px > div:after, .px-0px > div:after, .em > div:after, .em-px > div:after, .percentage > div:after, .percentage-px > div:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -231,158 +237,99 @@ p {
   margin-bottom: 5px;
 }
 
-.color-box {
-  float: left;
-  text-align: center;
-  padding: 3em 2em;
-  font-size: 14px;
-  color: #fff;
-  text-transform: capitalize;
-  box-sizing: -webkit-border-box;
-  box-sizing: -moz-border-box;
-  box-sizing: border-box;
+.default, .px-left, .px-right, .px-px, .px-0px, .em, .em-px, .percentage, .percentage-px {
+  height: auto;
+  margin-bottom: 50px;
 }
 
-.color-pattern {
-  max-width: 300px;
-  padding: 10px 0px;
-  border-right: .33em;
-  overflow: hidden;
+.default:before {
+  content: '()';
 }
 
-.color-pattern img {
-  max-width: 100%;
+.default > div {
+  max-width: 1060px;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.color-box-original {
-  background-color: #d92626;
-  color: #fff;
+.px-left:before {
+  content: '(  900px  "left"  )';
 }
 
-.two > div {
-  width: 50%;
+.px-left > div {
+  max-width: 900px;
+  padding: 0 10px;
+  margin-left: 0;
+  margin-right: auto;
 }
 
-.three > div {
-  width: 33.333333333%;
+.px-right:before {
+  content: '(  900px  "right"  )';
 }
 
-.four > div {
-  width: 25%;
+.px-right > div {
+  max-width: 900px;
+  padding: 0 10px;
+  margin-right: 0;
+  margin-left: auto;
 }
 
-.example-adjacent:after {
-  clear: both;
-  content: "";
-  display: table;
+.px-px:before {
+  content: '(  900px  "gutter"  30px  )';
 }
 
-.color-box-contrast-1 {
-  background-color: #5173a3;
-  color: #eee;
+.px-px > div {
+  max-width: 900px;
+  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.color-box-analogous-1 {
-  background-color: #5173a3;
-  color: #eee;
-  cursor: pointer;
+.px-0px:before {
+  content: '(  900px  "gutter"  0px  )';
 }
 
-.color-box-analogous-1:hover {
-  background-color: #6f8db8;
+.px-0px > div {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.color-box-contrast-2 {
-  background-color: #bbf8e6;
-  color: #333;
+.em:before {
+  content: "56.25em";
 }
 
-.color-box-analogous-2 {
-  background-color: #bbf8e6;
-  color: #333;
-  cursor: pointer;
+.em > div {
+  max-width: 56.25em;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.color-box-analogous-2:hover {
-  background-color: #8df3d5;
+.em-px:before {
+  content: '(  56.25em  "gutter"  20px  )';
 }
 
-.color-box-contrast-3 {
-  background-color: #cb7d26;
-  color: #eee;
+.em-px > div {
+  max-width: 56.25em;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.color-box-analogous-3 {
-  background-color: #cb7d26;
-  color: #eee;
-  cursor: pointer;
+.percentage:before {
+  content: "80%";
 }
 
-.color-box-analogous-3:hover {
-  background-color: #dd9647;
+.percentage > div {
+  padding: 0 10%;
 }
 
-.color-box-adjacent-1 {
-  background-color: #d9268b;
-  color: #fff;
+.percentage-px:before {
+  content: '(  80%  "gutter"  30px  )';
 }
 
-.color-box-adjacent-2 {
-  background-color: #d97726;
-  color: #fff;
-}
-
-.color-box-complementary-1 {
-  background-color: #26d926;
-  color: #000;
-}
-
-.color-box-split-complementary-1 {
-  background-color: #9dd926;
-  color: #000;
-}
-
-.color-box-split-complementary-2 {
-  background-color: #26d9d9;
-  color: #000;
-}
-
-.color-box-triad-1 {
-  background-color: #e6e619;
-  color: #000;
-}
-
-.color-box-triad-2 {
-  background-color: #265cd9;
-  color: #fff;
-}
-
-.color-box-rectangle-1 {
-  background-color: #d97726;
-  color: #fff;
-}
-
-.color-box-rectangle-2 {
-  background-color: #26d926;
-  color: #000;
-}
-
-.color-box-rectangle-3 {
-  background-color: #26d9d9;
-  color: #000;
-}
-
-.color-box-square-1 {
-  background-color: #d9bb26;
-  color: #000;
-}
-
-.color-box-square-2 {
-  background-color: #26d926;
-  color: #000;
-}
-
-.color-box-square-3 {
-  background-color: #5026d9;
-  color: #fff;
+.percentage-px > div {
+  padding: 0 10%;
 }

@@ -6,7 +6,7 @@
   @if $global-breakpoints { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $local-breakpoints: false;
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $media: args-get($key, $ro-media-type);
   $keep: args-get($key, 'keep', false);
 
   // get data
@@ -32,7 +32,7 @@
   // $global-breakpoints: map-get($key, 'breakpoint');
   // $local-breakpoints: false;
   // $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  // $media-type: map-get($key, 'media');
+  // $media: map-get($key, 'media');
   // $keep: map-get($key, 'keep');
 
   @if type-of($column) == 'map' {

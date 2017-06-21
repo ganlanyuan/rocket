@@ -1,20 +1,21 @@
 {
   "tree": {
     "layout": [
-      "angled-edges",
-      "center",
-      "diamond",
-      "gallery",
+      "container",
       "grid",
-      "justify",
+      "gallery",
       "liquid",
       "holy-grail",
       "masonry",
-      "metro"
+      "metro",
+      "angled-edges",
+      "justify",
+      "center",
+      "diamond"
     ],
     "components": [
-      "accordion",
       "button",
+      "accordion",
       "chart",
       "checkbox",
       "drop-shadow",

@@ -237,7 +237,7 @@ p {
 }
 
 .string:before {
-  content: '"( selector :  div  )"';
+  content: '""div""';
 }
 
 .string > div > input {
@@ -258,7 +258,7 @@ p {
 }
 
 .string-height:before {
-  content: "( selector :  div , max-height :  200px  )";
+  content: '(  "div"  200px  )';
 }
 
 .string-height > div > input {
@@ -279,7 +279,7 @@ p {
 }
 
 .string-duration:before {
-  content: "( selector :  div , duration :  0.4s  )";
+  content: '(  "div"  0.4s  )';
 }
 
 .string-duration > div > input {
@@ -300,7 +300,7 @@ p {
 }
 
 .string-height-duration:before {
-  content: "( selector :  .nav , max-height :  200px , duration :  0.4s  )";
+  content: '(  ".nav"  200px  0.4s  )';
 }
 
 .string-height-duration > div > input {

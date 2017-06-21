@@ -8,7 +8,7 @@
   @if $global-breakpoints { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $local-breakpoints: false;
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $media: args-get($key, $ro-media-type);
   $keep: args-get($key, 'keep', false);
 
   // get data
@@ -55,7 +55,7 @@
         @include make-masonry($count);
 
       } @else if type-of($bp) == 'number' {
-        @include bp( ('condition': $condition, 'media': $media-type, 'breakpoint': $bp) ) {
+        @include bp( ('condition': $condition, 'media': $media, 'breakpoint': $bp) ) {
           @if not $keep {
             @include masonry-base($selector, $gutter);
             $keep: true;

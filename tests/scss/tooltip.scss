@@ -6,6 +6,6 @@
   display: inline-block; 
   margin-right: 3em;
   @each $item in (left right bottom top) {
-    &.#{$item} { @include tooltip( ('border-radius': 0.22em, 'direction': $item, 'color': #b02df3) ); }
+    &.#{$item} { @include tooltip('border-radius' 0.22em $item #b02df3); }
   }
 }

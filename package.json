@@ -1,6 +1,6 @@
 {
   "name": "rocket-sass",
-  "version": "4.0.0-beta7",
+  "version": "4.0.0-beta8",
   "description": "Rocket is a powerful Sass framework with many common used components and utility functions, to help you build websites faster and easier.",
   "main": "./src/scss/rocket.scss",
   "directories": {

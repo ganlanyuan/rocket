@@ -1,27 +1,35 @@
-// *** button *** //
 @mixin button ($key: ('style': 'highlight')){
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'highlight');
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), ':hover');
-  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'left');
-  $color: map-get($key, 'color');
-  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
-  $timing-function: if(map-get($key, 'timing-function'), map-get($key, 'timing-function'), ease);
+  $style: args-get($key, ('highlight' 'simple' 'slide' 'ripple' 'veil' 'push' 'cut' 'bubble' 'line-drawing' 'shake'), 'highlight');
+  $direction: args-get($key, ('left' 'right' 'top' 'bottom' 'horizontal' 'vertical'), 'left');
 
-  $color1: #e2e2e2;
+  $color1: false;
   $color2: false;
-  @if type-of($color) == 'list' {
-    $color1: nth($color, 1);
-    @if (length($color) >= 2) {
-      $color2: nth($color, 2);
+  $duration: 0.3s;
+  $timing-function: ease;
+  $selector: ':hover';
+  @each $item in $key {
+    @if type-of($item) == 'color' {
+      @if not $color1 {
+        $color1: $item;
+      } @else {
+        $color2: $item;
+      }
+    } @else if type-of($item) == 'number' and unit($item) == 's' {
+      $duration: $item;
+    } @else if type-of($item) == 'string' {
+      @if index(('.', '#', ':', '['), str-slice($item, 1, 1)) {
+        $selector: $item;
+      } @else if index(('linear' 'ease' 'ease-in' 'ease-out' 'ease-in-out' 'step-start' 'step-end'), $item) or str-index($item, 'cubic-bezier') {
+        $timing-function: unquote($item);
+      }
     }
-  } @else if type-of($color) == 'color' {
-    $color1: $color;
   }
+  @if not $color1 { $color1: #e2e2e2; }
   @if not $color2 { $color2: analogous($color1 10%); }
 
   @if not index(('simple' 'veil' 'line-drawing'), $style) {
     background: $color1;
-    color: contrast( ('color': $color1) );
+    color: contrast($color1);
   }
   @if $style == 'slide' {
     @include button-pos-r();
@@ -39,8 +47,8 @@
       transition: #{$direction} $duration $timing-function;
     }
     &#{$selector} {
-      @if contrast( ('color': $color1) ) != contrast( ('color': $color2) ) {
-        color: contrast( ('color': $color2) );
+      @if contrast($color1) != contrast($color2) {
+        color: contrast($color2);
       }
       &:before { #{$direction}: 0px; }
     }
@@ -48,8 +56,8 @@
     transition: background $duration $timing-function, color $duration $timing-function;
     &#{$selector} {
       background: $color2;
-      @if contrast( ('color': $color1) ) != contrast( ('color': $color2) ) {
-        color: contrast( ('color': $color2) );
+      @if contrast($color1) != contrast($color2) {
+        color: contrast($color2);
       }
     }
   } @else if $style == 'simple' {
@@ -58,7 +66,7 @@
     background: transparent;
     transition: background $duration $timing-function, color $duration $timing-function;
     &#{$selector} {
-      color: contrast( ('color': $color1) );
+      color: contrast($color1);
       border-color: $color1;
       background: $color1;
     }
@@ -115,7 +123,7 @@
       .lt-ie9 & { display: none; }
     }
     &#{$selector} {
-      color: contrast( ('color': $color1) );
+      color: contrast($color1);
       &:before {
         opacity: 1;
         @if $direction == vertical {

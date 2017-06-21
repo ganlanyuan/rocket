@@ -1,6 +1,7 @@
 @mixin equal-to($key) {
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
-  $count: map-get($key, 'count');
+  $selector: args-get-type($key, 'string', null, '*');
+  $count: args-get-type($key, 'number');
+
 
   #{$selector}:first-child:nth-last-of-type(#{$count}),
   #{$selector}:first-child:nth-last-of-type(#{$count}) ~ #{$selector} {

@@ -1,28 +1,20 @@
-// *** breakpoint *** //
 @mixin ro-breakpoint($key){
-  @include check-arg-type($key, 'map');
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media: args-get($key, ('all' 'aural' 'braille' 'handheld' 'print' 'projection' 'screen' 'tty' 'tv' 'embossed'));
+  $feature: args-get($key, ('width' 'height'), 'width');
 
-  $breakpoint: map-get($key, 'breakpoint');
-  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  $media: map-get($key, 'media');
-  $feature: if(map-get($key, 'feature'), map-get($key, 'feature'), 'width');
+  // get breakpoints
+  $breakpoint-em: ();
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      $breakpoint-em: append($breakpoint-em, em($item));
+    }
+  }
 
   $media-string: if($media, '#{$media} and ', '');
   $selector: '';
-
-  $breakpoint-em: ();
-  // get breakpoints
-  @each $item in $breakpoint {
-    @if strip-unit($item) == 0 {
-      $item: 0em;
-    } @else {
-      $item: em($item);
-    }
-
-    $breakpoint-em: append($breakpoint-em, $item);
-  }
+  
   $length: length($breakpoint-em);
-
   @if $length == 1 {
     $bp: if($breakpoint-fix and $condition == 'max', (nth($breakpoint-em, 1) - em(1)), nth($breakpoint-em, 1));
     $selector: $media-string + '(#{$condition}-#{$feature}: #{$bp})';
@@ -41,7 +33,6 @@
     @error "No breakpoint found.";
   }
 
-  // *** output *** //
   @media #{unquote($selector)} { @content; }
 }
 

@@ -1,11 +1,6 @@
 @import 'demo-base';
 @import "../../src/scss/color/color"; 
 
-$original: #d92626;
-
-// *** color: contrast *** //
-$contrast: #5173a3, #bbf8e6, #cb7d26;
-
 // color-box
 .color-box {
   float: left;
@@ -33,7 +28,10 @@ $contrast: #5173a3, #bbf8e6, #cb7d26;
 .two > div { width: 50%; }
 .three > div { width: 33.333333333%; }
 .four > div { width: 25%; }
+.example-adjacent { @include clearfix(); }
 
+// contrast & analogous
+$contrast: #5173a3, #bbf8e6, #cb7d26;
 @for $i from 1 through 3 {
   .color-box-contrast-#{$i} { 
     background-color: nth($contrast, $i); 
@@ -48,34 +46,26 @@ $contrast: #5173a3, #bbf8e6, #cb7d26;
 }
 
 
+// other color functions
 $options: (
-  'adjacent': ( ('count': -1), ('count': 1) ),
+  'adjacent': ( (-1), (1) ),
   'complementary': ( 1 ),
-  'split-complementary': ( ('count': 1), ('count': 2) ),
-  'triad': ( ('count': 1, 'saturation': 10%), ('count': 2) ),
-  'rectangle': ( ('count': 1), ('count': 2), ('count': 3) ),
-  'square': ( ('count': 1), ('count': 2), ('count': 3) ),
+  'split-complementary': ( (1), (2) ),
+  'triad': ( (1 'saturation' 10%), (2) ),
+  'rectangle': ( (1), (2), (3) ),
+  'square': ( (1), (2), (3) ),
 );
 
 $data: false;
 $color: #fff;
+$original: #d92626;
 @each $name, $option in $options {
   @for $i from 1 through length($option) {
-    $data: if(
-      length($option) >= 1 and type-of(nth($option, $i)) == 'map', 
-      map-merge(nth($option, $i), ('style': $name, 'color': $original)), 
-      ('style': $name, 'color': $original) 
-      );
-    $color: palette( $data );
+    $data: join(nth($option, $i), ($name $original));
+    $color: palette($data);
     .color-box-#{$name}-#{$i} { 
       background-color: $color; 
       color: contrast($color);
     }
   }
 }
-.example-adjacent { @include clearfix(); }
-// .color-box-adjacent-2 {
-//   $color-adjacent: adjacent( ('color': $original, 'scale': 1) );
-//   background-color: $color-adjacent; 
-//   color: contrast( ('color': $color-adjacent) );
-// }

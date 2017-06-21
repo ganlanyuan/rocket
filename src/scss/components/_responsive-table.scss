@@ -1,12 +1,10 @@
 @mixin responsive-table($key) {
-  @include check-arg-type($key, 'map');
-
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'flip-scroll');
-  $data: map-get($key, 'data');
-  $border-color: map-get($key, 'border-color');
-  $breakpoint: if(map-get($key, 'breakpoint'), map-get($key, 'breakpoint'), 768);
-  $th-width: if(map-get($key, 'th-width'), map-get($key, 'th-width'), 50%);
-  $count: if(map-get($key, 'count'), map-get($key, 'count'), 15);
+  $style: args-get($key, ('flip-scroll' 'scroll' 'stack' 'toggle'), 'flip-scroll');
+  $data: args-get-next($key, 'data');
+  $border-color: args-get-type($key, 'border-color');
+  $breakpoint: args-get-next($key, 'breakpoint', 768);
+  $th-width: args-get-next($key, 'th-width', 50%);
+  $count: args-get-next($key, 'count', 15);
 
   // normal
   @if $style == 'toggle' {
@@ -30,13 +28,13 @@
         &:hover { background-color: #f2f2f2; }
       }
     }
-    @include bp( ('breakpoint': $breakpoint) ) {
+    @include bp($breakpoint) {
       input ~ label { display: none; }
     }
   }
 
   // == small screen ==
-  @include bp( ('condition': 'max', 'breakpoint': $breakpoint) ) {
+  @include bp('max' $breakpoint) {
     // == stack ==
     @if $style == 'stack' {
       &, 

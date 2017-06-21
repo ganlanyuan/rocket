@@ -13,10 +13,10 @@
 }
 
 @mixin tooltip($key: ('color': #000)) {
-  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'right');
-  $color: if(map-get($key, 'color'), map-get($key, 'color'), #333);
-  $content: if(map-get($key, 'content'), map-get($key, 'content'), attr(data-tooltip));
-  $border-radius: map-get($key, 'border-radius');
+  $direction: args-get($key, ('left' 'right' 'top' 'bottom'), 'right');
+  $color: args-get-type($key, 'color', null, #333);
+  $content: args-get-next($key, 'content', attr(data-tooltip));
+  $border-radius: args-get-next($key, 'border-radius');
 
   
 
@@ -30,7 +30,7 @@
   &:after {
     @extend %tooltip-content;
     content: $content;
-    color: contrast( ('color': $color) );
+    color: contrast($color);
     background: $color;
     @if $border-radius { border-radius: $border-radius; }
   }

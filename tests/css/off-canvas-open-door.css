@@ -422,7 +422,7 @@ input:checked ~ .nav {
   top: 0;
   bottom: 0;
   z-index: 199;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   opacity: 0;
 }
 
@@ -432,5 +432,5 @@ input:checked ~ .page .page-overlay {
 }
 
 .open-door .code:before {
-  content: "( page :  .page , nav :  .nav , submenu :  true , style :  open-door  )";
+  content: '(  "page"  ".page"  "nav"  ".nav"  "submenu"  "open-door"  )';
 }

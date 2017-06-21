@@ -1,4 +1,4 @@
 @import 'demo-base';
 @import "../../src/scss/components/flex-media"; 
 
-.video { @include flex-media( ('selector': 'iframe', 'ratio': (315/560)) ); }
+.video { @include flex-media('iframe' (315/560)); }

@@ -45,22 +45,22 @@
 }
 
 .at-least {
-  @include at-least( ('selector': '.box', 'count': 4) ) {
+  @include at-least('.box' 4) {
     background-color: #FF49A6;
   }
 }
 .at-most {
-  @include at-most( ('selector': '.box', 'count': 4) ) {
+  @include at-most('.box' 4) {
     background-color: #FF49A6;
   }
 }
 .equal-to {
-  @include equal-to( ('selector': '.box', 'count': 4) ) {
+  @include equal-to('.box' 4) {
     background-color: #FF49A6;
   }
 }
 .between {
-  @include between( ('selector': '.box', 'count': 3 6) ) {
+  @include between('.box' 3 6) {
     background-color: #FF49A6;
   }
 }

@@ -1,8 +1,8 @@
 @import "chart";
-@import "responsive-table"; // @requir [mixin] bp
-@import "off-canvas";  // @require [mixin] transform, transform-origin, transform-style, nav-map, opacity, breakpoint
+@import "responsive-table";
+@import "off-canvas";
 @import "validation";
-@import "button"; // @require [function] contrast
+@import "button";
 @import "parallelogram"; 
 @import "drop-shadow"; 
 @import "switch";

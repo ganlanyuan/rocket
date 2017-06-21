@@ -258,8 +258,8 @@ p {
   display: inline-block;
   height: 1.5625em;
   line-height: 1.5625em;
-  transition: padding 0.3s, background 0.3s;
-  background: #CC412F;
+  transition: padding 0.3s, background-color 0.3s;
+  background-color: #ddd;
   padding: 0.1953125em 1.328125em 0.1953125em 0.1953125em;
   border-radius: 3px;
 }
@@ -268,7 +268,7 @@ p {
   content: '';
   display: inline-block;
   height: 1.5625em;
-  background: #fff;
+  background-color: #fff;
   width: 1.5625em;
   box-shadow: 0 0.1953125em 0.1953125em 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
@@ -276,7 +276,7 @@ p {
 
 .switch-group .switch-g > input:checked ~ label {
   padding: 0.1953125em 0.1953125em 0.1953125em 1.328125em;
-  background: #CC412F;
+  background-color: #CC412F;
 }
 
 .one > input {
@@ -288,8 +288,8 @@ p {
   display: inline-block;
   height: 1.25em;
   line-height: 1.25em;
-  transition: padding 0.3s, background 0.3s;
-  background: #ddd;
+  transition: padding 0.3s, background-color 0.3s;
+  background-color: #ddd;
   padding: 0.15625em 1.0625em 0.15625em 0.15625em;
   border-radius: 3px;
 }
@@ -298,7 +298,7 @@ p {
   content: '';
   display: inline-block;
   height: 1.25em;
-  background: #fff;
+  background-color: #fff;
   width: 1.25em;
   box-shadow: 0 0.15625em 0.15625em 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
@@ -306,7 +306,7 @@ p {
 
 .one > input:checked ~ label {
   padding: 0.15625em 0.15625em 0.15625em 1.0625em;
-  background: #3DD754;
+  background-color: #3DD754;
 }
 
 .two > input {
@@ -318,8 +318,8 @@ p {
   display: inline-block;
   height: 3.125em;
   line-height: 3.125em;
-  transition: padding 0.3s, background 0.3s;
-  background: #C06EE1;
+  transition: padding 0.3s, background-color 0.3s;
+  background-color: #ddd;
   padding: 0.390625em 2.65625em 0.390625em 0.390625em;
   border-radius: 1000px;
 }
@@ -328,7 +328,7 @@ p {
   content: '';
   display: inline-block;
   height: 3.125em;
-  background: #fff;
+  background-color: #fff;
   width: 3.125em;
   box-shadow: 0 0.390625em 0.390625em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
@@ -336,7 +336,7 @@ p {
 
 .two > input:checked ~ label {
   padding: 0.390625em 0.390625em 0.390625em 2.65625em;
-  background: #C06EE1;
+  background-color: #C06EE1;
 }
 
 .slider > input {
@@ -348,7 +348,7 @@ p {
   display: inline-block;
   height: 1.5em;
   line-height: 1.5em;
-  transition: padding 0.3s, background 0.3s;
+  transition: padding 0.3s, background-color 0.3s;
   text-align: left;
   position: relative;
   padding: 0 2.7em 0 0;
@@ -356,7 +356,7 @@ p {
 }
 
 .slider > input ~ label:before, .slider > input ~ label:after {
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 .slider > input ~ label:before {
@@ -367,25 +367,17 @@ p {
   left: 0.75em;
   top: 0.75em;
   z-index: -1;
-  background: #399DE1;
-}
-
-.lt-ie9 .slider > input ~ label:before {
-  background: #399DE1;
+  background-color: #ddd;
 }
 
 .slider > input ~ label:after {
   content: '';
   display: inline-block;
   height: 1.5em;
-  background: #fff;
+  background-color: #fff;
   width: 1.5em;
   box-shadow: 0 0.1442308em 0.1875em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
-}
-
-.lt-ie9 .slider > input ~ label:after {
-  background: #399DE1;
 }
 
 .slider > input:checked ~ label {
@@ -394,7 +386,7 @@ p {
 }
 
 .slider > input:checked ~ label:before, .slider > input:checked ~ label:after {
-  background: #399DE1;
+  background-color: #399DE1;
 }
 
 .text > input {
@@ -408,12 +400,7 @@ p {
   top: 0.28125em;
   display: inline-block;
   white-space: nowrap;
-  color: contrast(("color": #399DE1));
   transition: color 0.3s;
-}
-
-.lt-ie9 .text label > span {
-  color: #fff;
 }
 
 .text label > span:before, .text label > span:after {
@@ -435,8 +422,8 @@ p {
   display: inline-block;
   height: 2.25em;
   line-height: 2.25em;
-  transition: padding 0.3s, background 0.3s;
-  background: #399DE1;
+  transition: padding 0.3s, background-color 0.3s;
+  background-color: #ddd;
   padding: 0.28125em 1.9125em 0.28125em 0.28125em;
   border-radius: 1000px;
   position: relative;
@@ -448,7 +435,7 @@ p {
   content: '';
   display: inline-block;
   height: 2.25em;
-  background: #fff;
+  background-color: #fff;
   width: 2.25em;
   box-shadow: 0 0.28125em 0.28125em 0 rgba(0, 0, 0, 0.2);
   border-radius: 1000px;
@@ -457,10 +444,10 @@ p {
 
 .text > input:checked ~ label {
   padding: 0.28125em 0.28125em 0.28125em 1.9125em;
-  background: #399DE1;
+  background-color: #399DE1;
   padding-left: 2.5875em;
 }
 
 .text > input:checked ~ label > span {
-  color: contrast(("color": #399DE1));
+  color: #fff;
 }

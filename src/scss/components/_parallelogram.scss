@@ -1,8 +1,6 @@
 @mixin parallelogram($key) {
-  @include check-arg-type($key, 'map');
-
-  $color: map-get($key, 'color');
-  $angle: map-get($key, 'angle');
+  $color: args-get-type($key, 'color');
+  $angle: args-get-type($key, 'number');
 
   position: relative;
   &:before {

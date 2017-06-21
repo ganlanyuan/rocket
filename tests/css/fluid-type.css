@@ -240,14 +240,13 @@ p {
   margin: 1.5em 0;
   font-size: 24px;
   font-size: 1.5rem;
+  margin: 24px;
 }
 
 @media (min-width: 20em) {
   .example h2 {
     font-size: calc(1.5rem + 16 * (100vw - 20rem) / 704);
-  }
-  .example h2 else {
-    font-size: calc(24px + 16 * (100vw - 320px) / 704);
+    margin: calc(24px + 16 * (100vw - 320px) / 704);
   }
 }
 
@@ -255,6 +254,7 @@ p {
   .example h2 {
     font-size: 40px;
     font-size: 2.5rem;
+    margin: 40px;
   }
 }
 
@@ -270,9 +270,6 @@ p {
 @media (min-width: 20em) {
   .example p {
     font-size: calc(1.125rem + 6 * (100vw - 20rem) / 704);
-  }
-  .example p else {
-    font-size: calc(18px + 6 * (100vw - 320px) / 704);
   }
 }
 

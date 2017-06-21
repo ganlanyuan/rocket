@@ -1,10 +1,8 @@
 @mixin tab($key) {
-  @include check-arg-type($key, 'map');
+  $style: args-get($key, ('normal' 'carousel' 'customize'), 'normal');
+  $count: args-get-type($key, 'number');
+  @if not $count or $count < 1 { @warn '"Count" must be at least 1.'; }
 
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'normal');
-  $count: map-get($key, 'count');
-
-  // *** output *** //
   > [type="radio"] {
     position: absolute; 
     left: -9999px;
@@ -52,14 +50,10 @@
 
 /// Set tab' active styles.
 @mixin tab-active($key) {
-  $count: map-get($key, 'count');
-
-  @if $count <= 0 {
-    @warn '"Length" should be at least 1.';
-  }
+  $count: args-get-type($key, 'number');
+  @if not $count or $count < 1 { @warn '"Count" must be at least 1.'; }
 
   $path: '';
-
   // get selector
   @for $i from 1 through $count {
     > input:nth-child(#{$i}):checked ~ {
@@ -68,24 +62,18 @@
       }
     }
   }
-  
   // remove the last comma
   $path: str-slice($path, 1, (str-length($path) - 2));
 
-  // *** output *** //
   @at-root #{$path} { @content; }
 }
 
 /// Set panels' active styles.
 @mixin tab-panel-active($key) {
-  $count: map-get($key, 'count');
-
-  @if $count <= 0 {
-    @warn '"Length" should be at least 1.';
-  }
+  $count: args-get-type($key, 'number');
+  @if not $count or $count < 1 { @warn '"Count" must be at least 1.'; }
 
   $path: '';
-
   // get selector
   @for $i from 1 through $count {
     > input:nth-child(#{$i}):checked ~ {
@@ -94,10 +82,8 @@
       }
     }
   }
-
   // remove the last comma
   $path: str-slice($path, 1, (str-length($path) - 2));
 
-  // *** output *** //
   @at-root #{$path} { @content; }
 }

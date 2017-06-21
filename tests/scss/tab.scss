@@ -2,7 +2,7 @@
 @import "../../src/scss/components/tab"; 
 
 .tab {
-  @include tab-active( ('count': 3) ) {
+  @include tab-active(3) {
     color: #000;
     background-color: #e9e9e9;
   }
@@ -29,7 +29,7 @@
   }
 }
 .tab-normal {
-  @include tab( ('count': 3, 'style': 'normal') );
+  @include tab(3 'normal');
   > .ro-panels > div { 
     &:before,
     &:after {
@@ -40,10 +40,10 @@
   }
 }
 .tab-carousel {
-  @include tab( ('count': 3, 'style': 'carousel') );
+  @include tab(3 'carousel');
 }
 .tab-customize {
-  @include tab( ('count': 3, 'style': 'customize') ) {
+  @include tab(3 'customize') {
     height: 0;
     padding: 0;
     overflow: hidden;
@@ -66,7 +66,7 @@
     }
     .no-csstransforms & { display: none; height: auto; padding: 8px 12px; }
   }
-  @include tab-panel-active( ('count': 3) ) {
+  @include tab-panel-active(3) {
     height: auto;
     padding: 8px 12px;
     -ms-transform: perspective(1000px) rotateY(0deg);

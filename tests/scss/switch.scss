@@ -1,4 +1,5 @@
 @import 'demo-base';
+@import "../../src/scss/color/contrast"; 
 @import "../../src/scss/components/switch"; 
 
 .example-switch {
@@ -15,11 +16,11 @@
     margin-top: 50px;
     text-align: center;
     .switch-g {
-      @include switch( ('border-radius': 3px, 'size': 25px, 'color': #CC412F) );
+      @include switch('border-radius' 3px 25px #ddd #CC412F);
     }
   }
 }
-.one { @include switch( ('border-radius': 3px) ); }
-.two { @include switch( ('border-radius': 1000px, 'size': 50px, 'color': #C06EE1) ); }
-.slider { @include switch( ('border-radius': 1000px, 'style': slider, 'size': 24px, 'color': #399DE1) ); }
-.text { @include switch( ('border-radius': 1000px, 'text': ("on" "off"), 'size': 36px, 'color': #399DE1) ); }
+.one { @include switch('border-radius' 3px); }
+.two { @include switch('border-radius' 1000px 50px #ddd #C06EE1); }
+.slider { @include switch('border-radius' 1000px 'slider'  24px #ddd #399DE1); }
+.text { @include switch('border-radius' 1000px 'text' ("on" "off") 36px #ddd #399DE1); }

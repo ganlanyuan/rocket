@@ -1,8 +1,18 @@
-// *** accordion *** //
-@mixin accordion($key: ('selector': 'div')){
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), 'div');
-  $max-height: if(map-get($key, 'max-height'), map-get($key, 'max-height'), 1000px);
-  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
+@mixin accordion($key: 'div'){
+  $selector: args-get-type($key, 'string', null, 'div');
+  $max-height: 1000px;
+  $duration: 0.3s;
+
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if unit($item) == 's' {
+        $duration: $item;
+      } @else {
+        @if unitless($item) { $item: $item * 1px; }
+        $max-height: $item;
+      }
+    }
+  }
 
   > input {
     position: absolute;

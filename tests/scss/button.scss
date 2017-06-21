@@ -6,17 +6,17 @@
 $color1: #2B8ACF;
 $color2: #52cfdb;
 
-$color: ('color': #46A736);
-$style-highlight: ('color': $color1 $color2, 'style': 'highlight');
-$style-simple: ('color': $color1, 'style': 'simple');
-$style-slide: ('color': $color1 $color2, 'style': 'slide');
-$style-ripple: ('color': $color1 $color2, 'selector': ':hover', 'style': 'ripple');
-$style-veil: ('color': $color1, 'style': 'veil');
-$style-cut: ('color': $color1 $color2, 'style': 'cut');
-$style-push: ('color': $color1, 'style': 'push');
-$style-bubble: ('color': $color1, 'style': 'bubble');
-$style-line-drawing: ('color': $color1, 'style': 'line-drawing');
-$style-shake: ('color': $color1, 'style': 'shake');
+$color: (#46A736);
+$style-highlight: ($color1 $color2 'highlight');
+$style-simple: ($color1 'simple');
+$style-slide: ($color1 $color2 'slide');
+$style-ripple: ($color1 $color2 ':hover' 'ripple');
+$style-veil: ($color1 'veil');
+$style-cut: ($color1 $color2 'cut');
+$style-push: ($color1 'push');
+$style-bubble: ($color1 'bubble');
+$style-line-drawing: ($color1 'line-drawing');
+$style-shake: ($color1 'shake');
 
 .default {
   @extend %demo-show;

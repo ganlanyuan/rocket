@@ -1,12 +1,12 @@
-// *** validation *** //
 @mixin validation($key: ()){
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'normal');
-  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), right);
-  $speed: if(map-get($key, 'speed'), map-get($key, 'speed'), 0.3s);
-  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 1.3s);
-  $z-index: if(map-get($key, 'z-index'), map-get($key, 'z-index'), 9999);
-  $shake: map-get($key, 'shake');
-  $default: map-get($key, 'default');
+  $style: args-get($key, ('normal' 'fade-in' 'slide-in'), 'normal');
+  $direction: args-get($key, ('left' 'right' 'top' 'bottom'), 'right');
+  $shake: args-get($key, 'shake');
+  $speed: args-get-next($key, 'speed', 0.3s);
+  $duration: args-get-next($key, 'duration', 1.3s);
+  $default: args-get($key, 'default');
+  $z-index: 9999;
+
 
   [data-info] {
     // ** style before

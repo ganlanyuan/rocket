@@ -1,10 +1,26 @@
 @mixin between($key) {
-  $selector: if(map-get($key, 'selector'), map-get($key, 'selector'), '*');
-  $count: map-get($key, 'count');
-  $count-min: nth($count, 1);
-  $count-max: nth($count, 2);
+  $selector: args-get-type($key, 'string', null, '*');
+  $count: args-get-type($key, 'number');
+  $count-min: false;
+  $count-max: false;
 
-  @if $count-max and $count-max > $count-min {
+  $numbers: ();
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' { $numbers: append($numbers, $item); }
+    }
+    @if length($numbers) > 1 {
+      $count-min: min($numbers...);
+      $count-max: max($numbers...);
+    }
+  } @else {
+    @error "A list with at least two numbers is required."
+  }
+
+  
+  @if $count-min and 
+      $count-max and 
+      $count-max > $count-min {
     #{$selector}:first-child:nth-last-child(n + #{$count-min}):nth-last-child(-n + #{$count-max}), 
     #{$selector}:first-child:nth-last-child(n + #{$count-min}):nth-last-child(-n + #{$count-max}) ~ #{$selector} {
       @content;

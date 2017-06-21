@@ -14,13 +14,13 @@
     box-sizing: border-box;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   }
-  .lifted { @include drop-shadow( ('style': 'lifted') ); }
-  .raised { @include drop-shadow( ('style': 'raised') ); }
-  .perspective { @include drop-shadow( ('style': 'perspective') ); }
-  .curve.left { @include drop-shadow( ('style': 'curve', 'direction': left) ); }
-  .curve.right { @include drop-shadow( ('style': 'curve', 'direction': right) ); }
-  .curve.horizontal { @include drop-shadow( ('style': 'curve', 'direction': 'horizontal') ); }
-  .curve.top { @include drop-shadow( ('style': 'curve', 'direction': top) ); }
-  .curve.bottom { @include drop-shadow( ('style': 'curve', 'direction': bottom) ); }
-  .curve.vertical { @include drop-shadow( ('style': 'curve', 'direction': 'vertical') ); }
+  .lifted { @include drop-shadow('lifted'); }
+  .raised { @include drop-shadow('raised'); }
+  .perspective { @include drop-shadow('perspective'); }
+  .curve.left { @include drop-shadow('curve' 'left'); }
+  .curve.right { @include drop-shadow('curve' 'right'); }
+  .curve.horizontal { @include drop-shadow('curve' 'horizontal'); }
+  .curve.top { @include drop-shadow('curve' 'top'); }
+  .curve.bottom { @include drop-shadow('curve' 'bottom'); }
+  .curve.vertical { @include drop-shadow('curve' 'vertical'); }
 }

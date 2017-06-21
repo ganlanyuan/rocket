@@ -1,25 +1,37 @@
-// *** off-canvas *** //
 @mixin off-canvas($key) {
-  @include check-arg-type($key, 'map');
+  $style: args-get($key, ('slide-in' 'slide-along' 'slide-out' 'rotate-in' 'rotate-out' 'rotate-in-reverse' 'scale-down' 'scale-up' 'open-door' 'push' 'reveal' 'drawer'), 'slide-in');
+  $direction: args-get($key, ('left' 'right' 'top' 'bottom'), 'left');
+  $submenu: args-get($key, 'submenu');
+  $inside: args-get($key, 'inside');
+  $page: args-get-next($key, 'page', '.page');
+  $nav: args-get-next($key, 'nav', '.nav');
+  $overlay-color: args-get-type($key, 'color', null, rgba(0, 0, 0, 0.2));
 
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'slide-in');
-  $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), 'left');
-  $submenu: map-get($key, 'submenu');
-  $inside: map-get($key, 'inside');
-  $page: if(map-get($key, 'page'), map-get($key, 'page'), '.page');
-  $nav: if(map-get($key, 'nav'), map-get($key, 'nav'), '.nav');
-  $overlay-color: if(map-get($key, 'overlay-color'), map-get($key, 'overlay-color'), rgba(0, 0, 0, 0.1));
-
-  $global-breakpoints: map-get($key, 'breakpoint');
+  $global-breakpoints: args-get-next($key, 'breakpoint');
+  @if $global-breakpoints { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
   $local-breakpoints: false;
-  $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
-  $media-type: map-get($key, 'media');
-  
-  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 0.3s);
-  $nav-size: if(map-get($key, 'nav-size'), map-get($key, 'nav-size'), 240px);
-  $tops: if(map-get($key, 'tops'), map-get($key, 'tops'), false);
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media: args-get($key, $ro-media-type);
 
-  // update map breakpoints
+  // get tops, duration, width
+  $tops: false;
+  $duration: 0.3s;
+  $nav-size: 240px;
+  @if type-of($key) == 'map' {
+    $tops: $key;
+  } @else {
+    @each $item in $key {
+      @if type-of($item) == 'map' {
+        @if not $tops { $tops: $item; }
+      } @else if type-of($item) == 'number' {
+        @if unit($item) == 's' {
+          $duration: $item;
+        } @else {
+          $nav-size: $item;
+        }
+      }
+    }
+  }
   @if $global-breakpoints and $tops { $tops: map-update-breakpoints($tops, $global-breakpoints); }
 
   // set nav selector
@@ -280,7 +292,7 @@
     @if $bp == null or $bp == 'default' {
       #{$prop}: map-get($tops, $bp);
     } @else {
-      @include bp( ('condition': 'max', 'breakpoint': $bp) ) {
+      @include bp('max' $bp) {
         #{$prop}: map-get($tops, $bp);
       }
     }

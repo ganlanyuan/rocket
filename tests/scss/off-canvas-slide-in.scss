@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: map-merge($off-canvas-options, ('style': 'slide-in', 'inside': true));
+$off-canvas-options: join($off-canvas-options, ('slide-in' 'inside'));
 @include off-canvas($off-canvas-options);
 
 .slide-in {

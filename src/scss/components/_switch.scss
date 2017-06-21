@@ -1,37 +1,32 @@
-// *** switch *** //
 @mixin switch($key: ('size': 20px)){
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'toggle');
-  $color: if(map-get($key, 'color'), map-get($key, 'color'), (#ddd, #3DD754));
-  $size: if(map-get($key, 'size'), map-get($key, 'size'), (em(20), em(20)));
-  $text: map-get($key, 'text');
-  $border-radius: map-get($key, 'border-radius');
+  $style: args-get($key, ('toggle' 'slider'), 'toggle');
+  $border-radius: args-get-next($key, 'border-radius');
+  @if $border-radius { $key: list-remove($key, $border-radius); }
+  $text: args-get-next($key, 'text');
   
-  $default-color: false;
-  $active-color: false;
-  @if type-of($color) == 'list' {
-    $default-color: nth($color, 1);
-    @if length($color) >= 2 {
-      $active-color: nth($color, 2);
-    } @else {
-      $active-color: $default-color;
-    }
-  } @else if type-of($color) == 'color' {
-    $default-color: $color;    
-    $active-color: $default-color;
-  }
-
   $width: false;
   $height: false;
-  @if type-of($size) == 'list' {
-    $width: nth($size, 1);
-    @if length($size) >= 2 {
-      $height: nth($size, 2);
+  $default-color: false;
+  $active-color: false;
+  @each $item in $key {
+    @if type-of($item) == 'number' {
+      @if not $width {
+        $width: $item;
+      } @else {
+        $height: $item;
+      }
+    } @else if type-of($item) == 'color' {
+      @if not $default-color {
+        $default-color: $item;
+      } @else {
+        $active-color: $item;
+      }
     }
-  } @else if type-of($size) == 'number' {
-    $width: $size;    
   }
+  @if not $width { $width: 20px; }
   @if not $height { $height: $width; }
-
+  @if not $default-color { $default-color: #ddd; }
+  @if not $active-color { $active-color: #3DD754; }
   $width: em($width);
   $height: em($height);
   $gap: ($height / 8);
@@ -49,9 +44,7 @@
       top: $gap;
       display: inline-block;
       white-space: nowrap;
-      color: contrast( ('color': $default-color) );
       transition: color 0.3s;
-      .lt-ie9 & { color: #fff; }
       &:before, &:after {
         display: inline-block;
         line-height: $height;
@@ -69,17 +62,17 @@
       display: inline-block;
       height: $height;
       line-height: $height;
-      transition: padding 0.3s, background 0.3s;
+      transition: padding 0.3s, background-color 0.3s;
 
       @if $style == 'toggle' {
-        background: $default-color;
+        background-color: $default-color;
         padding: $gap ($height * 0.85) $gap $gap;
       } @else if $style == 'slider' {
         $width: $width * 1.8;
         text-align: left;
         position: relative;
         padding: 0 $width 0 0;
-        &:before, &:after { transition: background 0.3s; }
+        &:before, &:after { transition: background-color 0.3s; }
         &:before {
           content: '';
           width: $width;
@@ -88,8 +81,7 @@
           left: ($height / 2);
           top: ($height / 2);
           z-index: -1;
-          background: $default-color;
-          .lt-ie9 & { background: $active-color; }
+          background-color: $default-color;
         }
       }
 
@@ -107,7 +99,7 @@
         content: '';
         display: inline-block;
         height: $height;
-        background: #fff;
+        background-color: #fff;
 
         @if $style == 'toggle' {
           width: $width;
@@ -115,7 +107,6 @@
         } @else if $style == 'slider' {
           width: $height;
           box-shadow: 0 ($gap / 1.3) $gap 0 rgba(0, 0, 0, 0.2);
-          .lt-ie9 & { background: $active-color; }
         }
 
         @if $border-radius {
@@ -130,17 +121,17 @@
     &:checked ~ label {
       padding: $gap $gap $gap ($height * 0.85);
       @if $style == 'toggle' {
-        background: $active-color;
+        background-color: $active-color;
       } @else if $style == 'slider' {
         padding: 0 0 0 $width;
         &:before, &:after {
-          background: $active-color;
+          background-color: $active-color;
         }
       }
 
       @if $text {
         padding-left: ($width * 2 - $height * 0.85);
-        > span { color: contrast( ('color': $active-color) ); }
+        > span { color: contrast($active-color); }
       }
     }
   }

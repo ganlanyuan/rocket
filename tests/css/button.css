@@ -247,7 +247,7 @@ p {
 }
 
 .color:before {
-  content: "( color :  #46A736  )";
+  content: "#46A736";
 }
 
 .color > .btn {
@@ -262,7 +262,7 @@ p {
 }
 
 .style-highlight:before {
-  content: "( color : #2B8ACF #52cfdb, style :  highlight  )";
+  content: '(  #2B8ACF  #52cfdb  "highlight"  )';
 }
 
 .style-highlight > .btn {
@@ -277,7 +277,7 @@ p {
 }
 
 .style-simple:before {
-  content: "( color :  #2B8ACF , style :  simple  )";
+  content: '(  #2B8ACF  "simple"  )';
 }
 
 .style-simple > .btn {
@@ -294,7 +294,7 @@ p {
 }
 
 .style-slide:before {
-  content: "( color : #2B8ACF #52cfdb, style :  slide  )";
+  content: '(  #2B8ACF  #52cfdb  "slide"  )';
 }
 
 .style-slide > .btn {
@@ -326,7 +326,7 @@ p {
 }
 
 .style-ripple:before {
-  content: "( color : #2B8ACF #52cfdb, selector :  :hover , style :  ripple  )";
+  content: '(  #2B8ACF  #52cfdb  ":hover"  "ripple"  )';
 }
 
 .style-ripple > .btn {
@@ -400,7 +400,7 @@ p {
 }
 
 .style-veil:before {
-  content: "( color :  #2B8ACF , style :  veil  )";
+  content: '(  #2B8ACF  "veil"  )';
 }
 
 .style-veil > .btn {
@@ -457,7 +457,7 @@ p {
 }
 
 .style-cut:before {
-  content: "( color : #2B8ACF #52cfdb, style :  cut  )";
+  content: '(  #2B8ACF  #52cfdb  "cut"  )';
 }
 
 .style-cut > .btn {
@@ -508,7 +508,7 @@ p {
 }
 
 .style-push:before {
-  content: "( color :  #2B8ACF , style :  push  )";
+  content: '(  #2B8ACF  "push"  )';
 }
 
 .style-push > .btn {
@@ -576,7 +576,7 @@ p {
 }
 
 .style-bubble:before {
-  content: "( color :  #2B8ACF , style :  bubble  )";
+  content: '(  #2B8ACF  "bubble"  )';
 }
 
 .style-bubble > .btn {
@@ -659,7 +659,7 @@ p {
 }
 
 .style-line-drawing:before {
-  content: "( color :  #2B8ACF , style :  line-drawing  )";
+  content: '(  #2B8ACF  "line-drawing"  )';
 }
 
 .style-line-drawing > .btn {
@@ -715,7 +715,7 @@ p {
 }
 
 .style-shake:before {
-  content: "( color :  #2B8ACF , style :  shake  )";
+  content: '(  #2B8ACF  "shake"  )';
 }
 
 .style-shake > .btn {

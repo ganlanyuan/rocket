@@ -1,10 +1,20 @@
 @function palette($key){
-  $style: map-get($key, 'style');
-  $color: map-get($key, 'color');
-  $count: if(map-get($key, 'count'), map-get($key, 'count'), 0);
-  $saturation: if(map-get($key, 'saturation'), map-get($key, 'saturation'), 0%);
-  $lightness: if(map-get($key, 'lightness'), map-get($key, 'lightness'), 0%);
-  $scale: if(map-get($key, 'scale'), map-get($key, 'scale'), 30);
+  $style: args-get($key, ('adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square'));
+  $color: args-get-type($key, 'color');
+  $saturation: args-get-next($key, 'saturation', 0%);
+  $lightness: args-get-next($key, 'lightness', 0%);
+  $scale: args-get-next($key, 'scale', 30);
+
+  $key: list-remove($key, $saturation);
+  $key: list-remove($key, $lightness);
+  $count: args-get-type($key, 'number', false, 0);
+
+  // $style: map-get($key, 'style');
+  // $color: map-get($key, 'color');
+  // $count: if(map-get($key, 'count'), map-get($key, 'count'), 0);
+  // $saturation: if(map-get($key, 'saturation'), map-get($key, 'saturation'), 0%);
+  // $lightness: if(map-get($key, 'lightness'), map-get($key, 'lightness'), 0%);
+  // $scale: if(map-get($key, 'scale'), map-get($key, 'scale'), 30);
 
   $hue: hue($color);
   $target-hue: 0deg;
@@ -105,30 +115,30 @@
 
 // adjacent
 @function adjacent($key) {
-  @return palette(map-merge($key, ('style': 'adjacent')));
+  @return palette(append($key, 'adjacent'));
 }
 
 // complementary
 @function complementary($key) {
-  @return palette(map-merge($key, ('style': 'complementary')));
+  @return palette(append($key, 'complementary'));
 }
 
 // split-complementary
 @function split-complementary($key) {
-  @return palette(map-merge($key, ('style': 'split-complementary')));
+  @return palette(append($key, 'split-complementary'));
 }
 
 // triad
 @function triad($key) {
-  @return palette(map-merge($key, ('style': 'triad')));
+  @return palette(append($key, 'triad'));
 }
 
 // rectangle
 @function rectangle($key) {
-  @return palette(map-merge($key, ('style': 'rectangle')));
+  @return palette(append($key, 'rectangle'));
 }
 
 // square
 @function square($key) {
-  @return palette(map-merge($key, ('style': 'square')));
+  @return palette(append($key, 'square'));
 }

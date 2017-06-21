@@ -1,6 +1,4 @@
-// *** push-toggle *** //
 @mixin push-toggle() {
-  // *** output *** //
   @include clearfix;
 
   [type="radio"] {

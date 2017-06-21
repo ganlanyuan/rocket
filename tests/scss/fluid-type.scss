@@ -7,13 +7,13 @@
   h2 { 
     text-align: center; 
     margin: 1.5em 0;
-    @include fluid-type( ('property': 'font-size', 'breakpoint': (320px: 24px, 1024px: 40px)) );
+    @include fluid-type('font-size' 'margin' (320px: 24px, 1024px: 40px));
   }
   p {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 1.7;
     text-align: center;
-    @include fluid-type( ('property': 'font-size', 'breakpoint': (320px: 18px, 1024px: 24px)) );
+    @include fluid-type('font-size' (320px: 18px, 1024px: 24px));
   }
 }

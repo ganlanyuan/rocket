@@ -1,10 +1,10 @@
 @import 'demo-base';
 @import "../../src/scss/components/validation"; 
 
-#form1 { @include validation( ('shake': true, 'default': true) ); }
-#form2 { @include validation( ('style': 'fade-in', 'direction': right, 'default': true) ); }
-#form3 { @include validation( ('style': 'fade-in', 'direction': bottom, 'default': true) ); }
-#form4 { @include validation( ('style': 'slide-in', 'direction': top, 'default': true) ); }
+#form1 { @include validation('shake' 'default'); }
+#form2 { @include validation('fade-in' 'right' 'default'); }
+#form3 { @include validation('fade-in' 'bottom' 'default'); }
+#form4 { @include validation('slide-in' 'top' 'default'); }
 .validation-wrap {
   &:after {
     content: '';

@@ -272,7 +272,7 @@ p {
   box-sizing: border-box;
   width: 0;
   padding: 0;
-  transition: width 1s ease, padding 1s ease;
+  transition: width 0.6s ease, padding 0.6s ease;
 }
 
 .chart1 li > span:nth-of-type(1) {
@@ -517,7 +517,7 @@ p {
   box-sizing: border-box;
   height: 0;
   padding: 0;
-  transition: height 1s ease, padding 1s ease;
+  transition: height 0.6s ease, padding 0.6s ease;
 }
 
 .chart2 li > span:nth-of-type(1) {

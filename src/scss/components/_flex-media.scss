@@ -9,11 +9,11 @@
   height: 100%;
 }
 
-@mixin flex-media($key: ('ratio': (9/16)) ){
-  $ratio: if(map-get($key, 'ratio'), map-get($key, 'ratio'), (9/16));
-  $selector: map-get($key, 'selector');
-
+@mixin flex-media($key: (9/16)){
+  $selector: args-get-type($key, 'string');
+  $ratio: args-get-type($key, 'number');
   @if unitless($ratio) { $ratio: percentage($ratio); }
+
   $selectors: if($selector, "> #{$selector}", "> iframe, > object, > embed");
 
   @extend %flex-media-container;

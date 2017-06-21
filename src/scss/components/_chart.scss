@@ -1,19 +1,40 @@
 @mixin chart($key) {
-  $data: map-get($key, 'data');
-  $data-colors: map-keys($data);
-  $data-numbers: map-values($data);
+  // get color, data
+  $data: false;
+  $data-colors: false;
+  $data-numbers: false;
+  @if type-of($key) == 'map' {
+    $data: $key;
+  } @else if type-of($key) == 'list' {
+    $data: args-get-type($key, 'map');
+  }
+  @if $data {
+    $data-colors: map-keys($data);
+    $data-numbers: map-values($data);
+  }
 
-  $style: if(map-get($key, 'style'), map-get($key, 'style'), 'bar');
-  $bar-height: if(map-get($key, 'bar-height'), map-get($key, 'bar-height'), 40px);
-  $bar-gap: if(map-get($key, 'bar-gap'), map-get($key, 'bar-gap'), 6em);
-  $steps: if(map-get($key, 'steps'), map-get($key, 'steps'), (5 100));
-  $gutter: map-get($key, 'gutter');
-
-  $animation: if(map-get($key, 'animation'), map-get($key, 'animation'), false);
-  $duration: if(map-get($key, 'duration'), map-get($key, 'duration'), 1s);
-  $timing-function: if(map-get($key, 'timing-function'), map-get($key, 'timing-function'), ease);
-  $tick-line-color: if(map-get($key, 'tick-line-color'), map-get($key, 'tick-line-color'), #e7e7e7);
-  $hide: map-get($key, 'hide');
+  $style: args-get($key, ('bar', 'column', 'pie'), 'bar');
+  $bar-height: args-get-next($key, 'bar-height', 40px);
+  $bar-gap: args-get-next($key, 'bar-gap', 6em);
+  $steps: args-get-next($key, 'steps', (5 100));
+  $gutter: args-get-next($key, 'gutter');
+  $hide: args-get-next($key, 'hide');
+  $tick-line-color: #e7e7e7;
+  
+  $animation: args-get($key, 'animation');
+  $animation-val: args-get-next($key, 'animation');
+  $duration: 1s;
+  $timing-function: ease;
+  // get duration and timing-function
+  @if $animation-val {
+    @each $item in $animation-val {
+      @if type-of($item) == 'number' and unit($item) == 's' {
+        $duration: $item;
+      } @else if type-of($item) == 'string' {
+        $timing-function: $item;
+      }
+    }
+  }
 
   // set hide
   $units: true;
@@ -53,7 +74,6 @@
   // set animation path
   $path: if($animation, '&.active', '');
 
-  // *** output *** //
   @if $style == 'bar' or $style == 'column' {
     position: relative;
     // items

@@ -1,6 +1,6 @@
 @import 'off-canvas-base';
 
-$off-canvas-options: map-merge($off-canvas-options, ('style': 'slide-out'));
+$off-canvas-options: join($off-canvas-options, ('slide-out'));
 @include off-canvas($off-canvas-options);
 
 .slide-out {

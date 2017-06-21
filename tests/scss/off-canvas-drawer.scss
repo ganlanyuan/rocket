@@ -10,7 +10,7 @@ $map: (
   medium: 40px, 
   null: 70px
 );
-$off-canvas-options: map-merge($off-canvas-options, ('style': 'drawer', 'tops': $map, 'breakpoint': $bp));
+$off-canvas-options: join($off-canvas-options, ('drawer' $map 'breakpoint' $bp));
 @include off-canvas($off-canvas-options);
 
 .drawer {

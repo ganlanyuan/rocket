@@ -1,8 +1,8 @@
 @mixin container($key: false){
   $container: false;
   $breakpoint: false;
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $align: args-get($key, (left right center), center);
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
+  $align: args-get($key, ('left' 'right' 'center'), 'center');
 
   // get container & gutter
   @if type-of($key) == 'number' {
@@ -21,7 +21,7 @@
       } 
     }
   }
-  @if not $container { $container: map-get($ro-layout, container); }
+  @if not $container { $container: 1060px; }
 
   // strip unit when gutter == 0
   @if not $gutter or 

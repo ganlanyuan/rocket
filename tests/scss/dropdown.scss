@@ -3,13 +3,13 @@
 
 .dropdown {
   &-1 {
-    @include dropdown( ('default': true, 'style': rotate, 'activate': click) ); 
-    .sub-1 { @include dropdown( ('default': true, 'direction': left, 'style': rotate, 'activate': click) ); }
+    @include dropdown('default' 'rotate' 'click'); 
+    .sub-1 { @include dropdown('default' 'left' 'rotate' 'click'); }
   }
   &-2 {
-    @include dropdown( ('style': 'scale', 'default': true) ); 
+    @include dropdown('scale' 'default'); 
     .sub-2 {
-      @include dropdown( ('default': true, 'style': 'scale', 'direction': right, 'activate': hover) ); 
+      @include dropdown('default' 'scale' 'right' 'hover'); 
     }
   }
 }

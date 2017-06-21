@@ -22,6 +22,6 @@ $data2: (
   }
   margin: 50px 0;
   li span { font-size: 14px; }
-  &1 { @include chart( ('data': $data1, 'style': 'bar', 'steps': (2 22), 'animation': true, 'duratioon': 0.6s) ); }
-  &2 { @include chart( ('data': $data2, 'style': 'column', 'steps': (2 24), 'animation': true, 'duratioon': 0.6s) ); }
+  &1 { @include chart($data1 'bar' 'steps' (2 22) 'animation' (0.6s)); }
+  &2 { @include chart($data2 'column' 'steps' (2 24) 'animation' (0.6s)); }
 }
