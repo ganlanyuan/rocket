@@ -55,7 +55,7 @@
         @include make-masonry($count);
 
       } @else if type-of($bp) == 'number' {
-        @include bp($condition $media $bp) ) {
+        @include bp($condition $media $bp) {
           @if not $keep {
             @include masonry-base($selector, $gutter);
             $keep: true;

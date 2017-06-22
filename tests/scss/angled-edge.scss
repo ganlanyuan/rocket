@@ -1,15 +1,15 @@
 @import 'demo-base';
 @import "../../src/scss/addons/breakpoint"; 
-@import "../../src/scss/layout/angled-edges"; 
+@import "../../src/scss/layout/angled-edge"; 
 
 $bg1: #B9E2FF;
 $bg2: #FBDBF6;
-.bottom { @include angled-edges('bottom' 5deg $bg1); }
-.both { @include angled-edges('both' 5deg 'flip' $bg1 $bg2); }
-.top { @include angled-edges('top' -5deg $bg2); }
+.bottom { @include angled-edge('bottom' 5deg $bg1); }
+.both { @include angled-edge('both' 5deg 'flip' $bg1 $bg2); }
+.top { @include angled-edge('top' -5deg $bg2); }
 
 // other styles
-.example-angled-edges {
+.example-angled-edge {
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
@@ -35,7 +35,7 @@ $bg2: #FBDBF6;
   }
   .sibling-1 { background-color: $bg1; }
   .sibling-2 { background-color: $bg2; }
-  .bottom { background-image: url('../images/angled-edges/1.jpg'); }
-  .both { background-image: url('../images/angled-edges/2.jpg'); }
-  .top { background-image: url('../images/angled-edges/3.jpg'); }
+  .bottom { background-image: url('../images/angled-edge/1.jpg'); }
+  .both { background-image: url('../images/angled-edge/2.jpg'); }
+  .top { background-image: url('../images/angled-edge/3.jpg'); }
 }

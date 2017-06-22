@@ -1,4 +1,4 @@
-@mixin angled-edges ($key) {
+@mixin angled-edge ($key) {
   $edge: args-get($key, ('top', 'bottom', 'both'), 'bottom');
   $flip: args-get($key, 'flip');
   $view: 1800px;

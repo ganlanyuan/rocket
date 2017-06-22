@@ -1,6 +1,6 @@
 @mixin metro($key) {
   $ratio: args-get-next($key, 'ratio', 1);
-  $gutter: args-get-next($key, 'gutter', 0);
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
   $selector: args-get-next($key, 'selector', '*');

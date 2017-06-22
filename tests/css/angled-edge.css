@@ -305,56 +305,56 @@ p {
   border-right-width: 1800px;
 }
 
-.example-angled-edges {
+.example-angled-edge {
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.example-angled-edges .bottom, .example-angled-edges .both, .example-angled-edges .top, .example-angled-edges .sibling {
+.example-angled-edge .bottom, .example-angled-edge .both, .example-angled-edge .top, .example-angled-edge .sibling {
   padding: 50px;
 }
 
-.example-angled-edges .bottom h1, .example-angled-edges .bottom p, .example-angled-edges .both h1, .example-angled-edges .both p, .example-angled-edges .top h1, .example-angled-edges .top p, .example-angled-edges .sibling h1, .example-angled-edges .sibling p {
+.example-angled-edge .bottom h1, .example-angled-edge .bottom p, .example-angled-edge .both h1, .example-angled-edge .both p, .example-angled-edge .top h1, .example-angled-edge .top p, .example-angled-edge .sibling h1, .example-angled-edge .sibling p {
   padding: 0;
   color: #fff;
 }
 
-.example-angled-edges .bottom h1, .example-angled-edges .both h1, .example-angled-edges .top h1, .example-angled-edges .sibling h1 {
+.example-angled-edge .bottom h1, .example-angled-edge .both h1, .example-angled-edge .top h1, .example-angled-edge .sibling h1 {
   margin: 30px 0;
 }
 
-.example-angled-edges .bottom p, .example-angled-edges .both p, .example-angled-edges .top p, .example-angled-edges .sibling p {
+.example-angled-edge .bottom p, .example-angled-edge .both p, .example-angled-edge .top p, .example-angled-edge .sibling p {
   max-width: none;
   font-size: 17px;
 }
 
-.example-angled-edges .sibling h1, .example-angled-edges .sibling p {
+.example-angled-edge .sibling h1, .example-angled-edge .sibling p {
   color: #000;
 }
 
-.example-angled-edges .bottom, .example-angled-edges .both, .example-angled-edges .top {
+.example-angled-edge .bottom, .example-angled-edge .both, .example-angled-edge .top {
   box-sizing: border-box;
   background: #52ABFF 0 0 no-repeat;
   background-size: cover;
 }
 
-.example-angled-edges .sibling-1 {
+.example-angled-edge .sibling-1 {
   background-color: #B9E2FF;
 }
 
-.example-angled-edges .sibling-2 {
+.example-angled-edge .sibling-2 {
   background-color: #FBDBF6;
 }
 
-.example-angled-edges .bottom {
-  background-image: url("../images/angled-edges/1.jpg");
+.example-angled-edge .bottom {
+  background-image: url("../images/angled-edge/1.jpg");
 }
 
-.example-angled-edges .both {
-  background-image: url("../images/angled-edges/2.jpg");
+.example-angled-edge .both {
+  background-image: url("../images/angled-edge/2.jpg");
 }
 
-.example-angled-edges .top {
-  background-image: url("../images/angled-edges/3.jpg");
+.example-angled-edge .top {
+  background-image: url("../images/angled-edge/3.jpg");
 }
