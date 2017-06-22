@@ -54,7 +54,7 @@
         @include make-gallery($this-per-row, $selector, $gutter, $float, $center-align);
 
       } @else if type-of($bp) == 'number' {
-        @include bp( ('breakpoint': $bp, 'condition': $condition) ) {
+        @include bp($bp $condition) {
           @if not $keep {
             @include gallery-base($selector, $gutter, $float, $center-align);
             $keep: true;

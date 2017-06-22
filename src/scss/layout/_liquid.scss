@@ -56,7 +56,7 @@
         @if $bp == 'default' or $bp == null {
           @include make-liquid($columns, $order, $selector, $gutter, $float);
         } @else {
-          @include bp( ('condition': $condition, 'media': $media, 'breakpoint': $bp) ) {
+          @include bp($condition $media $bp) {
             @include make-liquid($columns, $order, $selector, $gutter, $float);
           }
         }

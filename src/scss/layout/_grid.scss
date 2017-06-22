@@ -63,7 +63,7 @@
 
         @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
       } @else {
-        @include bp( ('condition': $condition, 'media': $media, 'breakpoint': $bp) ) {
+        @include bp($condition $media $bp) {
           @if not $keep {
             @include grid-base($selector, $float, $gutter);
             $keep: true;

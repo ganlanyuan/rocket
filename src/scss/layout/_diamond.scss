@@ -54,7 +54,7 @@
         @include make-diamond($num, $shape, $tight);
 
       } @else if type-of($bp) == 'number' {
-        @include bp( ('breakpoint': $bp, 'condition': $condition) ) {
+        @include bp($bp $condition) {
           @if not $keep {
             @include diamond-base($shape);
             $keep: true;

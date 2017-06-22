@@ -60,7 +60,7 @@
 
         @include make-metro($list, $full, $ratio, $selector);
       } @else {
-        @include bp( ('condition': $condition, 'breakpoint': $bp) ) {
+        @include bp($condition $bp) {
           @if not $keep {
             @include metro-base($selector, $gutter);
             $keep: true;
