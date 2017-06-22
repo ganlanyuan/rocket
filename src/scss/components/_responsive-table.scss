@@ -1,7 +1,7 @@
 @mixin responsive-table($key) {
   $style: args-get($key, ('flip-scroll' 'scroll' 'stack' 'toggle'), 'flip-scroll');
   $data: args-get-next($key, 'data');
-  $border-color: args-get-type($key, 'border-color');
+  $border-color: args-get-type($key, 'color');
   $breakpoint: args-get-next($key, 'breakpoint', 768);
   $th-width: args-get-next($key, 'th-width', 50%);
   $count: args-get-next($key, 'count', 15);

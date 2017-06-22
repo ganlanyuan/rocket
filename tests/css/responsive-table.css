@@ -475,6 +475,9 @@ th {
     top: -9999px;
     left: -9999px;
   }
+  .stack td {
+    background: linear-gradient(to right, transparent 50%, #dbdbdb 50%, #dbdbdb calc(50% + 1px), transparent calc(50% + 1px)) 0 0 no-repeat;
+  }
   .stack td:before {
     display: inline-block;
     vertical-align: top;
