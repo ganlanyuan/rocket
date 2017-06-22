@@ -1,4 +1,4 @@
-@mixin center($key: ('selector' '*')){
+@mixin center($key: '*'){
   $check: ('left' 'right' 'center' 'selector');
   $selector: args-get-type($key, 'string', $check);
   $align: args-get($key, ('left' 'right' 'center'), 'left');

@@ -1,10 +1,4 @@
 @mixin drop-shadow($key){
-  // @include check-arg-type($key, 'map');
-
-  // $style: map-get($key, 'style');
-  // $direction: if(map-get($key, 'direction'), map-get($key, 'direction'), bottom);
-  // $color: if(map-get($key, 'color'), map-get($key, 'color'), rgba(0, 0, 0, 0.6));
-  // $shadow-size: if(map-get($key, 'shadow-size'), map-get($key, 'shadow-size'), 10px);
   $style: args-get($key, ('lifted' 'raised' 'perspective' 'curve'), 'lifted');
   $direction: args-get($key, ('left' 'right' 'top' 'bottom' 'horizontal' 'vertical'), 'bottom');
   $color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.6));
@@ -17,7 +11,6 @@
     $selector: false;
   }
 
-  // *** output *** //
   position: relative;
   background-color: #fff;
   @if $selector {

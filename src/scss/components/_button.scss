@@ -1,4 +1,4 @@
-@mixin button ($key: ('style': 'highlight')){
+@mixin button ($key: 'highlight'){
   $style: args-get($key, ('highlight' 'simple' 'slide' 'ripple' 'veil' 'push' 'cut' 'bubble' 'line-drawing' 'shake'), 'highlight');
   $direction: args-get($key, ('left' 'right' 'top' 'bottom' 'horizontal' 'vertical'), 'left');
 

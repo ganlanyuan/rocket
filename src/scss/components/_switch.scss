@@ -1,4 +1,4 @@
-@mixin switch($key: ('size': 20px)){
+@mixin switch($key: 20px){
   $style: args-get($key, ('toggle' 'slider'), 'toggle');
   $border-radius: args-get-next($key, 'border-radius');
   @if $border-radius { $key: list-remove($key, $border-radius); }

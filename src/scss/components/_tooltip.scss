@@ -12,11 +12,11 @@
   font-size: 0.8em;
 }
 
-@mixin tooltip($key: ('color': #000)) {
+@mixin tooltip($key: #000) {
   $direction: args-get($key, ('left' 'right' 'top' 'bottom'), 'right');
   $color: args-get-type($key, 'color', null, #333);
   $content: args-get-next($key, 'content', attr(data-tooltip));
-  $border-radius: args-get-next($key, 'border-radius');
+  $border-radius: args-get-type($key, 'string');
 
   
 

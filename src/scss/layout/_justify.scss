@@ -1,5 +1,5 @@
-@mixin justify($key: ('selector' '*')){
-  $selector: args-get-type($key, 'string', ('selector'));
+@mixin justify($key: '*'){
+  $selector: args-get-type($key, 'string', ('selector'), '*');
   
   text-align: justify;
   &:after {

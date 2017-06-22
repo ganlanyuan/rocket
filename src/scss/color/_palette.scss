@@ -9,13 +9,6 @@
   $key: list-remove($key, $lightness);
   $count: args-get-type($key, 'number', false, 0);
 
-  // $style: map-get($key, 'style');
-  // $color: map-get($key, 'color');
-  // $count: if(map-get($key, 'count'), map-get($key, 'count'), 0);
-  // $saturation: if(map-get($key, 'saturation'), map-get($key, 'saturation'), 0%);
-  // $lightness: if(map-get($key, 'lightness'), map-get($key, 'lightness'), 0%);
-  // $scale: if(map-get($key, 'scale'), map-get($key, 'scale'), 30);
-
   $hue: hue($color);
   $target-hue: 0deg;
   

@@ -7,7 +7,13 @@
   $numbers: ();
   @if type-of($key) == 'list' {
     @each $item in $key {
-      @if type-of($item) == 'number' { $numbers: append($numbers, $item); }
+      @if type-of($item) == 'number' { 
+        $numbers: append($numbers, $item); 
+      } @else if type-of($item) == 'list' {
+        @each $i in $item {
+          @if type-of($i) == 'number' { $numbers: append($numbers, $i); }
+        }
+      }
     }
     @if length($numbers) > 1 {
       $count-min: min($numbers...);

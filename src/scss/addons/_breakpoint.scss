@@ -8,6 +8,10 @@
   @each $item in $key {
     @if type-of($item) == 'number' {
       $breakpoint-em: append($breakpoint-em, em($item));
+    } @else if type-of($item) == 'list' {
+      @each $i in $item {
+        @if type-of($item) == 'number' { $breakpoint-em: append($breakpoint-em, em($item)); }
+      }
     }
   }
 
