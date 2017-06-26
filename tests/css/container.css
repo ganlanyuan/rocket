@@ -79,12 +79,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -248,7 +242,7 @@ p {
 
 .default > div {
   max-width: 1060px;
-  padding: 0 10px;
+  padding: 0 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -259,8 +253,7 @@ p {
 
 .px-left > div {
   max-width: 900px;
-  padding: 0 10px;
-  margin-left: 0;
+  padding: 0 20px;
   margin-right: auto;
 }
 
@@ -270,8 +263,7 @@ p {
 
 .px-right > div {
   max-width: 900px;
-  padding: 0 10px;
-  margin-right: 0;
+  padding: 0 20px;
   margin-left: auto;
 }
 
@@ -281,7 +273,7 @@ p {
 
 .px-px > div {
   max-width: 900px;
-  padding: 0 15px;
+  padding: 0 30px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -302,7 +294,7 @@ p {
 
 .em > div {
   max-width: 56.25em;
-  padding: 0 10px;
+  padding: 0 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -313,7 +305,7 @@ p {
 
 .em-px > div {
   max-width: 56.25em;
-  padding: 0 10px;
+  padding: 0 20px;
   margin-left: auto;
   margin-right: auto;
 }

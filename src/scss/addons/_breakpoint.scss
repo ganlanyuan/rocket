@@ -14,6 +14,7 @@
       }
     }
   }
+  $breakpoint-em: list-increase($breakpoint-em); 
 
   $media-string: if($media, '#{$media} and ', '');
   $selector: '';

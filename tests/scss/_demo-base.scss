@@ -109,9 +109,6 @@ p {
 .container {
   max-width: 70em;
   margin: 0 auto; 
-  @media screen and (max-width: 74em) {
-    margin: 0 2em;
-  }
 }
 .back-to-home {
   position: sticky;

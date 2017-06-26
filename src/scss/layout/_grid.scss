@@ -40,10 +40,6 @@
   @if not $column { @error 'Parameters must include list or map.'; }
 
 
-
-
-
-
   // has breakpoints
   @if grid-has-breakpoints($column) {
     
@@ -51,24 +47,54 @@
     @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
     $local-breakpoints: map-keys($column);
 
-    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
-      $keep: false; 
+    @if index($local-breakpoints, 'default') { 
+      // set base styles
+      @include grid-base($selector, $float, $gutter);
+
+      // set default columns styles
+      @if length($local-breakpoints) == 1 {
+        @include divide-rows(map-get($column, 'default'), $gutter, $selector, $float);
+      } @else {
+        $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
+        @if $condition == 'max' {
+          @include bp(max($local-breakpoints-nums...)) {
+            @include divide-rows(map-get($column, 'default'), $gutter, $selector, $float);
+          }
+        } @else {
+          @include bp(0 min($local-breakpoints-nums...)) {
+            @include divide-rows(map-get($column, 'default'), $gutter, $selector, $float);
+          }
+        }
+
+        // remove 'default' from breakpoints
+        $local-breakpoints: $local-breakpoints-nums;
+      }
+
+    } @else {
+      // set base styles
+      @if $condition == 'max' {
+        @include bp('max' max($local-breakpoints...)) {
+          @include grid-base($selector, $float, $gutter);
+        }
+      } @else {
+        @include bp(min($local-breakpoints...)) {
+          @include grid-base($selector, $float, $gutter);
+        }
+      }
     }
 
-    // divide rows within each breakpoints
-    @each $bp in $local-breakpoints {
-      @if $bp == 'default' {
-        @include grid-base($selector, $float, $gutter);
-        $keep: true;
+    // divide rows within each breakpoint
+    @for $i from 1 through length($local-breakpoints) {
+      $bp: nth($local-breakpoints, $i);
+      // use @media (min) and (max)
+      @if $i < length($local-breakpoints) {
+        @include bp($media $bp nth($local-breakpoints, $i + 1)) {
+          @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
+        }
 
-        @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
+      // use @media (min) or (max)
       } @else {
         @include bp($condition $media $bp) {
-          @if not $keep {
-            @include grid-base($selector, $float, $gutter);
-            $keep: true;
-          }
-
           @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
         }
       }
@@ -92,23 +118,13 @@
 //     gutter: minus margin of the container element, padding of child elements
 
 @mixin grid-base($selector, $float, $gutter){
-  // default 100% width
-  > #{$selector} { width: 100%; }
-
   @include clearfix();
-  // gutter: px | em | rem | vw
-  @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
+  > #{$selector} { 
+    position: relative;
+    left: 0;
 
-  > #{$selector} {
     float: $float;
-    clear: both; // default: single column
-    margin-#{opposite($float)}: -100%; // each column is isolated with each other
-
-    // gutter: px | em | rem | vw
-    @if $gutter != 0 and unit($gutter) != '%' {
-      padding-#{opposite($float)}: $gutter;
-      @include box-sizing(border-box);
-    }
+    @if $gutter != 0 { margin-#{opposite($float)}: $gutter; }
   }
 }
 
@@ -119,9 +135,6 @@
   $list-length: 0;
   $max-order: false;
   
-  // reset clear
-  > #{$selector}:nth-child(n) { clear: none; };
-
   // many rows
   @if is-nested-list($value) {
 
@@ -133,11 +146,7 @@
       @include grid-row($columns, $orders, $selector, $float, $gutter, $max-order, $list-length);
 
       // get list-length
-      @if $columns { 
-        $list-length: ($list-length + length($columns)); 
-        // clear float on the first column of a new row
-        > #{$selector}:nth-child(#{$list-length + 1}) { clear: both; }
-      }
+      @if $columns { $list-length: ($list-length + length($columns)); }
 
       // get max-order
       @if $orders {
@@ -162,12 +171,9 @@
 @mixin grid-row($cols, $orders, $selector, $float, $gutter, $max-order:false, $list-length:0) {
 
   $full-col: 0;
-  @each $item in $cols {
-    $full-col: ($full-col + $item);
-  }
+  @each $item in $cols { $full-col: ($full-col + $item); }
 
   @for $i from 1 through length($cols) {
-    // no-flexbox
     $new-orders: ();
     $location: 1;
     @if $orders {
@@ -178,27 +184,42 @@
       $location: $i;
     }
 
-
     > #{$selector}:nth-child(#{$i + $list-length}) {
+      // set clear
+      @if $list-length > 1 and $i == 1 { clear: both; }
+
+      // set width
       @if unit($gutter) == '%' or $gutter == 0 {
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
       } @else {
-        width: percentage(nth($cols, $i) / $full-col);
+        $pc: percentage(nth($cols, $i) / $full-col);
+        $px: ($gutter * ($full-col - nth($cols, $i)) / $full-col);
+        width: -webkit-calc(#{$pc} - #{$px});
+        width: -moz-calc(#{$pc} - #{$px});
+        width: calc(#{$pc} - #{$px});
       }
 
-      @if $location == 1 {
-        margin-#{$float}: 0;
-      } @else {
-        $val: 0;
-        @for $j from 1 to $location {
-          $val: ($val + nth($cols, nth($new-orders, $j)));
-        }
+      // set left
+      @if $location != $i {
+        $before: 0;
+        $now: 0;
+        @for $j from 1 to $i { $before: $before + nth($cols, $j); }
+        @for $k from 1 to $location { $now: $now + nth($cols, nth($new-orders, $k)); }
 
         @if unit($gutter) == '%' or $gutter == 0 {
-          margin-#{$float}: ((100% + $gutter) * $val / $full-col);
+          #{$float}: ((100% + $gutter) * ($now - $before) / $full-col);
         } @else {
-          margin-#{$float}: percentage($val / $full-col);
+          $pc: (100% * ($now - $before) / $full-col);
+          $px: ($gutter * ($now - $before) / $full-col);
+          #{$float}: -webkit-calc(#{$pc} + #{$px});
+          #{$float}: -moz-calc(#{$pc} + #{$px});
+          #{$float}: calc(#{$pc} + #{$px});
         }
+      }
+
+      // set margin
+      @if $i == length($cols) {
+        margin-#{opposite($float)}: 0;
       }
     }
   }
