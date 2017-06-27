@@ -595,7 +595,7 @@ p {
 }
 
 .grid-breakpoint-max:before {
-  content: '( ( 900px : 3 5, 600px : 2 1 ) "max"  )';
+  content: '( ( 600px : 3 5, 900px : 2 1 ) "max"  )';
 }
 
 @media (max-width: 56.1875em) {
@@ -614,20 +614,6 @@ p {
 
 @media (min-width: 37.5em) and (max-width: 56.1875em) {
   .grid-breakpoint-max > div > div:nth-child(1) {
-    width: -webkit-calc(37.5% - 12.5px);
-    width: -moz-calc(37.5% - 12.5px);
-    width: calc(37.5% - 12.5px);
-  }
-  .grid-breakpoint-max > div > div:nth-child(2) {
-    width: -webkit-calc(62.5% - 7.5px);
-    width: -moz-calc(62.5% - 7.5px);
-    width: calc(62.5% - 7.5px);
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 37.4375em) {
-  .grid-breakpoint-max > div > div:nth-child(1) {
     width: -webkit-calc(66.6666667% - 6.6666667px);
     width: -moz-calc(66.6666667% - 6.6666667px);
     width: calc(66.6666667% - 6.6666667px);
@@ -636,6 +622,20 @@ p {
     width: -webkit-calc(33.3333333% - 13.3333333px);
     width: -moz-calc(33.3333333% - 13.3333333px);
     width: calc(33.3333333% - 13.3333333px);
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 37.4375em) {
+  .grid-breakpoint-max > div > div:nth-child(1) {
+    width: -webkit-calc(37.5% - 12.5px);
+    width: -moz-calc(37.5% - 12.5px);
+    width: calc(37.5% - 12.5px);
+  }
+  .grid-breakpoint-max > div > div:nth-child(2) {
+    width: -webkit-calc(62.5% - 7.5px);
+    width: -moz-calc(62.5% - 7.5px);
+    width: calc(62.5% - 7.5px);
     margin-right: 0;
   }
 }

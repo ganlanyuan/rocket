@@ -9,7 +9,7 @@ $direction: (4 'RTL');
 $center-align: (3 'center-align');
 $percentage-gutter: (4 'gutter' 5%);
 $rem-gutter: (5 'gutter' 2rem);
-$map: (('dafault': 2, 600px: 3, 900px: 4));
+$map: (('default': 2, 600px: 3, 900px: 4));
 
 .num { 
   @extend %demo-show;

@@ -17,9 +17,6 @@
   $columns: false;
   $order: false;
 
-
-
-
   @include clearfix(); 
   // using map
   @if type-of($column) == 'map' {
@@ -39,24 +36,67 @@
 
     // complex map: with breakpoints
     } @else {
-      @if $global-breakpoints {
-        $column: map-update-breakpoints($column, $global-breakpoints);
-      }
+      @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
       $local-breakpoints: map-keys($column);
 
-      @each $bp in $local-breakpoints {
+      @if index($local-breakpoints, 'default') { 
+        // set default styles
+        $default-column: map-get($column, 'default');
+
+        @if type-of($default-column) == 'list' {
+          $columns: $default-column;
+          @if not $order { $order: (1 2 3); }
+        } @else if type-of($default-column) == 'map' {
+          $columns: map-keys($default-column);
+          $order: map-values($default-column);
+        }
+
+        // set default columns styles
+        @if length($local-breakpoints) == 1 {
+          @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+        } @else {
+          $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
+
+          @if $condition == 'max' {
+            @include bp('min' max($local-breakpoints-nums...)) {
+              @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+            }
+          } @else {
+            @include bp(0 min($local-breakpoints-nums...)) {
+              @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+            }
+          }
+
+          // remove 'default' from breakpoints
+          $local-breakpoints: $local-breakpoints-nums;
+        }
+      }
+
+      // re-order breakpoints based on codition
+      @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
+        $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
+      }
+
+      // loop through the breakpoints
+      @for $i from 1 through length($local-breakpoints) {
+        $bp: nth($local-breakpoints, $i);
         $column-item: map-get($column, $bp);
 
         @if type-of($column-item) == 'list' {
           $columns: $column-item;
-          @if not $order { $order: (1, 2, 3); }
+          @if not $order { $order: (1 2 3); }
         } @else if type-of($column-item) == 'map' {
           $columns: map-keys($column-item);
-          $order: map-values(map-get($column, $bp));
+          $order: map-values($column-item);
         }
 
-        @if $bp == 'default' or $bp == null {
-          @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+        // use @media (min) and (max)
+        @if $i < length($local-breakpoints) {
+          @include bp($media $bp nth($local-breakpoints, $i + 1)) {
+            @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+          }
+
+        // use @media (min) or (max)
         } @else {
           @include bp($condition $media $bp) {
             @include make-holy-grail($columns, $order, $selector, $gutter, $float);
@@ -68,159 +108,201 @@
   // using list
   } @else {
     $columns: $column;
-    $order: (1, 2, 3);
+    $order: (1 2 3);
     @include make-holy-grail($columns, $order, $selector, $gutter, $float);
   }
 
 }
 
 @mixin make-holy-grail($columns, $order, $selector, $gutter, $float) {
-  $columns-num: ();
-  @each $item in $columns {
-    @if type-of($item) == 'number' { $columns-num: append($columns-num, $item); }
-  }
-
-  $column-unit: false;
-  @if unit(nth($columns-num, 1)) == unit(nth($columns-num, 2)) {
-    $column-unit: unit(nth($columns-num, 1));
-  } @else {
-    @error 'Please match the units. You passed "#{$columns}".'
-  }
-  $gutter-ie8: gutter-fallback($gutter, $column-unit);
+  $sidebars: list-remove($columns, 'auto');
 
   $selector-list: ();
-  $selector-ie8: '';
   @if type-of($selector) == 'string' {
-
     $selector-list: ('#{$selector}:nth-child(1)', '#{$selector}:nth-child(2)', '#{$selector}:nth-child(3)');
-    $selector-ie8: '#{&} > #{$selector}';
   } @else if type-of($selector) == 'list' and length($selector) == 3 {
-
     $selector-list: $selector;
-    $selector-ie8: '#{&} > #{nth($selector, 1)}, #{&} > #{nth($selector, 2)}, #{&} > #{nth($selector, 3)}'
   } 
 
+  // get positions based on order
+  // (2 1): the second column on the left
+  // (1 2): the first column on the left
   $positions: get-position-from-order($order);
-  $new-columns: ();
-  @for $i from 1 through 3 {
-    $new-columns: append($new-columns, nth($columns, nth($positions, $i)));
-  }
 
-  @at-root #{$selector-ie8} {
-    position: relative;
-    @include box-sizing(border-box);
-  }
+  // $new-columns: ();
+  // @for $i from 1 through 3 {
+  //   $new-columns: append($new-columns, nth($columns, nth($positions, $i)));
+  // }
 
-  // flexible-column is on the left
-  @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
-
-    @for $i from 1 through length($new-columns) {
-      > #{nth($selector-list, nth($positions, $i))} {
-
-        @if ($i == 1) {
-          // float: left;
-          // margin-right: -100%;
-          // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
-          float: $float;
-          margin: get-TRBL(opposite($float) -100%);
-          padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
-          width: 100%;
-          z-index: 0;
-
+  // loop through columns
+  @for $i from 1 through length($columns) {
+    > #{nth($selector-list, $i)} {
+      // set float
+      //   1 2 3
+      // a * * *
+      // b * * *
+      // c * * *
+      @if nth($positions, 1) == $i {
+        float: #{$float};
+      } @else if nth($positions, 3) == $i {
+        float: #{opposite($float)};
+      } @else {
+        @if $i == 1 {
+          float: #{$float};
+        } @else if nth($positions, 1) == 1 {
+          float: #{$float};
         } @else {
-          // float: right;
-          float: opposite($float);
-          width: nth($new-columns, $i);
-          padding: 0; 
-          z-index: 1;
-
-          @if $i == 2 {
-            // margin-left: -100%;
-            // margin-right: (nth($new-columns, 3) + $gutter);
-            margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float -100%);
-          } @else {
-            // margin-left: -100%;
-            margin: get-TRBL($float -100%);
-          }
-
+          float: #{opposite($float)};
         }
       }
-    }
 
-  // flexible-column is on the middle
-  } @else if nth($new-columns, 2) == null or nth($new-columns, 2) == 'auto' {
-
-    @for $i from 1 through length($new-columns) {
-      > #{nth($selector-list, nth($positions, $i))} {
-
-        @if ($i == 3) {
-          // float: right;
-          // margin-left: -100%;
-          float: opposite($float);
-          width: nth($new-columns, $i);
-          margin: get-TRBL($float -100%);
-          padding: 0; 
-          z-index: 1;
-
-        } @else {
-          // float: left;
-          float: $float;
-
-          @if $i == 2 {
-            // padding-left: #{(nth($new-columns, 1) + $gutter)};
-            // padding-right: #{(nth($new-columns, 3) + $gutter)};
-            // margin-right: -100%;
-            // margin-left: #{(nth($new-columns, 1) + $gutter)};
-            width: 100%;
-            padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float (nth($new-columns, 1) + $gutter-ie8));
-            margin: get-TRBL(opposite($float) -100%);
-            z-index: 0;
-
-          } @else {
-            // margin-right: -100%;
-            width: nth($new-columns, $i);
-            margin: get-TRBL(opposite($float) -100%);
-            padding: 0; 
-            z-index: 1;
-          }
-        }
+      // set width
+      @if nth($columns, $i) == 'auto' {
+        @if $gutter == 0 { $gutter: 0px; }
+        width: -webkit-calc(100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2});
+        width: -moz-calc(100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2});
+        width: calc(100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2});
+      } @else {
+        width: nth($columns, $i);
       }
-    }
 
-  // flexible-column is on the right
-  } @else if nth($new-columns, 3) == null or nth($new-columns, 3) == 'auto' {
+      // set margin
+      @if nth($positions, 2) == $i {
+        $fl: if($i == 1 or nth($positions, 1) == 1, $float, opposite($float));
+        margin-#{$fl}: $gutter;
+      }
 
-    @for $i from 1 through length($new-columns) {
-      > #{nth($selector-list, nth($positions, $i))} {
-
-        @if ($i == 3) {
-          // float: right;
-          // margin-left: -100%;
-          // padding-left: (nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2);
-          float: opposite($float);
-          width: 100%;
-          margin: get-TRBL($float -100%);
-          padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));
-          z-index: 0;
-
-        } @else {
-          // float: left;
-          float: $float;
-          width: nth($new-columns, $i);
-          padding: 0; 
-          z-index: 1;
-
-          @if $i == 2 {
-            // margin-left: #{(nth($new-columns, 1) + $gutter)};
-            // margin-right: -100%;
-            margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
-          } @else {
-            // margin-right: -100%;
-            margin: get-TRBL(opposite($float) -100%);
-          }
-
+      // switch columns when the 1st column is in the middle
+      // b a c
+      // c a b
+      @if nth($positions, 2) == 1 {
+        $auto: calc(-100% + #{nth($sidebars, 1)} + #{nth($sidebars, 2)} + #{$gutter});
+        $col1: nth($columns, nth($positions, 1));
+        $col2: nth($columns, 1);
+        $aside: if($col1 == 'auto', $auto, $col1);
+        $middle: if($col2 == 'auto', $auto, $col2);
+        $px: false;
+        @if $i == 1 {
+          position: relative;
+          #{$float}: $aside; 
+        } @else if $i == nth($positions, 1) {
+          position: relative;
+          #{$float}: $auto; 
         }
       }
     }
   }
+
+  // // flexible-column is on the left
+  // @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
+
+  //   @for $i from 1 through length($new-columns) {
+  //     > #{nth($selector-list, nth($positions, $i))} {
+
+  //       @if ($i == 1) {
+  //         // float: left;
+  //         // margin-right: -100%;
+  //         // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
+  //         float: $float;
+  //         margin: get-TRBL(opposite($float) -100%);
+  //         padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
+  //         width: 100%;
+  //         z-index: 0;
+
+  //       } @else {
+  //         // float: right;
+  //         float: opposite($float);
+  //         width: nth($new-columns, $i);
+  //         padding: 0; 
+  //         z-index: 1;
+
+  //         @if $i == 2 {
+  //           // margin-left: -100%;
+  //           // margin-right: (nth($new-columns, 3) + $gutter);
+  //           margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float -100%);
+  //         } @else {
+  //           // margin-left: -100%;
+  //           margin: get-TRBL($float -100%);
+  //         }
+
+  //       }
+  //     }
+  //   }
+
+  // // flexible-column is on the middle
+  // } @else if nth($new-columns, 2) == null or nth($new-columns, 2) == 'auto' {
+
+  //   @for $i from 1 through length($new-columns) {
+  //     > #{nth($selector-list, nth($positions, $i))} {
+
+  //       @if ($i == 3) {
+  //         // float: right;
+  //         // margin-left: -100%;
+  //         float: opposite($float);
+  //         width: nth($new-columns, $i);
+  //         margin: get-TRBL($float -100%);
+  //         padding: 0; 
+  //         z-index: 1;
+
+  //       } @else {
+  //         // float: left;
+  //         float: $float;
+
+  //         @if $i == 2 {
+  //           // padding-left: #{(nth($new-columns, 1) + $gutter)};
+  //           // padding-right: #{(nth($new-columns, 3) + $gutter)};
+  //           // margin-right: -100%;
+  //           // margin-left: #{(nth($new-columns, 1) + $gutter)};
+  //           width: 100%;
+  //           padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float (nth($new-columns, 1) + $gutter-ie8));
+  //           margin: get-TRBL(opposite($float) -100%);
+  //           z-index: 0;
+
+  //         } @else {
+  //           // margin-right: -100%;
+  //           width: nth($new-columns, $i);
+  //           margin: get-TRBL(opposite($float) -100%);
+  //           padding: 0; 
+  //           z-index: 1;
+  //         }
+  //       }
+  //     }
+  //   }
+
+  // // flexible-column is on the right
+  // } @else if nth($new-columns, 3) == null or nth($new-columns, 3) == 'auto' {
+
+  //   @for $i from 1 through length($new-columns) {
+  //     > #{nth($selector-list, nth($positions, $i))} {
+
+  //       @if ($i == 3) {
+  //         // float: right;
+  //         // margin-left: -100%;
+  //         // padding-left: (nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2);
+  //         float: opposite($float);
+  //         width: 100%;
+  //         margin: get-TRBL($float -100%);
+  //         padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));
+  //         z-index: 0;
+
+  //       } @else {
+  //         // float: left;
+  //         float: $float;
+  //         width: nth($new-columns, $i);
+  //         padding: 0; 
+  //         z-index: 1;
+
+  //         @if $i == 2 {
+  //           // margin-left: #{(nth($new-columns, 1) + $gutter)};
+  //           // margin-right: -100%;
+  //           margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
+  //         } @else {
+  //           // margin-right: -100%;
+  //           margin: get-TRBL(opposite($float) -100%);
+  //         }
+
+  //       }
+  //     }
+  //   }
+  // }
 }

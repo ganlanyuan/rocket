@@ -17,10 +17,7 @@
   $columns: false;
   $order: false; 
 
-
-
-
-  @include clearfix(); 
+ @include clearfix();
   // using map
   @if type-of($column) == 'map' {
 
@@ -42,19 +39,64 @@
       @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
       $local-breakpoints: map-keys($column);
 
-      @each $bp in $local-breakpoints {
+      @if index($local-breakpoints, 'default') { 
+        // set default styles
+        $default-column: map-get($column, 'default');
+
+        @if type-of($default-column) == 'list' {
+          $columns: $default-column;
+          @if not $order { $order: (1 2); }
+        } @else if type-of($default-column) == 'map' {
+          $columns: map-keys($default-column);
+          $order: map-values($default-column);
+        }
+
+        // set default columns styles
+        @if length($local-breakpoints) == 1 {
+          @include make-liquid($columns, $order, $selector, $gutter, $float);
+        } @else {
+          $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
+
+          @if $condition == 'max' {
+            @include bp('min' max($local-breakpoints-nums...)) {
+              @include make-liquid($columns, $order, $selector, $gutter, $float);
+            }
+          } @else {
+            @include bp(0 min($local-breakpoints-nums...)) {
+              @include make-liquid($columns, $order, $selector, $gutter, $float);
+            }
+          }
+
+          // remove 'default' from breakpoints
+          $local-breakpoints: $local-breakpoints-nums;
+        }
+      }
+
+      // re-order breakpoints based on codition
+      @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
+        $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
+      }
+
+      // loop through the breakpoints
+      @for $i from 1 through length($local-breakpoints) {
+        $bp: nth($local-breakpoints, $i);
         $column-item: map-get($column, $bp);
 
         @if type-of($column-item) == 'list' {
           $columns: $column-item;
-          @if not $order { $order: (1, 2); }
+          @if not $order { $order: (1 2); }
         } @else if type-of($column-item) == 'map' {
           $columns: map-keys($column-item);
-          $order: map-values(map-get($column, $bp));
+          $order: map-values($column-item);
         }
 
-        @if $bp == 'default' or $bp == null {
-          @include make-liquid($columns, $order, $selector, $gutter, $float);
+        // use @media (min) and (max)
+        @if $i < length($local-breakpoints) {
+          @include bp($media $bp nth($local-breakpoints, $i + 1)) {
+            @include make-liquid($columns, $order, $selector, $gutter, $float);
+          }
+
+        // use @media (min) or (max)
         } @else {
           @include bp($condition $media $bp) {
             @include make-liquid($columns, $order, $selector, $gutter, $float);
@@ -66,7 +108,7 @@
   // using list
   } @else {
     $columns: $column;
-    $order: (1, 2);
+    $order: (1 2);
 
     @include make-liquid($columns, $order, $selector, $gutter, $float);
   }
@@ -74,12 +116,8 @@
 }
 
 @mixin make-liquid($columns, $order, $selector, $gutter, $float) {
-  $column-unit: if(nth($columns, 1) == null or nth($columns, 1) == 'auto',
-    unit(nth($columns, 2)),
-    unit(nth($columns, 1))
-  );
-  $gutter-calc: if($gutter == 0, 0px, $gutter);
-  $gutter-ie8: gutter-fallback($gutter, $column-unit);
+  // get sidebar width
+  $sidebar: if(nth($columns, 1) == 'auto', nth($columns, 2), nth($columns, 1));
 
   $selector-list: ();
   @if type-of($selector) == 'string' {
@@ -88,56 +126,30 @@
     $selector-list: $selector;
   } 
 
+  // get positions based on order
+  // (2 1): the second column on the left
+  // (1 2): the first column on the left
   $positions: get-position-from-order($order);
-  $new-columns: ();
-  @for $i from 1 through 2 {
-   $new-columns: append($new-columns, nth($columns, nth($positions, $i)));
-  } 
 
-  // flexible-column is on the left
-  @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
-    // padding-right: (nth($new-columns, 2) + $gutter);
-    padding: get-TRBL(opposite($float) (nth($new-columns, 2) + $gutter-ie8));
-    @include box-sizing(border-box);
-
-    @for $i from 1 through length($new-columns) {
-      > #{nth($selector-list, nth($positions, $i))} {
-        @if $i == 1 {
-          // float: left;
-          float: $float;
-          width: 100%;
-        } @else {
-          // float: right;
-          // margin-right: (- (nth($new-columns, 2) + $gutter));
-          float: opposite($float);
-          width: nth($new-columns, 2);
-          margin: get-TRBL(opposite($float) (- (nth($new-columns, 2) + $gutter-ie8)));
-        }
+  // loop through columns
+  @for $i from 1 through length($columns) {
+    > #{nth($selector-list, $i)} {
+      // set float
+      @if nth($positions, 1) == $i {
+        float: #{$float};
+      } @else {
+        float: #{opposite($float)};
       }
-    }
 
-  // flexible-column is on the right
-  } @else {
-    // padding-left: (nth($new-columns, 1) + $gutter);
-    padding: get-TRBL($float (nth($new-columns, 1) + $gutter-ie8));
-    @include box-sizing(border-box);
-
-    @for $i from 1 through length($new-columns) {
-      > #{nth($selector-list, nth($positions, $i))} {
-        @if $i == 1 {
-          // float: left;
-          // margin-left: (- (nth($new-columns, 1) + $gutter));
-          float: $float;
-          width: nth($new-columns, 1);
-          margin: get-TRBL($float (- (nth($new-columns, 1) + $gutter-ie8)));
-
-        } @else {
-          // float: right;
-          float: opposite($float);
-          width: 100%;
-        }
+      // set width
+      @if nth($columns, $i) == 'auto' {
+        @if $gutter == 0 { $gutter: 0px; }
+        width: -webkit-calc(100% - #{$sidebar} - #{$gutter});
+        width: -moz-calc(100% - #{$sidebar} - #{$gutter});
+        width: calc(100% - #{$sidebar} - #{$gutter});
+      } @else {
+        width: $sidebar;
       }
     }
   }
-
 }

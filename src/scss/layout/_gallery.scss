@@ -31,8 +31,6 @@
 
   // if not valuable data found
   @if not $column { @error 'Parameters must include number or map.'; }
-  
-  
 
 
   @if type-of($column) == 'map' {
@@ -40,34 +38,69 @@
     @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
     @if $column and type-of($column) == 'map' { $local-breakpoints: map-keys($column); }
 
-    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
-      $keep: false; 
-    }
+    @if index($local-breakpoints, 'default') { 
+      // set base styles & default styles
+      @include gallery-base($selector, $gutter, $float, $center-align);
+      $default-per-row: map-get($column, 'default');
 
-    @each $bp in $local-breakpoints {
-      $this-per-row: map-get($column, $bp);
+      @if length($local-breakpoints) == 1 {
+        @include make-gallery($default-per-row, $selector, $gutter, $float, $center-align);
+      } @else {
+        $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
 
-      @if $bp == null or $bp == 'default' {
-        @include gallery-base($selector, $gutter, $float, $center-align);
-        $keep: true;
-
-        @include make-gallery($this-per-row, $selector, $gutter, $float, $center-align);
-
-      } @else if type-of($bp) == 'number' {
-        @include bp($bp $condition) {
-          @if not $keep {
-            @include gallery-base($selector, $gutter, $float, $center-align);
-            $keep: true;
+        @if $condition == 'max' {
+          @include bp('min' max($local-breakpoints-nums...)) {
+            @include make-gallery($default-per-row, $selector, $gutter, $float, $center-align);
           }
+        } @else {
+          @include bp(0 min($local-breakpoints-nums...)) {
+            @include make-gallery($default-per-row, $selector, $gutter, $float, $center-align);
+          }
+        }
 
-          @include make-gallery($this-per-row, $selector, $gutter, $float, $center-align);
+        // remove 'default' from breakpoints
+        $local-breakpoints: $local-breakpoints-nums;
+      }
+    } @else {
+
+      // set base styles
+      @if $condition == 'max' {
+        @include bp('max' max($local-breakpoints...)) {
+          @include gallery-base($selector, $gutter, $float, $center-align);
+        }
+      } @else {
+        @include bp('min' min($local-breakpoints...)) {
+          @include gallery-base($selector, $gutter, $float, $center-align);
         }
       }
     }
-  } @else {
-    @if not $keep {
-      @include gallery-base($selector, $gutter, $float, $center-align);
+
+    // re-order breakpoints based on codition
+    @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
+      $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
     }
+
+    // loop through the breakpoints
+    @for $i from 1 through length($local-breakpoints) {
+      $bp: nth($local-breakpoints, $i);
+      $per-row: map-get($column, $bp);
+
+      // use @media (min) and (max)
+      @if $i < length($local-breakpoints) {
+        @include bp($media $bp nth($local-breakpoints, $i + 1)) {
+          @include make-gallery($per-row, $selector, $gutter, $float, $center-align);
+        }
+
+      // use @media (min) or (max)
+      } @else {
+        @include bp($condition $media $bp) {
+          @include make-gallery($per-row, $selector, $gutter, $float, $center-align);
+        }
+      }
+    }
+
+  } @else {
+    @if not $keep { @include gallery-base($selector, $gutter, $float, $center-align); }
     @include make-gallery($column, $selector, $gutter, $float, $center-align);
   }
 }
@@ -98,8 +131,6 @@
     @include clearfix(); 
   }
 
-  @if unit($gutter) != '%' and $gutter != 0 { margin-right: - $gutter; }
-  
   > #{$selector} {
     width: 100%;
 
@@ -114,13 +145,9 @@
       float: $float;
     }
 
-    @if $gutter != 0 {
-      @if unit($gutter) == '%' {
-        margin: get-TRBL(#{opposite($float)} $gutter bottom $gutter);
-      } @else {
-        padding: 0 $gutter $gutter 0;
-        @include box-sizing(border-box);
-      }
+    @if $gutter != 0 { 
+      margin-#{opposite($float)}: $gutter; 
+      margin-bottom: $gutter; 
     }
   }
 }
@@ -129,18 +156,22 @@
   > #{$selector} { 
     @if unit($gutter) == '%' or $gutter == 0 {
       width: ((100% + $gutter) / $columns - $gutter); 
-      
-      // reset margin in each breakpoint
-      &:nth-child(n) { margin-#{opposite($float)}: $gutter; }
-      &:nth-child(#{$columns}n) { margin-#{opposite($float)}: 0; }
 
     } @else {
-      width: percentage(1 / $columns); 
+      $pc: percentage(1 / $columns);
+      $px: ($gutter * ($columns - 1) / $columns);
+      width: -webkit-calc(#{$pc} - #{$px}); 
+      width: -moz-calc(#{$pc} - #{$px}); 
+      width: calc(#{$pc} - #{$px}); 
+    }
+
+    // remove margin at the last column of each row
+    @if $gutter != 0 {
+      &:nth-child(#{$columns}n) { margin-#{opposite($float)}: 0; }
     }
     
-    // reset clear in each breakpoint
+    // clear float at the first column of each row
     @if not $center-align {
-      &:nth-child(n) { clear: none; }
       &:nth-child(#{$columns}n+1) { clear: both; }
     }
 

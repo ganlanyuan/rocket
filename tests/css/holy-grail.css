@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -231,721 +225,495 @@ p {
   margin-bottom: 5px;
 }
 
-.liquid3-list1, .liquid3-list2, .liquid3-list3, .liquid3-order1, .liquid3-order2, .liquid3-order3, .liquid3-RTL, .liquid3-child1, .liquid3-child2, .liquid3-gutter-0px, .liquid3-gutter-sameunit, .liquid3-gutter-percentage, .liquid3-gutter-differentunit, .liquid3-breakpoint, .liquid3-breakpoint-conditions, .liquid3-global-breakpoints {
+.holy-grail-list1, .holy-grail-list2, .holy-grail-list3, .holy-grail-order1, .holy-grail-order2, .holy-grail-order3, .holy-grail-RTL, .holy-grail-child1, .holy-grail-child2, .holy-grail-gutter-0px, .holy-grail-gutter-sameunit, .holy-grail-gutter-percentage, .holy-grail-gutter-differentunit, .holy-grail-breakpoint, .holy-grail-breakpoint-conditions, .holy-grail-global-breakpoints {
   height: auto;
   margin-bottom: 50px;
 }
 
-.liquid3-list1:before {
-  content: '(  "auto"  100px  250px  )';
+.holy-grail-list1:before {
+  content: '( "auto" 100px 250px : 2 1 3 )';
 }
 
-.liquid3-list1 > div:after {
+.holy-grail-list1 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-list1 > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-list1 > div > div:nth-child(1) {
+.holy-grail-list1 > div > div:nth-child(1) {
   float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 390px 0 0;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
+  margin-left: 20px;
+  position: relative;
+  left: 100px;
 }
 
-.liquid3-list1 > div > div:nth-child(2) {
-  float: right;
+.holy-grail-list1 > div > div:nth-child(2) {
+  float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 270px 0 -100%;
+  position: relative;
+  left: calc(-100% + 100px + 250px + 20px);
 }
 
-.liquid3-list1 > div > div:nth-child(3) {
+.holy-grail-list1 > div > div:nth-child(3) {
   float: right;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-list2:before {
+.holy-grail-list2:before {
   content: '(  100px  "auto"  250px  )';
 }
 
-.liquid3-list2 > div:after {
+.holy-grail-list2 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-list2 > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-list2 > div > div:nth-child(1) {
+.holy-grail-list2 > div > div:nth-child(1) {
   float: left;
   width: 100px;
-  margin: 0 -100% 0 0;
-  padding: 0;
-  z-index: 1;
 }
 
-.liquid3-list2 > div > div:nth-child(2) {
+.holy-grail-list2 > div > div:nth-child(2) {
   float: left;
-  width: 100%;
-  padding: 0 270px 0 120px;
-  margin: 0 -100% 0 0;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
+  margin-left: 20px;
 }
 
-.liquid3-list2 > div > div:nth-child(3) {
+.holy-grail-list2 > div > div:nth-child(3) {
   float: right;
   width: 250px;
-  margin: 0 0 0 -100%;
-  padding: 0;
-  z-index: 1;
 }
 
-.liquid3-list3:before {
+.holy-grail-list3:before {
   content: '(  100px  250px  "auto"  )';
 }
 
-.liquid3-list3 > div:after {
+.holy-grail-list3 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-list3 > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-list3 > div > div:nth-child(1) {
+.holy-grail-list3 > div > div:nth-child(1) {
   float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 -100% 0 0;
 }
 
-.liquid3-list3 > div > div:nth-child(2) {
+.holy-grail-list3 > div > div:nth-child(2) {
   float: left;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 -100% 0 120px;
+  margin-left: 20px;
 }
 
-.liquid3-list3 > div > div:nth-child(3) {
+.holy-grail-list3 > div > div:nth-child(3) {
   float: right;
-  width: 100%;
-  margin: 0 0 0 -100%;
-  padding: 0 0 0 390px;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
 }
 
-.liquid3-order1:before {
+.holy-grail-order1:before {
   content: "( 100px :  2 , auto :  0 , 250px :  0  )";
 }
 
-.liquid3-order1 > div:after {
+.holy-grail-order1 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-order1 > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-order1 > div > div:nth-child(2) {
-  float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 390px 0 0;
-  width: 100%;
-  z-index: 0;
-}
-
-.liquid3-order1 > div > div:nth-child(3) {
-  float: right;
-  width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 120px 0 -100%;
-}
-
-.liquid3-order1 > div > div:nth-child(1) {
+.holy-grail-order1 > div > div:nth-child(1) {
   float: right;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-order2:before {
+.holy-grail-order1 > div > div:nth-child(2) {
+  float: left;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
+}
+
+.holy-grail-order1 > div > div:nth-child(3) {
+  float: right;
+  width: 250px;
+  margin-right: 20px;
+}
+
+.holy-grail-order2:before {
   content: "( 100px :  2 , auto :  1 , 250px :  0  )";
 }
 
-.liquid3-order2 > div:after {
+.holy-grail-order2 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-order2 > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-order2 > div > div:nth-child(3) {
-  float: left;
-  width: 250px;
-  margin: 0 -100% 0 0;
-  padding: 0;
-  z-index: 1;
-}
-
-.liquid3-order2 > div > div:nth-child(2) {
-  float: left;
-  width: 100%;
-  padding: 0 120px 0 270px;
-  margin: 0 -100% 0 0;
-  z-index: 0;
-}
-
-.liquid3-order2 > div > div:nth-child(1) {
+.holy-grail-order2 > div > div:nth-child(1) {
   float: right;
   width: 100px;
-  margin: 0 0 0 -100%;
-  padding: 0;
-  z-index: 1;
 }
 
-.liquid3-order3:before {
+.holy-grail-order2 > div > div:nth-child(2) {
+  float: right;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
+  margin-right: 20px;
+}
+
+.holy-grail-order2 > div > div:nth-child(3) {
+  float: left;
+  width: 250px;
+}
+
+.holy-grail-order3:before {
   content: "( 100px :  2 , auto :  3 , 250px :  2  )";
 }
 
-.liquid3-order3 > div:after {
+.holy-grail-order3 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-order3 > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-order3 > div > div:nth-child(1) {
+.holy-grail-order3 > div > div:nth-child(1) {
   float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 -100% 0 0;
 }
 
-.liquid3-order3 > div > div:nth-child(3) {
+.holy-grail-order3 > div > div:nth-child(2) {
+  float: right;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
+}
+
+.holy-grail-order3 > div > div:nth-child(3) {
   float: left;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 -100% 0 120px;
+  margin-left: 20px;
 }
 
-.liquid3-order3 > div > div:nth-child(2) {
-  float: right;
-  width: 100%;
-  margin: 0 0 0 -100%;
-  padding: 0 0 0 390px;
-  z-index: 0;
-}
-
-.liquid3-RTL:before {
+.holy-grail-RTL:before {
   content: '( (  "auto"  100px  250px  ) "RTL"  )';
 }
 
-.liquid3-RTL > div:after {
+.holy-grail-RTL > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-RTL > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-RTL > div > div:nth-child(1) {
+.holy-grail-RTL > div > div:nth-child(1) {
   float: right;
-  margin: 0 0 0 -100%;
-  padding: 0 0 0 390px;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
 }
 
-.liquid3-RTL > div > div:nth-child(2) {
-  float: left;
+.holy-grail-RTL > div > div:nth-child(2) {
+  float: right;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 -100% 0 270px;
+  margin-right: 20px;
 }
 
-.liquid3-RTL > div > div:nth-child(3) {
+.holy-grail-RTL > div > div:nth-child(3) {
   float: left;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 -100% 0 0;
 }
 
-.liquid3-child1:before {
+.holy-grail-child1:before {
   content: '( (  "auto"  100px  250px  ) "selector"  ".child"  )';
 }
 
-.liquid3-child1 > div:after {
+.holy-grail-child1 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-child1 > div > .child {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-child1 > div > .child:nth-child(1) {
+.holy-grail-child1 > div > .child:nth-child(1) {
   float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 390px 0 0;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
 }
 
-.liquid3-child1 > div > .child:nth-child(2) {
-  float: right;
+.holy-grail-child1 > div > .child:nth-child(2) {
+  float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 270px 0 -100%;
+  margin-left: 20px;
 }
 
-.liquid3-child1 > div > .child:nth-child(3) {
+.holy-grail-child1 > div > .child:nth-child(3) {
   float: right;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-child2:before {
+.holy-grail-child2:before {
   content: '( (  100px  "auto"  250px  ) "selector" (  "nav"  "main"  "aside"  ) )';
 }
 
-.liquid3-child2 > div:after {
+.holy-grail-child2 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-child2 > div > nav, .liquid3-child2 > div > main, .liquid3-child2 > div > aside {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-child2 > div > nav {
+.holy-grail-child2 > div > nav {
   float: left;
   width: 100px;
-  margin: 0 -100% 0 0;
-  padding: 0;
-  z-index: 1;
 }
 
-.liquid3-child2 > div > main {
+.holy-grail-child2 > div > main {
   float: left;
-  width: 100%;
-  padding: 0 270px 0 120px;
-  margin: 0 -100% 0 0;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 40px);
+  width: -moz-calc(100% - 100px - 250px - 40px);
+  width: calc(100% - 100px - 250px - 40px);
+  margin-left: 20px;
 }
 
-.liquid3-child2 > div > aside {
+.holy-grail-child2 > div > aside {
   float: right;
   width: 250px;
-  margin: 0 0 0 -100%;
-  padding: 0;
-  z-index: 1;
 }
 
-.liquid3-gutter-0px:before {
+.holy-grail-gutter-0px:before {
   content: '( (  "auto"  100px  250px  ) "gutter"  0px  )';
 }
 
-.liquid3-gutter-0px > div:after {
+.holy-grail-gutter-0px > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-gutter-0px > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-gutter-0px > div > div:nth-child(1) {
+.holy-grail-gutter-0px > div > div:nth-child(1) {
   float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 350px 0 0;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 0px);
+  width: -moz-calc(100% - 100px - 250px - 0px);
+  width: calc(100% - 100px - 250px - 0px);
 }
 
-.liquid3-gutter-0px > div > div:nth-child(2) {
-  float: right;
+.holy-grail-gutter-0px > div > div:nth-child(2) {
+  float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 250px 0 -100%;
+  margin-left: 0px;
 }
 
-.liquid3-gutter-0px > div > div:nth-child(3) {
+.holy-grail-gutter-0px > div > div:nth-child(3) {
   float: right;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-gutter-sameunit:before {
+.holy-grail-gutter-sameunit:before {
   content: '( (  "auto"  100px  250px  ) "gutter"  40px  )';
 }
 
-.liquid3-gutter-sameunit > div:after {
+.holy-grail-gutter-sameunit > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-gutter-sameunit > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-gutter-sameunit > div > div:nth-child(1) {
+.holy-grail-gutter-sameunit > div > div:nth-child(1) {
   float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 430px 0 0;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 80px);
+  width: -moz-calc(100% - 100px - 250px - 80px);
+  width: calc(100% - 100px - 250px - 80px);
 }
 
-.liquid3-gutter-sameunit > div > div:nth-child(2) {
-  float: right;
+.holy-grail-gutter-sameunit > div > div:nth-child(2) {
+  float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 290px 0 -100%;
+  margin-left: 40px;
 }
 
-.liquid3-gutter-sameunit > div > div:nth-child(3) {
+.holy-grail-gutter-sameunit > div > div:nth-child(3) {
   float: right;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-gutter-percentage:before {
+.holy-grail-gutter-percentage:before {
   content: '( (  "auto"  100px  250px  ) "gutter"  3%  )';
 }
 
-.liquid3-gutter-percentage > div:after {
+.holy-grail-gutter-percentage > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-gutter-percentage > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-gutter-percentage > div > div:nth-child(1) {
+.holy-grail-gutter-percentage > div > div:nth-child(1) {
   float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 410px 0 0;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 6%);
+  width: -moz-calc(100% - 100px - 250px - 6%);
+  width: calc(100% - 100px - 250px - 6%);
 }
 
-.liquid3-gutter-percentage > div > div:nth-child(2) {
-  float: right;
+.holy-grail-gutter-percentage > div > div:nth-child(2) {
+  float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 280px 0 -100%;
+  margin-left: 3%;
 }
 
-.liquid3-gutter-percentage > div > div:nth-child(3) {
+.holy-grail-gutter-percentage > div > div:nth-child(3) {
   float: right;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-gutter-differentunit:before {
+.holy-grail-gutter-differentunit:before {
   content: '( (  "auto"  100px  250px  ) "gutter"  3rem  )';
 }
 
-.liquid3-gutter-differentunit > div:after {
+.holy-grail-gutter-differentunit > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-gutter-differentunit > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-gutter-differentunit > div > div:nth-child(1) {
+.holy-grail-gutter-differentunit > div > div:nth-child(1) {
   float: left;
-  margin: 0 -100% 0 0;
-  padding: 0 446px 0 0;
-  width: 100%;
-  z-index: 0;
+  width: -webkit-calc(100% - 100px - 250px - 6rem);
+  width: -moz-calc(100% - 100px - 250px - 6rem);
+  width: calc(100% - 100px - 250px - 6rem);
 }
 
-.liquid3-gutter-differentunit > div > div:nth-child(2) {
-  float: right;
+.holy-grail-gutter-differentunit > div > div:nth-child(2) {
+  float: left;
   width: 100px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 298px 0 -100%;
+  margin-left: 3rem;
 }
 
-.liquid3-gutter-differentunit > div > div:nth-child(3) {
+.holy-grail-gutter-differentunit > div > div:nth-child(3) {
   float: right;
   width: 250px;
-  padding: 0;
-  z-index: 1;
-  margin: 0 0 0 -100%;
 }
 
-.liquid3-breakpoint:before {
+.holy-grail-breakpoint:before {
   content: "( 900px : ( 100px :  2 , auto :  0 , 250px :  0  ) )";
 }
 
-.liquid3-breakpoint > div:after {
+.holy-grail-breakpoint > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
 @media (min-width: 56.25em) {
-  .liquid3-breakpoint > div > div {
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .liquid3-breakpoint > div > div:nth-child(2) {
-    float: left;
-    margin: 0 -100% 0 0;
-    padding: 0 390px 0 0;
-    width: 100%;
-    z-index: 0;
-  }
-  .liquid3-breakpoint > div > div:nth-child(3) {
-    float: right;
-    width: 250px;
-    padding: 0;
-    z-index: 1;
-    margin: 0 120px 0 -100%;
-  }
-  .liquid3-breakpoint > div > div:nth-child(1) {
+  .holy-grail-breakpoint > div > div:nth-child(1) {
     float: right;
     width: 100px;
-    padding: 0;
-    z-index: 1;
-    margin: 0 0 0 -100%;
+  }
+  .holy-grail-breakpoint > div > div:nth-child(2) {
+    float: left;
+    width: -webkit-calc(100% - 100px - 250px - 40px);
+    width: -moz-calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 40px);
+  }
+  .holy-grail-breakpoint > div > div:nth-child(3) {
+    float: right;
+    width: 250px;
+    margin-right: 20px;
   }
 }
 
-.liquid3-breakpoint-conditions:before {
+.holy-grail-breakpoint-conditions:before {
   content: '( ( 900px : ( 100px :  2 , auto :  1 , 250px :  0  ) ) "max"  "screen"  )';
 }
 
-.liquid3-breakpoint-conditions > div:after {
+.holy-grail-breakpoint-conditions > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
 @media screen and (max-width: 56.1875em) {
-  .liquid3-breakpoint-conditions > div > div {
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .liquid3-breakpoint-conditions > div > div:nth-child(3) {
-    float: left;
-    width: 250px;
-    margin: 0 -100% 0 0;
-    padding: 0;
-    z-index: 1;
-  }
-  .liquid3-breakpoint-conditions > div > div:nth-child(2) {
-    float: left;
-    width: 100%;
-    padding: 0 120px 0 270px;
-    margin: 0 -100% 0 0;
-    z-index: 0;
-  }
-  .liquid3-breakpoint-conditions > div > div:nth-child(1) {
+  .holy-grail-breakpoint-conditions > div > div:nth-child(1) {
     float: right;
     width: 100px;
-    margin: 0 0 0 -100%;
-    padding: 0;
-    z-index: 1;
+  }
+  .holy-grail-breakpoint-conditions > div > div:nth-child(2) {
+    float: right;
+    width: -webkit-calc(100% - 100px - 250px - 40px);
+    width: -moz-calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 40px);
+    margin-right: 20px;
+  }
+  .holy-grail-breakpoint-conditions > div > div:nth-child(3) {
+    float: left;
+    width: 250px;
   }
 }
 
-.liquid3-global-breakpoints:before {
+.holy-grail-global-breakpoints:before {
   content: "( ( default : ( 100px :  2 , auto :  1 , 250px :  0  ), sm : ( 100px :  0 , auto :  1 , 250px :  2  ), lg : ( 100px :  2 , auto :  1 , 250px :  0  ) )( sm :  600px , md :  900px , lg :  1200px  ) )";
 }
 
-.liquid3-global-breakpoints > div:after {
+.holy-grail-global-breakpoints > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
-.liquid3-global-breakpoints > div > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.liquid3-global-breakpoints > div > div:nth-child(3) {
-  float: left;
-  width: 250px;
-  margin: 0 -100% 0 0;
-  padding: 0;
-  z-index: 1;
-}
-
-.liquid3-global-breakpoints > div > div:nth-child(2) {
-  float: left;
-  width: 100%;
-  padding: 0 120px 0 270px;
-  margin: 0 -100% 0 0;
-  z-index: 0;
-}
-
-.liquid3-global-breakpoints > div > div:nth-child(1) {
-  float: right;
-  width: 100px;
-  margin: 0 0 0 -100%;
-  padding: 0;
-  z-index: 1;
-}
-
-@media (min-width: 37.5em) {
-  .liquid3-global-breakpoints > div > div {
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+@media (min-width: 0em) and (max-width: 37.4375em) {
+  .holy-grail-global-breakpoints > div > div:nth-child(1) {
+    float: right;
+    width: 100px;
   }
-  .liquid3-global-breakpoints > div > div:nth-child(1) {
+  .holy-grail-global-breakpoints > div > div:nth-child(2) {
+    float: right;
+    width: -webkit-calc(100% - 100px - 250px - 40px);
+    width: -moz-calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 40px);
+    margin-right: 20px;
+  }
+  .holy-grail-global-breakpoints > div > div:nth-child(3) {
+    float: left;
+    width: 250px;
+  }
+}
+
+@media (min-width: 37.5em) and (max-width: 74.9375em) {
+  .holy-grail-global-breakpoints > div > div:nth-child(1) {
     float: left;
     width: 100px;
-    margin: 0 -100% 0 0;
-    padding: 0;
-    z-index: 1;
   }
-  .liquid3-global-breakpoints > div > div:nth-child(2) {
+  .holy-grail-global-breakpoints > div > div:nth-child(2) {
     float: left;
-    width: 100%;
-    padding: 0 270px 0 120px;
-    margin: 0 -100% 0 0;
-    z-index: 0;
+    width: -webkit-calc(100% - 100px - 250px - 40px);
+    width: -moz-calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 40px);
+    margin-left: 20px;
   }
-  .liquid3-global-breakpoints > div > div:nth-child(3) {
+  .holy-grail-global-breakpoints > div > div:nth-child(3) {
     float: right;
     width: 250px;
-    margin: 0 0 0 -100%;
-    padding: 0;
-    z-index: 1;
   }
 }
 
 @media (min-width: 75em) {
-  .liquid3-global-breakpoints > div > div {
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .liquid3-global-breakpoints > div > div:nth-child(3) {
-    float: left;
-    width: 250px;
-    margin: 0 -100% 0 0;
-    padding: 0;
-    z-index: 1;
-  }
-  .liquid3-global-breakpoints > div > div:nth-child(2) {
-    float: left;
-    width: 100%;
-    padding: 0 120px 0 270px;
-    margin: 0 -100% 0 0;
-    z-index: 0;
-  }
-  .liquid3-global-breakpoints > div > div:nth-child(1) {
+  .holy-grail-global-breakpoints > div > div:nth-child(1) {
     float: right;
     width: 100px;
-    margin: 0 0 0 -100%;
-    padding: 0;
-    z-index: 1;
+  }
+  .holy-grail-global-breakpoints > div > div:nth-child(2) {
+    float: right;
+    width: -webkit-calc(100% - 100px - 250px - 40px);
+    width: -moz-calc(100% - 100px - 250px - 40px);
+    width: calc(100% - 100px - 250px - 40px);
+    margin-right: 20px;
+  }
+  .holy-grail-global-breakpoints > div > div:nth-child(3) {
+    float: left;
+    width: 250px;
   }
 }

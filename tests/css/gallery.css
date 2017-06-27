@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -240,10 +234,6 @@ p {
   content: "3";
 }
 
-.num > ul {
-  margin-right: -20px;
-}
-
 .num > ul:after {
   clear: both;
   content: "";
@@ -253,18 +243,18 @@ p {
 .num > ul > li {
   width: 100%;
   float: left;
-  padding: 0 20px 20px 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .num > ul > li {
-  width: 33.3333333%;
+  width: -webkit-calc(33.3333333% - 13.3333333px);
+  width: -moz-calc(33.3333333% - 13.3333333px);
+  width: calc(33.3333333% - 13.3333333px);
 }
 
-.num > ul > li:nth-child(n) {
-  clear: none;
+.num > ul > li:nth-child(3n) {
+  margin-right: 0;
 }
 
 .num > ul > li:nth-child(3n+1) {
@@ -290,28 +280,12 @@ p {
   width: 33.3333333%;
 }
 
-.num-0px > ul > li:nth-child(n) {
-  margin-right: 0;
-}
-
-.num-0px > ul > li:nth-child(3n) {
-  margin-right: 0;
-}
-
-.num-0px > ul > li:nth-child(n) {
-  clear: none;
-}
-
 .num-0px > ul > li:nth-child(3n+1) {
   clear: both;
 }
 
 .child:before {
   content: '(  4  "selector"  "div"  )';
-}
-
-.child > div {
-  margin-right: -20px;
 }
 
 .child > div:after {
@@ -323,18 +297,18 @@ p {
 .child > div > div {
   width: 100%;
   float: left;
-  padding: 0 20px 20px 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .child > div > div {
-  width: 25%;
+  width: -webkit-calc(25% - 15px);
+  width: -moz-calc(25% - 15px);
+  width: calc(25% - 15px);
 }
 
-.child > div > div:nth-child(n) {
-  clear: none;
+.child > div > div:nth-child(4n) {
+  margin-right: 0;
 }
 
 .child > div > div:nth-child(4n+1) {
@@ -343,10 +317,6 @@ p {
 
 .direction:before {
   content: '(  4  "RTL"  )';
-}
-
-.direction > ul {
-  margin-right: -20px;
 }
 
 .direction > ul:after {
@@ -358,18 +328,18 @@ p {
 .direction > ul > li {
   width: 100%;
   float: right;
-  padding: 0 20px 20px 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .direction > ul > li {
-  width: 25%;
+  width: -webkit-calc(25% - 15px);
+  width: -moz-calc(25% - 15px);
+  width: calc(25% - 15px);
 }
 
-.direction > ul > li:nth-child(n) {
-  clear: none;
+.direction > ul > li:nth-child(4n) {
+  margin-left: 0;
 }
 
 .direction > ul > li:nth-child(4n+1) {
@@ -385,7 +355,6 @@ p {
   text-rendering: optimizespeed;
   font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
   text-align: center;
-  margin-right: -20px;
 }
 
 .center-align > ul .opera-only :-o-prefocus, .center-align > ul {
@@ -400,14 +369,18 @@ p {
   vertical-align: top;
   text-rendering: auto;
   text-align: left;
-  padding: 0 20px 20px 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .center-align > ul > li {
-  width: 33.3333333%;
+  width: -webkit-calc(33.3333333% - 13.3333333px);
+  width: -moz-calc(33.3333333% - 13.3333333px);
+  width: calc(33.3333333% - 13.3333333px);
+}
+
+.center-align > ul > li:nth-child(3n) {
+  margin-right: 0;
 }
 
 .percentage-gutter:before {
@@ -423,23 +396,16 @@ p {
 .percentage-gutter > ul > li {
   width: 100%;
   float: left;
-  margin: 0 5% 5% 0;
+  margin-right: 5%;
+  margin-bottom: 5%;
 }
 
 .percentage-gutter > ul > li {
   width: 21.25%;
 }
 
-.percentage-gutter > ul > li:nth-child(n) {
-  margin-right: 5%;
-}
-
 .percentage-gutter > ul > li:nth-child(4n) {
   margin-right: 0;
-}
-
-.percentage-gutter > ul > li:nth-child(n) {
-  clear: none;
 }
 
 .percentage-gutter > ul > li:nth-child(4n+1) {
@@ -448,10 +414,6 @@ p {
 
 .rem-gutter:before {
   content: '(  5  "gutter"  2rem  )';
-}
-
-.rem-gutter > ul {
-  margin-right: -2rem;
 }
 
 .rem-gutter > ul:after {
@@ -463,18 +425,18 @@ p {
 .rem-gutter > ul > li {
   width: 100%;
   float: left;
-  padding: 0 2rem 2rem 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
 }
 
 .rem-gutter > ul > li {
-  width: 20%;
+  width: -webkit-calc(20% - 1.6rem);
+  width: -moz-calc(20% - 1.6rem);
+  width: calc(20% - 1.6rem);
 }
 
-.rem-gutter > ul > li:nth-child(n) {
-  clear: none;
+.rem-gutter > ul > li:nth-child(5n) {
+  margin-right: 0;
 }
 
 .rem-gutter > ul > li:nth-child(5n+1) {
@@ -482,31 +444,44 @@ p {
 }
 
 .map:before {
-  content: "( dafault :  2 , 600px :  3 , 900px :  4  )";
+  content: "( default :  2 , 600px :  3 , 900px :  4  )";
 }
 
-@media (min-width: 37.5em) {
-  .map > ul {
-    margin-right: -20px;
+.map > ul:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.map > ul > li {
+  width: 100%;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 0em) and (max-width: 37.4375em) {
+  .map > ul > li {
+    width: -webkit-calc(50% - 10px);
+    width: -moz-calc(50% - 10px);
+    width: calc(50% - 10px);
   }
-  .map > ul:after {
+  .map > ul > li:nth-child(2n) {
+    margin-right: 0;
+  }
+  .map > ul > li:nth-child(2n+1) {
     clear: both;
-    content: "";
-    display: table;
   }
+}
+
+@media (min-width: 37.5em) and (max-width: 56.1875em) {
   .map > ul > li {
-    width: 100%;
-    float: left;
-    padding: 0 20px 20px 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    width: -webkit-calc(33.3333333% - 13.3333333px);
+    width: -moz-calc(33.3333333% - 13.3333333px);
+    width: calc(33.3333333% - 13.3333333px);
   }
-  .map > ul > li {
-    width: 33.3333333%;
-  }
-  .map > ul > li:nth-child(n) {
-    clear: none;
+  .map > ul > li:nth-child(3n) {
+    margin-right: 0;
   }
   .map > ul > li:nth-child(3n+1) {
     clear: both;
@@ -515,10 +490,12 @@ p {
 
 @media (min-width: 56.25em) {
   .map > ul > li {
-    width: 25%;
+    width: -webkit-calc(25% - 15px);
+    width: -moz-calc(25% - 15px);
+    width: calc(25% - 15px);
   }
-  .map > ul > li:nth-child(n) {
-    clear: none;
+  .map > ul > li:nth-child(4n) {
+    margin-right: 0;
   }
   .map > ul > li:nth-child(4n+1) {
     clear: both;

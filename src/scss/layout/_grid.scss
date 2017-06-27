@@ -48,21 +48,23 @@
     $local-breakpoints: map-keys($column);
 
     @if index($local-breakpoints, 'default') { 
-      // set base styles
+      // set base styles & default styles
       @include grid-base($selector, $float, $gutter);
+      $default-column: map-get($column, 'default');
 
       // set default columns styles
       @if length($local-breakpoints) == 1 {
-        @include divide-rows(map-get($column, 'default'), $gutter, $selector, $float);
+        @include divide-rows($default-column, $gutter, $selector, $float);
       } @else {
         $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
+
         @if $condition == 'max' {
-          @include bp(max($local-breakpoints-nums...)) {
-            @include divide-rows(map-get($column, 'default'), $gutter, $selector, $float);
+          @include bp('min' max($local-breakpoints-nums...)) {
+            @include divide-rows($default-column, $gutter, $selector, $float);
           }
         } @else {
           @include bp(0 min($local-breakpoints-nums...)) {
-            @include divide-rows(map-get($column, 'default'), $gutter, $selector, $float);
+            @include divide-rows($default-column, $gutter, $selector, $float);
           }
         }
 
@@ -71,19 +73,25 @@
       }
 
     } @else {
+
       // set base styles
       @if $condition == 'max' {
         @include bp('max' max($local-breakpoints...)) {
           @include grid-base($selector, $float, $gutter);
         }
       } @else {
-        @include bp(min($local-breakpoints...)) {
+        @include bp('min' min($local-breakpoints...)) {
           @include grid-base($selector, $float, $gutter);
         }
       }
     }
 
-    // divide rows within each breakpoint
+    // re-order breakpoints based on codition
+    @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
+      $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
+    }
+
+    // loop through the breakpoints
     @for $i from 1 through length($local-breakpoints) {
       $bp: nth($local-breakpoints, $i);
       // use @media (min) and (max)

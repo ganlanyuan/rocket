@@ -13,7 +13,7 @@ $grid-nested-list: ((3 4) 7);
 $grid-map: ( (3 4 7 : 0 2 1 ) 3 );
 $grid-breakpoint: (( 600px: 5 7 ));
 $grid-global-breakpoints: ( ('sm': 1 1, 'md': 2 1, 'lg': 3 5) $global-bps);
-$grid-breakpoint-max: ( (900px: 3 5, 600px: 2 1) 'max' );
+$grid-breakpoint-max: ( (600px: 3 5, 900px: 2 1) 'max' );
 $grid-breakpoint-outside: ( (5 7) );
 $grid-breakpoint-nested-list: ( ( 600px: (3 4) (2 5) 3 ) );
 $grid-breakpoint-map: ( ( 600px: (3 4 : 2 1) (2 5) 3 ) );
