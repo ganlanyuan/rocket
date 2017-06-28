@@ -156,6 +156,8 @@
         }
       }
 
+      @if $gutter == 0 { $gutter: 0px; }
+
       // set width
       @if nth($columns, $i) == 'auto' {
         @if $gutter == 0 { $gutter: 0px; }
@@ -176,133 +178,31 @@
       // b a c
       // c a b
       @if nth($positions, 2) == 1 {
-        $auto: calc(-100% + #{nth($sidebars, 1)} + #{nth($sidebars, 2)} + #{$gutter});
+        $auto-plus: 100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2};
+        $auto-minus: -100% + #{nth($sidebars, 1)} + #{nth($sidebars, 2)} + #{$gutter};
         $col1: nth($columns, nth($positions, 1));
         $col2: nth($columns, 1);
-        $aside: if($col1 == 'auto', $auto, $col1);
-        $middle: if($col2 == 'auto', $auto, $col2);
-        $px: false;
         @if $i == 1 {
           position: relative;
-          #{$float}: $aside; 
+          @if $col1 == 'auto' {
+            @include get-calc($float, $auto-plus);
+          } @else {
+            #{$float}: $col1; 
+          }
         } @else if $i == nth($positions, 1) {
           position: relative;
-          #{$float}: $auto; 
+          @if $col2 == 'auto' {
+            @include get-calc($float, $auto-minus);
+          } @else {
+            @if unit($col2) == unit($gutter) or $gutter == 0 {
+              #{$float}: - ($col2 + $gutter);
+            } @else {
+              @include get-calc($float, #{-$col2} - #{$gutter});
+            }
+          }
         }
       }
     }
   }
 
-  // // flexible-column is on the left
-  // @if nth($new-columns, 1) == null or nth($new-columns, 1) == 'auto' {
-
-  //   @for $i from 1 through length($new-columns) {
-  //     > #{nth($selector-list, nth($positions, $i))} {
-
-  //       @if ($i == 1) {
-  //         // float: left;
-  //         // margin-right: -100%;
-  //         // padding-right: #{(nth($new-columns, 2) + nth($new-columns, 3) + $gutter * 2)});
-  //         float: $float;
-  //         margin: get-TRBL(opposite($float) -100%);
-  //         padding: get-TRBL(opposite($float) (nth($new-columns, 2) + nth($new-columns, 3) + $gutter-ie8 * 2));
-  //         width: 100%;
-  //         z-index: 0;
-
-  //       } @else {
-  //         // float: right;
-  //         float: opposite($float);
-  //         width: nth($new-columns, $i);
-  //         padding: 0; 
-  //         z-index: 1;
-
-  //         @if $i == 2 {
-  //           // margin-left: -100%;
-  //           // margin-right: (nth($new-columns, 3) + $gutter);
-  //           margin: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float -100%);
-  //         } @else {
-  //           // margin-left: -100%;
-  //           margin: get-TRBL($float -100%);
-  //         }
-
-  //       }
-  //     }
-  //   }
-
-  // // flexible-column is on the middle
-  // } @else if nth($new-columns, 2) == null or nth($new-columns, 2) == 'auto' {
-
-  //   @for $i from 1 through length($new-columns) {
-  //     > #{nth($selector-list, nth($positions, $i))} {
-
-  //       @if ($i == 3) {
-  //         // float: right;
-  //         // margin-left: -100%;
-  //         float: opposite($float);
-  //         width: nth($new-columns, $i);
-  //         margin: get-TRBL($float -100%);
-  //         padding: 0; 
-  //         z-index: 1;
-
-  //       } @else {
-  //         // float: left;
-  //         float: $float;
-
-  //         @if $i == 2 {
-  //           // padding-left: #{(nth($new-columns, 1) + $gutter)};
-  //           // padding-right: #{(nth($new-columns, 3) + $gutter)};
-  //           // margin-right: -100%;
-  //           // margin-left: #{(nth($new-columns, 1) + $gutter)};
-  //           width: 100%;
-  //           padding: get-TRBL(opposite($float) (nth($new-columns, 3) + $gutter-ie8) $float (nth($new-columns, 1) + $gutter-ie8));
-  //           margin: get-TRBL(opposite($float) -100%);
-  //           z-index: 0;
-
-  //         } @else {
-  //           // margin-right: -100%;
-  //           width: nth($new-columns, $i);
-  //           margin: get-TRBL(opposite($float) -100%);
-  //           padding: 0; 
-  //           z-index: 1;
-  //         }
-  //       }
-  //     }
-  //   }
-
-  // // flexible-column is on the right
-  // } @else if nth($new-columns, 3) == null or nth($new-columns, 3) == 'auto' {
-
-  //   @for $i from 1 through length($new-columns) {
-  //     > #{nth($selector-list, nth($positions, $i))} {
-
-  //       @if ($i == 3) {
-  //         // float: right;
-  //         // margin-left: -100%;
-  //         // padding-left: (nth($new-columns, 1) + nth($new-columns, 2) + $gutter * 2);
-  //         float: opposite($float);
-  //         width: 100%;
-  //         margin: get-TRBL($float -100%);
-  //         padding: get-TRBL($float (nth($new-columns, 1) + nth($new-columns, 2) + $gutter-ie8 * 2));
-  //         z-index: 0;
-
-  //       } @else {
-  //         // float: left;
-  //         float: $float;
-  //         width: nth($new-columns, $i);
-  //         padding: 0; 
-  //         z-index: 1;
-
-  //         @if $i == 2 {
-  //           // margin-left: #{(nth($new-columns, 1) + $gutter)};
-  //           // margin-right: -100%;
-  //           margin: get-TRBL(opposite($float) -100% $float (nth($new-columns, 1) + $gutter-ie8));
-  //         } @else {
-  //           // margin-right: -100%;
-  //           margin: get-TRBL(opposite($float) -100%);
-  //         }
-
-  //       }
-  //     }
-  //   }
-  // }
 }

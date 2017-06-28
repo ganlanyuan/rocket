@@ -2,7 +2,7 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/holy-grail"; 
 
-$holy-grail-list1: ('auto' 100px 250px : 2 1 3);
+$holy-grail-list1: ( 100px 'auto' 250px : 2 1 3) 'gutter' 2em;
 // $holy-grail-list1: ('auto' 100px 250px);
 $holy-grail-list2: (100px 'auto' 250px);
 $holy-grail-list3: (100px 250px 'auto');

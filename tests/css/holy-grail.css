@@ -231,7 +231,7 @@ p {
 }
 
 .holy-grail-list1:before {
-  content: '( "auto" 100px 250px : 2 1 3 )';
+  content: '( ( 100px "auto" 250px : 2 1 3 ) "gutter"  2em  )';
 }
 
 .holy-grail-list1 > div:after {
@@ -242,19 +242,23 @@ p {
 
 .holy-grail-list1 > div > div:nth-child(1) {
   float: left;
-  width: -webkit-calc(100% - 100px - 250px - 40px);
-  width: -moz-calc(100% - 100px - 250px - 40px);
-  width: calc(100% - 100px - 250px - 40px);
-  margin-left: 20px;
+  width: 100px;
+  margin-left: 2em;
   position: relative;
-  left: 100px;
+  left: -webkit-calc(100% - 100px - 250px - 4em);
+  left: -moz-calc(100% - 100px - 250px - 4em);
+  left: calc(100% - 100px - 250px - 4em);
 }
 
 .holy-grail-list1 > div > div:nth-child(2) {
   float: left;
-  width: 100px;
+  width: -webkit-calc(100% - 100px - 250px - 4em);
+  width: -moz-calc(100% - 100px - 250px - 4em);
+  width: calc(100% - 100px - 250px - 4em);
   position: relative;
-  left: calc(-100% + 100px + 250px + 20px);
+  left: -webkit-calc(-100px - 2em);
+  left: -moz-calc(-100px - 2em);
+  left: calc(-100px - 2em);
 }
 
 .holy-grail-list1 > div > div:nth-child(3) {

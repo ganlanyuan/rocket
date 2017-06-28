@@ -144,9 +144,7 @@
       // set width
       @if nth($columns, $i) == 'auto' {
         @if $gutter == 0 { $gutter: 0px; }
-        width: -webkit-calc(100% - #{$sidebar} - #{$gutter});
-        width: -moz-calc(100% - #{$sidebar} - #{$gutter});
-        width: calc(100% - #{$sidebar} - #{$gutter});
+        @include get-calc('width', 100% - #{$sidebar} - #{$gutter});
       } @else {
         width: $sidebar;
       }
