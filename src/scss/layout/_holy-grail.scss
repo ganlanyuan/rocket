@@ -125,14 +125,9 @@
   } 
 
   // get positions based on order
-  // (2 1): the second column on the left
-  // (1 2): the first column on the left
+  // (2 1 3): the 2nd column on the left
+  // (3 1 2): the 3rd column on the left
   $positions: get-position-from-order($order);
-
-  // $new-columns: ();
-  // @for $i from 1 through 3 {
-  //   $new-columns: append($new-columns, nth($columns, nth($positions, $i)));
-  // }
 
   // loop through columns
   @for $i from 1 through length($columns) {
@@ -159,29 +154,65 @@
       @if $gutter == 0 { $gutter: 0px; }
 
       // set width
+      // regardless of their positions
       @if nth($columns, $i) == 'auto' {
-        @if $gutter == 0 { $gutter: 0px; }
-        width: -webkit-calc(100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2});
-        width: -moz-calc(100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2});
-        width: calc(100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2});
+        $width: 100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2};
+
+        // combine same unit items
+        @if unit(nth($sidebars, 1)) == unit(nth($sidebars, 2)) {
+          @if unit(nth($sidebars, 1)) == unit($gutter) or $gutter == 0 {
+            $width: 100% - #{nth($sidebars, 1) + nth($sidebars, 2) + $gutter * 2};
+          } @else if unit($gutter) == '%' {
+            $width: (100% - $gutter * 2) - #{nth($sidebars, 1) + nth($sidebars, 2)};
+          } @else {
+            $width: 100% - #{nth($sidebars, 1) + nth($sidebars, 2)} - #{$gutter * 2};
+          }
+        } @else if unit($gutter) == '%' {
+          $width: (100% - $gutter * 2) - #{nth($sidebars, 1)} - #{nth($sidebars, 2)};
+        }
+
+        // @if $gutter == 0 { $gutter: 0px; }
+        @include get-calc('width', $width);
       } @else {
         width: nth($columns, $i);
       }
 
-      // set margin
+      // set margin on the middle column
+      // margin on the left if the 1st one float left, otherwise right
       @if nth($positions, 2) == $i {
         $fl: if($i == 1 or nth($positions, 1) == 1, $float, opposite($float));
         margin-#{$fl}: $gutter;
       }
 
-      // switch columns when the 1st column is in the middle
+      // switch columns 
+      // when the 1st column is in the middle
       // b a c
       // c a b
       @if nth($positions, 2) == 1 {
         $auto-plus: 100% - #{nth($sidebars, 1)} - #{nth($sidebars, 2)} - #{$gutter * 2};
+        // auto-minus: - auto-plus - gutter
+        // because of the 2nd column has a margin-left: gutter
         $auto-minus: -100% + #{nth($sidebars, 1)} + #{nth($sidebars, 2)} + #{$gutter};
         $col1: nth($columns, nth($positions, 1));
         $col2: nth($columns, 1);
+
+        // combine same unit items
+        @if unit(nth($sidebars, 1)) == unit(nth($sidebars, 2)) {
+          @if unit(nth($sidebars, 1)) == unit($gutter) or $gutter == 0 {
+            $auto-plus: 100% - #{nth($sidebars, 1) + nth($sidebars, 2) + $gutter * 2};
+            $auto-minus: -100% + #{nth($sidebars, 1) + nth($sidebars, 2) + $gutter};
+          } @else if unit($gutter) == '%' {
+            $auto-plus: (100% - $gutter * 2) - #{nth($sidebars, 1) + nth($sidebars, 2)};
+            $auto-minus: ($gutter - 100%) + #{nth($sidebars, 1) + nth($sidebars, 2)};
+          } @else {
+            $auto-plus: 100% - #{nth($sidebars, 1) + nth($sidebars, 2)} - #{$gutter * 2};
+            $auto-minus: -100% + #{nth($sidebars, 1) + nth($sidebars, 2)} + #{$gutter};
+          }
+        } @else if unit($gutter) == '%' {
+          $auto-plus: (100% - $gutter * 2) - #{nth($sidebars, 1)} - #{nth($sidebars, 2)};
+          $auto-minus: ($gutter - 100%) + #{nth($sidebars, 1)} + #{nth($sidebars, 2)};
+        }
+
         @if $i == 1 {
           position: relative;
           @if $col1 == 'auto' {

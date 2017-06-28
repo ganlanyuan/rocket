@@ -2,106 +2,36 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/holy-grail"; 
 
-$holy-grail-list1: ( 100px 'auto' 250px : 2 1 3) 'gutter' 2em;
-// $holy-grail-list1: ('auto' 100px 250px);
-$holy-grail-list2: (100px 'auto' 250px);
-$holy-grail-list3: (100px 250px 'auto');
-$holy-grail-order1: (100px:2, 'auto':0, 250px:0);
-$holy-grail-order2: (100px:2, 'auto':1, 250px:0);
-$holy-grail-order3: (100px:2, 'auto':3, 250px:2);
-$holy-grail-RTL: (('auto' 100px 250px) 'RTL');
-$holy-grail-child1: (('auto' 100px 250px) 'selector' '.child');
-$holy-grail-child2: ((100px 'auto' 250px) 'selector' ('nav' 'main' 'aside'));
-$holy-grail-gutter-0px: (('auto' 100px 250px) 'gutter' 0px);
-$holy-grail-gutter-sameunit: (('auto' 100px 250px) 'gutter' 40px);
-$holy-grail-gutter-percentage: (('auto' 100px 250px) 'gutter' 3%);
-$holy-grail-gutter-differentunit: (('auto' 100px 250px) 'gutter' 3rem);
-$holy-grail-breakpoint: ((900px: (100px:2, 'auto':0, 250px:0)));
-$holy-grail-breakpoint-conditions: ((900px: (100px:2, 'auto':1, 250px:0)) 'max' 'screen');
-$holy-grail-global-breakpoints: ((
-  'default': (100px:2, 'auto':1, 250px:0),
-  'sm': (100px:0, 'auto':1, 250px:2),
-  'lg': (100px:2, 'auto':1, 250px:0),
-) $global-bps );
+$options: (
+  'holy-grail-list1': ('auto' 100px 250px),
+  'holy-grail-list2': (100px 'auto' 250px),
+  'holy-grail-list3': (100px 250px 'auto'),
+  'holy-grail-order1': (100px:1, 'auto':3, 250px:2),
+  'holy-grail-order2': (100px 'auto' 250px : 3 2 1),
+  'holy-grail-order3': (100px 'auto' 250px : 3 1 2),
+  'holy-grail-order4': (100px 'auto' 250px : 2 1 3),
+  'holy-grail-order5': (100px 'auto' 250px : 2 3 1),
+  'holy-grail-order6': ('auto' 100px 250px : 2 1 3),
+  'holy-grail-RTL': (('auto' 100px 250px) 'RTL'),
+  'holy-grail-selector1': (('auto' 100px 250px) 'selector' '.order'),
+  'holy-grail-selector2': ((100px 'auto' 250px) 'selector' ('nav' 'main' 'aside')),
+  'holy-grail-gutter-0px': (('auto' 100px 250px) 'gutter' 0px),
+  'holy-grail-gutter-sameunit': (('auto' 100px 250px) 'gutter' 40px),
+  'holy-grail-gutter-percentage': (('auto' 100px 250px) 'gutter' 3%),
+  'holy-grail-gutter-differentunit': (('auto' 10em 250px) 'gutter' 3rem),
+  'holy-grail-breakpoint': ((900px: (100px:2, 'auto':0, 250px:0))),
+  'holy-grail-breakpoint-conditions': ((900px: (100px:2, 'auto':1, 250px:0)) 'max' 'screen'),
+  'holy-grail-global-breakpoints': ((
+    'default': (100px:2, 'auto':1, 250px:0),
+    'sm': (100px:0, 'auto':1, 250px:2),
+    'lg': (100px:2, 'auto':1, 250px:0),
+  ) $global-bps ),
+);
 
-
-.holy-grail-list1 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-list1)}'; }
-  > div { @include holy-grail($holy-grail-list1); }
-}
-.holy-grail-list2 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-list2)}'; }
-  > div { @include holy-grail($holy-grail-list2); }
-}
-.holy-grail-list3 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-list3)}'; }
-  > div { @include holy-grail($holy-grail-list3); }
-}
-.holy-grail-order1 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-order1)}'; }
-  > div { @include holy-grail($holy-grail-order1); }
-}
-.holy-grail-order2 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-order2)}'; }
-  > div { @include holy-grail($holy-grail-order2); }
-}
-.holy-grail-order3 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-order3)}'; }
-  > div { @include holy-grail($holy-grail-order3); }
-}
-.holy-grail-RTL {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-RTL)}'; }
-  > div { @include holy-grail($holy-grail-RTL); }
-}
-.holy-grail-child1 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-child1)}'; }
-  > div { @include holy-grail($holy-grail-child1); }
-}
-.holy-grail-child2 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-child2)}'; }
-  > div { @include holy-grail($holy-grail-child2); }
-}
-.holy-grail-gutter-0px {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-gutter-0px)}'; }
-  > div { @include holy-grail($holy-grail-gutter-0px); }
-}
-.holy-grail-gutter-sameunit {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-gutter-sameunit)}'; }
-  > div { @include holy-grail($holy-grail-gutter-sameunit); }
-}
-.holy-grail-gutter-percentage {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-gutter-percentage)}'; }
-  > div { @include holy-grail($holy-grail-gutter-percentage); }
-}
-.holy-grail-gutter-differentunit {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-gutter-differentunit)}'; }
-  > div { @include holy-grail($holy-grail-gutter-differentunit); }
-}
-.holy-grail-breakpoint {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-breakpoint)}'; }
-  > div { @include holy-grail($holy-grail-breakpoint); }
-}
-.holy-grail-breakpoint-conditions {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-breakpoint-conditions)}'; }
-  > div { @include holy-grail($holy-grail-breakpoint-conditions); }
-}
-.holy-grail-global-breakpoints {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($holy-grail-global-breakpoints)}'; }
-  > div { @include holy-grail($holy-grail-global-breakpoints); }
+@each $name, $option in $options {
+  .#{$name} {
+    @extend %demo-show;
+    &:before { content: '#{var-to-string($option)}'; }
+    > div { @include holy-grail($option); }
+  }
 }

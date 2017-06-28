@@ -3,117 +3,21 @@
 
 {% block main %}
   <div class="ovh">
-    <div class="holy-grail-list1 demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
+    {% set demos = ['holy-grail-list1', 'holy-grail-list2', 'holy-grail-list3', 'holy-grail-order1', 'holy-grail-order2', 'holy-grail-order3', 'holy-grail-order4', 'holy-grail-order5', 'holy-grail-order6', 'holy-grail-RTL', 'holy-grail-selector1', 'holy-grail-selector2', 'holy-grail-gutter-0px', 'holy-grail-gutter-sameunit', 'holy-grail-gutter-percentage', 'holy-grail-gutter-differentunit', 'holy-grail-breakpoint', 'holy-grail-breakpoint-conditions', 'holy-grail-global-breakpoints'] %}
+    {% for demo in demos %}
+      <div class="{{ demo }} demo-container">
+        <div data-margin="">
+          {% if demo === 'holy-grail-selector2' %}
+            <nav class="order"><div class="cell" data-content=""></div></nav>
+            <main class="order"><div class="cell" data-content=""></div></main>
+            <aside class="order"><div class="cell" data-content=""></div></aside>
+          {% else %}
+            <div class="order"><div class="cell" data-content=""></div></div>
+            <div class="order"><div class="cell" data-content=""></div></div>
+            <div class="order"><div class="cell" data-content=""></div></div>
+          {% endif %}
+        </div>
       </div>
-    </div>
-    <div class="holy-grail-list2 demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-list3 demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-order1 demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-order2 demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-order3 demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-RTL demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-child1 demo-container">
-      <div data-margin="">
-        <div class="order child"><div class="cell" data-content=""></div></div>
-        <div class="order child"><div class="cell" data-content=""></div></div>
-        <div class="order child"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-child2 demo-container">
-      <div data-margin="">
-        <nav class="order"><div class="cell" data-content=""></div></nav>
-        <main class="order"><div class="cell" data-content=""></div></main>
-        <aside class="order"><div class="cell" data-content=""></div></aside>
-      </div>
-    </div>
-    <div class="holy-grail-gutter-0px demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-gutter-sameunit demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-gutter-percentage demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-gutter-differentunit demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-breakpoint demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-breakpoint-conditions demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
-    <div class="holy-grail-global-breakpoints demo-container">
-      <div data-margin="">
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-        <div class="order"><div class="cell" data-content=""></div></div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 {% endblock %}
