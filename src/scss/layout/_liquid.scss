@@ -144,7 +144,16 @@
       // set width
       @if nth($columns, $i) == 'auto' {
         @if $gutter == 0 { $gutter: 0px; }
-        @include get-calc('width', 100% - #{$sidebar} - #{$gutter});
+        $width: 100% - #{$sidebar} - #{$gutter};
+
+        // combine same unit items
+        @if unit($sidebar) == unit($gutter) {
+          $width: 100% - #{$sidebar + $gutter};
+        } @else if unit($gutter) == '%' {
+          $width: (100% - $gutter) - #{$sidebar};
+        }
+
+        @include get-calc('width', $width);
       } @else {
         width: $sidebar;
       }
