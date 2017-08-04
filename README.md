@@ -2,12 +2,11 @@
 
 ![Version](https://img.shields.io/badge/Version-4.0.0-beta12-blue.svg)   
 Rocket is a powerful Sass framework with many common used components and utility functions, to help you build websites faster and easier.    
-Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top>](http://www.browserstack.com/) for giving the access to test this project.  
 
 #### What's new in version 4
 - Simplify layout mixins (remove flex-box, IE8 classes).  
-- Rename `liquid-2` to `liquid`, `liquid-3` to `holy-grail`.
-- Remove CSS sliders (`slider-carousel`, `slider-gallery`), `sticky-footer`, `type`, `responsive-type`, `opacity`, `ie-rgba`, `media-list`.
+- Rename `liquid-2` => `liquid`, `liquid-3` => `holy-grail`.
+- Remove `slider-carousel`, `slider-gallery`, `sticky-footer`, `priority-nav`, `type`, `responsive-type`, `opacity`, `ie-rgba`, `media-list`.
 <!-- - Add acceessibility support. -->
 - Remove kit.js.
 - Drop IE8 support.
@@ -23,16 +22,19 @@ Great thanks to [BrowserStack Team <img src="https://avatars0.githubusercontent.
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 ```
 
-# Install
+#### Install
 
 ```` bash
 $ bower install rocket --save
 $ npm install rocket-sass --save
 ````
 
-# Docs
+#### Docs
 [Guide](https://ganlanyuan.github.io/rocket.site/v4/guide.html)  
 [Docs](https://ganlanyuan.github.io/rocket.site/v4/docs.html)  
 
-# License
+#### Supports
+[<img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top> BrowserStack](http://www.browserstack.com/)   
+
+#### License
 This project is available under the MIT license.
