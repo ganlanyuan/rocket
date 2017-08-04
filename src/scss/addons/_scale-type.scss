@@ -1,0 +1,24 @@
+@mixin scale-type($key: (1em 1.15)) {
+  $font-base: 1em;
+  $font-scale: 1.15;
+  $tags: ('h6', 'h5', 'h4', 'h3', 'h2', 'h1');
+
+  @each $item in $key {
+    @if type-of($item) == 'list' {
+      $tags: $item;
+    } @else if type-of($item) == 'number' {
+
+      @if unitless($item) {
+        $font-scale: $item;
+      } @else {
+        $font-base: $item;
+      }
+    }
+  }
+
+  @if length($tags) > 0 {
+    @for $i from length($tags) through 1 {
+      #{nth($tags, $i)} { font-size: $font-base * power($font-scale, ($i - 1)); }
+    }
+  }
+}
