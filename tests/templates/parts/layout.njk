@@ -32,7 +32,9 @@
 </head>
 <body>
 	<div class="{{ 'container' if page !== 'container' }}">
-		<h2 class="main-heading">{{ page | title }}</h2>
+		{% if page !== 'index' %}
+			<h2 class="main-heading">{{ page | title }}</h2>
+		{% endif %}
 		
 		{% block main %}
 		{% endblock %}

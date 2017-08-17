@@ -2,6 +2,17 @@
 {% extends 'parts/layout.njk' %}
 
 {% block main %}
+  {# search bar #}
+  <input type="text" list="components" id="searchbar" autocomplete="" autofocus="" placeholder="press '/' to start search or clear the text">
+  <datalist id="components">
+    {% for name, content in tree %}
+      {% for item in content %}
+        <option value="{{ item }}">
+      {% endfor %}
+    {% endfor %}
+  </datalist>
+
+  {# contents #}
   {% for name, content in tree %}
     <section>
       <h3>{{ name | title }}</h3>
@@ -12,4 +23,32 @@
       </ul>
     </section>
   {% endfor %}
+
+  <script>
+    var searchbar = document.querySelector('#searchbar');
+    // click the target link when press 'Enter' on search bar
+    if (searchbar.addEventListener) {
+      searchbar.addEventListener('keydown', function (e) {
+        if (e.keyCode && e.keyCode === 13) {
+          var val = searchbar.value,
+              el = document.querySelector('[href="' + val + '.html"]');
+          if (el) { el.click(); }
+        }
+      });
+    }
+    // remove the content when press '/'
+    searchbar.addEventListener('keyup', function (e) {
+      if (e.keyCode && e.keyCode === 191) {
+        searchbar.value = '';
+      }
+    });
+
+    // press '/' to focus on the search bar
+    document.addEventListener('keydown', function (e) {
+      if (e.keyCode && e.keyCode === 191) {
+        searchbar.focus();
+        // searchbar.value = '';
+      }
+    });
+  </script>
 {% endblock %}

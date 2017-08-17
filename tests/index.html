@@ -29,9 +29,74 @@
   </head>
   <body>
     <div class="container">
-      <h2 class="main-heading">
-        Index
-      </h2>
+      <input type="text" list="components" id="searchbar" autocomplete="" autofocus="" placeholder="press '/' to start search or clear the text"> <datalist id="components">
+        <option value="container">
+        </option>
+        <option value="grid">
+        </option>
+        <option value="gallery">
+        </option>
+        <option value="liquid">
+        </option>
+        <option value="holy-grail">
+        </option>
+        <option value="masonry">
+        </option>
+        <option value="metro">
+        </option>
+        <option value="angled-edges">
+        </option>
+        <option value="justify">
+        </option>
+        <option value="center">
+        </option>
+        <option value="diamond">
+        </option>
+        <option value="button">
+        </option>
+        <option value="accordion">
+        </option>
+        <option value="chart">
+        </option>
+        <option value="checkbox">
+        </option>
+        <option value="drop-shadow">
+        </option>
+        <option value="dropdown">
+        </option>
+        <option value="flex-media">
+        </option>
+        <option value="input-file">
+        </option>
+        <option value="off-canvas">
+        </option>
+        <option value="parallelogram">
+        </option>
+        <option value="push-toggle">
+        </option>
+        <option value="responsive-table">
+        </option>
+        <option value="switch">
+        </option>
+        <option value="tab">
+        </option>
+        <option value="tooltip">
+        </option>
+        <option value="validation">
+        </option>
+        <option value="breakpoint">
+        </option>
+        <option value="color-functions">
+        </option>
+        <option value="hide-text">
+        </option>
+        <option value="quantity-query">
+        </option>
+        <option value="fluid-type">
+        </option>
+        <option value="scale-type">
+        </option>
+      </datalist>
       <section>
         <h3>
           Layout
@@ -152,6 +217,33 @@
           </li>
         </ul>
       </section>
+      <script>
+      var searchbar = document.querySelector('#searchbar');
+      // click the target link when press 'Enter' on search bar
+      if (searchbar.addEventListener) {
+      searchbar.addEventListener('keydown', function (e) {
+        if (e.keyCode && e.keyCode === 13) {
+          var val = searchbar.value,
+              el = document.querySelector('[href="' + val + '.html"]');
+          if (el) { el.click(); }
+        }
+      });
+      }
+      // remove the content when press '/'
+      searchbar.addEventListener('keyup', function (e) {
+      if (e.keyCode && e.keyCode === 191) {
+        searchbar.value = '';
+      }
+      });
+
+      // press '/' to focus on the search bar
+      document.addEventListener('keydown', function (e) {
+      if (e.keyCode && e.keyCode === 191) {
+        searchbar.focus();
+        // searchbar.value = '';
+      }
+      });
+      </script>
     </div>
   </body>
 </html>
