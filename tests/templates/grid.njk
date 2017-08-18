@@ -1,123 +1,51 @@
 {% set page = 'grid' %}
 {% extends 'parts/layout.njk' %}
 
+{% macro box(number) %}
+  <div data-margin>
+    {% for i in range(1, number + 1) %}
+      <div class="order"><div class="example-content cell" data-content></div></div>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="example ovh">
-    <div class="grid-list demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
+    {% for item, number in {
+      'list': 2,
+      'child': 2,
+      'gutter1': 2,
+      'gutter2': 2,
+      'list-direction': 2,
+      'nested-list': 3,
+      'map': 4,
+      'breakpoint': 2,
+      'breakpoint-outside': 2,
+      'global-breakpoints': 2,
+      'breakpoint-max': 2,
+      'breakpoint-nested-list': 5,
+      'breakpoint-map': 5,
+      'breakpoint-default': 2,
+      'breakpoint-complex-list': 5
+    } %}
 
-    <div class="grid-child demo-container">
-      <div data-margin>
-        <main class="child order"><div class="example-content cell" data-content></div></main>
-        <aside class="child order"><div class="example-content cell" data-content></div></aside>
-      </div>
-    </div>
+      <div class="grid-{{ item }} demo-container">
 
-    <div class="grid-gutter1 demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
+        {% if item === 'child' %}
+        <div data-margin>
+          <main class="child order"><div class="example-content cell" data-content></div></main>
+          <aside class="child order"><div class="example-content cell" data-content></div></aside>
+        </div>
+        {% else %}
+        {{ box(number) }}
+        {% endif %}
 
-    <div class="grid-gutter2 demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
+        <pre><code class="language-scss">
+          {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+        </code></pre>
       </div>
-    </div>
 
-    <div class="grid-list-direction demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-nested-list demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-map demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-breakpoint demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-breakpoint-outside demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-global-breakpoints demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-breakpoint-max demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-breakpoint-nested-list demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-breakpoint-map demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-
-    <div class="grid-breakpoint-default demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
-    
-    <div class="grid-breakpoint-complex-list demo-container">
-      <div data-margin>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-        <div class="order"><div class="example-content cell" data-content></div></div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 {% endblock %}

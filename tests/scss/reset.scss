@@ -47,3 +47,9 @@ input:focus,
 select:focus,
 textarea:focus {outline: 0; }
 button { border: none; }
+
+// reset prism.css
+pre[class*="language-"] {
+  margin: 0;
+  border-radius: 0;
+}

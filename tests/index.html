@@ -17,6 +17,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet"><!-- javascript --><!--[if (lt IE 9)]>
                 <script src="js/html5.js"></script>
@@ -218,32 +219,90 @@
         </ul>
       </section>
       <script>
+      (function() {
+      if (!Element.prototype.addEventListener) {
+        var eventListeners=[];
+        
+        var addEventListener=function(type,listener /*, useCapture (will be ignored) */) {
+          var self=this;
+          var wrapper=function(e) {
+            e.target=e.srcElement;
+            e.currentTarget=self;
+            if (typeof listener.handleEvent != "undefined") {
+              listener.handleEvent(e);
+            } else {
+              listener.call(self,e);
+            }
+          };
+          if (type=="DOMContentLoaded") {
+            var wrapper2=function(e) {
+              if (document.readyState=="complete") {
+                wrapper(e);
+              }
+            };
+            document.attachEvent("onreadystatechange",wrapper2);
+            eventListeners.push({object:this,type:type,listener:listener,wrapper:wrapper2});
+            
+            if (document.readyState=="complete") {
+              var e=new Event();
+              e.srcElement=window;
+              wrapper2(e);
+            }
+          } else {
+            this.attachEvent("on"+type,wrapper);
+            eventListeners.push({object:this,type:type,listener:listener,wrapper:wrapper});
+          }
+        };
+        var removeEventListener=function(type,listener /*, useCapture (will be ignored) */) {
+          var counter=0;
+          while (counter<eventListeners.length) {
+            var eventListener=eventListeners[counter];
+            if (eventListener.object==this && eventListener.type==type && eventListener.listener==listener) {
+              if (type=="DOMContentLoaded") {
+                this.detachEvent("onreadystatechange",eventListener.wrapper);
+              } else {
+                this.detachEvent("on"+type,eventListener.wrapper);
+              }
+              eventListeners.splice(counter, 1);
+              break;
+            }
+            ++counter;
+          }
+        };
+        Element.prototype.addEventListener=addEventListener;
+        Element.prototype.removeEventListener=removeEventListener;
+        if (HTMLDocument) {
+          HTMLDocument.prototype.addEventListener=addEventListener;
+          HTMLDocument.prototype.removeEventListener=removeEventListener;
+        }
+        if (Window) {
+          Window.prototype.addEventListener=addEventListener;
+          Window.prototype.removeEventListener=removeEventListener;
+        }
+      }
+      })();
+
       var searchbar = document.querySelector('#searchbar');
       // click the target link when press 'Enter' on search bar
-      if (searchbar.addEventListener) {
       searchbar.addEventListener('keydown', function (e) {
-        if (e.keyCode && e.keyCode === 13) {
-          var val = searchbar.value,
-              el = document.querySelector('[href="' + val + '.html"]');
-          if (el) { el.click(); }
-        }
-      });
+      if (e.keyCode && e.keyCode === 13) {
+        var val = searchbar.value,
+            el = document.querySelector('[href="' + val + '.html"]');
+            
+        if (el) { el.click(); }
       }
+      });
       // remove the content when press '/'
       searchbar.addEventListener('keyup', function (e) {
-      if (e.keyCode && e.keyCode === 191) {
-        searchbar.value = '';
-      }
+      if (e.keyCode && e.keyCode === 191) { searchbar.value = ''; }
       });
 
       // press '/' to focus on the search bar
       document.addEventListener('keydown', function (e) {
-      if (e.keyCode && e.keyCode === 191) {
-        searchbar.focus();
-        // searchbar.value = '';
-      }
+      if (e.keyCode && e.keyCode === 191) { searchbar.focus(); }
       });
       </script>
     </div>
+    <script src="js/prism.js"></script>
   </body>
 </html>

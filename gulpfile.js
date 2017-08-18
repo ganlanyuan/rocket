@@ -74,26 +74,34 @@ gulp.task('server', function() {
   });
 
   // scss to njk
-  gulp.watch([docsTemplates + 'code/scss/*.scss'], function (e) {
+  gulp.watch([tests + 'scss/*.scss'], function (e) {
     if (e.type !== 'deleted') {
       return gulp.src(e.path)
         .pipe($.change(function(content) {
           return content.replace(/(\/\/=>\s+)/g, '');
         }))
-        .pipe($.rename({extname: '.njk'}))
-        .pipe(gulp.dest(docsTemplates + 'code'));
+        .pipe($.rename(function (path) {
+          path.basename += "-code";
+          path.extname = '.njk';
+        }))
+        .pipe(gulp.dest(testsTemplates + 'code'));
     }
   });
 
   // njk to html
-  gulp.watch([docsTemplates + '**/*.njk', docsTemplates + 'code/*.json', testsTemplates + '**/*.njk'], function (e) {
+  gulp.watch([testsTemplates + '**/*.njk'], function (e) {
     if (e.type !== 'deleted') {
       let src, data, dest, dir = path.dirname(e.path);
 
-      if (path.extname(e.path) === '.json') {
-        src = dir.replace('/code', '') + '/*.njk';
+      // if (path.extname(e.path) === '.json') {
+      //   src = dir.replace('/code', '') + '/*.njk';
+      // }
+      if (dir.indexOf('parts') >= 0) {
+        src = dir.replace('/parts', '') + '*.njk';
+      } else if(dir.indexOf('/code') >= 0 ) {
+        src = e.path.replace('/code', '').replace('-code', '');
       } else {
-        src = (dir.indexOf('parts') === -1) ? e.path : dir.replace('parts', '') + '*.njk';
+        src = e.path;
       }
 
       if (e.path.indexOf('docs/') !== -1) {
