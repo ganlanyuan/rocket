@@ -2,36 +2,36 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/gallery"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "num" %}
+{% elif componentName === "num" %}
 .num > ul { @include gallery(3); }
 
-//=> {% elif componentName === "num-0px" %}
+{% elif componentName === "num-0px" %}
 .num-0px > ul { @include gallery(3 'gutter' 0px); }
 
-//=> {% elif componentName === "child" %}
+{% elif componentName === "child" %}
 .child > div { @include gallery(4 'selector' 'div'); }
 
-//=> {% elif componentName === "direction" %}
+{% elif componentName === "direction" %}
 .direction > ul { @include gallery(4 'RTL'); }
 
-//=> {% elif componentName === "center-align" %}
+{% elif componentName === "center-align" %}
 .center-align > ul { @include gallery(3 'center-align'); }
 
-//=> {% elif componentName === "percentage-gutter" %}
+{% elif componentName === "percentage-gutter" %}
 .percentage-gutter > ul { @include gallery(4 'gutter' 5%); }
 
-//=> {% elif componentName === "rem-gutter" %}
+{% elif componentName === "rem-gutter" %}
 .rem-gutter > ul { @include gallery(5 'gutter' 2rem); }
 
-//=> {% elif componentName === "map" %}
+{% elif componentName === "map" %}
 .map > ul { @include gallery((
   'default': 2, 
   600px: 3, 
   900px: 4
 )); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

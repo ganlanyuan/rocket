@@ -214,11 +214,6 @@ p {
   margin-bottom: 5px;
 }
 
-[class*='grid-'] {
-  height: auto;
-  margin-bottom: 50px;
-}
-
 [class*='grid-'] .cell {
   margin-bottom: 20px;
 }

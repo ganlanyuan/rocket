@@ -1,28 +1,26 @@
 {% set page = 'masonry' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <div class="ovh">
-    <div class="masonry-number demo-container">
+  {% for item in [
+    'masonry-number',
+    'masonry-child',
+    'masonry-0px',
+    'masonry-percentage-gutter',
+    'masonry-condition',
+    'masonry-breakpoints',
+    'masonry-global-breakpoints'
+  ] %}
+    
+    <div class="{{ item }}">
       <ul>{% include './parts/masonry-content.njk' %}</ul>
+
+      {# code #}
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+      </code></pre>
     </div>
-    <div class="masonry-child demo-container">
-      <ul>{% include './parts/masonry-content.njk' %}</ul>
-    </div>
-    <div class="masonry-0px demo-container">
-      <ul>{% include './parts/masonry-content.njk' %}</ul>
-    </div>
-    <div class="masonry-percentage-gutter demo-container">
-      <ul>{% include './parts/masonry-content.njk' %}</ul>
-    </div>
-    <div class="masonry-condition demo-container">
-      <ul>{% include './parts/masonry-content.njk' %}</ul>
-    </div>
-    <div class="masonry-breakpoints demo-container">
-      <ul>{% include './parts/masonry-content.njk' %}</ul>
-    </div>
-    <div class="masonry-global-breakpoints demo-container">
-      <ul>{% include './parts/masonry-content.njk' %}</ul>
-    </div>
-  </div>
+
+  {% endfor %}
 {% endblock %}

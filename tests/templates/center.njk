@@ -1,12 +1,16 @@
 {% set page = 'center' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <div class="example example-center" data-margin>
+  <div class="center" data-margin>
     <main>
       <img src="http://images.christianpost.com/blog/full/32249/joyce.jpg?w=200&h=170" alt="">
       <h4>We Make America Great</h4>
       <p>Take a break from politics and visit a community celebration. You’ll see neighbors working together showcasing local bounty. This is the real America—where citizens build strong communities because they care. </p>
     </main>
   </div>
+  <pre><code class="language-scss">
+    {%- filter trim %}{{ fn.get('center') }}{% endfilter -%}
+  </code></pre>
 {% endblock %}

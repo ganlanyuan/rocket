@@ -2,35 +2,35 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/container"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "default" %}
+{% elif componentName === "default" %}
 .default > div { @include container(); }
 
-//=> {% elif componentName === "px-left" %}
+{% elif componentName === "px-left" %}
 .px-left > div { @include container(900px left); }
 
-//=> {% elif componentName === "px-right" %}
+{% elif componentName === "px-right" %}
 .px-right > div { @include container(900px right); }
 
-//=> {% elif componentName === "px-px" %}
+{% elif componentName === "px-px" %}
 .px-px > div { @include container(900px gutter 30px); }
 
-//=> {% elif componentName === "px-0px" %}
+{% elif componentName === "px-0px" %}
 .px-0px > div { @include container(900px gutter 0px); }
 
-//=> {% elif componentName === "em" %}
+{% elif componentName === "em" %}
 .em > div { @include container(56.25em); }
 
-//=> {% elif componentName === "em-px" %}
+{% elif componentName === "em-px" %}
 .em-px > div { @include container(56.25em gutter 20px); }
 
-//=> {% elif componentName === "percentage" %}
+{% elif componentName === "percentage" %}
 .percentage > div { @include container(80%); }
 
-//=> {% elif componentName === "percentage-px" %}
+{% elif componentName === "percentage-px" %}
 .percentage-px > div { @include container(80% gutter 30px); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

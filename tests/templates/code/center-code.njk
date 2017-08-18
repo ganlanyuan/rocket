@@ -2,10 +2,10 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/center"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "center" %}
+{% elif componentName === "center" %}
 .center { 
   @include center('main');
 
@@ -25,5 +25,5 @@
   }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

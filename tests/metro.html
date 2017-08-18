@@ -33,116 +33,129 @@
       <h2 class="main-heading">
         Metro
       </h2>
-      <div class="ovh">
-        <div class="metro-list demo-container">
-          <ul data-margin="">
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
-        <div class="metro-list-0px demo-container">
-          <ul data-margin="">
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
-        <div class="metro-child demo-container">
-          <ul data-margin="">
-            <li class="child">
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li class="child">
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li class="child">
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
-        <div class="metro-ratio demo-container">
-          <ul data-margin="">
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
-        <div class="metro-breakpoint demo-container">
-          <ul data-margin="">
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
-        <div class="metro-breakpoint-condition demo-container">
-          <ul data-margin="">
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
-        <div class="metro-global-breakpoints demo-container">
-          <ul data-margin="">
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-            <li>
-              <div class="metro-item" data-content=""></div>
-            </li>
-          </ul>
-        </div>
+      <div class="metro-list">
+        <ul data-margin="">
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-list &gt; ul { @include metro((w1 w3 h2 w4 of 5) 'gutter' 10px); }</code></pre>
+      </div>
+      <div class="metro-list-0px">
+        <ul data-margin="">
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-list-0px &gt; ul { @include metro((w1 w3 h2 w4 of 5) 'gutter' 0px); }</code></pre>
+      </div>
+      <div class="metro-child">
+        <ul data-margin="">
+          <li class="child">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="child">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="child">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-child &gt; ul { @include metro((w2h3 w3h1 w3h2 of 5) 'selector' '.child' 'gutter' 5%); }</code></pre>
+      </div>
+      <div class="metro-ratio">
+        <ul data-margin="">
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-ratio &gt; ul { @include metro((w1 w3 w3 w1 of 4) 'ratio' (9/16) 'gutter' 10px); }</code></pre>
+      </div>
+      <div class="metro-breakpoint">
+        <ul data-margin="">
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-breakpoint &gt; ul { @include metro((
+  600px: w6h1 w2h2 w4h2 of 6
+) 'gutter' 10px); }</code></pre>
+      </div>
+      <div class="metro-breakpoint-condition">
+        <ul data-margin="">
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-breakpoint-condition &gt; ul { @include metro((
+  900px: w2h2 w2 w2 of 4
+) 'gutter' 10px 'max' 'screen'); }</code></pre>
+      </div>
+      <div class="metro-global-breakpoints">
+        <ul data-margin="">
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+          <li class="">
+            <div class="metro-item" data-content=""></div>
+          </li>
+        </ul>
+        <pre><code class="language-scss">.metro-global-breakpoints &gt; ul { @include metro((
+  'default': w6 w2 w4 of 6, 
+  'sm': w2h3 w4 w4h2 of 6, 
+  'md': w3h2 w3 w3 of 6
+) $global-bps 'gutter' 10px); }</code></pre>
       </div>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>

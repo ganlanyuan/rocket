@@ -33,53 +33,60 @@
       <h2 class="main-heading">
         Container
       </h2>
-      <div class="ovh">
-        <div class="default demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="px-left demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="px-right demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="px-px demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="px-0px demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="em demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="em-px demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="percentage demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
-        </div>
-        <div class="percentage-px demo-container">
-          <div data-margin="">
-            <div class="cell" data-content=""></div>
-          </div>
+      <div class="default">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
         </div>
       </div>
+      <pre><code class="language-scss">.default &gt; div { @include container(); }</code></pre>
+      <div class="px-left">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.px-left &gt; div { @include container(900px left); }</code></pre>
+      <div class="px-right">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.px-right &gt; div { @include container(900px right); }</code></pre>
+      <div class="px-px">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.px-px &gt; div { @include container(900px gutter 30px); }</code></pre>
+      <div class="px-0px">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.px-0px &gt; div { @include container(900px gutter 0px); }</code></pre>
+      <div class="em">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.em &gt; div { @include container(56.25em); }</code></pre>
+      <div class="em-px">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.em-px &gt; div { @include container(56.25em gutter 20px); }</code></pre>
+      <div class="percentage">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.percentage &gt; div { @include container(80%); }</code></pre>
+      <div class="percentage-px">
+        <div data-margin="">
+          <div class="cell" data-content=""></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.percentage-px &gt; div { @include container(80% gutter 30px); }</code></pre>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>
       </div>

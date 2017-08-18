@@ -2,10 +2,7 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/grid"; 
 
-[class*='grid-'] {
-  @extend %demo-show;
-  .cell { margin-bottom: 20px; }
-}
+[class*='grid-'] .cell { margin-bottom: 20px; }
 
 //=> {% macro get(componentName) %}
 //=> {% if componentName === "xxx" %}

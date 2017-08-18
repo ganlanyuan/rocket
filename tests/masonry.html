@@ -33,65 +33,64 @@
       <h2 class="main-heading">
         Masonry
       </h2>
-      <div class="ovh">
-        <div class="masonry-number demo-container">
-          <ul>
-            <li class="masonry-item">
+      <div class="masonry-number">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -137,66 +136,67 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
-        <div class="masonry-child demo-container">
-          <ul>
-            <li class="masonry-item">
+        </ul>
+        <pre><code class="language-scss">.masonry-number &gt; ul { @include masonry(3); }</code></pre>
+      </div>
+      <div class="masonry-child">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -242,66 +242,67 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
-        <div class="masonry-0px demo-container">
-          <ul>
-            <li class="masonry-item">
+        </ul>
+        <pre><code class="language-scss">.masonry-child &gt; ul { @include masonry(4 'selector' '.masonry-item'); }</code></pre>
+      </div>
+      <div class="masonry-0px">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -347,66 +348,67 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
-        <div class="masonry-percentage-gutter demo-container">
-          <ul>
-            <li class="masonry-item">
+        </ul>
+        <pre><code class="language-scss">.masonry-0px &gt; ul { @include masonry(4 'gutter' 0px); }</code></pre>
+      </div>
+      <div class="masonry-percentage-gutter">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -452,66 +454,67 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
-        <div class="masonry-condition demo-container">
-          <ul>
-            <li class="masonry-item">
+        </ul>
+        <pre><code class="language-scss">.masonry-percentage-gutter &gt; ul { @include masonry(4 'gutter' 3%); }</code></pre>
+      </div>
+      <div class="masonry-condition">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -557,66 +560,67 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
-        <div class="masonry-breakpoints demo-container">
-          <ul>
-            <li class="masonry-item">
+        </ul>
+        <pre><code class="language-scss">.masonry-condition &gt; ul { @include masonry((900px: 3) 'max'); }</code></pre>
+      </div>
+      <div class="masonry-breakpoints">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -662,66 +666,70 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
-        <div class="masonry-global-breakpoints demo-container">
-          <ul>
-            <li class="masonry-item">
+        </ul>
+        <pre><code class="language-scss">.masonry-breakpoints &gt; ul { @include masonry((
+  600px: 2, 
+  900px: 3
+)); }</code></pre>
+      </div>
+      <div class="masonry-global-breakpoints">
+        <ul>
+          <li class="masonry-item">
+            <div>
               <div>
-                <div>
-                  <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
-                </div>
+                <img class="cluster-img" src="http://www.freeimageslive.com/galleries/food/fruitveg/preview/mange_toutes.jpg" alt="">
               </div>
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
-                </h3>
-                <p>
-                  I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Delegate Count Leaving Bernie Sanders With Steep Climb
-                </h3>
-                <p>
-                  Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  The Party of Bush Yields, Warily, to a New Face: Donald Trump
-                </h3>
-                <p>
-                  Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
-                </p>
-              </div>
-            </li>
-            <li class="masonry-item">
-              <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
-            </li>
-            <li class="masonry-item">
-              <div class="masonry-content">
-                <h3>
-                  Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
-                </h3>
-                <p>
-                  Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
-                </p>
-              </div>
-            </li><!-- <li class="masonry-item">
+            </div>
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Jeb Bush Bows Out of Campaign, Humbled and Outmaneuvered
+              </h3>
+              <p>
+                I don’t remember Justice Scalia’s ever missing an argument in my eight years of covering the Supreme Court. He must have been recused occasionally, or sick, or stuck somewhere given his near-constant travels. But I can’t imagine what a Supreme Court argument will be like without him.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/nature/coastline/preview/stones2131.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Delegate Count Leaving Bernie Sanders With Steep Climb
+              </h3>
+              <p>
+                Carl Hulse is the chief Washington correspondent of The Times. He has covered Congress and Washington politics for more than three decades.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/sports/sportsgames/preview/soccer_ball.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                The Party of Bush Yields, Warily, to a New Face: Donald Trump
+              </h3>
+              <p>
+                Adam Liptak has covered the Supreme Court for The Times since 2008. He’s a Yale-educated lawyer who practiced law for 14 years before becoming a journalist.
+              </p>
+            </div>
+          </li>
+          <li class="masonry-item">
+            <img src="http://www.freeimageslive.com/galleries/backdrops/colourful/pics/puzzel1002.jpg" alt="">
+          </li>
+          <li class="masonry-item">
+            <div class="masonry-content">
+              <h3>
+                Pivotal Nursing Home Suit Raises a Simple Question: Who Signed the Contract?
+              </h3>
+              <p>
+                Keep everything secret. That’s the biggest thing the White House will try to do this week during its consideration of a replacement for Justice Scalia on the Supreme Court.
+              </p>
+            </div>
+          </li><!-- <li class="masonry-item">
   <img src="http://www.freeimageslive.com/galleries/objects/watch/preview/wall_clock.jpg" alt="">
 </li>
 <li class="masonry-item">
@@ -767,8 +775,11 @@
 </li>
 <li class="masonry-item"><img src="http://www.freeimageslive.com/galleries/space/moon/pics/a11_h_37_5545.gif" alt=""></li>
  -->
-          </ul>
-        </div>
+        </ul>
+        <pre><code class="language-scss">.masonry-global-breakpoints &gt; ul { @include masonry((
+  'sm': 2, 
+  'md': 3
+) $global-bps); }</code></pre>
       </div>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>

@@ -34,7 +34,7 @@
         Liquid
       </h2>
       <div class="ovh">
-        <div class="liquid-list demo-container">
+        <div class="liquid-list">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -43,8 +43,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-list &gt; div { @include liquid('auto' 200px); }</code></pre>
         </div>
-        <div class="liquid-order demo-container">
+        <div class="liquid-order">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -53,8 +54,12 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-order &gt; div { @include liquid((
+  'auto': 2, 
+  200px: 1
+)); }</code></pre>
         </div>
-        <div class="liquid-RTL demo-container">
+        <div class="liquid-RTL">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -63,8 +68,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-RTL &gt; div { @include liquid(('auto' 200px) 'RTL'); }</code></pre>
         </div>
-        <div class="liquid-selector1 demo-container">
+        <div class="liquid-selector1">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -73,8 +79,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-selector1 &gt; div { @include liquid(('auto' 200px) 'selector' '.order'); }</code></pre>
         </div>
-        <div class="liquid-selector2 demo-container">
+        <div class="liquid-selector2">
           <div data-margin="">
             <main class="order">
               <div class="cell" data-content=""></div>
@@ -83,8 +90,9 @@
               <div class="cell" data-content=""></div>
             </aside>
           </div>
+          <pre><code class="language-scss">.liquid-selector2 &gt; div { @include liquid(('auto' 200px) 'selector' ('main' 'aside')); }</code></pre>
         </div>
-        <div class="liquid-gutter-0px demo-container">
+        <div class="liquid-gutter-0px">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -93,8 +101,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-gutter-0px &gt; div { @include liquid(('auto' 200px) 'gutter' 0px); }</code></pre>
         </div>
-        <div class="liquid-gutter-sameunit demo-container">
+        <div class="liquid-gutter-sameunit">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -103,8 +112,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-gutter-sameunit &gt; div { @include liquid(('auto' 200px) 'gutter' 4rem); }</code></pre>
         </div>
-        <div class="liquid-gutter-percentage demo-container">
+        <div class="liquid-gutter-percentage">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -113,8 +123,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-gutter-percentage &gt; div { @include liquid(('auto' 200px) 'gutter' 3%); }</code></pre>
         </div>
-        <div class="liquid-gutter-differentunit demo-container">
+        <div class="liquid-gutter-differentunit">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -123,8 +134,9 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-gutter-differentunit &gt; div { @include liquid(('auto' 12.5em) 'gutter' 3rem); }</code></pre>
         </div>
-        <div class="liquid-breakpoint demo-container">
+        <div class="liquid-breakpoint">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -133,8 +145,11 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-breakpoint &gt; div { @include liquid((
+  750px: (150px:1, 'auto':0)
+)); }</code></pre>
         </div>
-        <div class="liquid-breakpoint-max demo-container">
+        <div class="liquid-breakpoint-max">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -143,8 +158,11 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-breakpoint-max &gt; div { @include liquid((
+  750px: (150px:1, 'auto':0)
+) 'max' 'screen'); }</code></pre>
         </div>
-        <div class="liquid-global-breakpoints demo-container">
+        <div class="liquid-global-breakpoints">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -153,6 +171,11 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
+          <pre><code class="language-scss">.liquid-global-breakpoints &gt; div { @include liquid((
+  'default': (150px 'auto'),
+  'sm': (150px:1, 'auto':0),
+  'md': (150px:0, 'auto':1)
+) $global-bps ); }</code></pre>
         </div>
       </div>
       <div class="back-to-home">

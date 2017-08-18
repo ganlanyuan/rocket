@@ -1,34 +1,24 @@
 {% set page = 'container' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <div class="ovh">
-    <div class="default demo-container">
+  {% for item in [
+    'default',
+    'px-left',
+    'px-right',
+    'px-px',
+    'px-0px',
+    'em',
+    'em-px',
+    'percentage',
+    'percentage-px'
+  ] %}
+    <div class="{{ item }}">
       <div data-margin=""><div class="cell" data-content=""></div></div>
     </div>
-    <div class="px-left demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="px-right demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="px-px demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="px-0px demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="em demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="em-px demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="percentage demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-    <div class="percentage-px demo-container">
-      <div data-margin=""><div class="cell" data-content=""></div></div>
-    </div>
-  </div>
+    <pre><code class="language-scss">
+      {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+    </code></pre>
+  {% endfor %}
 {% endblock %}

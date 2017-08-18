@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,13 +214,13 @@ p {
   margin-bottom: 5px;
 }
 
-.example-center {
-  height: 400px;
+.center {
   text-align: center;
   white-space: nowrap;
+  height: 400px;
 }
 
-.example-center:before {
+.center:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -245,14 +228,14 @@ p {
   margin-right: -.25em;
 }
 
-.example-center > main {
+.center > main {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
-  text-align: "left";
+  text-align: left;
 }
 
-.example-center > main {
+.center > main {
   background: #fff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   max-width: 640px;
@@ -260,18 +243,12 @@ p {
   box-sizing: border-box;
 }
 
-.example-center > main:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.example-center > main img {
+.center > main img {
   float: left;
   margin-right: 20px;
   margin-bottom: 10px;
 }
 
-.example-center > main p {
+.center > main p {
   color: #000;
 }

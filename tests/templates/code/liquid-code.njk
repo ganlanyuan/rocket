@@ -2,55 +2,55 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/liquid"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "liquid-list" %}
+{% elif componentName === "liquid-list" %}
 .liquid-list > div { @include liquid('auto' 200px); }
 
-//=> {% elif componentName === "liquid-order" %}
+{% elif componentName === "liquid-order" %}
 .liquid-order > div { @include liquid((
   'auto': 2, 
   200px: 1
 )); }
 
-//=> {% elif componentName === "liquid-RTL" %}
+{% elif componentName === "liquid-RTL" %}
 .liquid-RTL > div { @include liquid(('auto' 200px) 'RTL'); }
 
-//=> {% elif componentName === "liquid-selector1" %}
+{% elif componentName === "liquid-selector1" %}
 .liquid-selector1 > div { @include liquid(('auto' 200px) 'selector' '.order'); }
 
-//=> {% elif componentName === "liquid-selector2" %}
+{% elif componentName === "liquid-selector2" %}
 .liquid-selector2 > div { @include liquid(('auto' 200px) 'selector' ('main' 'aside')); }
 
-//=> {% elif componentName === "liquid-gutter-0px" %}
+{% elif componentName === "liquid-gutter-0px" %}
 .liquid-gutter-0px > div { @include liquid(('auto' 200px) 'gutter' 0px); }
 
-//=> {% elif componentName === "liquid-gutter-sameunit" %}
+{% elif componentName === "liquid-gutter-sameunit" %}
 .liquid-gutter-sameunit > div { @include liquid(('auto' 200px) 'gutter' 4rem); }
 
-//=> {% elif componentName === "liquid-gutter-percentage" %}
+{% elif componentName === "liquid-gutter-percentage" %}
 .liquid-gutter-percentage > div { @include liquid(('auto' 200px) 'gutter' 3%); }
 
-//=> {% elif componentName === "liquid-gutter-differentunit" %}
+{% elif componentName === "liquid-gutter-differentunit" %}
 .liquid-gutter-differentunit > div { @include liquid(('auto' 12.5em) 'gutter' 3rem); }
 
-//=> {% elif componentName === "liquid-breakpoint" %}
+{% elif componentName === "liquid-breakpoint" %}
 .liquid-breakpoint > div { @include liquid((
   750px: (150px:1, 'auto':0)
 )); }
 
-//=> {% elif componentName === "liquid-breakpoint-max" %}
+{% elif componentName === "liquid-breakpoint-max" %}
 .liquid-breakpoint-max > div { @include liquid((
   750px: (150px:1, 'auto':0)
 ) 'max' 'screen'); }
 
-//=> {% elif componentName === "liquid-global-breakpoints" %}
+{% elif componentName === "liquid-global-breakpoints" %}
 .liquid-global-breakpoints > div { @include liquid((
   'default': (150px 'auto'),
   'sm': (150px:1, 'auto':0),
   'md': (150px:0, 'auto':1)
 ) $global-bps ); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

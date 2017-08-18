@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,30 +214,30 @@ p {
   margin-bottom: 5px;
 }
 
-.example-justify {
+.justify {
   text-align: justify;
 }
 
-.example-justify:after {
+.justify:after {
   content: '';
   display: inline-block;
   width: 100%;
 }
 
-.example-justify > li {
+.justify > li {
   display: inline-block;
 }
 
-.example-justify li {
+.justify li {
   font-size: 13px;
   text-transform: uppercase;
 }
 
-.example-justify a {
+.justify a {
   display: block;
 }
 
-.example-justify input {
+.justify input {
   padding: 0 0.8em;
   line-height: 2.4;
   height: 2.4em;
@@ -265,6 +248,6 @@ p {
   transition: width 0.3s;
 }
 
-.example-justify input:focus {
+.justify input:focus {
   width: 250px;
 }

@@ -1,62 +1,35 @@
 {% set page = 'metro' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <div class="ovh">
-    <div class="metro-list demo-container">
+  {% for item in [
+    'metro-list',
+    'metro-list-0px',
+    'metro-child',
+    'metro-ratio',
+    'metro-breakpoint',
+    'metro-breakpoint-condition',
+    'metro-global-breakpoints'
+  ] %}
+    
+    <div class="{{ item }}">
       <ul data-margin>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
+        {% if item === 'metro-child' %}
+          {% set number = 4 %}
+        {% else %}
+          {% set number = 5 %}
+        {% endif %}
+
+        {% for i in range(1, number) %}
+          <li class="{{ 'child' if item === 'metro-child' }}"><div class="metro-item" data-content></div></li>
+        {% endfor %}
       </ul>
+
+      {# code #}
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+      </code></pre>
     </div>
-    <div class="metro-list-0px demo-container">
-      <ul data-margin>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-      </ul>
-    </div>
-    <div class="metro-child demo-container">
-      <ul data-margin>
-        <li class="child"><div class="metro-item" data-content></div></li>
-        <li class="child"><div class="metro-item" data-content></div></li>
-        <li class="child"><div class="metro-item" data-content></div></li>
-      </ul>
-    </div>
-    <div class="metro-ratio demo-container">
-      <ul data-margin>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-      </ul>
-    </div>
-    <div class="metro-breakpoint demo-container">
-      <ul data-margin>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-      </ul>
-    </div>
-    <div class="metro-breakpoint-condition demo-container">
-      <ul data-margin>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-      </ul>
-    </div>
-    <div class="metro-global-breakpoints demo-container">
-      <ul data-margin>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-        <li><div class="metro-item" data-content></div></li>
-      </ul>
-    </div>
-  </div>
+  {% endfor %}
 {% endblock %}

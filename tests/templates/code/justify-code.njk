@@ -2,14 +2,14 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/justify"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "justify" %}
+{% elif componentName === "justify" %}
 .justify { @include justify('li'); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 .justify {
   li {

@@ -2,20 +2,20 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/angled-edge"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "bottom" %}
+{% elif componentName === "bottom" %}
 .bottom { @include angled-edge('bottom' 5deg #B9E2FF); }
 
-//=> {% elif componentName === "both" %}
+{% elif componentName === "both" %}
 .both { @include angled-edge('both' 5deg 'flip' #B9E2FF #FBDBF6); }
 
-//=> {% elif componentName === "top" %}
+{% elif componentName === "top" %}
 .top { @include angled-edge('top' -5deg #FBDBF6); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 // other styles
 .example-angled-edge {

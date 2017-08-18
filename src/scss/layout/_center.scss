@@ -1,7 +1,7 @@
 @mixin center($key: '*'){
-  $check: ('left' 'right' 'center' 'selector');
+  $check: (left right center 'selector');
   $selector: args-get-type($key, 'string', $check);
-  $align: args-get($key, ('left' 'right' 'center'), 'left');
+  $align: args-get($key, (left right center), left);
   
   
   text-align: center; 

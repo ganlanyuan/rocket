@@ -11,41 +11,39 @@
 
 {% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <div class="example ovh">
-    {% for item, number in {
-      'list': 2,
-      'child': 2,
-      'gutter1': 2,
-      'gutter2': 2,
-      'list-direction': 2,
-      'nested-list': 3,
-      'map': 4,
-      'breakpoint': 2,
-      'breakpoint-outside': 2,
-      'global-breakpoints': 2,
-      'breakpoint-max': 2,
-      'breakpoint-nested-list': 5,
-      'breakpoint-map': 5,
-      'breakpoint-default': 2,
-      'breakpoint-complex-list': 5
-    } %}
-
-      <div class="grid-{{ item }} demo-container">
-
-        {% if item === 'child' %}
-        <div data-margin>
-          <main class="child order"><div class="example-content cell" data-content></div></main>
-          <aside class="child order"><div class="example-content cell" data-content></div></aside>
-        </div>
-        {% else %}
-        {{ box(number) }}
-        {% endif %}
-
-        <pre><code class="language-scss">
-          {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
-        </code></pre>
+  {% for item, number in {
+    'list': 2,
+    'child': 2,
+    'gutter1': 2,
+    'gutter2': 2,
+    'list-direction': 2,
+    'nested-list': 3,
+    'map': 4,
+    'breakpoint': 2,
+    'breakpoint-outside': 2,
+    'global-breakpoints': 2,
+    'breakpoint-max': 2,
+    'breakpoint-nested-list': 5,
+    'breakpoint-map': 5,
+    'breakpoint-default': 2,
+    'breakpoint-complex-list': 5
+  } %}
+  
+    <div class="grid-{{ item }}">
+  
+      {% if item === 'child' %}
+      <div data-margin>
+        <main class="child order"><div class="example-content cell" data-content></div></main>
+        <aside class="child order"><div class="example-content cell" data-content></div></aside>
       </div>
-
-    {% endfor %}
-  </div>
+      {% else %}
+      {{ box(number) }}
+      {% endif %}
+  
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+      </code></pre>
+    </div>
+  
+  {% endfor %}
 {% endblock %}
