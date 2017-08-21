@@ -1,13 +1,13 @@
 @mixin angled-edge ($key) {
-  $edge: args-get($key, ('top', 'bottom', 'both'), 'bottom');
+  $edge: args-get($key, (top, bottom, 'both'), bottom);
   $flip: args-get($key, 'flip');
   $view: 1800px;
 
   // set selector
   $selector: '&:before, &:after';
-  @if $edge == 'top' {
+  @if $edge == top {
     $selector: '&:before';
-  } @else if $edge == 'bottom' {
+  } @else if $edge == bottom {
     $selector: '&:after';
   }
 
@@ -59,9 +59,9 @@
     border: 0px solid transparent;
   }
 
-  @if $edge == 'top' or $edge == 'bottom' {
+  @if $edge == top or $edge == bottom {
     $dir: right;
-    @if $edge == 'bottom' { $dir: left; }
+    @if $edge == bottom { $dir: left; }
 
     padding-#{$edge}: edge-tan($angle1, 100%);
     #{$selector} {

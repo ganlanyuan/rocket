@@ -3,32 +3,32 @@
 @import "../../src/scss/layout/center"; 
 @import "../../src/scss/layout/diamond"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "diamond-count" %}
+{% elif componentName === "diamond-count" %}
 .diamond-count > div { @include diamond(3 'shape' 'diamond'); }
 
-//=> {% elif componentName === "diamond-count-combined" %}
+{% elif componentName === "diamond-count-combined" %}
 .diamond-count-combined > div { @include diamond(3 'shape' 'diamond' 'tight'); }
 
-//=> {% elif componentName === "diamond-size" %}
+{% elif componentName === "diamond-size" %}
 .diamond-size > div { @include diamond(25%); }
 
-//=> {% elif componentName === "diamond-breakpoints" %}
+{% elif componentName === "diamond-breakpoints" %}
 .diamond-breakpoints > div { @include diamond((
   600px:3, 
   800px:4
 ) 'shape' 'diamond'); }
 
-//=> {% elif componentName === "octagon-count" %}
+{% elif componentName === "octagon-count" %}
 .octagon-count > div { @include diamond(4 'shape' 'octagon'); }
 
-//=> {% elif componentName === "octagon-size" %}
+{% elif componentName === "octagon-size" %}
 .octagon-size > div { @include diamond(300px 'shape' 'octagon'); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 .container { max-width: 900px; }
 .demo:after {

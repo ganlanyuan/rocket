@@ -2,7 +2,7 @@
   $style: args-get($key, ('display' 'scale' 'rotate'), 'display');
   $selector: args-get-next($key, 'selector', 'ul');
   $activate: args-get($key, ('hover' 'click'), 'hover');
-  $direction: args-get($key, ('left' 'right'));
+  $direction: args-get($key, (left right));
   $duration: args-get-type($key, 'number', false, 0.3s);
   $default: args-get($key, 'default');
 

@@ -4,7 +4,7 @@
   $gutter: args-get-next($key, 'gutter', $global-gutter);
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
-  $align: args-get($key, ('left' 'right' 'center'), 'center');
+  $align: args-get($key, (left right center), center);
 
   // get container & gutter
   @if type-of($key) == 'number' {

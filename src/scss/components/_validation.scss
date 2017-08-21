@@ -1,6 +1,6 @@
 @mixin validation($key: ()){
   $style: args-get($key, ('normal' 'fade-in' 'slide-in'), 'normal');
-  $direction: args-get($key, ('left' 'right' 'top' 'bottom'), 'right');
+  $direction: args-get($key, (left right top bottom), right);
   $shake: args-get($key, 'shake');
   $speed: args-get-next($key, 'speed', 0.3s);
   $duration: args-get-next($key, 'duration', 1.3s);

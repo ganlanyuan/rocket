@@ -1,6 +1,6 @@
 @mixin drop-shadow($key){
   $style: args-get($key, ('lifted' 'raised' 'perspective' 'curve'), 'lifted');
-  $direction: args-get($key, ('left' 'right' 'top' 'bottom' 'horizontal' 'vertical'), 'bottom');
+  $direction: args-get($key, (left right top bottom 'horizontal' 'vertical'), bottom);
   $color: args-get-type($key, 'color', false, rgba(0, 0, 0, 0.6));
   $shadow-size: args-get-type($key, 'number', false, 10px);
 

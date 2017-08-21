@@ -1,6 +1,6 @@
 @mixin off-canvas($key) {
   $style: args-get($key, ('slide-in' 'slide-along' 'slide-out' 'rotate-in' 'rotate-out' 'rotate-in-reverse' 'scale-down' 'scale-up' 'open-door' 'push' 'reveal' 'drawer'), 'slide-in');
-  $direction: args-get($key, ('left' 'right' 'top' 'bottom'), 'left');
+  $direction: args-get($key, (left right top bottom), left);
   $submenu: args-get($key, 'submenu');
   $inside: args-get($key, 'inside');
   $page: args-get-next($key, 'page', '.page');
