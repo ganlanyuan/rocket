@@ -1,9 +1,10 @@
 {% set page = 'chart' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="chart-wrap">
-    <h4>Sales report</h4>
+    <h4>Bar Chart</h4>
     <div class="chart chart1">
       <ul class="items">
         <li class="item-1">
@@ -42,9 +43,12 @@
         <div class="label-1">sales</div>
       </div>
     </div>
+    <pre><code class="language-scss">
+      {%- filter trim %}{{ fn.get('chart1') }}{% endfilter -%}
+    </code></pre>
   </div>
   <div class="chart-wrap">
-    <h4>Sales report</h4>
+    <h4>Column Chart</h4>
     <div class="chart chart2">
       <ul class="items">
         <li class="item-1">
@@ -93,6 +97,9 @@
         <div class="label-3">profit</div>
       </div>
     </div>
+    <pre><code class="language-scss">
+      {%- filter trim %}{{ fn.get('chart2') }}{% endfilter -%}
+    </code></pre>
   </div>
   <script>
   window.onload = function () {

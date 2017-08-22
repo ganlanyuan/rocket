@@ -35,7 +35,7 @@
       </h2>
       <div class="chart-wrap">
         <h4>
-          Sales report
+          Bar Chart
         </h4>
         <div class="chart chart1">
           <ul class="items">
@@ -99,10 +99,13 @@
             </div>
           </div>
         </div>
+        <pre><code class="language-scss">.chart1 { @include chart((
+  #FF6666: 8.9 10.5 19.3 21.45
+) 'bar' 'steps' (2 22) 'animation' (0.6s)); }</code></pre>
       </div>
       <div class="chart-wrap">
         <h4>
-          Sales report
+          Column Chart
         </h4>
         <div class="chart chart2">
           <ul class="items">
@@ -172,6 +175,11 @@
             </div>
           </div>
         </div>
+        <pre><code class="language-scss">.chart2 { @include chart((
+  #0080FF: 8.9 10.5 19.3 21.45,
+  #FF8000: 5 10 16 22,
+  #666666: 10.7 12 12 18
+) 'column' 'steps' (2 24) 'animation' (0.6s)); }</code></pre>
       </div>
       <script>
       window.onload = function () {
