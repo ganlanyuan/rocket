@@ -1,14 +1,14 @@
 @import 'demo-base';
 @import "../../src/scss/components/parallelogram"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "parallelogram" %}
+{% elif componentName === "parallelogram" %}
 .parallelogram a { @include parallelogram(#1C6493 -20deg); }
 
-//=> {% endif %}
-//=> {% endmacro %}}
+{% endif %}
+{% endmacro %}}
 
 .parallelogram { 
   text-align: center;

@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -296,61 +279,61 @@ th {
 }
 
 @media (max-width: 56.1875em) {
-  .scroll-wrapper {
+  .scroll {
     position: relative;
   }
-  .scroll-wrapper > .pinned {
+  .scroll > .pinned {
     position: absolute;
     width: auto;
     background-color: #fff;
   }
-  .scroll-wrapper > .pinned th:nth-child(n+2), .scroll-wrapper > .pinned td:nth-child(n+2) {
+  .scroll > .pinned th:nth-child(n+2), .scroll > .pinned td:nth-child(n+2) {
     display: none;
   }
-  .scroll-wrapper > .scrollable {
+  .scroll > .scrollable {
     display: block;
     overflow-x: auto;
   }
-  .scroll-wrapper > .scrollable th, .scroll-wrapper > .scrollable td {
+  .scroll > .scrollable th, .scroll > .scrollable td {
     white-space: nowrap;
   }
-  .lt-ie10 .scroll-wrapper > .pinned {
+  .lt-ie10 .scroll > .pinned {
     display: none;
   }
-  .lt-ie10 .scroll-wrapper > .scrollable {
+  .lt-ie10 .scroll > .scrollable {
     display: table;
   }
-  .lt-ie10 .scroll-wrapper > .scrollable th, .lt-ie10 .scroll-wrapper > .scrollable td {
+  .lt-ie10 .scroll > .scrollable th, .lt-ie10 .scroll > .scrollable td {
     white-space: normal;
   }
-  .scroll-wrapper .scrollable {
+  .scroll .scrollable {
     border-right-width: 1px;
   }
-  .scroll-wrapper .scrollable th:last-child, .scroll-wrapper .scrollable td:last-child {
+  .scroll .scrollable th:last-child, .scroll .scrollable td:last-child {
     border-right-width: 0;
   }
-  .lt-ie10 .scroll-wrapper .scrollable {
+  .lt-ie10 .scroll .scrollable {
     border-right-width: 0;
   }
-  .lt-ie10 .scroll-wrapper .scrollable th:last-child, .lt-ie10 .scroll-wrapper .scrollable td:last-child {
+  .lt-ie10 .scroll .scrollable th:last-child, .lt-ie10 .scroll .scrollable td:last-child {
     border-right-width: 1px;
   }
 }
 
-.toggle-wrapper {
+.toggle {
   overflow-x: auto;
 }
 
-.toggle-wrapper input {
+.toggle input {
   position: absolute;
   left: -9999px;
 }
 
-.toggle-wrapper label {
+.toggle label {
   font-size: 14px;
 }
 
-.toggle-wrapper .control-panel {
+.toggle .control-panel {
   position: absolute;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   border: 1px solid #dbdbdb;
@@ -359,104 +342,104 @@ th {
   display: none;
 }
 
-.toggle-wrapper .control-panel label {
+.toggle .control-panel label {
   display: block;
   padding: 0.5em 1.2em;
   transition: background 0.3s;
 }
 
-.toggle-wrapper .control-panel label:hover {
+.toggle .control-panel label:hover {
   background-color: #f2f2f2;
 }
 
 @media (min-width: 56.25em) {
-  .toggle-wrapper input ~ label {
+  .toggle input ~ label {
     display: none;
   }
 }
 
 @media (max-width: 56.1875em) {
-  .toggle-wrapper table {
+  .toggle table {
     margin-top: 0.5em;
   }
-  .toggle-wrapper th, .toggle-wrapper td {
+  .toggle th, .toggle td {
     display: none;
   }
-  .toggle-wrapper #control-panel:checked ~ .control-panel {
+  .toggle #control-panel:checked ~ .control-panel {
     display: block;
   }
-  .toggle-wrapper input:nth-of-type(1):checked ~ .control-panel label:nth-of-type(1) {
+  .toggle input:nth-of-type(1):checked ~ .control-panel label:nth-of-type(1) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(1):checked ~ table th:nth-of-type(1),
-  .toggle-wrapper input:nth-of-type(1):checked ~ table td:nth-of-type(1) {
+  .toggle input:nth-of-type(1):checked ~ table th:nth-of-type(1),
+  .toggle input:nth-of-type(1):checked ~ table td:nth-of-type(1) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(2):checked ~ .control-panel label:nth-of-type(2) {
+  .toggle input:nth-of-type(2):checked ~ .control-panel label:nth-of-type(2) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(2):checked ~ table th:nth-of-type(2),
-  .toggle-wrapper input:nth-of-type(2):checked ~ table td:nth-of-type(2) {
+  .toggle input:nth-of-type(2):checked ~ table th:nth-of-type(2),
+  .toggle input:nth-of-type(2):checked ~ table td:nth-of-type(2) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(3):checked ~ .control-panel label:nth-of-type(3) {
+  .toggle input:nth-of-type(3):checked ~ .control-panel label:nth-of-type(3) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(3):checked ~ table th:nth-of-type(3),
-  .toggle-wrapper input:nth-of-type(3):checked ~ table td:nth-of-type(3) {
+  .toggle input:nth-of-type(3):checked ~ table th:nth-of-type(3),
+  .toggle input:nth-of-type(3):checked ~ table td:nth-of-type(3) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(4):checked ~ .control-panel label:nth-of-type(4) {
+  .toggle input:nth-of-type(4):checked ~ .control-panel label:nth-of-type(4) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(4):checked ~ table th:nth-of-type(4),
-  .toggle-wrapper input:nth-of-type(4):checked ~ table td:nth-of-type(4) {
+  .toggle input:nth-of-type(4):checked ~ table th:nth-of-type(4),
+  .toggle input:nth-of-type(4):checked ~ table td:nth-of-type(4) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(5):checked ~ .control-panel label:nth-of-type(5) {
+  .toggle input:nth-of-type(5):checked ~ .control-panel label:nth-of-type(5) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(5):checked ~ table th:nth-of-type(5),
-  .toggle-wrapper input:nth-of-type(5):checked ~ table td:nth-of-type(5) {
+  .toggle input:nth-of-type(5):checked ~ table th:nth-of-type(5),
+  .toggle input:nth-of-type(5):checked ~ table td:nth-of-type(5) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(6):checked ~ .control-panel label:nth-of-type(6) {
+  .toggle input:nth-of-type(6):checked ~ .control-panel label:nth-of-type(6) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(6):checked ~ table th:nth-of-type(6),
-  .toggle-wrapper input:nth-of-type(6):checked ~ table td:nth-of-type(6) {
+  .toggle input:nth-of-type(6):checked ~ table th:nth-of-type(6),
+  .toggle input:nth-of-type(6):checked ~ table td:nth-of-type(6) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(7):checked ~ .control-panel label:nth-of-type(7) {
+  .toggle input:nth-of-type(7):checked ~ .control-panel label:nth-of-type(7) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(7):checked ~ table th:nth-of-type(7),
-  .toggle-wrapper input:nth-of-type(7):checked ~ table td:nth-of-type(7) {
+  .toggle input:nth-of-type(7):checked ~ table th:nth-of-type(7),
+  .toggle input:nth-of-type(7):checked ~ table td:nth-of-type(7) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(8):checked ~ .control-panel label:nth-of-type(8) {
+  .toggle input:nth-of-type(8):checked ~ .control-panel label:nth-of-type(8) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(8):checked ~ table th:nth-of-type(8),
-  .toggle-wrapper input:nth-of-type(8):checked ~ table td:nth-of-type(8) {
+  .toggle input:nth-of-type(8):checked ~ table th:nth-of-type(8),
+  .toggle input:nth-of-type(8):checked ~ table td:nth-of-type(8) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(9):checked ~ .control-panel label:nth-of-type(9) {
+  .toggle input:nth-of-type(9):checked ~ .control-panel label:nth-of-type(9) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(9):checked ~ table th:nth-of-type(9),
-  .toggle-wrapper input:nth-of-type(9):checked ~ table td:nth-of-type(9) {
+  .toggle input:nth-of-type(9):checked ~ table th:nth-of-type(9),
+  .toggle input:nth-of-type(9):checked ~ table td:nth-of-type(9) {
     display: table-cell;
   }
-  .toggle-wrapper input:nth-of-type(10):checked ~ .control-panel label:nth-of-type(10) {
+  .toggle input:nth-of-type(10):checked ~ .control-panel label:nth-of-type(10) {
     background-color: #f2f2f2;
   }
-  .toggle-wrapper input:nth-of-type(10):checked ~ table th:nth-of-type(10),
-  .toggle-wrapper input:nth-of-type(10):checked ~ table td:nth-of-type(10) {
+  .toggle input:nth-of-type(10):checked ~ table th:nth-of-type(10),
+  .toggle input:nth-of-type(10):checked ~ table td:nth-of-type(10) {
     display: table-cell;
   }
-  .toggle-wrapper #display-all:checked ~ table th,
-  .toggle-wrapper #display-all:checked ~ table td {
+  .toggle #display-all:checked ~ table th,
+  .toggle #display-all:checked ~ table td {
     display: table-cell;
   }
 }

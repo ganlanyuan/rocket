@@ -2,12 +2,25 @@
 {% extends 'parts/layout.njk' %}
 
 {% block main %}
-  {% set navs = ['slide-in', 'slide-along', 'slide-out', 'rotate-in', 'rotate-out', 'rotate-in-reverse', 'scale-down', 'scale-up', 'open-door', 'push', 'reveal', 'drawer'] %}
-  {% for item in navs %}
-    <div class="container">
-      <h3><a href="off-canvas-{{ item }}.html">{{ item }}</a></h3>
-    </div>
+  {% for item in [
+    'slide-in', 
+    'slide-along', 
+    'slide-out', 
+    'rotate-in', 
+    'rotate-out', 
+    'rotate-in-reverse', 
+    'scale-down', 
+    'scale-up', 
+    'open-door', 
+    'push', 
+    'reveal', 
+    'drawer'
+  ] %}
 
+    <h3><a href="off-canvas-{{ item }}.html">{{ item }}</a></h3>
     <iframe src="off-canvas-{{ item }}.html" scrolling="no" frameborder="0"></iframe>
+    <pre><code class="language-scss">
+      {%- filter trim %}{% include 'code/off-canvas-' + item + '-code.njk' %}{% endfilter -%}
+    </code></pre>
   {% endfor %}
 {% endblock %}

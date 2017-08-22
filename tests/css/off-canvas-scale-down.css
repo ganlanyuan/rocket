@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -229,11 +212,6 @@ p {
   text-align: center;
   display: block;
   margin-bottom: 5px;
-}
-
-.scale-down {
-  height: auto;
-  margin-bottom: 50px;
 }
 
 .container {
@@ -419,8 +397,4 @@ input:checked ~ .nav {
 input:checked ~ .page .page-overlay {
   right: 0;
   opacity: 1;
-}
-
-.scale-down .code:before {
-  content: '(  "page"  ".page"  "nav"  ".nav"  "submenu"  "scale-down"  )';
 }

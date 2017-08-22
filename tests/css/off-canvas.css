@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -241,7 +224,6 @@ h3 {
 
 iframe {
   width: 100%;
-  min-height: 340px;
-  margin-bottom: 50px;
+  min-height: 300px;
   overflow: hidden;
 }

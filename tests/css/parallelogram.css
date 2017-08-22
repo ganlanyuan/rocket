@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,24 +214,11 @@ p {
   margin-bottom: 5px;
 }
 
-.example-parallelogram {
-  text-align: center;
-}
-
-.example-parallelogram li {
-  display: inline-block;
-}
-
-.example-parallelogram a {
+.parallelogram a {
   position: relative;
-  display: inline-block;
-  padding: 1em 1.5em;
-  font-size: 14px;
-  color: #fff;
-  text-decoration: none;
 }
 
-.example-parallelogram a:before {
+.parallelogram a:before {
   content: '';
   position: absolute;
   top: 0;
@@ -264,6 +234,23 @@ p {
   transform: skew(-20deg);
 }
 
-.example-parallelogram a:hover:before {
+.parallelogram {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.parallelogram li {
+  display: inline-block;
+}
+
+.parallelogram a {
+  display: inline-block;
+  padding: 1em 1.5em;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.parallelogram a:hover:before {
   background: #1f8cbe;
 }

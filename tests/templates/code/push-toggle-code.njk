@@ -1,10 +1,10 @@
 @import 'demo-base';
 @import "../../src/scss/components/push-toggle"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "push-toggle" %}
+{% elif componentName === "push-toggle" %}
 .push-toggle {
   // default push-toggle style
   label {
@@ -35,8 +35,8 @@
   &.three label { width: 33.3%; }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 .push-toggle {
   max-width: 230px;

@@ -33,66 +33,87 @@
       <h2 class="main-heading">
         Off-canvas
       </h2>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-slide-in.html">slide-in</a>
-        </h3>
-      </div><iframe src="off-canvas-slide-in.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-slide-along.html">slide-along</a>
-        </h3>
-      </div><iframe src="off-canvas-slide-along.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-slide-out.html">slide-out</a>
-        </h3>
-      </div><iframe src="off-canvas-slide-out.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-rotate-in.html">rotate-in</a>
-        </h3>
-      </div><iframe src="off-canvas-rotate-in.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-rotate-out.html">rotate-out</a>
-        </h3>
-      </div><iframe src="off-canvas-rotate-out.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-rotate-in-reverse.html">rotate-in-reverse</a>
-        </h3>
-      </div><iframe src="off-canvas-rotate-in-reverse.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-scale-down.html">scale-down</a>
-        </h3>
-      </div><iframe src="off-canvas-scale-down.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-scale-up.html">scale-up</a>
-        </h3>
-      </div><iframe src="off-canvas-scale-up.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-open-door.html">open-door</a>
-        </h3>
-      </div><iframe src="off-canvas-open-door.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-push.html">push</a>
-        </h3>
-      </div><iframe src="off-canvas-push.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-reveal.html">reveal</a>
-        </h3>
-      </div><iframe src="off-canvas-reveal.html" scrolling="no" frameborder="0"></iframe>
-      <div class="container">
-        <h3>
-          <a href="off-canvas-drawer.html">drawer</a>
-        </h3>
-      </div><iframe src="off-canvas-drawer.html" scrolling="no" frameborder="0"></iframe>
+      <h3>
+        <a href="off-canvas-slide-in.html">slide-in</a>
+      </h3><iframe src="off-canvas-slide-in.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('slide-in' 'inside' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-slide-along.html">slide-along</a>
+      </h3><iframe src="off-canvas-slide-along.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('slide-along' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-slide-out.html">slide-out</a>
+      </h3><iframe src="off-canvas-slide-out.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('slide-out' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-rotate-in.html">rotate-in</a>
+      </h3><iframe src="off-canvas-rotate-in.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('rotate-in' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-rotate-out.html">rotate-out</a>
+      </h3><iframe src="off-canvas-rotate-out.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('rotate-out' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-rotate-in-reverse.html">rotate-in-reverse</a>
+      </h3><iframe src="off-canvas-rotate-in-reverse.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('rotate-in-reverse' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-scale-down.html">scale-down</a>
+      </h3><iframe src="off-canvas-scale-down.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('scale-down' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-scale-up.html">scale-up</a>
+      </h3><iframe src="off-canvas-scale-up.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('scale-up' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-open-door.html">open-door</a>
+      </h3><iframe src="off-canvas-open-door.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('open-door' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-push.html">push</a>
+      </h3><iframe src="off-canvas-push.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('push' 'top' 50px 'submenu');
+
+li { 
+  display: inline-block; 
+  vertical-align: top; 
+  white-space: nowrap;
+  // &gt; ul {
+  //   white-space: normal;
+  // }
+}
+[data-has-submenu] &gt; a { margin-right: 30px; }
+.nav a, .nav [data-back] { border-bottom-width: 0; }</code></pre>
+      <h3>
+        <a href="off-canvas-reveal.html">reveal</a>
+      </h3><iframe src="off-canvas-reveal.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+@include off-canvas('reveal' 'submenu');</code></pre>
+      <h3>
+        <a href="off-canvas-drawer.html">drawer</a>
+      </h3><iframe src="off-canvas-drawer.html" scrolling="no" frameborder="0"></iframe>
+      <pre><code class="language-scss">@import 'off-canvas-base';
+$bp: (
+  small: 600px,
+  medium: 900px,
+);
+$map: (
+  500px: 20px, 
+  small: 30px, 
+  medium: 40px, 
+  null: 70px
+);
+@include off-canvas('drawer' $map 'breakpoint' $bp 'submenu');</code></pre>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>
       </div>

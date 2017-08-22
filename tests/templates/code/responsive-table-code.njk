@@ -18,10 +18,10 @@ th {
   background-color: #f5f5f5;
 }
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "flip-scroll" %}
+{% elif componentName === "flip-scroll" %}
 .flip-scroll { 
   @include rp-table('breakpoint' 900) {
     border-right-width: 1px;
@@ -33,7 +33,7 @@ th {
   } 
 }
 
-//=> {% elif componentName === "scroll" %}
+{% elif componentName === "scroll" %}
 .scroll { 
   @include rp-table('scroll' 'breakpoint' 900) {
     .scrollable {
@@ -47,12 +47,12 @@ th {
   } 
 }
 
-//=> {% elif componentName === "toggle" %}
+{% elif componentName === "toggle" %}
 .toggle {
   @include rp-table('toggle' 'breakpoint' 900 'count' 10);
 }
 
-//=> {% elif componentName === "stack" %}
+{% elif componentName === "stack" %}
 .stack {
   @include rp-table('stack' 'breakpoint' 900 #dbdbdb 'data' ("First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data")) {
     tr:nth-of-type(2n) { 
@@ -63,5 +63,5 @@ th {
   }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
