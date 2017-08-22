@@ -1,10 +1,10 @@
 @import 'demo-base';
 @import "../../src/scss/addons/hide-text"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "logo" %}
+{% elif componentName === "logo" %}
 .logo > a {
   @extend %hide-text;
   display: block;
@@ -14,5 +14,5 @@
   background: url('https://mozorg.cdn.mozilla.net/media/img/styleguide/identity/firefox/usage-logo.54fbc7b6231b.png') 0 0 no-repeat;
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

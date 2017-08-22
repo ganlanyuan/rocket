@@ -1,6 +1,7 @@
 {% set page = 'quantity-query' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="quantity-query">
     <div class="control">
@@ -19,6 +20,18 @@
       <div class="box"></div>
     </div>
   </div>
+  
+  {% for item in [
+    'at-least',
+    'at-most',
+    'equal-to',
+    'between'
+  ] %}
+    <pre><code class="language-scss">
+      {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+    </code></pre>
+  {% endfor %}
+
   <script type="text/javascript">
     var doc = document,
         controls = doc.querySelectorAll('.control .type'),

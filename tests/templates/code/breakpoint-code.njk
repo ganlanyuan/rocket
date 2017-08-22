@@ -1,28 +1,28 @@
 @import 'demo-base';
 @import "../../src/scss/addons/breakpoint"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "num" %}
+{% elif componentName === "num" %}
 .num > div { @include bp(600) { background: #FF66FF; } }
 
-//=> {% elif componentName === "num-max" %}
+{% elif componentName === "num-max" %}
 .num-max > div { @include bp('max' 600) { background: #FF66FF; } }
 
-//=> {% elif componentName === "num-2-max" %}
+{% elif componentName === "num-2-max" %}
 .num-2-max > div { @include bp(600 900 'max') { background: #FF66FF; } }
 
-//=> {% elif componentName === "num-print" %}
+{% elif componentName === "num-print" %}
 .num-print > div { @include bp(600 'print') { background: #FF66FF; } }
 
-//=> {% elif componentName === "height" %}
+{% elif componentName === "height" %}
 .height > div { @include bp(600 'height') { background: #FF66FF; } }
 
-//=> {% elif componentName === "num-9" %}
+{% elif componentName === "num-9" %}
 .num-9 > div { @include bp(300 400 500 600 700 800 900 1000 1100) { background: #FF66FF; } }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 [data-bp-default] { background: #eee; }

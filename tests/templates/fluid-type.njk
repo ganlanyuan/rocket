@@ -1,6 +1,7 @@
 {% set page = 'fluid-type' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="example">
     <h2>I, Too, Sing America</h2>
@@ -14,13 +15,14 @@
     <p>Tomorrow,</p>
     <p>I'll be at the table</p>
     <p>When company comes.</p>
-    <p>Nobody'll dare</p>
-    <p>Say to me,</p>
-    <p>"Eat in the kitchen,"</p>
-    <p>Then.</p>
-    <p>Besides,</p>
-    <p>They'll see how beautiful I am</p>
-    <p>And be ashamed--</p>
-    <p>I, too, am America.</p>
   </div>
+
+  {% for item in [
+    'h2',
+    'p'
+  ] %}
+    <pre><code class="language-scss">
+     {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+    </code></pre>
+  {% endfor %}
 {% endblock %}

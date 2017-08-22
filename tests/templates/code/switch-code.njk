@@ -16,23 +16,23 @@
   }
 }
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "one" %}
+{% elif componentName === "one" %}
 .one { @include switch('border-radius' 3px); }
 
-//=> {% elif componentName === "two" %}
+{% elif componentName === "two" %}
 .two { @include switch('border-radius' 1000px 50px #ddd #C06EE1); }
 
-//=> {% elif componentName === "slider" %}
+{% elif componentName === "slider" %}
 .slider { @include switch('border-radius' 1000px 'slider'  24px #ddd #399DE1); }
 
-//=> {% elif componentName === "text" %}
+{% elif componentName === "text" %}
 .text { @include switch('border-radius' 1000px 'text' ("on" "off") 36px #ddd #399DE1); }
 
-//=> {% elif componentName === "switch-g" %}
+{% elif componentName === "switch-g" %}
 .switch-g { @include switch('border-radius' 3px 25px #ddd #CC412F); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

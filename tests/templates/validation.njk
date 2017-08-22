@@ -1,32 +1,22 @@
 {% set page = 'validation' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <ul class="validation-wrap">
-    <li>
-      <form action="" class="myform" id="form1">
-        <h4>Form 1: normal</h4>
-        {% include './parts/form-validation.njk' %}
-      </form>
-    </li>
-    <li>
-      <form action="" class="myform" id="form2">
-        <h4>Form 2: fade-in right</h4>
-        {% include './parts/form-validation.njk' %}
-      </form>
-    </li>
-    <li>
-      <form action="" class="myform" id="form3">
-        <h4>Form 3: fade-in bottom</h4>
-        {% include './parts/form-validation.njk' %}
-      </form>
-    </li>
-    <li>
-      <form action="" class="myform" id="form4">
-        <h4>Form 4: slide-in top</h4>
-        {% include './parts/form-validation.njk' %}
-      </form>
-    </li>
+    {% for i in range(1, 5) %}
+      <li>
+        <form action="" class="myform" id="form{{ i }}">
+          <h4>Form {{ i }}</h4>
+          {% include './parts/form-validation.njk' %}
+        </form>
+        
+        {# code #}
+        <pre><code class="language-scss">
+          {%- filter trim %}{{ fn.get('form' + i) }}{% endfilter -%}
+        </code></pre>
+      </li>
+    {% endfor %}
   </ul>
   <script src="../src/js/vendors/h5f.min.js"></script>
   <script>

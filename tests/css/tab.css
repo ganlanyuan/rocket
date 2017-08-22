@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -236,11 +219,6 @@ p {
   margin: 0 auto;
 }
 
-.tab > input:nth-child(1):checked ~ .ro-tab > label:nth-child(1), .tab > input:nth-child(2):checked ~ .ro-tab > label:nth-child(2), .tab > input:nth-child(3):checked ~ .ro-tab > label:nth-child(3) {
-  color: #000;
-  background-color: #e9e9e9;
-}
-
 .tab > .ro-tab {
   margin-bottom: 10px;
   letter-spacing: -0.34em;
@@ -264,6 +242,11 @@ p {
   max-width: none;
 }
 
+.tab > input:nth-child(1):checked ~ .ro-tab > label:nth-child(1), .tab > input:nth-child(2):checked ~ .ro-tab > label:nth-child(2), .tab > input:nth-child(3):checked ~ .ro-tab > label:nth-child(3) {
+  color: #000;
+  background-color: #e9e9e9;
+}
+
 .tab-normal > [type="radio"] {
   position: absolute;
   left: -9999px;
@@ -283,12 +266,6 @@ p {
 
 .tab-normal > input:nth-child(3):checked ~ .ro-panels > div:nth-child(3) {
   display: block;
-}
-
-.tab-normal > .ro-panels > div:before, .tab-normal > .ro-panels > div:after {
-  content: '';
-  display: table;
-  clear: both;
 }
 
 .tab-carousel {

@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,51 +214,58 @@ p {
   margin-bottom: 5px;
 }
 
-.topic p {
-  color: #000;
-}
-
-.example h2 {
-  text-align: center;
-  margin: 1.5em 0;
+h2 {
   font-size: 24px;
   font-size: 1.5rem;
   margin: 24px;
 }
 
 @media (min-width: 20em) {
-  .example h2 {
+  h2 {
     font-size: calc(1.5rem + 16 * (100vw - 20rem) / 704);
     margin: calc(24px + 16 * (100vw - 320px) / 704);
   }
 }
 
 @media (min-width: 64em) {
-  .example h2 {
+  h2 {
     font-size: 40px;
     font-size: 2.5rem;
     margin: 40px;
   }
 }
 
-.example p {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.7;
-  text-align: center;
+p {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
 @media (min-width: 20em) {
-  .example p {
+  p {
     font-size: calc(1.125rem + 6 * (100vw - 20rem) / 704);
   }
 }
 
 @media (min-width: 64em) {
-  .example p {
+  p {
     font-size: 24px;
     font-size: 1.5rem;
   }
+}
+
+h2 {
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.7;
+  color: #333;
+  text-align: center;
+}
+
+pre[class*="language-"] {
+  margin-bottom: 20px;
 }

@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,12 +214,9 @@ p {
   margin-bottom: 5px;
 }
 
-.example-switch {
+.container {
   text-align: center;
-}
-
-.example-switch section {
-  margin: 50px 0;
+  max-width: 800px;
 }
 
 .switch {
@@ -247,36 +227,6 @@ p {
 .switch-group {
   margin-top: 50px;
   text-align: center;
-}
-
-.switch-group .switch-g > input {
-  position: absolute;
-  left: -9999px;
-}
-
-.switch-group .switch-g > input ~ label {
-  display: inline-block;
-  height: 1.5625em;
-  line-height: 1.5625em;
-  transition: padding 0.3s, background-color 0.3s;
-  background-color: #ddd;
-  padding: 0.1953125em 1.328125em 0.1953125em 0.1953125em;
-  border-radius: 3px;
-}
-
-.switch-group .switch-g > input ~ label:after {
-  content: '';
-  display: inline-block;
-  height: 1.5625em;
-  background-color: #fff;
-  width: 1.5625em;
-  box-shadow: 0 0.1953125em 0.1953125em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-
-.switch-group .switch-g > input:checked ~ label {
-  padding: 0.1953125em 0.1953125em 0.1953125em 1.328125em;
-  background-color: #CC412F;
 }
 
 .one > input {
@@ -450,4 +400,34 @@ p {
 
 .text > input:checked ~ label > span {
   color: #fff;
+}
+
+.switch-g > input {
+  position: absolute;
+  left: -9999px;
+}
+
+.switch-g > input ~ label {
+  display: inline-block;
+  height: 1.5625em;
+  line-height: 1.5625em;
+  transition: padding 0.3s, background-color 0.3s;
+  background-color: #ddd;
+  padding: 0.1953125em 1.328125em 0.1953125em 0.1953125em;
+  border-radius: 3px;
+}
+
+.switch-g > input ~ label:after {
+  content: '';
+  display: inline-block;
+  height: 1.5625em;
+  background-color: #fff;
+  width: 1.5625em;
+  box-shadow: 0 0.1953125em 0.1953125em 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.switch-g > input:checked ~ label {
+  padding: 0.1953125em 0.1953125em 0.1953125em 1.328125em;
+  background-color: #CC412F;
 }

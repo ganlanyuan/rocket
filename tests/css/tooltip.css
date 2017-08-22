@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,7 +214,7 @@ p {
   margin-bottom: 5px;
 }
 
-.tooltip.left:before, .tooltip.left:after, .tooltip.right:before, .tooltip.right:after, .tooltip.bottom:before, .tooltip.bottom:after, .tooltip.top:before, .tooltip.top:after {
+.left:before, .left:after, .right:before, .right:after, .top:before, .top:after, .bottom:before, .bottom:after {
   opacity: 0;
   content: '';
   position: absolute;
@@ -240,47 +223,52 @@ p {
   transition: opacity 0.3s;
 }
 
-.tooltip.left:after, .tooltip.right:after, .tooltip.bottom:after, .tooltip.top:after {
+.left:after, .right:after, .top:after, .bottom:after {
   padding: 0.67em;
   min-width: 8.5em;
   font-size: 0.8em;
 }
 
-.tooltip {
-  display: inline-block;
-  margin-right: 3em;
+div {
+  margin: 1em 0;
 }
 
-.tooltip.left {
+.tooltip {
+  display: inline-block;
+  font-style: italic;
+  border-bottom: 1px dashed #333;
+}
+
+.left {
   position: relative;
   cursor: pointer;
 }
 
-.tooltip.left:before, .tooltip.left:after {
+.left:before, .left:after {
   left: -8px;
 }
 
-.tooltip.left:after {
+.left:after {
   content: attr(data-tooltip);
   color: #fff;
   background: #b02df3;
-  border-radius: 0.22em;
+  border-radius: "border-radius";
 }
 
-.tooltip.left:hover:before, .tooltip.left:hover:after {
+.left:hover:before, .left:hover:after {
   opacity: 1;
   z-index: 9999;
 }
 
-.tooltip.left:before, .tooltip.left:after {
+.left:before, .left:after {
   top: 50%;
 }
 
-.tooltip.left:before {
+.left:before {
   margin-top: -8px;
 }
 
-.tooltip.left:before {
+.left:before {
   height: 0;
   width: 0;
   border-bottom: 6px solid transparent;
@@ -288,7 +276,7 @@ p {
   border-top: 6px solid transparent;
 }
 
-.tooltip.left:after {
+.left:after {
   -webkit-transform: translate(-100%, -50%);
   -moz-transform: translate(-100%, -50%);
   -ms-transform: translate(-100%, -50%);
@@ -296,36 +284,36 @@ p {
   transform: translate(-100%, -50%);
 }
 
-.tooltip.right {
+.right {
   position: relative;
   cursor: pointer;
 }
 
-.tooltip.right:before, .tooltip.right:after {
+.right:before, .right:after {
   right: -8px;
 }
 
-.tooltip.right:after {
+.right:after {
   content: attr(data-tooltip);
   color: #fff;
   background: #b02df3;
-  border-radius: 0.22em;
+  border-radius: "border-radius";
 }
 
-.tooltip.right:hover:before, .tooltip.right:hover:after {
+.right:hover:before, .right:hover:after {
   opacity: 1;
   z-index: 9999;
 }
 
-.tooltip.right:before, .tooltip.right:after {
+.right:before, .right:after {
   top: 50%;
 }
 
-.tooltip.right:before {
+.right:before {
   margin-top: -8px;
 }
 
-.tooltip.right:before {
+.right:before {
   height: 0;
   width: 0;
   border-bottom: 6px solid transparent;
@@ -333,7 +321,7 @@ p {
   border-top: 6px solid transparent;
 }
 
-.tooltip.right:after {
+.right:after {
   -webkit-transform: translate(100%, -50%);
   -moz-transform: translate(100%, -50%);
   -ms-transform: translate(100%, -50%);
@@ -341,81 +329,36 @@ p {
   transform: translate(100%, -50%);
 }
 
-.tooltip.bottom {
+.top {
   position: relative;
   cursor: pointer;
 }
 
-.tooltip.bottom:before, .tooltip.bottom:after {
-  bottom: -8px;
-}
-
-.tooltip.bottom:after {
-  content: attr(data-tooltip);
-  color: #fff;
-  background: #b02df3;
-  border-radius: 0.22em;
-}
-
-.tooltip.bottom:hover:before, .tooltip.bottom:hover:after {
-  opacity: 1;
-  z-index: 9999;
-}
-
-.tooltip.bottom:before, .tooltip.bottom:after {
-  left: 50%;
-}
-
-.tooltip.bottom:before {
-  margin-left: -6px;
-}
-
-.tooltip.bottom:before {
-  height: 0;
-  width: 0;
-  border-bottom: 6px solid #b02df3;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-}
-
-.tooltip.bottom:after {
-  -webkit-transform: translate(-50%, 100%);
-  -moz-transform: translate(-50%, 100%);
-  -ms-transform: translate(-50%, 100%);
-  -o-transform: translate(-50%, 100%);
-  transform: translate(-50%, 100%);
-}
-
-.tooltip.top {
-  position: relative;
-  cursor: pointer;
-}
-
-.tooltip.top:before, .tooltip.top:after {
+.top:before, .top:after {
   top: -8px;
 }
 
-.tooltip.top:after {
+.top:after {
   content: attr(data-tooltip);
   color: #fff;
   background: #b02df3;
-  border-radius: 0.22em;
+  border-radius: "border-radius";
 }
 
-.tooltip.top:hover:before, .tooltip.top:hover:after {
+.top:hover:before, .top:hover:after {
   opacity: 1;
   z-index: 9999;
 }
 
-.tooltip.top:before, .tooltip.top:after {
+.top:before, .top:after {
   left: 50%;
 }
 
-.tooltip.top:before {
+.top:before {
   margin-left: -6px;
 }
 
-.tooltip.top:before {
+.top:before {
   height: 0;
   width: 0;
   border-left: 6px solid transparent;
@@ -423,10 +366,55 @@ p {
   border-top: 6px solid #b02df3;
 }
 
-.tooltip.top:after {
+.top:after {
   -webkit-transform: translate(-50%, -100%);
   -moz-transform: translate(-50%, -100%);
   -ms-transform: translate(-50%, -100%);
   -o-transform: translate(-50%, -100%);
   transform: translate(-50%, -100%);
+}
+
+.bottom {
+  position: relative;
+  cursor: pointer;
+}
+
+.bottom:before, .bottom:after {
+  bottom: -8px;
+}
+
+.bottom:after {
+  content: attr(data-tooltip);
+  color: #fff;
+  background: #b02df3;
+  border-radius: "border-radius";
+}
+
+.bottom:hover:before, .bottom:hover:after {
+  opacity: 1;
+  z-index: 9999;
+}
+
+.bottom:before, .bottom:after {
+  left: 50%;
+}
+
+.bottom:before {
+  margin-left: -6px;
+}
+
+.bottom:before {
+  height: 0;
+  width: 0;
+  border-bottom: 6px solid #b02df3;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.bottom:after {
+  -webkit-transform: translate(-50%, 100%);
+  -moz-transform: translate(-50%, 100%);
+  -ms-transform: translate(-50%, 100%);
+  -o-transform: translate(-50%, 100%);
+  transform: translate(-50%, 100%);
 }

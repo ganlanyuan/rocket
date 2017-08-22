@@ -1,11 +1,13 @@
 @import 'demo-base';
 @import "../../src/scss/addons/scale-type";
 
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "scale-type" %}
 @include scale-type(1.2);
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px;
-}
-code:before {
-  content: '@include scale-type(1.2);';
-}
+//=> {% endif %}
+//=> {% endmacro %}
+
+h1, h2, h3, h4, h5, h6 { margin: 0 0 20px; }

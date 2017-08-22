@@ -174,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -251,8 +240,4 @@ h6 {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px;
-}
-
-code:before {
-  content: '@include scale-type(1.2);';
 }

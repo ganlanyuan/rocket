@@ -1,23 +1,23 @@
 @import 'demo-base';
 @import "../../src/scss/components/validation"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "form1" %}
+{% elif componentName === "form1" %}
 #form1 { @include validation('shake' 'default'); }
 
-//=> {% elif componentName === "form2" %}
+{% elif componentName === "form2" %}
 #form2 { @include validation('fade-in' 'right' 'default'); }
 
-//=> {% elif componentName === "form3" %}
+{% elif componentName === "form3" %}
 #form3 { @include validation('fade-in' 'bottom' 'default'); }
 
-//=> {% elif componentName === "form4" %}
+{% elif componentName === "form4" %}
 #form4 { @include validation('slide-in' 'top' 'default'); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 .validation-wrap {
   &:after {

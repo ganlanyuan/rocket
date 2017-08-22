@@ -4,31 +4,31 @@
 @import "../../src/scss/addons/equal-to"; 
 @import "../../src/scss/addons/between"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "at-least" %}
+{% elif componentName === "at-least" %}
 .at-least {
   @include at-least('.box' 4) { background-color: #FF49A6; }
 }
 
-//=> {% elif componentName === "at-most" %}
+{% elif componentName === "at-most" %}
 .at-most {
   @include at-most('.box' 4) { background-color: #FF49A6; }
 }
 
-//=> {% elif componentName === "equal-to" %}
+{% elif componentName === "equal-to" %}
 .equal-to {
   @include equal-to('.box' 4) { background-color: #FF49A6; }
 }
 
-//=> {% elif componentName === "between" %}
+{% elif componentName === "between" %}
 .between {
   @include between('.box' 3 6) { background-color: #FF49A6; }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 .quantity-query { text-align: center; }
 .control {

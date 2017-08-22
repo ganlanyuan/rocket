@@ -2,17 +2,17 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/addons/fluid-type"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "h2" %}
+{% elif componentName === "h2" %}
 h2 { @include fluid-type('font-size' 'margin' (320px: 24px, 1024px: 40px)); }
 
-//=> {% elif componentName === "p" %}
+{% elif componentName === "p" %}
 p { @include fluid-type('font-size' (320px: 18px, 1024px: 24px)); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
 
 h2 { 
   text-align: center; 

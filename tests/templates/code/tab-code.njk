@@ -25,10 +25,10 @@
   }
 }
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "tab-normal" %}
+{% elif componentName === "tab-normal" %}
 .tab {
   @include tab-active(3) {
     color: #000;
@@ -37,10 +37,10 @@
 }
 .tab-normal { @include tab(3 'normal'); }
 
-//=> {% elif componentName === "tab-carousel" %}
+{% elif componentName === "tab-carousel" %}
 .tab-carousel { @include tab(3 'carousel'); }
 
-//=> {% elif componentName === "tab-customize" %}
+{% elif componentName === "tab-customize" %}
 .tab-customize {
   @include tab(3 'customize') {
     height: 0;
@@ -75,5 +75,5 @@
   }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

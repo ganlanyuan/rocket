@@ -33,18 +33,22 @@
       <h2 class="main-heading">
         Tooltip
       </h2>
-      <div class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">
-        top
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">left</span> odit fuga asperiores.
       </div>
-      <div class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">
-        right
+      <pre><code class="language-scss">.left { @include tooltip('border-radius' 0.22em left #b02df3); }</code></pre>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">right</span> odit fuga asperiores.
       </div>
-      <div class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">
-        bottom
+      <pre><code class="language-scss">.right { @include tooltip('border-radius' 0.22em right #b02df3); }</code></pre>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">top</span> odit fuga asperiores.
       </div>
-      <div class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">
-        left
+      <pre><code class="language-scss">.top { @include tooltip('border-radius' 0.22em top #b02df3); }</code></pre>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">bottom</span> odit fuga asperiores.
       </div>
+      <pre><code class="language-scss">.bottom { @include tooltip('border-radius' 0.22em bottom #b02df3); }</code></pre>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>
       </div>

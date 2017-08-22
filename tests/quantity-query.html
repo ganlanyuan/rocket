@@ -44,6 +44,18 @@
           <div class="box"></div>
         </div>
       </div>
+      <pre><code class="language-scss">.at-least {
+  @include at-least('.box' 4) { background-color: #FF49A6; }
+}</code></pre>
+      <pre><code class="language-scss">.at-most {
+  @include at-most('.box' 4) { background-color: #FF49A6; }
+}</code></pre>
+      <pre><code class="language-scss">.equal-to {
+  @include equal-to('.box' 4) { background-color: #FF49A6; }
+}</code></pre>
+      <pre><code class="language-scss">.between {
+  @include between('.box' 3 6) { background-color: #FF49A6; }
+}</code></pre>
       <script type="text/javascript">
       var doc = document,
         controls = doc.querySelectorAll('.control .type'),
