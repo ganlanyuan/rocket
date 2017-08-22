@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -289,7 +272,7 @@ p {
 .dropdown-1 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(("color": #fff));
+  color: contrast(#fff);
 }
 
 .dropdown-1 > ul a:hover {
@@ -369,7 +352,7 @@ p {
 .dropdown-1 .sub-1 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(("color": #fff));
+  color: contrast(#fff);
 }
 
 .dropdown-1 .sub-1 > ul a:hover {
@@ -448,7 +431,7 @@ p {
 .dropdown-2 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(("color": #fff));
+  color: contrast(#fff);
 }
 
 .dropdown-2 > ul a:hover {
@@ -547,7 +530,7 @@ p {
 .dropdown-2 .sub-2 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(("color": #fff));
+  color: contrast(#fff);
 }
 
 .dropdown-2 .sub-2 > ul a:hover {
@@ -567,8 +550,7 @@ p {
   display: block;
 }
 
-.example {
-  margin: 50px 0 200px;
+.container {
   text-align: center;
 }
 

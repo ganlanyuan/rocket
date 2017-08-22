@@ -1,6 +1,7 @@
 {% set page = 'input-file' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="example">
     <div class="input-file">
@@ -15,6 +16,10 @@
       </label>
     </div>
   </div>
+  <pre><code class="language-scss">
+    {%- filter trim %}{{ fn.get('input-file') }}{% endfilter -%}
+  </code></pre>
+
   <script src="../src/js/components/input-file.js"></script>
   <script type="text/javascript">
     var htmlClass = document.documentElement.className;

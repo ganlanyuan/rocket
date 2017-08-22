@@ -44,6 +44,28 @@
           </figure><label for="file"><span>Choose a file</span></label>
         </div>
       </div>
+      <pre><code class="language-scss">.input-file {
+  @include input-file() {
+    padding: 0.8em;
+    font-size: 18px;
+    color: #2E92E3;
+    figure {
+      display: table-cell;
+      width: 120px;
+      height: 120px;
+      margin: 0;
+      border-radius: 50%;
+      background-color: #2E92E3;
+      text-align: center;
+      vertical-align: middle;
+      path { fill: #fff; }
+    }
+    span {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+}</code></pre>
       <script src="../src/js/components/input-file.js"></script> 
       <script type="text/javascript">
       //<![CDATA[

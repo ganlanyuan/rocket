@@ -7,6 +7,8 @@ body section {
 }
 
 #searchbar {
+  position: sticky;
+  top: 0;
   display: block;
   width: 80%;
   height: 2.6em;

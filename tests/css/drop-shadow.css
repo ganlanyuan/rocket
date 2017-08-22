@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -231,42 +214,50 @@ p {
   margin-bottom: 5px;
 }
 
-.example-drop-shadow {
-  text-align: center;
-  max-width: 700px;
-  margin: 50px auto;
+body {
+  background-color: #f2f2f2;
 }
 
-.example-drop-shadow .box {
-  display: inline-block;
-  width: 50%;
-  padding: 40px 10px;
-  margin: 20px 10px;
-  max-width: 300px;
+.container {
+  text-align: center;
+  max-width: 700px;
+}
+
+.container:before {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.box {
+  margin: 20px;
+  padding: 15% 0;
+  width: 70%;
+  margin-left: 15%;
   box-sizing: border-box;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.example-drop-shadow .lifted {
+.lifted {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .lifted:before, .example-drop-shadow .lifted:after {
+.lifted:before, .lifted:after {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .lifted:before, .example-drop-shadow .lifted:after {
-  bottom: 15px;
+.lifted:before, .lifted:after {
+  bottom: 30px;
   width: 50%;
   height: 20%;
-  box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.6);
 }
 
-.example-drop-shadow .lifted:before {
-  left: 10px;
+.lifted:before {
+  left: 20px;
   -webkit-transform: rotate(-3deg);
   -moz-transform: rotate(-3deg);
   -ms-transform: rotate(-3deg);
@@ -274,8 +265,8 @@ p {
   transform: rotate(-3deg);
 }
 
-.example-drop-shadow .lifted:after {
-  right: 10px;
+.lifted:after {
+  right: 20px;
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -ms-transform: rotate(3deg);
@@ -283,24 +274,24 @@ p {
   transform: rotate(3deg);
 }
 
-.example-drop-shadow .raised {
+.raised {
   position: relative;
   background-color: #fff;
-  box-shadow: 0px 15px 10px -10px rgba(51, 51, 51, 0.6), 0px 1px 4px rgba(128, 127, 127, 0.6);
+  box-shadow: 0px 30px 20px -20px rgba(51, 51, 51, 0.6), 0px 1px 4px rgba(128, 127, 127, 0.6);
 }
 
-.example-drop-shadow .perspective {
+.perspective {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .perspective:before {
+.perspective:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .perspective:before {
+.perspective:before {
   -webkit-transform: skew(40deg);
   -moz-transform: skew(40deg);
   -ms-transform: skew(40deg);
@@ -311,129 +302,129 @@ p {
   -ms-transform-origin: 0px 100%;
   -o-transform-origin: 0px 100%;
   transform-origin: 0px 100%;
-  left: 80px;
+  left: 160px;
   bottom: 5px;
   width: 50%;
   height: 35%;
-  box-shadow: -80px 0px 8px rgba(77, 77, 77, 0.6);
+  box-shadow: -160px 0px 16px rgba(77, 77, 77, 0.6);
 }
 
-.example-drop-shadow .curve.left {
+.curve-left {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .curve.left:before {
+.curve-left:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .curve.left:before {
-  box-shadow: 0px 0px 15px rgba(77, 77, 77, 0.6);
-  border-radius: 10px / 100px;
+.curve-left:before {
+  box-shadow: 0px 0px 30px rgba(77, 77, 77, 0.6);
+  border-radius: 20px / 200px;
   left: 0;
   right: 50%;
-  top: 10px;
-  bottom: 10px;
+  top: 20px;
+  bottom: 20px;
 }
 
-.example-drop-shadow .curve.right {
+.curve-right {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .curve.right:before {
+.curve-right:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .curve.right:before {
-  box-shadow: 0px 0px 15px rgba(77, 77, 77, 0.6);
-  border-radius: 10px / 100px;
+.curve-right:before {
+  box-shadow: 0px 0px 30px rgba(77, 77, 77, 0.6);
+  border-radius: 20px / 200px;
   right: 0;
   left: 50%;
-  top: 10px;
-  bottom: 10px;
+  top: 20px;
+  bottom: 20px;
 }
 
-.example-drop-shadow .curve.horizontal {
+.curve-horizontal {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .curve.horizontal:before {
+.curve-horizontal:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .curve.horizontal:before {
-  box-shadow: 0px 0px 15px rgba(77, 77, 77, 0.6);
-  border-radius: 10px / 100px;
+.curve-horizontal:before {
+  box-shadow: 0px 0px 30px rgba(77, 77, 77, 0.6);
+  border-radius: 20px / 200px;
   left: 0;
   right: 0;
-  top: 10px;
-  bottom: 10px;
+  top: 20px;
+  bottom: 20px;
 }
 
-.example-drop-shadow .curve.top {
+.curve-top {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .curve.top:before {
+.curve-top:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .curve.top:before {
-  box-shadow: 0px 0px 15px rgba(77, 77, 77, 0.6);
-  border-radius: 10px / 100px;
+.curve-top:before {
+  box-shadow: 0px 0px 30px rgba(77, 77, 77, 0.6);
+  border-radius: 20px / 200px;
   top: 0;
   bottom: 50%;
-  left: 13px;
-  right: 13px;
+  left: 26px;
+  right: 26px;
 }
 
-.example-drop-shadow .curve.bottom {
+.curve-bottom {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .curve.bottom:before {
+.curve-bottom:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .curve.bottom:before {
-  box-shadow: 0px 0px 15px rgba(77, 77, 77, 0.6);
-  border-radius: 10px / 100px;
+.curve-bottom:before {
+  box-shadow: 0px 0px 30px rgba(77, 77, 77, 0.6);
+  border-radius: 20px / 200px;
   bottom: 0;
   top: 50%;
-  left: 13px;
-  right: 13px;
+  left: 26px;
+  right: 26px;
 }
 
-.example-drop-shadow .curve.vertical {
+.curve-vertical {
   position: relative;
   background-color: #fff;
 }
 
-.example-drop-shadow .curve.vertical:before {
+.curve-vertical:before {
   content: '';
   position: absolute;
   z-index: -2;
 }
 
-.example-drop-shadow .curve.vertical:before {
-  box-shadow: 0px 0px 15px rgba(77, 77, 77, 0.6);
-  border-radius: 10px / 100px;
-  left: 13px;
-  right: 13px;
+.curve-vertical:before {
+  box-shadow: 0px 0px 30px rgba(77, 77, 77, 0.6);
+  border-radius: 20px / 200px;
+  left: 26px;
+  right: 26px;
   top: 0px;
   bottom: 0px;
 }

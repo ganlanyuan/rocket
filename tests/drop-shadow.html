@@ -33,37 +33,42 @@
       <h2 class="main-heading">
         Drop-shadow
       </h2>
-      <div class="example">
-        <div class="example-drop-shadow">
-          <div class="box lifted">
-            lifted
-          </div>
-          <div class="box raised">
-            raised
-          </div>
-          <div class="box perspective">
-            perspective
-          </div>
-          <div class="box curve horizontal">
-            curve horizontal
-          </div>
-          <div class="box curve left">
-            curve left
-          </div>
-          <div class="box curve right">
-            curve right
-          </div>
-          <div class="box curve top">
-            curve top
-          </div>
-          <div class="box curve bottom">
-            curve bottom
-          </div>
-          <div class="box curve vertical">
-            curve vertical
-          </div>
-        </div>
+      <div class="box lifted">
+        lifted
       </div>
+      <pre><code class="language-scss">.lifted { @include drop-shadow('lifted' 20px); }</code></pre>
+      <div class="box raised">
+        raised
+      </div>
+      <pre><code class="language-scss">.raised { @include drop-shadow('raised' 20px); }</code></pre>
+      <div class="box perspective">
+        perspective
+      </div>
+      <pre><code class="language-scss">.perspective { @include drop-shadow('perspective' 20px); }</code></pre>
+      <div class="box curve-left">
+        curve left
+      </div>
+      <pre><code class="language-scss">.curve-left { @include drop-shadow('curve' 'left' 20px); }</code></pre>
+      <div class="box curve-right">
+        curve right
+      </div>
+      <pre><code class="language-scss">.curve-right { @include drop-shadow('curve' 'right' 20px); }</code></pre>
+      <div class="box curve-horizontal">
+        curve horizontal
+      </div>
+      <pre><code class="language-scss">.curve-horizontal { @include drop-shadow('curve' 'horizontal' 20px); }</code></pre>
+      <div class="box curve-top">
+        curve top
+      </div>
+      <pre><code class="language-scss">.curve-top { @include drop-shadow('curve' 'top' 20px); }</code></pre>
+      <div class="box curve-bottom">
+        curve bottom
+      </div>
+      <pre><code class="language-scss">.curve-bottom { @include drop-shadow('curve' 'bottom' 20px); }</code></pre>
+      <div class="box curve-vertical">
+        curve vertical
+      </div>
+      <pre><code class="language-scss">.curve-vertical { @include drop-shadow('curve' 'vertical' 20px); }</code></pre>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>
       </div>

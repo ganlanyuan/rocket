@@ -22,35 +22,35 @@ body {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "lifted" %}
+{% elif componentName === "lifted" %}
 .lifted { @include drop-shadow('lifted' 20px); }
 
-//=> {% elif componentName === "raised" %}
+{% elif componentName === "raised" %}
 .raised { @include drop-shadow('raised' 20px); }
 
-//=> {% elif componentName === "perspective" %}
+{% elif componentName === "perspective" %}
 .perspective { @include drop-shadow('perspective' 20px); }
 
-//=> {% elif componentName === "curve-left" %}
+{% elif componentName === "curve-left" %}
 .curve-left { @include drop-shadow('curve' 'left' 20px); }
 
-//=> {% elif componentName === "curve-right" %}
+{% elif componentName === "curve-right" %}
 .curve-right { @include drop-shadow('curve' 'right' 20px); }
 
-//=> {% elif componentName === "curve-horizontal" %}
+{% elif componentName === "curve-horizontal" %}
 .curve-horizontal { @include drop-shadow('curve' 'horizontal' 20px); }
 
-//=> {% elif componentName === "curve-top" %}
+{% elif componentName === "curve-top" %}
 .curve-top { @include drop-shadow('curve' 'top' 20px); }
 
-//=> {% elif componentName === "curve-bottom" %}
+{% elif componentName === "curve-bottom" %}
 .curve-bottom { @include drop-shadow('curve' 'bottom' 20px); }
 
-//=> {% elif componentName === "curve-vertical" %}
+{% elif componentName === "curve-vertical" %}
 .curve-vertical { @include drop-shadow('curve' 'vertical' 20px); }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

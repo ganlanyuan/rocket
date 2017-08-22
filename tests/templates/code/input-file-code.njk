@@ -2,10 +2,10 @@
 @import "../../src/scss/components/input-file"; 
 
 .container { text-align: center; }
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "input-file" %}
+{% elif componentName === "input-file" %}
 .input-file {
   @include input-file() {
     padding: 0.8em;
@@ -29,5 +29,5 @@
   }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}

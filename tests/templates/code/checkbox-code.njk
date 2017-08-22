@@ -1,10 +1,10 @@
 @import 'demo-base';
 @import "../../src/scss/components/checkbox"; 
 
-//=> {% macro get(componentName) %}
-//=> {% if componentName === "xxx" %}
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
 
-//=> {% elif componentName === "radio" %}
+{% elif componentName === "radio" %}
 .radio {
   @include checkbox() {
     padding: 4px 0 4px 26px;
@@ -17,7 +17,7 @@
   }
 }
 
-//=> {% elif componentName === "checkbox" %}
+{% elif componentName === "checkbox" %}
 .checkbox {
   @include checkbox() {
     padding: 4px 0 4px 26px;
@@ -30,5 +30,5 @@
   }
 }
 
-//=> {% endif %}
-//=> {% endmacro %}
+{% endif %}
+{% endmacro %}
