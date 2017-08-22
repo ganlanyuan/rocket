@@ -73,12 +73,6 @@ p {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 74em) {
-  .container {
-    margin: 0 2em;
-  }
-}
-
 .back-to-home {
   position: sticky;
   bottom: 0;
@@ -180,17 +174,6 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .main-heading:before, .main-heading:after {
-    display: inline-block;
-    vertical-align: 7px;
-    margin: 0 15px;
-  }
-  .main-heading:before {
-    content: url("../images/title-prev.png");
-  }
-  .main-heading:after {
-    content: url("../images/title-next.png");
-  }
   .topic > section {
     margin: 0 0 5em;
   }
@@ -282,29 +265,9 @@ p {
   color: #eee;
 }
 
-.color-box-analogous-1 {
-  background-color: #5173a3;
-  color: #eee;
-  cursor: pointer;
-}
-
-.color-box-analogous-1:hover {
-  background-color: #6f8db8;
-}
-
 .color-box-contrast-2 {
   background-color: #bbf8e6;
   color: #333;
-}
-
-.color-box-analogous-2 {
-  background-color: #bbf8e6;
-  color: #333;
-  cursor: pointer;
-}
-
-.color-box-analogous-2:hover {
-  background-color: #8df3d5;
 }
 
 .color-box-contrast-3 {
@@ -312,10 +275,27 @@ p {
   color: #eee;
 }
 
+.color-box-analogous-1 {
+  background-color: #5173a3;
+  color: #eee;
+}
+
+.color-box-analogous-1:hover {
+  background-color: #6f8db8;
+}
+
+.color-box-analogous-2 {
+  background-color: #bbf8e6;
+  color: #333;
+}
+
+.color-box-analogous-2:hover {
+  background-color: #8df3d5;
+}
+
 .color-box-analogous-3 {
   background-color: #cb7d26;
   color: #eee;
-  cursor: pointer;
 }
 
 .color-box-analogous-3:hover {
