@@ -1,46 +1,116 @@
-<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>quantity-query</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/quantity-query.css" rel="stylesheet"><!--[if (lt IE 9)]>
-		<script src="js/html5.js"></script>
-		<script src="js/ie.min.js"></script>
-		
-		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
-		<script src="cross-domain/respond.proxy.js"></script>	
-	<![endif]--></head><body><div class="container"><h2 class="main-heading">Quantity-query</h2><div class="quantity-query"><div class="control"><input type="button" value="at-least 4" class="type at-least active"> <input type="button" value="at-most 4" class="type at-most"> <input type="button" value="equal-to 4" class="type equal-to"> <input type="button" value="between 3 - 6" class="type between"> <input type="button" value="+" class="action plus"> <input type="button" value="-" class="action minus"><span class="info">Boxes' color turn to<span>pink</span>when fulfill the condition.</span></div><div class="show at-least"><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div></div></div><script src="../dist/kit.min.js"></script><script type="text/javascript">ready(function () {
-      var show = kit('.show'),
-          plus = kit('.plus'),
-          minus = kit('.minus'),
-          atLeast = kit('.at-least'),
-          atMost = kit('.at-most'),
-          equalTo = kit('.equal-to'),
-          between = kit('.between');
+<!DOCTYPE html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js lt-ie" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- <meta http-equiv="cleartype" content="on"> -->
+    <title>
+      quantity-query
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/quantity-query.css" rel="stylesheet"><!-- javascript --><!--[if (lt IE 9)]>
+                <script src="js/html5.js"></script>
+                <script src="js/ie.min.js"></script>
+                
+                <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+                <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+                <script src="cross-domain/respond.proxy.js"></script>   
+        <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-heading">
+        Quantity-query
+      </h2>
+      <div class="quantity-query">
+        <div class="control">
+          <input type="button" value="at-least 4" class="type at-least active"> <input type="button" value="at-most 4" class="type at-most"> <input type="button" value="equal-to 4" class="type equal-to"> <input type="button" value="between 3 - 6" class="type between"> <input type="button" value="+" class="action plus"> <input type="button" value="-" class="action minus"> <span class="info">Boxes' color turn to <span>pink</span> when fulfill the condition.</span>
+        </div>
+        <div class="show at-least">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+      </div>
+      <pre><code class="language-scss">.at-least {
+  @include at-least('.box' 4) { background-color: #FF49A6; }
+}</code></pre>
+      <pre><code class="language-scss">.at-most {
+  @include at-most('.box' 4) { background-color: #FF49A6; }
+}</code></pre>
+      <pre><code class="language-scss">.equal-to {
+  @include equal-to('.box' 4) { background-color: #FF49A6; }
+}</code></pre>
+      <pre><code class="language-scss">.between {
+  @include between('.box' 3 6) { background-color: #FF49A6; }
+}</code></pre>
+      <script type="text/javascript">
+      var doc = document,
+        controls = doc.querySelectorAll('.control .type'),
+        show = doc.querySelector('.show'),
+        plus = doc.querySelector('.plus'),
+        minus = doc.querySelector('.minus'),
+        atLeast = doc.querySelector('.at-least'),
+        atMost = doc.querySelector('.at-most'),
+        equalTo = doc.querySelector('.equal-to'),
+        between = doc.querySelector('.between');
 
-      var list = ['at-least', 'at-most', 'equal-to', 'between'];
-
-      atLeast.click(function() { 
-        show[0].className = 'show at-least'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      atMost.click(function() { 
-        show[0].className = 'show at-most'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      equalTo.click(function() { 
-        show[0].className = 'show equal-to'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      between.click(function() { 
-        show[0].className = 'show between'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      plus.click(function() { 
-        var show = kit('.show').lastChild();
-        show.append('<div class="box"></div>');
-      });
-      minus.click(function() { 
-        var show = kit('.show');
-        if (kit('.show .box').length > 1) {
-          show.lastChild().remove();
+      function activateButton (el) {
+      var len = controls.length;
+      for (var i = len ; i--;) {
+        var btn = controls[i];
+        btnClass = btn.className;
+        if (btn !== el) {
+          btn.className = btnClass.replace(' active', '');
+        } else {
+          btn.className += ' active';
         }
-      });
+      }
+      }
 
-    });</script><div class="back-to-home"><a href="/tests">← Back to home</a></div></div></body></html>
+      atLeast.onclick = function(e) { 
+      show.className = 'show at-least'; 
+      activateButton(e.target);
+      };
+      atMost.onclick = function(e) { 
+      show.className = 'show at-most'; 
+      activateButton(e.target);
+      };
+      equalTo.onclick = function(e) { 
+      show.className = 'show equal-to'; 
+      activateButton(e.target);
+      };
+      between.onclick = function(e) { 
+      show.className = 'show between'; 
+      activateButton(e.target);
+      };
+      plus.onclick = function() { 
+      var div = doc.createElement('div');
+      div.className = "box";
+      show.append(div);
+      };
+      minus.onclick = function() { 
+      if (show.children.length > 1) {
+        show.removeChild(show.children[0]);
+      }
+      };
+      </script>
+      <div class="back-to-home">
+        <a href="/tests">← Back to home</a>
+      </div>
+    </div>
+    <script src="js/prism.js"></script>
+  </body>
+</html>

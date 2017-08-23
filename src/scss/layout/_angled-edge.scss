@@ -1,0 +1,112 @@
+@mixin angled-edge ($key) {
+  $edge: args-get($key, (top, bottom, 'both'), bottom);
+  $flip: args-get($key, 'flip');
+  $view: 1800px;
+
+  // set selector
+  $selector: '&:before, &:after';
+  @if $edge == top {
+    $selector: '&:before';
+  } @else if $edge == bottom {
+    $selector: '&:after';
+  }
+
+  // set colors & angles
+  $color1: false;
+  $color2: false;
+  $angle1: false;
+  $angle2: false;
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      // colors
+      @if type-of($item) == 'color' {
+        @if not $color1 {
+          $color1: $item;
+          $color2: $item;
+        } @else {
+          $color2: $item;
+        }
+      }
+
+      // angles
+      @if type-of($item) == 'number' and unit($item) == 'deg' {
+        @if not $angle1 {
+          $angle1: $item;
+          $angle2: $item;
+        } @else {
+          $angle2: $item;
+        }
+      }
+    }
+  }
+  @if not $color1 {$color1: #fff; }
+  @if not $color2 {$color2: #fff; }
+  @if not $angle1 { $angle1: 5deg; }
+  @if not $angle2 { 
+    $angle2: $angle1; 
+    @if $flip { $angle2: - $angle1; }
+  }
+
+
+  position: relative;
+  overflow: hidden;
+  #{$selector} {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0px solid transparent;
+  }
+
+  @if $edge == top or $edge == bottom {
+    $dir: right;
+    @if $edge == bottom { $dir: left; }
+
+    padding-#{$edge}: edge-tan($angle1, 100%);
+    #{$selector} {
+      #{$edge}: 0;
+      border-#{$edge}: edge-tan($angle1, $view) solid $color1;
+
+      @if strip-unit($angle1) < 0 {
+        #{$dir}: 0;
+        border-#{$dir}-width: $view;
+      } @else {
+        #{opposite($dir)}: 0;
+        border-#{opposite($dir)}-width: $view;
+      }
+    }
+  } @else if $edge == 'both' {
+    padding-top: edge-tan($angle1, 100%);
+    padding-bottom: edge-tan($angle2, 100%);
+    &:before {
+      top: 0;
+      border-top: edge-tan($angle1, $view) solid $color1;
+
+      @if strip-unit($angle1) < 0 {
+        right: 0;
+        border-right-width: $view;
+      } @else {
+        left: 0;
+        border-left-width: $view;
+      }
+    }
+    &:after {
+      bottom: 0;
+      border-bottom: edge-tan($angle2, $view) solid $color2;
+
+      @if strip-unit($angle2) < 0 {
+        left: 0;
+        border-left-width: $view;
+      } @else {
+        right: 0;
+        border-right-width: $view;
+      }
+    }
+  }
+
+}
+
+@function edge-tan($angle1, $width) {
+  @return (tan(abs($angle1)) * $width);
+}

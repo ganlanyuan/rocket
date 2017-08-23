@@ -1,17 +1,18 @@
-// *** responsive-table *** //
 @mixin responsive-table($key) {
-  $mode: args-get($key, $responsive-table-mode, 'flip-scroll');
+  $style: args-get($key, ('flip-scroll' 'scroll' 'stack' 'toggle'), 'flip-scroll');
   $data: args-get-next($key, 'data');
   $border-color: args-get-type($key, 'color');
-  $breakpoint: args-get-next($key, 'bp', 768);
-  $th-width: args-get-next($key, 'width', 50%);
+  $breakpoint: args-get-next($key, 'breakpoint', 768);
+  $th-width: args-get-next($key, 'th-width', 50%);
   $count: args-get-next($key, 'count', 15);
 
-  // *** output *** //
   // normal
-  @if $mode == 'toggle' {
+  @if $style == 'toggle' {
     overflow-x: auto;
-    input { @extend %ro-hidden-checkbox; }
+    input {
+      position: absolute; 
+      left: -9999px;
+    }
     label { font-size: 14px; }
     .control-panel {
       position: absolute;
@@ -27,7 +28,7 @@
         &:hover { background-color: #f2f2f2; }
       }
     }
-    @include bp('min' $breakpoint) {
+    @include bp($breakpoint) {
       input ~ label { display: none; }
     }
   }
@@ -35,7 +36,7 @@
   // == small screen ==
   @include bp('max' $breakpoint) {
     // == stack ==
-    @if $mode == 'stack' {
+    @if $style == 'stack' {
       &, 
       thead, 
       tbody, 
@@ -76,7 +77,7 @@
       }
 
     // == toggle ==
-    } @else if $mode == 'toggle' {
+    } @else if $style == 'toggle' {
       table { margin-top: 0.5em; }
       th, td { display: none; }
       #control-panel:checked ~ .control-panel { display: block; }
@@ -96,7 +97,7 @@
       }
 
     // == scroll ==
-    } @else if $mode == 'scroll' {
+    } @else if $style == 'scroll' {
       position: relative;
       > .pinned {
         position: absolute;
@@ -120,7 +121,7 @@
         }
       }
     // == flip-scroll ==
-    } @else if $mode == 'flip-scroll' {
+    } @else if $style == 'flip-scroll' {
       position: relative; 
       width: 100%;
       &,

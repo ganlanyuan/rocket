@@ -1,4 +1,3 @@
-// *** contrast *** //
 @function contrast($key) {
   $light: args-get-next($key, 'light', #fff);
   $dark: args-get-next($key, 'dark', #000);
@@ -9,7 +8,6 @@
   }
   $color: args-get-type($key, 'color');
 
-  // @error $color;
   @if $color {
     @if brightness($color) < 65% { 
       @return $light; 

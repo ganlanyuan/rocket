@@ -1,86 +1,88 @@
-// *** metro *** //
 @mixin metro($key) {
   $ratio: args-get-next($key, 'ratio', 1);
-  $gutter: args-get-next($key, 'gutter', 0);
-  $child: args-get-next($key, 'child', '*');
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
+  // strip unit when gutter == 0
+  $gutter: check-zero-value($gutter);
+  $selector: args-get-next($key, 'selector', '*');
+
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media: args-get($key, $ro-media-type);
   $keep: args-get($key, 'keep', false);
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
-
-  @if type-of($child) == 'list' {
-    @error 'Only one type of child element is acceptable. You passed (#{$child}).';
-  } @else if type-of($child) != 'string' {
-    @error 'Child should be a string. You passed "#{$child}".';
+  @if type-of($selector) == 'list' {
+    @error 'Only one type of child element is acceptable. You passed (#{$selector}).';
+  } @else if type-of($selector) != 'string' {
+    @error 'Child should be a string. You passed "#{$selector}".';
   }
 
   // get data
-  $data: false;
+  $column: false;
   @if type-of($key) == map {
-    $data: $key;
+    $column: $key;
   } @else if type-of($key) == 'list' {
     @if is-metro-list($key) {
-      $data: $key;
+      $column: $key;
     } @else {
       @each $item in $key {
-        @if not $data {
+        @if not $column {
           @if type-of($item) == 'map' or 
               type-of($item) == 'list' and is-metro-list($item) {
-            $data: $item;
+            $column: $item;
           }
         }
       }
     }
   }
+  
+  
 
-  // if not valuable data found
-  @if not $data { @error 'Parameters must include list or map.'; }
 
-  @if type-of($data) == 'map' {
+
+  @if type-of($column) == 'map' {
     // update breakpoints
-    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
-    $bps: map-keys($data);
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    $local-breakpoints: map-keys($column);
 
-    @if index($bps, null) != null or index($bps, 'default') != null { 
+    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
-    @each $bp in $bps {
-      $list: map-get($data, $bp);
+    @each $bp in $local-breakpoints {
+      $list: map-get($column, $bp);
       $full: args-get-next($list, 'of');
 
       @if $bp == null or $bp == 'default' {
-        @include metro-base($child, $gutter);
+        @include metro-base($selector, $gutter);
         $keep: true;
 
-        @include make-metro($list, $full, $ratio, $child);
+        @include make-metro($list, $full, $ratio, $selector);
       } @else {
         @include bp($condition $bp) {
           @if not $keep {
-            @include metro-base($child, $gutter);
+            @include metro-base($selector, $gutter);
             $keep: true;
           }
 
-          @include make-metro($list, $full, $ratio, $child);
+          @include make-metro($list, $full, $ratio, $selector);
         }
       }
 
     }
   } @else {
-    $full: args-get-next($data, 'of');
+    $full: args-get-next($column, 'of');
 
-    @include metro-base($child, $gutter);
-    @include make-metro($data, $full, $ratio, $child);
+    @include metro-base($selector, $gutter);
+    @include make-metro($column, $full, $ratio, $selector);
   }
 }
 
-@mixin metro-base($child, $gutter){
+@mixin metro-base($selector, $gutter){
   @include clearfix();
   @if $gutter and strip-unit($gutter) != 0 { margin: 0 (-$gutter / 2); }
-  > #{$child} {
+  > #{$selector} {
     position: relative;
     float: left;
     height: 0;
@@ -96,7 +98,7 @@
   }
 }
 
-@mixin make-metro($list, $full, $ratio, $child) {
+@mixin make-metro($list, $full, $ratio, $selector) {
   @for $j from 1 through (length($list) - 2) {
     $width: percentage(1 / $full);
     $height: percentage($ratio / $full);
@@ -131,7 +133,7 @@
       $height: percentage($ratio * $cell-num / $full);
     }
 
-    > #{$child}:nth-child(#{$j}) {
+    > :nth-child(#{$j}) {
       width: $width;
       padding-bottom: $height;
     }

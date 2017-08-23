@@ -1,37 +1,33 @@
 {
   "tree": {
     "layout": [
-      "angled-edges",
-      "center",
       "container",
-      "diamond",
-      "gallery",
       "grid",
-      "justify",
-      "liquid-2",
-      "liquid-3",
+      "gallery",
+      "liquid",
+      "holy-grail",
       "masonry",
       "metro",
-      "sticky-footer"
+      "angled-edge",
+      "justify",
+      "center",
+      "diamond"
     ],
     "components": [
-      "accordion",
       "button",
-      "charts",
+      "accordion",
+      "chart",
       "checkbox",
-      "drop-shadows",
+      "drop-shadow",
       "dropdown",
       "flex-media",
       "input-file",
-      "media-list",
       "off-canvas",
       "parallelogram",
       "push-toggle",
       "responsive-table",
-      "slider-carousel",
-      "slider-gallery",
       "switch",
-      "tabs",
+      "tab",
       "tooltip",
       "validation"
     ],
@@ -41,9 +37,7 @@
       "hide-text",
       "quantity-query",
       "fluid-type",
-      "responsive-type",
-      "type",
-      "visibility"
+      "scale-type"
     ]
   }
 }

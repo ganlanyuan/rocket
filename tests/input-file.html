@@ -1,12 +1,80 @@
-<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>input-file</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/input-file.css" rel="stylesheet"><!--[if (lt IE 9)]>
-		<script src="js/html5.js"></script>
-		<script src="js/ie.min.js"></script>
-		
-		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
-		<script src="cross-domain/respond.proxy.js"></script>	
-	<![endif]--></head><body><div class="container"><h2 class="main-heading">Input-file</h2><div class="example"><div class="input-file"><input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple><label for="file"><figure><svg version="1.1" id="Capa_1" width="80" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.808 35.808" style="enable-background:new 0 0 35.808 35.808" xml:space="preserve"><g><path d="M30.885,16.314c0.174-0.686,0.275-1.404,0.275-2.145c0-4.66-3.785-8.439-8.447-8.439C17.32,5.738,16.6,9.841,16.6,9.841 s-2.266-2.797-6.262-2.316c-3.598,0.717-5.947,3.953-5.947,7.254c0,0.568,0.08,1.111,0.229,1.639C1.922,17.403,0,19.997,0,23.031 c0,3.891,3.154,7.045,7.047,7.045h7.555v-9.5h-3.221l6.605-6.447l6.441,6.604h-3.221v9.344h7.553c3.896,0,7.049-3.154,7.049-7.045 C35.809,19.876,33.736,17.21,30.885,16.314z"/></g></svg></figure><span>Choose a file</span></label></div></div><script src="../src/js/components/input-file.js"></script><script type="text/javascript">var htmlClass = document.documentElement.className;
-    htmlClass = htmlClass.replace('no-js', 'js');
-    document.documentElement.className = htmlClass;
-    
-    inputFile('#file');</script><div class="back-to-home"><a href="/tests">← Back to home</a></div></div></body></html>
+<!DOCTYPE html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js lt-ie" lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- <meta http-equiv="cleartype" content="on"> -->
+    <title>
+      input-file
+    </title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /><!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet" />
+    <link href="css/prism.css" rel="stylesheet" />
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/input-file.css" rel="stylesheet" /><!-- javascript --><!--[if (lt IE 9)]>
+                <script src="js/html5.js"></script>
+                <script src="js/ie.min.js"></script>
+                
+                <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+                <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+                <script src="cross-domain/respond.proxy.js"></script>   
+        <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-heading">
+        Input-file
+      </h2>
+      <div class="example">
+        <div class="input-file">
+          <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple="multiple" /> <label for="file"><svg id="Capa_1" width="80" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 35.808 35.808" style="enable-background:new 0 0 35.808 35.808;" xml:space="preserve">
+          <g>
+            <path d="M30.885,16.314c0.174-0.686,0.275-1.404,0.275-2.145c0-4.66-3.785-8.439-8.447-8.439C17.32,5.738,16.6,9.841,16.6,9.841 s-2.266-2.797-6.262-2.316c-3.598,0.717-5.947,3.953-5.947,7.254c0,0.568,0.08,1.111,0.229,1.639C1.922,17.403,0,19.997,0,23.031 c0,3.891,3.154,7.045,7.047,7.045h7.555v-9.5h-3.221l6.605-6.447l6.441,6.604h-3.221v9.344h7.553c3.896,0,7.049-3.154,7.049-7.045 C35.809,19.876,33.736,17.21,30.885,16.314z"></path>
+          </g></svg> <span>Choose a file</span></label>
+        </div>
+      </div>
+      <pre><code class="language-scss">.input-file {
+  @include input-file() {
+    padding: 0.8em;
+    font-size: 18px;
+    color: #2E92E3;
+    figure {
+      display: table-cell;
+      width: 120px;
+      height: 120px;
+      margin: 0;
+      border-radius: 50%;
+      background-color: #2E92E3;
+      text-align: center;
+      vertical-align: middle;
+      path { fill: #fff; }
+    }
+    span { display: block; }
+  }
+}</code></pre>
+      <script src="../src/js/components/input-file.js"></script> 
+      <script type="text/javascript">
+      //<![CDATA[
+
+      var htmlClass = document.documentElement.className;
+      htmlClass = htmlClass.replace('no-js', 'js');
+      document.documentElement.className = htmlClass;
+
+      inputFile('#file');
+      //]]>
+      </script>
+      <div class="back-to-home">
+        <a href="/tests">← Back to home</a>
+      </div>
+    </div>
+    <script src="js/prism.js"></script>
+  </body>
+</html>

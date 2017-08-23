@@ -1,0 +1,162 @@
+@mixin liquid($key){
+  $selector: args-get-next($key, 'selector', 'div');
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
+  // strip unit when gutter == 0
+  $gutter: check-zero-value($gutter);
+  $float: if(index($key, 'RTL'), right, left);
+
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media: args-get($key, $ro-media-type);
+  $keep: args-get($key, 'keep', false);
+
+  // get data
+  $column: args-get-liquid-data($key, 2);
+  $columns: false;
+  $order: false; 
+
+ @include clearfix();
+  // using map
+  @if type-of($column) == 'map' {
+
+    // simple map, without media querys
+    // ('auto' 200px : 2 1)
+    @if length(nth(map-keys($column), 1)) == 2 {
+      $columns: nth(map-keys($column), 1);
+      $order: nth(map-values($column), 1);
+      @include make-liquid($columns, $order, $selector, $gutter, $float);
+
+    // ('auto' : 2, 200px : 1)
+    } @else if is-simple-map($column) {
+      $columns: map-keys($column);
+      $order: map-values($column);
+      @include make-liquid($columns, $order, $selector, $gutter, $float);
+
+    // complex map, with media querys
+    } @else {
+      @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+      $local-breakpoints: map-keys($column);
+
+      @if index($local-breakpoints, 'default') { 
+        // set default styles
+        $default-column: map-get($column, 'default');
+
+        @if type-of($default-column) == 'list' {
+          $columns: $default-column;
+          @if not $order { $order: (1 2); }
+        } @else if type-of($default-column) == 'map' {
+          $columns: map-keys($default-column);
+          $order: map-values($default-column);
+        }
+
+        // set default columns styles
+        @if length($local-breakpoints) == 1 {
+          @include make-liquid($columns, $order, $selector, $gutter, $float);
+        } @else {
+          $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
+
+          @if $condition == 'max' {
+            @include bp('min' max($local-breakpoints-nums...)) {
+              @include make-liquid($columns, $order, $selector, $gutter, $float);
+            }
+          } @else {
+            @include bp(0 min($local-breakpoints-nums...)) {
+              @include make-liquid($columns, $order, $selector, $gutter, $float);
+            }
+          }
+
+          // remove 'default' from breakpoints
+          $local-breakpoints: $local-breakpoints-nums;
+        }
+      }
+
+      // re-order breakpoints based on codition
+      @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
+        $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
+      }
+
+      // loop through the breakpoints
+      @for $i from 1 through length($local-breakpoints) {
+        $bp: nth($local-breakpoints, $i);
+        $column-item: map-get($column, $bp);
+
+        @if type-of($column-item) == 'list' {
+          $columns: $column-item;
+          @if not $order { $order: (1 2); }
+        } @else if type-of($column-item) == 'map' {
+          $columns: map-keys($column-item);
+          $order: map-values($column-item);
+        }
+
+        // use @media (min) and (max)
+        @if $i < length($local-breakpoints) {
+          @include bp($media $bp nth($local-breakpoints, $i + 1)) {
+            @include make-liquid($columns, $order, $selector, $gutter, $float);
+          }
+
+        // use @media (min) or (max)
+        } @else {
+          @include bp($condition $media $bp) {
+            @include make-liquid($columns, $order, $selector, $gutter, $float);
+          }
+        }
+      }
+    }
+    
+  // using list
+  } @else {
+    $columns: $column;
+    $order: (1 2);
+
+    @include make-liquid($columns, $order, $selector, $gutter, $float);
+  }
+
+}
+
+@mixin make-liquid($columns, $order, $selector, $gutter, $float) {
+  // get sidebar width
+  $sidebar: if(nth($columns, 1) == 'auto', nth($columns, 2), nth($columns, 1));
+
+  $selector-list: ();
+  @if type-of($selector) == 'string' {
+    $selector-list: ('#{$selector}:nth-child(1)', '#{$selector}:nth-child(2)');
+  } @else if type-of($selector) == 'list' and length($selector) == 2 {
+    $selector-list: $selector;
+  } 
+
+  // get positions based on order
+  // (2 1): the second column on the left
+  // (1 2): the first column on the left
+  $positions: get-position-from-order($order);
+
+  // loop through columns
+  @for $i from 1 through length($columns) {
+    > #{nth($selector-list, $i)} {
+      // set float
+      @if nth($positions, 1) == $i {
+        float: #{$float};
+      } @else {
+        float: #{opposite($float)};
+      }
+
+      // set width
+      @if nth($columns, $i) == 'auto' {
+        @if $gutter == 0 { $gutter: 0px; }
+        $width: 100% - #{$sidebar} - #{$gutter};
+
+        // combine same unit items
+        @if unit($sidebar) == unit($gutter) {
+          $width: 100% - #{$sidebar + $gutter};
+        } @else if unit($gutter) == '%' {
+          $width: (100% - $gutter) - #{$sidebar};
+        }
+
+        @include get-calc('width', $width);
+      } @else {
+        width: $sidebar;
+      }
+    }
+  }
+}

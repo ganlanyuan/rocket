@@ -1,0 +1,33 @@
+@import 'demo-base';
+@import "../../src/scss/components/chart"; 
+
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "chart1" %}
+.chart1 { @include chart((
+  #FF6666: 8.9 10.5 19.3 21.45
+) 'bar' 'steps' (2 22) 'animation' (0.6s)); }
+
+//=> {% elif componentName === "chart2" %}
+.chart2 { @include chart((
+  #0080FF: 8.9 10.5 19.3 21.45,
+  #FF8000: 5 10 16 22,
+  #666666: 10.7 12 12 18
+) 'column' 'steps' (2 24) 'animation' (0.6s)); }
+
+//=> {% endif %}
+//=> {% endmacro %}
+
+
+.chart {
+  margin: 50px 0;
+  li span { font-size: 14px; }
+  &-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+    h4 { font-size: 24px; }
+  }
+}
+

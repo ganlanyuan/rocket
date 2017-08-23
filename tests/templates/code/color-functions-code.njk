@@ -1,0 +1,79 @@
+@import 'demo-base';
+@import "../../src/scss/color/color"; 
+
+.color-box {
+  float: left;
+  text-align: center;
+  padding: 5em 0;
+  font-size: 16px;
+  color: #fff;
+  text-transform: capitalize;
+  box-sizing: -webkit-border-box;
+  box-sizing: -moz-border-box;
+  box-sizing: border-box;
+}
+.color-pattern {
+  max-width: 300px;
+  padding: 10px 0px;
+  border-right: .33em;
+  overflow: hidden;
+  img { max-width: 100%; }
+}
+.color-box-original { 
+  background-color: #d92626; 
+  color: #fff;
+}
+
+.two > div { width: 50%; }
+.three > div { width: 33.333333333%; }
+.four > div { width: 25%; }
+.example-adjacent { @include clearfix(); }
+
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
+
+{% elif componentName === "contrast" %}
+$contrast: #5173a3, #bbf8e6, #cb7d26;
+@for $i from 1 through 3 {
+  .color-box-contrast-#{$i} { 
+    background-color: nth($contrast, $i); 
+    color: contrast(nth($contrast, $i) 'light' #eee 'dark' #333);
+  }
+}
+
+{% elif componentName === "analogous" %}
+$analogous: #8C48A3, #DEFA8A, #CA2A36;
+@for $i from 1 through 3 {
+  .color-box-analogous-#{$i} { 
+    background-color: nth($analogous, $i); 
+    &:hover { background-color: analogous(nth($analogous, $i) 10%); }
+  }
+}
+
+{% elif componentName === "adjacent" %}
+.color-box-adjacent-1 { background-color: adjacent(#d92626 1); }
+.color-box-adjacent-2 { background-color: adjacent(#d92626 -1); }
+
+{% elif componentName === "complementary" %}
+.color-box-complementary-1 { background-color: complementary(#d92626 1); }
+
+{% elif componentName === "split-complementary" %}
+.color-box-split-complementary-1 { background-color: split-complementary(#d92626 1); }
+.color-box-split-complementary-2 { background-color: split-complementary(#d92626 2); }
+
+{% elif componentName === "triad" %}
+.color-box-triad-1 { background-color: triad(#d92626 1 'saturation' 10%); }
+.color-box-triad-2 { background-color: triad(#d92626 2); }
+
+{% elif componentName === "rectangle" %}
+.color-box-rectangle-1 { background-color: rectangle(#d92626 1); }
+.color-box-rectangle-2 { background-color: rectangle(#d92626 2); }
+.color-box-rectangle-3 { background-color: rectangle(#d92626 3); }
+
+{% elif componentName === "square" %}
+.color-box-square-1 { background-color: square(#d92626 1); }
+.color-box-square-2 { background-color: square(#d92626 2); }
+.color-box-square-3 { background-color: square(#d92626 3); }
+
+{% endif %}
+{% endmacro %}

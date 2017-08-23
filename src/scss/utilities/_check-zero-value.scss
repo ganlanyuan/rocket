@@ -1,0 +1,9 @@
+@function check-zero-value($val){
+  @if not $val or 
+      type-of($val) != 'number' or 
+      $val and strip-unit($val) == 0 { 
+        @return 0; 
+  } @else {
+    @return $val;
+  }
+}

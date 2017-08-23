@@ -1,29 +1,28 @@
-// *** off-canvas *** //
 @mixin off-canvas($key) {
-  $mode: args-get($key, $ro-off-canvas-modes, 'slide-in');
-  $direction: args-get($key, $ro-off-canvas-direction, 'left');
+  $style: args-get($key, ('slide-in' 'slide-along' 'slide-out' 'rotate-in' 'rotate-out' 'rotate-in-reverse' 'scale-down' 'scale-up' 'open-door' 'push' 'reveal' 'drawer'), 'slide-in');
+  $direction: args-get($key, (left right top bottom), left);
   $submenu: args-get($key, 'submenu');
   $inside: args-get($key, 'inside');
-  $page: args-get-next($key, 'page');
-  $nav: args-get-next($key, 'nav');
-  $overlay-color: args-get-type($key, 'color', false, #000);
+  $page: args-get-next($key, 'page', '.page');
+  $nav: args-get-next($key, 'nav', '.nav');
+  $overlay-color: args-get-type($key, 'color', null, rgba(0, 0, 0, 0.2));
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
+  $global-breakpoints: args-get-next($key, 'breakpoint');
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $media: args-get($key, $ro-media-type);
 
-  // get data
-  $map: false;
+  // get tops, duration, width
+  $tops: false;
   $duration: 0.3s;
   $nav-size: 240px;
   @if type-of($key) == 'map' {
-    $map: $key;
-  } @else if type-of($key) == 'list' {
+    $tops: $key;
+  } @else {
     @each $item in $key {
       @if type-of($item) == 'map' {
-        @if not $map { $map: $item; }
+        @if not $tops { $tops: $item; }
       } @else if type-of($item) == 'number' {
         @if unit($item) == 's' {
           $duration: $item;
@@ -33,9 +32,7 @@
       }
     }
   }
-
-  // update map breakpoints
-  @if $global-bps and $map { $map: map-update-breakpoints($map, $global-bps); }
+  @if $global-breakpoints and $tops { $tops: map-update-breakpoints($tops, $global-breakpoints); }
 
   // set nav selector
   $nav-selector: if(not $inside, #{$nav}, #{$page} #{$nav});
@@ -72,58 +69,58 @@
   $overlay: true;
   $overlay-action: false;
   
-  @if $mode == 'slide-in'{
+  @if $style == 'slide-in'{
     $page-action: false;
     $nav-action: 'translate';
 
-  } @else if $mode == 'slide-along' {
+  } @else if $style == 'slide-along' {
     $page-over-nav: true;
     $nav-action: 'translate';
     $nav-translate-size: - ($nav-size / 2);
 
-  } @else if $mode == 'slide-out' {
+  } @else if $style == 'slide-out' {
     $page-over-nav: true;
     $nav-action: 'translate';
     $nav-translate-size: ($nav-size / 2);
 
-  } @else if $mode == 'rotate-in' {
+  } @else if $style == 'rotate-in' {
     $page-over-nav: true;
     $nav-action: 'translate', 'rotate';
     $nav-rotate-direction: 'anticlockwise';
     $nav-rotate-axis-position: 'opposite';
 
-  } @else if $mode == 'rotate-out' {
+  } @else if $style == 'rotate-out' {
     $page-over-nav: true;
     $nav-action: 'translate', 'rotate';
     $nav-rotate-direction: 'clockwise';
     $nav-rotate-axis-position: 'opposite';
 
-  } @else if $mode == 'rotate-in-reverse' {
+  } @else if $style == 'rotate-in-reverse' {
     $page-over-nav: true;
     $nav-action: 'translate', 'rotate';
     $nav-rotate-direction: 'clockwise';
     $nav-rotate-axis-position: 'same';
 
-  } @else if $mode == 'scale-down' {
+  } @else if $style == 'scale-down' {
     $page-action: 'scale';
     $nav-action: 'translate';
 
-  } @else if $mode == 'scale-up' {
+  } @else if $style == 'scale-up' {
     $page-over-nav: true;
     $nav-action: 'scale';
 
-  } @else if $mode == 'open-door' {
+  } @else if $style == 'open-door' {
     $page-action: 'rotate';
     $page-transform-origin: 100% 50% 0;
     $nav-action: 'translate';
 
-  } @else if $mode == 'push' {
+  } @else if $style == 'push' {
     $nav-action: 'translate';
 
-  } @else if $mode == 'reveal' {
+  } @else if $style == 'reveal' {
     $page-over-nav: true;
 
-  } @else if $mode == 'drawer' {
+  } @else if $style == 'drawer' {
     $page-action: false;
     $nav-action: 'translate';
   }
@@ -203,8 +200,8 @@
     #{$direction}: 0;
     @if $axis == 'horizontal' {
       width: $nav-size;
-      @if $mode == 'drawer' {
-        @include nav-map(top, $map); // set top value 
+      @if $style == 'drawer' {
+        @include nav-map(top, $tops); // set top value 
       } @else {
         top: 0;
       }
@@ -280,23 +277,23 @@
     opacity: 0;
 
     input:checked ~ & {
+      @if $style == 'drawer' { @include nav-map(top, $tops); } // set top value 
       right: 0;
-      @if $mode == 'drawer' { @include nav-map(top, $map); } // set top value 
-      opacity: 0.1;
+      opacity: 1;
     }
   }
 
 }
 
-@mixin nav-map($prop, $map) {
-  $bps: map-keys($map);
+@mixin nav-map($prop, $tops) {
+  $local-breakpoints: map-keys($tops);
 
-  @each $bp in $bps {
+  @each $bp in $local-breakpoints {
     @if $bp == null or $bp == 'default' {
-      #{$prop}: map-get($map, $bp);
+      #{$prop}: map-get($tops, $bp);
     } @else {
       @include bp('max' $bp) {
-        #{$prop}: map-get($map, $bp);
+        #{$prop}: map-get($tops, $bp);
       }
     }
   }

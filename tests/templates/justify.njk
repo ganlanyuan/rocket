@@ -1,8 +1,9 @@
 {% set page = 'justify' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <ul class="example-justify">
+  <ul class="justify">
     <li><a href="">Features</a></li>
     <li><a href="">Pricing</a></li>
     <li><a href="">Resources</a></li>
@@ -11,4 +12,8 @@
     <li><a href="">Blog</a></li>
     <li><input type="search" placeholder="click me"></li>
   </ul>
+
+  <pre><code class="language-scss">
+    {%- filter trim %}{{ fn.get('justify') }}{% endfilter -%}
+  </code></pre>
 {% endblock %}

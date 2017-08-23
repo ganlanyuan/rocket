@@ -1,6 +1,7 @@
 {% set page = 'quantity-query' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="quantity-query">
     <div class="control">
@@ -19,46 +20,67 @@
       <div class="box"></div>
     </div>
   </div>
-  <script src="../dist/kit.min.js"></script>
+  
+  {% for item in [
+    'at-least',
+    'at-most',
+    'equal-to',
+    'between'
+  ] %}
+    <pre><code class="language-scss">
+      {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+    </code></pre>
+  {% endfor %}
+
   <script type="text/javascript">
-    ready(function () {
-      var show = kit('.show'),
-          plus = kit('.plus'),
-          minus = kit('.minus'),
-          atLeast = kit('.at-least'),
-          atMost = kit('.at-most'),
-          equalTo = kit('.equal-to'),
-          between = kit('.between');
+    var doc = document,
+        controls = doc.querySelectorAll('.control .type'),
+        show = doc.querySelector('.show'),
+        plus = doc.querySelector('.plus'),
+        minus = doc.querySelector('.minus'),
+        atLeast = doc.querySelector('.at-least'),
+        atMost = doc.querySelector('.at-most'),
+        equalTo = doc.querySelector('.equal-to'),
+        between = doc.querySelector('.between');
 
-      var list = ['at-least', 'at-most', 'equal-to', 'between'];
-
-      atLeast.click(function() { 
-        show[0].className = 'show at-least'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      atMost.click(function() { 
-        show[0].className = 'show at-most'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      equalTo.click(function() { 
-        show[0].className = 'show equal-to'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      between.click(function() { 
-        show[0].className = 'show between'; 
-        kit(this).addClass('active').siblings().removeClass('active');
-      });
-      plus.click(function() { 
-        var show = kit('.show').lastChild();
-        show.append('<div class="box"></div>');
-      });
-      minus.click(function() { 
-        var show = kit('.show');
-        if (kit('.show .box').length > 1) {
-          show.lastChild().remove();
+    function activateButton (el) {
+      var len = controls.length;
+      for (var i = len ; i--;) {
+        var btn = controls[i];
+        btnClass = btn.className;
+        if (btn !== el) {
+          btn.className = btnClass.replace(' active', '');
+        } else {
+          btn.className += ' active';
         }
-      });
+      }
+    }
 
-    });
+    atLeast.onclick = function(e) { 
+      show.className = 'show at-least'; 
+      activateButton(e.target);
+    };
+    atMost.onclick = function(e) { 
+      show.className = 'show at-most'; 
+      activateButton(e.target);
+    };
+    equalTo.onclick = function(e) { 
+      show.className = 'show equal-to'; 
+      activateButton(e.target);
+    };
+    between.onclick = function(e) { 
+      show.className = 'show between'; 
+      activateButton(e.target);
+    };
+    plus.onclick = function() { 
+      var div = doc.createElement('div');
+      div.className = "box";
+      show.append(div);
+    };
+    minus.onclick = function() { 
+      if (show.children.length > 1) {
+        show.removeChild(show.children[0]);
+      }
+    };
   </script>
 {% endblock %}

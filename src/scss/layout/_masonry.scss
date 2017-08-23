@@ -1,58 +1,63 @@
-// *** masonry *** //
 @mixin masonry ($key) {
-  $child: args-get-next($key, 'child', 'li');
-  $gutter: args-get-next($key, 'gutter');
-  $keep: args-get($key, 'keep');
+  $selector: args-get-next($key, 'selector', 'li');
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
+  // strip unit when gutter == 0
+  $gutter: check-zero-value($gutter);
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $media: args-get($key, $ro-media-type);
+  $keep: args-get($key, 'keep', false);
 
   // get data
-  $data: false;
+  $column: false;
   @if type-of($key) == 'number' and unitless($key) or 
       type-of($key) == 'map' {
-    $data: $key;
-  } @else if type-of($key) == 'list' and not $data {
+    $column: $key;
+  } @else if type-of($key) == 'list' and not $column {
     @each $item in $key {
-      @if not $data and
+      @if not $column and
           type-of($item) == 'number' and unitless($item) or
           type-of($item) == 'map' {
-        $data: $item;
+        $column: $item;
       }
     }
   }
   
   // if not valuable data found
-  @if not $data { @error 'Parameters must include number or map.'; }
+  @if not $column { @error 'Parameters must include number or map.'; }
 
   // transfer % to em
   @if $gutter and strip-unit($gutter) != 0 and index(('%', 'vw', 'vmax'), unit($gutter)) != null{
     $gutter: to-length((strip-unit($gutter) * 10 / 16), em);
   }
 
-  @if type-of($data) == 'map' {
-    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
-    $bps: map-keys($data);
 
-    @if index($bps, null) != null or index($bps, 'default') != null { 
+
+
+
+  @if type-of($column) == 'map' {
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    $local-breakpoints: map-keys($column);
+
+    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     }
 
-    @each $bp in $bps {
-      $count: map-get($data, $bp);
+    @each $bp in $local-breakpoints {
+      $count: map-get($column, $bp);
 
       @if $bp == 'default' or $bp == null {
-        @include masonry-base($child, $gutter);
+        @include masonry-base($selector, $gutter);
         $keep: true;
         @include make-masonry($count);
 
       } @else if type-of($bp) == 'number' {
-        @include bp($condition $media-type $bp) {
+        @include bp($condition $media $bp) {
           @if not $keep {
-            @include masonry-base($child, $gutter);
+            @include masonry-base($selector, $gutter);
             $keep: true;
           }
           @include make-masonry($count);
@@ -62,19 +67,19 @@
       }
     }
   } @else {
-    @include masonry-base($child, $gutter);
-    @include make-masonry($data);
+    @include masonry-base($selector, $gutter);
+    @include make-masonry($column);
   }
 }
 
-@mixin masonry-base($child, $gutter){
+@mixin masonry-base($selector, $gutter){
   overflow: hidden; // fix an chrome overflow
   @if $gutter {
     -webkit-column-gap: $gutter;
        -moz-column-gap: $gutter;
             column-gap: $gutter;
   }
-  > #{$child} {
+  > #{$selector} {
     @if not $gutter {
       // default column-gap: 1em
       padding-bottom: 1em;

@@ -2,52 +2,36 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/gallery"; 
 
-$num: 3;
-$num-0px: 3 gutter 0px;
-$child: 4 child div;
-$direction: 4 RTL;
-$center-align: 3 'center-align';
-$percentage-gutter: 4 gutter 5%;
-$rem-gutter: 5 gutter 2rem;
-$map: ('dafault': 2, 600px: 3, 900px: 4);
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-.num { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num)}'; }
-  > ul { @include gallery($num); }
-}
-.num-0px { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num-0px)}'; }
-  > ul { @include gallery($num-0px); }
-}
-.child { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($child)}'; }
-  > div { @include gallery($child); }
-}
-.direction { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($direction)}'; }
-  > ul { @include gallery($direction); }
-}
-.center-align { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($center-align)}'; }
-  > ul { @include gallery($center-align); }
-}
-.percentage-gutter { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($percentage-gutter)}'; }
-  > ul { @include gallery($percentage-gutter); }
-}
-.rem-gutter { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($rem-gutter)}'; }
-  > ul { @include gallery($rem-gutter); }
-}
-.map { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($map)}'; }
-  > ul { @include gallery($map); }
-}
+//=> {% elif componentName === "num" %}
+.num > ul { @include gallery(3); }
+
+//=> {% elif componentName === "num-0px" %}
+.num-0px > ul { @include gallery(3 'gutter' 0px); }
+
+//=> {% elif componentName === "child" %}
+.child > div { @include gallery(4 'selector' 'div'); }
+
+//=> {% elif componentName === "direction" %}
+.direction > ul { @include gallery(4 'RTL'); }
+
+//=> {% elif componentName === "center-align" %}
+.center-align > ul { @include gallery(3 'center-align'); }
+
+//=> {% elif componentName === "percentage-gutter" %}
+.percentage-gutter > ul { @include gallery(4 'gutter' 5%); }
+
+//=> {% elif componentName === "rem-gutter" %}
+.rem-gutter > ul { @include gallery(5 'gutter' 2rem); }
+
+//=> {% elif componentName === "map" %}
+.map > ul { @include gallery((
+  'default': 2, 
+  600px: 3, 
+  900px: 4
+)); }
+
+//=> {% endif %}
+//=> {% endmacro %}

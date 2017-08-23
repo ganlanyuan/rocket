@@ -1,99 +1,70 @@
-// *** tooltip *** //
-@mixin tooltip(
-  $key:
-    width 230px
-    height 3.94em
-) {
-  $position: args-get($key, $ro-tooltip-position, 'right');
-  $color: args-get-type($key, 'color', false, #333);
-  $radius: args-get($key, 'radius');
-  $width: args-get-next($key, 'width', 230px);
-  $height: args-get-next($key, 'height', 3.94em);
-  $content: attr(data-tooltip);
+%tooltip-common {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+%tooltip-content {
+  padding: 0.67em;
+  min-width: 8.5em;
+  font-size: 0.8em;
+}
 
+@mixin tooltip($key: #000) {
+  $direction: args-get($key, (left right top bottom), right);
+  $color: args-get-type($key, 'color', null, #333);
+  $content: args-get-next($key, 'content', attr(data-tooltip));
+  $border-radius: args-get-type($key, 'string');
 
-  // *** output *** //
+  
+
   position: relative;
   cursor: pointer;
   &:before, 
   &:after {
     @extend %tooltip-common;
-    #{$position}: -8px;
+    #{$direction}: -8px;
   }
   &:after {
     @extend %tooltip-content;
     content: $content;
+    color: contrast($color);
     background: $color;
-    max-width: $width;
-    @if $radius { border-radius: $ro-tooltip-radius; }
+    @if $border-radius { border-radius: $border-radius; }
   }
   &:hover { 
     &:before,
     &:after { 
-      @include opacity(1); 
+      opacity: 1;
       z-index: 9999;
     }
   }
-  .lt-ie9 &:after { 
-    padding: 8px; // rewrite the padding for calculating left value later
-    width: $width; 
-  }
 
   // horizontal or vertical
-  @if $position == top or $position == bottom {
+  @if $direction == top or $direction == bottom {
     &:before,
     &:after { left: 50%; }
     &:before { margin-left: -6px; }
-    .lt-ie9 &:before,
-    .lt-ie9 &:after { #{opposite($position)}: 100%; }
-    .lt-ie9 &:after { 
-      @if unit($width) == 'px' {
-        margin-left: - ($width / 2 + 8px); 
-      } @else if unit($width) == 'em' {
-        margin-left: - ($width / 2 + em(8)); 
-      }
-      height: $height;
-    }
-  } @else if $position == left or $position == right {
+  } @else if $direction == left or $direction == right {
     &:before,
     &:after { top: 50%; }
     &:before { margin-top: -8px; }
-    .lt-ie9 &:before,
-    .lt-ie9 &:after { top: -2px; }
-    .lt-ie9 &:before { margin-top: 5px; }
   }
 
   // individual direction
-  @if $position == top {
+  @if $direction == top {
     &:before { @include ro-triangle(12px, $color, down); }
     &:after { @include ro-transform(translate(-50%, -100%)); }
-    .lt-ie9 &:after { 
-      @if unit($height) == 'px' {
-        margin-top: - ($height + 19px); 
-      } @else if unit($height) == 'em' {
-        margin-top: - ($height + em(19)); 
-      }
-    }
-  } @else if $position == bottom {
+  } @else if $direction == bottom {
     &:before { @include ro-triangle(12px, $color, up); }
     &:after { @include ro-transform(translate(-50%, 100%)); }
-    .lt-ie9 &:after { margin-top: 6px; }
-  } @else if $position == left {
+  } @else if $direction == left {
     &:before { @include ro-triangle(12px, $color, right); }
     &:after { @include ro-transform(translate(-100%, -50%)); }
-    .lt-ie9 &:after { 
-      @if unit($width) == 'px' {
-        left: - ($width + 16px + 8px); // double padding + left
-      } @else if unit($width) == 'em' {
-        left: - ($width + em(16) + em(8)); 
-      }
-    } 
-  } @else if $position == right {
+  } @else if $direction == right {
     &:before { @include ro-triangle(12px, $color, left); }
     &:after { @include ro-transform(translate(100%, -50%)); }
-    .lt-ie9 &:after {
-      left: 100%;
-      margin-left: 8px;
-    }
   }
 }

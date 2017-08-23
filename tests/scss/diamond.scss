@@ -3,55 +3,38 @@
 @import "../../src/scss/layout/center"; 
 @import "../../src/scss/layout/diamond"; 
 
-$diamond-count: 3 diamond;
-$diamond-count-combined: 3 diamond combined;
-$diamond-size: 25%;
-$diamond-breakpoints: (600px:3, 800px:4) diamond;
-$octagon-count: 4 octagon;
-$octagon-size: 300px octagon;
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-.diamond-count { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($diamond-count)}'; }
-  > div { @include diamond($diamond-count); }
-}
-.diamond-count-combined { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($diamond-count-combined)}'; }
-  > div { @include diamond($diamond-count-combined); }
-}
-.diamond-size { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($diamond-size)}'; }
-  > div { @include diamond($diamond-size); }
-}
-.diamond-breakpoints { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($diamond-breakpoints)}'; }
-  > div { @include diamond($diamond-breakpoints); }
-}
-.octagon-count { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($octagon-count)}'; }
-  > div { @include diamond($octagon-count); }
-}
-.octagon-size { 
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($octagon-size)}'; }
-  > div { @include diamond($octagon-size); }
-}
+//=> {% elif componentName === "diamond-count" %}
+.diamond-count > div { @include diamond(3 'shape' 'diamond'); }
 
-.demo-container {
-  @extend %clearfix;
-  max-width: 900px;
-  margin: 80px auto 20px;
-  span {
-    display: block;
-    width: 100%;
-  }
-  img {
-    width: inherit;
-  }
+//=> {% elif componentName === "diamond-count-combined" %}
+.diamond-count-combined > div { @include diamond(3 'shape' 'diamond' 'tight'); }
+
+//=> {% elif componentName === "diamond-size" %}
+.diamond-size > div { @include diamond(25%); }
+
+//=> {% elif componentName === "diamond-breakpoints" %}
+.diamond-breakpoints > div { @include diamond((
+  600px:3, 
+  800px:4
+) 'shape' 'diamond'); }
+
+//=> {% elif componentName === "octagon-count" %}
+.octagon-count > div { @include diamond(4 'shape' 'octagon'); }
+
+//=> {% elif componentName === "octagon-size" %}
+.octagon-size > div { @include diamond(300px 'shape' 'octagon'); }
+
+//=> {% endif %}
+//=> {% endmacro %}
+
+.container { max-width: 900px; }
+.demo:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 .order span:after {
   display: block;

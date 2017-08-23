@@ -1,31 +1,22 @@
-// *** validation *** //
-@mixin validation($key:false){
-  $style: args-get($key, $validation-style, 'normal');
-  $direction: args-get($key, $validation-direction, right);
+@mixin validation($key: ()){
+  $style: args-get($key, ('normal' 'fade-in' 'slide-in'), 'normal');
+  $direction: args-get($key, (left right top bottom), right);
   $shake: args-get($key, 'shake');
   $speed: args-get-next($key, 'speed', 0.3s);
   $duration: args-get-next($key, 'duration', 1.3s);
   $default: args-get($key, 'default');
-  $zi: 9999;
+  $z-index: 9999;
 
-  $horizontal: false;
-  $vertical: false;
-  @if index((left, right), $direction) {
-    $horizontal: true;
-  } @else if index((top, bottom), $direction) {
-    $vertical: true;
-  }
 
-  // *** output *** //
   [data-info] {
     // ** style before
     @if $style == 'normal' {
       display: none;
     } @else if $style == 'fade-in' {
-      @include opacity(0);
+      opacity: 0;
       @include ro-transition(opacity $speed);
       position: absolute;
-      z-index: $zi;
+      z-index: $z-index;
       @if $direction == right {
         margin-left: 10px;
         margin-top: 0 !important;
@@ -40,7 +31,7 @@
         border-style: solid;
         border-width: 5px;
         border-color: transparent;
-        z-index: $zi;
+        z-index: $z-index;
         @if $direction == right {
           top: 5px;
           left: -10px;
@@ -54,7 +45,7 @@
       position: fixed;
       display: inline-block;
       #{$direction}: 0;
-      z-index: $zi;
+      z-index: $z-index;
       @if $direction == left {
         @include ro-transform(translateX(-100%));
       } @else if $direction == right {
@@ -65,7 +56,7 @@
       } @else if $direction == bottom {
         @include ro-transform(translate(-50%, 100%));
       }
-      @if $horizontal {
+      @if index((left, right), $direction) {
         bottom: 20px;
       } @else {
         left: 50%;
@@ -79,24 +70,24 @@
   }
 
   // ** style after
-  .valid [data-info="valid"],
-  .required [data-info="required"],
-  .error [data-info="error"] {
+  .valid ~ [data-info="valid"],
+  .required ~ [data-info="required"],
+  .error ~ [data-info="error"] {
     @if $style == 'normal' {
       display: inline-block;
     } @else if $style == 'fade-in' {
-      @include opacity(1);
+      opacity: 1;
     } @else if $style == 'slide-in' {
       $trans-hide: '';
       $trans-show: '';
-      @if $horizontal {
+      @if index((left, right), $direction) {
         @if $direction == left {
           $trans-hide: translateX(-150%);
         } @else {
           $trans-hide: translateX(150%);
         }
         $trans-show: translateX(0);
-      } @else if $vertical {
+      } @else {
         @if $direction == top {
           $trans-hide: translate(-50%, -150%);
         } @else {
@@ -107,12 +98,12 @@
       @include ro-keyframes(form-slide) {
         0%, 100% {
           transform: $trans-hide;
-          @if $vertical { #{$direction}: 0; }
+          @if index((top, bottom), $direction) { #{$direction}: 0; }
         }
         #{percentage($speed / ($duration + $speed * 2))}, 
         #{percentage(($speed + $duration) / ($duration + $speed * 2))} {
           transform: $trans-show;
-          @if $vertical { #{$direction}: 10px; }
+          @if index((top, bottom), $direction) { #{$direction}: 10px; }
         }
       }
       @include ro-animation(form-slide ($speed * 7));

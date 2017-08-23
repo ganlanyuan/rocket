@@ -1,39 +1,58 @@
 // stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec 
 // https://blog.codepen.io/2016/10/31/fluid-type-blogs/
+@mixin fluid-type($key) {
+  $property: false;
+  $breakpoint: false;
+  @if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'map' {
+        $breakpoint: $item;
+      } @else if type-of($item) == 'string' {
+        @if $property {
+          $property: append($property, $item);
+        } @else {
+          $property:($item);
+        }
+      } @else if type-of($item) == 'list' {
+       $property: $item;
+      }
+    }
+  } @else if type-of($key) == 'map' {
+    $breakpoint: $key;
+    $property: 'font-size';
+  }
 
-// *** fluid-type *** //
-@mixin fluid-type($properties, $data) {
-  @if type of $data == 'map' {
-    $keys: map-keys($data);
-    $values: map-values($data);
+  @if $property and $breakpoint {
+    $keys: map-keys($breakpoint);
+    $values: map-values($breakpoint);
 
-    $min-vw: nth($keys, 1); 
-    $max-vw: nth($keys, 2);
-    $min-value: nth($values, 1);
-    $max-value: nth($values, 2);
+    $vw-sm: nth($keys, 1); 
+    $vw-bg: nth($keys, 2);
+    $value-sm: nth($values, 1);
+    $value-bg: nth($values, 2);
 
-    @each $property in $properties {
-      #{$property}: $min-value;
-      @if $property == 'font-size' and unit($min-value) == 'px' {
-        #{$property}: rem($min-value);
+    @each $item in $property {
+      #{$item}: $value-sm;
+      @if $item == 'font-size' and unit($value-sm) == 'px' {
+        #{$item}: rem($value-sm);
       }
     }
 
-    @include bp('min' $min-vw) {
-      @each $property in $properties {
-        @if $property == 'font-size' and unit($min-value) == 'px' {
-          #{$property}: calc(#{rem($min-value)} + #{strip-unit($max-value - $min-value)} * (100vw - #{rem($min-vw)}) / #{strip-unit($max-vw - $min-vw)});
-        } else {
-          #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    @include bp($vw-sm) {
+      @each $item in $property {
+        @if $item == 'font-size' and unit($value-sm) == 'px' {
+          #{$item}: calc(#{rem($value-sm)} + #{strip-unit($value-bg - $value-sm)} * (100vw - #{rem($vw-sm)}) / #{strip-unit($vw-bg - $vw-sm)});
+        } @else {
+          #{$item}: calc(#{$value-sm} + #{strip-unit($value-bg - $value-sm)} * (100vw - #{$vw-sm}) / #{strip-unit($vw-bg - $vw-sm)});
         }
       }
     }
 
-    @include bp('min' $max-vw) {
-      @each $property in $properties {
-        #{$property}: $max-value;
-        @if $property == 'font-size' and unit($max-value) == 'px' {
-          #{$property}: rem($max-value);
+    @include bp($vw-bg) {
+      @each $item in $property {
+        #{$item}: $value-bg;
+        @if $item == 'font-size' and unit($value-bg) == 'px' {
+          #{$item}: rem($value-bg);
         }
       }
     }

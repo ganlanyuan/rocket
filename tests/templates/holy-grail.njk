@@ -1,0 +1,47 @@
+{% set page = 'holy-grail' %}
+{% extends 'parts/layout.njk' %}
+
+{% import 'code/' + page + '-code.njk' as fn %}
+{% block main %}
+  {% for item in [
+    'holy-grail-list1', 
+    'holy-grail-list2', 
+    'holy-grail-list3', 
+    'holy-grail-order1', 
+    'holy-grail-order2', 
+    'holy-grail-order3', 
+    'holy-grail-order4', 
+    'holy-grail-order5', 
+    'holy-grail-order6', 
+    'holy-grail-RTL', 
+    'holy-grail-selector1', 
+    'holy-grail-selector2', 
+    'holy-grail-gutter-0px', 
+    'holy-grail-gutter-sameunit', 
+    'holy-grail-gutter-percentage', 
+    'holy-grail-gutter-differentunit', 
+    'holy-grail-breakpoint', 
+    'holy-grail-breakpoint-conditions', 
+    'holy-grail-global-breakpoints'
+  ] %}
+
+    <div class="{{ item }}">
+      <div data-margin="">
+        {% if item === 'holy-grail-selector2' %}
+          <nav class="order"><div class="cell" data-content=""></div></nav>
+          <main class="order"><div class="cell" data-content=""></div></main>
+          <aside class="order"><div class="cell" data-content=""></div></aside>
+        {% else %}
+          {% for i in range(1, 4) %}
+            <div class="order"><div class="cell" data-content=""></div></div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      {# code #}
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+      </code></pre>
+    </div>
+  {% endfor %}
+{% endblock %}

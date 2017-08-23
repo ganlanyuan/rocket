@@ -1,0 +1,27 @@
+@import 'demo-base';
+@import "../../src/scss/components/parallelogram"; 
+
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
+
+{% elif componentName === "parallelogram" %}
+.parallelogram a { @include parallelogram(#1C6493 -20deg); }
+
+{% endif %}
+{% endmacro %}}
+
+.parallelogram { 
+  text-align: center;
+  margin-bottom: 50px;
+  & li { display: inline-block; }
+  & a {
+    display: inline-block;
+    padding: 1em 1.5em;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    &:hover:before  {
+      background: darken(#32A8DE, 10%);
+    }
+  }
+}

@@ -1,6 +1,7 @@
 {% set page = 'switch' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
   <div class="example example-switch">
     <section>
@@ -8,10 +9,16 @@
         <input type="checkbox" id="switch1" name="switch-1">
         <label for="switch1"></label>
       </div>              
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get('one') }}{% endfilter -%}
+      </code></pre>
       <div class="switch two">
         <input type="checkbox" id="switch2" name="switch-2" checked="">
         <label for="switch2"></label>
       </div>
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get('two') }}{% endfilter -%}
+      </code></pre>
     </section>
     <section>
       <h5>slider</h5>
@@ -22,6 +29,9 @@
           <span class="after"></span>
         </label>
       </div>
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get('slider') }}{% endfilter -%}
+      </code></pre>
     </section>
     <section>
       <h5>Has text</h5>
@@ -29,6 +39,9 @@
         <input type="checkbox" id="switch-text" name="switch-text" checked="">
         <label for="switch-text"><span></span></label>
       </div>
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get('text') }}{% endfilter -%}
+      </code></pre>
     </section>
     <section class="switch-group">
       <h5>Switch group</h5>
@@ -44,6 +57,9 @@
         <input type="radio" id="switch-3" name="switch-g">
         <label for="switch-3"></label>
       </div>              
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get('switch-g') }}{% endfilter -%}
+      </code></pre>
     </section>
   </div>
 {% endblock %}

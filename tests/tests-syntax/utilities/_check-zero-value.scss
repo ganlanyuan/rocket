@@ -1,0 +1,18 @@
+@include test-module('Functions') {
+
+  @include test('check-zero-value [function]') {
+    
+    $test1: check-zero-value(9px);
+    $expect1: 9px;
+    @include assert-equal($test1, $expect1, 'return a non-zero value.');
+    
+    $val: null;
+    $test2: check-zero-value($val);
+    $expect2: 0;
+    @include assert-equal($test2, $expect2, 'return 0 when $val is not exist.');
+    
+    $test3: check-zero-value(0px);
+    $expect3: 0;
+    @include assert-equal($test3, $expect3, 'return 0 when $val is 0 with a unit.');
+  };
+};

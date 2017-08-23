@@ -1,0 +1,76 @@
+@import 'demo-base';
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/grid"; 
+@import "../../src/scss/layout/masonry"; 
+
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
+
+{% elif componentName === "masonry-number" %}
+.masonry-number > ul { @include masonry(3); }
+
+{% elif componentName === "masonry-child" %}
+.masonry-child > ul { @include masonry(4 'selector' '.masonry-item'); }
+
+{% elif componentName === "masonry-0px" %}
+.masonry-0px > ul { @include masonry(4 'gutter' 0px); }
+
+{% elif componentName === "masonry-percentage-gutter" %}
+.masonry-percentage-gutter > ul { @include masonry(4 'gutter' 3%); }
+
+{% elif componentName === "masonry-condition" %}
+.masonry-condition > ul { @include masonry((900px: 3) 'max'); }
+
+{% elif componentName === "masonry-breakpoints" %}
+.masonry-breakpoints > ul { @include masonry((
+  600px: 2, 
+  900px: 3
+)); }
+
+{% elif componentName === "masonry-global-breakpoints" %}
+.masonry-global-breakpoints > ul { @include masonry((
+  'sm': 2, 
+  'md': 3
+) $global-bps); }
+
+
+{% endif %}
+{% endmacro %}
+
+// other styles
+[class*= "masonry-"] img { 
+  display: block; 
+  width: 100%; 
+}
+.masonry-content {
+  padding: 15px;
+  overflow: hidden;
+  background: #f2f2f2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+}
+
+// fallback
+.lt-ie10 {
+  [class*= "masonry-"] {
+    text-align: center;
+    > li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin: 0 20px 20px 0;
+      text-align: left;
+    }
+  }
+}

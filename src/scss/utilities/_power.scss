@@ -1,0 +1,9 @@
+@function power($num, $power) {
+  $return: 1;
+  @if $power > 0 {
+    @for $i from 1 through $power {
+      $return: $return * $num;
+    }
+  }
+  @return $return;
+}

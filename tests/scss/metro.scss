@@ -2,50 +2,41 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/metro"; 
 
-$metro-list: (w1 w3 h2 w4 of 5) gutter 10px;
-$metro-list-0px: (w1 w3 h2 w4 of 5) gutter 0px;
-$metro-child: (w2h3 w3h1 w3h2 of 5) child '.child' gutter 5%;
-$metro-ratio: (w1 w3 w3 w1 of 4) ratio (9/16) gutter 10px;
-$metro-breakpoint: (600px: w6h1 w2h2 w4h2 of 6) gutter 10px;
-$metro-breakpoint-condition: ( (900px: w2h2 w2 w2 of 4) gutter 10px max screen);
-$metro-global-breakpoints: (('default': w6 w2 w4 of 6, 'sm': w2h3 w4 w4h2 of 6, 'md': w3h2 w3 w3 of 6) $global-bps gutter 10px);
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "metro-list" %}
+.metro-list > ul { @include metro((w1 w3 h2 w4 of 5) 'gutter' 10px); }
+
+//=> {% elif componentName === "metro-list-0px" %}
+.metro-list-0px > ul { @include metro((w1 w3 h2 w4 of 5) 'gutter' 0px); }
+
+//=> {% elif componentName === "metro-child" %}
+.metro-child > ul { @include metro((w2h3 w3h1 w3h2 of 5) 'selector' '.child' 'gutter' 5%); }
+
+//=> {% elif componentName === "metro-ratio" %}
+.metro-ratio > ul { @include metro((w1 w3 w3 w1 of 4) 'ratio' (9/16) 'gutter' 10px); }
+
+//=> {% elif componentName === "metro-breakpoint" %}
+.metro-breakpoint > ul { @include metro((
+  600px: w6h1 w2h2 w4h2 of 6
+) 'gutter' 10px); }
+
+//=> {% elif componentName === "metro-breakpoint-condition" %}
+.metro-breakpoint-condition > ul { @include metro((
+  900px: w2h2 w2 w2 of 4
+) 'gutter' 10px 'max' 'screen'); }
+
+//=> {% elif componentName === "metro-global-breakpoints" %}
+.metro-global-breakpoints > ul { @include metro((
+  'default': w6 w2 w4 of 6, 
+  'sm': w2h3 w4 w4h2 of 6, 
+  'md': w3h2 w3 w3 of 6
+) $global-bps 'gutter' 10px); }
+
+//=> {% endif %}
+//=> {% endmacro %}
 
 .container { max-width: 800px; }
-.metro-list {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-list)}'; }
-  > ul { @include metro($metro-list); }
-}
-.metro-list-0px {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-list-0px)}'; }
-  > ul { @include metro($metro-list-0px); }
-}
-.metro-child {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-child)}'; }
-  > ul { @include metro($metro-child); }
-}
-.metro-ratio {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-ratio)}'; }
-  > ul { @include metro($metro-ratio); }
-}
-.metro-breakpoint {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-breakpoint)}'; }
-  > ul { @include metro($metro-breakpoint); }
-}
-.metro-breakpoint-condition {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-breakpoint-condition)}'; }
-  > ul { @include metro($metro-breakpoint-condition); }
-}
-.metro-global-breakpoints {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($metro-global-breakpoints)}'; }
-  > ul { @include metro($metro-global-breakpoints); }
-}
-
 .metro-list li:nth-child(3) { float: right; }
 .metro-list-0px li:nth-child(3) { float: right; }

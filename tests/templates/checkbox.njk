@@ -1,8 +1,8 @@
 {% set page = 'checkbox' %}
 {% extends 'parts/layout.njk' %}
 
+{% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <h4>Radio</h4>
   <div class="example">
     <div class="radio">
       <input type="radio" name="my-radio-name" id="my-radio-id-1" checked>
@@ -16,8 +16,10 @@
       <br />
     </div>              
   </div>
+  <pre><code class="language-scss">
+    {%- filter trim %}{{ fn.get('radio') }}{% endfilter -%}
+  </code></pre>
 
-  <h4>Checkbox</h4>
   <div class="example">
     <div class="checkbox">
       <input type="checkbox" name="" id="my-checkbox-id-1">
@@ -29,6 +31,9 @@
       <input type="checkbox" name="" id="my-checkbox-id-3">
       <label for="my-checkbox-id-3">item 3</label>
       <br />
-    </div>              
+    </div>       
   </div>
+  <pre><code class="language-scss">
+    {%- filter trim %}{{ fn.get('checkbox') }}{% endfilter -%}
+  </code></pre>
 {% endblock %}

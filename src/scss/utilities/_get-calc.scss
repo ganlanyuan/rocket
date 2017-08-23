@@ -1,0 +1,5 @@
+@mixin get-calc($prop, $val) {
+  #{$prop}: -webkit-calc(#{$val});
+  #{$prop}: -moz-calc(#{$val});
+  #{$prop}: calc(#{$val});
+}

@@ -1,7 +1,10 @@
 @import 'demo-base';
-@import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/checkbox"; 
 
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "radio" %}
 .radio {
   @include checkbox() {
     padding: 4px 0 4px 26px;
@@ -14,6 +17,7 @@
   }
 }
 
+//=> {% elif componentName === "checkbox" %}
 .checkbox {
   @include checkbox() {
     padding: 4px 0 4px 26px;
@@ -25,3 +29,6 @@
     background-image: url('../images/checkbox-active.png');
   }
 }
+
+//=> {% endif %}
+//=> {% endmacro %}

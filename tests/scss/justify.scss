@@ -2,8 +2,16 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/justify"; 
 
-.example-justify {
-  @include justify();
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "justify" %}
+.justify { @include justify('li'); }
+
+//=> {% endif %}
+//=> {% endmacro %}
+
+.justify {
   li {
     font-size: 13px;
     text-transform: uppercase;
@@ -21,4 +29,3 @@
     &:focus { width: 250px; }
   }
 }
-

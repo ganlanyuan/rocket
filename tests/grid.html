@@ -1,8 +1,259 @@
-<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>grid</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/grid.css" rel="stylesheet"><!--[if (lt IE 9)]>
-		<script src="js/html5.js"></script>
-		<script src="js/ie.min.js"></script>
-		
-		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
-		<script src="cross-domain/respond.proxy.js"></script>	
-	<![endif]--></head><body><div class="container"><h2 class="main-heading">Grid</h2><div class="example ovh"><div class="grid-list demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-child demo-container"><div data-margin><main class="child order"><div class="example-content cell" data-content></div></main><aside class="child order"><div class="example-content cell" data-content></div></aside></div></div><div class="grid-gutter1 demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-gutter2 demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-list-direction demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-nested-list demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-map demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint-outside demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-global-breakpoints demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint-max demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint-nested-list demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint-map demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint-default demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div><div class="grid-breakpoint-complex-list demo-container"><div data-margin><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div><div class="order"><div class="example-content cell" data-content></div></div></div></div></div><div class="back-to-home"><a href="/tests">← Back to home</a></div></div></body></html>
+<!DOCTYPE html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js lt-ie" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- <meta http-equiv="cleartype" content="on"> -->
+    <title>
+      grid
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet"><!-- javascript --><!--[if (lt IE 9)]>
+                <script src="js/html5.js"></script>
+                <script src="js/ie.min.js"></script>
+                
+                <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+                <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+                <script src="cross-domain/respond.proxy.js"></script>   
+        <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-heading">
+        Grid
+      </h2>
+      <div class="grid-list">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-list &gt; div { @include grid(3 1); }</code></pre>
+      </div>
+      <div class="grid-child">
+        <div data-margin="">
+          <main class="child order">
+            <div class="example-content cell" data-content=""></div>
+          </main>
+          <aside class="child order">
+            <div class="example-content cell" data-content=""></div>
+          </aside>
+        </div>
+        <pre><code class="language-scss">.grid-child &gt; div { @include grid( (3 4) 'selector' '.child'); }</code></pre>
+      </div>
+      <div class="grid-gutter1">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-gutter1 &gt; div { @include grid((3 4 : 2 1) 'gutter' 5%); }</code></pre>
+      </div>
+      <div class="grid-gutter2">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-gutter2 &gt; div { @include grid((3 4) 'gutter' 5rem); }</code></pre>
+      </div>
+      <div class="grid-list-direction">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-list-direction &gt; div { @include grid((3 4) 'RTL'); }</code></pre>
+      </div>
+      <div class="grid-nested-list">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-nested-list &gt; div { @include grid((3 4) 7); }</code></pre>
+      </div>
+      <div class="grid-map">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-map &gt; div { @include grid( (3 4 7 : 0 2 1 ) 3 ); }</code></pre>
+      </div>
+      <div class="grid-breakpoint">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-breakpoint &gt; div { @include grid(( 600px: 5 7 )); }</code></pre>
+      </div>
+      <div class="grid-breakpoint-outside">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">@media screen and (min-width: 600px) {
+  .grid-breakpoint-outside &gt; div { @include grid((5 7)); }
+}</code></pre>
+      </div>
+      <div class="grid-global-breakpoints">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-global-breakpoints &gt; div { @include grid((
+  'sm': 1 1, 
+  'md': 2 1, 
+  'lg': 3 5
+) $global-bps); }</code></pre>
+      </div>
+      <div class="grid-breakpoint-max">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-breakpoint-max &gt; div { @include grid((
+  600px: 3 5, 
+  900px: 2 1
+) 'max'); }</code></pre>
+      </div>
+      <div class="grid-breakpoint-nested-list">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-breakpoint-nested-list &gt; div { @include grid(( 600px: (3 4) (2 5) 3 )); }</code></pre>
+      </div>
+      <div class="grid-breakpoint-map">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-breakpoint-map &gt; div { @include grid(( 600px: (3 4 : 2 1) (2 5) 3 )); }</code></pre>
+      </div>
+      <div class="grid-breakpoint-default">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-breakpoint-default &gt; div { @include grid(( 
+  'default': 3 4, 
+  900px: 2 7 
+)); }</code></pre>
+      </div>
+      <div class="grid-breakpoint-complex-list">
+        <div data-margin="">
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="example-content cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.grid-breakpoint-complex-list &gt; div { @include grid((
+  'default': (3 4) (2 5) 3, 
+  600px: (3 4 2) (5 3), 
+  900px: (5 2: 2 1) 3 (1 1 : 2 1)
+)); }</code></pre>
+      </div>
+      <div class="back-to-home">
+        <a href="/tests">← Back to home</a>
+      </div>
+    </div>
+    <script src="js/prism.js"></script>
+  </body>
+</html>

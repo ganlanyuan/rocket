@@ -1,31 +1,23 @@
 @import 'demo-base';
 @import "../../src/scss/components/accordion"; 
 
-$string: div;
-$string-height: div 200px;
-$string-duration: div 0.4s;
-$string-height-duration: '.nav' 200px 0.4s;
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-.string {
-  @extend %demo-show;
-  &:before { content: '"#{var-to-string($string)}"'; }
-  > div { @include accordion($string); }
-}
-.string-height {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($string-height)}'; }
-  > div { @include accordion($string-height); }
-}
-.string-duration {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($string-duration)}'; }
-  > div { @include accordion($string-duration); }
-}
-.string-height-duration {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($string-height-duration)}'; }
-  > div { @include accordion($string-height-duration); }
-}
+//=> {% elif componentName === "string" %}
+.string > div { @include accordion('div'); }
+
+//=> {% elif componentName === "string-height" %}
+.string-height > div { @include accordion('div' 200px); }
+
+//=> {% elif componentName === "string-duration" %}
+.string-duration > div { @include accordion('div' 0.4s); }
+
+//=> {% elif componentName === "string-height-duration" %}
+.string-height-duration > div { @include accordion('.nav' 200px 0.4s); }
+
+//=> {% endif %}
+//=> {% endmacro %}
 
 label {
   display: block;

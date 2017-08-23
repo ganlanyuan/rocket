@@ -1,0 +1,74 @@
+@import 'demo-base';
+@import "../../src/scss/addons/breakpoint"; 
+@import "../../src/scss/layout/holy-grail"; 
+
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "holy-grail-list1" %}
+.holy-grail-list1 > div { @include holy-grail('auto' 100px 250px); }
+
+//=> {% elif componentName === "holy-grail-list2" %}
+.holy-grail-list2 > div { @include holy-grail(100px 'auto' 250px); }
+
+//=> {% elif componentName === "holy-grail-list3" %}
+.holy-grail-list3 > div { @include holy-grail(100px 250px 'auto'); }
+
+//=> {% elif componentName === "holy-grail-order1" %}
+.holy-grail-order1 > div { @include holy-grail((100px:1, 'auto':3, 250px:2)); }
+
+//=> {% elif componentName === "holy-grail-order2" %}
+.holy-grail-order2 > div { @include holy-grail((100px 'auto' 250px : 3 2 1)); }
+
+//=> {% elif componentName === "holy-grail-order3" %}
+.holy-grail-order3 > div { @include holy-grail((100px 'auto' 250px : 3 1 2)); }
+
+//=> {% elif componentName === "holy-grail-order4" %}
+.holy-grail-order4 > div { @include holy-grail((100px 'auto' 250px : 2 1 3)); }
+
+//=> {% elif componentName === "holy-grail-order5" %}
+.holy-grail-order5 > div { @include holy-grail((100px 'auto' 250px : 2 3 1)); }
+
+//=> {% elif componentName === "holy-grail-order6" %}
+.holy-grail-order6 > div { @include holy-grail(('auto' 100px 250px : 2 1 3)); }
+
+//=> {% elif componentName === "holy-grail-RTL" %}
+.holy-grail-RTL > div { @include holy-grail(('auto' 100px 250px) 'RTL'); }
+
+//=> {% elif componentName === "holy-grail-selector1" %}
+.holy-grail-selector1 > div { @include holy-grail(('auto' 100px 250px) 'selector' '.order'); }
+
+//=> {% elif componentName === "holy-grail-selector2" %}
+.holy-grail-selector2 > div { @include holy-grail((100px 'auto' 250px) 'selector' ('nav' 'main' 'aside')); }
+
+//=> {% elif componentName === "holy-grail-gutter-0px" %}
+.holy-grail-gutter-0px > div { @include holy-grail(('auto' 100px 250px) 'gutter' 0px); }
+
+//=> {% elif componentName === "holy-grail-gutter-sameunit" %}
+.holy-grail-gutter-sameunit > div { @include holy-grail(('auto' 100px 250px) 'gutter' 40px); }
+
+//=> {% elif componentName === "holy-grail-gutter-percentage" %}
+.holy-grail-gutter-percentage > div { @include holy-grail(('auto' 100px 250px) 'gutter' 3%); }
+
+//=> {% elif componentName === "holy-grail-gutter-differentunit" %}
+.holy-grail-gutter-differentunit > div { @include holy-grail(('auto' 10em 250px) 'gutter' 3rem); }
+
+//=> {% elif componentName === "holy-grail-breakpoint" %}
+.holy-grail-breakpoint > div { @include holy-grail((
+  900px: (100px:2, 'auto':0, 250px:0)
+)); }
+
+//=> {% elif componentName === "holy-grail-breakpoint-conditions" %}
+.holy-grail-breakpoint-conditions > div { @include holy-grail((
+  900px: (100px:2, 'auto':1, 250px:0)
+) 'max' 'screen'); }
+
+//=> {% elif componentName === "holy-grail-global-breakpoints" %}
+.holy-grail-global-breakpoints > div { @include holy-grail((
+  'default': (100px:2, 'auto':1, 250px:0),
+  'sm': (100px:0, 'auto':1, 250px:2),
+  'lg': (100px:2, 'auto':1, 250px:0),
+) $global-bps ); }
+
+//=> {% endif %}
+//=> {% endmacro %}

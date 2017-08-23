@@ -1,151 +1,148 @@
 @mixin grid($key){
-  $child: args-get-next($key, 'child', 'div');
-  $gutter: args-get-next($key, 'gutter', map-get($ro-layout, 'gutter'));
-  $float: if(args-get($key, $ro-text-direction, 'LTR') == 'LTR', left, right);
+  $selector: args-get-next($key, 'selector', 'div');
+  $gutter: args-get-next($key, 'gutter', $global-gutter);
+  // strip unit when gutter == 0
+  $gutter: check-zero-value($gutter);
+  $float: if(index($key, 'RTL'), right, left);
+
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
+  $condition: args-get($key, ('min' 'max'), 'min');
+  $media: args-get($key, $ro-media-type);
   $keep: args-get($key, 'keep', false);
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
-  $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
-
-  @if type-of($child) == 'list' {
-    @error 'Only one type of child element is acceptable. You passed (#{$child}).';
-  } @else if type-of($child) != 'string' {
-    @error 'Child should be a string. You passed "#{$child}".';
+  @if type-of($selector) == 'list' {
+    @error 'Only one type of child element is acceptable. You passed (#{$selector}).';
+  } @else if type-of($selector) != 'string' {
+    @error 'Child should be a string. You passed "#{$selector}".';
   }
 
-  // strip unit when gutter == 0
-  @if not $gutter or type-of($gutter) != 'number' or $gutter and strip-unit($gutter) == 0 { $gutter: 0; }
-
   // get data
-  $data: false;
+  $column: false;
   @if type-of($key) == map {
-    $data: $key;
+    $column: $key;
   } @else if type-of($key) == 'list' {
     @if is-number-map-list($key) {
-      $data: $key;
+      $column: $key;
     } @else {
       @each $item in $key {
-        @if not $data {
+        @if not $column {
           @if type-of($item) == 'map' or 
               type-of($item) == 'list' and is-number-map-list($item) {
-            $data: $item;
+            $column: $item;
           }
         }
       }
     }
   }
-
   // if not valuable data found
-  @if not $data { @error 'Parameters must include list or map.'; }
+  @if not $column { @error 'Parameters must include list or map.'; }
 
-  // 1. Modern browser:
-  //    gutter: flex/space-between
-  //    order: flex/order
-  //    direction: flex/row-reverse
-
-  //   1-1. percentage gutter
-  //        width: %
-
-  //   1-2. gutter with other units
-  //        width: calc()
-
-  // 2. IE9-:
-  //    width: %
-  //    direction: float
-  //    order: margin/float, -100% margin/opposite-float
-
-  //   2-1. percentage gutter
-  //        gutter: no set
-
-  //   2-2. gutter with other units
-  //        gutter: minus margin of the container element, padding of child elements
 
   // has breakpoints
-  @if grid-has-breakpoints($data) {
+  @if grid-has-breakpoints($column) {
     
     // update breakpoints
-    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
-    $bps: map-keys($data);
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    $local-breakpoints: map-keys($column);
 
-    @if index($bps, null) != null or index($bps, 'default') != null { 
-      $keep: false; 
+    @if index($local-breakpoints, 'default') { 
+      // set base styles & default styles
+      @include grid-base($selector, $float, $gutter);
+      $default-column: map-get($column, 'default');
+
+      // set default columns styles
+      @if length($local-breakpoints) == 1 {
+        @include divide-rows($default-column, $gutter, $selector, $float);
+      } @else {
+        $local-breakpoints-nums: list-remove($local-breakpoints, 'default');
+
+        @if $condition == 'max' {
+          @include bp('min' max($local-breakpoints-nums...)) {
+            @include divide-rows($default-column, $gutter, $selector, $float);
+          }
+        } @else {
+          @include bp(0 min($local-breakpoints-nums...)) {
+            @include divide-rows($default-column, $gutter, $selector, $float);
+          }
+        }
+
+        // remove 'default' from breakpoints
+        $local-breakpoints: $local-breakpoints-nums;
+      }
+
+    } @else {
+
+      // set base styles
+      @if $condition == 'max' {
+        @include bp('max' max($local-breakpoints...)) {
+          @include grid-base($selector, $float, $gutter);
+        }
+      } @else {
+        @include bp('min' min($local-breakpoints...)) {
+          @include grid-base($selector, $float, $gutter);
+        }
+      }
     }
 
-    // divide rows within each breakpoints
-    @each $bp in $bps {
-      @if $bp == 'default' {
-        @include grid-base($child, $float, $gutter);
-        $keep: true;
+    // re-order breakpoints based on codition
+    @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
+      $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
+    }
 
-        @include divide-rows(map-get($data, $bp), $gutter, $child, $float);
+    // loop through the breakpoints
+    @for $i from 1 through length($local-breakpoints) {
+      $bp: nth($local-breakpoints, $i);
+      // use @media (min) and (max)
+      @if $i < length($local-breakpoints) {
+        @include bp($media $bp nth($local-breakpoints, $i + 1)) {
+          @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
+        }
+
+      // use @media (min) or (max)
       } @else {
-        @include bp($condition $media-type $bp) {
-          @if not $keep {
-            @include grid-base($child, $float, $gutter);
-            $keep: true;
-          }
-
-          // reset order
-          // * only needed within media query condition
-          > #{$child}:nth-child(n) { @include ro-order(0); }
-          @include divide-rows(map-get($data, $bp), $gutter, $child, $float);
+        @include bp($condition $media $bp) {
+          @include divide-rows(map-get($column, $bp), $gutter, $selector, $float);
         }
       }
     }
 
   // no breakpoints
   } @else {
-    @include grid-base($child, $float, $gutter);
-    @include divide-rows($data, $gutter, $child, $float);
+    @include grid-base($selector, $float, $gutter);
+    @include divide-rows($column, $gutter, $selector, $float);
   }
 }
 
-@mixin grid-base($child, $float, $gutter){
-  // 1. Modern browser:
-  // flex/space-between
-  @include ro-flexbox; 
-  @include ro-flex-wrap(wrap);
-  @include ro-justify-content(space-between);
-  // change direction
-  @if $float == right {
-    @include ro-flex-direction(row-reverse);
-  }
+//  width: %
+//  direction: float
+//  order: margin/float, -100% margin/opposite-float
 
-  // default 100% width
-  > #{$child} { width: 100%; }
+//  2-1. percentage gutter
+//     gutter: no set
 
-  // 2. IE9-:
-  .lt-ie10 & {
-    @include clearfix();
-    // gutter: px | em | rem | vw
-    @if $gutter != 0 and unit($gutter) != '%' { margin-#{opposite($float)}: - $gutter; }
+//  2-2. gutter with other units
+//     gutter: minus margin of the container element, padding of child elements
 
-    > #{$child} {
-      float: $float;
-      clear: both; // default: single column
-      margin-#{opposite($float)}: -100%; // each column is isolated with each other
-      // gutter: px | em | rem | vw
-      @if $gutter != 0 and unit($gutter) != '%' {
-        padding-#{opposite($float)}: $gutter;
-        box-sizing: border-box;
-      }
-    }
+@mixin grid-base($selector, $float, $gutter){
+  @include clearfix();
+  > #{$selector} { 
+    position: relative;
+    left: 0;
+
+    float: $float;
+    @if $gutter != 0 { margin-#{opposite($float)}: $gutter; }
   }
 }
 
 // == divide-rows ==
-@mixin divide-rows($value, $gutter, $child, $float) {
+@mixin divide-rows($value, $gutter, $selector, $float) {
   $columns: false;
   $orders: false;
   $list-length: 0;
   $max-order: false;
   
-  // reset clear
-  .lt-ie10 & > #{$child}:nth-child(n) { clear: none; };
-
   // many rows
   @if is-nested-list($value) {
 
@@ -154,14 +151,10 @@
       $columns: grid-get-columns($item);
       $orders: grid-get-orders($item);
 
-      @include grid-row($columns, $orders, $child, $float, $gutter, $max-order, $list-length);
+      @include grid-row($columns, $orders, $selector, $float, $gutter, $max-order, $list-length);
 
       // get list-length
-      @if $columns { 
-        $list-length: ($list-length + length($columns)); 
-        // clear float on the first column of a new row
-        .lt-ie10 & > #{$child}:nth-child(#{$list-length + 1}) { clear: both; }
-      }
+      @if $columns { $list-length: ($list-length + length($columns)); }
 
       // get max-order
       @if $orders {
@@ -178,20 +171,17 @@
     $columns: grid-get-columns($value);
     $orders: grid-get-orders($value);
 
-    @include grid-row($columns, $orders, $child, $float, $gutter);
+    @include grid-row($columns, $orders, $selector, $float, $gutter);
   }
 }
 
 // == grid-row ==
-@mixin grid-row($cols, $orders, $child, $float, $gutter, $max-order:false, $list-length:0) {
+@mixin grid-row($cols, $orders, $selector, $float, $gutter, $max-order:false, $list-length:0) {
 
   $full-col: 0;
-  @each $item in $cols {
-    $full-col: ($full-col + $item);
-  }
+  @each $item in $cols { $full-col: ($full-col + $item); }
 
   @for $i from 1 through length($cols) {
-    // no-flexbox
     $new-orders: ();
     $location: 1;
     @if $orders {
@@ -202,64 +192,53 @@
       $location: $i;
     }
 
+    > #{$selector}:nth-child(#{$i + $list-length}) {
+      // set clear
+      @if $list-length > 1 and $i == 1 { clear: both; }
 
-    > #{$child}:nth-child(#{$i + $list-length}) {
-      // order
-      @if $orders or $max-order {
-        @if $orders { 
-          @if $max-order {
-            @include ro-order((nth($orders, $i) + $max-order)); 
-          } @else {
-            @include ro-order(nth($orders, $i)); 
-          }
-        } @else {
-          @include ro-order($max-order);
-        }
-      }
-
-      // gutter: %
+      // set width
       @if unit($gutter) == '%' or $gutter == 0 {
         width: ((100% + $gutter) * nth($cols, $i) / $full-col - $gutter);
-
-      // gutter: px | em | rem | vw
       } @else {
-        // 1. Add calc support for chrome back to 19+.
-        // 2. No need to add -moz- because firefox already support css-calc form 28+ while it full supports flexbox.
-        width: -webkit-calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});
-        width: calc((100% + #{$gutter}) * #{nth($cols, $i)} / #{$full-col} - #{$gutter});
+        $pc: percentage(nth($cols, $i) / $full-col);
+        $px: ($gutter * ($full-col - nth($cols, $i)) / $full-col);
+        width: -webkit-calc(#{$pc} - #{$px});
+        width: -moz-calc(#{$pc} - #{$px});
+        width: calc(#{$pc} - #{$px});
       }
 
-      .lt-ie10 & {
-        // gutter: px | em | rem | vw
-        @if $gutter != 0 and unit($gutter) != '%' { width: percentage(nth($cols, $i) / $full-col); }
+      // set left
+      @if $location != $i {
+        $before: 0;
+        $now: 0;
+        @for $j from 1 to $i { $before: $before + nth($cols, $j); }
+        @for $k from 1 to $location { $now: $now + nth($cols, nth($new-orders, $k)); }
 
-        @if $location == 1 {
-          margin-#{$float}: 0;
+        @if unit($gutter) == '%' or $gutter == 0 {
+          #{$float}: ((100% + $gutter) * ($now - $before) / $full-col);
         } @else {
-          $val: 0;
-          @for $j from 1 to $location {
-            $val: ($val + nth($cols, nth($new-orders, $j)));
-          }
-
-          // gutter: %
-          @if unit($gutter) == '%' or $gutter == 0 {
-            margin-#{$float}: ((100% + $gutter) * $val / $full-col);
-          // gutter: px | em | rem | vw
-          } @else {
-            margin-#{$float}: percentage($val / $full-col);
-          }
+          $pc: (100% * ($now - $before) / $full-col);
+          $px: ($gutter * ($now - $before) / $full-col);
+          #{$float}: -webkit-calc(#{$pc} + #{$px});
+          #{$float}: -moz-calc(#{$pc} + #{$px});
+          #{$float}: calc(#{$pc} + #{$px});
         }
+      }
+
+      // set margin
+      @if $i == length($cols) {
+        margin-#{opposite($float)}: 0;
       }
     }
   }
 }
 
 // == grid-get-columns ==
-@function grid-has-breakpoints($data) {
-  @if type-of($data) == 'map' {
+@function grid-has-breakpoints($key) {
+  @if type-of($key) == 'map' {
     $bools: ();
 
-    @each $bp in map-keys($data) {
+    @each $bp in map-keys($key) {
       $type: type-of($bp);
       @if $type == 'string' or $type == 'number' and not unitless($bp) {
         $bools: append($bools, true);

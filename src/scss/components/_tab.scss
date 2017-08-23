@@ -1,0 +1,89 @@
+@mixin tab($key) {
+  $style: args-get($key, ('normal' 'carousel' 'customize'), 'normal');
+  $count: args-get-type($key, 'number');
+  @if not $count or $count < 1 { @warn '"Count" must be at least 1.'; }
+
+  > [type="radio"] {
+    position: absolute; 
+    left: -9999px;
+  }
+  @if $style == 'normal' {
+    > .ro-panels > div {
+      display: none;
+    }
+  } @else if $style == 'carousel' {
+    overflow-x: hidden;
+    > .ro-panels {
+      @include clearfix();
+      position: relative;
+      left: 0;
+      width: (100% * $count);
+      transition: all 0.3s ease;
+      > div {
+        float: left;
+        width: percentage(1 / $count);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+    }
+  } @else if $style =='customize' {
+    > .ro-panels > div {
+      @content;
+    }
+  }
+
+  @for $i from 1 through $count {
+    > input:nth-child(#{$i}):checked ~ {
+      .ro-panels {
+        @if $style == 'normal' {
+          > div:nth-child(#{$i}) {
+            display: block;
+          }
+        } @else if $style == 'carousel' {
+          left: - percentage(($i - 1));
+        }
+      }
+    }
+  }
+}
+
+/// Set tab' active styles.
+@mixin tab-active($key) {
+  $count: args-get-type($key, 'number');
+  @if not $count or $count < 1 { @warn '"Count" must be at least 1.'; }
+
+  $path: '';
+  // get selector
+  @for $i from 1 through $count {
+    > input:nth-child(#{$i}):checked ~ {
+      .ro-tab > label:nth-child(#{$i}) {
+        $path: $path + & + ', ';
+      }
+    }
+  }
+  // remove the last comma
+  $path: str-slice($path, 1, (str-length($path) - 2));
+
+  @at-root #{$path} { @content; }
+}
+
+/// Set panels' active styles.
+@mixin tab-panel-active($key) {
+  $count: args-get-type($key, 'number');
+  @if not $count or $count < 1 { @warn '"Count" must be at least 1.'; }
+
+  $path: '';
+  // get selector
+  @for $i from 1 through $count {
+    > input:nth-child(#{$i}):checked ~ {
+      .ro-panels > div:nth-child(#{$i}) {
+        $path: $path + & + ', ';
+      }
+    }
+  }
+  // remove the last comma
+  $path: str-slice($path, 1, (str-length($path) - 2));
+
+  @at-root #{$path} { @content; }
+}

@@ -1,11 +1,24 @@
 @import 'demo-base';
-@import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/validation"; 
 
-#form1 { @include validation(shake default); }
-#form2 { @include validation(fade-in right default); }
-#form3 { @include validation(fade-in bottom default); }
-#form4 { @include validation(slide-in top default); }
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "form1" %}
+#form1 { @include validation('shake' 'default'); }
+
+//=> {% elif componentName === "form2" %}
+#form2 { @include validation('fade-in' 'right' 'default'); }
+
+//=> {% elif componentName === "form3" %}
+#form3 { @include validation('fade-in' 'bottom' 'default'); }
+
+//=> {% elif componentName === "form4" %}
+#form4 { @include validation('slide-in' 'top' 'default'); }
+
+//=> {% endif %}
+//=> {% endmacro %}
+
 .validation-wrap {
   &:after {
     content: '';
@@ -42,7 +55,7 @@
   }
   input:not([type="submit"]) {
     padding: 0.5em 0.8em;
-    width: 100%;
+    width: 90%;
     max-width: 500px;
     border: 1px solid #ccc;
     -webkit-box-sizing: border-box;

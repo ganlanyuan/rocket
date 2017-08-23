@@ -1,0 +1,11 @@
+@import 'demo-base';
+@import "../../src/scss/components/flex-media"; 
+
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
+
+{% elif componentName === "video" %}
+.video { @include flex-media('iframe' (315/560)); }
+
+{% endif %}
+{% endmacro %}

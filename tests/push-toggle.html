@@ -1,8 +1,77 @@
-<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>push-toggle</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/push-toggle.css" rel="stylesheet"><!--[if (lt IE 9)]>
-		<script src="js/html5.js"></script>
-		<script src="js/ie.min.js"></script>
-		
-		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
-		<script src="cross-domain/respond.proxy.js"></script>	
-	<![endif]--></head><body><div class="container"><h2 class="main-heading">Push-toggle</h2><div class="example"><div class="push-toggle two"><input type="radio" id="male" name="gender" checked><label for="male">Male</label><input type="radio" id="female" name="gender"><label for="female">Female</label></div><div class="push-toggle three"><input type="radio" id="one" name="grade" checked><label for="one">One</label><input type="radio" id="two" name="grade"><label for="two">Two</label><input type="radio" id="three" name="grade"><label for="three">Three</label></div></div><div class="back-to-home"><a href="/tests">← Back to home</a></div></div></body></html>
+<!DOCTYPE html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js lt-ie" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- <meta http-equiv="cleartype" content="on"> -->
+    <title>
+      push-toggle
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/push-toggle.css" rel="stylesheet"><!-- javascript --><!--[if (lt IE 9)]>
+                <script src="js/html5.js"></script>
+                <script src="js/ie.min.js"></script>
+                
+                <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+                <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+                <script src="cross-domain/respond.proxy.js"></script>   
+        <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-heading">
+        Push-toggle
+      </h2>
+      <div class="push-toggle two">
+        <input type="radio" id="male" name="gender" checked> <label for="male">Male</label> <input type="radio" id="female" name="gender"> <label for="female">Female</label>
+      </div>
+      <div class="push-toggle three">
+        <input type="radio" id="one" name="grade" checked> <label for="one">One</label> <input type="radio" id="two" name="grade"> <label for="two">Two</label> <input type="radio" id="three" name="grade"> <label for="three">Three</label>
+      </div>
+      <pre><code class="language-scss">.push-toggle {
+  // default push-toggle style
+  label {
+    padding: 0.9em 1.2em;
+    background: #e1e1e1;
+    background: linear-gradient(to bottom, #fff, #F4F4F4 70%, #e1e1e1);
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    &amp;:first-of-type {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border-left-width: 1px;
+    }
+    &amp;:last-of-type {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  // active push-toggle style
+  @include push-toggle(){
+    background: #f2f2f2;
+    background: linear-gradient(to bottom, #E8E8E8, #F1F1F1 20%, #fff);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1) inset;
+  }
+  
+  &amp;.two label { width: 50%; }
+  &amp;.three label { width: 33.3%; }
+}</code></pre>
+      <div class="back-to-home">
+        <a href="/tests">← Back to home</a>
+      </div>
+    </div>
+    <script src="js/prism.js"></script>
+  </body>
+</html>

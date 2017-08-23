@@ -3,49 +3,39 @@
 @import "../../src/scss/layout/grid"; 
 @import "../../src/scss/layout/masonry"; 
 
-$masonry-number: 3;
-$masonry-child: 4 child '.masonry-item';
-$masonry-0px: 4 gutter 0px;
-$masonry-percentage-gutter: 4 gutter 3%;
-$masonry-condition: (900px: 3) max;
-$masonry-breakpoints: (600px: 2, 900px: 3);
-$masonry-global-breakpoints: ('sm': 2, 'md': 3) $global-bps;
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-.masonry-number {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-number)}'; }
-  > ul { @include masonry($masonry-number); }
-}
-.masonry-child {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-child)}'; }
-  > ul { @include masonry($masonry-child); }
-}
-.masonry-0px {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-0px)}'; }
-  > ul { @include masonry($masonry-0px); }
-}
-.masonry-percentage-gutter {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-percentage-gutter)}'; }
-  > ul { @include masonry($masonry-percentage-gutter); }
-}
-.masonry-condition {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-condition)}'; }
-  > ul { @include masonry($masonry-condition); }
-}
-.masonry-breakpoints {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-breakpoints)}'; }
-  > ul { @include masonry($masonry-breakpoints); }
-}
-.masonry-global-breakpoints {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($masonry-global-breakpoints)}'; }
-  > ul { @include masonry($masonry-global-breakpoints); }
-}
+//=> {% elif componentName === "masonry-number" %}
+.masonry-number > ul { @include masonry(3); }
+
+//=> {% elif componentName === "masonry-child" %}
+.masonry-child > ul { @include masonry(4 'selector' '.masonry-item'); }
+
+//=> {% elif componentName === "masonry-0px" %}
+.masonry-0px > ul { @include masonry(4 'gutter' 0px); }
+
+//=> {% elif componentName === "masonry-percentage-gutter" %}
+.masonry-percentage-gutter > ul { @include masonry(4 'gutter' 3%); }
+
+//=> {% elif componentName === "masonry-condition" %}
+.masonry-condition > ul { @include masonry((900px: 3) 'max'); }
+
+//=> {% elif componentName === "masonry-breakpoints" %}
+.masonry-breakpoints > ul { @include masonry((
+  600px: 2, 
+  900px: 3
+)); }
+
+//=> {% elif componentName === "masonry-global-breakpoints" %}
+.masonry-global-breakpoints > ul { @include masonry((
+  'sm': 2, 
+  'md': 3
+) $global-bps); }
+
+
+//=> {% endif %}
+//=> {% endmacro %}
 
 // other styles
 [class*= "masonry-"] img { 

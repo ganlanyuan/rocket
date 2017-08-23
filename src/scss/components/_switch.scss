@@ -1,15 +1,13 @@
-// *** switch *** //
 @mixin switch($key: 20px){
-  $radius: args-get($key, 'radius');
-  $round: args-get($key, 'round');
-  $style: args-get($key, $ro-switch-style, 'toggle');
-  $default-color: #ddd;
-  $active-color: args-get-type($key, 'color', false, #3DD754);
+  $style: args-get($key, ('toggle' 'slider'), 'toggle');
+  $border-radius: args-get-next($key, 'border-radius');
+  @if $border-radius { $key: list-remove($key, $border-radius); }
   $text: args-get-next($key, 'text');
   
-  // change em, rem to px
   $width: false;
   $height: false;
+  $default-color: false;
+  $active-color: false;
   @each $item in $key {
     @if type-of($item) == 'number' {
       @if not $width {
@@ -17,14 +15,21 @@
       } @else {
         $height: $item;
       }
+    } @else if type-of($item) == 'color' {
+      @if not $default-color {
+        $default-color: $item;
+      } @else {
+        $active-color: $item;
+      }
     }
   }
-  @if not $width { $width: em(20); }
+  @if not $width { $width: 20px; }
   @if not $height { $height: $width; }
+  @if not $default-color { $default-color: #ddd; }
+  @if not $active-color { $active-color: #3DD754; }
   $width: em($width);
   $height: em($height);
-  $border: ($height / 8);
-  $radius-val: ($height / 6);
+  $gap: ($height / 8);
 
   // hide checkbox or radio
   > input {
@@ -35,13 +40,11 @@
   @if $text {
     label > span {
       position: absolute;
-      left: $border;
-      top: $border;
+      left: $gap;
+      top: $gap;
       display: inline-block;
       white-space: nowrap;
-      color: contrast($default-color);
       transition: color 0.3s;
-      .lt-ie9 & { color: #fff; }
       &:before, &:after {
         display: inline-block;
         line-height: $height;
@@ -59,17 +62,17 @@
       display: inline-block;
       height: $height;
       line-height: $height;
-      transition: padding 0.3s, background 0.3s;
+      transition: padding 0.3s, background-color 0.3s;
 
       @if $style == 'toggle' {
-        background: $default-color;
-        padding: $border ($height * 0.85) $border $border;
+        background-color: $default-color;
+        padding: $gap ($height * 0.85) $gap $gap;
       } @else if $style == 'slider' {
         $width: $width * 1.8;
         text-align: left;
         position: relative;
         padding: 0 $width 0 0;
-        &:before, &:after { transition: background 0.3s; }
+        &:before, &:after { transition: background-color 0.3s; }
         &:before {
           content: '';
           width: $width;
@@ -78,15 +81,12 @@
           left: ($height / 2);
           top: ($height / 2);
           z-index: -1;
-          background: $default-color;
-          .lt-ie9 & { background: $active-color; }
+          background-color: $default-color;
         }
       }
 
-      @if $radius {
-        border-radius: $radius-val;
-      } @else if $round {
-        border-radius: $ro-button-round;
+      @if $border-radius {
+        border-radius: $border-radius;
       }
 
       @if $text {
@@ -99,21 +99,18 @@
         content: '';
         display: inline-block;
         height: $height;
-        background: #fff;
+        background-color: #fff;
 
         @if $style == 'toggle' {
           width: $width;
-          box-shadow: 0 $border $border 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 $gap $gap 0 rgba(0, 0, 0, 0.2);
         } @else if $style == 'slider' {
           width: $height;
-          box-shadow: 0 ($border / 1.3) $border 0 rgba(0, 0, 0, 0.2);
-          .lt-ie9 & { background: $active-color; }
+          box-shadow: 0 ($gap / 1.3) $gap 0 rgba(0, 0, 0, 0.2);
         }
 
-        @if $radius {
-          border-radius: $radius-val;
-        } @else if $round {
-          border-radius: $ro-button-round;
+        @if $border-radius {
+          border-radius: $border-radius;
         }
 
         @if $text { position: relative; }
@@ -122,13 +119,13 @@
 
     // active style
     &:checked ~ label {
-      padding: $border $border $border ($height * 0.85);
+      padding: $gap $gap $gap ($height * 0.85);
       @if $style == 'toggle' {
-        background: $active-color;
+        background-color: $active-color;
       } @else if $style == 'slider' {
         padding: 0 0 0 $width;
         &:before, &:after {
-          background: $active-color;
+          background-color: $active-color;
         }
       }
 

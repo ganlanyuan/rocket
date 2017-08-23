@@ -4,96 +4,69 @@
 
 [class*='grid-'] .cell { margin-bottom: 20px; }
 
-$grid-list: (3 4);
-$grid-child: (3 4) child '.child';
-$grid-gutter1: (3 4 : 2 1) gutter 5%;
-$grid-gutter2: (3 4) gutter 5rem;
-$grid-list-direction: (3 4) RTL;
-$grid-nested-list: (3 4) 7;
-$grid-map: ( (3 4 7 : 0 2 1 ) 3 );
-$grid-breakpoint: ( 600px: 5 7 );
-$grid-global-breakpoints: ( ('sm': 1 1, 'md': 2 1, 'lg': 3 5) $global-bps);
-$grid-breakpoint-max: ( (900px: 3 5, 600px: 2 1) max );
-$grid-breakpoint-outside: (5 7);
-$grid-breakpoint-nested-list: ( 600px: (3 4) (2 5) 3 );
-$grid-breakpoint-map: ( 600px: (3 4 : 2 1) (2 5) 3 );
-$grid-breakpoint-default: ( 'default': 3 4, 900px: 2 7 );
-$grid-breakpoint-complex-list: ( default: (3 4) (2 5) 3, 600px: (3 4 2) (5 3), 900px: (5 2: 2 1) 3 (1 1 : 2 1) );
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-.grid-list {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-list)}'; }
-  > div { @include grid($grid-list); }
+//=> {% elif componentName === "list" %}
+.grid-list > div { @include grid(3 1); }
+
+//=> {% elif componentName === "child" %}
+.grid-child > div { @include grid( (3 4) 'selector' '.child'); }
+
+//=> {% elif componentName === "gutter1" %}
+.grid-gutter1 > div { @include grid((3 4 : 2 1) 'gutter' 5%); }
+
+//=> {% elif componentName === "gutter2" %}
+.grid-gutter2 > div { @include grid((3 4) 'gutter' 5rem); }
+
+//=> {% elif componentName === "list-direction" %}
+.grid-list-direction > div { @include grid((3 4) 'RTL'); }
+
+//=> {% elif componentName === "nested-list" %}
+.grid-nested-list > div { @include grid((3 4) 7); }
+
+//=> {% elif componentName === "map" %}
+.grid-map > div { @include grid( (3 4 7 : 0 2 1 ) 3 ); }
+
+//=> {% elif componentName === "breakpoint" %}
+.grid-breakpoint > div { @include grid(( 600px: 5 7 )); }
+
+//=> {% elif componentName === "breakpoint-outside" %}
+@media screen and (min-width: 600px) {
+  .grid-breakpoint-outside > div { @include grid((5 7)); }
 }
-.grid-child {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-child)}'; }
-  > div { @include grid($grid-child); }
-}
-.grid-list-direction {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-list-direction)}'; }
-  > div { @include grid($grid-list-direction); }
-}
-.grid-gutter1 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-gutter1)}'; }
-  > div { @include grid($grid-gutter1); }
-}
-.grid-gutter2 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-gutter2)}'; }
-  > div { @include grid($grid-gutter2); }
-}
-.grid-nested-list {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-nested-list)}'; }
-  > div { @include grid($grid-nested-list); }
-}
-.grid-map {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-map)}'; }
-  > div { @include grid($grid-map); }
-}
-.grid-breakpoint {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-breakpoint)}'; }
-  > div { @include grid($grid-breakpoint); }
-}
-.grid-breakpoint-outside {
-  @extend %demo-show;
-  &:before { content: '@media (min-width: 600px) { #{var-to-string($grid-breakpoint-outside)} }'; }
-  @media screen and (min-width: 600px) {
-    > div { @include grid($grid-breakpoint); }
-  }
-}
-.grid-global-breakpoints {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-global-breakpoints)}'; }
-  > div { @include grid($grid-global-breakpoints); }
-}
-.grid-breakpoint-max {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-breakpoint-max)}'; }
-  > div { @include grid($grid-breakpoint-max); }
-}
-.grid-breakpoint-nested-list {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-breakpoint-nested-list)}'; }
-  > div { @include grid($grid-breakpoint-nested-list); }
-}
-.grid-breakpoint-map {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-breakpoint-map)}'; }
-  > div { @include grid($grid-breakpoint-map); }
-}
-.grid-breakpoint-default {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-breakpoint-default)}'; }
-  > div { @include grid($grid-breakpoint-default); }
-}
-.grid-breakpoint-complex-list {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($grid-breakpoint-complex-list)}'; }
-  > div { @include grid($grid-breakpoint-complex-list); }
-}
+
+//=> {% elif componentName === "global-breakpoints" %}
+.grid-global-breakpoints > div { @include grid((
+  'sm': 1 1, 
+  'md': 2 1, 
+  'lg': 3 5
+) $global-bps); }
+
+//=> {% elif componentName === "breakpoint-max" %}
+.grid-breakpoint-max > div { @include grid((
+  600px: 3 5, 
+  900px: 2 1
+) 'max'); }
+
+//=> {% elif componentName === "breakpoint-nested-list" %}
+.grid-breakpoint-nested-list > div { @include grid(( 600px: (3 4) (2 5) 3 )); }
+
+//=> {% elif componentName === "breakpoint-map" %}
+.grid-breakpoint-map > div { @include grid(( 600px: (3 4 : 2 1) (2 5) 3 )); }
+
+//=> {% elif componentName === "breakpoint-default" %}
+.grid-breakpoint-default > div { @include grid(( 
+  'default': 3 4, 
+  900px: 2 7 
+)); }
+
+//=> {% elif componentName === "breakpoint-complex-list" %}
+.grid-breakpoint-complex-list > div { @include grid((
+  'default': (3 4) (2 5) 3, 
+  600px: (3 4 2) (5 3), 
+  900px: (5 2: 2 1) 3 (1 1 : 2 1)
+)); }
+
+//=> {% endif %}
+//=> {% endmacro %}

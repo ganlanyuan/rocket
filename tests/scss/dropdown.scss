@@ -1,11 +1,27 @@
 @import 'demo-base';
-@import "../../src/scss/addons/opacity";
 @import "../../src/scss/components/dropdown"; 
 
-.example { 
-  margin: 50px 0 200px;
-  text-align: center; 
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "dropdown-1" %}
+.dropdown-1 {
+  @include dropdown('default' 'rotate' 'click'); 
+  .sub-1 { @include dropdown('default' 'left' 'rotate' 'click'); }
 }
+
+//=> {% elif componentName === "dropdown-2" %}
+.dropdown-2 {
+  @include dropdown('scale' 'default'); 
+  .sub-2 {
+    @include dropdown('default' 'scale' 'right' 'hover'); 
+  }
+}
+
+//=> {% endif %}
+//=> {% endmacro %}
+
+.container { text-align: center; }
 .dropdown-1,
 .dropdown-2 { 
   text-align: left;
@@ -16,9 +32,7 @@
   > ul { 
     z-index: 9999;
   }
-  li {
-    white-space: nowrap;
-  }
+  li { white-space: nowrap; }
   small {
     font-size: 12px;
     display: inline-block;
@@ -43,19 +57,5 @@
   > span {
     display: inline-block;
     padding: 10px 0;
-  }
-}
-
-
-.dropdown {
-  &-1 {
-    @include dropdown(default rotate click); 
-    .sub-1 { @include dropdown(default left rotate click); }
-  }
-  &-2 {
-    @include dropdown(scale default); 
-    .sub-2 {
-      @include dropdown(default scale right hover); 
-    }
   }
 }

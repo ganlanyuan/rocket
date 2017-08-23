@@ -1,0 +1,40 @@
+{% set page = 'liquid' %}
+{% extends 'parts/layout.njk' %}
+
+{% import 'code/' + page + '-code.njk' as fn %}
+{% block main %}
+  <div class="ovh">
+    {% for item in [
+      'liquid-list', 
+      'liquid-order', 
+      'liquid-RTL', 
+      'liquid-selector1', 
+      'liquid-selector2', 
+      'liquid-gutter-0px', 
+      'liquid-gutter-sameunit', 
+      'liquid-gutter-percentage', 
+      'liquid-gutter-differentunit', 
+      'liquid-breakpoint', 
+      'liquid-breakpoint-max', 
+      'liquid-global-breakpoints'
+    ] %}
+
+      <div class="{{ item }}">
+        <div data-margin="">
+          {% if item === 'liquid-selector2' %}
+            <main class="order"><div class="cell" data-content=""></div></main>
+            <aside class="order"><div class="cell" data-content=""></div></aside>
+          {% else %}
+            <div class="order"><div class="cell" data-content=""></div></div>
+            <div class="order"><div class="cell" data-content=""></div></div>
+          {% endif %}
+        </div>
+
+        {# code #}
+        <pre><code class="language-scss">
+          {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+        </code></pre>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

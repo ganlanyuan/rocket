@@ -1,47 +1,51 @@
-// *** diamond *** //
 @mixin diamond($key){
-  $shape: args-get($key, $ro-diamond-shape, 'diamond');
+  $shape: args-get($key, ('diamond', 'octagon'), 'diamond');
   $tight: args-get($key, 'tight');
-  $keep: args-get($key, 'keep');
 
-  $global-bps: args-get-global-breakpoints($key);
-  @if $global-bps { $key: list-remove($key, $global-bps); } // remove global-breakpoints from args if exist
-  $bps: false;
+  $global-breakpoints: args-get-global-breakpoints($key);
+  @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
+  $local-breakpoints: false;
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
+  $media: args-get($key, $ro-media-type);
+  $keep: args-get($key, 'keep', false);
 
   // get data
-  $data: false;
+  $column: false;
   @if type-of($key) == 'number' or type-of($key) == 'map' {
-    $data: $key;
-  } @else if type-of($key) == 'list' and not $data {
+    $column: $key;
+  } @else if type-of($key) == 'list' and not $column {
     @each $item in $key {
-      @if not $data and type-of($item) == 'number' or type-of($item) == 'map' {
-        $data: $item;
+      @if not $column and type-of($item) == 'number' or type-of($item) == 'map' {
+        $column: $item;
       }
     }
   }
 
   // if not valuable data found
-  @if not $data { @error 'Parameters must include number or map.'; }
-  
-  // *** output *** //
-  @if not $keep {
-    
-  }
+  @if not $column { @error 'Parameters must include number or map.'; }
 
-  // set col width
-  @if type-of($data) == 'map' {
-    // update $data breakpoints
-    @if $global-bps { $data: map-update-breakpoints($data, $global-bps); }
-    @if $data and type-of($data) == 'map' { $bps: map-keys($data); }
+  // @include check-arg-type($key, 'map');
 
-    @if index($bps, null) != null or index($bps, 'default') != null { 
+  // $column: map-get($key, 'column');
+  // $shape: if(map-get($key, 'shape'), map-get($key, 'shape'), 'diamond');
+  // $tight: map-get($key, 'tight');
+  // $global-breakpoints: map-get($key, 'breakpoint');
+  // $local-breakpoints: false;
+  // $condition: if(map-get($key, 'condition'), map-get($key, 'condition'), 'min');
+  // $media: map-get($key, 'media');
+  // $keep: map-get($key, 'keep');
+
+  @if type-of($column) == 'map' {
+    // update $column breakpoints
+    @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
+    @if $column and type-of($column) == 'map' { $local-breakpoints: map-keys($column); }
+
+    @if index($local-breakpoints, null) != null or index($local-breakpoints, 'default') != null { 
       $keep: false; 
     } 
 
-    @each $bp in $bps {
-      $num: map-get($data, $bp);
+    @each $bp in $local-breakpoints {
+      $num: map-get($column, $bp);
 
       @if $bp == null or $bp == 'default' {
         @include diamond-base($shape);
@@ -61,8 +65,10 @@
       }
     }
   } @else {
-    @include diamond-base($shape);
-    @include make-diamond($data, $shape, $tight);
+    @if not $keep {
+      @include diamond-base($shape);
+    }
+    @include make-diamond($column, $shape, $tight);
   }
 }
 
@@ -93,19 +99,19 @@
   }
 }
 
-@mixin make-diamond($data, $shape, $tight) {
+@mixin make-diamond($column, $shape, $tight) {
   $count: false;
   $size: false;
 
   // count & size
-  @if type-of($data) == 'number' {
-    @if unitless($data) {
-      $count: $data; 
+  @if type-of($column) == 'number' {
+    @if unitless($column) {
+      $count: $column; 
     } @else {
-      $size: $data;
+      $size: $column;
     }
-  } @else if type-of($data) == 'list' {
-    @each $item in $data {
+  } @else if type-of($column) == 'list' {
+    @each $item in $column {
       @if type-of($item) == 'number' {
         @if unitless($item) {
           $count: $item;
@@ -150,10 +156,6 @@
         }
         &:nth-child(n + #{($count + 1)}) {
           margin-top: (- $size / 2);
-        }
-        .lt-ie9 &:nth-child(n) { 
-          margin: 0; 
-          clear: none;
         }
       }
     } 

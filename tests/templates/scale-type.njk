@@ -1,0 +1,17 @@
+{% set page = 'scale-type' %}
+{% extends 'parts/layout.njk' %}
+
+{% import 'code/' + page + '-code.njk' as fn %}
+{% block main %}
+<pre><code></code></pre>
+<h1>Accusantium aspernatur corrupti velit quaerat, sint dolore.</h1>
+<h2>Cum a, natus dolore sunt illo exercitationem.</h2>
+<h3>Ab aliquam voluptates accusamus tempore iste eaque?</h3>
+<h4>Error culpa, delectus explicabo temporibus veniam pariatur!</h4>
+<h5>Saepe ratione dicta omnis labore, distinctio esse.</h5>
+<h6>Numquam nesciunt quasi atque voluptas veniam, facilis.</h6>
+
+<pre><code class="language-scss">
+  {%- filter trim %}{{ fn.get('scale-type') }}{% endfilter -%}
+</code></pre>
+{% endblock %}

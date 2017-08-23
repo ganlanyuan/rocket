@@ -1,1 +1,268 @@
-@keyframes fake{from{opacity:1}to{opacity:1}}body{animation:fake 1s infinite}.hidden{display:none}.ovh{overflow:hidden}.clearfix:after{clear:both;content:"";display:table}h1,h2,h3,h4,h5,h6,strong{font-family:'Roboto', sans-serif}h2,h3,h4{text-transform:capitalize}h3[id],h4[id]{text-align:center}.main-heading{font-size:33.1667px;font-size:2.07252rem;font-weight:700;margin:.5em 0 1.5em;text-align:center}.main-heading span{font-weight:300;color:#999}h4{margin:1.5em 0 0.5em}h5{font-size:13px;margin:3em 0 1em}p{font-size:14px;line-height:1.6;margin:1.8em auto;max-width:50em;color:#7d7d7d}.container{max-width:70em;margin:0 auto}@media screen and (max-width: 74em){.container{margin:0 2em}}.back-to-home{position:sticky;bottom:0;margin-top:100px}.back-to-home a{display:inline-block;padding:10px;color:#fff;background-color:#222}[data-margin]{background-color:#E698CC}[data-padding]{background-color:#C2EBBA}[data-content]{background-color:#CDEEFF}.cell{min-height:10em}.cell:before{font-family:"Helvetica Neue", Helvetica, sans-serif;font-size:4em;font-weight:100;color:#fff;display:block;text-align:center;line-height:2.5}.autoheight:nth-child(2n)>.cell{height:11em}.autoheight:nth-child(3n+1)>.cell{height:12em}.order:nth-child(1)>.cell:before{content:"1"}.order:nth-child(2)>.cell:before{content:"2"}.order:nth-child(3)>.cell:before{content:"3"}.order:nth-child(4)>.cell:before{content:"4"}.order:nth-child(5)>.cell:before{content:"5"}.order:nth-child(6)>.cell:before{content:"6"}.order:nth-child(7)>.cell:before{content:"7"}.order:nth-child(8)>.cell:before{content:"8"}.order:nth-child(9)>.cell:before{content:"9"}.order:nth-child(10)>.cell:before{content:"10"}.title{margin-bottom:1em}.topic{padding:2em 0 4em}.topic>section{margin:2em 0}@media screen and (min-width: 1024px){.main-heading:before,.main-heading:after{display:inline-block;vertical-align:7px;margin:0 15px}.main-heading:before{content:url("../images/title-prev.png")}.main-heading:after{content:url("../images/title-next.png")}.topic>section{margin:0 0 5em}}.example:after{content:'';display:table;clear:both}.example-content{padding:15px;font-size:13px;line-height:1.4;letter-spacing:normal;cursor:pointer}.example-content:hover{opacity:0.9}.example-content strong{display:block;margin-bottom:10px;font-size:24px}.demo-container{height:0;overflow:hidden}.demo-container:before{text-align:center;display:block;margin-bottom:5px}.input-file{text-align:center}.js .input-file>input{width:0.1px;height:0.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1}.input-file>input+label{display:inline-block;cursor:pointer;padding:0.8em;font-size:18px;color:#2E92E3}.input-file>input+label figure{display:table-cell;width:120px;height:120px;margin:0;border-radius:50%;background-color:#2E92E3;text-align:center;vertical-align:middle}.input-file>input+label figure path{fill:#fff}.input-file>input+label span{display:block;margin-top:10px}.no-js .input-file>input+label{display:none}.input-file>input:focus+label{outline:1px dotted #000;outline:-webkit-focus-ring-color auto 5px}.input-file>input:focus+label *{pointer-events:none}
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: fake 1s infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2, h3, h4 {
+  text-transform: capitalize;
+}
+
+h3[id], h4[id] {
+  text-align: center;
+}
+
+.main-heading {
+  font-size: 33.1667px;
+  font-size: 2.07252rem;
+  font-weight: 700;
+  margin: .5em 0 1.5em;
+  text-align: center;
+}
+
+.main-heading span {
+  font-weight: 300;
+  color: #999;
+}
+
+h4 {
+  margin: 1.5em 0 0.5em;
+}
+
+h5 {
+  font-size: 13px;
+  margin: 3em 0 1em;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 1.8em auto;
+  max-width: 50em;
+  color: #7d7d7d;
+}
+
+.container {
+  max-width: 70em;
+  margin: 0 auto;
+}
+
+.back-to-home {
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  margin-top: 100px;
+}
+
+.back-to-home a {
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+  background-color: #222;
+}
+
+[data-margin] {
+  background-color: #E698CC;
+}
+
+[data-padding] {
+  background-color: #C2EBBA;
+}
+
+[data-content] {
+  background-color: #CDEEFF;
+}
+
+.cell {
+  min-height: 10em;
+}
+
+.cell:before {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: white;
+  display: block;
+  text-align: center;
+  line-height: 2.5;
+}
+
+.autoheight:nth-child(2n) > .cell {
+  height: 11em;
+}
+
+.autoheight:nth-child(3n+1) > .cell {
+  height: 12em;
+}
+
+.order:nth-child(1) > .cell:before {
+  content: "1";
+}
+
+.order:nth-child(2) > .cell:before {
+  content: "2";
+}
+
+.order:nth-child(3) > .cell:before {
+  content: "3";
+}
+
+.order:nth-child(4) > .cell:before {
+  content: "4";
+}
+
+.order:nth-child(5) > .cell:before {
+  content: "5";
+}
+
+.order:nth-child(6) > .cell:before {
+  content: "6";
+}
+
+.order:nth-child(7) > .cell:before {
+  content: "7";
+}
+
+.order:nth-child(8) > .cell:before {
+  content: "8";
+}
+
+.order:nth-child(9) > .cell:before {
+  content: "9";
+}
+
+.order:nth-child(10) > .cell:before {
+  content: "10";
+}
+
+.title {
+  margin-bottom: 1em;
+}
+
+.topic {
+  padding: 2em 0 4em;
+}
+
+.topic > section {
+  margin: 2em 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .topic > section {
+    margin: 0 0 5em;
+  }
+}
+
+.example:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.example-content {
+  padding: 15px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.example-content:hover {
+  opacity: 0.9;
+}
+
+.example-content strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.demo-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-container:before {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.container {
+  text-align: center;
+}
+
+.js .input-file > input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file > input + label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.8em;
+  font-size: 18px;
+  color: #2E92E3;
+}
+
+.input-file > input + label figure {
+  display: table-cell;
+  width: 120px;
+  height: 120px;
+  margin: 0;
+  border-radius: 50%;
+  background-color: #2E92E3;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.input-file > input + label figure path {
+  fill: #fff;
+}
+
+.input-file > input + label span {
+  display: block;
+}
+
+.no-js .input-file > input + label {
+  display: none;
+}
+
+.input-file > input:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.input-file > input:focus + label * {
+  pointer-events: none;
+}

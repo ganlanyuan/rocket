@@ -1,17 +1,22 @@
-// *** flex-media *** //
-@mixin flex-media($key: ((9/16) false) ){
+%flex-media-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+%flex-media {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin flex-media($key: (9/16)){
+  $selector: args-get-type($key, 'string');
   $ratio: args-get-type($key, 'number');
-  $child: args-get-type($key, 'string');
   @if unitless($ratio) { $ratio: percentage($ratio); }
 
-  // *** output *** //
-  @extend %flex-video-container;
+  $selectors: if($selector, "> #{$selector}", "> iframe, > object, > embed");
+
+  @extend %flex-media-container;
   padding-bottom: $ratio;
-  @if $child {
-    > #{$child} { @extend %flex-video; }
-  } @else {
-    > iframe,
-    > object,
-    > embed { @extend %flex-video; }
-  }
+  #{$selectors} { @extend %flex-media; }
 }

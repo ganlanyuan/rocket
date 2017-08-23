@@ -1,8 +1,58 @@
-<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tooltip</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/tooltip.css" rel="stylesheet"><!--[if (lt IE 9)]>
-		<script src="js/html5.js"></script>
-		<script src="js/ie.min.js"></script>
-		
-		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
-		<script src="cross-domain/respond.proxy.js"></script>	
-	<![endif]--></head><body><div class="container"><h2 class="main-heading">Tooltip</h2><div class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">top</div><div class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">right</div><div class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">bottom</div><div class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">left</div><div class="back-to-home"><a href="/tests">← Back to home</a></div></div></body></html>
+<!DOCTYPE html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js lt-ie" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- <meta http-equiv="cleartype" content="on"> -->
+    <title>
+      tooltip
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/tooltip.css" rel="stylesheet"><!-- javascript --><!--[if (lt IE 9)]>
+                <script src="js/html5.js"></script>
+                <script src="js/ie.min.js"></script>
+                
+                <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+                <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+                <script src="cross-domain/respond.proxy.js"></script>   
+        <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-heading">
+        Tooltip
+      </h2>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">left</span> odit fuga asperiores.
+      </div>
+      <pre><code class="language-scss">.left { @include tooltip('border-radius' 0.22em left #b02df3); }</code></pre>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">right</span> odit fuga asperiores.
+      </div>
+      <pre><code class="language-scss">.right { @include tooltip('border-radius' 0.22em right #b02df3); }</code></pre>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">top</span> odit fuga asperiores.
+      </div>
+      <pre><code class="language-scss">.top { @include tooltip('border-radius' 0.22em top #b02df3); }</code></pre>
+      <div>
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">bottom</span> odit fuga asperiores.
+      </div>
+      <pre><code class="language-scss">.bottom { @include tooltip('border-radius' 0.22em bottom #b02df3); }</code></pre>
+      <div class="back-to-home">
+        <a href="/tests">← Back to home</a>
+      </div>
+    </div>
+    <script src="js/prism.js"></script>
+  </body>
+</html>

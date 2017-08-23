@@ -1,37 +1,35 @@
-// *** breakpoint *** //
 @mixin ro-breakpoint($key){
   $condition: args-get($key, ('min' 'max'), 'min');
-  $media-type: args-get($key, $ro-media-type);
-  $media-feature: args-get($key, $ro-media-features, 'width');
-
-  $media-string: if($media-type, '#{$media-type} and ', '');
-  $selector: '';
-  $bps-em: ();
+  $media: args-get($key, ('all' 'aural' 'braille' 'handheld' 'print' 'projection' 'screen' 'tty' 'tv' 'embossed'));
+  $feature: args-get($key, ('width' 'height'), 'width');
 
   // get breakpoints
+  $breakpoint-em: ();
   @each $item in $key {
     @if type-of($item) == 'number' {
-      @if strip-unit($item) == 0 {
-        $item: 0em;
-      } @else {
-        $item: em($item);
+      $breakpoint-em: append($breakpoint-em, em($item));
+    } @else if type-of($item) == 'list' {
+      @each $i in $item {
+        @if type-of($item) == 'number' { $breakpoint-em: append($breakpoint-em, em($item)); }
       }
-
-      $bps-em: append($bps-em, $item);
     }
   }
-  $length: length($bps-em);
+  $breakpoint-em: list-increase($breakpoint-em); 
 
+  $media-string: if($media, '#{$media} and ', '');
+  $selector: '';
+  
+  $length: length($breakpoint-em);
   @if $length == 1 {
-    $bp: if($breakpoint-fix and $condition == 'max', (nth($bps-em, 1) - em(1)), nth($bps-em, 1));
-    $selector: $media-string + '(#{$condition}-#{$media-feature}: #{$bp})';
+    $bp: if($breakpoint-fix and $condition == 'max', (nth($breakpoint-em, 1) - em(1)), nth($breakpoint-em, 1));
+    $selector: $media-string + '(#{$condition}-#{$feature}: #{$bp})';
   } @else if $length >= 2 {
     @for $i from 1 through $length {
       @if number-odd-even($i) == 'odd' {
-        $selector: $selector + ', ' + $media-string + ' (min-#{$media-feature}: #{nth($bps-em, $i)})';
+        $selector: $selector + ', ' + $media-string + ' (min-#{$feature}: #{nth($breakpoint-em, $i)})';
       } @else if number-odd-even($i) == 'even' {
-        $bp-max: if($breakpoint-fix, (nth($bps-em, $i) - em(1)), nth($bps-em, $i));
-        $selector: $selector + 'and (max-#{$media-feature}: #{$bp-max})';
+        $bp-max: if($breakpoint-fix, (nth($breakpoint-em, $i) - em(1)), nth($breakpoint-em, $i));
+        $selector: $selector + 'and (max-#{$feature}: #{$bp-max})';
       }
     }
     // remove the first ', '
@@ -40,7 +38,6 @@
     @error "No breakpoint found.";
   }
 
-  // *** output *** //
   @media #{unquote($selector)} { @content; }
 }
 

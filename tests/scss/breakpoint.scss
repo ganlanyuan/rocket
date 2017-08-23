@@ -1,45 +1,28 @@
 @import 'demo-base';
 @import "../../src/scss/addons/breakpoint"; 
 
-$bp-default: #eee;
-$bp-active: #FF66FF;
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-$num: 600;
-$num-max: 'max' 600;
-$num-2-max: 600 900 'max';
-$num-print: 600 'print';
-$height: 600 'height';
-$num-9: 300 400 500 600 700 800 900 1000 1100;
+//=> {% elif componentName === "num" %}
+.num > div { @include bp(600) { background: #FF66FF; } }
 
-.num {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num)}'; }
-  > div { @include bp($num) { background: $bp-active; } }
-}
-.num-max {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num-max)}'; }
-  > div { @include bp($num-max) { background: $bp-active; } }
-}
-.num-2-max {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num-2-max)}'; }
-  > div { @include bp($num-2-max) { background: $bp-active; } }
-}
-.num-print {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num-print)}'; }
-  > div { @include bp($num-print) { background: $bp-active; } }
-}
-.height {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($height)}'; }
-  > div { @include bp($height) { background: $bp-active; } }
-}
-.num-9 {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($num-9)}'; }
-  > div { @include bp($num-9) { background: $bp-active; } }
-}
+//=> {% elif componentName === "num-max" %}
+.num-max > div { @include bp('max' 600) { background: #FF66FF; } }
 
-[data-bp-default] { background: $bp-default; }
+//=> {% elif componentName === "num-2-max" %}
+.num-2-max > div { @include bp(600 900 'max') { background: #FF66FF; } }
+
+//=> {% elif componentName === "num-print" %}
+.num-print > div { @include bp(600 'print') { background: #FF66FF; } }
+
+//=> {% elif componentName === "height" %}
+.height > div { @include bp(600 'height') { background: #FF66FF; } }
+
+//=> {% elif componentName === "num-9" %}
+.num-9 > div { @include bp(300 400 500 600 700 800 900 1000 1100) { background: #FF66FF; } }
+
+//=> {% endif %}
+//=> {% endmacro %}
+
+[data-bp-default] { background: #eee; }

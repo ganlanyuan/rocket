@@ -1,8 +1,87 @@
-<!doctype html><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]--><!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]--><!--[if gt IE 9]><!--><html class="no-js lt-ie" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>switch</title><meta name="description" content=""><meta name="author" content=""><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet"><link href="css/reset.css" rel="stylesheet"><link href="css/switch.css" rel="stylesheet"><!--[if (lt IE 9)]>
-		<script src="js/html5.js"></script>
-		<script src="js/ie.min.js"></script>
-		
-		<link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
-		<link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
-		<script src="cross-domain/respond.proxy.js"></script>	
-	<![endif]--></head><body><div class="container"><h2 class="main-heading">Switch</h2><div class="example example-switch"><section><div class="switch one"><input type="checkbox" id="switch1" name="switch-1"><label for="switch1"></label></div><div class="switch two"><input type="checkbox" id="switch2" name="switch-2" checked><label for="switch2"></label></div></section><section><h5>slider</h5><div class="switch slider"><input type="checkbox" id="switch-slider" name="switch-slider"><label for="switch-slider"><span class="before"></span><span class="after"></span></label></div></section><section><h5>Has text</h5><div class="switch text"><input type="checkbox" id="switch-text" name="switch-text" checked><label for="switch-text"><span></span></label></div></section><section class="switch-group"><h5>Switch group</h5><div class="switch switch-g"><input type="radio" id="switch-1" name="switch-g"><label for="switch-1"></label></div><div class="switch switch-g"><input type="radio" id="switch-2" name="switch-g" checked><label for="switch-2"></label></div><div class="switch switch-g"><input type="radio" id="switch-3" name="switch-g"><label for="switch-3"></label></div></section></div><div class="back-to-home"><a href="/tests">← Back to home</a></div></div></body></html>
+<!DOCTYPE html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js lt-ie" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- <meta http-equiv="cleartype" content="on"> -->
+    <title>
+      switch
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/switch.css" rel="stylesheet"><!-- javascript --><!--[if (lt IE 9)]>
+                <script src="js/html5.js"></script>
+                <script src="js/ie.min.js"></script>
+                
+                <link href="http://externalcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+                <link href="cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+                <script src="cross-domain/respond.proxy.js"></script>   
+        <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="main-heading">
+        Switch
+      </h2>
+      <div class="example example-switch">
+        <section>
+          <div class="switch one">
+            <input type="checkbox" id="switch1" name="switch-1"> <label for="switch1"></label>
+          </div>
+          <pre><code class="language-scss">.one { @include switch('border-radius' 3px); }</code></pre>
+          <div class="switch two">
+            <input type="checkbox" id="switch2" name="switch-2" checked> <label for="switch2"></label>
+          </div>
+          <pre><code class="language-scss">.two { @include switch('border-radius' 1000px 50px #ddd #C06EE1); }</code></pre>
+        </section>
+        <section>
+          <h5>
+            slider
+          </h5>
+          <div class="switch slider">
+            <input type="checkbox" id="switch-slider" name="switch-slider"> <label for="switch-slider"><span class="before"></span> <span class="after"></span></label>
+          </div>
+          <pre><code class="language-scss">.slider { @include switch('border-radius' 1000px 'slider'  24px #ddd #399DE1); }</code></pre>
+        </section>
+        <section>
+          <h5>
+            Has text
+          </h5>
+          <div class="switch text">
+            <input type="checkbox" id="switch-text" name="switch-text" checked> <label for="switch-text"><span></span></label>
+          </div>
+          <pre><code class="language-scss">.text { @include switch('border-radius' 1000px 'text' ("on" "off") 36px #ddd #399DE1); }</code></pre>
+        </section>
+        <section class="switch-group">
+          <h5>
+            Switch group
+          </h5>
+          <div class="switch switch-g">
+            <input type="radio" id="switch-1" name="switch-g"> <label for="switch-1"></label>
+          </div>
+          <div class="switch switch-g">
+            <input type="radio" id="switch-2" name="switch-g" checked> <label for="switch-2"></label>
+          </div>
+          <div class="switch switch-g">
+            <input type="radio" id="switch-3" name="switch-g"> <label for="switch-3"></label>
+          </div>
+          <pre><code class="language-scss">.switch-g { @include switch('border-radius' 3px 25px #ddd #CC412F); }</code></pre>
+        </section>
+      </div>
+      <div class="back-to-home">
+        <a href="/tests">← Back to home</a>
+      </div>
+    </div>
+    <script src="js/prism.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+@import 'demo-base';
+@import "../../src/scss/components/validation"; 
+
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
+
+{% elif componentName === "form1" %}
+#form1 { @include validation('shake' 'default'); }
+
+{% elif componentName === "form2" %}
+#form2 { @include validation('fade-in' 'right' 'default'); }
+
+{% elif componentName === "form3" %}
+#form3 { @include validation('fade-in' 'bottom' 'default'); }
+
+{% elif componentName === "form4" %}
+#form4 { @include validation('slide-in' 'top' 'default'); }
+
+{% endif %}
+{% endmacro %}
+
+.validation-wrap {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  > li {
+    @media (min-width: 37.5em) {
+      float: left;
+      width: 50%;
+      padding: 0 20px 20px 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      &:nth-child(odd) { clear: both; }
+    }
+  }
+}
+.myform {
+  margin-top: 50px;
+  padding: 0 20px 10px;
+  border: 1px solid #f2f2f2;
+  background-color: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
+  h4 { 
+    font-size: 22px; 
+    margin-bottom: 1em;
+  }
+  li { margin: 20px 0; }
+  label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  input:not([type="submit"]) {
+    padding: 0.5em 0.8em;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &:invalid {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  input[type="submit"] {
+    padding: 0 1.2em;
+    height: 2.6em;
+    line-height: 2.6;
+    border-width: 0;
+    border-radius: 0.3em;
+    color: #fff;
+    background-color: #3277FF;
+  }
+  .valid input:not([type="submit"]) { border-color: #5CC41B; }
+  .error input:not([type="submit"]) { border-color: #B50015; }
+  .required input:not([type="submit"]) { border-color: #B65C16; }
+  .optional input:not([type="submit"]) { border-color: #1EA2B7; }
+  [data-info] {
+    font-family: arial, sans-serif;
+    z-index: 9999;
+    min-width: 5em;
+  }
+}

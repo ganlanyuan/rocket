@@ -1,0 +1,72 @@
+@import 'demo-base';
+@import "../../src/scss/addons/at-least"; 
+@import "../../src/scss/addons/at-most"; 
+@import "../../src/scss/addons/equal-to"; 
+@import "../../src/scss/addons/between"; 
+
+{% macro get(componentName) %}
+{% if componentName === "xxx" %}
+
+{% elif componentName === "at-least" %}
+.at-least {
+  @include at-least('.box' 4) { background-color: #FF49A6; }
+}
+
+{% elif componentName === "at-most" %}
+.at-most {
+  @include at-most('.box' 4) { background-color: #FF49A6; }
+}
+
+{% elif componentName === "equal-to" %}
+.equal-to {
+  @include equal-to('.box' 4) { background-color: #FF49A6; }
+}
+
+{% elif componentName === "between" %}
+.between {
+  @include between('.box' 3 6) { background-color: #FF49A6; }
+}
+
+{% endif %}
+{% endmacro %}
+
+.quantity-query { text-align: center; }
+.control {
+  margin-bottom: 20px;
+  input {
+    font-size: 14px;
+    padding: 0.6em 1.1em;
+    border-width: 0;
+    border-radius: 3px;
+    background: #cbcbcb;
+    cursor: pointer;
+  }
+  .active { 
+    color: #fff;
+    background-color: #333; 
+    &:hover {
+      background-color: #222;
+    }
+  }
+  .action {
+    background: #f2f2f2;
+  }
+}
+.show {
+  @extend %clearfix;
+  margin-bottom: 40px;
+  > .box {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 0 5px 10px;
+    background-color: #56AFEE;
+  }
+}
+.info {
+  color: #666;
+  font-size: 13px;
+  margin-left: 10px;
+  span { color: #ff49a6; }
+}
+pre[class*="language-"] { margin-bottom: 20px; }

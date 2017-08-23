@@ -1,109 +1,97 @@
 @import 'demo-base';
+@import "../../src/scss/color/analogous";
 @import "../../src/scss/color/contrast";
-@import "../../src/scss/addons/opacity";
-@import "../../src/scss/components/button"; 
+@import "../../src/scss/components/button";
 
-$color1: #2B8ACF;
-$color2: #52cfdb;
-$padding: '1em 2em';
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
 
-           $default: $padding;
-             $color: $padding #46A736;
-            $radius: $padding #FF851B 0.4em;
-             $round: $padding #FF851B round;
-   $style-highlight: $padding $color1 $color2 highlight;
-      $style-simple: $padding $color1 simple;
-       $style-slide: $padding $color1 $color2 slide;
-      $style-ripple: $padding $color1 $color2 '.active' ripple;
-        $style-veil: $padding $color1 veil;
-         $style-cut: $padding $color1 $color2 cut;
-        $style-push: $padding $color1 push;
-      $style-bubble: $padding $color1 bubble;
-$style-line-drawing: $padding $color1 line-drawing;
-       $style-shake: $padding $color1 shake;
-
-.default {
-  @extend %demo-show;
-  &:before { content: '"#{var-to-string($default)}"'; }
-  > .btn { @include button($default); }
-}
-.color {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($color)}'; }
-  > .btn { @include button($color); }
-}
-.radius {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($radius)}'; }
-  > .btn { @include button($radius); }
-}
-.round {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($round)}'; }
-  > .btn { @include button($round); }
-}
-.style-highlight {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-highlight)}'; }
-  > .btn { @include button($style-highlight); }
-}
-.style-simple {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-simple)}'; }
-  > .btn { @include button($style-simple); }
-}
-.style-slide {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-slide)}'; }
-  > .btn { @include button($style-slide); }
-}
-.style-ripple {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-ripple)}'; }
-  > .btn { @include button($style-ripple); }
-}
-.style-veil {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-veil)}'; }
-  > .btn { @include button($style-veil); }
-}
-.style-cut {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-cut)}'; }
-  > .btn { @include button($style-cut); }
-}
-.style-push {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-push)}'; }
-  > .btn { @include button($style-push); }
-}
-.style-bubble {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-bubble)}'; }
-  > .btn { @include button($style-bubble); }
-}
-.style-line-drawing {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-line-drawing)}'; }
-  > .btn { @include button($style-line-drawing); }
-}
-.style-shake {
-  @extend %demo-show;
-  &:before { content: '#{var-to-string($style-shake)}'; }
-  > .btn { @include button($style-shake); }
+//=> {% elif componentName === "default" %}
+.default > .btn {
+  @include button();
 }
 
-.example-button { text-align: center; }
-.demo-container { 
+//=> {% elif componentName === "color" %}
+.color > .btn {
+  @include button(#46A736);
+}
+
+//=> {% elif componentName === "style-highlight" %}
+.style-highlight > .btn {
+  @include button(#2B8ACF #52cfdb 'highlight');
+}
+
+//=> {% elif componentName === "style-simple" %}
+.style-simple > .btn {
+  @include button(#2B8ACF 'simple');
+}
+
+//=> {% elif componentName === "style-slide" %}
+.style-slide > .btn {
+  @include button(#2B8ACF #52cfdb 'slide');
+}
+
+//=> {% elif componentName === "style-ripple" %}
+.style-ripple > .btn {
+  @include button(#2B8ACF #52cfdb ':hover' 'ripple');
+}
+
+//=> {% elif componentName === "style-veil" %}
+.style-veil > .btn {
+  @include button(#2B8ACF 'veil');
+}
+
+//=> {% elif componentName === "style-cut" %}
+.style-cut > .btn {
+  @include button(#2B8ACF #52cfdb 'cut');
+}
+
+//=> {% elif componentName === "style-push" %}
+.style-push > .btn {
+  @include button(#2B8ACF 'push');
+}
+
+//=> {% elif componentName === "style-bubble" %}
+.style-bubble > .btn {
+  @include button(#2B8ACF 'bubble');
+  &:before {
+    border-radius: 0.7em;
+  }
+}
+
+//=> {% elif componentName === "style-line-drawing" %}
+.style-line-drawing > .btn {
+  @include button(#2B8ACF 'line-drawing');
+  overflow: visible;
+}
+
+//=> {% elif componentName === "style-shake" %}
+.style-shake > .btn {
+  @include button(#2B8ACF 'shake');
+}
+
+//=> {% endif %}
+//=> {% endmacro %}
+
+.container { text-align: center; }
+.demo { 
   display: inline-block;
-  width: 300px;
+  width: 500px;
   margin: 0 50px 50px 0;
   vertical-align: top;
   &:before { 
-    font-size: 13px; 
-    opacity: 0.66; 
+    font-size: 13px;
+    opacity: 0.66;
     margin-bottom: 7px;
   }
   &.style-bubble { overflow: visible; }
 }
-.btn { min-width: 10em; }
+.btn { 
+  display: inline-block;
+  min-width: 10em;
+  height: 3.2em;
+  line-height: 3.2em;
+  border-radius: 0.5em;
+  font-size: 20px;
+  margin-bottom: 1em;
+}

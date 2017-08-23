@@ -1,103 +1,39 @@
 {% set page = 'gallery' %}
 {% extends 'parts/layout.njk' %}
 
+{% import './code/' + page + '-code.njk' as fn %}
 {% block main %}
-  <div class="ovh">
-    <div class="num demo-container">
-      <ul data-margin>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-      </ul>
+  {% for item in [
+    'num',
+    'num-0px',
+    'child',
+    'direction',
+    'center-align',
+    'percentage-gutter',
+    'rem-gutter',
+    'map'
+  ] %}
+    
+    <div class="{{ item }}">
+      {% if item === 'child' %}
+        <div data-margin>
+          {% for i in range(1, 9) %}
+          <div class="order"><div class="cell" data-content></div></div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <ul data-margin>
+          {% for i in range(1, 9) %}
+          <li class="order autoheight"><div class="cell" data-content></div></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {# code #}
+      <pre><code class="language-scss">
+        {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
+      </code></pre>
     </div>
-    <div class="num-0px demo-container">
-      <ul data-margin>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-        <li class="order autoheight"><div class="cell" data-content></div></li>
-      </ul>
-    </div>
-    <div class="child demo-container">
-      <div data-margin>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-        <div class="order"><div class="cell" data-content></div></div>
-      </div>
-    </div>
-    <div class="direction demo-container">
-      <ul data-margin>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-      </ul>
-    </div>
-    <div class="center-align demo-container">
-      <ul data-margin>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-      </ul>
-    </div>
-    <div class="percentage-gutter demo-container">
-      <ul data-margin>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-      </ul>
-    </div>
-    <div class="rem-gutter demo-container">
-      <ul data-margin>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-      </ul>
-    </div>
-    <div class="map demo-container">
-      <ul data-margin>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-        <li class="order"><div class="cell" data-content></div></li>
-      </ul>
-    </div>
-  </div>
+  {% endfor %}
+
 {% endblock %}

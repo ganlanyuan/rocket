@@ -2,27 +2,28 @@
 @import "../../src/scss/addons/breakpoint"; 
 @import "../../src/scss/layout/center"; 
 
-.example-center { 
-  height: 400px;
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "center" %}
+.center { 
   @include center('main');
+
+  height: 400px;
   > main { 
     background: #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     max-width: 640px;
     padding: 20px; 
     box-sizing: border-box;
-    &:after {
-      content: '';
-      display: table;
-      clear: both;
-    }
     img {
       float: left;
       margin-right: 20px;
       margin-bottom: 10px;
     }
-    p {
-      color: #000;
-    }
+    p { color: #000; }
   }
 }
+
+//=> {% endif %}
+//=> {% endmacro %}

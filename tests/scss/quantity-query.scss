@@ -4,6 +4,32 @@
 @import "../../src/scss/addons/equal-to"; 
 @import "../../src/scss/addons/between"; 
 
+//=> {% macro get(componentName) %}
+//=> {% if componentName === "xxx" %}
+
+//=> {% elif componentName === "at-least" %}
+.at-least {
+  @include at-least('.box' 4) { background-color: #FF49A6; }
+}
+
+//=> {% elif componentName === "at-most" %}
+.at-most {
+  @include at-most('.box' 4) { background-color: #FF49A6; }
+}
+
+//=> {% elif componentName === "equal-to" %}
+.equal-to {
+  @include equal-to('.box' 4) { background-color: #FF49A6; }
+}
+
+//=> {% elif componentName === "between" %}
+.between {
+  @include between('.box' 3 6) { background-color: #FF49A6; }
+}
+
+//=> {% endif %}
+//=> {% endmacro %}
+
 .quantity-query { text-align: center; }
 .control {
   margin-bottom: 20px;
@@ -43,24 +69,4 @@
   margin-left: 10px;
   span { color: #ff49a6; }
 }
-
-.at-least {
-  @include at-least('.box' 4) {
-    background-color: #FF49A6;
-  }
-}
-.at-most {
-  @include at-most('.box' 4) {
-    background-color: #FF49A6;
-  }
-}
-.equal-to {
-  @include equal-to('.box' 4) {
-    background-color: #FF49A6;
-  }
-}
-.between {
-  @include between('.box' 3 6) {
-    background-color: #FF49A6;
-  }
-}
+pre[class*="language-"] { margin-bottom: 20px; }
