@@ -2,9 +2,8 @@
   @if type-of($list) != 'list' {
     @warn '"#{$list}" is not a list.'
   }
-
   @each $item in $list {
-    @if type-of($item) != 'number' {
+    @if type-of($item) != 'number' and type-of($item) != 'list' {
       @warn '"#{$item}" is not a number.'
     }
   }

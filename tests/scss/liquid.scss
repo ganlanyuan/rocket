@@ -8,11 +8,11 @@
 //=> {% elif componentName === "liquid-list" %}
 .liquid-list > div { @include liquid('auto' 200px); }
 
-//=> {% elif componentName === "liquid-order" %}
-.liquid-order > div { @include liquid((
-  'auto': 2, 
-  200px: 1
-)); }
+//=> {% elif componentName === "liquid-order1" %}
+.liquid-order1 > div { @include liquid(('auto': 2, 200px: 1 )); }
+
+//=> {% elif componentName === "liquid-order2" %}
+.liquid-order2 > div { @include liquid(('auto' 200px: 2 1)); }
 
 //=> {% elif componentName === "liquid-RTL" %}
 .liquid-RTL > div { @include liquid(('auto' 200px) 'RTL'); }
@@ -35,21 +35,37 @@
 //=> {% elif componentName === "liquid-gutter-differentunit" %}
 .liquid-gutter-differentunit > div { @include liquid(('auto' 12.5em) 'gutter' 3rem); }
 
-//=> {% elif componentName === "liquid-breakpoint" %}
-.liquid-breakpoint > div { @include liquid((
+//=> {% elif componentName === "liquid-breakpoint1" %}
+.liquid-breakpoint1 > div { @include liquid((
   750px: (150px:1, 'auto':0)
+)); }
+
+//=> {% elif componentName === "liquid-breakpoint2" %}
+.liquid-breakpoint2 > div { @include liquid((
+  750px: (150px 'auto': 1 0)
+)); }
+
+//=> {% elif componentName === "liquid-breakpoint-default1" %}
+.liquid-breakpoint-default1 > div { @include liquid((
+  'default': (150px 'auto': 1 0)
+)); }
+
+//=> {% elif componentName === "liquid-breakpoint-default2" %}
+.liquid-breakpoint-default2 > div { @include liquid((
+  'default': (150px:1, 'auto':0),
+  750px: (150px 'auto': 1 2)
 )); }
 
 //=> {% elif componentName === "liquid-breakpoint-max" %}
 .liquid-breakpoint-max > div { @include liquid((
-  750px: (150px:1, 'auto':0)
+  750px: (150px 'auto': 1 0)
 ) 'max' 'screen'); }
 
 //=> {% elif componentName === "liquid-global-breakpoints" %}
 .liquid-global-breakpoints > div { @include liquid((
   'default': (150px 'auto'),
-  'sm': (150px:1, 'auto':0),
-  'md': (150px:0, 'auto':1)
+  'sm': (150px 'auto': 1 0),
+  'md': (150px 'auto': 0 1)
 ) $global-bps ); }
 
 //=> {% endif %}

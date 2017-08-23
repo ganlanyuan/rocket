@@ -45,7 +45,7 @@
           </div>
           <pre><code class="language-scss">.liquid-list &gt; div { @include liquid('auto' 200px); }</code></pre>
         </div>
-        <div class="liquid-order">
+        <div class="liquid-order1">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -54,10 +54,18 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
-          <pre><code class="language-scss">.liquid-order &gt; div { @include liquid((
-  'auto': 2, 
-  200px: 1
-)); }</code></pre>
+          <pre><code class="language-scss">.liquid-order1 &gt; div { @include liquid(('auto': 2, 200px: 1 )); }</code></pre>
+        </div>
+        <div class="liquid-order2">
+          <div data-margin="">
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+          </div>
+          <pre><code class="language-scss">.liquid-order2 &gt; div { @include liquid(('auto' 200px: 2 1)); }</code></pre>
         </div>
         <div class="liquid-RTL">
           <div data-margin="">
@@ -136,7 +144,7 @@
           </div>
           <pre><code class="language-scss">.liquid-gutter-differentunit &gt; div { @include liquid(('auto' 12.5em) 'gutter' 3rem); }</code></pre>
         </div>
-        <div class="liquid-breakpoint">
+        <div class="liquid-breakpoint1">
           <div data-margin="">
             <div class="order">
               <div class="cell" data-content=""></div>
@@ -145,8 +153,48 @@
               <div class="cell" data-content=""></div>
             </div>
           </div>
-          <pre><code class="language-scss">.liquid-breakpoint &gt; div { @include liquid((
+          <pre><code class="language-scss">.liquid-breakpoint1 &gt; div { @include liquid((
   750px: (150px:1, 'auto':0)
+)); }</code></pre>
+        </div>
+        <div class="liquid-breakpoint2">
+          <div data-margin="">
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+          </div>
+          <pre><code class="language-scss">.liquid-breakpoint2 &gt; div { @include liquid((
+  750px: (150px 'auto': 1 0)
+)); }</code></pre>
+        </div>
+        <div class="liquid-breakpoint-default1">
+          <div data-margin="">
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+          </div>
+          <pre><code class="language-scss">.liquid-breakpoint-default1 &gt; div { @include liquid((
+  'default': (150px 'auto': 1 0)
+)); }</code></pre>
+        </div>
+        <div class="liquid-breakpoint-default2">
+          <div data-margin="">
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+            <div class="order">
+              <div class="cell" data-content=""></div>
+            </div>
+          </div>
+          <pre><code class="language-scss">.liquid-breakpoint-default2 &gt; div { @include liquid((
+  'default': (150px:1, 'auto':0),
+  750px: (150px 'auto': 1 2)
 )); }</code></pre>
         </div>
         <div class="liquid-breakpoint-max">
@@ -159,7 +207,7 @@
             </div>
           </div>
           <pre><code class="language-scss">.liquid-breakpoint-max &gt; div { @include liquid((
-  750px: (150px:1, 'auto':0)
+  750px: (150px 'auto': 1 0)
 ) 'max' 'screen'); }</code></pre>
         </div>
         <div class="liquid-global-breakpoints">
@@ -173,8 +221,8 @@
           </div>
           <pre><code class="language-scss">.liquid-global-breakpoints &gt; div { @include liquid((
   'default': (150px 'auto'),
-  'sm': (150px:1, 'auto':0),
-  'md': (150px:0, 'auto':1)
+  'sm': (150px 'auto': 1 0),
+  'md': (150px 'auto': 0 1)
 ) $global-bps ); }</code></pre>
         </div>
       </div>
