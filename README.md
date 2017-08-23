@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/Version-4.0.0-beta12-blue.svg)   
 Rocket is a powerful Sass framework with many common used components and utility functions, to help you build websites faster and easier.    
 
-#### What's new in version 4
+## What's new in version 4
 - Simplify layout mixins (remove flex-box, IE8 classes).  
 - Rename `liquid-2` => `liquid`, `liquid-3` => `holy-grail`.
 - Remove `slider-carousel`, `slider-gallery`, `sticky-footer`, `priority-nav`, `type`, `responsive-type`, `opacity`, `ie-rgba`, `media-list`.
@@ -14,7 +14,7 @@ Rocket is a powerful Sass framework with many common used components and utility
 [version 2](https://github.com/ganlanyuan/rocket/tree/v2)   
 [version 3](https://github.com/ganlanyuan/rocket/tree/v3)   
 
-#### Requests
+## Requests
 + Please replace `<html>` with the markup below for better IE support.
 ``` html
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
@@ -22,20 +22,20 @@ Rocket is a powerful Sass framework with many common used components and utility
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 ```
 
-#### Install
+## Install
 
 ```` bash
 $ bower install rocket --save
 $ npm install rocket-sass --save
 ````
 
-#### Docs
+## Docs
 [Guide](https://ganlanyuan.github.io/rocket.site/v4/guide.html)  
 [Docs](https://ganlanyuan.github.io/rocket.site/v4/docs.html)  
 
 
-#### Supports
+## Supports
 [<img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" alt="BrowserStack" width=30 align=top> BrowserStack](http://www.browserstack.com/)   
 
-#### License
+## License
 This project is available under the MIT license.
