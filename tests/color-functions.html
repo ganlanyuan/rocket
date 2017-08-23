@@ -47,20 +47,28 @@
           contrast
         </div>
       </div>
+      <pre><code class="language-scss">$contrast: #5173a3, #bbf8e6, #cb7d26;
+@for $i from 1 through 3 {
+  .color-box-contrast-#{$i} { 
+    background-color: nth($contrast, $i); 
+    color: contrast(nth($contrast, $i) 'light' #eee 'dark' #333);
+  }
+}</code></pre>
       <h4>
         Analogous
       </h4>
       <div class="example-analogous clearfix three">
-        <div class="color-box color-box-analogous-1">
-          color 1
-        </div>
-        <div class="color-box color-box-analogous-2">
-          color 2
-        </div>
-        <div class="color-box color-box-analogous-3">
-          color 3
-        </div>
+        <div class="color-box color-box-analogous-1"></div>
+        <div class="color-box color-box-analogous-2"></div>
+        <div class="color-box color-box-analogous-3"></div>
       </div>
+      <pre><code class="language-scss">$analogous: #8C48A3, #DEFA8A, #CA2A36;
+@for $i from 1 through 3 {
+  .color-box-analogous-#{$i} { 
+    background-color: nth($analogous, $i); 
+    &amp;:hover { background-color: analogous(nth($analogous, $i) 10%); }
+  }
+}</code></pre>
       <h4>
         Adjacent
       </h4>
@@ -78,6 +86,8 @@
           adjacent 2
         </div>
       </div>
+      <pre><code class="language-scss">.color-box-adjacent-1 { background-color: adjacent(#d92626 1); }
+.color-box-adjacent-2 { background-color: adjacent(#d92626 -1); }</code></pre>
       <h4>
         Complementary
       </h4>
@@ -92,6 +102,7 @@
           complementary
         </div>
       </div>
+      <pre><code class="language-scss">.color-box-complementary-1 { background-color: complementary(#d92626 1); }</code></pre>
       <h4>
         Split complementary
       </h4>
@@ -109,6 +120,8 @@
           split-complementary 2
         </div>
       </div>
+      <pre><code class="language-scss">.color-box-split-complementary-1 { background-color: split-complementary(#d92626 1); }
+.color-box-split-complementary-2 { background-color: split-complementary(#d92626 2); }</code></pre>
       <h4>
         Triad
       </h4>
@@ -126,6 +139,8 @@
           triad 2
         </div>
       </div>
+      <pre><code class="language-scss">.color-box-triad-1 { background-color: triad(#d92626 1 'saturation' 10%); }
+.color-box-triad-2 { background-color: triad(#d92626 2); }</code></pre>
       <h4>
         Rectangle
       </h4>
@@ -146,6 +161,9 @@
           rectangle 3
         </div>
       </div>
+      <pre><code class="language-scss">.color-box-rectangle-1 { background-color: rectangle(#d92626 1); }
+.color-box-rectangle-2 { background-color: rectangle(#d92626 2); }
+.color-box-rectangle-3 { background-color: rectangle(#d92626 3); }</code></pre>
       <h4>
         Square
       </h4>
@@ -166,6 +184,9 @@
           square 3
         </div>
       </div>
+      <pre><code class="language-scss">.color-box-square-1 { background-color: square(#d92626 1); }
+.color-box-square-2 { background-color: square(#d92626 2); }
+.color-box-square-3 { background-color: square(#d92626 3); }</code></pre>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>
       </div>

@@ -217,8 +217,8 @@ p {
 .color-box {
   float: left;
   text-align: center;
-  padding: 3em 2em;
-  font-size: 14px;
+  padding: 5em 0;
+  font-size: 16px;
   color: #fff;
   text-transform: capitalize;
   box-sizing: -webkit-border-box;
@@ -276,93 +276,77 @@ p {
 }
 
 .color-box-analogous-1 {
-  background-color: #5173a3;
-  color: #eee;
+  background-color: #8C48A3;
 }
 
 .color-box-analogous-1:hover {
-  background-color: #6f8db8;
+  background-color: #a464ba;
 }
 
 .color-box-analogous-2 {
-  background-color: #bbf8e6;
-  color: #333;
+  background-color: #DEFA8A;
 }
 
 .color-box-analogous-2:hover {
-  background-color: #8df3d5;
+  background-color: #d0f859;
 }
 
 .color-box-analogous-3 {
-  background-color: #cb7d26;
-  color: #eee;
+  background-color: #CA2A36;
 }
 
 .color-box-analogous-3:hover {
-  background-color: #dd9647;
+  background-color: #da4d58;
 }
 
 .color-box-adjacent-1 {
-  background-color: #d9268b;
-  color: #fff;
+  background-color: #d97726;
 }
 
 .color-box-adjacent-2 {
-  background-color: #d97726;
-  color: #fff;
+  background-color: #d9268b;
 }
 
 .color-box-complementary-1 {
   background-color: #26d926;
-  color: #000;
 }
 
 .color-box-split-complementary-1 {
   background-color: #9dd926;
-  color: #000;
 }
 
 .color-box-split-complementary-2 {
   background-color: #26d9d9;
-  color: #000;
 }
 
 .color-box-triad-1 {
   background-color: #e6e619;
-  color: #000;
 }
 
 .color-box-triad-2 {
   background-color: #265cd9;
-  color: #fff;
 }
 
 .color-box-rectangle-1 {
   background-color: #d97726;
-  color: #fff;
 }
 
 .color-box-rectangle-2 {
   background-color: #26d926;
-  color: #000;
 }
 
 .color-box-rectangle-3 {
   background-color: #26d9d9;
-  color: #000;
 }
 
 .color-box-square-1 {
   background-color: #d9bb26;
-  color: #000;
 }
 
 .color-box-square-2 {
   background-color: #26d926;
-  color: #000;
 }
 
 .color-box-square-3 {
   background-color: #5026d9;
-  color: #fff;
 }
