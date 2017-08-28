@@ -23,16 +23,16 @@
 .one { @include switch('border-radius' 3px); }
 
 {% elif componentName === "two" %}
-.two { @include switch('border-radius' 1000px 50px #ddd #C06EE1); }
+.two { @include switch(#333 #C06EE1 50px 'border-radius' 1000px); }
 
 {% elif componentName === "slider" %}
-.slider { @include switch('border-radius' 1000px 'slider'  24px #ddd #399DE1); }
+.slider { @include switch('slider' #ddd #399DE1 24px 'border-radius' 50%); }
 
 {% elif componentName === "text" %}
-.text { @include switch('border-radius' 1000px 'text' ("on" "off") 36px #ddd #399DE1); }
+.text { @include switch(#ddd #399DE1 36px 'text' ("on" "off") 'border-radius' 10em); }
 
 {% elif componentName === "switch-g" %}
-.switch-g { @include switch('border-radius' 3px 25px #ddd #CC412F); }
+.switch-g { @include switch(#ddd #CC412F 25px 'border-radius' 3px); }
 
 {% endif %}
 {% endmacro %}

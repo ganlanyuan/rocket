@@ -269,7 +269,7 @@ p {
   height: 3.125em;
   line-height: 3.125em;
   transition: padding 0.3s, background-color 0.3s;
-  background-color: #ddd;
+  background-color: #333;
   padding: 0.390625em 2.65625em 0.390625em 0.390625em;
   border-radius: 1000px;
 }
@@ -301,8 +301,8 @@ p {
   transition: padding 0.3s, background-color 0.3s;
   text-align: left;
   position: relative;
-  padding: 0 2.7em 0 0;
-  border-radius: 1000px;
+  padding: 0 3.3em 0 0;
+  border-radius: 50%;
 }
 
 .slider > input ~ label:before, .slider > input ~ label:after {
@@ -311,7 +311,7 @@ p {
 
 .slider > input ~ label:before {
   content: '';
-  width: 2.7em;
+  width: 3.3em;
   height: 1px;
   position: absolute;
   left: 0.75em;
@@ -327,12 +327,12 @@ p {
   background-color: #fff;
   width: 1.5em;
   box-shadow: 0 0.1442308em 0.1875em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 1000px;
+  border-radius: 50%;
 }
 
 .slider > input:checked ~ label {
   padding: 0.1875em 0.1875em 0.1875em 1.275em;
-  padding: 0 0 0 2.7em;
+  padding: 0 0 0 3.3em;
 }
 
 .slider > input:checked ~ label:before, .slider > input:checked ~ label:after {
@@ -375,7 +375,7 @@ p {
   transition: padding 0.3s, background-color 0.3s;
   background-color: #ddd;
   padding: 0.28125em 1.9125em 0.28125em 0.28125em;
-  border-radius: 1000px;
+  border-radius: 10em;
   position: relative;
   width: 2.25em;
   padding-right: 2.5875em;
@@ -388,7 +388,7 @@ p {
   background-color: #fff;
   width: 2.25em;
   box-shadow: 0 0.28125em 0.28125em 0 rgba(0, 0, 0, 0.2);
-  border-radius: 1000px;
+  border-radius: 10em;
   position: relative;
 }
 

@@ -68,7 +68,7 @@
         background-color: $default-color;
         padding: $gap ($height * 0.85) $gap $gap;
       } @else if $style == 'slider' {
-        $width: $width * 1.8;
+        $width: $width * 2.2;
         text-align: left;
         position: relative;
         padding: 0 $width 0 0;

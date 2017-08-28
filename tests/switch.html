@@ -42,7 +42,7 @@
           <div class="switch two">
             <input type="checkbox" id="switch2" name="switch-2" checked> <label for="switch2"></label>
           </div>
-          <pre><code class="language-scss">.two { @include switch('border-radius' 1000px 50px #ddd #C06EE1); }</code></pre>
+          <pre><code class="language-scss">.two { @include switch(#333 #C06EE1 50px 'border-radius' 1000px); }</code></pre>
         </section>
         <section>
           <h5>
@@ -51,7 +51,7 @@
           <div class="switch slider">
             <input type="checkbox" id="switch-slider" name="switch-slider"> <label for="switch-slider"><span class="before"></span> <span class="after"></span></label>
           </div>
-          <pre><code class="language-scss">.slider { @include switch('border-radius' 1000px 'slider'  24px #ddd #399DE1); }</code></pre>
+          <pre><code class="language-scss">.slider { @include switch('slider' #ddd #399DE1 24px 'border-radius' 50%); }</code></pre>
         </section>
         <section>
           <h5>
@@ -60,7 +60,7 @@
           <div class="switch text">
             <input type="checkbox" id="switch-text" name="switch-text" checked> <label for="switch-text"><span></span></label>
           </div>
-          <pre><code class="language-scss">.text { @include switch('border-radius' 1000px 'text' ("on" "off") 36px #ddd #399DE1); }</code></pre>
+          <pre><code class="language-scss">.text { @include switch(#ddd #399DE1 36px 'text' ("on" "off") 'border-radius' 10em); }</code></pre>
         </section>
         <section class="switch-group">
           <h5>
@@ -75,7 +75,7 @@
           <div class="switch switch-g">
             <input type="radio" id="switch-3" name="switch-g"> <label for="switch-3"></label>
           </div>
-          <pre><code class="language-scss">.switch-g { @include switch('border-radius' 3px 25px #ddd #CC412F); }</code></pre>
+          <pre><code class="language-scss">.switch-g { @include switch(#ddd #CC412F 25px 'border-radius' 3px); }</code></pre>
         </section>
       </div>
       <div class="back-to-home">
