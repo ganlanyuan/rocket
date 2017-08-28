@@ -257,7 +257,7 @@
         </div>
         <pre><code class="language-scss">.holy-grail-gutter-differentunit &gt; div { @include holy-grail(('auto' 10em 250px) 'gutter' 3rem); }</code></pre>
       </div>
-      <div class="holy-grail-breakpoint">
+      <div class="holy-grail-breakpoint1">
         <div data-margin="">
           <div class="order">
             <div class="cell" data-content=""></div>
@@ -269,8 +269,56 @@
             <div class="cell" data-content=""></div>
           </div>
         </div>
-        <pre><code class="language-scss">.holy-grail-breakpoint &gt; div { @include holy-grail((
+        <pre><code class="language-scss">.holy-grail-breakpoint1 &gt; div { @include holy-grail((
   900px: (100px:2, 'auto':0, 250px:0)
+)); }</code></pre>
+      </div>
+      <div class="holy-grail-breakpoint2">
+        <div data-margin="">
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.holy-grail-breakpoint2 &gt; div { @include holy-grail((
+  900px: (100px 'auto' 250px: 2 0 0)
+)); }</code></pre>
+      </div>
+      <div class="holy-grail-default-breakpoint1">
+        <div data-margin="">
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.holy-grail-default-breakpoint1 &gt; div { @include holy-grail((
+  'default': (100px:2, 'auto':0, 250px:0)
+)); }</code></pre>
+      </div>
+      <div class="holy-grail-default-breakpoint2">
+        <div data-margin="">
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+          <div class="order">
+            <div class="cell" data-content=""></div>
+          </div>
+        </div>
+        <pre><code class="language-scss">.holy-grail-default-breakpoint2 &gt; div { @include holy-grail((
+  'default': (100px 'auto' 250px: 2 0 0)
 )); }</code></pre>
       </div>
       <div class="holy-grail-breakpoint-conditions">
@@ -286,7 +334,7 @@
           </div>
         </div>
         <pre><code class="language-scss">.holy-grail-breakpoint-conditions &gt; div { @include holy-grail((
-  900px: (100px:2, 'auto':1, 250px:0)
+  900px: (100px 'auto' 250px: 2 1 0)
 ) 'max' 'screen'); }</code></pre>
       </div>
       <div class="holy-grail-global-breakpoints">
@@ -302,9 +350,9 @@
           </div>
         </div>
         <pre><code class="language-scss">.holy-grail-global-breakpoints &gt; div { @include holy-grail((
-  'default': (100px:2, 'auto':1, 250px:0),
-  'sm': (100px:0, 'auto':1, 250px:2),
-  'lg': (100px:2, 'auto':1, 250px:0),
+  'default': (100px 'auto' 250px: 2 1 0),
+  'sm': (100px 'auto' 250px: 0 1 2),
+  'lg': (100px 'auto' 250px: 2 1 0),
 ) $global-bps ); }</code></pre>
       </div>
       <div class="back-to-home">

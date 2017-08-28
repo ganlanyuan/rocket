@@ -614,28 +614,100 @@ p {
   width: 250px;
 }
 
-.holy-grail-breakpoint > div:after {
+.holy-grail-breakpoint1 > div:after {
   clear: both;
   content: "";
   display: table;
 }
 
 @media (min-width: 56.25em) {
-  .holy-grail-breakpoint > div > div:nth-child(1) {
+  .holy-grail-breakpoint1 > div > div:nth-child(1) {
     float: right;
     width: 100px;
   }
-  .holy-grail-breakpoint > div > div:nth-child(2) {
+  .holy-grail-breakpoint1 > div > div:nth-child(2) {
     float: left;
     width: -webkit-calc(100% - 390px);
     width: -moz-calc(100% - 390px);
     width: calc(100% - 390px);
   }
-  .holy-grail-breakpoint > div > div:nth-child(3) {
+  .holy-grail-breakpoint1 > div > div:nth-child(3) {
     float: right;
     width: 250px;
     margin-right: 20px;
   }
+}
+
+.holy-grail-breakpoint2 > div:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+@media (min-width: 56.25em) {
+  .holy-grail-breakpoint2 > div > div:nth-child(1) {
+    float: right;
+    width: 100px;
+  }
+  .holy-grail-breakpoint2 > div > div:nth-child(2) {
+    float: left;
+    width: -webkit-calc(100% - 390px);
+    width: -moz-calc(100% - 390px);
+    width: calc(100% - 390px);
+  }
+  .holy-grail-breakpoint2 > div > div:nth-child(3) {
+    float: right;
+    width: 250px;
+    margin-right: 20px;
+  }
+}
+
+.holy-grail-default-breakpoint1 > div:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.holy-grail-default-breakpoint1 > div > div:nth-child(1) {
+  float: right;
+  width: 100px;
+}
+
+.holy-grail-default-breakpoint1 > div > div:nth-child(2) {
+  float: left;
+  width: -webkit-calc(100% - 390px);
+  width: -moz-calc(100% - 390px);
+  width: calc(100% - 390px);
+}
+
+.holy-grail-default-breakpoint1 > div > div:nth-child(3) {
+  float: right;
+  width: 250px;
+  margin-right: 20px;
+}
+
+.holy-grail-default-breakpoint2 > div:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.holy-grail-default-breakpoint2 > div > div:nth-child(1) {
+  float: right;
+  width: 100px;
+}
+
+.holy-grail-default-breakpoint2 > div > div:nth-child(2) {
+  float: left;
+  width: -webkit-calc(100% - 390px);
+  width: -moz-calc(100% - 390px);
+  width: calc(100% - 390px);
+}
+
+.holy-grail-default-breakpoint2 > div > div:nth-child(3) {
+  float: right;
+  width: 250px;
+  margin-right: 20px;
 }
 
 .holy-grail-breakpoint-conditions > div:after {

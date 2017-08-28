@@ -8,6 +8,7 @@
   $global-breakpoints: args-get-global-breakpoints($key);
   @if $global-breakpoints { $key: list-remove($key, $global-breakpoints); } // remove global-breakpoints from args if exist
   $local-breakpoints: false;
+  $local-breakpoints-nums: false;
   $condition: args-get($key, ('min' 'max'), 'min');
   $media: args-get($key, $ro-media-type);
   $keep: args-get($key, 'keep', false);
@@ -38,6 +39,7 @@
     } @else {
       @if $global-breakpoints { $column: map-update-breakpoints($column, $global-breakpoints); }
       $local-breakpoints: map-keys($column);
+      $local-breakpoints-nums: if(index($local-breakpoints, 'default'), list-remove($local-breakpoints, 'default'), $local-breakpoints);
 
       @if index($local-breakpoints, 'default') { 
         // set default styles
@@ -47,8 +49,12 @@
           $columns: $default-column;
           @if not $order { $order: (1 2 3); }
         } @else if type-of($default-column) == 'map' {
-          $columns: map-keys($default-column);
-          $order: map-values($default-column);
+          $is-simple-map: is-simple-map($default-column);
+          $k: map-keys($default-column);
+          $v: map-values($default-column);
+
+          $columns: if($is-simple-map, $k, nth($k, 1));
+          $order: if($is-simple-map, $v, nth($v, 1));
         }
 
         // set default columns styles
@@ -66,40 +72,44 @@
               @include make-holy-grail($columns, $order, $selector, $gutter, $float);
             }
           }
-
-          // remove 'default' from breakpoints
-          $local-breakpoints: $local-breakpoints-nums;
         }
       }
 
-      // re-order breakpoints based on codition
-      @if type-of($local-breakpoints) == 'list' and length($local-breakpoints) > 1 {
-        $local-breakpoints: if($condition == 'max', list-decrease($local-breakpoints), list-increase($local-breakpoints));
-      }
-
-      // loop through the breakpoints
-      @for $i from 1 through length($local-breakpoints) {
-        $bp: nth($local-breakpoints, $i);
-        $column-item: map-get($column, $bp);
-
-        @if type-of($column-item) == 'list' {
-          $columns: $column-item;
-          @if not $order { $order: (1 2 3); }
-        } @else if type-of($column-item) == 'map' {
-          $columns: map-keys($column-item);
-          $order: map-values($column-item);
+      $len: length($local-breakpoints-nums);
+      @if $len > 0 {
+        // re-order breakpoints based on codition
+        @if $len > 1 {
+          $local-breakpoints-nums: if($condition == 'max', list-decrease($local-breakpoints-nums), list-increase($local-breakpoints-nums));
         }
 
-        // use @media (min) and (max)
-        @if $i < length($local-breakpoints) {
-          @include bp($media $bp nth($local-breakpoints, $i + 1)) {
-            @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+        // loop through the breakpoints
+        @for $i from 1 through length($local-breakpoints-nums) {
+          $bp: nth($local-breakpoints-nums, $i);
+          $column-item: map-get($column, $bp);
+
+          @if type-of($column-item) == 'list' {
+            $columns: $column-item;
+            @if not $order { $order: (1 2 3); }
+          } @else if type-of($column-item) == 'map' {
+            $is-simple-map: is-simple-map($column-item);
+            $k: map-keys($column-item);
+            $v: map-values($column-item);
+
+            $columns: if($is-simple-map, $k, nth($k, 1));
+            $order: if($is-simple-map, $v, nth($v, 1));
           }
 
-        // use @media (min) or (max)
-        } @else {
-          @include bp($condition $media $bp) {
-            @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+          // use @media (min) and (max)
+          @if $i < length($local-breakpoints-nums) {
+            @include bp($media $bp nth($local-breakpoints-nums, $i + 1)) {
+              @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+            }
+
+          // use @media (min) or (max)
+          } @else {
+            @include bp($condition $media $bp) {
+              @include make-holy-grail($columns, $order, $selector, $gutter, $float);
+            }
           }
         }
       }

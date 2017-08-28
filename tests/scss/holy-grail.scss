@@ -53,21 +53,36 @@
 //=> {% elif componentName === "holy-grail-gutter-differentunit" %}
 .holy-grail-gutter-differentunit > div { @include holy-grail(('auto' 10em 250px) 'gutter' 3rem); }
 
-//=> {% elif componentName === "holy-grail-breakpoint" %}
-.holy-grail-breakpoint > div { @include holy-grail((
+//=> {% elif componentName === "holy-grail-breakpoint1" %}
+.holy-grail-breakpoint1 > div { @include holy-grail((
   900px: (100px:2, 'auto':0, 250px:0)
+)); }
+
+//=> {% elif componentName === "holy-grail-breakpoint2" %}
+.holy-grail-breakpoint2 > div { @include holy-grail((
+  900px: (100px 'auto' 250px: 2 0 0)
+)); }
+
+//=> {% elif componentName === "holy-grail-default-breakpoint1" %}
+.holy-grail-default-breakpoint1 > div { @include holy-grail((
+  'default': (100px:2, 'auto':0, 250px:0)
+)); }
+
+//=> {% elif componentName === "holy-grail-default-breakpoint2" %}
+.holy-grail-default-breakpoint2 > div { @include holy-grail((
+  'default': (100px 'auto' 250px: 2 0 0)
 )); }
 
 //=> {% elif componentName === "holy-grail-breakpoint-conditions" %}
 .holy-grail-breakpoint-conditions > div { @include holy-grail((
-  900px: (100px:2, 'auto':1, 250px:0)
+  900px: (100px 'auto' 250px: 2 1 0)
 ) 'max' 'screen'); }
 
 //=> {% elif componentName === "holy-grail-global-breakpoints" %}
 .holy-grail-global-breakpoints > div { @include holy-grail((
-  'default': (100px:2, 'auto':1, 250px:0),
-  'sm': (100px:0, 'auto':1, 250px:2),
-  'lg': (100px:2, 'auto':1, 250px:0),
+  'default': (100px 'auto' 250px: 2 1 0),
+  'sm': (100px 'auto' 250px: 0 1 2),
+  'lg': (100px 'auto' 250px: 2 1 0),
 ) $global-bps ); }
 
 //=> {% endif %}
