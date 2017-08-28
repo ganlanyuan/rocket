@@ -235,7 +235,7 @@
     }
     &#{$selector}:before { @include ro-animation(button-bubble 0.7s 1); }
   } @else if $style == 'line-drawing' {
-    @include button-pos-r();
+    @include button-pos-r(visible);
     span {
       position: absolute;
       display: block;
@@ -283,9 +283,9 @@
   }
 }
 
-@mixin button-pos-r (){
+@mixin button-pos-r ($overflow: hidden){
   position: relative;
-  overflow: hidden;
+  overflow: $overflow;
   z-index: 1;
 }
 @mixin button-pos-a (){

@@ -606,9 +606,8 @@ p {
 
 .style-line-drawing > .btn {
   position: relative;
-  overflow: hidden;
-  z-index: 1;
   overflow: visible;
+  z-index: 1;
 }
 
 .style-line-drawing > .btn span {
