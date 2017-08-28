@@ -7,22 +7,23 @@ div { margin: 1em 0; }
   display: inline-block; 
   font-style: italic;
   border-bottom: 1px dashed #333;
+  &:after { font-style: normal; }
 }
 
 //=> {% macro get(componentName) %}
 //=> {% if componentName === "xxx" %}
 
 //=> {% elif componentName === "left" %}
-.left { @include tooltip('border-radius' 0.22em left #b02df3); }
+.left { @include tooltip(left #b02df3); }
 
 //=> {% elif componentName === "right" %}
-.right { @include tooltip('border-radius' 0.22em right #b02df3); }
+.right { @include tooltip(0.5em right #66CCFF); }
 
 //=> {% elif componentName === "top" %}
-.top { @include tooltip('border-radius' 0.22em top #b02df3); }
+.top { @include tooltip(top #FF8000 'content' 'The tooltip or infotip or a hint is a common graphical user interface element.'); }
 
 //=> {% elif componentName === "bottom" %}
-.bottom { @include tooltip('border-radius' 0.22em bottom #b02df3); }
+.bottom { @include tooltip(bottom #0080FF 'content' attr(data-customize)); }
 
 //=> {% endif %}
 //=> {% endmacro %}

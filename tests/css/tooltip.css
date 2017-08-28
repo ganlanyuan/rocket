@@ -239,6 +239,10 @@ div {
   border-bottom: 1px dashed #333;
 }
 
+.tooltip:after {
+  font-style: normal;
+}
+
 .left {
   position: relative;
   cursor: pointer;
@@ -252,7 +256,6 @@ div {
   content: attr(data-tooltip);
   color: #fff;
   background: #b02df3;
-  border-radius: "border-radius";
 }
 
 .left:hover:before, .left:hover:after {
@@ -295,9 +298,9 @@ div {
 
 .right:after {
   content: attr(data-tooltip);
-  color: #fff;
-  background: #b02df3;
-  border-radius: "border-radius";
+  color: #000;
+  background: #66CCFF;
+  border-radius: 0.5em;
 }
 
 .right:hover:before, .right:hover:after {
@@ -317,7 +320,7 @@ div {
   height: 0;
   width: 0;
   border-bottom: 6px solid transparent;
-  border-right: 6px solid #b02df3;
+  border-right: 6px solid #66CCFF;
   border-top: 6px solid transparent;
 }
 
@@ -339,10 +342,9 @@ div {
 }
 
 .top:after {
-  content: attr(data-tooltip);
+  content: "The tooltip or infotip or a hint is a common graphical user interface element.";
   color: #fff;
-  background: #b02df3;
-  border-radius: "border-radius";
+  background: #FF8000;
 }
 
 .top:hover:before, .top:hover:after {
@@ -363,7 +365,7 @@ div {
   width: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #b02df3;
+  border-top: 6px solid #FF8000;
 }
 
 .top:after {
@@ -384,10 +386,9 @@ div {
 }
 
 .bottom:after {
-  content: attr(data-tooltip);
+  content: attr(data-customize);
   color: #fff;
-  background: #b02df3;
-  border-radius: "border-radius";
+  background: #0080FF;
 }
 
 .bottom:hover:before, .bottom:hover:after {
@@ -406,7 +407,7 @@ div {
 .bottom:before {
   height: 0;
   width: 0;
-  border-bottom: 6px solid #b02df3;
+  border-bottom: 6px solid #0080FF;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 }

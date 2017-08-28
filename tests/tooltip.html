@@ -34,21 +34,21 @@
         Tooltip
       </h2>
       <div>
-        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip left" data-tooltip="I'm a tooltip! Mouse over me to see my content.">left</span> odit fuga asperiores.
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip left" data-tooltip="Tooltip content from attr(data-tooltip)." data-customize="">left</span> odit fuga asperiores.
       </div>
-      <pre><code class="language-scss">.left { @include tooltip('border-radius' 0.22em left #b02df3); }</code></pre>
+      <pre><code class="language-scss">.left { @include tooltip(left #b02df3); }</code></pre>
       <div>
-        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip right" data-tooltip="I'm a tooltip! Mouse over me to see my content.">right</span> odit fuga asperiores.
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip right" data-tooltip="Tooltip content from attr(data-tooltip)." data-customize="">right</span> odit fuga asperiores.
       </div>
-      <pre><code class="language-scss">.right { @include tooltip('border-radius' 0.22em right #b02df3); }</code></pre>
+      <pre><code class="language-scss">.right { @include tooltip(0.5em right #66CCFF); }</code></pre>
       <div>
-        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip top" data-tooltip="I'm a tooltip! Mouse over me to see my content.">top</span> odit fuga asperiores.
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip top" data-tooltip="Tooltip content from attr(data-tooltip)." data-customize="">top</span> odit fuga asperiores.
       </div>
-      <pre><code class="language-scss">.top { @include tooltip('border-radius' 0.22em top #b02df3); }</code></pre>
+      <pre><code class="language-scss">.top { @include tooltip(top #FF8000 'content' 'The tooltip or infotip or a hint is a common graphical user interface element.'); }</code></pre>
       <div>
-        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip bottom" data-tooltip="I'm a tooltip! Mouse over me to see my content.">bottom</span> odit fuga asperiores.
+        Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip bottom" data-tooltip="Tooltip content from attr(data-tooltip)." data-customize="Tooltip content from attr(data-customize).">bottom</span> odit fuga asperiores.
       </div>
-      <pre><code class="language-scss">.bottom { @include tooltip('border-radius' 0.22em bottom #b02df3); }</code></pre>
+      <pre><code class="language-scss">.bottom { @include tooltip(bottom #0080FF 'content' attr(data-customize)); }</code></pre>
       <div class="back-to-home">
         <a href="/tests">← Back to home</a>
       </div>

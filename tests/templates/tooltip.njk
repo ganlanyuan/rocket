@@ -10,7 +10,7 @@
     'bottom'
   ] %}
     
-    <div>Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip {{ item }}" data-tooltip="I'm a tooltip! Mouse over me to see my content.">{{ item }}</span> odit fuga asperiores.</div>
+    <div>Lorem ipsum dolor sit amet. Quo vitae <span class="tooltip {{ item }}" data-tooltip="Tooltip content from attr(data-tooltip)." data-customize="{{ 'Tooltip content from attr(data-customize).' if item === 'bottom' }}">{{ item }}</span> odit fuga asperiores.</div>
     <pre><code class="language-scss">
       {%- filter trim %}{{ fn.get(item) }}{% endfilter -%}
     </code></pre>
