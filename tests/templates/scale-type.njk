@@ -3,15 +3,29 @@
 
 {% import 'code/' + page + '-code.njk' as fn %}
 {% block main %}
-<pre><code></code></pre>
 <h1>Accusantium aspernatur corrupti velit quaerat, sint dolore.</h1>
 <h2>Cum a, natus dolore sunt illo exercitationem.</h2>
 <h3>Ab aliquam voluptates accusamus tempore iste eaque?</h3>
 <h4>Error culpa, delectus explicabo temporibus veniam pariatur!</h4>
 <h5>Saepe ratione dicta omnis labore, distinctio esse.</h5>
 <h6>Numquam nesciunt quasi atque voluptas veniam, facilis.</h6>
-
 <pre><code class="language-scss">
-  {%- filter trim %}{{ fn.get('scale-type') }}{% endfilter -%}
+  {%- filter trim %}{{ fn.get('scale-type1') }}{% endfilter -%}
+</code></pre>
+
+<div class="heading1">Accusantium aspernatur corrupti velit quaerat, sint dolore.</div>
+<div class="heading2">Cum a, natus dolore sunt illo exercitationem.</div>
+<div class="heading3">Ab aliquam voluptates accusamus tempore iste eaque?</div>
+<div class="heading4">Error culpa, delectus explicabo temporibus veniam pariatur!</div>
+<pre><code class="language-scss">
+  {%- filter trim %}{{ fn.get('scale-type2') }}{% endfilter -%}
+</code></pre>
+
+<div class="box box1"></div>
+<div class="box box2"></div>
+<div class="box box3"></div>
+<div class="box box4"></div>
+<pre><code class="language-scss">
+  {%- filter trim %}{{ fn.get('scale-type3') }}{% endfilter -%}
 </code></pre>
 {% endblock %}

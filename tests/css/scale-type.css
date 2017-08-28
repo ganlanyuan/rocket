@@ -238,6 +238,42 @@ h6 {
   font-size: 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.heading1 {
+  font-size: 2.744em;
+}
+
+.heading2 {
+  font-size: 1.96em;
+}
+
+.heading3 {
+  font-size: 1.4em;
+}
+
+.heading4 {
+  font-size: 1em;
+}
+
+.box1 {
+  height: 100px;
+}
+
+.box2 {
+  height: 140px;
+}
+
+.box3 {
+  height: 196px;
+}
+
+.box4 {
+  height: 274.4px;
+}
+
+h1, h2, h3, h4, h5, h6, [class*='heading'], .box {
   margin: 0 0 20px;
+}
+
+.box {
+  background-color: #008080;
 }

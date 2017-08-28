@@ -4,10 +4,17 @@
 //=> {% macro get(componentName) %}
 //=> {% if componentName === "xxx" %}
 
-//=> {% elif componentName === "scale-type" %}
+//=> {% elif componentName === "scale-type1" %}
 @include scale-type(1.2);
+
+//=> {% elif componentName === "scale-type2" %}
+@include scale-type(1.4 ('.heading1', '.heading2', '.heading3', '.heading4'));
+
+//=> {% elif componentName === "scale-type3" %}
+@include scale-type('height' 1.4 100px false ('.box1', '.box2', '.box3', '.box4'));
 
 //=> {% endif %}
 //=> {% endmacro %}
 
-h1, h2, h3, h4, h5, h6 { margin: 0 0 20px; }
+h1, h2, h3, h4, h5, h6, [class*='heading'], .box { margin: 0 0 20px; }
+.box { background-color: #008080; }
