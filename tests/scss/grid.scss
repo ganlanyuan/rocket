@@ -14,7 +14,7 @@
 .grid-child > div { @include grid( (3 4) 'selector' '.child'); }
 
 //=> {% elif componentName === "gutter1" %}
-.grid-gutter1 > div { @include grid((3 4 : 2 1) 'gutter' 5%); }
+.grid-gutter1 > div { @include grid((3 4) 'gutter' 5%); }
 
 //=> {% elif componentName === "gutter2" %}
 .grid-gutter2 > div { @include grid((3 4) 'gutter' 5rem); }
@@ -25,8 +25,11 @@
 //=> {% elif componentName === "nested-list" %}
 .grid-nested-list > div { @include grid((3 4) 7); }
 
-//=> {% elif componentName === "map" %}
-.grid-map > div { @include grid( (3 4 7 : 0 2 1 ) 3 ); }
+//=> {% elif componentName === "map1" %}
+.grid-map1 > div { @include grid( (3 4 7: 0 2 1 ) 3 ); }
+
+//=> {% elif componentName === "map2" %}
+.grid-map2 > div { @include grid( (3:0, 4:2, 7:1 ) 3 ); }
 
 //=> {% elif componentName === "breakpoint" %}
 .grid-breakpoint > div { @include grid(( 600px: 5 7 )); }
@@ -52,8 +55,11 @@
 //=> {% elif componentName === "breakpoint-nested-list" %}
 .grid-breakpoint-nested-list > div { @include grid(( 600px: (3 4) (2 5) 3 )); }
 
-//=> {% elif componentName === "breakpoint-map" %}
-.grid-breakpoint-map > div { @include grid(( 600px: (3 4 : 2 1) (2 5) 3 )); }
+//=> {% elif componentName === "breakpoint-map1" %}
+.grid-breakpoint-map1 > div { @include grid(( 600px: (3 4: 2 1) (2 5) 3 )); }
+
+//=> {% elif componentName === "breakpoint-map2" %}
+.grid-breakpoint-map2 > div { @include grid(( 600px: (3:2, 4:1) (2 5) 3 )); }
 
 //=> {% elif componentName === "breakpoint-default" %}
 .grid-breakpoint-default > div { @include grid(( 
