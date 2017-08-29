@@ -3,7 +3,7 @@
   $scale: 1.15;
   $property: font-size;
   $reverse: true;
-  $tags: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+  $selectors: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
 
   @each $item in $key {
     @if type-of($item) == 'list' {
@@ -13,7 +13,7 @@
       }
 
       @if $is-tag-list {
-        $tags: $item;
+        $selectors: $item;
       }
     } @else if type-of($item) == 'string' {
       $property: $item;
@@ -29,12 +29,12 @@
     }
   }
 
-  $len: length($tags);
+  $len: length($selectors);
   $num: 1;
   @if $len > 0 {
-    @for $i from 1 through length($tags) {
+    @for $i from 1 through length($selectors) {
       $num: if($reverse, $len - $i, $i - 1);
-      #{nth($tags, $i)} { #{$property}: $base * power($scale, $num); }
+      #{nth($selectors, $i)} { #{$property}: $base * power($scale, $num); }
     }
   }
 }

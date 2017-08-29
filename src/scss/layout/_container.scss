@@ -1,6 +1,5 @@
 @mixin container($key: false){
   $container: false;
-  $breakpoint: false;
   $gutter: args-get-next($key, 'gutter', $global-gutter);
   // strip unit when gutter == 0
   $gutter: check-zero-value($gutter);
