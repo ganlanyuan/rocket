@@ -28,7 +28,6 @@ Rocket is a powerful Sass framework with many common used components and utility
 
 ```` bash
 $ bower install rocket --save
-$ npm install rocket-sass --save
 ````
 
 ## Docs
