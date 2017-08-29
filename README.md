@@ -8,10 +8,10 @@ Rocket is a powerful Sass framework with many common used components and utility
 - Simplify layout mixins (remove flex-box, IE8 classes).  
 - Rename `liquid-2` to `liquid`, `liquid-3` to `holy-grail`, `angled-edges` to `angled-edge`, `tabs` to `tab`, `drop-shadows` to `drop-shadow`, `charts` to `chart`.
 - Remove `slider-carousel`, `slider-gallery`, `sticky-footer`, `priority-nav`, `type`, `responsive-type`, `rems`, `opacity`, `ie-rgba`, `media-list`.
-<!-- - Add acceessibility support. -->
 - Remove kit.js.
 - Drop IE8 support.
 - More improves and fixes [see here](https://github.com/ganlanyuan/rocket/releases/tag/v4.0.0).
+<!-- - Add acceessibility support. -->
 
 [version 2](https://github.com/ganlanyuan/rocket/tree/v2)   
 [version 3](https://github.com/ganlanyuan/rocket/tree/v3)   
@@ -32,7 +32,7 @@ $ npm install rocket-sass --save
 ````
 
 ## Docs
-[Guide](https://ganlanyuan.github.io/rocket.site/v4/guide.html)  
+[Guide](https://ganlanyuan.github.io/rocket.site/v3/guide.html)  
 [Docs](https://ganlanyuan.github.io/rocket.site/v4/docs.html)  
 
 
