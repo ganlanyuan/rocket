@@ -7,7 +7,7 @@
   $selector: false;
   @if $child {
     $selector: '> #{$child}';
-  } @else if {
+  } @else {
     $selector: '> *';
   }
 
