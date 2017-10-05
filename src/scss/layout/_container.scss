@@ -33,7 +33,7 @@
   // px or em container: 1000px 
   } @else {
     max-width: $container;
-    @if $gutter != 0 { padding: 0 $gutter; }
+    @if $gutter != 0 { padding: 0 ($gutter / 2); }
     @if $align == center {
       margin-left: auto;
       margin-right: auto;
