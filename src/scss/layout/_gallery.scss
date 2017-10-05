@@ -101,7 +101,7 @@
 
   } @else {
     @if not $keep { @include gallery-base($selector, $gutter, $float, $center-align); }
-    @include make-gallery($column, $selector, $gutter, $float, $center-align);
+    @include make-gallery($column, $selector, $gutter, $float, $center-align, true);
   }
 }
 
@@ -152,7 +152,7 @@
   }
 }
 
-@mixin make-gallery($columns, $selector, $gutter, $float, $center-align) {
+@mixin make-gallery($columns, $selector, $gutter, $float, $center-align, $reset: false) {
   > #{$selector} { 
     @if unit($gutter) == '%' or $gutter == 0 {
       width: ((100% + $gutter) / $columns - $gutter); 
@@ -165,6 +165,12 @@
       width: calc(#{$pc} - #{$px}); 
     }
 
+    @if $reset {
+      &:nth-child(n) {
+        @if $gutter != 0 { margin-#{opposite($float)}: $gutter; }
+        clear: none;
+      }
+    }
     // remove margin at the last column of each row
     @if $gutter != 0 {
       &:nth-child(#{$columns}n) { margin-#{opposite($float)}: 0; }
