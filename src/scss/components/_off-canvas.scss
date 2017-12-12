@@ -239,7 +239,8 @@
 
     @if length($nav-transform-default) != 0 {
       @include ro-transform($nav-transform-default);
-      input:checked ~ & { @include ro-transform(none); }
+      input:checked ~ &,
+      input:checked ~ #{$page} &, { @include ro-transform(none); }
     }
 
     // submenu
