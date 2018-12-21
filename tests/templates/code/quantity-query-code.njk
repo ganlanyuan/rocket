@@ -53,8 +53,12 @@
   }
 }
 .show {
-  @extend %clearfix;
   margin-bottom: 40px;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
   > .box {
     display: inline-block;
     width: 150px;

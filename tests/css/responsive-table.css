@@ -21,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -459,7 +459,7 @@ th {
     left: -9999px;
   }
   .stack td {
-    background: linear-gradient(to right, transparent 50%, #dbdbdb 50%, #dbdbdb calc(50% + 1px), transparent calc(50% + 1px)) 0 0 no-repeat;
+    background: linear-gradient(to right, transparent 50%, args-get-type("stack" "breakpoint" 900 #dbdbdb "data" "First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data", "color") 50%, args-get-type("stack" "breakpoint" 900 #dbdbdb "data" "First Name", "Last Name", "Job Title", "Favorite Color", "Wars or Trek?", "Porn Name", "Date of Birth", "Dream Vacation City", "GPA", "Arbitrary Data", "color") calc(50% + 1px), transparent calc(50% + 1px)) 0 0 no-repeat;
   }
   .stack td:before {
     display: inline-block;

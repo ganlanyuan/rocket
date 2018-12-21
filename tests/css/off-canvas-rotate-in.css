@@ -21,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -355,7 +355,8 @@ input:not(:checked) ~ .page .nav [data-submenu] {
   transform: translateX(-240px) perspective(240px) rotateY(-90deg);
 }
 
-input:checked ~ .nav {
+input:checked ~ .nav,
+input:checked ~ .page .nav {
   -webkit-transform: none;
   -moz-transform: none;
   -ms-transform: none;

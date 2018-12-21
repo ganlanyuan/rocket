@@ -21,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -233,6 +233,11 @@ p {
   width: calc(33.3333333% - 13.3333333px);
 }
 
+.num > ul > li:nth-child(n) {
+  margin-right: 20px;
+  clear: none;
+}
+
 .num > ul > li:nth-child(3n) {
   margin-right: 0;
 }
@@ -256,6 +261,10 @@ p {
   width: 33.3333333%;
 }
 
+.num-0px > ul > li:nth-child(n) {
+  clear: none;
+}
+
 .num-0px > ul > li:nth-child(3n+1) {
   clear: both;
 }
@@ -277,6 +286,11 @@ p {
   width: -webkit-calc(25% - 15px);
   width: -moz-calc(25% - 15px);
   width: calc(25% - 15px);
+}
+
+.child > div > div:nth-child(n) {
+  margin-right: 20px;
+  clear: none;
 }
 
 .child > div > div:nth-child(4n) {
@@ -304,6 +318,11 @@ p {
   width: -webkit-calc(25% - 15px);
   width: -moz-calc(25% - 15px);
   width: calc(25% - 15px);
+}
+
+.direction > ul > li:nth-child(n) {
+  margin-left: 20px;
+  clear: none;
 }
 
 .direction > ul > li:nth-child(4n) {
@@ -343,6 +362,11 @@ p {
   width: calc(33.3333333% - 13.3333333px);
 }
 
+.center-align > ul > li:nth-child(n) {
+  margin-right: 20px;
+  clear: none;
+}
+
 .center-align > ul > li:nth-child(3n) {
   margin-right: 0;
 }
@@ -362,6 +386,11 @@ p {
 
 .percentage-gutter > ul > li {
   width: 21.25%;
+}
+
+.percentage-gutter > ul > li:nth-child(n) {
+  margin-right: 5%;
+  clear: none;
 }
 
 .percentage-gutter > ul > li:nth-child(4n) {
@@ -389,6 +418,11 @@ p {
   width: -webkit-calc(20% - 1.6rem);
   width: -moz-calc(20% - 1.6rem);
   width: calc(20% - 1.6rem);
+}
+
+.rem-gutter > ul > li:nth-child(n) {
+  margin-right: 2rem;
+  clear: none;
 }
 
 .rem-gutter > ul > li:nth-child(5n) {

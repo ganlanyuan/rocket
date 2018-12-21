@@ -21,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -251,7 +251,7 @@ p {
   margin-right: -.25em;
 }
 
-.diamond-count > div > .diamond-content > * {
+.diamond-count > div > .diamond-content > args-get-type("*", "string", left right center "selector") {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
@@ -295,7 +295,7 @@ p {
   margin-right: -.25em;
 }
 
-.diamond-count-combined > div > .diamond-content > * {
+.diamond-count-combined > div > .diamond-content > args-get-type("*", "string", left right center "selector") {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
@@ -353,7 +353,7 @@ p {
   margin-right: -.25em;
 }
 
-.diamond-size > div > .diamond-content > * {
+.diamond-size > div > .diamond-content > args-get-type("*", "string", left right center "selector") {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
@@ -395,7 +395,7 @@ p {
     vertical-align: middle;
     margin-right: -.25em;
   }
-  .diamond-breakpoints > div > .diamond-content > * {
+  .diamond-breakpoints > div > .diamond-content > args-get-type("*", "string", left right center "selector") {
     display: inline-block;
     vertical-align: middle;
     white-space: normal;
@@ -449,7 +449,7 @@ p {
   margin-right: -.25em;
 }
 
-.octagon-count > div > .diamond-content > * {
+.octagon-count > div > .diamond-content > args-get-type("*", "string", left right center "selector") {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;
@@ -493,7 +493,7 @@ p {
   margin-right: -.25em;
 }
 
-.octagon-size > div > .diamond-content > * {
+.octagon-size > div > .diamond-content > args-get-type("*", "string", left right center "selector") {
   display: inline-block;
   vertical-align: middle;
   white-space: normal;

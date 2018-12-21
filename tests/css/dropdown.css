@@ -21,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -254,7 +254,7 @@ p {
 }
 
 .dropdown-1 > ul .current > a, .dropdown-1 > ul li:hover > a {
-  background: analogous(#fff 10%);
+  background: #e6e6e6;
 }
 
 .dropdown-1 > ul li {
@@ -272,7 +272,7 @@ p {
 .dropdown-1 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: #000;
 }
 
 .dropdown-1 > ul a:hover {
@@ -334,7 +334,7 @@ p {
 }
 
 .dropdown-1 .sub-1 > ul .current > a, .dropdown-1 .sub-1 > ul li:hover > a {
-  background: analogous(#fff 10%);
+  background: #e6e6e6;
 }
 
 .dropdown-1 .sub-1 > ul li {
@@ -352,7 +352,7 @@ p {
 .dropdown-1 .sub-1 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: #000;
 }
 
 .dropdown-1 .sub-1 > ul a:hover {
@@ -413,7 +413,7 @@ p {
 }
 
 .dropdown-2 > ul .current > a, .dropdown-2 > ul li:hover > a {
-  background: analogous(#fff 10%);
+  background: #e6e6e6;
 }
 
 .dropdown-2 > ul li {
@@ -431,7 +431,7 @@ p {
 .dropdown-2 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: #000;
 }
 
 .dropdown-2 > ul a:hover {
@@ -512,7 +512,7 @@ p {
 }
 
 .dropdown-2 .sub-2 > ul .current > a, .dropdown-2 .sub-2 > ul li:hover > a {
-  background: analogous(#fff 10%);
+  background: #e6e6e6;
 }
 
 .dropdown-2 .sub-2 > ul li {
@@ -530,7 +530,7 @@ p {
 .dropdown-2 .sub-2 > ul a {
   display: block;
   padding: 0.31em 1.25em;
-  color: contrast(#fff);
+  color: #000;
 }
 
 .dropdown-2 .sub-2 > ul a:hover {

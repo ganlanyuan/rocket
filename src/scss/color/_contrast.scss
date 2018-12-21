@@ -1,3 +1,8 @@
+@import '../utilities/args-get-type';
+@import '../utilities/args-get-next';
+@import '../utilities/list-remove';
+@import '../utilities/trigonometric';
+
 @function contrast($key) {
   $light: args-get-next($key, 'light', #fff);
   $dark: args-get-next($key, 'dark', #000);

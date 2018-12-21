@@ -1,3 +1,5 @@
+@import 'strip-unit';
+
 @function check-zero-value($val){
   @if not $val or 
       type-of($val) != 'number' or 

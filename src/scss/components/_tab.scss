@@ -1,3 +1,7 @@
+@import '../utilities/args-get';
+@import '../utilities/args-get-type';
+@import '../vendors/clearfix';
+
 @mixin tab($key) {
   $style: args-get($key, ('normal' 'carousel' 'customize'), 'normal');
   $count: args-get-type($key, 'number');

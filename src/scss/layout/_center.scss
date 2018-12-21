@@ -1,3 +1,6 @@
+@import '../utilities/args-get';
+@import '../utilities/args-get-type';
+
 @mixin center($key: '*'){
   $check: (left right center 'selector');
   $selector: args-get-type($key, 'string', $check);

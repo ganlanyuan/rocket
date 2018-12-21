@@ -1,3 +1,13 @@
+@import '../vendors/transform';
+@import '../setting/variables';
+@import '../utilities/args-get';
+@import '../utilities/args-get-global-breakpoints';
+@import '../utilities/list-remove';
+@import '../utilities/map-update-breakpoints';
+@import '../utilities/trigonometric';
+@import '../addons/breakpoint';
+@import 'center';
+
 @mixin diamond($key){
   $shape: args-get($key, ('diamond', 'octagon'), 'diamond');
   $tight: args-get($key, 'tight');

@@ -1,3 +1,19 @@
+@import '../setting/variables';
+@import '../utilities/args-get';
+@import '../utilities/args-get-next';
+@import '../utilities/args-get-global-breakpoints';
+@import '../utilities/check-zero-value';
+@import '../utilities/list-remove';
+@import '../utilities/list-decrease';
+@import '../utilities/list-increase';
+@import '../utilities/is-number-map-list';
+@import '../utilities/is-nested-list';
+@import '../utilities/map-update-breakpoints';
+@import '../utilities/get-position-from-order';
+@import '../utilities/opposite';
+@import '../addons/breakpoint';
+@import '../vendors/clearfix';
+
 @mixin grid($key){
   $selector: args-get-next($key, 'selector', 'div');
   $gutter: args-get-next($key, 'gutter', $global-gutter);

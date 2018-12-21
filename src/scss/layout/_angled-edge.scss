@@ -1,3 +1,8 @@
+@import '../utilities/args-get';
+@import '../utilities/strip-unit';
+@import '../utilities/opposite';
+@import '../utilities/trigonometric';
+
 @mixin angled-edge ($key) {
   $edge: args-get($key, (top, bottom, 'both'), bottom);
   $flip: args-get($key, 'flip');

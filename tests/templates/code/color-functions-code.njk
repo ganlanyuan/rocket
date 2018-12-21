@@ -27,7 +27,11 @@
 .two > div { width: 50%; }
 .three > div { width: 33.333333333%; }
 .four > div { width: 25%; }
-.example-adjacent { @include clearfix(); }
+.example-adjacent:after {
+  content: '';
+  display: table;
+  clear: both;
+} 
 
 {% macro get(componentName) %}
 {% if componentName === "xxx" %}

@@ -1,3 +1,5 @@
+@import 'list-remove';
+
 @function list-increase($list) {
   @if type-of($list) != 'list' {
     @warn '"#{$list}" is not a list.'

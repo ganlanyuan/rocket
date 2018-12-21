@@ -1,3 +1,5 @@
+@import 'strip-unit';
+
 @function pxto($unit, $px-val, $base) {
   @if unit($px-val) == 'em' or unit($px-val) == 'rem' { 
     @return strip-unit($px-val) * $unit; 

@@ -1,3 +1,5 @@
+@import 'strip-unit';
+
 @function number-odd-even($num) {
   $return: false;
 

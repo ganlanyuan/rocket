@@ -1,9 +1,3 @@
-.default > div:after, .px-left > div:after, .px-right > div:after, .px-px > div:after, .px-0px > div:after, .em > div:after, .em-px > div:after, .percentage > div:after, .percentage-px > div:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
 /* Android 2.3 :checked fix */
 @keyframes fake {
   from {
@@ -27,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -218,6 +212,12 @@ p {
   text-align: center;
   display: block;
   margin-bottom: 5px;
+}
+
+.default > div:after, .px-left > div:after, .px-right > div:after, .px-px > div:after, .px-0px > div:after, .em > div:after, .em-px > div:after, .percentage > div:after, .percentage-px > div:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .default > div {

@@ -1,3 +1,6 @@
+@import '../utilities/args-get-type';
+@import '../vendors/transition';
+
 @mixin accordion($key: 'div'){
   $selector: args-get-type($key, 'string', null, 'div');
   $max-height: 1000px;

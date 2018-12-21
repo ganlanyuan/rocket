@@ -1,3 +1,7 @@
+@import 'list-increase';
+@import 'list-remove-duplicates';
+@import 'to-number';
+
 @function get-position-from-order($order) {
   $nums: list-increase(list-remove-duplicates($order)); // reordered values
   $temp: ();

@@ -21,9 +21,9 @@ body {
 }
 
 .clearfix:after {
-  clear: both;
-  content: "";
+  content: '';
   display: table;
+  clear: both;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -388,7 +388,7 @@ p {
   padding-bottom: 14.0625%;
 }
 
-@media (min-width: 37.5em) {
+@media (min-width: list-increase(em(600px))) {
   .metro-breakpoint > ul {
     margin: 0 -5px;
   }
@@ -425,7 +425,7 @@ p {
   }
 }
 
-@media (max-width: 56.1875em) {
+@media (max-width: list-increase(em(900px)) -em(1)) {
   .metro-breakpoint-condition > ul {
     margin: 0 -5px;
   }
@@ -503,7 +503,7 @@ p {
   padding-bottom: 16.6666667%;
 }
 
-@media (min-width: 37.5em) {
+@media (min-width: list-increase(em(600px))) {
   .metro-global-breakpoints > ul > :nth-child(1) {
     width: 33.3333333%;
     padding-bottom: 50%;
@@ -518,7 +518,7 @@ p {
   }
 }
 
-@media (min-width: 56.25em) {
+@media (min-width: list-increase(em(900px))) {
   .metro-global-breakpoints > ul > :nth-child(1) {
     width: 50%;
     padding-bottom: 33.3333333%;

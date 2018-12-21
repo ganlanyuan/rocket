@@ -1,3 +1,9 @@
+@import '../setting/variables';
+@import '../utilities/args-get';
+@import '../utilities/args-get-type';
+@import '../utilities/args-get-next';
+@import '../utilities/list-remove';
+
 @function palette($key){
   $style: args-get($key, ('adjacent', 'complementary', 'split-complementary', 'triad', 'rectangle', 'square'));
   $color: args-get-type($key, 'color');

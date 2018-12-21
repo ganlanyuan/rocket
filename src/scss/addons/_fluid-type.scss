@@ -1,5 +1,10 @@
 // stolen from http://www.sassmeister.com/gist/7f22e44ace49b5124eec 
 // https://blog.codepen.io/2016/10/31/fluid-type-blogs/
+@import '../setting/variables';
+@import '../utilities/rem';
+@import '../utilities/strip-unit';
+@import 'breakpoint';
+
 @mixin fluid-type($key) {
   $property: false;
   $breakpoint: false;

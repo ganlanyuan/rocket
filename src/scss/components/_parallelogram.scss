@@ -1,3 +1,6 @@
+@import '../utilities/args-get-type';
+@import '../vendors/transform';
+
 @mixin parallelogram($key) {
   $color: args-get-type($key, 'color');
   $angle: args-get-type($key, 'number');

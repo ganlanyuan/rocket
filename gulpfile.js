@@ -33,6 +33,19 @@ function requireUncached( $module ) {
   return require( $module );
 }
 
+// scss to css
+gulp.task('test', function (e) {
+  return gulp.src(tests + 'scss/*.scss')  
+    .pipe($.plumber())
+    .pipe($.if(dev, $.sourcemaps.init()))
+    .pipe($.sass({
+      outputStyle: 'expanded', 
+      precision: 7
+    }).on('error', $.sass.logError))  
+    .pipe($.if(dev, $.sourcemaps.write(sourcemapDest)))
+    .pipe(gulp.dest(tests + '/css'));
+});
+
 // Inject Task
 gulp.task('inject', function () {
   let svg4everybody = gulp.src('bower_components/svg4everybody/dist/svg4everybody.legacy.min.js')
