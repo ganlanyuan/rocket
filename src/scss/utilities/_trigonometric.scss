@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // http://thesassway.com/advanced/inverse-trigonometric-functions-with-sass
 // pow
 @function pow($number, $exp) {
@@ -9,7 +11,7 @@
   }
   @else if $exp < 0 {
     @for $i from 1 through -$exp {
-      $value: $value / $number;
+      $value: math.div($value, $number);
     }
   }
   @return $value;
@@ -34,10 +36,10 @@
 // rad
 @function rad($angle) {
   $unit: unit($angle);
-  $unitless: $angle / ($angle * 0 + 1);
+  $unitless: math.div($angle, ($angle * 0 + 1));
   // If the angle has 'deg' as unit, convert to radians.
   @if $unit == deg {
-    $unitless: $unitless / 180 * pi();
+    $unitless: math.div($unitless, 180) * pi();
   }
   @return $unitless;
 }
@@ -48,7 +50,7 @@
   $angle: rad($angle);
   // Iterate a bunch of times.
   @for $i from 0 through 10 {
-    $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+    $sin: $sin + math.div(pow(-1, $i) * pow($angle, (2 * $i + 1)), fact(2 * $i + 1));
   }
   @return $sin;
 }
@@ -59,14 +61,14 @@
   $angle: rad($angle);
   // Iterate a bunch of times.
   @for $i from 0 through 10 {
-    $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+    $cos: $cos + math.div(pow(-1, $i) * pow($angle, 2 * $i), fact(2 * $i));
   }
   @return $cos;
 }
 
 // tan
 @function tan($angle) {
-  @return sin($angle) / cos($angle);
+  @return math.div(sin($angle), cos($angle));
 }
 
 // sqrt
@@ -81,7 +83,7 @@
     $x1: $x0;
    
     @for $i from 1 through 10 {
-      $x1: $x0 - ($x0 * $x0 - $r) / (2 * $x0);
+      $x1: $x0 - math.div(($x0 * $x0 - $r), (2 * $x0));
       $x0: $x1;
     }
    

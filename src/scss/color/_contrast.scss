@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @import '../utilities/args-get-type';
 @import '../utilities/args-get-next';
 @import '../utilities/list-remove';
@@ -40,6 +42,6 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   $number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
    
   // Convert to percentage and return
-  @return 100% * $number / 255;
+  @return math.div(100% * $number, 255);
 }
  
