@@ -1,12 +1,12 @@
-@import 'strip-unit';
+@use 'sass:math';
 
 @function pxto($unit, $px-val, $base) {
-  @if unit($px-val) == 'em' or unit($px-val) == 'rem' { 
-    @return strip-unit($px-val) * $unit; 
+  @if unit($px-val) == 'em' or unit($px-val) == 'rem' {
+    @return strip-unit($px-val) * $unit;
 
   } @else {
     @if unit($px-val) == 'px' or unitless($px-val) { $px-val: strip-unit($px-val); }
     @if unit($base) == 'px' or unitless($base) { $base: strip-unit($base); }
-    @return ($px-val / $base) * $unit;
+    @return math.div($px-val, $base) * $unit;
   } 
 }

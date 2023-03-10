@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @function strip-unit($val) {
-  @return ($val / ($val * 0 + 1));
+  @return math.div($val, ($val * 0 + 1));
 }

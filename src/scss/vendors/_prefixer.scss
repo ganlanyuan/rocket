@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-$prefix-for-webkit:    true    !global;
-$prefix-for-mozilla:   true   !global;
-$prefix-for-microsoft: true !global;
-$prefix-for-opera:     true     !global;
-$prefix-for-spec:      true      !global;
+$prefix-for-webkit: true;
+$prefix-for-mozilla: true;
+$prefix-for-microsoft: true;
+$prefix-for-opera: true;
+$prefix-for-spec: true;
 
 
 @mixin ro-prefixer($property, $value, $prefixes) {
@@ -36,9 +36,9 @@ $prefix-for-spec:      true      !global;
 }
 
 @mixin ro-disable-prefix-for-all() {
-  $prefix-for-webkit:    false !global;
-  $prefix-for-mozilla:   false !global;
-  $prefix-for-microsoft: false !global;
-  $prefix-for-opera:     false !global;
-  $prefix-for-spec:      false !global;
+  $prefix-for-webkit: false;
+  $prefix-for-mozilla: false;
+  $prefix-for-microsoft: false;
+  $prefix-for-opera: false;
+  $prefix-for-spec: false;
 }
